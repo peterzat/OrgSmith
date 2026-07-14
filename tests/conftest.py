@@ -43,6 +43,34 @@ KNOB_LINES = (
 )
 
 
+def write_hardcase_recipe(
+    root: Path, slug: str = "dev-mini", sig: int = 1, fn: int = 1
+) -> OrgPaths:
+    """dev-mini recipe with hard_cases knobs set; stages not run."""
+    dest = root / "recipes" / slug
+    dest.mkdir(parents=True, exist_ok=True)
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    anchor = "  external_people: 3\n"
+    assert anchor in text
+    block = (
+        f"\nhard_cases:\n  signature_page_facts: {sig}\n  filename_dates: {fn}\n"
+    )
+    (dest / "ORG-CHARTER.md").write_text(text.replace(anchor, anchor + block))
+    return OrgPaths(root=root, slug=slug)
+
+
+def build_hardcase_stages(
+    root: Path, slug: str = "dev-mini", sig: int = 1, fn: int = 1
+) -> OrgPaths:
+    """dev-mini recipe with hard_cases knobs on, through docplan."""
+    paths = write_hardcase_recipe(root, slug, sig, fn)
+    assert run_charter(paths) == 0
+    assert run_scaffold(paths) == 0
+    assert run_fabric(paths) == 0
+    assert run_docplan(paths) == 0
+    return paths
+
+
 def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     """dev-mini recipe with every ambiguity knob on, through docplan."""
     dest = root / "recipes" / slug

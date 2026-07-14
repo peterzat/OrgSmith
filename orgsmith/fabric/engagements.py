@@ -23,6 +23,18 @@ def render_date(value: date) -> str:
     return f"{value:%B} {value.day}, {value.year}"
 
 
+def minutes_date(start: date, end: date, range_start: date, range_end: date) -> date:
+    """The engagement's working-session date, 40% through its duration.
+
+    Single source of truth shared by fabric (which plants filename-only
+    minutes-date facts) and docplan (which dates the minutes doc): both
+    sides must land on the same day or the planted fact would not match
+    the filename docplan builds."""
+    duration = (end - start).days
+    when = start + timedelta(days=int(duration * 0.4))
+    return max(range_start, min(when, range_end))
+
+
 def _employed_at(person, when: date) -> bool:
     emp = person.employment
     return emp.start <= when and (emp.end is None or emp.end >= when)
@@ -124,6 +136,27 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
                     f"{render_money(fee)}."
                 ),
                 facts=facts,
+            )
+        )
+
+    # Hard-case planting: assign non-body location policies from the recipe
+    # knobs. Selection is deterministic (build order) and consumes no RNG,
+    # so knobs-off recipes regenerate byte-identically. Capped at the
+    # eligible count here; docplan owns the actionable over-demand failure,
+    # where placement demand meets document supply.
+    hard = charter.hard_cases
+    for eng in engagements[: min(hard.signature_page_facts, len(engagements))]:
+        fee = next(f for f in eng.facts if f.id == f"f:{eng.id}.fee")
+        fee.location_policy = "signature_page"
+    for eng in engagements[: min(hard.filename_dates, len(engagements))]:
+        md = minutes_date(eng.start, eng.end, range_start, range_end)
+        eng.facts.append(
+            Fact(
+                id=f"f:{eng.id}.minutes-date",
+                kind="date",
+                value=md.isoformat(),
+                rendered=f"{md:%Y-%m-%d}",
+                location_policy="filename",
             )
         )
 

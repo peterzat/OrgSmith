@@ -116,6 +116,19 @@ class GraphTargets(StrictModel):
     multi_affiliations: int = Field(ge=0, default=0)
 
 
+class HardCases(StrictModel):
+    """Hard-to-find fact planting (M3+). Defaults keep the knobs off so
+    recipes and committed orgs from before them regenerate byte-identically.
+
+    signature_page_facts: engagement fees that appear ONLY on the signature
+    page of their engagement letter (pdf), injected at render time.
+    filename_dates: meeting dates that appear ONLY in the minutes filename;
+    the document text carries no date in any form."""
+
+    signature_page_facts: int = Field(ge=0, default=0)
+    filename_dates: int = Field(ge=0, default=0)
+
+
 class Charter(StrictModel):
     schema_id: Literal["orgsmith/charter@1"] = SCHEMA_IDS["charter"]
     slug: str = Field(pattern=r"^[a-z0-9][a-z0-9-]*$")
@@ -133,6 +146,7 @@ class Charter(StrictModel):
     finance: FinanceProfile
     engagements: EngagementPlan
     graph_targets: GraphTargets
+    hard_cases: HardCases = HardCases()
     narrative: str
 
     @model_validator(mode="after")

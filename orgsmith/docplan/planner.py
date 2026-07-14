@@ -18,6 +18,7 @@ from ..artifacts import (
     load_foundation,
     save_manifest,
 )
+from ..fabric.engagements import minutes_date
 from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
 from ..schemas import (
@@ -62,6 +63,8 @@ class _Planner:
         self.ceo = next(p for p in foundation.people if p.reports_to is None)
         self.ops_lead = self._ops_lead()
         self.planned: list[dict] = []
+        self.facts = engagements.fact_index()
+        self.policy = {fid: f.location_policy for fid, f in self.facts.items()}
 
     def _ops_lead(self) -> Person:
         depts = list(self.charter.headcount)
@@ -113,6 +116,12 @@ class _Planner:
             letter_date = _clamp(
                 eng.start - timedelta(days=10), self.range_start, eng.start
             )
+            fee_ref = f"f:{eng.id}.fee"
+            letter_params = {}
+            if self.policy.get(fee_ref) == "signature_page":
+                # Render injects the fee into the signature page; the model
+                # is never briefed for it (see authoring.contexts).
+                letter_params = {"sig_fact": fee_ref}
             self._add(
                 path=f"{folder}/{letter_date:%Y.%m.%d} - Engagement Letter - "
                 f"{client} - EXECUTED.pdf",
@@ -123,8 +132,8 @@ class _Planner:
                 authors=[self.ceo.id],
                 participants=eng.internal_participants + eng.external_participants,
                 engagement=eng.id,
-                facts_refs=[f"f:{eng.id}.fee", f"f:{eng.id}.start",
-                            f"f:{eng.id}.client"],
+                facts_refs=[fee_ref, f"f:{eng.id}.start", f"f:{eng.id}.client"],
+                render_params=letter_params,
             )
 
             if idx < 2:  # kickoff memos for the first two engagements
@@ -142,9 +151,15 @@ class _Planner:
                     facts_refs=[f"f:{eng.id}.start", f"f:{eng.id}.client"],
                 )
 
-            md = self._clamp_range(
-                eng.start + timedelta(days=int(duration * 0.4))
-            )
+            md = minutes_date(eng.start, eng.end, self.range_start, self.range_end)
+            md_ref = f"f:{eng.id}.minutes-date"
+            extra_key_facts = []
+            if self.policy.get(md_ref) == "filename":
+                # The filename (built below from the same shared helper the
+                # fabric fact used) is the only place this date may appear;
+                # it never enters facts_refs because FACT-01 demands body
+                # presence for those.
+                extra_key_facts = [KeyFact(fact_id=md_ref, location="filename")]
             self._add(
                 path=f"{folder}/Meeting Minutes {md:%Y-%m-%d} - {client}.docx",
                 title=f"Meeting Minutes: {eng.title}",
@@ -155,12 +170,20 @@ class _Planner:
                 participants=eng.internal_participants + eng.external_participants,
                 engagement=eng.id,
                 facts_refs=[f"f:{eng.id}.client"],
+                extra_key_facts=extra_key_facts,
             )
 
             if idx in (0, len(engs) - 1):  # status reports: first and last
                 sd = self._clamp_range(
                     eng.start + timedelta(days=int(duration * 0.75))
                 )
+                # A signature-page-only fee may surface nowhere but the
+                # letter's signature page, so it leaves other docs' refs.
+                report_refs = [
+                    ref
+                    for ref in (fee_ref, f"f:{eng.id}.client")
+                    if self.policy.get(ref, "body") == "body"
+                ]
                 self._add(
                     path=f"{folder}/{sd:%Y.%m.%d} - Status Report - {client} "
                     f"v2 FINAL.docx",
@@ -171,7 +194,7 @@ class _Planner:
                     authors=[self._author_for(eng, sd, junior=False).id],
                     participants=eng.internal_participants,
                     engagement=eng.id,
-                    facts_refs=[f"f:{eng.id}.fee", f"f:{eng.id}.client"],
+                    facts_refs=report_refs,
                 )
 
     def plan_firm_docs(self) -> None:
@@ -323,10 +346,49 @@ class _Planner:
                 raise SystemExit(f"docplan: duplicate path {doc['path']!r}")
             seen_paths.add(key)
             doc["key_facts"] = [
-                KeyFact(fact_id=ref) for ref in doc.get("facts_refs", [])
-            ]
+                KeyFact(fact_id=ref, location=self.policy.get(ref, "body"))
+                for ref in doc.get("facts_refs", [])
+            ] + doc.pop("extra_key_facts", [])
             entries.append(ManifestEntry(doc_id=f"d:{i:04d}", **doc))
+        self._check_hard_cases(entries)
         return entries
+
+    def _check_hard_cases(self, entries: list[ManifestEntry]) -> None:
+        """The knob contract gate: placement demand meets document supply
+        here, so over-demanding recipes fail at this stage, actionably,
+        rather than silently under-planting."""
+        planted = {
+            fid: pol for fid, pol in self.policy.items() if pol != "body"
+        }
+        want = {
+            "signature_page": self.charter.hard_cases.signature_page_facts,
+            "filename": self.charter.hard_cases.filename_dates,
+        }
+        for pol, wanted in want.items():
+            have = sum(1 for p in planted.values() if p == pol)
+            if have < wanted:
+                raise SystemExit(
+                    f"docplan: hard_cases wants {wanted} {pol} fact(s) but "
+                    f"only {have} eligible engagement fact(s) exist; lower "
+                    f"the knob or raise engagements.count"
+                )
+        hosts: dict[str, list[ManifestEntry]] = {f: [] for f in planted}
+        for entry in entries:
+            for kf in entry.key_facts:
+                if kf.location != "body":
+                    hosts.setdefault(kf.fact_id, []).append(entry)
+        for fid, pol in planted.items():
+            docs = hosts[fid]
+            if len(docs) != 1:
+                raise SystemExit(
+                    f"docplan: hard-case fact {fid} ({pol}) must be planted "
+                    f"in exactly one document, found {len(docs)}"
+                )
+            if pol == "signature_page" and docs[0].format != "pdf":
+                raise SystemExit(
+                    f"docplan: signature_page fact {fid} landed in "
+                    f"{docs[0].path!r}, which is not page-addressable (pdf)"
+                )
 
 
 def build_manifest(

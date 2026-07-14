@@ -50,6 +50,10 @@ graph_targets:
   # surname_collisions: 1        # staff pairs sharing a last name
   # nickname_aliases: 1          # people whose nickname appears in doc text
   # multi_affiliations: 1        # external people with a mid-history employer change
+
+# hard_cases:                    # facts planted to be hard to find (optional, default 0)
+#   signature_page_facts: 1      # fees appearing ONLY on the letter's signature page
+#   filename_dates: 1            # meeting dates appearing ONLY in the minutes filename
 ```
 
 Prose after the YAML block is the narrative brief. It is carried into
@@ -64,7 +68,7 @@ clients are, what its documents feel like.
   `naming_style`, `it_maturity` — scan/legacy pipeline (M5).
 - `graph_targets.min_mentions_per_person`, `exec_multiplier`, edge targets,
   ambiguity knobs — people-graph depth (M2/M3).
-- `acl_posture`, `hard_cases` — ACL overlay and hard-case planting (M3).
+- `acl_posture` — ACL overlay (post-M3).
 
 ## Rules
 
