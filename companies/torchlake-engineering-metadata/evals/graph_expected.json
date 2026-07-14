@@ -6,7 +6,8 @@
       "id": "x:torchlake-engineering",
       "canonical": "Torchlake Engineering Group LLC",
       "aliases": [],
-      "kind": "org"
+      "kind": "org",
+      "tags": []
     },
     {
       "id": "p:david.jones",
@@ -14,7 +15,8 @@
       "aliases": [
         "david.jones@torchlakeeng.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": []
     },
     {
       "id": "p:jennifer.mayo",
@@ -23,7 +25,10 @@
         "Jen",
         "jennifer.mayo@torchlakeeng.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": [
+        "ambiguity:nickname-alias"
+      ]
     },
     {
       "id": "p:jeff.fowler",
@@ -31,7 +36,10 @@
       "aliases": [
         "jeff.fowler@torchlakeeng.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
     },
     {
       "id": "p:john.johnson",
@@ -39,7 +47,8 @@
       "aliases": [
         "john.johnson@torchlakeeng.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": []
     },
     {
       "id": "p:david.fowler",
@@ -47,7 +56,10 @@
       "aliases": [
         "david.fowler@torchlakeeng.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
     },
     {
       "id": "p:megan.thomas",
@@ -55,25 +67,29 @@
       "aliases": [
         "megan.thomas@torchlakeeng.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": []
     },
     {
       "id": "x:franklin-plc",
       "canonical": "Franklin PLC",
       "aliases": [],
-      "kind": "org"
+      "kind": "org",
+      "tags": []
     },
     {
       "id": "x:vazquez-sanchez-and-gutierrez",
       "canonical": "Vazquez, Sanchez and Gutierrez",
       "aliases": [],
-      "kind": "org"
+      "kind": "org",
+      "tags": []
     },
     {
       "id": "x:butler-bush",
       "canonical": "Butler-Bush",
       "aliases": [],
-      "kind": "org"
+      "kind": "org",
+      "tags": []
     },
     {
       "id": "xp:isabella.sandoval",
@@ -81,7 +97,10 @@
       "aliases": [
         "isabella.sandoval@franklinplc.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": [
+        "ambiguity:multi-affiliation"
+      ]
     },
     {
       "id": "xp:lisa.brown",
@@ -89,7 +108,8 @@
       "aliases": [
         "lisa.brown@vazquezsanchezandgutierrez.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": []
     },
     {
       "id": "xp:mary.roberts",
@@ -97,7 +117,8 @@
       "aliases": [
         "mary.roberts@butlerbush.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": []
     },
     {
       "id": "xp:danny.vargas",
@@ -105,7 +126,8 @@
       "aliases": [
         "danny.vargas@franklinplc.com"
       ],
-      "kind": "person"
+      "kind": "person",
+      "tags": []
     }
   ],
   "edges": [

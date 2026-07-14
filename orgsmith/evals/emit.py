@@ -19,6 +19,7 @@ from ..artifacts import (
 )
 from ..paths import OrgPaths
 from ..schemas import (
+    ExtractionQuestion,
     GraphEntityExpected,
     GraphExpected,
     RetrievalQuestion,
@@ -52,6 +53,28 @@ A question is correct when your doc set exactly matches `expected_docs`.
 Score: `python -m orgsmith score --suite retrieval --answers answers.json
 --evals-dir <this directory>`.
 
+## extraction.jsonl
+
+One planted fact per line: `id`, `fact_id`, `question`, `expected_value`
+(the exact surface form as rendered in the corpus), `expected_docs`, and
+`location`: where the surface lives. `body` is ordinary document text;
+`signature_page` means only the final page of the pdf; `filename` means
+only the document's filename, never its text. Extract each value and cite
+the documents it came from:
+
+```json
+{{"suite": "extraction",
+  "answers": [
+    {{"id": "xq:0001", "value": "$105,000",
+      "docs": ["Engagements/Client X/some-file.pdf"]}}
+  ]}}
+```
+
+A question is correct when `value` equals `expected_value` exactly
+(surrounding whitespace ignored) and `docs` exactly matches
+`expected_docs`. Score: `python -m orgsmith score --suite extraction
+--answers answers.json --evals-dir <this directory>`.
+
 ## graph_expected.json
 
 Canonical entities (with `aliases`: any alias earns full credit) and typed
@@ -66,7 +89,9 @@ edges. Answers file:
 
 Entity names are matched case-insensitively against canonical names and
 aliases. Edges are scored precision/recall after resolving names the same
-way.
+way. Entities may carry `ambiguity:<class>` tags (surname-collision,
+nickname-alias, multi-affiliation); the scorer reports per-class recall
+alongside the overall score when tags are present.
 """
 
 
@@ -171,7 +196,83 @@ def build_retrieval(
     ]
 
 
+_EXTRACTION_TEMPLATES = {
+    "fee": "What is the fixed fee for the {title} engagement?",
+    "start": "On what date did the {title} engagement start?",
+    "client": "Which organization is the client of the {title} engagement?",
+    "minutes-date": (
+        "On what date was the working session for the {title} engagement "
+        "held?"
+    ),
+}
+
+
+def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
+    """One question per planted, hosted fact. Hosts come from facts_refs
+    (body facts) or key_facts (which also carry filename-only facts that
+    never enter facts_refs); pre-key_facts manifests still work through
+    facts_refs alone."""
+    questions: list[ExtractionQuestion] = []
+    serial = 0
+    for eng in engagements.engagements:
+        for fact in eng.facts:
+            hosts = sorted(
+                {
+                    e.path
+                    for e in manifest
+                    if fact.id in e.facts_refs
+                    or any(k.fact_id == fact.id for k in e.key_facts)
+                }
+            )
+            if not hosts:
+                continue
+            suffix = fact.id.rsplit(".", 1)[-1]
+            template = _EXTRACTION_TEMPLATES.get(suffix)
+            text = (
+                template.format(title=eng.title)
+                if template
+                else f"What is the value of the planted fact {fact.id}?"
+            )
+            serial += 1
+            questions.append(
+                ExtractionQuestion(
+                    id=f"xq:{serial:04d}",
+                    fact_id=fact.id,
+                    question=text,
+                    expected_value=fact.rendered,
+                    expected_docs=hosts,
+                    location=fact.location_policy,
+                    tags=[f"fact:{fact.kind}", eng.id],
+                )
+            )
+    return questions
+
+
+def _ambiguity_tags(foundation) -> dict[str, list[str]]:
+    """entity id -> sorted ambiguity:<class> tags, derived from ledgers."""
+    surnames: dict[str, list[str]] = {}
+    for p in foundation.people:
+        surnames.setdefault(p.name.split()[-1], []).append(p.id)
+    collided = {
+        pid for ids in surnames.values() if len(ids) > 1 for pid in ids
+    }
+    tags: dict[str, list[str]] = {}
+    for p in foundation.people:
+        mine = []
+        if p.id in collided:
+            mine.append("ambiguity:surname-collision")
+        if p.aliases:
+            mine.append("ambiguity:nickname-alias")
+        if mine:
+            tags[p.id] = sorted(mine)
+    for xp in foundation.external_people:
+        if len(xp.affiliations) > 1:
+            tags[xp.id] = ["ambiguity:multi-affiliation"]
+    return tags
+
+
 def build_graph_expected(charter, foundation, graph) -> GraphExpected:
+    ambiguity = _ambiguity_tags(foundation)
     entities: list[GraphEntityExpected] = []
     entities.append(
         GraphEntityExpected(
@@ -185,6 +286,7 @@ def build_graph_expected(charter, foundation, graph) -> GraphExpected:
                 canonical=p.name,
                 aliases=sorted(set(p.aliases) | {p.email}),
                 kind="person",
+                tags=ambiguity.get(p.id, []),
             )
         )
     for org in foundation.external_orgs:
@@ -194,7 +296,11 @@ def build_graph_expected(charter, foundation, graph) -> GraphExpected:
     for xp in foundation.external_people:
         entities.append(
             GraphEntityExpected(
-                id=xp.id, canonical=xp.name, aliases=[xp.email], kind="person"
+                id=xp.id,
+                canonical=xp.name,
+                aliases=[xp.email],
+                kind="person",
+                tags=ambiguity.get(xp.id, []),
             )
         )
     # Only entity-to-entity edges belong in the scoring contract:
@@ -219,22 +325,29 @@ def run_emit_evals(paths: OrgPaths) -> int:
     questions = build_retrieval(
         charter, foundation, engagements, manifest, mention_map
     )
+    extraction = build_extraction(engagements, manifest)
     expected = build_graph_expected(charter, foundation, graph)
 
     paths.evals_dir.mkdir(parents=True, exist_ok=True)
-    lines = [
-        json.dumps(q.model_dump(mode="json"), ensure_ascii=False)
-        for q in questions
-    ]
-    (paths.evals_dir / "retrieval.jsonl").write_text(
-        "\n".join(lines) + "\n", encoding="utf-8"
-    )
+
+    def write_jsonl(name: str, items) -> None:
+        lines = [
+            json.dumps(q.model_dump(mode="json"), ensure_ascii=False)
+            for q in items
+        ]
+        (paths.evals_dir / name).write_text(
+            "\n".join(lines) + "\n", encoding="utf-8"
+        )
+
+    write_jsonl("retrieval.jsonl", questions)
+    write_jsonl("extraction.jsonl", extraction)
     write_model(paths.evals_dir / "graph_expected.json", expected)
     (paths.evals_dir / "README.md").write_text(
         _README.format(slug=charter.slug), encoding="utf-8"
     )
     print(
         f"emit-evals: {len(questions)} retrieval questions, "
+        f"{len(extraction)} extraction questions, "
         f"{len(expected.entities)} graph entities -> {paths.evals_dir}"
     )
     return 0

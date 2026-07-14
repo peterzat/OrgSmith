@@ -524,6 +524,10 @@ class GraphEntityExpected(StrictModel):
     canonical: str
     aliases: list[str] = []  # any of these earn full credit for the entity
     kind: Literal["person", "org"]
+    # Planted-ambiguity classes ("ambiguity:<class>"), derived from the
+    # ledgers at emit time so pre-existing orgs gain them on re-emission
+    # without touching frozen artifacts.
+    tags: list[str] = []
 
 
 class GraphExpected(StrictModel):
@@ -531,6 +535,20 @@ class GraphExpected(StrictModel):
     slug: str
     entities: list[GraphEntityExpected]
     edges: list[GraphEdge]
+
+
+class ExtractionQuestion(StrictModel):
+    """One planted fact to extract: the exact surface form and where it
+    lives. `location` is the difficulty class: body text, the pdf's
+    signature page, or only the filename."""
+
+    id: str  # xq:0001
+    fact_id: str
+    question: str
+    expected_value: str  # exact rendered surface
+    expected_docs: list[str]  # share-relative paths, sorted
+    location: LocationPolicy = "body"
+    tags: list[str] = []
 
 
 class RetrievalAnswerItem(StrictModel):
@@ -558,3 +576,14 @@ class GraphAnswers(StrictModel):
     suite: Literal["graph"]
     entities: list[GraphAnswerEntity]
     edges: list[GraphAnswerEdge] = []
+
+
+class ExtractionAnswerItem(StrictModel):
+    id: str
+    value: str
+    docs: list[str]  # where the value was found; must match expected_docs
+
+
+class ExtractionAnswers(StrictModel):
+    suite: Literal["extraction"]
+    answers: list[ExtractionAnswerItem]

@@ -69,7 +69,9 @@ def main(argv=None) -> int:
     p_score = sub.add_parser("score", help="grade external answers against evals")
     p_score.add_argument("slug", nargs="?", help="org slug (or use --evals-dir)")
     p_score.add_argument("--root", type=Path, default=None)
-    p_score.add_argument("--suite", required=True, choices=["retrieval", "graph"])
+    p_score.add_argument(
+        "--suite", required=True, choices=["retrieval", "graph", "extraction"]
+    )
     p_score.add_argument("--answers", required=True, metavar="FILE")
     p_score.add_argument(
         "--evals-dir",
