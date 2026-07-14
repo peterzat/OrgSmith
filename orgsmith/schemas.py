@@ -250,6 +250,14 @@ class FinanceLedger(StrictModel):
     checks: list[LedgerCheck]
 
 
+# Where a planted fact is allowed to surface. `body` is the ordinary case;
+# the hard-case policies constrain the fact to exactly one location and
+# validators enforce absence everywhere else. `signature_page` applies only
+# to page-addressable formats (pdf); `filename` only to filename-safe
+# surfaces (date facts).
+LocationPolicy = Literal["body", "signature_page", "filename"]
+
+
 class Fact(StrictModel):
     """One planted, render-ready fact. `rendered` is the exact surface form
     substituted for ``{{fact:<id>}}``; validators look for it verbatim in
@@ -259,7 +267,7 @@ class Fact(StrictModel):
     kind: Literal["money", "date", "text"]
     value: Union[int, str]
     rendered: str
-    location_policy: Literal["body"] = "body"  # more policies land with M3
+    location_policy: LocationPolicy = "body"
 
 
 class Engagement(StrictModel):
@@ -337,12 +345,12 @@ class PlannedMention(StrictModel):
 
 
 class KeyFact(StrictModel):
-    """A planted fact with its placement policy. `body` is the only policy
-    until hard cases land; the field exists now so adding policies is not a
-    breaking schema bump."""
+    """A planted fact with its placement policy. Mirrors the owning ledger
+    Fact's `location_policy` so manifest consumers need not join against the
+    ledger to know where a fact is allowed to appear."""
 
     fact_id: str
-    location: Literal["body"] = "body"
+    location: LocationPolicy = "body"
 
 
 class ManifestEntry(StrictModel):
