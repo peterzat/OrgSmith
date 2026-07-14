@@ -11,7 +11,9 @@ from ..artifacts import (
     load_engagements,
     load_finance,
     load_foundation,
+    load_graph,
     load_manifest,
+    load_mention_map,
 )
 from ..paths import OrgPaths
 
@@ -25,6 +27,8 @@ class Context:
     foundation: object
     finance: object
     engagements: object
+    graph: object
+    mention_map: object  # None for orgs generated before mention ground truth
     manifest: list
     _text_cache: dict = field(default_factory=dict)
 
@@ -36,8 +40,16 @@ class Context:
             foundation=load_foundation(paths),
             finance=load_finance(paths),
             engagements=load_engagements(paths),
+            graph=load_graph(paths),
+            mention_map=load_mention_map(paths),
             manifest=load_manifest(paths),
         )
+
+    def entry(self, doc_id: str):
+        for e in self.manifest:
+            if e.doc_id == doc_id:
+                return e
+        return None
 
     def doc_text(self, entry) -> str:
         """Extractable text of a rendered doc, whitespace-normalized."""
@@ -66,12 +78,34 @@ class Context:
         return text
 
 
+def _always(_ctx: Context) -> str | None:
+    return None
+
+
+def _needs_mentions(ctx: Context) -> str | None:
+    if ctx.mention_map is None:
+        return "org predates mention ground truth (no mention_map.json)"
+    return None
+
+
+def _needs_mention_knob(ctx: Context) -> str | None:
+    absent = _needs_mentions(ctx)
+    if absent:
+        return absent
+    if ctx.charter.graph_targets.min_mentions_per_person < 1:
+        return "min_mentions_per_person knob is 0 for this recipe"
+    return None
+
+
 @dataclass(frozen=True)
 class Rule:
     id: str
     severity: str
     description: str
     check: Callable[[Context], Iterator[Finding]]
+    # Returns a skip reason when the rule cannot run for this org (e.g. it
+    # predates an artifact); None means run. Skips are surfaced visibly.
+    available: Callable[[Context], str | None] = _always
 
 
 def _employed_at(person, when) -> bool:
@@ -244,6 +278,101 @@ def man_01(ctx: Context):
         yield ("manifest doc missing from share", missing)
 
 
+# --- MENT (mention echo) ----------------------------------------------------
+
+
+def ment_01(ctx: Context):
+    for record in ctx.mention_map.mentions:
+        entry = ctx.entry(record.doc_id)
+        if entry is None:
+            yield (f"mention references unknown doc {record.doc_id}",
+                   "ledger/mention_map.json")
+            continue
+        if not (ctx.paths.share_dir / entry.path).exists():
+            continue  # FILE-01/MAN-01 report the absence
+        if record.surface not in ctx.doc_text(entry):
+            yield (
+                f"planned mention surface {record.surface!r} "
+                f"({record.entity}) not found in extractable text",
+                entry.path,
+            )
+
+
+def ment_02(ctx: Context):
+    entities = set(ctx.graph.entities)
+    for record in ctx.mention_map.mentions:
+        if record.entity not in entities:
+            yield (
+                f"mention entity {record.entity} not in the graph ledger",
+                "ledger/mention_map.json",
+            )
+
+
+# --- GRAPH ------------------------------------------------------------------
+
+
+def graph_01(ctx: Context):
+    minimum = ctx.charter.graph_targets.min_mentions_per_person
+    for person in ctx.foundation.people:
+        docs = {
+            r.doc_id for r in ctx.mention_map.mentions if r.entity == person.id
+        }
+        if len(docs) < minimum:
+            yield (
+                f"{person.id} planned in {len(docs)} docs, recipe requires "
+                f">= {minimum}",
+                "ledger/mention_map.json",
+            )
+
+
+def graph_02(ctx: Context):
+    mentioned = {r.entity for r in ctx.mention_map.mentions}
+    for person in ctx.foundation.people:
+        if person.id not in mentioned:
+            yield (f"roster member {person.id} has zero planned mentions",
+                   "ledger/mention_map.json")
+
+
+def graph_03(ctx: Context):
+    valid = set(ctx.graph.entities) | {
+        e.id for e in ctx.engagements.engagements
+    }
+    for edge in ctx.graph.edges:
+        for endpoint in (edge.src, edge.dst):
+            if endpoint not in valid:
+                yield (
+                    f"edge {edge.src} -{edge.kind}-> {edge.dst} has unknown "
+                    f"endpoint {endpoint}",
+                    "ledger/graph.json",
+                )
+
+
+def graph_04(ctx: Context):
+    by_kind: dict[str, int] = {}
+    for edge in ctx.graph.edges:
+        by_kind[edge.kind] = by_kind.get(edge.kind, 0) + 1
+
+    people = ctx.foundation.people
+    externals = ctx.foundation.external_people
+    expected = {
+        "reports_to": len(people) - 1,
+        "works_at": len(people)
+        + sum(len(xp.affiliations) or 1 for xp in externals),
+        "client_of": len({e.client for e in ctx.engagements.engagements}),
+        "participant": sum(
+            len(e.internal_participants) + len(e.external_participants)
+            for e in ctx.engagements.engagements
+        ),
+    }
+    for kind, want in expected.items():
+        got = by_kind.get(kind, 0)
+        if got != want:
+            yield (
+                f"{kind} edge count {got} != {want} derived from ledgers",
+                "ledger/graph.json",
+            )
+
+
 # --- PROV -----------------------------------------------------------------
 
 
@@ -268,6 +397,17 @@ RULES = [
     Rule("FIN-01", "ERROR", "finance ledger ties out", fin_01),
     Rule("FIN-02", "ERROR", "workbooks tie to the finance ledger", fin_02),
     Rule("FACT-01", "ERROR", "planted facts appear verbatim in doc text", fact_01),
+    Rule("MENT-01", "ERROR", "planned mention surfaces appear in doc text",
+         ment_01, available=_needs_mentions),
+    Rule("MENT-02", "ERROR", "mentions resolve to graph entities", ment_02,
+         available=_needs_mentions),
+    Rule("GRAPH-01", "ERROR", "per-person mention coverage meets the recipe",
+         graph_01, available=_needs_mention_knob),
+    Rule("GRAPH-02", "ERROR", "no orphan roster member", graph_02,
+         available=_needs_mention_knob),
+    Rule("GRAPH-03", "ERROR", "graph edges have known endpoints", graph_03),
+    Rule("GRAPH-04", "ERROR", "per-type edge counts match the ledgers",
+         graph_04),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),

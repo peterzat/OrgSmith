@@ -35,6 +35,32 @@ def pure_org(tmp_path_factory) -> OrgPaths:
     return build_pure_stages(tmp_path_factory.mktemp("pure-org"))
 
 
+KNOB_LINES = (
+    "  min_mentions_per_person: 2\n"
+    "  surname_collisions: 1\n"
+    "  nickname_aliases: 1\n"
+    "  multi_affiliations: 1\n"
+)
+
+
+def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
+    """dev-mini recipe with every ambiguity knob on, through docplan."""
+    dest = root / "recipes" / slug
+    dest.mkdir(parents=True, exist_ok=True)
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    anchor = "  external_people: 3\n"
+    assert anchor in text
+    (dest / "ORG-CHARTER.md").write_text(
+        text.replace(anchor, anchor + KNOB_LINES)
+    )
+    paths = OrgPaths(root=root, slug=slug)
+    assert run_charter(paths) == 0
+    assert run_scaffold(paths) == 0
+    assert run_fabric(paths) == 0
+    assert run_docplan(paths) == 0
+    return paths
+
+
 # --- scripted airlock counterparts (tests only) ----------------------------
 # Deterministic template text standing in for the model so the airlock
 # contract and resume machinery can be exercised offline. Never used for

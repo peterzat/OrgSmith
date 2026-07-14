@@ -21,7 +21,12 @@ def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
         raise SystemExit(f"validate: unknown rule ids: {sorted(set(only) - known)}")
 
     findings = []
+    skipped = []
     for rule in selected:
+        reason = rule.available(ctx)
+        if reason is not None:
+            skipped.append({"rule": rule.id, "reason": reason})
+            continue
         for message, target in rule.check(ctx):
             findings.append(
                 {"rule": rule.id, "severity": rule.severity,
@@ -29,12 +34,17 @@ def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
             )
 
     errors = [f for f in findings if f["severity"] == "ERROR"]
+    ran = len(selected) - len(skipped)
     if as_json:
         print(
             json.dumps(
                 {
                     "slug": paths.slug,
-                    "rules_run": [r.id for r in selected],
+                    "rules_run": [
+                        r.id for r in selected
+                        if r.id not in {s["rule"] for s in skipped}
+                    ],
+                    "skipped": skipped,
                     "findings": findings,
                     "counts": {"ERROR": len(errors),
                                "WARN": len(findings) - len(errors)},
@@ -44,10 +54,12 @@ def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
             )
         )
     else:
+        for s in skipped:
+            print(f"SKIP {s['rule']}: {s['reason']}")
         for f in findings:
             print(f"{f['severity']} {f['rule']} [{f['target']}] {f['message']}")
         print(
-            f"validate: {len(selected)} rules, {len(errors)} errors, "
-            f"{len(findings) - len(errors)} warnings"
+            f"validate: {ran} rules run, {len(skipped)} skipped, "
+            f"{len(errors)} errors, {len(findings) - len(errors)} warnings"
         )
     return 1 if errors else 0
