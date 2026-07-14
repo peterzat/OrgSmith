@@ -68,10 +68,11 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, ~10 validation rules tie every document back to the
-  ledger: planted facts appear verbatim in extractable text, workbook
-  formulas recompute to ledger values, authors were employed on the date
-  they wrote, org charts are acyclic, every file opens in its native
+- After rendering, a 16-rule validator ties every document back to the
+  ledger: planted facts and planned name mentions appear verbatim in
+  extractable text, workbook formulas recompute to ledger values, authors
+  were employed on the date they wrote, org charts are acyclic, the people
+  graph has no orphans or dangling edges, every file opens in its native
   reader, and every file carries a machine-readable synthetic-provenance
   marker.
 
@@ -115,26 +116,39 @@ use the strongest one available to you with a high effort setting for
 authoring passes. Deterministic stages (scaffold, ledgers, rendering,
 validation) run as plain Python and cost no tokens at all.
 
-## What is in the box today (v1)
+## What is in the box today
 
-- The full pipeline, end to end, proven on `recipes/dev-mini`: a 5-person
-  consultancy with 13 documents across three client engagements
-  (2019-2022), committed under `companies/` as a permanent fixture.
+- The full pipeline, end to end, proven on two committed fixtures:
+  `dev-mini` (a 5-person consultancy, 13 documents, three engagements,
+  2019-2022) and `torchlake-engineering` (a 6-person engineering firm, 11
+  documents, 2018-2024) generated with every ambiguity knob on: a
+  surname-collision pair, a nickname alias planted in rendered minutes,
+  and an external contact with a mid-history employer change.
+- People-graph ground truth: recipe-dialable graph knobs, a mention map
+  recording exactly which documents name which entities (and with what
+  surface form), and validator rules that fail the org when a planned
+  mention is missing from extractable text.
+- Golden evals: `emit-evals` derives retrieval questions and a
+  people-graph answer key (with alias credit) from the ledgers, and
+  `score` grades an external system's answers with per-question
+  attribution, from nothing but the `evals/` directory. Deterministic, no
+  model involved; ground-truth answers score 100% by construction.
 - Renderers: `.docx` (python-docx: letterhead, PAGE-field footers,
   signature blocks, real core properties), `.pdf` (WeasyPrint with
-  paged-media letterhead, pikepdf metadata), `.xlsx` (xlsxwriter with real
-  formulas plus cached values that tie to the ledger).
-- The airlock, checkpoint/resume, the 10-rule validator, capability
+  paged-media letterhead, pikepdf metadata, remote fetches blocked), and
+  `.xlsx` (xlsxwriter with real formulas plus cached values that tie to
+  the ledger).
+- The airlock, checkpoint/resume, the 16-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - Skills: `/forge` (orchestrator) and `forge-author` (per-batch worker
   with a fresh context, which is what lets large orgs span sessions).
 
-On the roadmap, in rough order: people-graph depth (aliases, surname
-collisions, mention maps), planted hard cases with auto-emitted golden
-eval suites (retrieval, extraction, visibility), more formats (`.pptx`,
-`.eml` mail archives, scanned-and-degraded PDFs with synthetic OCR layers,
-legacy `.doc`/`.xls`/`.ppt`), an adversarial review board, and a committed
+On the roadmap, in rough order: planted hard cases with location policies
+(signature-page-only facts, filename-only dates) and extraction/visibility
+eval suites, more formats (`.pptx`, `.eml` mail archives,
+scanned-and-degraded PDFs with synthetic OCR layers, legacy
+`.doc`/`.xls`/`.ppt`), an adversarial review board, and a committed
 six-company fleet from a 1988 boutique law firm to a modern B2B SaaS.
 
 ## Provenance and safety
