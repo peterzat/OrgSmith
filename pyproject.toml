@@ -3,9 +3,10 @@
 
 [project]
 name = "orgsmith"
-version = "0.1.0"
+version = "1.0.0"
 description = "Generator of complete synthetic organizations with ground truth"
 authors = [{ name = "Peter Zatloukal" }]
+license = "Apache-2.0"
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
