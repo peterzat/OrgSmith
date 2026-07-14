@@ -85,7 +85,8 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
         others = [p for p in available[1:] if _employed_at(p, end)]
         team = [lead] + rand.sample(others, min(len(others), rand.randint(1, 2)))
 
-        service = _SERVICES[idx % len(_SERVICES)]
+        services = charter.engagements.services or _SERVICES
+        service = services[idx % len(services)]
         fee = rand.randint(60, 240) * 500
         facts = [
             Fact(

@@ -36,7 +36,16 @@ def build_graph(
             )
         )
     for xp in foundation.external_people:
-        edges.append(GraphEdge(src=xp.id, dst=xp.org, kind="works_at"))
+        if xp.affiliations:
+            for aff in xp.affiliations:
+                edges.append(
+                    GraphEdge(
+                        src=xp.id, dst=aff.org, kind="works_at",
+                        start=aff.start, end=aff.end,
+                    )
+                )
+        else:
+            edges.append(GraphEdge(src=xp.id, dst=xp.org, kind="works_at"))
     for eng in engagements.engagements:
         edges.append(
             GraphEdge(src=eng.client, dst=self_org, kind="client_of", start=eng.start)

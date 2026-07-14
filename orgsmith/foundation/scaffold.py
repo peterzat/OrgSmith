@@ -16,6 +16,7 @@ from faker import Faker
 
 from ..paths import OrgPaths
 from ..schemas import (
+    Affiliation,
     Charter,
     EmploymentSpan,
     ExternalOrg,
@@ -33,6 +34,18 @@ from ..artifacts import load_charter
 _AREA_CODES = ["212", "312", "415", "617", "206", "303"]
 _EXT_TITLES = ["Chief Operating Officer", "VP Finance", "Director of Operations",
                "General Manager", "Chief Financial Officer"]
+
+# Nickname pool for the nickname_aliases knob. Keys double as replacement
+# first names when a seeded roster has no nicknamable member.
+_NICKNAMES = {
+    "Michael": "Mike", "Robert": "Bob", "William": "Bill", "James": "Jim",
+    "Jennifer": "Jen", "Elizabeth": "Liz", "Katherine": "Kate",
+    "Christopher": "Chris", "Joseph": "Joe", "Daniel": "Dan", "Thomas": "Tom",
+    "Richard": "Rick", "Matthew": "Matt", "Anthony": "Tony", "Steven": "Steve",
+    "Andrew": "Drew", "Rebecca": "Becca", "Nicholas": "Nick",
+    "Samantha": "Sam", "Benjamin": "Ben", "Timothy": "Tim", "Gregory": "Greg",
+    "Jessica": "Jess", "Stephanie": "Steph",
+}
 
 
 def _ascii(text: str) -> str:
@@ -161,6 +174,113 @@ def _build_externals(
     return orgs, people
 
 
+# --- knob-gated ambiguity post-passes --------------------------------------
+# Each pass draws from its OWN seed stream and is a no-op when its knob is 0,
+# so recipes written before the knobs regenerate byte-identically.
+
+
+def _rename_person(
+    person: Person,
+    people: list[Person],
+    charter: Charter,
+    new_first: str | None = None,
+    new_last: str | None = None,
+) -> None:
+    first, last = person.name.split(" ", 1)
+    first = new_first or first
+    last = new_last or last
+    new_id = _person_id(first, last)
+    if any(p.id == new_id for p in people if p is not person):
+        raise ValueError(f"rename collision on {new_id}")
+    old_id = person.id
+    person.id = new_id
+    person.name = f"{first} {last}"
+    person.email = f"{_slugify(first)}.{_slugify(last)}@{charter.domain}".replace(
+        "-", ""
+    )
+    for other in people:
+        if other.reports_to == old_id:
+            other.reports_to = new_id
+
+
+def _apply_surname_collisions(charter: Charter, people: list[Person], rand) -> None:
+    for _ in range(charter.graph_targets.surname_collisions):
+        staff = [p for p in people if p.reports_to is not None]
+        candidates = [
+            (a, b)
+            for a in staff
+            for b in staff
+            if a is not b
+            and a.name.split(" ", 1)[1] != b.name.split(" ", 1)[1]
+            and a.name.split(" ", 1)[0] != b.name.split(" ", 1)[0]
+        ]
+        if not candidates:
+            raise SystemExit(
+                "foundation: roster too small for the surname_collisions knob"
+            )
+        keeper, renamed = rand.choice(sorted(
+            candidates, key=lambda ab: (ab[0].id, ab[1].id)
+        ))
+        _rename_person(
+            renamed, people, charter, new_last=keeper.name.split(" ", 1)[1]
+        )
+
+
+def _apply_nickname_aliases(charter: Charter, people: list[Person], rand) -> None:
+    want = charter.graph_targets.nickname_aliases
+    if not want:
+        return
+    staff = [p for p in people if p.reports_to is not None]
+    eligible = [p for p in staff if p.name.split(" ", 1)[0] in _NICKNAMES]
+    pool = iter([p for p in staff if p not in eligible])
+    while len(eligible) < want:
+        person = next(pool, None)
+        if person is None:
+            raise SystemExit(
+                "foundation: roster too small for the nickname_aliases knob"
+            )
+        new_first = rand.choice(sorted(_NICKNAMES))
+        try:
+            _rename_person(person, people, charter, new_first=new_first)
+        except ValueError:
+            continue  # id taken; try the next roster member
+        eligible.append(person)
+    for person in eligible[:want]:
+        nickname = _NICKNAMES[person.name.split(" ", 1)[0]]
+        if nickname not in person.aliases:
+            person.aliases.append(nickname)
+
+
+def _apply_multi_affiliations(
+    charter: Charter, externals: tuple, rand
+) -> None:
+    want = charter.graph_targets.multi_affiliations
+    if not want:
+        return
+    orgs, people = externals
+    if len(orgs) < 2:
+        raise SystemExit(
+            "foundation: multi_affiliations knob needs at least 2 external orgs"
+        )
+    if want > len(people):
+        raise SystemExit(
+            "foundation: multi_affiliations knob exceeds external_people"
+        )
+    range_start, range_end = charter.doc_culture.date_range
+    span = (range_end - range_start).days
+    for person in people[:want]:
+        prior = rand.choice(
+            sorted((o for o in orgs if o.id != person.org), key=lambda o: o.id)
+        )
+        boundary = range_start + timedelta(
+            days=rand.randint(int(span * 0.3), int(span * 0.6))
+        )
+        person.affiliations = [
+            Affiliation(org=prior.id, start=None, end=boundary),
+            Affiliation(org=person.org, start=boundary + timedelta(days=1)),
+        ]
+
+
 def build_foundation(charter: Charter) -> Foundation:
     fake = Faker("en_US")
     fake.seed_instance(charter.seed)
@@ -168,6 +288,16 @@ def build_foundation(charter: Charter) -> Foundation:
 
     people = _build_people(charter, fake, rand)
     orgs, ext_people = _build_externals(charter, fake, rand)
+
+    _apply_surname_collisions(
+        charter, people, rng(charter.seed, "foundation.collisions")
+    )
+    _apply_nickname_aliases(
+        charter, people, rng(charter.seed, "foundation.nicknames")
+    )
+    _apply_multi_affiliations(
+        charter, (orgs, ext_people), rng(charter.seed, "foundation.affiliations")
+    )
 
     timeline = [
         TimelineEvent(
