@@ -1,0 +1,98 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0009",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "Commissioning Progress Minutes",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Progress meeting held by video with {{fact:f:E-2023-001.client}} to review functional testing results and the open issues log. Minutes prepared by John Johnson.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Attendees:",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Jeff Fowler, Engineering Manager, Torchlake Engineering Group",
+        "John Johnson, Project Engineer, Torchlake Engineering Group",
+        "Lisa Brown, Chief Operating Officer, {{fact:f:E-2023-001.client}}"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Discussion. John reported functional testing complete on six of eight air handlers: two passed clean, four passed with minor issues now closed, and two remain blocked by unfinished contractor checkout on the top floors. The chilled-water plant sequence passed its first full test, including the failover to the standby pump. Ms. Brown asked whether the blocked units threaten the seasonal verification window; Jeff confirmed the schedule holds if checkout completes within two weeks, and the contractor has committed to that date in writing. Trend review has flagged one zone that never reaches setpoint overnight; issue 41 in the log, suspected damper actuator, contractor investigating.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Decisions. The two blocked air handlers are scheduled as a single combined test day. Issue 41 escalates to the contractor's project manager if not resolved by the next meeting.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [
+        "Action",
+        "Owner",
+        "Due"
+      ],
+      "rows": [
+        [
+          "Confirm contractor checkout completion for top floors",
+          "Jeff Fowler",
+          "Two weeks"
+        ],
+        [
+          "Execute combined test day for blocked air handlers",
+          "John Johnson",
+          "On checkout completion"
+        ],
+        [
+          "Resolve or escalate issue 41 (overnight setpoint)",
+          "John Johnson",
+          "Next meeting"
+        ],
+        [
+          "Provide updated occupancy schedule for trend review",
+          "Lisa Brown",
+          "End of this week"
+        ]
+      ],
+      "signers": []
+    }
+  ]
+}

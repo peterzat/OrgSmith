@@ -1,0 +1,239 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "torchlake-engineering",
+  "entities": [
+    {
+      "id": "x:torchlake-engineering",
+      "canonical": "Torchlake Engineering Group LLC",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "p:david.jones",
+      "canonical": "David Jones",
+      "aliases": [
+        "david.jones@torchlakeeng.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:jennifer.mayo",
+      "canonical": "Jennifer Mayo",
+      "aliases": [
+        "Jen",
+        "jennifer.mayo@torchlakeeng.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:jeff.fowler",
+      "canonical": "Jeff Fowler",
+      "aliases": [
+        "jeff.fowler@torchlakeeng.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:john.johnson",
+      "canonical": "John Johnson",
+      "aliases": [
+        "john.johnson@torchlakeeng.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:david.fowler",
+      "canonical": "David Fowler",
+      "aliases": [
+        "david.fowler@torchlakeeng.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:megan.thomas",
+      "canonical": "Megan Thomas",
+      "aliases": [
+        "megan.thomas@torchlakeeng.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "x:franklin-plc",
+      "canonical": "Franklin PLC",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "x:vazquez-sanchez-and-gutierrez",
+      "canonical": "Vazquez, Sanchez and Gutierrez",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "x:butler-bush",
+      "canonical": "Butler-Bush",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "xp:isabella.sandoval",
+      "canonical": "Isabella Sandoval",
+      "aliases": [
+        "isabella.sandoval@franklinplc.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "xp:lisa.brown",
+      "canonical": "Lisa Brown",
+      "aliases": [
+        "lisa.brown@vazquezsanchezandgutierrez.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "xp:mary.roberts",
+      "canonical": "Mary Roberts",
+      "aliases": [
+        "mary.roberts@butlerbush.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "xp:danny.vargas",
+      "canonical": "Danny Vargas",
+      "aliases": [
+        "danny.vargas@franklinplc.com"
+      ],
+      "kind": "person"
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:david.jones",
+      "dst": "x:torchlake-engineering",
+      "kind": "works_at",
+      "start": "2015-02-15",
+      "end": null
+    },
+    {
+      "src": "p:jennifer.mayo",
+      "dst": "p:david.jones",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jennifer.mayo",
+      "dst": "x:torchlake-engineering",
+      "kind": "works_at",
+      "start": "2016-10-09",
+      "end": null
+    },
+    {
+      "src": "p:jeff.fowler",
+      "dst": "p:david.jones",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeff.fowler",
+      "dst": "x:torchlake-engineering",
+      "kind": "works_at",
+      "start": "2015-03-15",
+      "end": null
+    },
+    {
+      "src": "p:john.johnson",
+      "dst": "p:jeff.fowler",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.johnson",
+      "dst": "x:torchlake-engineering",
+      "kind": "works_at",
+      "start": "2016-03-04",
+      "end": null
+    },
+    {
+      "src": "p:david.fowler",
+      "dst": "p:jeff.fowler",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.fowler",
+      "dst": "x:torchlake-engineering",
+      "kind": "works_at",
+      "start": "2016-07-03",
+      "end": null
+    },
+    {
+      "src": "p:megan.thomas",
+      "dst": "p:david.jones",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:megan.thomas",
+      "dst": "x:torchlake-engineering",
+      "kind": "works_at",
+      "start": "2015-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:isabella.sandoval",
+      "dst": "x:butler-bush",
+      "kind": "works_at",
+      "start": null,
+      "end": "2020-04-10"
+    },
+    {
+      "src": "xp:isabella.sandoval",
+      "dst": "x:franklin-plc",
+      "kind": "works_at",
+      "start": "2020-04-11",
+      "end": null
+    },
+    {
+      "src": "xp:lisa.brown",
+      "dst": "x:vazquez-sanchez-and-gutierrez",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:mary.roberts",
+      "dst": "x:butler-bush",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:danny.vargas",
+      "dst": "x:franklin-plc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:franklin-plc",
+      "dst": "x:torchlake-engineering",
+      "kind": "client_of",
+      "start": "2019-08-05",
+      "end": null
+    },
+    {
+      "src": "x:vazquez-sanchez-and-gutierrez",
+      "dst": "x:torchlake-engineering",
+      "kind": "client_of",
+      "start": "2023-05-25",
+      "end": null
+    }
+  ]
+}

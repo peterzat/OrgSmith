@@ -1,0 +1,376 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0001",
+  "stage": "author",
+  "slug": "torchlake-engineering",
+  "org_name": "Torchlake Engineering Group LLC",
+  "org_type": "engineering consulting",
+  "narrative": "Torchlake Engineering Group is a six-person consulting engineering firm\nserving building owners and plant operators around the Great Lakes. The\nwork is field-first: facility condition assessments walked floor by floor,\nand commissioning of controls retrofits where the firm's engineers stand in\nthe mechanical room until the sequence of operations does what the drawings\nsay. Documents are written to be read on a job site: engagement letters\nthat fit on two pages, kickoff memos with checklists, meeting minutes that\nname every attendee and every deficiency owner, and status reports a\nfacilities director can forward to a CFO without a phone call. The\nPresident signs engagement letters; engineers sign their own field notes.\nTone is direct, technical where it counts, never salesy. People go by first\nnames in the field and full names with titles on anything a client files.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text. You do not know fact\n  values; never write a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0001",
+      "title": "Engagement Letter: Facility Condition Assessment for Franklin PLC",
+      "genre": "engagement_letter",
+      "date": "2019-07-26",
+      "authors": [
+        {
+          "id": "p:david.jones",
+          "name": "David Jones",
+          "title": "President",
+          "dept": "Leadership",
+          "persona": "David Jones founded Torchlake after twenty years running plant engineering for an industrial operator, and he still writes like a plant guy: findings first, causes second, niceties never. He signs every engagement letter, reads every field report before it leaves, and strikes any sentence a facilities director could not act on."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jeff.fowler",
+          "name": "Jeff Fowler",
+          "title": "Engineering Manager",
+          "dept": "Engineering",
+          "persona": "Jeff Fowler runs delivery as Engineering Manager and owns the kickoff memo and status report cadence. He thinks in checklists and owner-by-owner tables, keeps the schedule honest, and always names which Fowler he means since his brother-in-arms confusion with David Fowler is a running office joke. Businesslike on the page, dry in person."
+        },
+        {
+          "id": "p:john.johnson",
+          "name": "John Johnson",
+          "title": "Project Engineer",
+          "dept": "Engineering",
+          "persona": "John Johnson, Project Engineer, is the firm's default minute-taker and deficiency-list keeper. He records meetings nearly verbatim, tags every action with an owner and a due date, and follows up without being reminded. His prose is flat by design; he saves opinions for the drive back from site."
+        },
+        {
+          "id": "xp:isabella.sandoval",
+          "name": "Isabella Sandoval",
+          "title": "Director of Operations",
+          "dept": "Franklin PLC",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Facility Condition Assessment for Franklin PLC, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:david.jones",
+          "surface": "David Jones",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jeff.fowler",
+          "surface": "Jeff Fowler",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.johnson",
+          "surface": "John Johnson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:isabella.sandoval",
+          "surface": "Isabella Sandoval",
+          "kind": "person"
+        },
+        {
+          "entity": "x:franklin-plc",
+          "surface": "Franklin PLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 350,
+      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
+    },
+    {
+      "doc_id": "d:0002",
+      "title": "Kickoff Memo: Facility Condition Assessment for Franklin PLC",
+      "genre": "kickoff_memo",
+      "date": "2019-08-08",
+      "authors": [
+        {
+          "id": "p:jeff.fowler",
+          "name": "Jeff Fowler",
+          "title": "Engineering Manager",
+          "dept": "Engineering",
+          "persona": "Jeff Fowler runs delivery as Engineering Manager and owns the kickoff memo and status report cadence. He thinks in checklists and owner-by-owner tables, keeps the schedule honest, and always names which Fowler he means since his brother-in-arms confusion with David Fowler is a running office joke. Businesslike on the page, dry in person."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jeff.fowler",
+          "name": "Jeff Fowler",
+          "title": "Engineering Manager",
+          "dept": "Engineering",
+          "persona": "Jeff Fowler runs delivery as Engineering Manager and owns the kickoff memo and status report cadence. He thinks in checklists and owner-by-owner tables, keeps the schedule honest, and always names which Fowler he means since his brother-in-arms confusion with David Fowler is a running office joke. Businesslike on the page, dry in person."
+        },
+        {
+          "id": "p:john.johnson",
+          "name": "John Johnson",
+          "title": "Project Engineer",
+          "dept": "Engineering",
+          "persona": "John Johnson, Project Engineer, is the firm's default minute-taker and deficiency-list keeper. He records meetings nearly verbatim, tags every action with an owner and a due date, and follows up without being reminded. His prose is flat by design; he saves opinions for the drive back from site."
+        },
+        {
+          "id": "xp:isabella.sandoval",
+          "name": "Isabella Sandoval",
+          "title": "Director of Operations",
+          "dept": "Franklin PLC",
+          "persona": ""
+        },
+        {
+          "id": "p:jennifer.mayo",
+          "name": "Jennifer Mayo",
+          "title": "Principal Engineer",
+          "dept": "Leadership",
+          "persona": "Jennifer Mayo, Jen to everyone including clients by the second site visit, is the firm's Principal Engineer and its technical conscience. She reviews sequences of operations the way editors read proofs, and her margin notes are famous for the single word 'why?'. Writes sparingly but precisely; when Jen commits a finding to paper it has already been checked twice."
+        },
+        {
+          "id": "p:david.fowler",
+          "name": "David Fowler",
+          "title": "Staff Engineer",
+          "dept": "Engineering",
+          "persona": "David Fowler, Staff Engineer, is happiest on a lift checking damper linkages and happiest second writing up exactly what he found. Field notes read like lab notebooks: time-stamped, unit-labeled, no adjectives. Newer to report writing, so his sections get a pass from Jeff before anything goes to a client."
+        },
+        {
+          "id": "p:megan.thomas",
+          "name": "Megan Thomas",
+          "title": "Field Operations Lead",
+          "dept": "Field Services",
+          "persona": "Megan Thomas leads field operations: site scheduling, safety plans, instrument calibration logs, and the firm's books besides. She keeps the file share navigable and the financial summaries reconciled to the penny, and her emails are two sentences long because that is all a scheduling question needs."
+        }
+      ],
+      "engagement_summary": "Facility Condition Assessment for Franklin PLC, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jeff.fowler",
+          "surface": "Jeff Fowler",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.johnson",
+          "surface": "John Johnson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:isabella.sandoval",
+          "surface": "Isabella Sandoval",
+          "kind": "person"
+        },
+        {
+          "entity": "x:franklin-plc",
+          "surface": "Franklin PLC",
+          "kind": "org"
+        },
+        {
+          "entity": "p:jennifer.mayo",
+          "surface": "Jennifer Mayo",
+          "kind": "person"
+        },
+        {
+          "entity": "p:david.fowler",
+          "surface": "David Fowler",
+          "kind": "person"
+        },
+        {
+          "entity": "p:megan.thomas",
+          "surface": "Megan Thomas",
+          "kind": "person"
+        }
+      ],
+      "target_words": 240,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps."
+    },
+    {
+      "doc_id": "d:0003",
+      "title": "Meeting Minutes: Facility Condition Assessment for Franklin PLC",
+      "genre": "meeting_minutes",
+      "date": "2019-11-19",
+      "authors": [
+        {
+          "id": "p:john.johnson",
+          "name": "John Johnson",
+          "title": "Project Engineer",
+          "dept": "Engineering",
+          "persona": "John Johnson, Project Engineer, is the firm's default minute-taker and deficiency-list keeper. He records meetings nearly verbatim, tags every action with an owner and a due date, and follows up without being reminded. His prose is flat by design; he saves opinions for the drive back from site."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jeff.fowler",
+          "name": "Jeff Fowler",
+          "title": "Engineering Manager",
+          "dept": "Engineering",
+          "persona": "Jeff Fowler runs delivery as Engineering Manager and owns the kickoff memo and status report cadence. He thinks in checklists and owner-by-owner tables, keeps the schedule honest, and always names which Fowler he means since his brother-in-arms confusion with David Fowler is a running office joke. Businesslike on the page, dry in person."
+        },
+        {
+          "id": "p:john.johnson",
+          "name": "John Johnson",
+          "title": "Project Engineer",
+          "dept": "Engineering",
+          "persona": "John Johnson, Project Engineer, is the firm's default minute-taker and deficiency-list keeper. He records meetings nearly verbatim, tags every action with an owner and a due date, and follows up without being reminded. His prose is flat by design; he saves opinions for the drive back from site."
+        },
+        {
+          "id": "xp:isabella.sandoval",
+          "name": "Isabella Sandoval",
+          "title": "Director of Operations",
+          "dept": "Franklin PLC",
+          "persona": ""
+        },
+        {
+          "id": "p:jennifer.mayo",
+          "name": "Jennifer Mayo",
+          "title": "Principal Engineer",
+          "dept": "Leadership",
+          "persona": "Jennifer Mayo, Jen to everyone including clients by the second site visit, is the firm's Principal Engineer and its technical conscience. She reviews sequences of operations the way editors read proofs, and her margin notes are famous for the single word 'why?'. Writes sparingly but precisely; when Jen commits a finding to paper it has already been checked twice."
+        },
+        {
+          "id": "p:david.fowler",
+          "name": "David Fowler",
+          "title": "Staff Engineer",
+          "dept": "Engineering",
+          "persona": "David Fowler, Staff Engineer, is happiest on a lift checking damper linkages and happiest second writing up exactly what he found. Field notes read like lab notebooks: time-stamped, unit-labeled, no adjectives. Newer to report writing, so his sections get a pass from Jeff before anything goes to a client."
+        },
+        {
+          "id": "p:megan.thomas",
+          "name": "Megan Thomas",
+          "title": "Field Operations Lead",
+          "dept": "Field Services",
+          "persona": "Megan Thomas leads field operations: site scheduling, safety plans, instrument calibration logs, and the firm's books besides. She keeps the file share navigable and the financial summaries reconciled to the penny, and her emails are two sentences long because that is all a scheduling question needs."
+        }
+      ],
+      "engagement_summary": "Facility Condition Assessment for Franklin PLC, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.johnson",
+          "surface": "John Johnson",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jeff.fowler",
+          "surface": "Jeff Fowler",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:isabella.sandoval",
+          "surface": "Isabella Sandoval",
+          "kind": "person"
+        },
+        {
+          "entity": "x:franklin-plc",
+          "surface": "Franklin PLC",
+          "kind": "org"
+        },
+        {
+          "entity": "p:jennifer.mayo",
+          "surface": "Jennifer Mayo",
+          "kind": "person"
+        },
+        {
+          "entity": "p:david.fowler",
+          "surface": "David Fowler",
+          "kind": "person"
+        },
+        {
+          "entity": "p:megan.thomas",
+          "surface": "Megan Thomas",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.mayo",
+          "surface": "Jen",
+          "kind": "person"
+        }
+      ],
+      "target_words": 220,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
+    },
+    {
+      "doc_id": "d:0004",
+      "title": "Status Report: Facility Condition Assessment for Franklin PLC",
+      "genre": "status_report",
+      "date": "2020-02-21",
+      "authors": [
+        {
+          "id": "p:jeff.fowler",
+          "name": "Jeff Fowler",
+          "title": "Engineering Manager",
+          "dept": "Engineering",
+          "persona": "Jeff Fowler runs delivery as Engineering Manager and owns the kickoff memo and status report cadence. He thinks in checklists and owner-by-owner tables, keeps the schedule honest, and always names which Fowler he means since his brother-in-arms confusion with David Fowler is a running office joke. Businesslike on the page, dry in person."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jeff.fowler",
+          "name": "Jeff Fowler",
+          "title": "Engineering Manager",
+          "dept": "Engineering",
+          "persona": "Jeff Fowler runs delivery as Engineering Manager and owns the kickoff memo and status report cadence. He thinks in checklists and owner-by-owner tables, keeps the schedule honest, and always names which Fowler he means since his brother-in-arms confusion with David Fowler is a running office joke. Businesslike on the page, dry in person."
+        },
+        {
+          "id": "p:john.johnson",
+          "name": "John Johnson",
+          "title": "Project Engineer",
+          "dept": "Engineering",
+          "persona": "John Johnson, Project Engineer, is the firm's default minute-taker and deficiency-list keeper. He records meetings nearly verbatim, tags every action with an owner and a due date, and follows up without being reminded. His prose is flat by design; he saves opinions for the drive back from site."
+        }
+      ],
+      "engagement_summary": "Facility Condition Assessment for Franklin PLC, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jeff.fowler",
+          "surface": "Jeff Fowler",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.johnson",
+          "surface": "John Johnson",
+          "kind": "person"
+        },
+        {
+          "entity": "x:franklin-plc",
+          "surface": "Franklin PLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 300,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

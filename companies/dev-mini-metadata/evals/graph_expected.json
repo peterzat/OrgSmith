@@ -1,0 +1,201 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "dev-mini",
+  "entities": [
+    {
+      "id": "x:dev-mini",
+      "canonical": "Pinebrook Advisory Group LLC",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "p:chad.miller",
+      "canonical": "Chad Miller",
+      "aliases": [
+        "chad.miller@pinebrookadvisory.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:jenna.wiley",
+      "canonical": "Jenna Wiley",
+      "aliases": [
+        "jenna.wiley@pinebrookadvisory.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:jacob.williams",
+      "canonical": "Jacob Williams",
+      "aliases": [
+        "jacob.williams@pinebrookadvisory.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:lisa.hernandez",
+      "canonical": "Lisa Hernandez",
+      "aliases": [
+        "lisa.hernandez@pinebrookadvisory.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "p:megan.garcia",
+      "canonical": "Megan Garcia",
+      "aliases": [
+        "megan.garcia@pinebrookadvisory.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "x:weaver-reeves",
+      "canonical": "Weaver-Reeves",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "x:johnson-plc",
+      "canonical": "Johnson PLC",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "x:foley-group",
+      "canonical": "Foley Group",
+      "aliases": [],
+      "kind": "org"
+    },
+    {
+      "id": "xp:jacob.andersen",
+      "canonical": "Jacob Andersen",
+      "aliases": [
+        "jacob.andersen@weaverreeves.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "xp:melissa.sexton",
+      "canonical": "Melissa Sexton",
+      "aliases": [
+        "melissa.sexton@johnsonplc.com"
+      ],
+      "kind": "person"
+    },
+    {
+      "id": "xp:douglas.payne",
+      "canonical": "Douglas Payne",
+      "aliases": [
+        "douglas.payne@foleygroup.com"
+      ],
+      "kind": "person"
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:chad.miller",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-02-15",
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "p:chad.miller",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-03-15",
+      "end": null
+    },
+    {
+      "src": "p:jacob.williams",
+      "dst": "p:jenna.wiley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jacob.williams",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-04-26",
+      "end": null
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "p:jenna.wiley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-09-19",
+      "end": null
+    },
+    {
+      "src": "p:megan.garcia",
+      "dst": "p:chad.miller",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:megan.garcia",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:jacob.andersen",
+      "dst": "x:weaver-reeves",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:melissa.sexton",
+      "dst": "x:johnson-plc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:douglas.payne",
+      "dst": "x:foley-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:weaver-reeves",
+      "dst": "x:dev-mini",
+      "kind": "client_of",
+      "start": "2019-07-17",
+      "end": null
+    },
+    {
+      "src": "x:johnson-plc",
+      "dst": "x:dev-mini",
+      "kind": "client_of",
+      "start": "2020-03-28",
+      "end": null
+    },
+    {
+      "src": "x:foley-group",
+      "dst": "x:dev-mini",
+      "kind": "client_of",
+      "start": "2021-08-01",
+      "end": null
+    }
+  ]
+}
