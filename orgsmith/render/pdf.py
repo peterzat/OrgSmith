@@ -8,10 +8,22 @@ from pathlib import Path
 
 from jinja2 import Environment
 
+from .. import PRODUCT_NAME
 from ..fabric.engagements import render_date
 from ..schemas import DocIR, ManifestEntry
 from .provenance import stamp_pdf
 from .styles import StylePack
+
+
+def no_remote_fetcher(url: str, timeout=None, ssl_context=None):
+    """URL fetcher that upholds the no-network guarantee: only inline data:
+    URIs are served; anything remote is refused before a socket exists.
+    Block content is HTML-escaped upstream, so this is defense in depth."""
+    if url.startswith("data:"):
+        from weasyprint import default_url_fetcher
+
+        return default_url_fetcher(url)
+    raise ValueError(f"{PRODUCT_NAME}: remote resource blocked: {url}")
 
 _TEMPLATE = """\
 <!DOCTYPE html>
@@ -115,5 +127,5 @@ def render_pdf(
         body=_blocks_to_html(docir, people, when_text),
     )
     target.parent.mkdir(parents=True, exist_ok=True)
-    HTML(string=doc_html).write_pdf(str(target))
+    HTML(string=doc_html, url_fetcher=no_remote_fetcher).write_pdf(str(target))
     stamp_pdf(target, title=entry.title, author=author_name, doc_date=entry.date)
