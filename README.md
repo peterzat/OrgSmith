@@ -149,7 +149,7 @@ OrgSmith is itself an agentically coded project: designed and implemented
 in [Claude Code](https://claude.com/claude-code) running
 [zat.env](https://github.com/peterzat/zat.env) (spec-driven turns,
 adversarial code review, pre-push gates), using Claude Fable 5 at
-`/effort max`. The committed dev-mini org was authored the same way,
+`/effort xhigh`. The committed dev-mini org was authored the same way,
 through the same airlock shipped in this repo.
 
 ## License

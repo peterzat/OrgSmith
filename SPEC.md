@@ -33,4 +33,50 @@ Constraints the implementer needs:
 - GitHub: creating the private remote and any push are user-gated at execution time. `git init` and local commits proceed without asking.
 - Mid-turn user redirections (2026-07-14, after the criteria above were set): the LICENSE criterion was satisfied as written at M0, then the user redirected licensing to Apache-2.0 with copyright retained (NOTICE file added); the user explicitly authorized creating the private remote, then flipping it public, pushing, and tagging v1.0.0 with semver adopted (version 1.0.0). The remote-gating criterion is checked off on the strength of those explicit instructions.
 
+---
+
+### Proposal (2026-07-14)
+
+**What happened.** M0+M1 completed in one turn, empty directory to public
+v1.0.0 (9 commits, Apache-2.0, repo public, release tagged, CI green). The
+full pipeline works end to end: airlock with idempotent work orders and
+all-or-nothing ingest, 10-rule validator, resume proven by tests, and the
+committed dev-mini org (13 docs, 3 engagements, 2019-2022) validating clean.
+Three lessons worth carrying:
+
+- The airlock caught its own author twice during real generation: a
+  placeholder-prefix mistake (rejected with an actionable message) and a
+  ledger-value leak via engagement summaries in work orders (briefs are now
+  value-free and ingest rejects literal money/date surface forms).
+- Code review found two recipe-generality bugs (docplan date-clamp ordering,
+  engagement-window inversion on short date ranges). dev-mini alone does not
+  exercise the recipe space; both bugs were invisible under the tracer.
+- Security audit left two open hardening NOTEs in SECURITY.md: WeasyPrint's
+  URL fetcher stays enabled (latent gap in the no-network guarantee) and CI
+  actions are pinned to mutable tags.
+
+**Questions and directions for the next turn:**
+
+- M2 per the adopted plan: foundation/fabric depth. Aliases and surname
+  collisions, multi-affiliation externals, timeline depth, graph targets
+  with a mention budget, and the GRAPH-01..06 validator family.
+- Alternative: pull a second, differently-shaped recipe forward (e.g. a
+  modern investment-firm small org) to exercise recipe generality, the exact
+  bug class review just caught. Could also be folded into M2 as its fixture.
+- Schema coupling to decide early: the plan pulls evals into M3 because
+  `key_facts.location` shapes the manifest schema, and mention maps (M2)
+  touch the same entry. `orgsmith/manifest-entry@1` is now published under
+  semver; decide whether M2 and the manifest schema evolution land together
+  to avoid a breaking bump one turn later.
+- Small hardening item either way: disable the WeasyPrint URL fetcher and
+  SHA-pin CI actions (both from SECURITY.md).
+- The repo is public as of today; user feedback, if any arrives, may reorder
+  all of the above.
+
+### Retrospective
+
+- Correction from the user at turn close: this turn ran on Claude Fable 5 at
+  `/effort xhigh`, not `max` as first recorded. README's "Built with" note
+  corrected and re-pushed.
+
 <!-- SPEC_META: {"date":"2026-07-14","title":"OrgSmith M0+M1: scaffold and dev-mini tracer bullet","criteria_total":10,"criteria_met":10} -->
