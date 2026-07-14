@@ -64,6 +64,21 @@ def main(argv=None) -> int:
     p_val.add_argument("--json", action="store_true", dest="as_json")
     p_val.add_argument("--only", help="comma-separated rule ids")
 
+    _add_slug(sub.add_parser("emit-evals", help="golden eval suites from ground truth"))
+
+    p_score = sub.add_parser("score", help="grade external answers against evals")
+    p_score.add_argument("slug", nargs="?", help="org slug (or use --evals-dir)")
+    p_score.add_argument("--root", type=Path, default=None)
+    p_score.add_argument("--suite", required=True, choices=["retrieval", "graph"])
+    p_score.add_argument("--answers", required=True, metavar="FILE")
+    p_score.add_argument(
+        "--evals-dir",
+        type=Path,
+        default=None,
+        help="score from a bare evals directory (no org needed)",
+    )
+    p_score.add_argument("--json", action="store_true", dest="as_json")
+
     p_status = sub.add_parser("status", help="pipeline status from state.json")
     _add_slug(p_status)
     p_status.add_argument("--json", action="store_true", dest="as_json")
@@ -93,6 +108,19 @@ def main(argv=None) -> int:
 
         paths = org_paths(args.slug, args.root) if args.slug else None
         return run_doctor(paths)
+
+    if args.verb == "score":
+        from .evals import run_score
+
+        if args.evals_dir is not None:
+            evals_dir = args.evals_dir
+        elif args.slug:
+            evals_dir = org_paths(args.slug, args.root).evals_dir
+        else:
+            parser.error("score needs a slug or --evals-dir")
+        return run_score(
+            evals_dir, args.suite, Path(args.answers), as_json=args.as_json
+        )
 
     paths = org_paths(args.slug, args.root)
 
@@ -136,6 +164,10 @@ def main(argv=None) -> int:
         from .assemble import run_assemble
 
         return run_assemble(paths)
+    if args.verb == "emit-evals":
+        from .evals import run_emit_evals
+
+        return run_emit_evals(paths)
     if args.verb == "status":
         from .status import run_status
 
