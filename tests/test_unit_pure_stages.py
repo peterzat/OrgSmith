@@ -1,5 +1,6 @@
 """Unit tier: pure stages (charter, foundation scaffold, fabric, docplan)."""
 
+import json
 import os
 from datetime import date
 from pathlib import Path
@@ -17,6 +18,8 @@ from orgsmith.charter import parse_charter_md
 from orgsmith.foundation import run_scaffold
 from orgsmith.docplan import run_docplan
 from orgsmith.naming import check_relpath
+from orgsmith.paths import OrgPaths
+from orgsmith.schemas import ManifestEntry
 
 from conftest import REPO, build_pure_stages
 
@@ -126,6 +129,26 @@ def test_manifest_contract(pure_org):
     # Every planted fact appears in at least one document.
     referenced = {r for e in manifest for r in e.facts_refs}
     assert referenced == set(facts)
+
+
+@pytest.mark.parametrize("bad_path", ["../outside-share.docx", "/etc/passwd"])
+def test_load_manifest_rejects_tampered_path(tmp_path, bad_path):
+    entry = ManifestEntry(
+        doc_id="d:0001",
+        path=bad_path,
+        title="Tampered",
+        genre="kickoff_memo",
+        format="docx",
+        date=date(2021, 1, 4),
+        authors=["p:someone"],
+    )
+    paths = OrgPaths(root=tmp_path, slug="tampered")
+    paths.docplan_dir.mkdir(parents=True)
+    paths.manifest_jsonl.write_text(
+        json.dumps(entry.model_dump(mode="json")) + "\n", encoding="utf-8"
+    )
+    with pytest.raises(SystemExit, match="unsafe path"):
+        load_manifest(paths)
 
 
 def test_manifest_dates_cover_engagement_lifecycle(pure_org):

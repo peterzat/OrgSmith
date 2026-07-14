@@ -16,6 +16,7 @@ from ..artifacts import (
     load_mention_map,
 )
 from ..paths import OrgPaths
+from ..schemas import surface_in_text
 
 Finding = tuple[str, str]  # (message, target)
 
@@ -290,7 +291,7 @@ def ment_01(ctx: Context):
             continue
         if not (ctx.paths.share_dir / entry.path).exists():
             continue  # FILE-01/MAN-01 report the absence
-        if record.surface not in ctx.doc_text(entry):
+        if not surface_in_text(record.surface, ctx.doc_text(entry)):
             yield (
                 f"planned mention surface {record.surface!r} "
                 f"({record.entity}) not found in extractable text",

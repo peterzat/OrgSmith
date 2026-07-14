@@ -15,6 +15,7 @@ Conventions for ids:
 from __future__ import annotations
 
 import json
+import re
 from datetime import date
 from pathlib import Path
 from typing import Literal, Union
@@ -378,6 +379,16 @@ class MentionMap(StrictModel):
     schema_id: Literal["orgsmith/mention-map@1"] = SCHEMA_IDS["mention_map"]
     slug: str
     mentions: list[MentionRecord]
+
+
+def surface_in_text(surface: str, text: str) -> bool:
+    """Whether a mention surface occurs in text as a standalone token run.
+
+    Substring containment would let a short alias ("Jen") match inside a
+    longer word ("Jennifer"); non-word lookarounds require the surface to
+    stand on its own. Shared by authoring ingest and the MENT-01 validator
+    so both sides of the mention contract use identical semantics."""
+    return re.search(rf"(?<!\w){re.escape(surface)}(?!\w)", text) is not None
 
 
 # --------------------------------------------------------------------------

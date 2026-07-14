@@ -16,7 +16,13 @@ from pydantic import ValidationError
 from ..airlock import clear_outstanding, match_outstanding
 from ..artifacts import load_engagements, load_manifest
 from ..paths import OrgPaths
-from ..schemas import AuthoringDeliverable, DocBrief, DocIR, dump_json
+from ..schemas import (
+    AuthoringDeliverable,
+    DocBrief,
+    DocIR,
+    dump_json,
+    surface_in_text,
+)
 from ..state import load_state, save_state, sha256_file
 
 _PLACEHOLDER = re.compile(r"\{\{fact:([^}]*)\}\}")
@@ -135,7 +141,7 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
                 s for b in doc.blocks if b.kind == "sigblock" for s in b.signers
             }
             for mention in brief.mentions:
-                if mention.surface in resolved:
+                if surface_in_text(mention.surface, resolved):
                     continue
                 if mention.kind == "person" and mention.entity in signers:
                     continue
