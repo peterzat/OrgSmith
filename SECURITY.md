@@ -1,83 +1,90 @@
 # Security
 
-## Security Review — 2026-07-14 (scope: full)
+## Security Review — 2026-07-14 (scope: changes-only)
 
-**Summary:** Full audit of the OrgSmith package, skills, tests, and project
-config. No secrets, injection, or auth issues. One defense-in-depth WARN:
-manifest paths are trusted (not re-validated) when consumed by the pipeline,
-so an untrusted/tampered org can direct a file write outside the share.
+**Summary:** Review of the 12 commits since the last audit
+(`b94d7f5..9d60f44`, the M2 milestone; working tree clean, so the pending
+branch delta is the scope). No new vulnerabilities. Both hardening items
+from the prior audit are verified remediated: manifest paths are now
+re-validated on every load, and the WeasyPrint fetcher refuses all
+non-`data:` URLs (tested, including `file://`). CI actions are SHA-pinned.
+One residual NOTE carries forward.
 
 ### Findings
 
-**[WARN] orgsmith/render/__init__.py:59 — manifest `path` joined to the filesystem without re-validating path safety; absolute paths also bypass the build-time check**
+**[NOTE] orgsmith/render/pdf.py:37,63 — letterhead lines still rendered
+unescaped (residual from prior review; no current attack vector)**
 
-  Attack vector: The path-safety check (`check_relpath`) runs only once, at
-  docplan build time (`orgsmith/docplan/planner.py:85`). Every downstream
-  consumer that joins a manifest path to the filesystem trusts it forever
-  after. `render` does `target = paths.share_dir / entry.path` then
-  `target.parent.mkdir(parents=True, exist_ok=True)` and writes. Because
-  `pathlib` resets on an absolute right-hand side, a manifest entry with
-  `path` = `/home/<user>/.config/autostart/x.docx` (or a `..`-traversal path,
-  which is likewise never re-checked at consumption time) causes render to
-  create/overwrite a file at that arbitrary location. `check_relpath` does not
-  even reject absolute paths at build time: `"/etc/x".split("/")` yields an
-  empty leading component that passes every rule (verified). The project
-  README actively promotes sharing generated orgs ("shareable, regenerable");
-  a user who obtains a third-party org and runs `python -m orgsmith render
-  <slug>` on it gets an arbitrary-file-write primitive. The same untrusted
-  manifest fed to `validate` turns `fact_01`/`file_01`/`fin_02`/`prov_01`
-  (validate/rules.py) into a file-existence oracle (they `open()` the joined
-  path and branch on missing-vs-unreadable).
-  Not a BLOCK: the documented flow for consuming a shared org is `bin/test`
-  (which runs only the read-only `validate`/`status` over the repo's own
-  trusted fixtures) and `validate`, not `render`; within a single generation
-  run paths are safe by construction (they come from templates and
-  `sanitize_component`, never from the model deliverable or the network).
-  Evidence: `render/__init__.py:59` (`paths.share_dir / entry.path` + mkdir +
-  write); `naming.py:38-44` (`check_relpath` accepts absolute paths);
-  `docplan/planner.py:85` (only call site of `check_relpath`);
-  `validate/rules.py:157,185,206` (join + open of manifest path).
-  Remediation: Re-validate on consumption. In `load_manifest`
-  (`orgsmith/artifacts.py:49`) or at each join site, run `check_relpath` and
-  additionally reject absolute paths and any `..` component; refuse to
-  render/read entries that fail. Harden `check_relpath` itself to reject
-  `os.path.isabs(relpath)` and empty components.
+  Attack vector: None concrete. The letterhead is `charter.name` and
+  `www.{charter.domain}` (styles.py:43), interpolated raw into the HTML
+  template under `Environment(autoescape=False)` (pdf.py:72). The only
+  party who controls the charter is the recipe author, who already authors
+  the entire document set; with the new `no_remote_fetcher` blocking
+  `http:`, `https:`, and `file:` (pdf.py:18-26, tested in
+  tests/test_unit_hardening.py), injected markup can no longer egress or
+  read local files, so injection gains an attacker nothing beyond content
+  they already control. Retained as informational hardening only.
+  Evidence: pdf.py:37 (`content: "{{ letterhead0 }}"` inside a CSS
+  string), pdf.py:63 (raw `{{ letterhead0 }}` in body), pdf.py:72
+  (`autoescape=False`); all block content is escaped in `_blocks_to_html`.
+  Remediation: `html.escape()` the letterhead lines (and CSS-escape the
+  `@top-left` string) when building the template context. One-line change,
+  no urgency.
 
-**[NOTE] orgsmith/render/pdf.py:118 — WeasyPrint's default URL fetcher is left enabled, a gap in the advertised "Python never touches the network" guarantee**
+### Resolved Since Prior Review
 
-  Attack vector: `render_pdf` calls `HTML(string=doc_html).write_pdf(...)`
-  with WeasyPrint's default fetcher, which resolves external `url()` / `<img>`
-  / `@import` references (including `file:` and `http:`). Block content is
-  HTML-escaped in `_blocks_to_html`, so a model deliverable cannot inject a
-  resource reference; the only unescaped sink is the letterhead
-  (`charter.name` / `charter.domain`, rendered raw at pdf.py:51-52), which is
-  authored by the trusted recipe writer. Impact is therefore low, but the
-  README and CLAUDE.md assert the package never touches the network as a
-  load-bearing safety property, and this is the one bundled library that can
-  egress.
-  Evidence: `render/pdf.py:60` (`Environment(autoescape=False)`),
-  `render/pdf.py:51-52` (unescaped `{{ letterhead0 }}`), `render/pdf.py:118`
-  (`write_pdf` with default fetcher).
-  Remediation: Pass a `url_fetcher` to `HTML(...)` that allows only `data:`
-  URLs and raises on everything else, making the no-network guarantee
-  enforced rather than incidental. Also HTML-escape the letterhead lines.
+- **[WARN 2026-07-14] manifest paths trusted at consumption** — Fixed.
+  `check_relpath` now rejects absolute paths, empty components, and `..`
+  (orgsmith/naming.py:42-46), and `load_manifest` re-runs it on every
+  entry at load, raising on failure (orgsmith/artifacts.py:60-66). All
+  consumers that join `entry.path` to the filesystem (render, validate,
+  assemble, emit-evals) load through this chokepoint. Verified by
+  executing the check against `/etc/x.docx`, `../../x.docx`, `a/../x.docx`,
+  `//srv/share/x.docx`, and `a/./x.docx`: all rejected; normal paths pass.
+- **[NOTE 2026-07-14] WeasyPrint default fetcher could egress** — Fixed.
+  `no_remote_fetcher` serves only `data:` URIs and raises before any
+  socket exists (orgsmith/render/pdf.py:18-26); covered by unit tests for
+  `http:`, `https:`, `file:`, and `ftp:` plus an end-to-end render with
+  blocked resources (tests/test_unit_hardening.py). The letterhead-escape
+  half of that NOTE remains open as the residual NOTE above.
+- **[NOTE 2026-07-14] CI actions pinned to mutable tags** — Fixed.
+  `actions/checkout` and `actions/setup-python` are pinned to full commit
+  SHAs (.github/workflows/ci.yml:11-12). The SHA-to-version comments were
+  not verifiable offline, but pinning to immutable objects is the property
+  sought.
 
-**[NOTE] .github/workflows/ci.yml:11-13 — third-party actions pinned to mutable major-version tags**
+### Reviewed Surface (this delta)
 
-  Attack vector: `actions/checkout@v4` and `actions/setup-python@v5` are
-  pinned to moving tags. A compromise of the tag would run attacker code in
-  CI. These are first-party GitHub actions (low likelihood) and the workflow
-  holds no secrets and uses no `pull_request_target`, so blast radius is
-  small.
-  Evidence: `.github/workflows/ci.yml:11,12`.
-  Remediation: Pin actions to full commit SHAs for supply-chain
-  defense-in-depth. Optional.
+- New external-input surface `score --answers <file>` / `--evals-dir`:
+  answers parsed with strict pydantic models, malformed input exits 2 with
+  a message; file contents are compared as strings only and never joined
+  to the filesystem (orgsmith/evals/score.py). No injection path.
+- `emit-evals` writes only under the org's own `evals/` dir derived from
+  the CLI slug; charter slugs are pattern-constrained
+  (`^[a-z0-9][a-z0-9-]*$`, schemas.py:120). No path escape.
+- New fixture `companies/torchlake-engineering*` and its workorder/eval
+  records: all identities synthetic (Faker names, 555-01xx fictional
+  phones, invented domains e.g. `torchlakeeng.com`, same convention as the
+  audited dev-mini fixture); docx/xlsx/pdf metadata carries synthetic
+  creators only, no local usernames or paths (verified by unzipping core
+  properties and scanning PDF objects).
+- Secret scan: cumulative diff and per-commit `git log -p` over the range
+  matched zero credential patterns. The one `file:///etc/passwd` string is
+  a hardening-test asset.
+- Mention enforcement at ingest tightens validation of model output
+  (placeholder-resolved matching, orgsmith/authoring/ingest.py); no new
+  trust placed in model output.
 
 ### Accepted Risks
 
 None recorded.
 
 ---
-*No prior review.*
+*Prior review (2026-07-14, scope full, commit b94d7f5): first full audit
+of the package, skills, tests, and config; no secrets, injection, or auth
+issues; one WARN (manifest paths trusted at consumption, arbitrary file
+write if a tampered third-party org is rendered) and two NOTEs (WeasyPrint
+default fetcher enabled, CI actions on mutable tags), all three remediated
+in the delta reviewed above.*
 
-<!-- SECURITY_META: {"date":"2026-07-14","commit":"b94d7f59a2cb6a95fea9bac10acecb9f7c285f7f","scope":"full","block":0,"warn":1,"note":2} -->
+<!-- SECURITY_META: {"date":"2026-07-14","commit":"9d60f44273b769fd8b5721701f579980128b6307","scope":"changes-only","block":0,"warn":0,"note":1} -->
