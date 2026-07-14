@@ -37,7 +37,7 @@ rejected. Read before drafting a new SPEC.md; swept at turn close.
   first real-name collision report against a committed fixture.
 - **Origin:** plan we-re-making-a-plan-virtual-sedgewick.
 
-### mention-ambiguity-tags
+### mention-ambiguity-tags (ACTIVE in spec 2026-07-14)
 - **One-line description** of the proposal: tag mention_map records with
   planted-ambiguity classes (surname-collision, nickname-only, cross-org
   duplicate) so eval suites can score disambiguation specifically rather
