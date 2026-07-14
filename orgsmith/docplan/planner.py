@@ -81,15 +81,18 @@ class _Planner:
             return self.ceo
         return team[-1] if junior else team[0]
 
+    def _clamp_range(self, d: date) -> date:
+        return _clamp(d, self.range_start, self.range_end)
+
     def _add(self, **kw) -> None:
         problems = check_relpath(kw["path"])
         if problems:
             raise SystemExit(f"docplan: unsafe path: {problems}")
+        kw["date"] = _clamp(kw["date"], self.range_start, self.range_end)
         if not _employed_at(self.foundation.person(kw["authors"][0]), kw["date"]):
             raise SystemExit(
                 f"docplan: author {kw['authors'][0]} not employed on {kw['date']}"
             )
-        kw["date"] = _clamp(kw["date"], self.range_start, self.range_end)
         self.planned.append(kw)
 
     # --- genre planners -------------------------------------------------
@@ -120,7 +123,7 @@ class _Planner:
             )
 
             if idx < 2:  # kickoff memos for the first two engagements
-                kd = eng.start + timedelta(days=3)
+                kd = self._clamp_range(eng.start + timedelta(days=3))
                 self._add(
                     path=f"{folder}/{kd:%Y.%m.%d} - Kickoff Memo - {service}.docx",
                     title=f"Kickoff Memo: {eng.title}",
@@ -134,7 +137,9 @@ class _Planner:
                     facts_refs=[f"f:{eng.id}.start", f"f:{eng.id}.client"],
                 )
 
-            md = eng.start + timedelta(days=int(duration * 0.4))
+            md = self._clamp_range(
+                eng.start + timedelta(days=int(duration * 0.4))
+            )
             self._add(
                 path=f"{folder}/Meeting Minutes {md:%Y-%m-%d} - {client}.docx",
                 title=f"Meeting Minutes: {eng.title}",
@@ -148,7 +153,9 @@ class _Planner:
             )
 
             if idx in (0, len(engs) - 1):  # status reports: first and last
-                sd = eng.start + timedelta(days=int(duration * 0.75))
+                sd = self._clamp_range(
+                    eng.start + timedelta(days=int(duration * 0.75))
+                )
                 self._add(
                     path=f"{folder}/{sd:%Y.%m.%d} - Status Report - {client} "
                     f"v2 FINAL.docx",
@@ -165,7 +172,7 @@ class _Planner:
     def plan_firm_docs(self) -> None:
         first_eng = self.engagements.engagements[0]
         mid = self.range_start + (self.range_end - self.range_start) / 2
-        mid = max(mid, first_eng.start + timedelta(days=30))
+        mid = self._clamp_range(max(mid, first_eng.start + timedelta(days=30)))
         self._add(
             path=f"Firm/Firm Overview {mid:%Y} v3.docx",
             title="Firm Overview",

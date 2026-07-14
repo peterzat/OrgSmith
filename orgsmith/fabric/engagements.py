@@ -51,12 +51,23 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
         chosen_years.append(rand.choice(years))
     chosen_years.sort()
 
+    # Bound the seeded start to the usable window so the end clamp below can
+    # never invert the engagement: 45d lead-in + 90d minimum duration + 14d
+    # end margin must fit inside the charter date range.
+    start_floor = range_start + timedelta(days=45)
+    start_cap = range_end - timedelta(days=90 + 14)
+    if start_cap < start_floor:
+        raise SystemExit(
+            f"fabric: doc_culture.date_range {range_start}..{range_end} is too "
+            "short for engagements; it must span at least 149 days"
+        )
+
     engagements: list[Engagement] = []
     serial_by_year: dict[int, int] = {}
     for idx in range(charter.engagements.count):
         year = chosen_years[idx]
         start = date(year, rand.randint(2, 8), rand.randint(1, 28))
-        start = max(start, range_start + timedelta(days=45))
+        start = min(max(start, start_floor), start_cap)
         end = start + timedelta(days=rand.randint(90, 270))
         end = min(end, range_end - timedelta(days=14))
 

@@ -11,7 +11,7 @@ but not consumed until their milestone lands.
 
 ## Structure
 
-```markdown
+````markdown
 # <Company Name> — Org Charter
 
 ```yaml
@@ -49,7 +49,7 @@ Prose after the YAML block is the narrative brief. It is carried into
 charter.json verbatim and given to the model during enrichment and
 authoring. Write it like a briefing note: what the firm does, who its
 clients are, what its documents feel like.
-```
+````
 
 ## Reserved fields (later milestones)
 

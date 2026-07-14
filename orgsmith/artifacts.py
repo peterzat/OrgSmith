@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 
+from .naming import check_relpath
 from .paths import OrgPaths
 from .schemas import (
     Charter,
@@ -50,7 +51,13 @@ def load_manifest(paths: OrgPaths) -> list[ManifestEntry]:
     entries = []
     for line in _read(paths.manifest_jsonl).splitlines():
         if line.strip():
-            entries.append(ManifestEntry.model_validate_json(line))
+            entry = ManifestEntry.model_validate_json(line)
+            # Re-validate at every load so consumers that join entry.path to
+            # the filesystem (render, validate) reject tampered manifests.
+            problems = check_relpath(entry.path)
+            if problems:
+                raise SystemExit(f"manifest: unsafe path: {problems}")
+            entries.append(entry)
     return entries
 
 

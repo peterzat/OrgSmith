@@ -39,7 +39,12 @@ def check_relpath(relpath: str) -> list[str]:
     problems = []
     if len(relpath) > MAX_RELPATH:
         problems.append(f"path longer than {MAX_RELPATH}: {relpath!r}")
-    for part in relpath.split("/"):
+    parts = relpath.split("/")
+    if "" in parts:
+        problems.append(f"absolute path or empty component: {relpath!r}")
+    if ".." in parts:
+        problems.append(f"parent-directory component: {relpath!r}")
+    for part in parts:
         problems.extend(check_filename(part))
     return problems
 
