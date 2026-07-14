@@ -1,53 +1,36 @@
 # CODEREVIEW
 
-## Review — 2026-07-14 (commit: 09d6596)
+## Review — 2026-07-14 (commit: 589c6bc)
 
-**Summary:** M2 turn review, scope origin/main..HEAD (13 commits): graph
-ambiguity knobs, mention planning + mention_map ground truth, MENT/GRAPH
-validator families with visible skips, golden evals (emit-evals/score),
-no-network PDF hardening, CI SHA pins, and the committed
-torchlake-engineering fixture. Tests green before and after the fix cycle
-(short 5 / unit 65 / org 4); fresh-clone verification green; both committed
-orgs validate clean under the post-fix stricter rules.
+**Summary:** Refresh review at light tier. Prior full review (block: 0) at
+09d6596 is an ancestor of HEAD; the only file changed since, excluding
+review-output files, is BACKLOG.md, a docs-only diff. The change is the
+one-line `(ACTIVE in spec 2026-07-14)` annotation on the
+`mention-ambiguity-tags` entry, applied by `spec-backlog-apply.sh` when the
+M3 spec adopted it. Annotation format matches the documented convention and
+the referenced spec exists with the entry in scope (criterion 7). The 74
+already-reviewed files since origin/main are unchanged since the prior
+review.
 
-**External reviewers:** None configured.
+**External reviewers:** Skipped (light review).
 
 ### Findings
 
-```
-[WARN] orgsmith/validate/rules.py (MENT-01) + orgsmith/authoring/ingest.py —
-mention surfaces matched by substring containment, so a nickname that
-prefixes the full name ("Jen" in "Jennifer") satisfied the check
-vacuously. FIXED.
-
-[WARN] orgsmith/artifacts.py:60 — the load-time manifest path rejection
-(v1 security fix) had no negative test. FIXED.
-```
-
-NOTE (from /security, informational): PDF letterhead lines render
-unescaped; input is the trusted recipe charter and the fetcher blocks all
-egress, so no vector. NOTE: `score` keeps the last entry when an answers
-file repeats a question id rather than flagging the duplicate.
-
-Security (changes-only scan at this commit range): 0 BLOCK / 0 WARN /
-1 NOTE; all three v1 findings verified remediated (manifest path
-re-validation, WeasyPrint fetcher block, CI SHA pins). See SECURITY.md.
+No issues found.
 
 ### Fixes Applied
 
-Both WARNs, via /codefix (commit 09d6596):
-- Shared `surface_in_text` helper (word-boundary lookarounds around the
-  escaped surface) in orgsmith/schemas.py, used by MENT-01 and the ingest
-  mention check.
-- Negative tests: schema-valid manifest lines with absolute and
-  parent-directory paths make load_manifest raise.
+None.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-14, commit 6b4eef5): first full-tree review; 4 WARNs
-found and auto-fixed, 0 BLOCKs.*
+*Prior review (2026-07-14, commit 09d6596): M2 full review over
+origin/main..HEAD; 2 WARNs (vacuous substring mention matching, missing
+negative test for manifest path rejection) found and fixed via /codefix, 0
+BLOCKs; tests green before and after; security changes-only scan 0 BLOCK /
+0 WARN / 1 NOTE.*
 
-<!-- REVIEW_META: {"date":"2026-07-14","commit":"09d6596","reviewed_up_to":"09d6596ff002165e379ed01ce8b648eb54b0b1e8","base":"origin/main","tier":"full","block":0,"warn":2,"note":2} -->
+<!-- REVIEW_META: {"date":"2026-07-14","commit":"589c6bc","reviewed_up_to":"589c6bc4ce0364a93c2ec3034b9e001604731420","base":"origin/main","tier":"refresh","block":0,"warn":0,"note":0} -->
