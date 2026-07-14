@@ -39,6 +39,9 @@ class StageState(StrictModel):
 class DocState(StrictModel):
     authored_hash: str | None = None
     rendered_hash: str | None = None
+    # Content basis the last render consumed (authored hash, or ledger hash
+    # for static docs); rendering skips docs whose basis is unchanged.
+    rendered_from: str | None = None
     rev: int = 0
 
 
