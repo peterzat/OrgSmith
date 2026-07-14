@@ -61,6 +61,9 @@ clients are, what its documents feel like.
 
 ## Rules
 
+- Dict order is significant: the FIRST department listed in `headcount`
+  holds the CEO-equivalent (its first title), and the largest department
+  outside the CEO's staffs engagements.
 - `slug` must equal the directory name; lowercase, hyphens only.
 - `date_range` must start no earlier than `founded`.
 - `format_mix` values must sum to `target_docs`.

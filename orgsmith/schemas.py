@@ -43,9 +43,11 @@ class StrictModel(BaseModel):
 
 
 def dump_json(model: BaseModel) -> str:
-    """Canonical serialization: stable key order, trailing newline."""
+    """Canonical serialization: pydantic field order and dict insertion
+    order, both deterministic. Never sort keys: recipe dicts like
+    `headcount` are order-significant (first dept holds the CEO)."""
     data = model.model_dump(mode="json")
-    return json.dumps(data, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
+    return json.dumps(data, indent=2, ensure_ascii=False) + "\n"
 
 
 def write_model(path: Path, model: BaseModel) -> None:
@@ -110,6 +112,10 @@ class Charter(StrictModel):
     founded: int = Field(ge=1800, le=2100)
     domain: str
     headcount: dict[str, int]
+    # Per-dept title lists assigned in order; missing entries fall back to
+    # generic titles. The first person of the first dept is the
+    # CEO-equivalent and reports to no one.
+    titles: dict[str, list[str]] = {}
     doc_culture: DocCulture
     finance: FinanceProfile
     engagements: EngagementPlan
