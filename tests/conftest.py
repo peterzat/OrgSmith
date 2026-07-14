@@ -33,3 +33,100 @@ def build_pure_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
 def pure_org(tmp_path_factory) -> OrgPaths:
     """One dev-mini org built through docplan, shared read-only per module."""
     return build_pure_stages(tmp_path_factory.mktemp("pure-org"))
+
+
+# --- scripted airlock counterparts (tests only) ----------------------------
+# Deterministic template text standing in for the model so the airlock
+# contract and resume machinery can be exercised offline. Never used for
+# committed orgs; realism comes from the real skills.
+
+
+def scripted_enrichment(order) -> dict:
+    return {
+        "schema_id": "orgsmith/enrichment-deliverable@1",
+        "work_order_id": order.id,
+        "personas": [
+            {
+                "person_id": p.id,
+                "persona": (
+                    f"{p.name} is the firm's {p.title}. Writes brief, direct "
+                    f"prose and keeps meetings short. Test-double persona."
+                ),
+            }
+            for p in order.people
+        ],
+    }
+
+
+def scripted_authoring(order) -> dict:
+    docs = []
+    for brief in order.docs:
+        placeholders = " ".join("{{fact:%s}}" % f.id for f in brief.facts)
+        blocks = [
+            {"kind": "heading", "text": brief.title, "level": 1},
+            {
+                "kind": "paragraph",
+                "text": (
+                    f"Scripted body for {brief.genre} dated {brief.date}. "
+                    f"{placeholders} End of scripted prose."
+                ),
+            },
+        ]
+        if brief.genre == "meeting_minutes":
+            blocks.append(
+                {"kind": "list", "items": [p.name for p in brief.participants]}
+            )
+        if brief.genre == "engagement_letter":
+            signers = [brief.authors[0].id]
+            if brief.participants:
+                ext = [p.id for p in brief.participants if p.id.startswith("xp:")]
+                signers += ext[:1]
+            blocks.append({"kind": "sigblock", "signers": signers})
+        docs.append(
+            {"schema_id": "orgsmith/docir@1", "doc_id": brief.doc_id, "blocks": blocks}
+        )
+    return {
+        "schema_id": "orgsmith/authoring-deliverable@1",
+        "work_order_id": order.id,
+        "docs": docs,
+    }
+
+
+def run_enrichment(paths: OrgPaths) -> None:
+    import json
+
+    from orgsmith.artifacts import load_work_order
+    from orgsmith.foundation.contexts import run_emit_context
+    from orgsmith.foundation.ingest import run_ingest as ingest_enrichment
+    from orgsmith.state import load_state
+
+    assert run_emit_context(paths) == 0
+    state = load_state(paths)
+    wo = load_work_order(paths.workorders_dir / state.outstanding["foundation"])
+    reply = paths.workorders_dir / "reply-foundation.json"
+    reply.write_text(json.dumps(scripted_enrichment(wo)))
+    assert ingest_enrichment(paths, reply) == 0
+
+
+def run_authoring(paths: OrgPaths, max_batches: int = 10) -> int:
+    """Drive next-batch/ingest with the scripted author until done.
+    Returns the number of batches ingested."""
+    import json
+
+    from orgsmith.artifacts import load_work_order
+    from orgsmith.authoring.contexts import run_next_batch
+    from orgsmith.authoring.ingest import run_ingest as ingest_author
+    from orgsmith.state import load_state
+
+    batches = 0
+    for _ in range(max_batches):
+        assert run_next_batch(paths) == 0
+        state = load_state(paths)
+        if "author" not in state.outstanding:
+            return batches
+        wo = load_work_order(paths.workorders_dir / state.outstanding["author"])
+        reply = paths.workorders_dir / f"reply-{wo.id.replace(':', '-')}.json"
+        reply.write_text(json.dumps(scripted_authoring(wo)))
+        assert ingest_author(paths, reply) == 0
+        batches += 1
+    raise AssertionError("authoring did not converge")
