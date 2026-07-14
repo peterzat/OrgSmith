@@ -1,0 +1,68 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0002",
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0005",
+      "blocks": [
+        {"kind": "paragraph", "text": "Melissa Sexton, VP Finance, {{fact:f:E-2020-001.client}}"},
+        {"kind": "paragraph", "text": "Re: Pricing Study Engagement"},
+        {"kind": "paragraph", "text": "Dear Ms. Sexton:"},
+        {"kind": "paragraph", "text": "This letter confirms that {{fact:f:E-2020-001.client}} has engaged Pinebrook Advisory Group LLC to conduct a pricing study across your commercial product lines. You asked us two questions: where is price leaking relative to your list, and which customer segments will bear a structured increase. The study answers both with your own transaction data."},
+        {"kind": "paragraph", "text": "Scope of work:"},
+        {"kind": "list", "items": [
+          "Transaction-level price waterfall from list price to pocket price, by product family and customer segment.",
+          "Discounting practice review, including approval thresholds and exception patterns.",
+          "Recommended price architecture and an implementation sequence your sales leadership can defend."
+        ]},
+        {"kind": "paragraph", "text": "Jenna Wiley, Principal Consultant, leads the work; Lisa Hernandez, Analyst, runs the data analysis. Given present circumstances we are prepared to conduct interviews and working sessions by video where your team prefers it, with no change to scope or timeline."},
+        {"kind": "paragraph", "text": "Work will begin on {{fact:f:E-2020-001.start}}. The professional fee for the scope above is a fixed fee of {{fact:f:E-2020-001.fee}}, invoiced monthly against progress and inclusive of routine expenses. Any change in scope will be agreed in writing before additional work begins."},
+        {"kind": "paragraph", "text": "We are glad to be working with your team. Please sign below to confirm these arrangements and return one copy to my attention."},
+        {"kind": "paragraph", "text": "Sincerely,"},
+        {"kind": "sigblock", "signers": ["p:chad.miller", "xp:melissa.sexton"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0006",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Pricing Study team; cc Melissa Sexton, VP Finance, {{fact:f:E-2020-001.client}}"},
+        {"kind": "paragraph", "text": "From: Jenna Wiley, Principal Consultant"},
+        {"kind": "paragraph", "text": "Re: Kickoff, Pricing Study"},
+        {"kind": "paragraph", "text": "The engagement is signed and work begins {{fact:f:E-2020-001.start}}. This one runs differently from our usual playbook: all interviews and working sessions are by video until further notice, and the data room is electronic only. Plan your weeks around that; it changes the interview cadence, not the analysis."},
+        {"kind": "paragraph", "text": "Workstreams and owners:"},
+        {"kind": "list", "items": [
+          "1. Price waterfall build: land the transaction extract, validate it against the ledger, build the waterfall by product family. Owner: Lisa Hernandez.",
+          "2. Discounting practice: interview sales leadership and the two regional managers, document approval reality versus policy. Owner: Jenna Wiley.",
+          "3. Price architecture: synthesize into recommended structure and sequencing. Owner: Jenna Wiley, with Chad reviewing before anything goes to the client."
+        ]},
+        {"kind": "paragraph", "text": "Data hygiene matters double on a remote engagement: confirm every extract by email with Ms. Sexton's office, log the receipt date, and file the raw pull before you touch a copy."},
+        {"kind": "paragraph", "text": "Next steps: Lisa sends the data request Monday. I will schedule the first three video interviews. Weekly check-in stands; same rule as always, what changed and what it costs, one page."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0007",
+      "blocks": [
+        {"kind": "heading", "text": "Working Session Minutes: Pricing Study", "level": 1},
+        {"kind": "paragraph", "text": "Video working session with {{fact:f:E-2020-001.client}} to review the interim price waterfall and agree treatment of pandemic-period transactions. Minutes prepared by Lisa Hernandez."},
+        {"kind": "paragraph", "text": "Attendees:"},
+        {"kind": "list", "items": [
+          "Jenna Wiley, Principal Consultant, Pinebrook Advisory Group",
+          "Lisa Hernandez, Analyst, Pinebrook Advisory Group",
+          "Melissa Sexton, VP Finance, {{fact:f:E-2020-001.client}}"
+        ]},
+        {"kind": "paragraph", "text": "Discussion. Lisa presented the interim waterfall: pocket price runs well below list in the two largest product families, driven mainly by off-invoice allowances rather than negotiated discounts. Ms. Sexton asked whether recent months distort the picture given current market conditions; the team agreed to segment the analysis so that the recent period is visible separately rather than averaged in. Jenna reviewed early interview themes: approval thresholds are respected on paper but exception requests are effectively never declined."},
+        {"kind": "paragraph", "text": "Decisions. The waterfall will carry a separate view for the recent period. The discounting recommendations will address the exception process explicitly, not just the threshold levels."},
+        {"kind": "table",
+         "header": ["Action", "Owner", "Due"],
+         "rows": [
+           ["Split waterfall into pre-period and recent-period views", "Lisa Hernandez", "Next working session"],
+           ["Complete remaining regional manager interview", "Jenna Wiley", "Next working session"],
+           ["Provide allowance program terms for top accounts", "Melissa Sexton", "End of next week"]
+         ]}
+      ]
+    }
+  ]
+}

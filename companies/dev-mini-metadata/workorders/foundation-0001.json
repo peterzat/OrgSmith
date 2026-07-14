@@ -1,0 +1,49 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "dev-mini",
+  "org_name": "Pinebrook Advisory Group LLC",
+  "org_type": "management consulting",
+  "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:chad.miller",
+      "name": "Chad Miller",
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:jenna.wiley",
+      "name": "Jenna Wiley",
+      "title": "Principal Consultant",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:jacob.williams",
+      "name": "Jacob Williams",
+      "title": "Senior Consultant",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:lisa.hernandez",
+      "name": "Lisa Hernandez",
+      "title": "Analyst",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:megan.garcia",
+      "name": "Megan Garcia",
+      "title": "Office Manager",
+      "dept": "Operations",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

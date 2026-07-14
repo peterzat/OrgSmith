@@ -1,0 +1,170 @@
+{
+  "schema_id": "orgsmith/finance@1",
+  "slug": "dev-mini",
+  "years": [
+    {
+      "year": 2018,
+      "revenue": 382000,
+      "quarters": [
+        97483,
+        89348,
+        99251,
+        95918
+      ],
+      "expenses": {
+        "Compensation": 184735,
+        "Office & Facilities": 41714,
+        "Travel": 26816,
+        "Professional Services": 23836,
+        "Other": 20859
+      }
+    },
+    {
+      "year": 2019,
+      "revenue": 850000,
+      "quarters": [
+        221269,
+        226822,
+        219986,
+        181923
+      ],
+      "expenses": {
+        "Compensation": 411060,
+        "Office & Facilities": 92820,
+        "Travel": 59670,
+        "Professional Services": 53040,
+        "Other": 46410
+      }
+    },
+    {
+      "year": 2020,
+      "revenue": 948000,
+      "quarters": [
+        220867,
+        271886,
+        201823,
+        253424
+      ],
+      "expenses": {
+        "Compensation": 458452,
+        "Office & Facilities": 103521,
+        "Travel": 66549,
+        "Professional Services": 59155,
+        "Other": 51763
+      }
+    },
+    {
+      "year": 2021,
+      "revenue": 1074000,
+      "quarters": [
+        300544,
+        234093,
+        244190,
+        295173
+      ],
+      "expenses": {
+        "Compensation": 519386,
+        "Office & Facilities": 117280,
+        "Travel": 75394,
+        "Professional Services": 67017,
+        "Other": 58643
+      }
+    },
+    {
+      "year": 2022,
+      "revenue": 1181000,
+      "quarters": [
+        270570,
+        267670,
+        298562,
+        344198
+      ],
+      "expenses": {
+        "Compensation": 571131,
+        "Office & Facilities": 128965,
+        "Travel": 82906,
+        "Professional Services": 73694,
+        "Other": 64484
+      }
+    },
+    {
+      "year": 2023,
+      "revenue": 1343000,
+      "quarters": [
+        366572,
+        334750,
+        334038,
+        307640
+      ],
+      "expenses": {
+        "Compensation": 649474,
+        "Office & Facilities": 146655,
+        "Travel": 94278,
+        "Professional Services": 83803,
+        "Other": 73330
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "FY2018.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=382000 revenue=382000"
+    },
+    {
+      "name": "FY2018.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=297960 total=297960"
+    },
+    {
+      "name": "FY2019.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=850000 revenue=850000"
+    },
+    {
+      "name": "FY2019.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=663000 total=663000"
+    },
+    {
+      "name": "FY2020.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=948000 revenue=948000"
+    },
+    {
+      "name": "FY2020.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=739440 total=739440"
+    },
+    {
+      "name": "FY2021.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1074000 revenue=1074000"
+    },
+    {
+      "name": "FY2021.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=837720 total=837720"
+    },
+    {
+      "name": "FY2022.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1181000 revenue=1181000"
+    },
+    {
+      "name": "FY2022.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=921180 total=921180"
+    },
+    {
+      "name": "FY2023.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1343000 revenue=1343000"
+    },
+    {
+      "name": "FY2023.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=1047540 total=1047540"
+    }
+  ]
+}

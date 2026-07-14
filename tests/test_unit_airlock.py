@@ -100,8 +100,17 @@ def test_authoring_flow_and_rejections(org):
     assert 0 < len(wo.docs) <= 6
     groups = {b.doc_id.split(":")[0] for b in wo.docs}
     assert groups == {"d"}
-    # facts are briefed as ids + hints, never values
-    assert all(not hasattr(f, "value") for b in wo.docs for f in b.facts)
+    # facts are briefed as ids + hints, never values: no ledger surface
+    # form may appear anywhere in the serialized work order
+    from orgsmith.artifacts import load_engagements
+    from orgsmith.state import load_state as _ls
+
+    wo_text = (
+        org.workorders_dir / _ls(org).outstanding["author"]
+    ).read_text()
+    for fact in load_engagements(org).fact_index().values():
+        if fact.kind in ("money", "date"):
+            assert fact.rendered not in wo_text, fact.id
 
     good = scripted_authoring(wo)
 

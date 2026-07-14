@@ -1,0 +1,89 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0001",
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0001",
+      "blocks": [
+        {"kind": "paragraph", "text": "Jacob Andersen, Chief Financial Officer, {{fact:f:E-2019-001.client}}"},
+        {"kind": "paragraph", "text": "Re: Operational Review Engagement"},
+        {"kind": "paragraph", "text": "Dear Mr. Andersen:"},
+        {"kind": "paragraph", "text": "Thank you for the time you and your team gave us last week. This letter confirms that {{fact:f:E-2019-001.client}} has engaged Pinebrook Advisory Group LLC to perform an operational review of your production and back-office functions. Our objective is simple: find the cost and throughput problems worth fixing, size them, and leave your team with a plan it can execute."},
+        {"kind": "paragraph", "text": "The work will cover three areas:"},
+        {"kind": "list", "items": [
+          "Production flow and scheduling, including changeover and downtime drivers.",
+          "Purchasing and inventory practices, with attention to slow-moving stock.",
+          "Order-to-cash administration, from quote through collection."
+        ]},
+        {"kind": "paragraph", "text": "Jenna Wiley, Principal Consultant, will lead the engagement day to day. Lisa Hernandez, Analyst, will support the data work and keep the meeting record. I will stay close to the work and join the steering sessions. From your side we will need reasonable access to operating data and to the managers who own these processes."},
+        {"kind": "paragraph", "text": "Fieldwork will begin on {{fact:f:E-2019-001.start}}. Our professional fee for the full scope described above is a fixed fee of {{fact:f:E-2019-001.fee}}, invoiced in three equal installments and inclusive of routine expenses. If the scope changes, we will agree on any adjustment in writing before we do the work."},
+        {"kind": "paragraph", "text": "We appreciate the confidence you have placed in the firm. If the terms above match your understanding, please sign below and return one copy to my attention."},
+        {"kind": "paragraph", "text": "Sincerely,"},
+        {"kind": "sigblock", "signers": ["p:chad.miller", "xp:jacob.andersen"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0002",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Operational Review team; cc Jacob Andersen, Chief Financial Officer, {{fact:f:E-2019-001.client}}"},
+        {"kind": "paragraph", "text": "From: Jenna Wiley, Principal Consultant"},
+        {"kind": "paragraph", "text": "Re: Kickoff, Operational Review"},
+        {"kind": "paragraph", "text": "Fieldwork starts {{fact:f:E-2019-001.start}}. This memo sets the workstreams, owners, and the first two weeks so nobody is guessing. Read it before the kickoff call; bring questions, not surprises."},
+        {"kind": "paragraph", "text": "Workstreams and owners:"},
+        {"kind": "list", "items": [
+          "1. Production flow: baseline the schedule, walk the floor, quantify downtime drivers. Owner: Jenna Wiley.",
+          "2. Purchasing and inventory: pull twelve months of purchase and stock data, flag slow movers. Owner: Lisa Hernandez.",
+          "3. Order-to-cash: map quote through collection, time each handoff. Owner: Lisa Hernandez, with client staff support."
+        ]},
+        {"kind": "paragraph", "text": "Ground rules for the client site: we are guests. Schedule interviews through Mr. Andersen's office, confirm every data pull in writing, and file everything in the engagement folder the same day you collect it."},
+        {"kind": "paragraph", "text": "Next steps: Lisa circulates the data request list this week. I will confirm the interview calendar with the client. First internal check-in is at the end of week one; what changed and what it costs, one page, no decks."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0003",
+      "blocks": [
+        {"kind": "heading", "text": "Working Session Minutes: Operational Review", "level": 1},
+        {"kind": "paragraph", "text": "Working session held at the {{fact:f:E-2019-001.client}} offices to review interim findings on production flow and agree on the data still outstanding. Minutes prepared by Lisa Hernandez."},
+        {"kind": "paragraph", "text": "Attendees:"},
+        {"kind": "list", "items": [
+          "Jenna Wiley, Principal Consultant, Pinebrook Advisory Group",
+          "Lisa Hernandez, Analyst, Pinebrook Advisory Group",
+          "Jacob Andersen, Chief Financial Officer, {{fact:f:E-2019-001.client}}"
+        ]},
+        {"kind": "paragraph", "text": "Discussion. Jenna walked through the downtime analysis to date: changeovers cluster on two lines and the scheduling pattern, not the equipment, appears to drive most of the variance. Mr. Andersen confirmed the maintenance log extract is complete and asked that the purchasing review include the freight surcharges added by two suppliers this year. Lisa noted that three weeks of order-to-cash timing data are still to confirm with the billing clerk."},
+        {"kind": "paragraph", "text": "Decisions. The team will prioritize the scheduling analysis ahead of the inventory work, and interim findings will go to Mr. Andersen before the next steering session rather than after."},
+        {"kind": "table",
+         "header": ["Action", "Owner", "Due"],
+         "rows": [
+           ["Complete order-to-cash timing pulls with billing clerk", "Lisa Hernandez", "Before next steering session"],
+           ["Add supplier freight surcharges to purchasing review", "Jenna Wiley", "Next working session"],
+           ["Provide updated production schedule extract", "Jacob Andersen", "End of this week"]
+         ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0004",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Operational Review", "level": 1},
+        {"kind": "paragraph", "text": "Status: on track. Fieldwork is complete, the analysis is closing out, and we are drafting the final read-out for {{fact:f:E-2019-001.client}} leadership. No open issues require executive action this period."},
+        {"kind": "heading", "text": "Completed this period", "level": 2},
+        {"kind": "list", "items": [
+          "Finished the scheduling analysis across both production lines; the changeover pattern explains the bulk of lost hours.",
+          "Closed the purchasing review, including the supplier freight surcharges raised at the working session.",
+          "Reconciled order-to-cash timing with the billing records; handoff delays sit in two approval steps."
+        ]},
+        {"kind": "heading", "text": "Upcoming", "level": 2},
+        {"kind": "list", "items": [
+          "Draft read-out to Mr. Andersen for factual review.",
+          "Final presentation to the leadership team, then handoff of the implementation plan."
+        ]},
+        {"kind": "heading", "text": "Budget", "level": 2},
+        {"kind": "paragraph", "text": "The engagement remains within the agreed fixed fee of {{fact:f:E-2019-001.fee}}. Two of three installments have been invoiced per the engagement letter; the final installment follows the read-out. No scope changes to report."}
+      ]
+    }
+  ]
+}

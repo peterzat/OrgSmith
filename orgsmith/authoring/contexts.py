@@ -84,6 +84,17 @@ Hard rules:
 """
 
 
+def _brief_summary(eng) -> str:
+    """Engagement context WITHOUT ledger values. The ledger summary carries
+    the exact fee and dates; briefs must never leak what a placeholder will
+    resolve to."""
+    months = max(1, round((eng.end - eng.start).days / 30))
+    return (
+        f"{eng.title}, running about {months} months. Commercial terms and "
+        f"dates are briefed as fact placeholders only."
+    )
+
+
 def _brief_person(foundation: Foundation, pid: str) -> PersonBrief:
     if pid.startswith("p:"):
         p = foundation.person(pid)
@@ -147,7 +158,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                     participants=[
                         _brief_person(foundation, p) for p in entry.participants
                     ],
-                    engagement_summary=eng.summary if eng else "",
+                    engagement_summary=_brief_summary(eng) if eng else "",
                     facts=[
                         FactBrief(
                             id=ref,

@@ -1,0 +1,74 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0004",
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0009",
+      "blocks": [
+        {"kind": "paragraph", "text": "Douglas Payne, General Manager, {{fact:f:E-2021-001.client}}"},
+        {"kind": "paragraph", "text": "Re: Post-Acquisition Integration Support"},
+        {"kind": "paragraph", "text": "Dear Mr. Payne:"},
+        {"kind": "paragraph", "text": "This letter confirms that {{fact:f:E-2021-001.client}} has engaged Pinebrook Advisory Group LLC to support the integration of your recent acquisition. Integrations fail on sequence, not intent. Our job is to keep the first hundred days in the right order and make sure the issues that decide the outcome get worked before the ones that merely feel urgent."},
+        {"kind": "paragraph", "text": "The work covers:"},
+        {"kind": "list", "items": [
+          "An integration plan with owners, sequence, and a weekly operating rhythm for the combined leadership team.",
+          "Consolidation of purchasing and key supplier terms across the two organizations.",
+          "Alignment of financial reporting so the combined business closes its books on one calendar, one chart of accounts."
+        ]},
+        {"kind": "paragraph", "text": "Jenna Wiley, Principal Consultant, leads the engagement. Jacob Williams, Senior Consultant, owns the supplier and purchasing workstream, and Lisa Hernandez, Analyst, supports the reporting alignment. I will join the steering sessions and remain available to you directly throughout."},
+        {"kind": "paragraph", "text": "Work will begin on {{fact:f:E-2021-001.start}}. Given the longer arc of an integration, our professional fee is a fixed fee of {{fact:f:E-2021-001.fee}}, invoiced in equal monthly installments across the engagement and inclusive of routine expenses. Scope changes, if any, will be agreed in writing first."},
+        {"kind": "paragraph", "text": "We appreciate the trust this engagement represents. Please sign below and return one copy to my attention."},
+        {"kind": "paragraph", "text": "Sincerely,"},
+        {"kind": "sigblock", "signers": ["p:chad.miller", "xp:douglas.payne"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0010",
+      "blocks": [
+        {"kind": "heading", "text": "Integration Steering Session Minutes", "level": 1},
+        {"kind": "paragraph", "text": "Steering session with {{fact:f:E-2021-001.client}} covering integration progress, supplier consolidation, and the reporting calendar. Minutes prepared by Jacob Williams, who notes for the record that the meeting ran long and the coffee ran out first."},
+        {"kind": "paragraph", "text": "Attendees:"},
+        {"kind": "list", "items": [
+          "Jenna Wiley, Principal Consultant, Pinebrook Advisory Group",
+          "Jacob Williams, Senior Consultant, Pinebrook Advisory Group",
+          "Lisa Hernandez, Analyst, Pinebrook Advisory Group",
+          "Douglas Payne, General Manager, {{fact:f:E-2021-001.client}}"
+        ]},
+        {"kind": "paragraph", "text": "Discussion. Jenna opened with the integration plan status: the weekly operating rhythm is holding and the leadership team is attending, which is more than half the battle. Jacob walked through the supplier consolidation analysis; the two organizations buy from an overlapping set of suppliers on materially different terms, and the gap is largest in freight and packaging. Mr. Payne asked that the supplier conversations wait until the combined volumes are confirmed, so the firm negotiates once with real numbers rather than twice with estimates. Lisa reported that the chart-of-accounts mapping is through its first pass; the open item is the treatment of the acquired company's deferred revenue accounts, which the client's outside accountants are reviewing."},
+        {"kind": "paragraph", "text": "Decisions. Supplier negotiations are sequenced after volume confirmation. The reporting alignment stays on its current calendar, with the deferred revenue question tracked as the single open risk."},
+        {"kind": "table",
+         "header": ["Action", "Owner", "Due"],
+         "rows": [
+           ["Confirm combined purchase volumes for top suppliers", "Jacob Williams", "Next steering session"],
+           ["Close deferred revenue treatment with outside accountants", "Douglas Payne", "Next steering session"],
+           ["Circulate updated integration plan with revised sequence", "Jenna Wiley", "End of this week"],
+           ["Complete second-pass chart-of-accounts mapping", "Lisa Hernandez", "Two weeks"]
+         ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0012",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Integration Support", "level": 1},
+        {"kind": "paragraph", "text": "Status: on track, one watch item. The integration plan for {{fact:f:E-2021-001.client}} is holding its sequence, supplier negotiations are underway on confirmed volumes, and reporting alignment is in its final pass. The deferred revenue treatment remains open with the outside accountants and is the one item that could move the reporting milestone."},
+        {"kind": "heading", "text": "Completed this period", "level": 2},
+        {"kind": "list", "items": [
+          "Confirmed combined purchase volumes and opened negotiations with the top overlapping suppliers.",
+          "Completed the second-pass chart-of-accounts mapping; the combined business can produce a single trial balance.",
+          "Ran the weekly operating rhythm without a missed session through the holiday period, which we count as a minor miracle."
+        ]},
+        {"kind": "heading", "text": "Upcoming", "level": 2},
+        {"kind": "list", "items": [
+          "Close out supplier terms for freight and packaging, where the consolidation gap is largest.",
+          "First combined-calendar monthly close, with Pinebrook observing rather than driving.",
+          "Steering session to review the exit checklist and transition remaining items to client owners."
+        ]},
+        {"kind": "heading", "text": "Budget", "level": 2},
+        {"kind": "paragraph", "text": "The engagement remains within the agreed fixed fee of {{fact:f:E-2021-001.fee}}, invoiced monthly per the engagement letter. No scope changes this period; the deferred revenue question sits with the client's outside accountants and does not affect our fees."}
+      ]
+    }
+  ]
+}

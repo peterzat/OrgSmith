@@ -14,7 +14,7 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from ..airlock import clear_outstanding, match_outstanding
-from ..artifacts import load_manifest
+from ..artifacts import load_engagements, load_manifest
 from ..paths import OrgPaths
 from ..schemas import AuthoringDeliverable, DocBrief, DocIR, dump_json
 from ..state import load_state, save_state, sha256_file
@@ -26,7 +26,7 @@ def docir_path(paths: OrgPaths, doc_id: str) -> Path:
     return paths.docir_dir / f"{doc_id.replace(':', '')}.json"
 
 
-def placeholders_in(doc: DocIR) -> list[str]:
+def _chunks(doc: DocIR) -> str:
     chunks: list[str] = []
     for b in doc.blocks:
         chunks.append(b.text)
@@ -34,7 +34,11 @@ def placeholders_in(doc: DocIR) -> list[str]:
         chunks.extend(b.header)
         for row in b.rows:
             chunks.extend(row)
-    return _PLACEHOLDER.findall("\n".join(chunks))
+    return "\n".join(chunks)
+
+
+def placeholders_in(doc: DocIR) -> list[str]:
+    return _PLACEHOLDER.findall(_chunks(doc))
 
 
 def _check_doc(doc: DocIR, brief: DocBrief) -> list[str]:
@@ -100,10 +104,24 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     missing = sorted(set(briefs) - set(got))
     if missing:
         problems.append(f"work-order docs not delivered: {', '.join(missing)}")
+    facts = load_engagements(paths).fact_index()
     for doc in deliverable.docs:
         if doc.doc_id in briefs:
             for p in _check_doc(doc, briefs[doc.doc_id]):
                 problems.append(f"{doc.doc_id}: {p}")
+            # Defense in depth: money/date surface forms must arrive only
+            # via placeholders. A literal match means the author somehow
+            # learned (or guessed) a ledger value.
+            text = _chunks(doc)
+            for brief_fact in briefs[doc.doc_id].facts:
+                fact = facts.get(brief_fact.id)
+                if fact and fact.kind in ("money", "date") and (
+                    fact.rendered in text
+                ):
+                    problems.append(
+                        f"{doc.doc_id}: literal value of {fact.id} in prose; "
+                        f"write the placeholder instead"
+                    )
 
     if problems:
         print("ingest: deliverable rejected:")

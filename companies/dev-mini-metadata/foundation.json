@@ -1,0 +1,137 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "dev-mini",
+  "people": [
+    {
+      "id": "p:chad.miller",
+      "name": "Chad Miller",
+      "aliases": [],
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2018-02-15",
+        "end": null
+      },
+      "email": "chad.miller@pinebrookadvisory.com",
+      "phone": "+1 (212) 555-0178",
+      "persona": "Chad Miller built Pinebrook after a long operating career and it shows: he writes the way he ran plants, short declarative sentences, numbers up front, one ask per letter. He signs everything that leaves the firm and edits juniors' drafts by crossing out adjectives. Clients get his cell number and he answers it."
+    },
+    {
+      "id": "p:jenna.wiley",
+      "name": "Jenna Wiley",
+      "aliases": [],
+      "title": "Principal Consultant",
+      "dept": "Consulting",
+      "reports_to": "p:chad.miller",
+      "employment": {
+        "start": "2018-03-15",
+        "end": null
+      },
+      "email": "jenna.wiley@pinebrookadvisory.com",
+      "phone": "+1 (415) 555-0180",
+      "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+    },
+    {
+      "id": "p:jacob.williams",
+      "name": "Jacob Williams",
+      "aliases": [],
+      "title": "Senior Consultant",
+      "dept": "Consulting",
+      "reports_to": "p:jenna.wiley",
+      "employment": {
+        "start": "2018-04-26",
+        "end": null
+      },
+      "email": "jacob.williams@pinebrookadvisory.com",
+      "phone": "+1 (206) 555-0185",
+      "persona": "Jacob Williams is the firm's utility player, comfortable interviewing a shop foreman in the morning and rebuilding a pricing model that night. His prose runs a little longer than Jenna likes, with the occasional dry aside buried in a status bullet. Reliable owner of client follow-ups and the person who actually reads the appendices."
+    },
+    {
+      "id": "p:lisa.hernandez",
+      "name": "Lisa Hernandez",
+      "aliases": [],
+      "title": "Analyst",
+      "dept": "Consulting",
+      "reports_to": "p:jenna.wiley",
+      "employment": {
+        "start": "2018-09-19",
+        "end": null
+      },
+      "email": "lisa.hernandez@pinebrookadvisory.com",
+      "phone": "+1 (617) 555-0189",
+      "persona": "Lisa Hernandez is the analyst on the team and the firm's default minute-taker. She captures meetings almost verbatim, names every attendee, and keeps a running action list that she chases without being asked. Her writing is neutral and precise; when she is unsure she writes 'to confirm' rather than guessing."
+    },
+    {
+      "id": "p:megan.garcia",
+      "name": "Megan Garcia",
+      "aliases": [],
+      "title": "Office Manager",
+      "dept": "Operations",
+      "reports_to": "p:chad.miller",
+      "employment": {
+        "start": "2018-04-15",
+        "end": null
+      },
+      "email": "megan.garcia@pinebrookadvisory.com",
+      "phone": "+1 (617) 555-0191",
+      "persona": "Megan Garcia keeps the office running and owns the firm's books, calendars, and files. She writes little but files everything, and her folder discipline is why the share drive is navigable at all. Direct, practical email voice; the person who reminds the partners a summary is due before they remember the fiscal year ended."
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:weaver-reeves",
+      "name": "Weaver-Reeves",
+      "org_type": "client"
+    },
+    {
+      "id": "x:johnson-plc",
+      "name": "Johnson PLC",
+      "org_type": "client"
+    },
+    {
+      "id": "x:foley-group",
+      "name": "Foley Group",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:jacob.andersen",
+      "name": "Jacob Andersen",
+      "org": "x:weaver-reeves",
+      "title": "Chief Financial Officer",
+      "email": "jacob.andersen@weaverreeves.com"
+    },
+    {
+      "id": "xp:melissa.sexton",
+      "name": "Melissa Sexton",
+      "org": "x:johnson-plc",
+      "title": "VP Finance",
+      "email": "melissa.sexton@johnsonplc.com"
+    },
+    {
+      "id": "xp:douglas.payne",
+      "name": "Douglas Payne",
+      "org": "x:foley-group",
+      "title": "General Manager",
+      "email": "douglas.payne@foleygroup.com"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2018-01-15",
+      "summary": "Pinebrook Advisory Group LLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2019-10-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

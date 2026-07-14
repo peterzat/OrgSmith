@@ -1,0 +1,195 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "dev-mini",
+  "entities": [
+    "x:dev-mini",
+    "p:chad.miller",
+    "p:jenna.wiley",
+    "p:jacob.williams",
+    "p:lisa.hernandez",
+    "p:megan.garcia",
+    "x:weaver-reeves",
+    "x:johnson-plc",
+    "x:foley-group",
+    "xp:jacob.andersen",
+    "xp:melissa.sexton",
+    "xp:douglas.payne"
+  ],
+  "edges": [
+    {
+      "src": "p:chad.miller",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-02-15",
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "p:chad.miller",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-03-15",
+      "end": null
+    },
+    {
+      "src": "p:jacob.williams",
+      "dst": "p:jenna.wiley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jacob.williams",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-04-26",
+      "end": null
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "p:jenna.wiley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-09-19",
+      "end": null
+    },
+    {
+      "src": "p:megan.garcia",
+      "dst": "p:chad.miller",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:megan.garcia",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2018-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:jacob.andersen",
+      "dst": "x:weaver-reeves",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:melissa.sexton",
+      "dst": "x:johnson-plc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:douglas.payne",
+      "dst": "x:foley-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:weaver-reeves",
+      "dst": "x:dev-mini",
+      "kind": "client_of",
+      "start": "2019-07-17",
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-07-17",
+      "end": "2019-10-29"
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-07-17",
+      "end": "2019-10-29"
+    },
+    {
+      "src": "xp:jacob.andersen",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-07-17",
+      "end": "2019-10-29"
+    },
+    {
+      "src": "x:johnson-plc",
+      "dst": "x:dev-mini",
+      "kind": "client_of",
+      "start": "2020-03-28",
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-03-28",
+      "end": "2020-10-12"
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-03-28",
+      "end": "2020-10-12"
+    },
+    {
+      "src": "xp:melissa.sexton",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-03-28",
+      "end": "2020-10-12"
+    },
+    {
+      "src": "x:foley-group",
+      "dst": "x:dev-mini",
+      "kind": "client_of",
+      "start": "2021-08-01",
+      "end": null
+    },
+    {
+      "src": "p:jenna.wiley",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-01",
+      "end": "2022-04-06"
+    },
+    {
+      "src": "p:lisa.hernandez",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-01",
+      "end": "2022-04-06"
+    },
+    {
+      "src": "p:jacob.williams",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-01",
+      "end": "2022-04-06"
+    },
+    {
+      "src": "xp:douglas.payne",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-01",
+      "end": "2022-04-06"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_id": "orgsmith/engagements@1",
+  "slug": "dev-mini",
+  "engagements": [
+    {
+      "id": "E-2019-001",
+      "title": "Operational Review for Weaver-Reeves",
+      "client": "x:weaver-reeves",
+      "start": "2019-07-17",
+      "end": "2019-10-29",
+      "fee": 70000,
+      "internal_participants": [
+        "p:jenna.wiley",
+        "p:lisa.hernandez"
+      ],
+      "external_participants": [
+        "xp:jacob.andersen"
+      ],
+      "summary": "Operational Review engagement for Weaver-Reeves, running July 2019 through October 2019 at a fixed fee of $70,000.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "kind": "money",
+          "value": 70000,
+          "rendered": "$70,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "kind": "date",
+          "value": "2019-07-17",
+          "rendered": "July 17, 2019",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "kind": "text",
+          "value": "Weaver-Reeves",
+          "rendered": "Weaver-Reeves",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2020-001",
+      "title": "Pricing Study for Johnson PLC",
+      "client": "x:johnson-plc",
+      "start": "2020-03-28",
+      "end": "2020-10-12",
+      "fee": 119000,
+      "internal_participants": [
+        "p:jenna.wiley",
+        "p:lisa.hernandez"
+      ],
+      "external_participants": [
+        "xp:melissa.sexton"
+      ],
+      "summary": "Pricing Study engagement for Johnson PLC, running March 2020 through October 2020 at a fixed fee of $119,000.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.fee",
+          "kind": "money",
+          "value": 119000,
+          "rendered": "$119,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.start",
+          "kind": "date",
+          "value": "2020-03-28",
+          "rendered": "March 28, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "kind": "text",
+          "value": "Johnson PLC",
+          "rendered": "Johnson PLC",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2021-001",
+      "title": "Integration Support for Foley Group",
+      "client": "x:foley-group",
+      "start": "2021-08-01",
+      "end": "2022-04-06",
+      "fee": 44500,
+      "internal_participants": [
+        "p:jenna.wiley",
+        "p:lisa.hernandez",
+        "p:jacob.williams"
+      ],
+      "external_participants": [
+        "xp:douglas.payne"
+      ],
+      "summary": "Integration Support engagement for Foley Group, running August 2021 through April 2022 at a fixed fee of $44,500.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "kind": "money",
+          "value": 44500,
+          "rendered": "$44,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2021-001.start",
+          "kind": "date",
+          "value": "2021-08-01",
+          "rendered": "August 1, 2021",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "kind": "text",
+          "value": "Foley Group",
+          "rendered": "Foley Group",
+          "location_policy": "body"
+        }
+      ]
+    }
+  ]
+}
