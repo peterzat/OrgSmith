@@ -97,4 +97,40 @@ proves recipe generality, the bug class the v1 review caught.
 *Prior spec (2026-07-14): M0+M1 scaffold and dev-mini tracer bullet; all 10
 criteria met, shipped as public v1.0.0.*
 
+### Proposal (2026-07-14, M2 close)
+
+**What happened.** M2 completed autonomously in one evening turn (10
+commits, version 1.1.0, reviewed and gate-ready but NOT pushed): recipe
+ambiguity knobs with byte-stable defaults, mention ground truth
+(mention_map.json + manifest mentions) enforced at authoring ingest and
+re-verified against rendered text, a 16-rule validator with visible
+availability skips, golden evals (`emit-evals`/`score`) that grade external
+systems from a bare `evals/` directory with alias credit, both v1 security
+NOTEs closed, and a second committed fixture (torchlake-engineering, every
+knob on) whose ground-truth answers score 16/16. Lessons:
+
+- The interesting review catch was in the PROXY, not the data: substring
+  mention matching let "Jen" pass via "Jennifer", so the alias check could
+  succeed vacuously. Echo-proxies need adversarial review of the matcher
+  itself; word-boundary semantics now live in one shared helper.
+- Enforcing mentions at two layers (ingest on DocIR, validator on rendered
+  text) made tightening the matcher safe to land against committed
+  fixtures: the org tier proved both orgs genuinely contain standalone
+  surfaces.
+- Grandfathering with visible SKIP notices worked well: dev-mini stays
+  untouched and honest about what it predates.
+
+**Questions and directions for the next turn:**
+
+- M3 hard cases is the natural next milestone: key_facts.location policies
+  (signature-page-only, filename-only), the planting engine, and
+  extraction/visibility eval suites. The `mention-ambiguity-tags` and
+  `multi-affiliation-in-docs` BACKLOG entries ride the same schema wave.
+- ACL overlay + PERMISSIONS.md pairs with the visibility suite; decide
+  whether they land together or ACL leads.
+- Release question for the user: v1.1.0 is tagged-ready (semver bumped,
+  README current, review marker written). Push + GitHub release, or hold?
+- BACKLOG has four entries (all kept at sweep); `regenerate-dev-mini-
+  mentions` waits on a migration verb or the fleet turn.
+
 <!-- SPEC_META: {"date":"2026-07-14","title":"M2: people-graph depth, golden evals, second fixture","criteria_total":10,"criteria_met":10} -->
