@@ -39,10 +39,17 @@ finance:
 
 engagements:
   count: 3                    # client engagements the fabric stage creates
+  # services: [Facility Condition Assessment, Commissioning Support]
+  #   optional service-line names for engagement titles
 
-graph_targets:                # (partially reserved; M1 uses org/people counts)
+graph_targets:
   external_orgs: 3
   external_people: 3
+  # Ambiguity knobs, all optional and default 0 (off):
+  # min_mentions_per_person: 2   # docs that must name each internal person
+  # surname_collisions: 1        # staff pairs sharing a last name
+  # nickname_aliases: 1          # people whose nickname appears in doc text
+  # multi_affiliations: 1        # external people with a mid-history employer change
 ```
 
 Prose after the YAML block is the narrative brief. It is carried into

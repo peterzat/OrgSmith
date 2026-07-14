@@ -80,6 +80,11 @@ Hard rules:
 - Do not invent people, organizations, addresses, amounts, or dates.
   People and their titles come from the briefs; the org narrative sets
   tone only.
+- Every entry in a doc's `mentions` list must appear VERBATIM (the exact
+  `surface` string) somewhere in that doc's text. Sigblock signers count
+  as mentions of themselves. Short surfaces are nicknames: work them into
+  prose naturally ("...as {{nickname}} noted..."), alongside, not instead
+  of, the person's full name.
 - Write plain, era-appropriate business prose in the org's voice.
 """
 
@@ -173,6 +178,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                         )
                         for ref in entry.facts_refs
                     ],
+                    mentions=list(entry.mentions),
                     target_words=_TARGET_WORDS[entry.genre],
                     guidance=_GENRE_GUIDANCE[entry.genre],
                 )

@@ -47,6 +47,16 @@ def load_graph(paths: OrgPaths) -> GraphLedger:
     return GraphLedger.model_validate_json(_read(paths.graph_json))
 
 
+def load_mention_map(paths: OrgPaths):
+    """MentionMap, or None for orgs generated before mention ground truth
+    existed (the committed v1 dev-mini). Callers must handle None."""
+    from .schemas import MentionMap
+
+    if not paths.mention_map_json.exists():
+        return None
+    return MentionMap.model_validate_json(paths.mention_map_json.read_text("utf-8"))
+
+
 def load_manifest(paths: OrgPaths) -> list[ManifestEntry]:
     entries = []
     for line in _read(paths.manifest_jsonl).splitlines():

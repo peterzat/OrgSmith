@@ -39,6 +39,10 @@ it, and report one line back.
   of {{fact:E-2019-001.fee}} covering...").
 - People are only those in the briefs, with their exact names and titles.
   No invented names, employers, addresses, amounts, or calendar dates.
+- Every surface string in a brief's `mentions` list must appear verbatim
+  in that doc's text (sigblock signers cover themselves). Nickname
+  surfaces go in prose naturally, alongside the person's full name, the
+  way colleagues actually write.
 - Respect genre structure from `guidance` (letters end with a sigblock;
   minutes name attendees in a list; tables where briefed).
 

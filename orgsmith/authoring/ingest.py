@@ -107,13 +107,14 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     facts = load_engagements(paths).fact_index()
     for doc in deliverable.docs:
         if doc.doc_id in briefs:
-            for p in _check_doc(doc, briefs[doc.doc_id]):
+            brief = briefs[doc.doc_id]
+            for p in _check_doc(doc, brief):
                 problems.append(f"{doc.doc_id}: {p}")
             # Defense in depth: money/date surface forms must arrive only
             # via placeholders. A literal match means the author somehow
             # learned (or guessed) a ledger value.
             text = _chunks(doc)
-            for brief_fact in briefs[doc.doc_id].facts:
+            for brief_fact in brief.facts:
                 fact = facts.get(brief_fact.id)
                 if fact and fact.kind in ("money", "date") and (
                     fact.rendered in text
@@ -122,6 +123,26 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
                         f"{doc.doc_id}: literal value of {fact.id} in prose; "
                         f"write the placeholder instead"
                     )
+            # Required mentions: check against placeholder-resolved text so
+            # a client name arriving via its fact placeholder still counts.
+            resolved = _PLACEHOLDER.sub(
+                lambda m: facts[m.group(1)].rendered
+                if m.group(1) in facts
+                else m.group(0),
+                text,
+            )
+            signers = {
+                s for b in doc.blocks if b.kind == "sigblock" for s in b.signers
+            }
+            for mention in brief.mentions:
+                if mention.surface in resolved:
+                    continue
+                if mention.kind == "person" and mention.entity in signers:
+                    continue
+                problems.append(
+                    f"{doc.doc_id}: missing required mention "
+                    f"{mention.surface!r} ({mention.entity})"
+                )
 
     if problems:
         print("ingest: deliverable rejected:")

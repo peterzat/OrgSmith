@@ -26,8 +26,13 @@ from ..schemas import (
     EngagementsLedger,
     FinanceLedger,
     Foundation,
+    KeyFact,
     ManifestEntry,
+    MentionMap,
+    MentionRecord,
     Person,
+    PlannedMention,
+    write_model,
 )
 from ..state import load_state, require_stages, save_state, sha256_file
 
@@ -209,9 +214,95 @@ class _Planner:
                 render_params={"year": year},
             )
 
+    # --- mention planning -------------------------------------------------
+
+    def _entity_surface(self, entity_id: str) -> PlannedMention:
+        if entity_id.startswith("p:"):
+            return PlannedMention(
+                entity=entity_id,
+                surface=self.foundation.person(entity_id).name,
+            )
+        if entity_id.startswith("xp:"):
+            xp = next(
+                x for x in self.foundation.external_people if x.id == entity_id
+            )
+            return PlannedMention(entity=entity_id, surface=xp.name)
+        org = next(o for o in self.foundation.external_orgs if o.id == entity_id)
+        return PlannedMention(entity=entity_id, surface=org.name, kind="org")
+
+    def _doc_mention_add(self, doc: dict, mention: PlannedMention) -> bool:
+        key = (mention.entity, mention.surface)
+        existing = {(m.entity, m.surface) for m in doc["mentions"]}
+        if key in existing:
+            return False
+        doc["mentions"].append(mention)
+        return True
+
+    def _mentioned_docs(self, entity_id: str) -> list[dict]:
+        return [
+            d
+            for d in self.planned
+            if any(m.entity == entity_id for m in d["mentions"])
+        ]
+
+    def plan_mentions(self) -> None:
+        """Natural mentions from doc identity, then coverage top-up, then
+        nickname plants. Static docs carry no mentions (no model pass)."""
+        eng_by_id = {e.id: e for e in self.engagements.engagements}
+        for doc in self.planned:
+            doc["mentions"] = []
+            if doc.get("authoring") == "static":
+                continue
+            for pid in doc["authors"] + doc["participants"]:
+                self._doc_mention_add(doc, self._entity_surface(pid))
+            if doc["engagement"]:
+                eng = eng_by_id[doc["engagement"]]
+                self._doc_mention_add(doc, self._entity_surface(eng.client))
+
+        minimum = self.charter.graph_targets.min_mentions_per_person
+        if minimum:
+            for person in self.foundation.people:
+                have = len(self._mentioned_docs(person.id))
+                candidates = [
+                    d
+                    for d in self.planned
+                    if d.get("authoring") != "static"
+                    and d["genre"] in ("meeting_minutes", "kickoff_memo")
+                    and _employed_at(person, d["date"])
+                    and not any(m.entity == person.id for m in d["mentions"])
+                ]
+                candidates.sort(key=lambda d: (d["date"], d["path"]))
+                while have < minimum and candidates:
+                    doc = candidates.pop(0)
+                    doc["participants"] = doc["participants"] + [person.id]
+                    self._doc_mention_add(doc, self._entity_surface(person.id))
+                    have += 1
+                if have < minimum:
+                    raise SystemExit(
+                        f"docplan: cannot reach min_mentions_per_person="
+                        f"{minimum} for {person.id}; add docs or lower the knob"
+                    )
+
+        for person in self.foundation.people:
+            for alias in person.aliases:
+                hosts = self._mentioned_docs(person.id)
+                hosts.sort(
+                    key=lambda d: (d["genre"] != "meeting_minutes", d["date"])
+                )
+                if not hosts:
+                    raise SystemExit(
+                        f"docplan: no doc mentions {person.id}; cannot plant "
+                        f"nickname alias {alias!r}"
+                    )
+                self._doc_mention_add(
+                    hosts[0],
+                    PlannedMention(entity=person.id, surface=alias),
+                )
+
     def build(self) -> list[ManifestEntry]:
         self.plan_engagement_docs()
         self.plan_firm_docs()
+        self.plan_mentions()
 
         mix = self.charter.doc_culture.format_mix
         counts = {"docx": 0, "pdf": 0, "xlsx": 0}
@@ -231,6 +322,9 @@ class _Planner:
             if key in seen_paths:
                 raise SystemExit(f"docplan: duplicate path {doc['path']!r}")
             seen_paths.add(key)
+            doc["key_facts"] = [
+                KeyFact(fact_id=ref) for ref in doc.get("facts_refs", [])
+            ]
             entries.append(ManifestEntry(doc_id=f"d:{i:04d}", **doc))
         return entries
 
@@ -253,15 +347,31 @@ def run_docplan(paths: OrgPaths) -> int:
         print(f"docplan: {paths.manifest_jsonl} exists, nothing to do")
         return 0
 
+    charter = load_charter(paths)
     entries = build_manifest(
-        load_charter(paths),
+        charter,
         load_foundation(paths),
         load_finance(paths),
         load_engagements(paths),
     )
     save_manifest(paths, entries)
 
+    mention_map = MentionMap(
+        slug=charter.slug,
+        mentions=[
+            MentionRecord(
+                doc_id=e.doc_id, entity=m.entity, surface=m.surface, kind=m.kind
+            )
+            for e in entries
+            for m in e.mentions
+        ],
+    )
+    write_model(paths.mention_map_json, mention_map)
+
     state.mark_done("docplan", inputs_hash=sha256_file(paths.engagements_json))
     save_state(paths, state)
-    print(f"docplan: {len(entries)} docs -> {paths.manifest_jsonl}")
+    print(
+        f"docplan: {len(entries)} docs, {len(mention_map.mentions)} planned "
+        f"mentions -> {paths.manifest_jsonl}"
+    )
     return 0

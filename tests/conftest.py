@@ -62,13 +62,14 @@ def scripted_authoring(order) -> dict:
     docs = []
     for brief in order.docs:
         placeholders = " ".join("{{fact:%s}}" % f.id for f in brief.facts)
+        surfaces = "; ".join(m.surface for m in brief.mentions)
         blocks = [
             {"kind": "heading", "text": brief.title, "level": 1},
             {
                 "kind": "paragraph",
                 "text": (
                     f"Scripted body for {brief.genre} dated {brief.date}. "
-                    f"{placeholders} End of scripted prose."
+                    f"{placeholders} Present: {surfaces}. End of scripted prose."
                 ),
             },
         ]
