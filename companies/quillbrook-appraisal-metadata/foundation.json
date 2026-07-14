@@ -1,0 +1,127 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "quillbrook-appraisal",
+  "people": [
+    {
+      "id": "p:keith.wilson",
+      "name": "Keith Wilson",
+      "aliases": [],
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2015-02-15",
+        "end": null
+      },
+      "email": "keith.wilson@quillbrookappraisal.com",
+      "phone": "+1 (312) 555-0166",
+      "persona": "Keith Wilson treats his signature as the firm's product and edits accordingly, reading every engagement letter and status report as though a lender's counsel will. He came up through fieldwork and still distrusts any conclusion he cannot trace back to a walked property or a documented comparable. In writing he is spare and formal, favoring short declarative sentences and striking any adjective that a credit committee might question."
+    },
+    {
+      "id": "p:joseph.fisher",
+      "name": "Joseph Fisher",
+      "aliases": [],
+      "title": "Senior Appraiser",
+      "dept": "Valuation",
+      "reports_to": "p:keith.wilson",
+      "employment": {
+        "start": "2015-03-15",
+        "end": null
+      },
+      "email": "joseph.fisher@quillbrookappraisal.com",
+      "phone": "+1 (303) 555-0131",
+      "persona": "Joseph Fisher is the appraiser the firm sends when a property or a client is difficult, and his files show it: dense field notes, methodical reconciliation, no loose ends. He writes the way he inspects, front-to-back and in order, and he is quietly impatient with prose that editorializes ahead of the evidence. Colleagues bring him drafts because his margin comments are blunt but always about the record, never the writer."
+    },
+    {
+      "id": "p:david.ellison",
+      "name": "David Ellison",
+      "aliases": [],
+      "title": "Staff Appraiser",
+      "dept": "Valuation",
+      "reports_to": "p:joseph.fisher",
+      "employment": {
+        "start": "2016-03-29",
+        "end": null
+      },
+      "email": "david.ellison@quillbrookappraisal.com",
+      "phone": "+1 (303) 555-0111",
+      "persona": "David Ellison is the newest of the fee appraisers and compensates with preparation, arriving at every site visit with a checklist he built himself and refuses to skip. His drafts run long because he documents everything he saw, and he relies on review to tell him what the file actually needs. His written voice is earnest and careful, closer to a field log than a letter, and he asks questions in memos rather than assuming."
+    },
+    {
+      "id": "p:marcus.burnett",
+      "name": "Marcus Burnett",
+      "aliases": [],
+      "title": "Research Analyst",
+      "dept": "Valuation",
+      "reports_to": "p:joseph.fisher",
+      "employment": {
+        "start": "2015-07-29",
+        "end": null
+      },
+      "email": "marcus.burnett@quillbrookappraisal.com",
+      "phone": "+1 (415) 555-0134",
+      "persona": "Marcus Burnett works the desk side of valuation, pulling comparables, verifying transaction details by phone, and building the market context the appraisers walk in with. He is the one who notices when a source contradicts itself, and he flags it in writing rather than smoothing it over. His memos are tabular by instinct, terse in prose, and scrupulous about distinguishing what was verified from what was merely reported."
+    },
+    {
+      "id": "p:joseph.bolton",
+      "name": "Joseph Bolton",
+      "aliases": [],
+      "title": "Office Manager",
+      "dept": "Administration",
+      "reports_to": "p:keith.wilson",
+      "employment": {
+        "start": "2015-04-15",
+        "end": null
+      },
+      "email": "joseph.bolton@quillbrookappraisal.com",
+      "phone": "+1 (212) 555-0146",
+      "persona": "Joseph Bolton runs the office like a ledger, and the firm's reputation for clean files owes as much to him as to the appraisers. He enforces the document management conventions without apology, chases missing signatures before they become problems, and keeps engagement terms where they belong on the signature page. His written voice is courteous, procedural, and immovable, the tone of a man who has already anticipated the objection."
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:perkins-group",
+      "name": "Perkins Group",
+      "org_type": "client"
+    },
+    {
+      "id": "x:parrish-gibbs",
+      "name": "Parrish-Gibbs",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:kyle.sanchez",
+      "name": "Kyle Sanchez",
+      "org": "x:perkins-group",
+      "title": "VP Finance",
+      "email": "kyle.sanchez@perkinsgroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:dana.gray",
+      "name": "Dana Gray",
+      "org": "x:parrish-gibbs",
+      "title": "General Manager",
+      "email": "dana.gray@parrishgibbs.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2015-01-15",
+      "summary": "Quillbrook Appraisal Partners LLP founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2016-05-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

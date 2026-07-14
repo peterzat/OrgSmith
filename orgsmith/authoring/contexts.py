@@ -74,8 +74,10 @@ table (header, rows), sigblock (signers = person ids from the brief).
 Hard rules:
 - One DocIR per brief; doc_ids must match the work order exactly.
 - Every fact id briefed for a doc MUST appear as a literal placeholder
-  {{fact:<id>}} at least once in that doc's text. You do not know fact
-  values; never write a number, date, or name in place of a placeholder.
+  {{fact:<id>}} at least once in that doc's text, where <id> is the
+  briefed id verbatim including its `f:` prefix (e.g.
+  {{fact:f:E-2019-001.start}}). You do not know fact values; never write
+  a number, date, or name in place of a placeholder.
 - Use only placeholders for fact ids briefed on that document.
 - Do not invent people, organizations, addresses, amounts, or dates.
   People and their titles come from the briefs; the org narrative sets

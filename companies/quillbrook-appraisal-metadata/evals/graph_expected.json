@@ -1,0 +1,183 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "quillbrook-appraisal",
+  "entities": [
+    {
+      "id": "x:quillbrook-appraisal",
+      "canonical": "Quillbrook Appraisal Partners LLP",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:keith.wilson",
+      "canonical": "Keith Wilson",
+      "aliases": [
+        "keith.wilson@quillbrookappraisal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:joseph.fisher",
+      "canonical": "Joseph Fisher",
+      "aliases": [
+        "joseph.fisher@quillbrookappraisal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:david.ellison",
+      "canonical": "David Ellison",
+      "aliases": [
+        "david.ellison@quillbrookappraisal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:marcus.burnett",
+      "canonical": "Marcus Burnett",
+      "aliases": [
+        "marcus.burnett@quillbrookappraisal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:joseph.bolton",
+      "canonical": "Joseph Bolton",
+      "aliases": [
+        "joseph.bolton@quillbrookappraisal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:perkins-group",
+      "canonical": "Perkins Group",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:parrish-gibbs",
+      "canonical": "Parrish-Gibbs",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:kyle.sanchez",
+      "canonical": "Kyle Sanchez",
+      "aliases": [
+        "kyle.sanchez@perkinsgroup.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:dana.gray",
+      "canonical": "Dana Gray",
+      "aliases": [
+        "dana.gray@parrishgibbs.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:keith.wilson",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-02-15",
+      "end": null
+    },
+    {
+      "src": "p:joseph.fisher",
+      "dst": "p:keith.wilson",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.fisher",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-03-15",
+      "end": null
+    },
+    {
+      "src": "p:david.ellison",
+      "dst": "p:joseph.fisher",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.ellison",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2016-03-29",
+      "end": null
+    },
+    {
+      "src": "p:marcus.burnett",
+      "dst": "p:joseph.fisher",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:marcus.burnett",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-07-29",
+      "end": null
+    },
+    {
+      "src": "p:joseph.bolton",
+      "dst": "p:keith.wilson",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.bolton",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:kyle.sanchez",
+      "dst": "x:perkins-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:dana.gray",
+      "dst": "x:parrish-gibbs",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:perkins-group",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "client_of",
+      "start": "2019-06-14",
+      "end": null
+    },
+    {
+      "src": "x:parrish-gibbs",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "client_of",
+      "start": "2020-02-08",
+      "end": null
+    }
+  ]
+}

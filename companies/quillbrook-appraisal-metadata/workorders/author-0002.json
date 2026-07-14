@@ -1,0 +1,54 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0002",
+  "stage": "author",
+  "slug": "quillbrook-appraisal",
+  "org_name": "Quillbrook Appraisal Partners LLP",
+  "org_type": "commercial real-estate appraisal",
+  "narrative": "Quillbrook Appraisal Partners is a five-person commercial real-estate\nappraisal practice: one Managing Partner who signs everything a client\nrelies on, three appraisers who walk the properties, and an Office Manager\nwho keeps the books tighter than most firms twice the size. Clients are\nlenders and property holders who need defensible valuations, so the\ndocuments read accordingly: engagement letters where the commercial terms\nare executed on the signature page rather than recited in the body,\nkickoff memos that list the parcels in scope, working-session minutes kept\nas undated field records (the file name carries the session date, the way\nthe firm's document management system requires), and status reports a\ncredit committee can file without edits. Tone is measured and precise;\nnumbers appear only where the record requires them, names appear in full\non anything with a signature line.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text. You do not know fact\n  values; never write a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0004",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2019-07-14",
+      "authors": [
+        {
+          "id": "p:keith.wilson",
+          "name": "Keith Wilson",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Keith Wilson treats his signature as the firm's product and edits accordingly, reading every engagement letter and status report as though a lender's counsel will. He came up through fieldwork and still distrusts any conclusion he cannot trace back to a walked property or a documented comparable. In writing he is spare and formal, favoring short declarative sentences and striking any adjective that a credit committee might question."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:keith.wilson",
+          "name": "Keith Wilson",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Keith Wilson treats his signature as the firm's product and edits accordingly, reading every engagement letter and status report as though a lender's counsel will. He came up through fieldwork and still distrusts any conclusion he cannot trace back to a walked property or a documented comparable. In writing he is spare and formal, favoring short declarative sentences and striking any adjective that a credit committee might question."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:keith.wilson",
+          "surface": "Keith Wilson",
+          "kind": "person"
+        }
+      ],
+      "target_words": 320,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

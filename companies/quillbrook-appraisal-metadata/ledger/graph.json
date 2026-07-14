@@ -1,0 +1,165 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "quillbrook-appraisal",
+  "entities": [
+    "x:quillbrook-appraisal",
+    "p:keith.wilson",
+    "p:joseph.fisher",
+    "p:david.ellison",
+    "p:marcus.burnett",
+    "p:joseph.bolton",
+    "x:perkins-group",
+    "x:parrish-gibbs",
+    "xp:kyle.sanchez",
+    "xp:dana.gray"
+  ],
+  "edges": [
+    {
+      "src": "p:keith.wilson",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-02-15",
+      "end": null
+    },
+    {
+      "src": "p:joseph.fisher",
+      "dst": "p:keith.wilson",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.fisher",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-03-15",
+      "end": null
+    },
+    {
+      "src": "p:david.ellison",
+      "dst": "p:joseph.fisher",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.ellison",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2016-03-29",
+      "end": null
+    },
+    {
+      "src": "p:marcus.burnett",
+      "dst": "p:joseph.fisher",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:marcus.burnett",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-07-29",
+      "end": null
+    },
+    {
+      "src": "p:joseph.bolton",
+      "dst": "p:keith.wilson",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.bolton",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "works_at",
+      "start": "2015-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:kyle.sanchez",
+      "dst": "x:perkins-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:dana.gray",
+      "dst": "x:parrish-gibbs",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:perkins-group",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "client_of",
+      "start": "2019-06-14",
+      "end": null
+    },
+    {
+      "src": "p:joseph.fisher",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-06-14",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "p:marcus.burnett",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-06-14",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "p:david.ellison",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-06-14",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "xp:kyle.sanchez",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-06-14",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "x:parrish-gibbs",
+      "dst": "x:quillbrook-appraisal",
+      "kind": "client_of",
+      "start": "2020-02-08",
+      "end": null
+    },
+    {
+      "src": "p:joseph.fisher",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-08",
+      "end": "2020-08-28"
+    },
+    {
+      "src": "p:david.ellison",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-08",
+      "end": "2020-08-28"
+    },
+    {
+      "src": "p:marcus.burnett",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-08",
+      "end": "2020-08-28"
+    },
+    {
+      "src": "xp:dana.gray",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-08",
+      "end": "2020-08-28"
+    }
+  ]
+}

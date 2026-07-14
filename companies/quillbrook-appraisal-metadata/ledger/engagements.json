@@ -1,0 +1,93 @@
+{
+  "schema_id": "orgsmith/engagements@1",
+  "slug": "quillbrook-appraisal",
+  "engagements": [
+    {
+      "id": "E-2019-001",
+      "title": "Portfolio Valuation for Perkins Group",
+      "client": "x:perkins-group",
+      "start": "2019-06-14",
+      "end": "2019-12-12",
+      "fee": 73000,
+      "internal_participants": [
+        "p:joseph.fisher",
+        "p:marcus.burnett",
+        "p:david.ellison"
+      ],
+      "external_participants": [
+        "xp:kyle.sanchez"
+      ],
+      "summary": "Portfolio Valuation engagement for Perkins Group, running June 2019 through December 2019 at a fixed fee of $73,000.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "kind": "money",
+          "value": 73000,
+          "rendered": "$73,000",
+          "location_policy": "signature_page"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "kind": "date",
+          "value": "2019-06-14",
+          "rendered": "June 14, 2019",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "kind": "text",
+          "value": "Perkins Group",
+          "rendered": "Perkins Group",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.minutes-date",
+          "kind": "date",
+          "value": "2019-08-25",
+          "rendered": "2019-08-25",
+          "location_policy": "filename"
+        }
+      ]
+    },
+    {
+      "id": "E-2020-001",
+      "title": "Access Easement Review for Parrish-Gibbs",
+      "client": "x:parrish-gibbs",
+      "start": "2020-02-08",
+      "end": "2020-08-28",
+      "fee": 61000,
+      "internal_participants": [
+        "p:joseph.fisher",
+        "p:david.ellison",
+        "p:marcus.burnett"
+      ],
+      "external_participants": [
+        "xp:dana.gray"
+      ],
+      "summary": "Access Easement Review engagement for Parrish-Gibbs, running February 2020 through August 2020 at a fixed fee of $61,000.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.fee",
+          "kind": "money",
+          "value": 61000,
+          "rendered": "$61,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.start",
+          "kind": "date",
+          "value": "2020-02-08",
+          "rendered": "February 8, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "kind": "text",
+          "value": "Parrish-Gibbs",
+          "rendered": "Parrish-Gibbs",
+          "location_policy": "body"
+        }
+      ]
+    }
+  ]
+}
