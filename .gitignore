@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+
+# Test and tool caches
+.pytest_cache/
+.cache/
+
+# Secrets and local environment (never committed)
+.env
+.env.*
+
+# Editor noise
+.idea/
+.vscode/
+*.swp
+
+# NOTE ON companies/:
+# Generated orgs under companies/<slug>/ and companies/<slug>-metadata/ are
+# COMMITTED on purpose. They are the product's example fleet and the fixtures
+# for the `org` test tier. Do not add companies/ to this file.
+
+# Scratch output from local experiments (not the committed fleet)
+scratch/

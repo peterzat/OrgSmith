@@ -1,0 +1,15 @@
+# Runtime dependencies for the M0+M1 pipeline (charter -> assemble, validate).
+# Pinned exactly; update deliberately, one at a time.
+# Deferred to their milestones: python-pptx (M4), pypdfium2/img2pdf/augraphy/
+# opencv/pillow/numpy (M5 scan pipeline).
+
+pydantic==2.13.4        # inter-stage contracts in orgsmith/schemas.py
+Jinja2==3.1.6           # HTML templates for WeasyPrint PDFs
+PyYAML==6.0.3           # ORG-CHARTER.md recipe block parsing
+Faker==40.31.0          # seeded deterministic names/addresses in foundation scaffold
+python-docx==1.2.0      # .docx renderer
+XlsxWriter==3.2.9       # .xlsx renderer (write_formula with cached values)
+weasyprint==69.0        # primary PDF renderer (needs system Pango)
+pypdf==6.14.2           # PDF text extraction for the fact-echo validator
+pikepdf==10.10.0        # PDF provenance metadata
+openpyxl==3.1.5         # xlsx reader; runtime because the validator reads cached cell values

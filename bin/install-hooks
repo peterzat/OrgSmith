@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Symlink repo hooks into .git/hooks (idempotent).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+[ -d .git ] || { echo "not a git repository" >&2; exit 1; }
+ln -sf ../../hooks/pre-push .git/hooks/pre-push
+echo "installed: .git/hooks/pre-push -> hooks/pre-push"

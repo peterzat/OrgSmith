@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Install system dependencies for the OrgSmith pipeline.
+# Python packages are handled separately, inside the project venv:
+#   python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+#
+# M0/M1 need only Pango (WeasyPrint's text stack). LibreOffice and the
+# Carlito font (metric-compatible with Calibri) are used by later milestones
+# (legacy .doc/.xls/.ppt conversion and docx-twin PDFs); installing them now
+# is harmless and makes `orgsmith doctor` report full capability.
+set -euo pipefail
+
+sudo apt-get update
+sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0
+sudo apt-get install -y libreoffice fonts-crosextra-carlito

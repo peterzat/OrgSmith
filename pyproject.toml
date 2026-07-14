@@ -1,0 +1,18 @@
+# Project metadata and pytest configuration only. The package is run from
+# the repo root (python -m orgsmith); it is not built or installed.
+
+[project]
+name = "orgsmith"
+version = "0.1.0"
+description = "Generator of complete synthetic organizations with ground truth"
+authors = [{ name = "Peter Zatloukal" }]
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "short: static and configuration checks (pre-push tier)",
+    "unit: deterministic logic, schemas, renderers, airlock contract",
+    "org: full validation over the committed fleet in companies/",
+]
+addopts = "-q"

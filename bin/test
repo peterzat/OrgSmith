@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Test runner. Usage: bin/test [short|unit|org ...]   (default: all tiers)
+# Each tier is a separate pytest invocation selected by marker; the script
+# fails if any requested tier fails. Keyless and offline by design: no test
+# may call a model or the network.
+set -u
+cd "$(dirname "$0")/.."
+
+PY=".venv/bin/python"
+[ -x "$PY" ] || PY="python3"
+
+tiers=("$@")
+[ ${#tiers[@]} -eq 0 ] && tiers=(short unit org)
+
+rc=0
+for t in "${tiers[@]}"; do
+    case "$t" in
+        short|unit|org) ;;
+        *) echo "bin/test: unknown tier '$t' (short|unit|org)" >&2; exit 2 ;;
+    esac
+    echo "== tier: $t =="
+    "$PY" -m pytest -m "$t" || rc=1
+done
+exit $rc

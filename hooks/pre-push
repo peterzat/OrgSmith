@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Pre-push gate: block the push if the short tier fails.
+cd "$(git rev-parse --show-toplevel)"
+exec bin/test short
