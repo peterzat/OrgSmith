@@ -85,7 +85,20 @@ def run_render(paths: OrgPaths) -> int:
             elif entry.format == "pdf":
                 from .pdf import render_pdf
 
-                render_pdf(resolved, entry, style, author_name, people, target)
+                sig_fid = entry.render_params.get("sig_fact")
+                if sig_fid is not None and str(sig_fid) not in facts:
+                    raise SystemExit(
+                        f"render: sig_fact {sig_fid!r} not in engagement ledger"
+                    )
+                render_pdf(
+                    resolved,
+                    entry,
+                    style,
+                    author_name,
+                    people,
+                    target,
+                    sig_fact_text=facts[str(sig_fid)].rendered if sig_fid else None,
+                )
             else:
                 raise SystemExit(
                     f"render: no renderer for format {entry.format!r}"

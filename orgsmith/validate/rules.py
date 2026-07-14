@@ -78,6 +78,22 @@ class Context:
         self._text_cache[entry.doc_id] = text
         return text
 
+    def doc_pages(self, entry) -> list[str]:
+        """Per-page extractable text (pdf only), whitespace-normalized.
+        Page addressing is what makes signature-page scoping checkable."""
+        key = ("pages", entry.doc_id)
+        if key in self._text_cache:
+            return self._text_cache[key]
+        from pypdf import PdfReader
+
+        path = self.paths.share_dir / entry.path
+        pages = [
+            re.sub(r"\s+", " ", page.extract_text() or "")
+            for page in PdfReader(str(path)).pages
+        ]
+        self._text_cache[key] = pages
+        return pages
+
 
 def _always(_ctx: Context) -> str | None:
     return None
@@ -374,6 +390,97 @@ def graph_04(ctx: Context):
             )
 
 
+# --- LOC (hard-case location policies) --------------------------------------
+
+
+def _hard_case_hosts(ctx: Context):
+    """(entry, key_fact, fact) for every non-body key fact whose fact id
+    resolves in the ledger; dangling ids are LOC-03's finding."""
+    facts = ctx.engagements.fact_index()
+    for e in ctx.manifest:
+        for kf in e.key_facts:
+            if kf.location != "body" and kf.fact_id in facts:
+                yield e, kf, facts[kf.fact_id]
+
+
+def loc_01(ctx: Context):
+    for entry, kf, fact in _hard_case_hosts(ctx):
+        if kf.location != "signature_page":
+            continue
+        if entry.format != "pdf":
+            yield (
+                f"signature_page fact {fact.id} planted in non-pdf doc",
+                entry.path,
+            )
+            continue
+        if not (ctx.paths.share_dir / entry.path).exists():
+            continue  # FILE-01/MAN-01 report the absence
+        pages = ctx.doc_pages(entry)
+        hits = [i for i, text in enumerate(pages) if fact.rendered in text]
+        last = len(pages) - 1
+        if last not in hits:
+            yield (
+                f"fact {fact.id} surface {fact.rendered!r} missing from the "
+                f"signature page",
+                entry.path,
+            )
+        early = [i + 1 for i in hits if i != last]
+        if early:
+            yield (
+                f"signature-page-only fact {fact.id} leaked into "
+                f"page(s) {early}",
+                entry.path,
+            )
+
+
+def loc_02(ctx: Context):
+    from pathlib import PurePosixPath
+
+    for entry, kf, fact in _hard_case_hosts(ctx):
+        if kf.location != "filename":
+            continue
+        name = PurePosixPath(entry.path).name
+        if fact.rendered not in name:
+            yield (
+                f"filename-only fact {fact.id} surface {fact.rendered!r} "
+                f"missing from filename {name!r}",
+                entry.path,
+            )
+        if not (ctx.paths.share_dir / entry.path).exists():
+            continue
+        if fact.rendered in ctx.doc_text(entry):
+            yield (
+                f"filename-only fact {fact.id} appears in extractable text",
+                entry.path,
+            )
+
+
+def loc_03(ctx: Context):
+    facts = ctx.engagements.fact_index()
+    hosted: dict[str, int] = {}
+    for e in ctx.manifest:
+        for kf in e.key_facts:
+            fact = facts.get(kf.fact_id)
+            if fact is None:
+                yield (f"key_fact {kf.fact_id} not in engagement ledger", e.path)
+                continue
+            if kf.location != fact.location_policy:
+                yield (
+                    f"key_fact {kf.fact_id} location {kf.location} != ledger "
+                    f"policy {fact.location_policy}",
+                    e.path,
+                )
+            if kf.location != "body":
+                hosted[kf.fact_id] = hosted.get(kf.fact_id, 0) + 1
+    for fid, fact in facts.items():
+        if fact.location_policy != "body" and hosted.get(fid, 0) != 1:
+            yield (
+                f"hard-case fact {fid} ({fact.location_policy}) hosted by "
+                f"{hosted.get(fid, 0)} docs, expected exactly 1",
+                "docplan/manifest.jsonl",
+            )
+
+
 # --- PROV -----------------------------------------------------------------
 
 
@@ -409,6 +516,11 @@ RULES = [
     Rule("GRAPH-03", "ERROR", "graph edges have known endpoints", graph_03),
     Rule("GRAPH-04", "ERROR", "per-type edge counts match the ledgers",
          graph_04),
+    Rule("LOC-01", "ERROR", "signature-page facts on the signature page only",
+         loc_01),
+    Rule("LOC-02", "ERROR", "filename facts in the filename only", loc_02),
+    Rule("LOC-03", "ERROR", "manifest key-fact locations mirror the ledger",
+         loc_03),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),

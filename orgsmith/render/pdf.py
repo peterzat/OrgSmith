@@ -56,6 +56,7 @@ td, th { border: 1px solid #999; padding: 4px 8px; font-size: 10pt;
              padding-top: 2px; }
 .sig .name { font-weight: bold; }
 .sig .meta { font-size: 10pt; color: #333; }
+.sigfee { page-break-before: always; margin-top: 1.2em; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -72,9 +73,15 @@ td, th { border: 1px solid #999; padding: 4px 8px; font-size: 10pt;
 _ENV = Environment(autoescape=False)
 
 
-def _blocks_to_html(docir: DocIR, people: dict[str, dict], when_text: str) -> str:
+def _blocks_to_html(
+    docir: DocIR,
+    people: dict[str, dict],
+    when_text: str,
+    sig_fact_text: str | None = None,
+) -> str:
     parts: list[str] = []
     esc = html.escape
+    fee_emitted = False
     for block in docir.blocks:
         if block.kind == "heading":
             level = min(max(block.level, 1), 3)
@@ -95,6 +102,15 @@ def _blocks_to_html(docir: DocIR, people: dict[str, dict], when_text: str) -> st
             )
             parts.append(f"<table>{head}{rows}</table>")
         elif block.kind == "sigblock":
+            if sig_fact_text and not fee_emitted:
+                # Signature-page-only planting: the page break guarantees
+                # the fee opens the final page, so per-page validation can
+                # hold "on the signature page and nowhere else".
+                parts.append(
+                    '<div class="sigfee">Fixed professional fee, as '
+                    f"executed: {esc(sig_fact_text)}</div>"
+                )
+                fee_emitted = True
             for signer in block.signers:
                 person = people[signer]
                 parts.append(
@@ -113,6 +129,7 @@ def render_pdf(
     author_name: str,
     people: dict[str, dict],
     target: Path,
+    sig_fact_text: str | None = None,
 ) -> None:
     from weasyprint import HTML
 
@@ -124,7 +141,7 @@ def render_pdf(
         letterhead0=style.letterhead_lines[0],
         letterhead_rest=list(style.letterhead_lines[1:]),
         dateline=when_text,
-        body=_blocks_to_html(docir, people, when_text),
+        body=_blocks_to_html(docir, people, when_text, sig_fact_text),
     )
     target.parent.mkdir(parents=True, exist_ok=True)
     HTML(string=doc_html, url_fetcher=no_remote_fetcher).write_pdf(str(target))

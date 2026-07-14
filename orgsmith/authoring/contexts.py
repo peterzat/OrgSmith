@@ -153,6 +153,28 @@ def run_next_batch(paths: OrgPaths) -> int:
         briefs = []
         for entry in batch:
             eng = engagements.get(entry.engagement) if entry.engagement else None
+            # Non-body facts are never briefed: the model must not place
+            # their placeholders (render owns signature-page injection, the
+            # filename owns filename dates) and must not learn they exist.
+            locations = {k.fact_id: k.location for k in entry.key_facts}
+            body_refs = [
+                ref
+                for ref in entry.facts_refs
+                if locations.get(ref, "body") == "body"
+            ]
+            guidance = _GENRE_GUIDANCE[entry.genre]
+            if any(loc == "signature_page" for loc in locations.values()):
+                guidance += (
+                    " Commercial fee terms are executed on the signature "
+                    "page by counsel; do not state, estimate, or reference "
+                    "the fee amount anywhere in the text."
+                )
+            if any(loc == "filename" for loc in locations.values()):
+                guidance += (
+                    " Do not state the meeting date anywhere in the text, "
+                    "in any format, and do not include a sigblock; this "
+                    "record is dated by its filename only."
+                )
             briefs.append(
                 DocBrief(
                     doc_id=entry.doc_id,
@@ -176,11 +198,11 @@ def run_next_batch(paths: OrgPaths) -> int:
                                 "belongs",
                             }[facts[ref].kind],
                         )
-                        for ref in entry.facts_refs
+                        for ref in body_refs
                     ],
                     mentions=list(entry.mentions),
                     target_words=_TARGET_WORDS[entry.genre],
-                    guidance=_GENRE_GUIDANCE[entry.genre],
+                    guidance=guidance,
                 )
             )
         return WorkOrder(

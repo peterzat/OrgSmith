@@ -117,12 +117,19 @@ def scripted_authoring(order) -> dict:
     for brief in order.docs:
         placeholders = " ".join("{{fact:%s}}" % f.id for f in brief.facts)
         surfaces = "; ".join(m.surface for m in brief.mentions)
+        # Honor the hard-case guidance the way the real model must: a
+        # filename-only dated doc carries no date in its text.
+        dated = (
+            ""
+            if "filename only" in brief.guidance
+            else f" dated {brief.date}"
+        )
         blocks = [
             {"kind": "heading", "text": brief.title, "level": 1},
             {
                 "kind": "paragraph",
                 "text": (
-                    f"Scripted body for {brief.genre} dated {brief.date}. "
+                    f"Scripted body for {brief.genre}{dated}. "
                     f"{placeholders} Present: {surfaces}. End of scripted prose."
                 ),
             },

@@ -9,12 +9,14 @@ where they belong.
 from __future__ import annotations
 
 import re
+from datetime import date
 from pathlib import Path
 
 from pydantic import ValidationError
 
 from ..airlock import clear_outstanding, match_outstanding
 from ..artifacts import load_engagements, load_manifest
+from ..fabric.engagements import render_date
 from ..paths import OrgPaths
 from ..schemas import (
     AuthoringDeliverable,
@@ -85,6 +87,44 @@ def _check_doc(doc: DocIR, brief: DocBrief) -> list[str]:
     return problems
 
 
+def _check_hard_cases(doc: DocIR, entry, facts) -> list[str]:
+    """Non-body facts must not surface in authored text in any guise: not
+    as a placeholder (render or the filename owns their placement), not as
+    a literal, and for filename dates not in the long date form either."""
+    problems = []
+    text = _chunks(doc)
+    used = set(placeholders_in(doc))
+    for kf in entry.key_facts:
+        if kf.location == "body":
+            continue
+        fact = facts.get(kf.fact_id)
+        if fact is None:
+            continue  # ledger drift is the validator's finding, not ours
+        where = kf.location.replace("_", "-")
+        if kf.fact_id in used:
+            problems.append(
+                f"fact {kf.fact_id} is {where}-only; remove its placeholder "
+                f"from the text"
+            )
+        if fact.rendered in text:
+            problems.append(
+                f"literal value of {where}-only fact {kf.fact_id} in prose"
+            )
+        if kf.location == "filename" and fact.kind == "date":
+            long_form = render_date(date.fromisoformat(str(fact.value)))
+            if long_form in text:
+                problems.append(
+                    f"filename-only date {kf.fact_id} appears in prose as "
+                    f"{long_form!r}; the filename is its only home"
+                )
+            if any(b.kind == "sigblock" for b in doc.blocks):
+                problems.append(
+                    "sigblock stamps the document date; this doc is dated "
+                    "by filename only"
+                )
+    return problems
+
+
 def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     state = load_state(paths)
     if not deliverable_path.exists():
@@ -111,11 +151,17 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     if missing:
         problems.append(f"work-order docs not delivered: {', '.join(missing)}")
     facts = load_engagements(paths).fact_index()
+    manifest = load_manifest(paths)
+    entries = {e.doc_id: e for e in manifest}
     for doc in deliverable.docs:
         if doc.doc_id in briefs:
             brief = briefs[doc.doc_id]
             for p in _check_doc(doc, brief):
                 problems.append(f"{doc.doc_id}: {p}")
+            entry = entries.get(doc.doc_id)
+            if entry is not None:
+                for p in _check_hard_cases(doc, entry, facts):
+                    problems.append(f"{doc.doc_id}: {p}")
             # Defense in depth: money/date surface forms must arrive only
             # via placeholders. A literal match means the author somehow
             # learned (or guessed) a ledger value.
@@ -165,7 +211,6 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         state.docs[doc.doc_id] = doc_state
 
     clear_outstanding(state, "author")
-    manifest = load_manifest(paths)
     remaining = [
         e
         for e in manifest
