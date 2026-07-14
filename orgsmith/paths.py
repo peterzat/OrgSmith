@@ -61,6 +61,14 @@ class OrgPaths:
         return self.ledger_dir / "graph.json"
 
     @property
+    def mention_map_json(self) -> Path:
+        return self.ledger_dir / "mention_map.json"
+
+    @property
+    def evals_dir(self) -> Path:
+        return self.meta_dir / "evals"
+
+    @property
     def docplan_dir(self) -> Path:
         return self.meta_dir / "docplan"
 

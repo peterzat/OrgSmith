@@ -1,82 +1,100 @@
 # SPEC
 
-## Spec — 2026-07-14 — OrgSmith M0+M1: scaffold and dev-mini tracer bullet
+## Spec — 2026-07-14 — M2: people-graph depth, golden evals, second fixture
 
-**Goal:** Bootstrap OrgSmith from an empty directory to a working tracer bullet: the project scaffold (M0) and a dev-mini synthetic org generated end-to-end through the airlock pipeline (M1), proving the load-bearing mechanics (work-order/ingest contract, session resume, ledger-grounded rendering, deterministic validation) before any real recipe is attempted.
+**Goal:** Make the people graph a first-class, verifiable product surface:
+recipe-dialable graph ambiguity (collisions, aliases, multi-affiliation),
+mention ground truth tied to rendered text, and deterministic golden evals
+(`emit-evals`/`score`) so external KB/people-graph systems can be graded
+against a generated org with zero LLM involvement. A second committed org
+proves recipe generality, the bug class the v1 review caught.
 
 ### Acceptance Criteria
 
-- [x] `/forge dev-mini` runs the full pipeline (charter, foundation scaffold plus one enrichment pass, docplan, author loop, render, assemble, validate) and produces `companies/dev-mini/` with 12-15 rendered docs including at least one .docx, one WeasyPrint PDF, and one .xlsx, plus a TOC listing every doc, and `companies/dev-mini-metadata/` holding the ground truth used (charter, foundation, manifest, DocIR, state). Every rendered file opens in its native reader (python-docx, pypdf or pypdfium2, openpyxl).
-- [x] Resume works: killing the session mid-authoring and re-running `/forge dev-mini` completes generation with no duplicated and no lost docs (manifest entries and rendered files match 1:1, per-doc hashes in state.json are consistent, completed stages and docs are not redone).
-- [x] Airlock holds: the `orgsmith` package makes no model or network calls (every stage runs offline; model passes happen only in skills), and `--emit-context`/`--next-batch` writes a self-contained, schema-valid work-order JSON. Re-issuing without an intervening ingest returns the same outstanding work order instead of creating a second.
-- [x] `--ingest` rejects, with non-zero exit and an actionable message: schema-invalid deliverables, deliverables referencing unknown doc ids, and foundation enrichment that alters protected fields (ids, dates, reporting lines). Accepted deliverables are merged and reflected in `status --json`.
-- [x] `python -m orgsmith validate companies/dev-mini` exits 0 with at least 6 rules active, including a fact-echo rule (every manifest facts_ref value appears in the doc's extractable text). Deliberately corrupting the generated org (delete a rendered file; change a planted fact value in the manifest) makes a matching rule fail with non-zero exit.
-- [x] Unit tests prove the grounding mechanics: rendering fails loudly on an unresolved or unknown `{{fact:...}}` placeholder, and an xlsxwriter workbook written with `write_formula(..., value=...)` reads back (via openpyxl, no recompute) cached values equal to the ledger-computed numbers.
-- [x] Pure stages are idempotent: re-running charter, foundation scaffold, or docplan on unchanged inputs produces byte-identical output (ids, names, tree, and manifest are stable under the recipe seed).
-- [x] From a clean checkout, `python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt` succeeds, and `bin/test` passes (short and unit tiers) with no API keys; tests run offline.
-- [x] M0 scaffold present: README.md, LICENSE (all rights reserved with source-available-for-viewing wording), CLAUDE.md, docs/RECIPE-FORMAT.md draft, pyproject.toml, pinned and commented requirements.txt / requirements-dev.txt, .gitignore, bin/setup-deps, bin/install-hooks; the installed pre-push hook runs `bin/test short` and blocks the push when it fails; the user-facing product name appears in code only via `PRODUCT_NAME` in `orgsmith/__init__.py`.
-- [x] The project is a git repository with incremental local commits (scaffold committed before tracer work). No remote creation or push happens without explicit user confirmation.
+- [ ] Charter `graph_targets` gains ambiguity knobs (at minimum: minimum
+  mentions per internal person, surname-collision count, nickname-alias
+  count, multi-affiliation count), all additive with defaults that change
+  nothing: the committed dev-mini org still validates clean without
+  regeneration, and regenerating dev-mini from its unchanged recipe remains
+  byte-identical for structure (existing determinism and org-tier tests stay
+  green).
+- [ ] A second recipe with a different shape (different departments/titles,
+  modern era) is committed under `recipes/` and its generated org under
+  `companies/`, with: at least one surname-collision pair on the roster, at
+  least one person whose nickname alias appears in rendered document text,
+  and at least one external person with time-bounded affiliations to two
+  organizations. The org validates clean and the org tier covers both
+  fixtures.
+- [ ] Docplan emits a mention map (`ledger/mention_map.json`): per doc, the
+  entities expected in it and the exact surface forms planted (full names,
+  nicknames, org names). A validator rule fails when a planned surface form
+  is absent from the doc's extractable text, and another fails when a
+  mention references an entity absent from the graph ledger (no dangling
+  mentions). Both proven by corruption tests.
+- [ ] A GRAPH validator family (>= 4 rules) runs in `orgsmith validate`:
+  mention coverage vs the recipe's minimum-mentions knob, no orphan roster
+  member (zero planned mentions), no dangling graph edge endpoints, and
+  per-type edge counts within recipe-derived bounds. Each rule fails on a
+  deliberately corrupted copy (tested).
+- [ ] Manifest evolution is additive: entries may carry planned mentions and
+  key-fact location metadata while `orgsmith/manifest-entry@1` stays
+  readable; the committed v1 dev-mini manifest still loads (compat test).
+  Validator rules that need mention artifacts skip gracefully, with a
+  visible notice, on orgs generated before this turn.
+- [ ] `python -m orgsmith emit-evals <slug>` writes `evals/retrieval.jsonl`
+  (>= 12 questions per org, each with expected_docs and tags derived from
+  planted facts and mentions), `evals/graph_expected.json` (canonical
+  entities with alias credit plus typed edges), and `evals/README.md`
+  documenting the answers-file contract so an external author needs no
+  OrgSmith source. Re-emission is byte-identical.
+- [ ] `python -m orgsmith score <slug> --suite retrieval --answers <file>`:
+  answers derived from ground truth score 100%; a deliberately wrong answers
+  file scores below 100% with per-question attribution; the graph suite is
+  scored as precision/recall with alias credit; a malformed answers file
+  exits non-zero with an actionable message. All covered by unit tests.
+- [ ] Decoupling holds: `emit-evals` and `score` are pure functions of
+  committed artifacts, run offline and keyless, involve no model anywhere,
+  and `score` works when given only the `evals/` directory and an answers
+  file copied to a location outside the repo (tested).
+- [ ] Hardening: WeasyPrint rendering cannot fetch remote resources (a
+  document whose HTML references an external URL renders without any
+  network access, tested), and CI workflow actions are pinned to commit
+  SHAs.
+- [ ] From a fresh checkout, `bin/test` passes all tiers offline with both
+  committed fixtures.
 
 ### Context
 
-Adopted from plan `~/.claude/plans/we-re-making-a-plan-virtual-sedgewick.md`; read it for the full architecture (stages, schemas, package layout, milestones M0-M7). This turn covers M0 and M1 only. Foundation/fabric depth, hard cases and golden evals, render breadth (pptx, scans, legacy, .eml), the adversarial review loop, and the six-company fleet are later milestones and out of scope here.
-
-Constraints the implementer needs:
-
-- Airlock pattern: Python never calls a model. Every model touchpoint is a CLI verb pair (`--emit-context`/`--next-batch` writes a self-contained work-order JSON; `--ingest` validates with pydantic and merges). Skills are the only reader/writer of work orders; content generation consumes the logged-in Claude Code session, no API keys anywhere.
-- Skills live in-repo under `.claude/skills/` (deliberate deviation from the global-skills norm; here the skills are the product). This turn ships `/forge` v0 and the `forge-author` forked worker only.
-- `orgsmith/schemas.py` holds all inter-stage pydantic contracts (the keystone file). `state.json` is committed; resume state is always file-derived, never conversation memory.
-- `recipes/dev-mini` (~5 people, 12-15 docs) is the permanent tracer fixture; its generated org is intended as a committed fixture for the future `org` test tier.
-- Environment: this box runs Python 3.10 (`.python-version` says 3.12; code stays 3.10-compatible). Pango is present, so WeasyPrint installs via pip. LibreOffice is absent and not needed for M1; the `doctor` verb probes and records capabilities rather than failing.
-- House practices that bind here: verification over prompting (validator quality is the ceiling on generation quality; invest there first); never LLM-grades-LLM in automated test tiers (model passes happen only inside skills); small committable increments with tests in the same increment; when a fix attempt fails twice, revert and re-evaluate.
-- Notices: "Copyright (c) 2026 Peter Zatloukal. All rights reserved." in LICENSE, README footer, and pyproject author. No per-file headers. License terms beyond that are TBD.
-- GitHub: creating the private remote and any push are user-gated at execution time. `git init` and local commits proceed without asking.
-- Mid-turn user redirections (2026-07-14, after the criteria above were set): the LICENSE criterion was satisfied as written at M0, then the user redirected licensing to Apache-2.0 with copyright retained (NOTICE file added); the user explicitly authorized creating the private remote, then flipping it public, pushing, and tagging v1.0.0 with semver adopted (version 1.0.0). The remote-gating criterion is checked off on the strength of those explicit instructions.
+- Consumed from the 2026-07-14 turn-close proposal (M0+M1 shipped as public
+  v1.0.0; two recipe-generality bugs found and fixed in review; retrospective
+  correction: that turn ran at `/effort xhigh`).
+- Bitter-lesson framing that binds this turn: verification quality is the
+  ceiling. Mention-echo and fact-echo are proxies computed against rendered
+  files; the eval suites are the oracle for external systems. Do not add LLM
+  critics to automated paths; model passes stay inside skills. Generation
+  and evaluation must not share session context: `emit-evals`, `score`, and
+  `validate` read committed files only, and authoring continues to run
+  through the airlock in forked worker contexts with file-derived resume.
+- Additive evolution discipline: `seeds.py` streams are stable under new
+  consumers; new scaffold features must draw from NEW seed streams gated by
+  recipe knobs so unchanged recipes regenerate byte-identically. Schema
+  changes must be optional-with-defaults on `orgsmith/manifest-entry@1`;
+  landing mentions and key-fact location together now avoids a breaking
+  bump when hard-case location policies arrive (next milestone).
+- The committed dev-mini org is grandfathered: it predates mention ground
+  truth and must not be regenerated this turn (its prose is keyed to its
+  manifest). Capture the "regenerate dev-mini with mention ground truth"
+  item in BACKLOG.md at turn close rather than doing it now.
+- Second-recipe authoring runs through the same airlock flow as v1 (emit
+  work order, author deliverable, ingest, render per batch). The name must
+  not resemble a real firm; keep the plan's name-screen validator deferred.
+- House practices: small committable increments with tests in the same
+  increment; never modify committed fixtures by hand; no push without
+  explicit user instruction this turn (leave the tree reviewed and
+  gate-ready instead).
 
 ---
+*Prior spec (2026-07-14): M0+M1 scaffold and dev-mini tracer bullet; all 10
+criteria met, shipped as public v1.0.0.*
 
-### Proposal (2026-07-14)
-
-**What happened.** M0+M1 completed in one turn, empty directory to public
-v1.0.0 (9 commits, Apache-2.0, repo public, release tagged, CI green). The
-full pipeline works end to end: airlock with idempotent work orders and
-all-or-nothing ingest, 10-rule validator, resume proven by tests, and the
-committed dev-mini org (13 docs, 3 engagements, 2019-2022) validating clean.
-Three lessons worth carrying:
-
-- The airlock caught its own author twice during real generation: a
-  placeholder-prefix mistake (rejected with an actionable message) and a
-  ledger-value leak via engagement summaries in work orders (briefs are now
-  value-free and ingest rejects literal money/date surface forms).
-- Code review found two recipe-generality bugs (docplan date-clamp ordering,
-  engagement-window inversion on short date ranges). dev-mini alone does not
-  exercise the recipe space; both bugs were invisible under the tracer.
-- Security audit left two open hardening NOTEs in SECURITY.md: WeasyPrint's
-  URL fetcher stays enabled (latent gap in the no-network guarantee) and CI
-  actions are pinned to mutable tags.
-
-**Questions and directions for the next turn:**
-
-- M2 per the adopted plan: foundation/fabric depth. Aliases and surname
-  collisions, multi-affiliation externals, timeline depth, graph targets
-  with a mention budget, and the GRAPH-01..06 validator family.
-- Alternative: pull a second, differently-shaped recipe forward (e.g. a
-  modern investment-firm small org) to exercise recipe generality, the exact
-  bug class review just caught. Could also be folded into M2 as its fixture.
-- Schema coupling to decide early: the plan pulls evals into M3 because
-  `key_facts.location` shapes the manifest schema, and mention maps (M2)
-  touch the same entry. `orgsmith/manifest-entry@1` is now published under
-  semver; decide whether M2 and the manifest schema evolution land together
-  to avoid a breaking bump one turn later.
-- Small hardening item either way: disable the WeasyPrint URL fetcher and
-  SHA-pin CI actions (both from SECURITY.md).
-- The repo is public as of today; user feedback, if any arrives, may reorder
-  all of the above.
-
-### Retrospective
-
-- Correction from the user at turn close: this turn ran on Claude Fable 5 at
-  `/effort xhigh`, not `max` as first recorded. README's "Built with" note
-  corrected and re-pushed.
-
-<!-- SPEC_META: {"date":"2026-07-14","title":"OrgSmith M0+M1: scaffold and dev-mini tracer bullet","criteria_total":10,"criteria_met":10} -->
+<!-- SPEC_META: {"date":"2026-07-14","title":"M2: people-graph depth, golden evals, second fixture","criteria_total":10,"criteria_met":0} -->
