@@ -5,6 +5,7 @@ import shutil
 
 import pytest
 
+from orgsmith.acl import run_acl
 from orgsmith.assemble import run_assemble
 from orgsmith.paths import OrgPaths
 from orgsmith.render import run_render
@@ -22,6 +23,9 @@ def knobbed_org(tmp_path_factory):
     run_authoring(paths)
     assert run_render(paths) == 0
     assert run_assemble(paths) == 0
+    # ACL overlay (open posture: the recipe sets no acl_posture) so the
+    # no-skip assertion below keeps meaning "every rule really ran".
+    assert run_acl(paths) == 0
     return paths
 
 

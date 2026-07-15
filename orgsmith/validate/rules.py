@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from typing import Callable, Iterator
 
 from ..artifacts import (
+    load_acl,
     load_charter,
     load_engagements,
     load_finance,
@@ -30,6 +31,7 @@ class Context:
     engagements: object
     graph: object
     mention_map: object  # None for orgs generated before mention ground truth
+    acl: object  # None for orgs generated before the ACL overlay
     manifest: list
     _text_cache: dict = field(default_factory=dict)
 
@@ -43,6 +45,7 @@ class Context:
             engagements=load_engagements(paths),
             graph=load_graph(paths),
             mention_map=load_mention_map(paths),
+            acl=load_acl(paths),
             manifest=load_manifest(paths),
         )
 
@@ -102,6 +105,12 @@ def _always(_ctx: Context) -> str | None:
 def _needs_mentions(ctx: Context) -> str | None:
     if ctx.mention_map is None:
         return "org predates mention ground truth (no mention_map.json)"
+    return None
+
+
+def _needs_acl(ctx: Context) -> str | None:
+    if ctx.acl is None:
+        return "org predates the ACL overlay (no ledger/acl.json)"
     return None
 
 
@@ -481,6 +490,59 @@ def loc_03(ctx: Context):
             )
 
 
+# --- ACL (read-access overlay) ----------------------------------------------
+
+
+def acl_01(ctx: Context):
+    roster = {p.id for p in ctx.foundation.people}
+    for grant in ctx.acl.grants:
+        if grant.person not in roster:
+            yield (
+                f"ACL principal {grant.person} not on the roster",
+                "ledger/acl.json",
+            )
+    for pid in sorted(roster - {g.person for g in ctx.acl.grants}):
+        yield (f"roster member {pid} has no ACL grant", "ledger/acl.json")
+
+
+def acl_02(ctx: Context):
+    planned = {e.path for e in ctx.manifest}
+    readable: set[str] = set()
+    for grant in ctx.acl.grants:
+        for doc in grant.docs:
+            if doc not in planned:
+                yield (
+                    f"grant for {grant.person} references unknown doc {doc!r}",
+                    "ledger/acl.json",
+                )
+            readable.add(doc)
+    for doc in sorted(planned - readable):
+        yield (f"document readable by no one: {doc}", "ledger/acl.json")
+
+
+def acl_03(ctx: Context):
+    from ..acl import derive_acl, render_permissions
+
+    expected = derive_acl(
+        ctx.charter, ctx.foundation, ctx.engagements, ctx.manifest
+    )
+    if expected != ctx.acl:
+        yield (
+            f"acl.json does not match recomputation from posture "
+            f"{ctx.charter.acl_posture!r}",
+            "ledger/acl.json",
+        )
+    if not ctx.paths.permissions_md.exists():
+        yield ("PERMISSIONS.md missing from the share", "PERMISSIONS.md")
+        return
+    rendered = render_permissions(ctx.charter, ctx.foundation, ctx.acl)
+    if ctx.paths.permissions_md.read_text("utf-8") != rendered:
+        yield (
+            "PERMISSIONS.md does not match a rendering of ledger/acl.json",
+            "PERMISSIONS.md",
+        )
+
+
 # --- PROV -----------------------------------------------------------------
 
 
@@ -521,6 +583,12 @@ RULES = [
     Rule("LOC-02", "ERROR", "filename facts in the filename only", loc_02),
     Rule("LOC-03", "ERROR", "manifest key-fact locations mirror the ledger",
          loc_03),
+    Rule("ACL-01", "ERROR", "ACL principals mirror the roster", acl_01,
+         available=_needs_acl),
+    Rule("ACL-02", "ERROR", "every document is readable by someone", acl_02,
+         available=_needs_acl),
+    Rule("ACL-03", "ERROR", "grants and PERMISSIONS.md match the posture",
+         acl_03, available=_needs_acl),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),

@@ -1,4 +1,7 @@
-"""Unit tier: the ACL overlay (derivation, PERMISSIONS.md, determinism)."""
+"""Unit tier: the ACL overlay (derivation, PERMISSIONS.md, determinism)
+and the ACL validator family (skips, corruption in every direction)."""
+
+import shutil
 
 import pytest
 
@@ -10,10 +13,15 @@ from orgsmith.artifacts import (
     load_foundation,
     load_manifest,
 )
+from orgsmith.paths import OrgPaths
+from orgsmith.schemas import write_model
+from orgsmith.validate import run_validate
 
 from conftest import build_acl_stages, build_pure_stages
 
 pytestmark = pytest.mark.unit
+
+ACL_RULES = ["ACL-01", "ACL-02", "ACL-03"]
 
 
 @pytest.fixture(scope="module")
@@ -97,3 +105,71 @@ def test_permissions_md_lists_every_person(dept_org):
     assert "posture: departmental" in text
     for person in load_foundation(dept_org).people:
         assert f"## {person.name} ({person.title})" in text
+
+
+# --- validator family --------------------------------------------------------
+
+
+@pytest.fixture()
+def acl_copy(dept_org, tmp_path):
+    shutil.copytree(dept_org.root / "recipes", tmp_path / "recipes")
+    shutil.copytree(dept_org.root / "companies", tmp_path / "companies")
+    return OrgPaths(root=tmp_path, slug=dept_org.slug)
+
+
+def test_acl_rules_pass_on_derived_org(dept_org):
+    assert run_validate(dept_org, only=ACL_RULES) == 0
+
+
+def test_acl_rules_skip_visibly_without_ledger(pure_org, capsys):
+    assert run_validate(pure_org, only=ACL_RULES) == 0
+    out = capsys.readouterr().out
+    for rule in ACL_RULES:
+        assert f"SKIP {rule}" in out
+    assert "predates the ACL overlay" in out
+
+
+def test_unknown_principal_fails_acl01(acl_copy, capsys):
+    acl = load_acl(acl_copy)
+    acl.grants[0].person = "p:ghost.reader"
+    write_model(acl_copy.acl_json, acl)
+    assert run_validate(acl_copy, only=["ACL-01"]) == 1
+    out = capsys.readouterr().out
+    assert "ACL-01" in out and "p:ghost.reader" in out
+
+
+def test_unreadable_document_fails_acl02(acl_copy, capsys):
+    acl = load_acl(acl_copy)
+    victim = acl.grants[0].docs[0]
+    for grant in acl.grants:
+        grant.docs = [d for d in grant.docs if d != victim]
+    write_model(acl_copy.acl_json, acl)
+    assert run_validate(acl_copy, only=["ACL-02"]) == 1
+    assert "readable by no one" in capsys.readouterr().out
+
+
+def test_tampered_grant_fails_acl03(acl_copy, capsys):
+    acl = load_acl(acl_copy)
+    # Grant someone a doc the posture denies them: a restricted person
+    # gains the whole share.
+    everything = sorted({d for g in acl.grants for d in g.docs})
+    restricted = next(g for g in acl.grants if g.docs != everything)
+    restricted.docs = everything
+    write_model(acl_copy.acl_json, acl)
+    assert run_validate(acl_copy, only=["ACL-03"]) == 1
+    assert "does not match recomputation" in capsys.readouterr().out
+
+
+def test_tampered_permissions_md_fails_acl03(acl_copy, capsys):
+    text = acl_copy.permissions_md.read_text()
+    acl_copy.permissions_md.write_text(
+        text.replace("posture: departmental", "posture: open")
+    )
+    assert run_validate(acl_copy, only=["ACL-03"]) == 1
+    assert "PERMISSIONS.md" in capsys.readouterr().out
+
+
+def test_missing_permissions_md_fails_acl03(acl_copy, capsys):
+    acl_copy.permissions_md.unlink()
+    assert run_validate(acl_copy, only=["ACL-03"]) == 1
+    assert "missing from the share" in capsys.readouterr().out
