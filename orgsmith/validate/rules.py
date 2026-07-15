@@ -109,7 +109,10 @@ def _needs_mentions(ctx: Context) -> str | None:
 
 
 def _needs_acl(ctx: Context) -> str | None:
-    if ctx.acl is None:
+    # Only an open posture may legitimately lack the ledger (every pre-ACL
+    # org is posture open). A non-open org with no acl.json is corruption:
+    # the rules run and yield the missing-ledger finding instead of skipping.
+    if ctx.acl is None and ctx.charter.acl_posture == "open":
         return "org predates the ACL overlay (no ledger/acl.json)"
     return None
 
@@ -285,7 +288,7 @@ def file_01(ctx: Context):
 
 # --- MAN ------------------------------------------------------------------
 
-_SHARE_EXTRAS = {"TOC.md", "PERMISSIONS.md"}
+_SHARE_EXTRAS = {"TOC.md"}
 
 
 def man_01(ctx: Context):
@@ -298,7 +301,12 @@ def man_01(ctx: Context):
         if p.is_file()
     }
     planned = {e.path for e in ctx.manifest}
-    for extra in sorted(on_disk - planned - _SHARE_EXTRAS):
+    # PERMISSIONS.md is a sanctioned extra only while the ACL ledger that
+    # renders it exists; a stray copy on a ledgerless org is unmanifested.
+    extras = _SHARE_EXTRAS | (
+        {"PERMISSIONS.md"} if ctx.acl is not None else set()
+    )
+    for extra in sorted(on_disk - planned - extras):
         yield ("file in share but not in manifest", extra)
     for missing in sorted(planned - on_disk):
         yield ("manifest doc missing from share", missing)
@@ -493,7 +501,20 @@ def loc_03(ctx: Context):
 # --- ACL (read-access overlay) ----------------------------------------------
 
 
+def _acl_missing(ctx: Context) -> Finding:
+    """Any posture other than open requires acl.json; deleting the ledger
+    must fail the org, not resurrect the pre-ACL grandfather skip."""
+    return (
+        f"ledger/acl.json missing but charter posture is "
+        f"{ctx.charter.acl_posture!r}",
+        "ledger/acl.json",
+    )
+
+
 def acl_01(ctx: Context):
+    if ctx.acl is None:
+        yield _acl_missing(ctx)
+        return
     roster = {p.id for p in ctx.foundation.people}
     for grant in ctx.acl.grants:
         if grant.person not in roster:
@@ -506,6 +527,9 @@ def acl_01(ctx: Context):
 
 
 def acl_02(ctx: Context):
+    if ctx.acl is None:
+        yield _acl_missing(ctx)
+        return
     planned = {e.path for e in ctx.manifest}
     readable: set[str] = set()
     for grant in ctx.acl.grants:
@@ -521,6 +545,9 @@ def acl_02(ctx: Context):
 
 
 def acl_03(ctx: Context):
+    if ctx.acl is None:
+        yield _acl_missing(ctx)
+        return
     from ..acl import derive_acl, render_permissions
 
     expected = derive_acl(
@@ -535,10 +562,13 @@ def acl_03(ctx: Context):
     if not ctx.paths.permissions_md.exists():
         yield ("PERMISSIONS.md missing from the share", "PERMISSIONS.md")
         return
-    rendered = render_permissions(ctx.charter, ctx.foundation, ctx.acl)
+    # Render from the recomputed ledger (trusted, roster-derived), never
+    # from ctx.acl: a tampered grant naming an unknown principal would
+    # KeyError inside render_permissions and crash the whole run.
+    rendered = render_permissions(ctx.charter, ctx.foundation, expected)
     if ctx.paths.permissions_md.read_text("utf-8") != rendered:
         yield (
-            "PERMISSIONS.md does not match a rendering of ledger/acl.json",
+            "PERMISSIONS.md does not match the posture's expected rendering",
             "PERMISSIONS.md",
         )
 

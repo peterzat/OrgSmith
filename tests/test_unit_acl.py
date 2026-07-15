@@ -173,3 +173,45 @@ def test_missing_permissions_md_fails_acl03(acl_copy, capsys):
     acl_copy.permissions_md.unlink()
     assert run_validate(acl_copy, only=["ACL-03"]) == 1
     assert "missing from the share" in capsys.readouterr().out
+
+
+def test_deleted_ledger_fails_departmental_org(acl_copy, capsys):
+    """Regression: deleting ledger/acl.json from a departmental org must
+    fail every ACL rule with a missing-ledger finding (and MAN-01 must stop
+    whitelisting the orphaned PERMISSIONS.md), not resurrect the pre-ACL
+    grandfather skip."""
+    acl_copy.acl_json.unlink()
+    assert run_validate(acl_copy, only=ACL_RULES + ["MAN-01"]) == 1
+    out = capsys.readouterr().out
+    assert "SKIP" not in out
+    assert out.count("ledger/acl.json missing") == len(ACL_RULES)
+    assert "'departmental'" in out
+    assert "MAN-01 [PERMISSIONS.md] file in share but not in manifest" in out
+
+
+def test_stray_permissions_md_fails_man01_on_pre_acl_org(tmp_path, capsys):
+    """A forged PERMISSIONS.md on an org with no ACL ledger is an
+    unmanifested file; MAN-01 whitelists it only alongside acl.json."""
+    paths = build_pure_stages(tmp_path)
+    paths.share_dir.mkdir(parents=True, exist_ok=True)
+    paths.permissions_md.write_text("# forged permissions\n")
+    assert run_validate(paths, only=["MAN-01"]) == 1
+    out = capsys.readouterr().out
+    assert "MAN-01 [PERMISSIONS.md] file in share but not in manifest" in out
+
+
+def test_ghost_principal_full_run_reports_findings(acl_copy, capsys):
+    """Regression: a grant naming an unknown principal must surface as
+    findings from the full rule set, not crash acl_03 with a KeyError
+    inside render_permissions."""
+    acl = load_acl(acl_copy)
+    acl.grants[0].person = "p:ghost.reader"
+    write_model(acl_copy.acl_json, acl)
+    assert run_validate(acl_copy) == 1  # full rule set, no only= filter
+    out = capsys.readouterr().out
+    assert "p:ghost.reader" in out
+    assert "does not match recomputation" in out
+    # PERMISSIONS.md was rendered from the pristine ledger, which matches
+    # the recomputed one; the drift check must compare against that, so
+    # the tampered acl.json alone must not flag PERMISSIONS.md.
+    assert "PERMISSIONS.md does not match" not in out
