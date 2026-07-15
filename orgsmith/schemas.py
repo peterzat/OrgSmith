@@ -37,6 +37,7 @@ SCHEMA_IDS = {
     "authoring_deliverable": "orgsmith/authoring-deliverable@1",
     "docir": "orgsmith/docir@1",
     "state": "orgsmith/state@1",
+    "scan_pages": "orgsmith/scan-pages@1",
 }
 
 
@@ -450,6 +451,16 @@ def surface_in_text(surface: str, text: str) -> bool:
     stand on its own. Shared by authoring ingest and the MENT-01 validator
     so both sides of the mention contract use identical semantics."""
     return re.search(rf"(?<!\w){re.escape(surface)}(?!\w)", text) is not None
+
+
+class ScanPages(StrictModel):
+    """True per-page text of a scanned document, archived at render time
+    before rasterization. This is the text-obligation oracle for image-only
+    scans, whose rendered pages expose nothing extractable."""
+
+    schema_id: Literal["orgsmith/scan-pages@1"] = SCHEMA_IDS["scan_pages"]
+    doc_id: str
+    pages: list[str]
 
 
 # --------------------------------------------------------------------------

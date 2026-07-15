@@ -120,6 +120,12 @@ def run_render(paths: OrgPaths) -> int:
                     target,
                     sig_fact_text=facts[str(sig_fid)].rendered if sig_fid else None,
                 )
+                if entry.render_params.get("scan"):
+                    from .scan import apply_scan
+
+                    apply_scan(
+                        paths, entry, target, charter.seed, facts, author_name
+                    )
             else:
                 raise SystemExit(
                     f"render: no renderer for format {entry.format!r}"

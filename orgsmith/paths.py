@@ -89,6 +89,10 @@ class OrgPaths:
         return self.meta_dir / "docir"
 
     @property
+    def scans_dir(self) -> Path:
+        return self.meta_dir / "scans"
+
+    @property
     def workorders_dir(self) -> Path:
         return self.meta_dir / "workorders"
 
