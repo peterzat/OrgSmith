@@ -5,6 +5,8 @@ committed org must validate clean forever; these are the product's
 fixtures.
 """
 
+import json
+
 import pytest
 
 from orgsmith.paths import OrgPaths
@@ -35,6 +37,38 @@ SLUGS = _committed_slugs()
 def test_committed_org_validates_clean(slug):
     paths = OrgPaths(root=REPO, slug=slug)
     assert run_validate(paths) == 0
+
+
+@pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
+@pytest.mark.parametrize("slug", SLUGS or ["none"])
+def test_committed_org_extraction_ground_truth_scores_100(slug):
+    from orgsmith.evals.score import score_extraction
+    from orgsmith.schemas import ExtractionAnswers
+
+    paths = OrgPaths(root=REPO, slug=slug)
+    suite = paths.evals_dir / "extraction.jsonl"
+    if not suite.exists():
+        pytest.skip("org has no committed evals")
+    questions = [
+        json.loads(line) for line in suite.read_text().splitlines() if line.strip()
+    ]
+    result = score_extraction(
+        paths.evals_dir,
+        ExtractionAnswers.model_validate(
+            {
+                "suite": "extraction",
+                "answers": [
+                    {
+                        "id": q["id"],
+                        "value": q["expected_value"],
+                        "docs": q["expected_docs"],
+                    }
+                    for q in questions
+                ],
+            }
+        ),
+    )
+    assert result.total and result.correct == result.total
 
 
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")

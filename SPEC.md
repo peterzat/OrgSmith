@@ -19,37 +19,37 @@ committed fixture.
   defaulting to off: the four committed fixtures load and validate clean
   without regeneration, and unchanged recipes regenerate byte-identical
   structure (determinism and org tiers stay green).
-- [ ] .pptx end to end: a deck genre is planned per engagement when
+- [x] .pptx end to end: a deck genre is planned per engagement when
   `format_mix.pptx > 0` (demanding more decks than engagements exist fails
   at docplan with an actionable message), authored through the airlock,
   and the rendered .pptx opens in python-pptx, carries the synthetic
   provenance marker, and echoes its planted facts and planned mentions in
   extractable text (fact/mention rules cover pptx; corruption-tested).
-- [ ] .eml end to end: an email genre is planned when `format_mix.eml > 0`;
+- [x] .eml end to end: an email genre is planned when `format_mix.eml > 0`;
   the rendered .eml parses with the stdlib email module, carries a
   synthetic marker header, renders byte-identically on re-render, echoes
   planted facts and mentions in its body, and a validator rule fails when
   From/To/Date/Subject/Message-ID do not recompute exactly from ledger
   data (corruption-tested).
-- [ ] Scan planning is deterministic: with `scanned_ratio` on, docplan
+- [x] Scan planning is deterministic: with `scanned_ratio` on, docplan
   marks the oldest pdf docs as scanned and assigns OCR layers per
   `ocr_layer_rate` from a new seed stream; planning twice from the same
   recipe yields identical flags; scanned docs keep their .pdf paths; a doc
   hosting a signature_page fact is never image-only (all tested).
-- [ ] Scan rendering holds: a scanned doc's pages are raster images;
+- [x] Scan rendering holds: a scanned doc's pages are raster images;
   degradation is seeded and reproducible per doc; an OCR-layer doc exposes
   extractable text in which every planted fact and mention surface appears
   verbatim while at least one synthetic OCR corruption exists outside
   those protected spans; an image-only doc exposes no extractable text;
   the true per-page text is archived under the org's metadata; the
   provenance marker survives the rebuild (all tested).
-- [ ] Scan validation never goes silent: validator rules verify scanned
+- [x] Scan validation never goes silent: validator rules verify scanned
   docs are image pdfs whose OCR-layer presence matches the plan, and that
   text obligations for image-only docs hold against the archived page
   text; each rule fails a deliberately corrupted copy in both directions;
   the rules skip visibly only when the charter's scan knobs are off, and
   fail when knobs are on but scan artifacts are missing.
-- [ ] Legacy end to end: with `legacy_ratio` on, docplan deterministically
+- [x] Legacy end to end: with `legacy_ratio` on, docplan deterministically
   assigns legacy formats and extensions (oldest office docs first); render
   converts verified modern intermediates via LibreOffice and exits with an
   actionable message when soffice is absent; every rendered legacy file
@@ -58,12 +58,12 @@ committed fixture.
   corruption-tested); .xls financial summaries still tie to the finance
   ledger, or financial summaries are excluded from legacy selection with
   the exclusion documented.
-- [ ] Validation is CI-safe: `orgsmith validate` on an org containing all
+- [x] Validation is CI-safe: `orgsmith validate` on an org containing all
   new formats passes with soffice masked from PATH (tested), and
   FILE-01/PROV-01 have explicit branches for every supported format so an
   unknown format produces a finding or loud error, never a silent pass or
   a crash (tested).
-- [ ] Evals ride along: retrieval, extraction, and visibility suites emit
+- [x] Evals ride along: retrieval, extraction, and visibility suites emit
   and score over orgs containing the new formats; extraction questions
   carry `scan:ocr`, `scan:image-only`, and `format:legacy` tags when their
   expected docs have those properties; all four committed pre-M5 fixtures
@@ -118,4 +118,4 @@ committed fixture.
 *Prior spec (2026-07-15): M4 ACL overlay and visibility evals; all 8
 criteria met, shipped as v1.3.0.*
 
-<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":1} -->
+<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":9} -->

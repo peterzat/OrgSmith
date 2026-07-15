@@ -40,24 +40,32 @@ DECK_MIX = (
 )
 
 
-def _write_recipe(root, ratio):
-    """dev-mini with a deck in the mix and legacy_ratio set."""
-    paths = write_culture_recipe(root, f"  legacy_ratio: {ratio}\n")
+def _write_recipe(root, culture_lines, mix=DECK_MIX, target=14):
+    """dev-mini with a deck in the mix and format knobs set."""
+    paths = write_culture_recipe(root, culture_lines)
     text = (paths.recipe_dir / "ORG-CHARTER.md").read_text()
     text = text.replace(
-        "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n", DECK_MIX
-    ).replace("target_docs: 13", "target_docs: 14")
+        "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n", mix
+    ).replace("target_docs: 13", f"target_docs: {target}")
     (paths.recipe_dir / "ORG-CHARTER.md").write_text(text)
     return paths
 
 
-def _build_stages(root, ratio=0.5):
+# Every new format capability in one org: modern mail, decks, scans of
+# both kinds, and (at ratio 1.0) every office doc a pre-2007 binary.
+ALL_FORMATS_MIX = "  format_mix: {docx: 8, pdf: 3, xlsx: 2, pptx: 2, eml: 2}\n"
+ALL_FORMATS_LINES = (
+    "  legacy_ratio: 1.0\n  scanned_ratio: 0.67\n  ocr_layer_rate: 0.5\n"
+)
+
+
+def _build_stages(root, culture_lines="  legacy_ratio: 0.5\n", **kw):
     from orgsmith.charter import run_charter
     from orgsmith.docplan import run_docplan
     from orgsmith.fabric import run_fabric
     from orgsmith.foundation import run_scaffold
 
-    paths = _write_recipe(root, ratio)
+    paths = _write_recipe(root, culture_lines, **kw)
     assert run_charter(paths) == 0
     assert run_scaffold(paths) == 0
     assert run_fabric(paths) == 0
@@ -111,8 +119,14 @@ def legacy_org(tmp_path_factory):
         pytest.skip("LibreOffice not installed")
     # ratio 1.0 converts every office doc, covering all three binaries
     # (the financial summaries publish late, so partial ratios never
-    # reach them in this recipe).
-    paths = _build_stages(tmp_path_factory.mktemp("legacy-org"), ratio=1.0)
+    # reach them in this recipe); mail and scans ride along so the
+    # masked-PATH test validates an org holding every new format at once.
+    paths = _build_stages(
+        tmp_path_factory.mktemp("legacy-org"),
+        ALL_FORMATS_LINES,
+        mix=ALL_FORMATS_MIX,
+        target=17,
+    )
     run_enrichment(paths)
     run_authoring(paths)
     assert run_render(paths) == 0
@@ -131,7 +145,16 @@ def org_copy(legacy_org, tmp_path):
 def test_legacy_org_validates_clean_without_soffice_on_path(
     legacy_org, monkeypatch
 ):
-    # CI-safety: validation of converted binaries is pure Python.
+    # CI-safety: an org holding every new format (mail, decks-as-.ppt,
+    # both scan kinds, all three binaries) validates pure Python.
+    manifest = load_manifest(legacy_org)
+    assert {"doc", "xls", "ppt", "eml", "pdf"} <= {e.format for e in manifest}
+    layers = {
+        bool(e.render_params.get("ocr_layer"))
+        for e in manifest
+        if e.render_params.get("scan") == 1
+    }
+    assert layers == {True, False}
     monkeypatch.setenv("PATH", "/nonexistent")
     assert run_validate(legacy_org) == 0
 
