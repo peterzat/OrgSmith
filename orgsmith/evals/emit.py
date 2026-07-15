@@ -95,6 +95,21 @@ nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
 """
 
+# Appended only when extraction questions carry difficulty tags, so
+# pre-M5 orgs (no scans, no legacy binaries) re-emit byte-identical
+# README files.
+_README_FORMAT_TAGS = """
+## Difficulty tags on extraction questions
+
+Extraction questions may carry tags describing where their expected
+documents live: `scan:ocr` (a degraded raster scan whose extractable
+text is a synthetic OCR layer, with OCR-style corruptions outside the
+planted surfaces), `scan:image-only` (a scan with no text layer at all;
+the value exists only as pixels, and the org's `-metadata/scans/`
+directory archives the true page text), and `format:legacy` (a pre-2007
+`.doc`/`.xls`/`.ppt` binary).
+"""
+
 # Appended only when the org has an ACL overlay (ledger/acl.json), so
 # pre-ACL orgs re-emit byte-identical README files.
 _README_VISIBILITY = """
@@ -229,6 +244,24 @@ _EXTRACTION_TEMPLATES = {
 }
 
 
+def _difficulty_tags(entries) -> list[str]:
+    """Where the expected docs live, when that makes extraction harder:
+    a synthetic OCR layer, pixels only, or a pre-2007 binary. Derived from
+    the manifest at emit time, so pre-M5 orgs (no scan flags, no legacy
+    formats) gain no tags and re-emit byte-identically."""
+    from ..schemas import BASE_FORMAT
+
+    scanned = [e for e in entries if e.render_params.get("scan") == 1]
+    tags = []
+    if any(e.render_params.get("ocr_layer") == 1 for e in scanned):
+        tags.append("scan:ocr")
+    if any(not e.render_params.get("ocr_layer") for e in scanned):
+        tags.append("scan:image-only")
+    if any(e.format in BASE_FORMAT for e in entries):
+        tags.append("format:legacy")
+    return tags
+
+
 def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
     """One question per planted, hosted fact. Hosts come from facts_refs
     (body facts) or key_facts (which also carry filename-only facts that
@@ -238,14 +271,13 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
     serial = 0
     for eng in engagements.engagements:
         for fact in eng.facts:
-            hosts = sorted(
-                {
-                    e.path
-                    for e in manifest
-                    if fact.id in e.facts_refs
-                    or any(k.fact_id == fact.id for k in e.key_facts)
-                }
-            )
+            host_entries = [
+                e
+                for e in manifest
+                if fact.id in e.facts_refs
+                or any(k.fact_id == fact.id for k in e.key_facts)
+            ]
+            hosts = sorted({e.path for e in host_entries})
             if not hosts:
                 continue
             suffix = fact.id.rsplit(".", 1)[-1]
@@ -264,7 +296,8 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
                     expected_value=fact.rendered,
                     expected_docs=hosts,
                     location=fact.location_policy,
-                    tags=[f"fact:{fact.kind}", eng.id],
+                    tags=[f"fact:{fact.kind}", eng.id]
+                    + _difficulty_tags(host_entries),
                 )
             )
     return questions
@@ -385,6 +418,9 @@ def run_emit_evals(paths: OrgPaths) -> int:
     write_model(paths.evals_dir / "graph_expected.json", expected)
 
     readme = _README.format(slug=charter.slug)
+    new_tags = ("scan:ocr", "scan:image-only", "format:legacy")
+    if any(t in q.tags for q in extraction for t in new_tags):
+        readme += _README_FORMAT_TAGS
     visibility_note = ""
     if acl is not None:
         visibility = build_visibility(foundation, acl)
