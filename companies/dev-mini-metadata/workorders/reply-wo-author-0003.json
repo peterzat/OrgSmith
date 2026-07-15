@@ -6,18 +6,47 @@
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0008",
       "blocks": [
-        {"kind": "heading", "text": "Pinebrook Advisory Group: Firm Overview", "level": 1},
-        {"kind": "paragraph", "text": "Pinebrook Advisory Group is a management consultancy for mid-market operating companies. We are five people. That is deliberate. Clients get the people they met, not a leverage pyramid, and every engagement is signed and overseen by the Managing Partner."},
-        {"kind": "heading", "text": "What we do", "level": 2},
-        {"kind": "list", "items": [
-          "Operational reviews: find the cost and throughput problems worth fixing, size them, and leave a plan the client's own team can execute.",
-          "Pricing studies: transaction-level analysis of where price leaks and which segments will bear a structured increase.",
-          "Post-acquisition integration support: the unglamorous first hundred days, done in the right order."
-        ]},
-        {"kind": "heading", "text": "How we work", "level": 2},
-        {"kind": "paragraph", "text": "We work from the client's own data and we write short. Findings come with numbers attached, recommendations come with owners and sequence, and nothing arrives as a hundred-page deck. Fees are fixed and agreed in the engagement letter; scope changes are agreed in writing before the work is done, not after."},
-        {"kind": "heading", "text": "Representative work", "level": 2},
-        {"kind": "paragraph", "text": "Recent engagements include an operational review for {{fact:f:E-2019-001.client}} covering production flow, purchasing, and order-to-cash administration, along with pricing and integration work for operating companies of similar size. References are available on request."}
+        {
+          "kind": "heading",
+          "text": "Firm Overview",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Pinebrook Advisory Group is a management consultancy serving mid-market operating companies. We take on a handful of engagements each year, and we staff every one with senior people from the first meeting to the last. If your company needs a hard look at its operations, its pricing, or an acquisition it has just closed, we can help."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are small by design. A lean firm keeps our attention on your problem instead of our overhead, and it means the people who sell the work are the people who do the work. You will not meet a partner at the proposal and a stranger at the kickoff."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our work falls into three practice areas:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Operational reviews. We walk the floor, map the work, and tell you plainly where time and money are leaking out of the business.",
+            "Pricing studies. We test what your customers pay against what your products cost, and we recommend prices you can defend in the market.",
+            "Post-acquisition integration support. We help management teams combine two companies without losing the customers, or the people, who made the deal worth doing."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our clients tend to come back, and most new work reaches us by referral. We are pleased to count {{fact:f:E-2019-001.client}} among the companies we have served, and we are glad to provide client references on request."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One more thing you should know about how we operate. Every page that leaves this firm carries the signature of our Managing Partner, Chad Miller. That is not ceremony. It means one person answers to you for the quality of the work, and you know his name."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If any of this sounds like a fit, write or call. We will put a partner on the phone, not a brochure in the mail."
+        },
+        {
+          "kind": "sigblock",
+          "signers": ["p:chad.miller"]
+        }
       ]
     }
   ]

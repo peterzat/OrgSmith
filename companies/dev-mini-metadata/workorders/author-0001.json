@@ -6,7 +6,7 @@
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
   "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text. You do not know fact\n  values; never write a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0001",
@@ -19,7 +19,7 @@
           "name": "Chad Miller",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Chad Miller built Pinebrook after a long operating career and it shows: he writes the way he ran plants, short declarative sentences, numbers up front, one ask per letter. He signs everything that leaves the firm and edits juniors' drafts by crossing out adjectives. Clients get his cell number and he answers it."
+          "persona": "Chad built the firm on repeat business and treats every outbound page as a reflection of his own name, which is why nothing leaves without his signature. His edits push toward shorter sentences, concrete verbs, and a clear ask in the first paragraph. In writing he is courtly with clients and blunt inside the firm, and he has no patience for hedging language or consultant jargon."
         }
       ],
       "participants": [
@@ -28,14 +28,14 @@
           "name": "Jenna Wiley",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
         },
         {
           "id": "p:lisa.hernandez",
           "name": "Lisa Hernandez",
           "title": "Analyst",
           "dept": "Consulting",
-          "persona": "Lisa Hernandez is the analyst on the team and the firm's default minute-taker. She captures meetings almost verbatim, names every attendee, and keeps a running action list that she chases without being asked. Her writing is neutral and precise; when she is unsure she writes 'to confirm' rather than guessing."
+          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
         },
         {
           "id": "xp:jacob.andersen",
@@ -58,6 +58,33 @@
         {
           "id": "f:E-2019-001.client",
           "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:chad.miller",
+          "surface": "Chad Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jenna.wiley",
+          "surface": "Jenna Wiley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:lisa.hernandez",
+          "surface": "Lisa Hernandez",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jacob.andersen",
+          "surface": "Jacob Andersen",
+          "kind": "person"
+        },
+        {
+          "entity": "x:weaver-reeves",
+          "surface": "Weaver-Reeves",
+          "kind": "org"
         }
       ],
       "target_words": 350,
@@ -74,7 +101,7 @@
           "name": "Jenna Wiley",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
         }
       ],
       "participants": [
@@ -83,14 +110,14 @@
           "name": "Jenna Wiley",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
         },
         {
           "id": "p:lisa.hernandez",
           "name": "Lisa Hernandez",
           "title": "Analyst",
           "dept": "Consulting",
-          "persona": "Lisa Hernandez is the analyst on the team and the firm's default minute-taker. She captures meetings almost verbatim, names every attendee, and keeps a running action list that she chases without being asked. Her writing is neutral and precise; when she is unsure she writes 'to confirm' rather than guessing."
+          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
         },
         {
           "id": "xp:jacob.andersen",
@@ -98,6 +125,13 @@
           "title": "Chief Financial Officer",
           "dept": "Weaver-Reeves",
           "persona": ""
+        },
+        {
+          "id": "p:megan.garcia",
+          "name": "Megan Garcia",
+          "title": "Office Manager",
+          "dept": "Operations",
+          "persona": "Megan keeps the office running: scheduling, invoicing paperwork, letterhead stock, and the filing system only she fully understands. Her emails are short, friendly, and relentlessly practical, usually ending with exactly what she needs and by when. She is on a first-name basis with every client's assistant and knows which partner to nudge to get a signature out the door."
         }
       ],
       "engagement_summary": "Operational Review for Weaver-Reeves, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -109,6 +143,33 @@
         {
           "id": "f:E-2019-001.client",
           "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jenna.wiley",
+          "surface": "Jenna Wiley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:lisa.hernandez",
+          "surface": "Lisa Hernandez",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jacob.andersen",
+          "surface": "Jacob Andersen",
+          "kind": "person"
+        },
+        {
+          "entity": "x:weaver-reeves",
+          "surface": "Weaver-Reeves",
+          "kind": "org"
+        },
+        {
+          "entity": "p:megan.garcia",
+          "surface": "Megan Garcia",
+          "kind": "person"
         }
       ],
       "target_words": 240,
@@ -125,7 +186,7 @@
           "name": "Lisa Hernandez",
           "title": "Analyst",
           "dept": "Consulting",
-          "persona": "Lisa Hernandez is the analyst on the team and the firm's default minute-taker. She captures meetings almost verbatim, names every attendee, and keeps a running action list that she chases without being asked. Her writing is neutral and precise; when she is unsure she writes 'to confirm' rather than guessing."
+          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
         }
       ],
       "participants": [
@@ -134,14 +195,14 @@
           "name": "Jenna Wiley",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
         },
         {
           "id": "p:lisa.hernandez",
           "name": "Lisa Hernandez",
           "title": "Analyst",
           "dept": "Consulting",
-          "persona": "Lisa Hernandez is the analyst on the team and the firm's default minute-taker. She captures meetings almost verbatim, names every attendee, and keeps a running action list that she chases without being asked. Her writing is neutral and precise; when she is unsure she writes 'to confirm' rather than guessing."
+          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
         },
         {
           "id": "xp:jacob.andersen",
@@ -158,6 +219,28 @@
           "hint": "proper name; place where the name belongs"
         }
       ],
+      "mentions": [
+        {
+          "entity": "p:lisa.hernandez",
+          "surface": "Lisa Hernandez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jenna.wiley",
+          "surface": "Jenna Wiley",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jacob.andersen",
+          "surface": "Jacob Andersen",
+          "kind": "person"
+        },
+        {
+          "entity": "x:weaver-reeves",
+          "surface": "Weaver-Reeves",
+          "kind": "org"
+        }
+      ],
       "target_words": 220,
       "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
     },
@@ -172,7 +255,7 @@
           "name": "Jenna Wiley",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
         }
       ],
       "participants": [
@@ -181,14 +264,14 @@
           "name": "Jenna Wiley",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna Wiley runs delivery on most engagements and writes the firm's kickoff memos and status reports. Structured to a fault: every document she touches gets a numbered workstream list and an owner beside every action. Warm on the phone, terse on the page. Allergic to consultant jargon; says 'what changed and what it costs' at least once a week."
+          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
         },
         {
           "id": "p:lisa.hernandez",
           "name": "Lisa Hernandez",
           "title": "Analyst",
           "dept": "Consulting",
-          "persona": "Lisa Hernandez is the analyst on the team and the firm's default minute-taker. She captures meetings almost verbatim, names every attendee, and keeps a running action list that she chases without being asked. Her writing is neutral and precise; when she is unsure she writes 'to confirm' rather than guessing."
+          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
         }
       ],
       "engagement_summary": "Operational Review for Weaver-Reeves, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -200,6 +283,23 @@
         {
           "id": "f:E-2019-001.client",
           "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jenna.wiley",
+          "surface": "Jenna Wiley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:lisa.hernandez",
+          "surface": "Lisa Hernandez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:weaver-reeves",
+          "surface": "Weaver-Reeves",
+          "kind": "org"
         }
       ],
       "target_words": 300,

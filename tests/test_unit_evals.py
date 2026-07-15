@@ -100,7 +100,7 @@ def test_committed_dev_mini_reaches_question_floor():
         load_foundation(paths),
         load_engagements(paths),
         load_manifest(paths),
-        load_mention_map(paths),  # None: predates mention ground truth
+        load_mention_map(paths),  # present since the M6 regeneration
     )
     assert len(questions) >= 12
 
@@ -354,7 +354,9 @@ def test_committed_torchlake_gains_tags_without_regeneration():
     } <= tags
 
 
-def test_committed_dev_mini_predates_ambiguity_tags():
+def test_committed_dev_mini_has_no_ambiguity_tags():
+    # dev-mini keeps every ambiguity knob off (its M6 regeneration added
+    # only mention ground truth), so no entity may carry a planted tag.
     paths = OrgPaths(root=REPO, slug="dev-mini")
     expected = build_graph_expected(
         load_charter(paths), load_foundation(paths), load_graph(paths)
@@ -451,20 +453,22 @@ def test_visibility_malformed_answers_rejected(acl_org, tmp_path):
     bad = tmp_path / "bad.json"
     bad.write_text('{"suite": "visibility", "answers": [{"id": 7}]}')
     assert run_score(acl_org.evals_dir, "visibility", bad) == 2
-    # And a suite that was never emitted fails actionably.
+    # And a suite that was never emitted fails actionably (torchlake is
+    # pre-ACL: its committed evals carry no visibility file).
     good = tmp_path / "good.json"
     good.write_text('{"suite": "visibility", "answers": []}')
     with pytest.raises(SystemExit, match="no visibility suite"):
         run_score(
-            REPO / "companies" / "dev-mini-metadata" / "evals",
+            REPO / "companies" / "torchlake-engineering-metadata" / "evals",
             "visibility",
             good,
         )
 
 
 def test_committed_fixture_evals_reemit_byte_identical(tmp_path):
-    """Pre-ACL fixtures must re-emit unchanged: no visibility file, no
-    README drift. Guards the conditional README section."""
+    """Committed evals must re-emit unchanged, with the conditional
+    visibility file and README section present (dev-mini, post-M6) and
+    absent (quillbrook, pre-ACL)."""
     import shutil as sh
 
     for slug in ("dev-mini", "quillbrook-appraisal"):

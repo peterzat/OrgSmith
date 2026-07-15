@@ -3,8 +3,8 @@
   "doc_id": "d:0006",
   "blocks": [
     {
-      "kind": "paragraph",
-      "text": "To: Pricing Study team; cc Melissa Sexton, VP Finance, {{fact:f:E-2020-001.client}}",
+      "kind": "heading",
+      "text": "Kickoff Memo: Pricing Study for Johnson PLC",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "From: Jenna Wiley, Principal Consultant",
+      "text": "To: Lisa Hernandez. From: Jenna Wiley. Re: Kickoff for the {{fact:f:E-2020-001.client}} pricing study.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Re: Kickoff, Pricing Study",
+      "text": "Johnson PLC has signed, and we start {{fact:f:E-2020-001.start}}. The brief in one sentence: tell them what their pricing should be, where their discounting leaks, and what to change first, in a form their leadership can act on. Our client contact is Melissa Sexton, VP Finance. She reads carefully and skims nothing that involves a number, so every exhibit ties before it leaves the building. Findings first in everything we write; she can pull the support from the appendix if she wants it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -30,18 +30,9 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "The engagement is signed and work begins {{fact:f:E-2020-001.start}}. This one runs differently from our usual playbook: all interviews and working sessions are by video until further notice, and the data room is electronic only. Plan your weeks around that; it changes the interview cadence, not the analysis.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Workstreams and owners:",
-      "level": 1,
+      "kind": "heading",
+      "text": "Workstreams",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -52,28 +43,33 @@
       "text": "",
       "level": 1,
       "items": [
-        "1. Price waterfall build: land the transaction extract, validate it against the ledger, build the waterfall by product family. Owner: Lisa Hernandez.",
-        "2. Discounting practice: interview sales leadership and the two regional managers, document approval reality versus policy. Owner: Jenna Wiley.",
-        "3. Price architecture: synthesize into recommended structure and sequencing. Owner: Jenna Wiley, with Chad reviewing before anything goes to the client."
+        "Data build. Lisa assembles the invoice-level price and margin dataset from the client's records and reconciles it before any analysis rests on it.",
+        "Discount practice. Lisa maps who approves what off list and where realized price departs from it; I review the account-level findings before they go anywhere.",
+        "Competitive position. I build the comparison against the competitors the client's team follows, with their input on the comparison set.",
+        "Recommendations. I draft the pricing structure and discount policy options; the Managing Partner reviews and signs anything that goes to the client."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Data hygiene matters double on a remote engagement: confirm every extract by email with Ms. Sexton's office, log the receipt date, and file the raw pull before you touch a copy.",
-      "level": 1,
+      "kind": "heading",
+      "text": "Next steps",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Next steps: Lisa sends the data request Monday. I will schedule the first three video interviews. Weekly check-in stands; same rule as always, what changed and what it costs, one page.",
+      "kind": "list",
+      "text": "",
       "level": 1,
-      "items": [],
+      "items": [
+        "Lisa: draft the opening data request for my review so it goes out the day we start.",
+        "Me: schedule the first working session with Melissa Sexton's office.",
+        "Both: reread the engagement letter before the first client call. The scope is the scope."
+      ],
       "header": [],
       "rows": [],
       "signers": []

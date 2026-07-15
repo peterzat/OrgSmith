@@ -49,9 +49,24 @@ def test_knobbed_org_validates_clean_with_all_rules(knobbed_org, capsys):
     assert [s["rule"] for s in payload["skipped"]] == ["LEG-01"]
 
 
-def test_pre_m2_org_skips_visibly(capsys):
-    dev_mini = OrgPaths(root=REPO, slug="dev-mini")
-    assert run_validate(dev_mini) == 0
+def test_pre_m2_org_skips_visibly(tmp_path, capsys):
+    """The _needs_mentions grandfather outlives dev-mini's regeneration:
+    a synthetic old-shape org (no mention knob, mention_map.json removed)
+    still skips the mention rules visibly, never silently passing or
+    failing."""
+    dest = tmp_path / "recipes" / "dev-mini"
+    dest.mkdir(parents=True)
+    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    knob = "  min_mentions_per_person: 1\n"
+    assert knob in text
+    (dest / "ORG-CHARTER.md").write_text(text.replace(knob, ""))
+    from conftest import build_pure_stages
+
+    paths = build_pure_stages(tmp_path)
+    paths.mention_map_json.unlink()
+    rules = ["MENT-01", "MENT-02", "GRAPH-01", "GRAPH-02",
+             "GRAPH-03", "GRAPH-04"]
+    assert run_validate(paths, only=rules) == 0
     out = capsys.readouterr().out
     for rule in ("MENT-01", "MENT-02", "GRAPH-01", "GRAPH-02"):
         assert f"SKIP {rule}" in out, rule

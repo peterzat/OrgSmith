@@ -61,3 +61,20 @@ aliases. Edges are scored precision/recall after resolving names the same
 way. Entities may carry `ambiguity:<class>` tags (surname-collision,
 nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
+
+## visibility.jsonl
+
+One question per internal person: the exact set of share documents that
+person may read, per the org's access-control ground truth (see
+PERMISSIONS.md in the share root). Answers file:
+
+```json
+{"suite": "visibility",
+  "answers": [
+    {"id": "vq:0001", "docs": ["Firm/Firm Overview 2021 v3.docx"]}
+  ]}
+```
+
+A question is correct when your doc set exactly matches `expected_docs`.
+Score: `python -m orgsmith score --suite visibility --answers answers.json
+--evals-dir <this directory>`.

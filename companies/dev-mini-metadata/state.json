@@ -4,15 +4,15 @@
   "stages": {
     "charter": {
       "status": "done",
-      "inputs_hash": "924832d638dce87f"
+      "inputs_hash": "72ca92893b7f84b0"
     },
     "foundation": {
       "status": "done",
-      "inputs_hash": "5c6f2f39933a68fa"
+      "inputs_hash": "08f3fe50856fe080"
     },
     "fabric": {
       "status": "done",
-      "inputs_hash": "e15df15cb8d36e37"
+      "inputs_hash": "966cba7dd32fca5a"
     },
     "docplan": {
       "status": "done",
@@ -37,69 +37,69 @@
   },
   "docs": {
     "d:0001": {
-      "authored_hash": "0e70941a78b9cf9a",
-      "rendered_hash": "d43efcc3b81581d8",
-      "rendered_from": "0e70941a78b9cf9a",
+      "authored_hash": "b1662582384d5791",
+      "rendered_hash": "f727ade0ed1914cd",
+      "rendered_from": "b1662582384d5791",
       "rev": 0
     },
     "d:0002": {
-      "authored_hash": "4216536a9ca8ff3b",
-      "rendered_hash": "ee42b2f103702013",
-      "rendered_from": "4216536a9ca8ff3b",
+      "authored_hash": "bad9ebcb3d46b636",
+      "rendered_hash": "ed02ace4ba7911d1",
+      "rendered_from": "bad9ebcb3d46b636",
       "rev": 0
     },
     "d:0003": {
-      "authored_hash": "cd1ae55942e06c6d",
-      "rendered_hash": "a256a2f56d329c66",
-      "rendered_from": "cd1ae55942e06c6d",
+      "authored_hash": "f180a5c6aeda2014",
+      "rendered_hash": "7633e01e2997254b",
+      "rendered_from": "f180a5c6aeda2014",
       "rev": 0
     },
     "d:0004": {
-      "authored_hash": "7fa90a241263511b",
-      "rendered_hash": "4ec1fd2a77c66ccf",
-      "rendered_from": "7fa90a241263511b",
+      "authored_hash": "82182178807526e3",
+      "rendered_hash": "ddd12102a06ff1bd",
+      "rendered_from": "82182178807526e3",
       "rev": 0
     },
     "d:0005": {
-      "authored_hash": "141020e85d3dd038",
-      "rendered_hash": "5787a5383a2afc55",
-      "rendered_from": "141020e85d3dd038",
+      "authored_hash": "b18a0322c7de3233",
+      "rendered_hash": "bad6be63be2c32ef",
+      "rendered_from": "b18a0322c7de3233",
       "rev": 0
     },
     "d:0006": {
-      "authored_hash": "2e563849db3b1c96",
-      "rendered_hash": "81c981ba08fbfaf1",
-      "rendered_from": "2e563849db3b1c96",
+      "authored_hash": "e82c72ecf2b9304f",
+      "rendered_hash": "d41a766849d7351a",
+      "rendered_from": "e82c72ecf2b9304f",
       "rev": 0
     },
     "d:0007": {
-      "authored_hash": "85ff8e54a062a1fe",
-      "rendered_hash": "731230162dd83944",
-      "rendered_from": "85ff8e54a062a1fe",
+      "authored_hash": "d94ec025a88005f9",
+      "rendered_hash": "52b631f4f2fee52e",
+      "rendered_from": "d94ec025a88005f9",
       "rev": 0
     },
     "d:0008": {
-      "authored_hash": "a23d545d8e882fa5",
-      "rendered_hash": "b90474b0f62d70d3",
-      "rendered_from": "a23d545d8e882fa5",
+      "authored_hash": "5cc1910fab7f24a7",
+      "rendered_hash": "78529c87a0f51ce2",
+      "rendered_from": "5cc1910fab7f24a7",
       "rev": 0
     },
     "d:0009": {
-      "authored_hash": "32b5cd54f9250ec8",
-      "rendered_hash": "2f4eda5ee6e6f984",
-      "rendered_from": "32b5cd54f9250ec8",
+      "authored_hash": "f342a74075b32771",
+      "rendered_hash": "4931459b5fc02b92",
+      "rendered_from": "f342a74075b32771",
       "rev": 0
     },
     "d:0010": {
-      "authored_hash": "b0003f13f17d73be",
-      "rendered_hash": "21f035c0024b071c",
-      "rendered_from": "b0003f13f17d73be",
+      "authored_hash": "c739130b771602d6",
+      "rendered_hash": "c56bfe3c5635711c",
+      "rendered_from": "c739130b771602d6",
       "rev": 0
     },
     "d:0012": {
-      "authored_hash": "ac05687aa26a906a",
-      "rendered_hash": "d38c9b3dea7ffbd1",
-      "rendered_from": "ac05687aa26a906a",
+      "authored_hash": "f1dd1bcbfcd2a664",
+      "rendered_hash": "8b6a0e5f4e66ce97",
+      "rendered_from": "f1dd1bcbfcd2a664",
       "rev": 0
     },
     "d:0011": {
@@ -116,19 +116,6 @@
     }
   },
   "outstanding": {},
-  "probes": {
-    "python": "3.10.12",
-    "pydantic": "ok",
-    "yaml": "ok",
-    "jinja2": "ok",
-    "faker": "ok",
-    "docx": "ok",
-    "xlsxwriter": "ok",
-    "pypdf": "ok",
-    "pikepdf": "ok",
-    "openpyxl": "ok",
-    "weasyprint": "ok",
-    "soffice": "absent (optional: legacy .doc/.xls/.ppt conversion (M5))"
-  },
+  "probes": {},
   "fallbacks": []
 }

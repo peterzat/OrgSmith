@@ -3,8 +3,8 @@
   "doc_id": "d:0002",
   "blocks": [
     {
-      "kind": "paragraph",
-      "text": "To: Operational Review team; cc Jacob Andersen, Chief Financial Officer, {{fact:f:E-2019-001.client}}",
+      "kind": "heading",
+      "text": "Kickoff Memo: Weaver-Reeves Operational Review",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "From: Jenna Wiley, Principal Consultant",
+      "text": "To: Engagement team. From: Jenna Wiley. Re: Kickoff for the {{fact:f:E-2019-001.client}} operational review.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Re: Kickoff, Operational Review",
+      "text": "The countersigned engagement letter is back and we are on. Fieldwork begins {{fact:f:E-2019-001.start}}. Our job over the next three months is to give Weaver-Reeves a clear picture of how their operations actually run, where cost and delay hide, and what to fix first. The final report lands on their CFO's desk, so everything we produce needs to stand up to a financial read.",
       "level": 1,
       "items": [],
       "header": [],
@@ -30,18 +30,9 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Fieldwork starts {{fact:f:E-2019-001.start}}. This memo sets the workstreams, owners, and the first two weeks so nobody is guessing. Read it before the kickoff call; bring questions, not surprises.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Workstreams and owners:",
-      "level": 1,
+      "kind": "heading",
+      "text": "Workstreams",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -52,9 +43,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "1. Production flow: baseline the schedule, walk the floor, quantify downtime drivers. Owner: Jenna Wiley.",
-        "2. Purchasing and inventory: pull twelve months of purchase and stock data, flag slow movers. Owner: Lisa Hernandez.",
-        "3. Order-to-cash: map quote through collection, time each handoff. Owner: Lisa Hernandez, with client staff support."
+        "Process mapping. Lisa leads on-site interviews and documents order management and production planning as they actually operate, not as the manuals say.",
+        "Cost and staffing analysis. Lisa builds the baseline from client data; I review before anything goes back to the client.",
+        "Findings and recommendations. I draft; the Managing Partner reviews and signs anything that leaves the building. Plan for his red pen."
       ],
       "header": [],
       "rows": [],
@@ -62,7 +53,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Ground rules for the client site: we are guests. Schedule interviews through Mr. Andersen's office, confirm every data pull in writing, and file everything in the engagement folder the same day you collect it.",
+      "text": "Roles: Lisa Hernandez owns data collection, analysis, and meeting minutes, turned around same day. Megan Garcia has opened the engagement file and will handle scheduling and invoicing paperwork; route calendar requests through her. Our client contact is Jacob Andersen, Chief Financial Officer at Weaver-Reeves. Nothing goes to his office without passing through me first.",
       "level": 1,
       "items": [],
       "header": [],
@@ -70,10 +61,23 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Next steps: Lisa circulates the data request list this week. I will confirm the interview calendar with the client. First internal check-in is at the end of week one; what changed and what it costs, one page, no decks.",
-      "level": 1,
+      "kind": "heading",
+      "text": "Next steps",
+      "level": 2,
       "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Lisa: send the opening data request so it lands before fieldwork starts.",
+        "Megan: confirm on-site logistics with the client's office.",
+        "All: hold the first week of fieldwork open for on-site interviews."
+      ],
       "header": [],
       "rows": [],
       "signers": []

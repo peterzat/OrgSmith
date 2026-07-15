@@ -6,7 +6,7 @@
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
   "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text. You do not know fact\n  values; never write a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0008",
@@ -19,7 +19,7 @@
           "name": "Chad Miller",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Chad Miller built Pinebrook after a long operating career and it shows: he writes the way he ran plants, short declarative sentences, numbers up front, one ask per letter. He signs everything that leaves the firm and edits juniors' drafts by crossing out adjectives. Clients get his cell number and he answers it."
+          "persona": "Chad built the firm on repeat business and treats every outbound page as a reflection of his own name, which is why nothing leaves without his signature. His edits push toward shorter sentences, concrete verbs, and a clear ask in the first paragraph. In writing he is courtly with clients and blunt inside the firm, and he has no patience for hedging language or consultant jargon."
         }
       ],
       "participants": [
@@ -28,7 +28,7 @@
           "name": "Chad Miller",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Chad Miller built Pinebrook after a long operating career and it shows: he writes the way he ran plants, short declarative sentences, numbers up front, one ask per letter. He signs everything that leaves the firm and edits juniors' drafts by crossing out adjectives. Clients get his cell number and he answers it."
+          "persona": "Chad built the firm on repeat business and treats every outbound page as a reflection of his own name, which is why nothing leaves without his signature. His edits push toward shorter sentences, concrete verbs, and a clear ask in the first paragraph. In writing he is courtly with clients and blunt inside the firm, and he has no patience for hedging language or consultant jargon."
         }
       ],
       "engagement_summary": "",
@@ -36,6 +36,13 @@
         {
           "id": "f:E-2019-001.client",
           "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:chad.miller",
+          "surface": "Chad Miller",
+          "kind": "person"
         }
       ],
       "target_words": 320,

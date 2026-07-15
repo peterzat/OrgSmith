@@ -33,6 +33,7 @@ engagements:
 
 graph_targets:
   external_orgs: 3
+  min_mentions_per_person: 1
   external_people: 3
 ```
 

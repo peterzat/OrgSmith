@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session Minutes: Operational Review",
+      "text": "Meeting Minutes: Weaver-Reeves Operational Review, Working Session",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Working session held at the {{fact:f:E-2019-001.client}} offices to review interim findings on production flow and agree on the data still outstanding. Minutes prepared by Lisa Hernandez.",
+      "text": "Prepared by Lisa Hernandez, Analyst. These minutes are circulated to all attendees for correction; please flag anything recorded inaccurately.",
       "level": 1,
       "items": [],
       "header": [],
@@ -21,9 +21,9 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Attendees:",
-      "level": 1,
+      "kind": "heading",
+      "text": "Attendees",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -35,16 +35,25 @@
       "level": 1,
       "items": [
         "Jenna Wiley, Principal Consultant, Pinebrook Advisory Group",
-        "Lisa Hernandez, Analyst, Pinebrook Advisory Group",
-        "Jacob Andersen, Chief Financial Officer, {{fact:f:E-2019-001.client}}"
+        "Lisa Hernandez, Analyst, Pinebrook Advisory Group (minutes)",
+        "Jacob Andersen, Chief Financial Officer, Weaver-Reeves"
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
+      "kind": "heading",
+      "text": "Discussion",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "Discussion. Jenna walked through the downtime analysis to date: changeovers cluster on two lines and the scheduling pattern, not the equipment, appears to drive most of the variance. Mr. Andersen confirmed the maintenance log extract is complete and asked that the purchasing review include the freight surcharges added by two suppliers this year. Lisa noted that three weeks of order-to-cash timing data are still to confirm with the billing clerk.",
+      "text": "Jenna Wiley opened with a status summary of the operational review for {{fact:f:E-2019-001.client}}. Process mapping is substantially complete, though a small number of exception paths in order management remain to be documented. The cost baseline is built and appears directionally sound, subject to reconciliation against the most recent monthly close.",
       "level": 1,
       "items": [],
       "header": [],
@@ -53,8 +62,17 @@
     },
     {
       "kind": "paragraph",
-      "text": "Decisions. The team will prioritize the scheduling analysis ahead of the inventory work, and interim findings will go to Mr. Andersen before the next steering session rather than after.",
+      "text": "Jacob Andersen raised two requests: that the staffing analysis reflect the seasonal pattern in production, and that any recommendation touching headcount be flagged to him before it appears in a written draft. Jenna agreed to both. There was some discussion of whether the pricing observations belong in this review or in a follow-on study; the tentative conclusion, subject to the Managing Partner's view, was to note them briefly in the final report.",
       "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Action items",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -67,24 +85,20 @@
       "items": [],
       "header": [
         "Action",
-        "Owner",
-        "Due"
+        "Owner"
       ],
       "rows": [
         [
-          "Complete order-to-cash timing pulls with billing clerk",
-          "Lisa Hernandez",
-          "Before next steering session"
+          "Document the remaining order-management exception paths",
+          "Lisa Hernandez"
         ],
         [
-          "Add supplier freight surcharges to purchasing review",
-          "Jenna Wiley",
-          "Next working session"
+          "Provide seasonal staffing detail for the trailing year",
+          "Jacob Andersen"
         ],
         [
-          "Provide updated production schedule extract",
-          "Jacob Andersen",
-          "End of this week"
+          "Review any headcount-related findings with the client before drafting",
+          "Jenna Wiley"
         ]
       ],
       "signers": []
