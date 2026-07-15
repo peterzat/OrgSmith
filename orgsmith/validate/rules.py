@@ -750,6 +750,101 @@ def acl_03(ctx: Context):
         )
 
 
+# --- AFF (affiliation-aware documents) --------------------------------------
+
+
+def _needs_affiliation_docs(ctx: Context) -> str | None:
+    if not ctx.charter.graph_targets.affiliations_in_docs:
+        return "affiliations_in_docs knob is off for this recipe"
+    return None
+
+
+def aff_01(ctx: Context):
+    """Clients and external participants recompute affiliation-aware from
+    charter plus foundation. The fabric plan is RNG-free by design, which
+    is what makes recomputation tamper evidence."""
+    from ..fabric.engagements import affiliation_plan
+
+    range_start = ctx.charter.doc_culture.date_range[0]
+    windows = [(e.id, e.start, e.end) for e in ctx.engagements.engagements]
+    try:
+        plan = affiliation_plan(ctx.foundation, windows, range_start)
+    except SystemExit as err:
+        yield (
+            f"affiliation plan does not recompute from the charter: {err}",
+            "foundation.json",
+        )
+        return
+    org_names = {o.id: o.name for o in ctx.foundation.external_orgs}
+    for eng in ctx.engagements.engagements:
+        client_id, xp_ids = plan[eng.id]
+        if eng.client != client_id:
+            yield (
+                f"client does not recompute affiliation-aware: ledger has "
+                f"{eng.client}, recomputation says {client_id}",
+                eng.id,
+            )
+            continue
+        if eng.external_participants != xp_ids:
+            yield (
+                f"external participants do not recompute: ledger has "
+                f"{eng.external_participants}, recomputation says {xp_ids}",
+                eng.id,
+            )
+        fact = next(
+            (f for f in eng.facts if f.id == f"f:{eng.id}.client"), None
+        )
+        if fact is None:
+            yield (f"engagement has no f:{eng.id}.client fact", eng.id)
+        elif fact.rendered != org_names[client_id]:
+            yield (
+                f"client fact renders {fact.rendered!r}, not the recomputed "
+                f"client {org_names[client_id]!r}",
+                fact.id,
+            )
+
+
+def aff_02(ctx: Context):
+    """Every multi-affiliation person appears in at least one engagement
+    per affiliation side (stripped history or stripped participation both
+    fire)."""
+    from ..fabric.engagements import (
+        affiliation_covering,
+        padded_window,
+        xp_affiliations,
+    )
+
+    want = ctx.charter.graph_targets.multi_affiliations
+    multi = [
+        xp for xp in ctx.foundation.external_people if len(xp.affiliations) >= 2
+    ]
+    if len(multi) < want:
+        yield (
+            f"foundation carries {len(multi)} multi-affiliation people, "
+            f"charter wants {want}: affiliation history stripped?",
+            "foundation.json",
+        )
+    range_start = ctx.charter.doc_culture.date_range[0]
+    for xp in multi:
+        for aff in xp_affiliations(xp):
+            on_side = any(
+                eng.client == aff.org
+                and xp.id in eng.external_participants
+                and affiliation_covering(
+                    xp,
+                    aff.org,
+                    *padded_window(eng.start, eng.end, range_start),
+                )
+                for eng in ctx.engagements.engagements
+            )
+            if not on_side:
+                yield (
+                    f"{xp.id} never participates in an engagement under "
+                    f"{aff.org} inside that affiliation",
+                    "ledger/engagements.json",
+                )
+
+
 # --- EML ------------------------------------------------------------------
 
 
@@ -1028,6 +1123,10 @@ RULES = [
          available=_needs_acl),
     Rule("ACL-03", "ERROR", "grants and PERMISSIONS.md match the posture",
          acl_03, available=_needs_acl),
+    Rule("AFF-01", "ERROR", "clients and external participants recompute "
+         "affiliation-aware", aff_01, available=_needs_affiliation_docs),
+    Rule("AFF-02", "ERROR", "multi-affiliation people appear under both "
+         "employers", aff_02, available=_needs_affiliation_docs),
     Rule("EML-01", "ERROR", "eml transport headers recompute from the ledger",
          eml_01, available=_needs_eml),
     Rule("SCAN-01", "ERROR", "scan flags recompute; raster and OCR presence "

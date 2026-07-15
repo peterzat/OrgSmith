@@ -40,6 +40,7 @@ KNOB_LINES = (
     "  surname_collisions: 1\n"
     "  nickname_aliases: 1\n"
     "  multi_affiliations: 1\n"
+    "  affiliations_in_docs: true\n"
 )
 
 

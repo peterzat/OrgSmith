@@ -294,6 +294,144 @@ def test_work_order_briefs_show_era_correct_employer(aff_render_org):
     assert checked >= 2
 
 
+# --- AFF validator rules ---------------------------------------------------
+
+
+@pytest.fixture()
+def aff_org_copy(aff_render_org, tmp_path):
+    import shutil
+
+    shutil.copytree(aff_render_org.root / "recipes", tmp_path / "recipes")
+    shutil.copytree(aff_render_org.root / "companies", tmp_path / "companies")
+    return OrgPaths(root=tmp_path, slug=aff_render_org.slug)
+
+
+def _edit_json(path, mutate):
+    data = json.loads(path.read_text("utf-8"))
+    mutate(data)
+    path.write_text(json.dumps(data, indent=2), "utf-8")
+
+
+def test_aff_rules_pass_and_never_skip_with_knob_on(aff_render_org, capsys):
+    from orgsmith.validate import run_validate
+
+    assert run_validate(aff_render_org, only=["AFF-01", "AFF-02"]) == 0
+    assert "SKIP" not in capsys.readouterr().out
+
+
+def test_aff_rules_skip_visibly_with_knob_off(capsys):
+    from orgsmith.validate import run_validate
+
+    committed = OrgPaths(root=REPO, slug="dev-mini")
+    assert run_validate(committed, only=["AFF-01", "AFF-02"]) == 0
+    out = capsys.readouterr().out
+    assert "SKIP AFF-01" in out and "SKIP AFF-02" in out
+    assert "affiliations_in_docs knob is off" in out
+
+
+def _designated(paths):
+    """(xp, prior, current, engagements ledger path, engagement) for the
+    boundary person's prior-side engagement."""
+    from orgsmith.artifacts import load_engagements, load_foundation
+
+    foundation = load_foundation(paths)
+    ledger = load_engagements(paths)
+    xp, prior, current, org_names = _boundary_people(foundation)
+    eng = next(
+        e
+        for e in ledger.engagements
+        if e.client == prior.org and xp.id in e.external_participants
+    )
+    return xp, prior, current, eng
+
+
+def test_aff01_fails_tampered_participant(aff_org_copy, capsys):
+    from orgsmith.validate import run_validate
+
+    xp, _, _, eng = _designated(aff_org_copy)
+
+    def mutate(data):
+        for e in data["engagements"]:
+            if e["id"] == eng.id:
+                e["external_participants"] = []
+
+    _edit_json(
+        aff_org_copy.engagements_json, mutate
+    )
+    assert run_validate(aff_org_copy, only=["AFF-01"]) == 1
+    assert "do not recompute" in capsys.readouterr().out
+
+
+def test_aff01_fails_undone_reassignment(aff_org_copy, capsys):
+    from orgsmith.artifacts import load_foundation
+    from orgsmith.validate import run_validate
+
+    xp, prior, current, eng = _designated(aff_org_copy)
+    foundation = load_foundation(aff_org_copy)
+    other = next(
+        o.id for o in foundation.external_orgs if o.id != eng.client
+    )
+
+    def mutate(data):
+        for e in data["engagements"]:
+            if e["id"] == eng.id:
+                e["client"] = other
+
+    _edit_json(
+        aff_org_copy.engagements_json, mutate
+    )
+    assert run_validate(aff_org_copy, only=["AFF-01"]) == 1
+    assert "client does not recompute" in capsys.readouterr().out
+
+
+def test_aff01_fails_shifted_affiliation_window(aff_org_copy, capsys):
+    from orgsmith.validate import run_validate
+
+    xp, _, _, _ = _designated(aff_org_copy)
+
+    def mutate(data):
+        for person in data["external_people"]:
+            if person["id"] == xp.id:
+                person["affiliations"][0]["end"] = "2099-01-01"
+                person["affiliations"][1]["start"] = "2099-01-02"
+
+    _edit_json(aff_org_copy.foundation_json, mutate)
+    assert run_validate(aff_org_copy, only=["AFF-01"]) == 1
+    assert "recompute" in capsys.readouterr().out
+
+
+def test_aff02_fails_person_missing_from_one_side(aff_org_copy, capsys):
+    from orgsmith.validate import run_validate
+
+    xp, prior, _, eng = _designated(aff_org_copy)
+
+    def mutate(data):
+        for e in data["engagements"]:
+            if e["id"] == eng.id:
+                e["external_participants"] = []
+
+    _edit_json(
+        aff_org_copy.engagements_json, mutate
+    )
+    assert run_validate(aff_org_copy, only=["AFF-02"]) == 1
+    out = capsys.readouterr().out
+    assert f"{xp.id} never participates" in out and prior.org in out
+
+
+def test_aff02_fails_stripped_affiliations(aff_org_copy, capsys):
+    from orgsmith.validate import run_validate
+
+    xp, _, _, _ = _designated(aff_org_copy)
+
+    def mutate(data):
+        for person in data["external_people"]:
+            person["affiliations"] = []
+
+    _edit_json(aff_org_copy.foundation_json, mutate)
+    assert run_validate(aff_org_copy, only=["AFF-02"]) == 1
+    assert "affiliation history stripped" in capsys.readouterr().out
+
+
 def test_letter_lead_days_shared_with_docplan(pure_org):
     # docplan dates the engagement letter start - LETTER_LEAD_DAYS
     # (clamped); the covering window must agree or a letter could be
