@@ -197,6 +197,43 @@ class _Planner:
                     facts_refs=report_refs,
                 )
 
+    def plan_deck_docs(self) -> None:
+        """Briefing decks: one per engagement, first engagements first, when
+        the recipe's format_mix asks for pptx documents."""
+        want = self.charter.doc_culture.format_mix.pptx
+        if want == 0:
+            return
+        engs = self.engagements.engagements
+        if want > len(engs):
+            raise SystemExit(
+                f"docplan: format_mix.pptx wants {want} deck(s) but only "
+                f"{len(engs)} engagement(s) exist; lower the mix or raise "
+                f"engagements.count"
+            )
+        for eng in engs[:want]:
+            client = sanitize_component(self._client_name(eng))
+            dd = self._clamp_range(
+                eng.start + timedelta(days=int((eng.end - eng.start).days * 0.25))
+            )
+            deck_refs = [
+                ref
+                for ref in (f"f:{eng.id}.start", f"f:{eng.id}.client")
+                if self.policy.get(ref, "body") == "body"
+            ]
+            self._add(
+                path=f"Engagements/{client}/{dd:%Y.%m.%d} - Briefing Deck - "
+                f"{client}.pptx",
+                title=f"Briefing Deck: {eng.title}",
+                genre="briefing_deck",
+                format="pptx",
+                date=dd,
+                authors=[self._author_for(eng, dd, junior=False).id],
+                participants=eng.internal_participants
+                + eng.external_participants,
+                engagement=eng.id,
+                facts_refs=deck_refs,
+            )
+
     def plan_firm_docs(self) -> None:
         first_eng = self.engagements.engagements[0]
         mid = self.range_start + (self.range_end - self.range_start) / 2
@@ -324,14 +361,17 @@ class _Planner:
 
     def build(self) -> list[ManifestEntry]:
         self.plan_engagement_docs()
+        self.plan_deck_docs()
         self.plan_firm_docs()
         self.plan_mentions()
 
         mix = self.charter.doc_culture.format_mix
-        counts = {"docx": 0, "pdf": 0, "xlsx": 0}
+        want = {
+            fmt: getattr(mix, fmt) for fmt in ("docx", "pdf", "xlsx", "pptx", "eml")
+        }
+        counts = dict.fromkeys(want, 0)
         for doc in self.planned:
             counts[doc["format"]] += 1
-        want = {"docx": mix.docx, "pdf": mix.pdf, "xlsx": mix.xlsx}
         if counts != want:
             raise SystemExit(
                 f"docplan: format mix {counts} does not match charter {want}"

@@ -84,6 +84,14 @@ def _check_doc(doc: DocIR, brief: DocBrief) -> list[str]:
         b.kind in ("list", "table") for b in doc.blocks
     ):
         problems.append("meeting_minutes requires an attendee/action list or table")
+    if brief.genre == "briefing_deck":
+        headings = sum(1 for b in doc.blocks if b.kind == "heading")
+        if headings < 2:
+            problems.append(
+                "briefing_deck requires at least 2 heading blocks (slides)"
+            )
+        if sigblocks:
+            problems.append("briefing_deck must not contain a sigblock")
     return problems
 
 

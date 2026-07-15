@@ -381,9 +381,10 @@ Genre = Literal[
     "status_report",  # docx
     "company_overview",  # docx
     "financial_summary",  # xlsx, static (no model pass)
+    "briefing_deck",  # pptx
 ]
 
-DocFormat = Literal["docx", "pdf", "xlsx"]
+DocFormat = Literal["docx", "pdf", "xlsx", "pptx"]
 
 
 class PlannedMention(StrictModel):

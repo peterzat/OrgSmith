@@ -14,7 +14,7 @@ from docx.shared import Pt, RGBColor
 
 from ..fabric.engagements import render_date
 from ..schemas import DocIR, ManifestEntry
-from .provenance import add_docx_marker
+from .provenance import add_opc_marker
 from .styles import StylePack
 
 
@@ -110,4 +110,4 @@ def render_docx(
 
     buf = io.BytesIO()
     doc.save(buf)
-    return add_docx_marker(buf.getvalue())
+    return add_opc_marker(buf.getvalue())

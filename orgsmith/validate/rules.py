@@ -75,8 +75,17 @@ class Context:
             text = "\n".join(
                 page.extract_text() or "" for page in PdfReader(str(path)).pages
             )
-        else:
+        elif entry.format == "pptx":
+            text = _pptx_text(path)
+        elif entry.format == "xlsx":
+            # Workbooks are checked cell-by-cell (FIN-02), not as prose;
+            # FACT-01 skips them explicitly.
             text = ""
+        else:
+            raise SystemExit(
+                f"validate: no text extractor for format {entry.format!r} "
+                f"({entry.path})"
+            )
         text = re.sub(r"\s+", " ", text)
         self._text_cache[entry.doc_id] = text
         return text
@@ -96,6 +105,21 @@ class Context:
         ]
         self._text_cache[key] = pages
         return pages
+
+
+def _pptx_text(path) -> str:
+    """Every text run a pptx exposes: shape frames plus table cells."""
+    from pptx import Presentation
+
+    chunks: list[str] = []
+    for slide in Presentation(str(path)).slides:
+        for shape in slide.shapes:
+            if shape.has_text_frame:
+                chunks.extend(p.text for p in shape.text_frame.paragraphs)
+            if shape.has_table:
+                for row in shape.table.rows:
+                    chunks.extend(c.text for c in row.cells)
+    return "\n".join(chunks)
 
 
 def _always(_ctx: Context) -> str | None:
@@ -282,6 +306,15 @@ def file_01(ctx: Context):
                 from openpyxl import load_workbook
 
                 load_workbook(path, data_only=True)
+            elif e.format == "pptx":
+                from pptx import Presentation
+
+                if len(Presentation(str(path)).slides) < 1:
+                    yield ("pptx has no slides", e.path)
+            else:
+                # Every supported format must have a reader branch above; a
+                # format this rule does not know is a finding, not a pass.
+                yield (f"no native reader known for format {e.format!r}", e.path)
         except Exception as err:  # noqa: BLE001 - any reader failure is the finding
             yield (f"file does not open in native reader: {err}", e.path)
 
@@ -577,15 +610,19 @@ def acl_03(ctx: Context):
 
 
 def prov_01(ctx: Context):
-    from ..render.provenance import docx_has_marker, pdf_has_marker, xlsx_has_marker
+    from ..render.provenance import opc_has_marker, pdf_has_marker
 
-    checkers = {"docx": docx_has_marker, "pdf": pdf_has_marker,
-                "xlsx": xlsx_has_marker}
+    checkers = {"docx": opc_has_marker, "pdf": pdf_has_marker,
+                "xlsx": opc_has_marker, "pptx": opc_has_marker}
     for e in ctx.manifest:
         path = ctx.paths.share_dir / e.path
         if not path.exists():
             continue
-        if not checkers[e.format](path):
+        checker = checkers.get(e.format)
+        if checker is None:
+            # A format without a marker checker can never silently pass.
+            yield (f"no provenance checker known for format {e.format!r}", e.path)
+        elif not checker(path):
             yield ("synthetic-provenance marker missing", e.path)
 
 

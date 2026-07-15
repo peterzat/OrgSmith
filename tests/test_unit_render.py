@@ -11,11 +11,7 @@ from orgsmith.artifacts import (
 )
 from orgsmith.assemble import run_assemble
 from orgsmith.render import run_render
-from orgsmith.render.provenance import (
-    docx_has_marker,
-    pdf_has_marker,
-    xlsx_has_marker,
-)
+from orgsmith.render.provenance import opc_has_marker, pdf_has_marker
 from orgsmith.render.resolve import FactResolutionError, resolve_docir
 from orgsmith.schemas import Block, DocIR
 
@@ -83,9 +79,9 @@ def test_provenance_markers_all_formats(org):
     for entry in manifest:
         path = org.share_dir / entry.path
         has = {
-            "docx": docx_has_marker,
+            "docx": opc_has_marker,
             "pdf": pdf_has_marker,
-            "xlsx": xlsx_has_marker,
+            "xlsx": opc_has_marker,
         }[entry.format]
         assert has(path), entry.path
 

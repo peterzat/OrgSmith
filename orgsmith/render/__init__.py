@@ -82,6 +82,12 @@ def run_render(paths: OrgPaths) -> int:
                 target.write_bytes(
                     render_docx(resolved, entry, style, author_name, people)
                 )
+            elif entry.format == "pptx":
+                from .pptx import render_pptx
+
+                target.write_bytes(
+                    render_pptx(resolved, entry, style, author_name)
+                )
             elif entry.format == "pdf":
                 from .pdf import render_pdf
 

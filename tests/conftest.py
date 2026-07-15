@@ -95,6 +95,35 @@ def build_acl_stages(
     return paths
 
 
+def write_mix_recipe(root: Path, mix: dict, slug: str = "dev-mini") -> OrgPaths:
+    """dev-mini recipe with a replaced format_mix (target_docs follows the
+    mix sum); stages not run."""
+    dest = root / "recipes" / slug
+    dest.mkdir(parents=True, exist_ok=True)
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
+    assert old_mix in text and "target_docs: 13" in text
+    new_mix = (
+        "  format_mix: {"
+        + ", ".join(f"{k}: {v}" for k, v in mix.items())
+        + "}\n"
+    )
+    text = text.replace(old_mix, new_mix)
+    text = text.replace("target_docs: 13", f"target_docs: {sum(mix.values())}")
+    (dest / "ORG-CHARTER.md").write_text(text)
+    return OrgPaths(root=root, slug=slug)
+
+
+def build_mix_stages(root: Path, mix: dict, slug: str = "dev-mini") -> OrgPaths:
+    """dev-mini recipe with a replaced format_mix, through docplan."""
+    paths = write_mix_recipe(root, mix, slug)
+    assert run_charter(paths) == 0
+    assert run_scaffold(paths) == 0
+    assert run_fabric(paths) == 0
+    assert run_docplan(paths) == 0
+    return paths
+
+
 def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     """dev-mini recipe with every ambiguity knob on, through docplan."""
     dest = root / "recipes" / slug
@@ -158,6 +187,19 @@ def scripted_authoring(order) -> dict:
                 ),
             },
         ]
+        if brief.genre == "briefing_deck":
+            blocks = [
+                {"kind": "heading", "text": brief.title, "level": 1},
+                {
+                    "kind": "list",
+                    "items": [
+                        f"Scripted slide bullet{dated}. {placeholders}",
+                        f"Present: {surfaces}.",
+                    ],
+                },
+                {"kind": "heading", "text": "Next Steps", "level": 1},
+                {"kind": "list", "items": ["Scripted follow-up item."]},
+            ]
         if brief.genre == "meeting_minutes":
             blocks.append(
                 {"kind": "list", "items": [p.name for p in brief.participants]}

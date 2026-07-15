@@ -1,12 +1,14 @@
 """Machine-readable synthetic-provenance markers.
 
 Every rendered file declares itself synthetic in its native metadata:
-- .docx: a custom document property (docProps/custom.xml)
+- OPC packages (.docx, .pptx): a custom document property
+  (docProps/custom.xml), injected by rewriting the zip
 - .pdf: a DocumentInfo key (plus Creator), stamped via pikepdf
-- .xlsx: a custom workbook property (set by the xlsx renderer directly)
+- .xlsx: a custom workbook property (set by the xlsx renderer directly,
+  read back through the same OPC checker)
 
-The docx marker is injected by rewriting the OPC zip; the same pass
-normalizes zip timestamps so rendered bytes are deterministic.
+The OPC marker pass also normalizes zip timestamps so rendered bytes are
+deterministic.
 """
 
 from __future__ import annotations
@@ -42,9 +44,10 @@ _RELATIONSHIP = (
 )
 
 
-def add_docx_marker(docx_bytes: bytes) -> bytes:
-    """Add the custom-property marker and normalize zip metadata."""
-    src = zipfile.ZipFile(io.BytesIO(docx_bytes))
+def add_opc_marker(opc_bytes: bytes) -> bytes:
+    """Add the custom-property marker to an OPC package (.docx, .pptx)
+    and normalize zip metadata."""
+    src = zipfile.ZipFile(io.BytesIO(opc_bytes))
     out_buf = io.BytesIO()
     with zipfile.ZipFile(out_buf, "w", zipfile.ZIP_DEFLATED) as out:
         for name in src.namelist():
@@ -70,14 +73,15 @@ def add_docx_marker(docx_bytes: bytes) -> bytes:
     return out_buf.getvalue()
 
 
-def docx_has_marker(path: Path) -> bool:
+def opc_has_marker(path: Path) -> bool:
+    """Marker check shared by every OPC format (.docx, .xlsx, .pptx)."""
     try:
         with zipfile.ZipFile(path) as zf:
             if "docProps/custom.xml" not in zf.namelist():
                 return False
             xml = zf.read("docProps/custom.xml").decode("utf-8")
             return MARKER_NAME in xml
-    except (zipfile.BadZipFile, KeyError, UnicodeDecodeError):
+    except (zipfile.BadZipFile, KeyError, UnicodeDecodeError, OSError):
         return False
 
 
@@ -107,12 +111,3 @@ def pdf_has_marker(path: Path) -> bool:
         return False
 
 
-def xlsx_has_marker(path: Path) -> bool:
-    try:
-        with zipfile.ZipFile(path) as zf:
-            if "docProps/custom.xml" not in zf.namelist():
-                return False
-            xml = zf.read("docProps/custom.xml").decode("utf-8")
-            return MARKER_NAME in xml
-    except (zipfile.BadZipFile, KeyError, UnicodeDecodeError):
-        return False

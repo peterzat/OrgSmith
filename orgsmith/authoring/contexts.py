@@ -49,6 +49,13 @@ _GENRE_GUIDANCE = {
         "One-page firm overview: what the firm does, service lines, "
         "representative client work. Written in the firm's own voice."
     ),
+    "briefing_deck": (
+        "Client briefing deck. Structure strictly as slides: each slide is "
+        "one heading block (level 1, the slide title) followed by one list "
+        "block of 3-5 tight bullets (or one short paragraph). Open with a "
+        "title slide for the engagement, close with a next-steps slide. "
+        "4-6 slides total. No sigblock."
+    ),
 }
 
 _TARGET_WORDS = {
@@ -57,6 +64,7 @@ _TARGET_WORDS = {
     "meeting_minutes": 220,
     "status_report": 300,
     "company_overview": 320,
+    "briefing_deck": 180,
 }
 
 _INSTRUCTIONS = """\

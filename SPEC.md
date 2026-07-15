@@ -12,7 +12,7 @@ committed fixture.
 
 ### Acceptance Criteria
 
-- [ ] Recipe knobs land additively: `format_mix` gains `pptx` and `eml`
+- [x] Recipe knobs land additively: `format_mix` gains `pptx` and `eml`
   counts, `doc_culture` gains `scanned_ratio`, `legacy_ratio`, and
   `ocr_layer_rate` (0..1; `ocr_layer_rate > 0` with `scanned_ratio == 0`
   is a charter error, tested), all documented in docs/RECIPE-FORMAT.md and
@@ -118,4 +118,4 @@ committed fixture.
 *Prior spec (2026-07-15): M4 ACL overlay and visibility evals; all 8
 criteria met, shipped as v1.3.0.*
 
-<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":1} -->
