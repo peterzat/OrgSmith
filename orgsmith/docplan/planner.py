@@ -21,6 +21,7 @@ from ..artifacts import (
 from ..fabric.engagements import minutes_date
 from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
+from ..seeds import rng
 from ..schemas import (
     Charter,
     Engagement,
@@ -394,12 +395,48 @@ class _Planner:
                     PlannedMention(entity=person.id, surface=alias),
                 )
 
+    def plan_scans(self) -> None:
+        """Scan selection: the oldest pdfs by (date, path) get flagged, per
+        scanned_ratio; ocr_layer_rate of those keep a synthetic OCR text
+        layer, drawn from a NEW seed stream so knobs-off recipes never
+        consume it and regenerate byte-identically. Paths stay .pdf: the
+        filename is immutable eval/ACL ground truth. A doc hosting a
+        signature_page fact is never image-only, or its per-page location
+        obligation would be unverifiable from extractable text."""
+        culture = self.charter.doc_culture
+        if culture.scanned_ratio == 0:
+            return
+        pdfs = sorted(
+            (d for d in self.planned if d["format"] == "pdf"),
+            key=lambda d: (d["date"], d["path"]),
+        )
+        scans = pdfs[: round(culture.scanned_ratio * len(pdfs))]
+        if not scans:
+            return
+        layered = round(culture.ocr_layer_rate * len(scans))
+        with_layer = set(
+            rng(self.charter.seed, "docplan.ocr").sample(
+                range(len(scans)), layered
+            )
+        )
+        for i, doc in enumerate(scans):
+            params = dict(doc.get("render_params", {}))
+            params["scan"] = 1
+            hosts_sig = any(
+                self.policy.get(ref) == "signature_page"
+                for ref in doc.get("facts_refs", [])
+            )
+            if i in with_layer or hosts_sig:
+                params["ocr_layer"] = 1
+            doc["render_params"] = params
+
     def build(self) -> list[ManifestEntry]:
         self.plan_engagement_docs()
         self.plan_deck_docs()
         self.plan_email_docs()
         self.plan_firm_docs()
         self.plan_mentions()
+        self.plan_scans()
 
         mix = self.charter.doc_culture.format_mix
         want = {

@@ -124,6 +124,44 @@ def build_mix_stages(root: Path, mix: dict, slug: str = "dev-mini") -> OrgPaths:
     return paths
 
 
+def write_culture_recipe(
+    root: Path,
+    culture_lines: str,
+    slug: str = "dev-mini",
+    extra_blocks: str = "",
+) -> OrgPaths:
+    """dev-mini recipe with lines appended inside doc_culture (indented two
+    spaces, e.g. scan knobs) and optional top-level blocks appended after
+    graph_targets; stages not run."""
+    dest = root / "recipes" / slug
+    dest.mkdir(parents=True, exist_ok=True)
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    mix_anchor = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
+    assert mix_anchor in text
+    text = text.replace(mix_anchor, mix_anchor + culture_lines)
+    if extra_blocks:
+        anchor = "  external_people: 3\n"
+        assert anchor in text
+        text = text.replace(anchor, anchor + extra_blocks)
+    (dest / "ORG-CHARTER.md").write_text(text)
+    return OrgPaths(root=root, slug=slug)
+
+
+def build_culture_stages(
+    root: Path,
+    culture_lines: str,
+    slug: str = "dev-mini",
+    extra_blocks: str = "",
+) -> OrgPaths:
+    """dev-mini recipe with doc_culture knobs on, through docplan."""
+    paths = write_culture_recipe(root, culture_lines, slug, extra_blocks)
+    assert run_charter(paths) == 0
+    assert run_scaffold(paths) == 0
+    assert run_fabric(paths) == 0
+    assert run_docplan(paths) == 0
+    return paths
+
+
 def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     """dev-mini recipe with every ambiguity knob on and every format in the
     mix, through docplan. The zero-skip validator test keys off this org:
