@@ -103,3 +103,18 @@ clients are, what its documents feel like.
 - `format_mix` values must sum to `target_docs`.
 - Same seed + same recipe = same org structure (ids, names, tree, numbers).
   Only model-authored prose may vary between runs.
+
+## Pre-commit checklist
+
+Before committing a generated org as a fixture:
+
+- Run `python -m orgsmith validate <slug>`; it must pass with SKIP lines
+  only for knobs the recipe leaves off.
+- Run `python -m orgsmith validate <slug> --only NAME-01` to confirm the
+  name screen passes. The screen also gates the charter and scaffold
+  stages, so a collision normally fails long before this point. The
+  committed real-firm list (`orgsmith/data/real_firms.txt`) is a screen,
+  not a guarantee: also eyeball the org name, external org names, and
+  roster for real-world collisions the list does not cover.
+- If NAME-01 or a generation gate fires, rename the org in the recipe or
+  bump the seed. Never edit `foundation.json` or any ledger by hand.

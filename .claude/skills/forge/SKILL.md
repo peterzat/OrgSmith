@@ -71,7 +71,9 @@ PY -m orgsmith validate <slug>
 ```
 
 Report the validate summary. If validate fails, show the failing rules and
-stop; never edit ledgers or rendered files by hand.
+stop; never edit ledgers or rendered files by hand. A NAME-01 finding (a
+generated name collides with a real firm) blocks committing the org: fix
+the recipe name or bump the seed and regenerate, never the ledger.
 
 ## Budget awareness
 

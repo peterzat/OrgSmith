@@ -301,6 +301,19 @@ def org_02(ctx: Context):
             cur = ctx.foundation.person(cur.reports_to)
 
 
+# --- NAME -----------------------------------------------------------------
+
+
+def name_01(ctx: Context):
+    """Deliberately no grandfather: the screen reads only charter and
+    foundation, artifacts every org has. The committed list is a screen,
+    not a guarantee."""
+    from ..namescreen import screen_charter, screen_foundation
+
+    yield from screen_charter(ctx.charter)
+    yield from screen_foundation(ctx.foundation)
+
+
 # --- DATE -----------------------------------------------------------------
 
 
@@ -986,6 +999,8 @@ def prov_01(ctx: Context):
 RULES = [
     Rule("ORG-01", "ERROR", "exactly one CEO-equivalent", org_01),
     Rule("ORG-02", "ERROR", "reports_to is a single acyclic tree", org_02),
+    Rule("NAME-01", "ERROR", "no name collides with a known real firm",
+         name_01),
     Rule("DATE-01", "ERROR", "doc dates inside charter range", date_01),
     Rule("DATE-02", "ERROR", "authors employed at doc date", date_02),
     Rule("FIN-01", "ERROR", "finance ledger ties out", fin_01),

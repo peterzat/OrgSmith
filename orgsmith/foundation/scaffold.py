@@ -14,6 +14,7 @@ from datetime import date, timedelta
 
 from faker import Faker
 
+from ..namescreen import screen_foundation
 from ..paths import OrgPaths
 from ..schemas import (
     Affiliation,
@@ -331,6 +332,15 @@ def run_scaffold(paths: OrgPaths) -> int:
 
     charter = load_charter(paths)
     foundation = build_foundation(charter)
+    # The screen fires here, before any model tokens are spent on the org.
+    problems = screen_foundation(foundation)
+    if problems:
+        for msg, _ in problems:
+            print(f"foundation: {msg}")
+        raise SystemExit(
+            "foundation: name screen failed; rename in the recipe or bump "
+            "the seed"
+        )
     write_model(paths.foundation_json, foundation)
 
     state.mark_done("foundation", inputs_hash=sha256_file(paths.charter_json))

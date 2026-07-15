@@ -1,0 +1,248 @@
+# Well-known firms a US professional-services corpus could plausibly
+# collide with. One name per line; '#' starts a comment. Matching is
+# normalized (orgsmith/namescreen.py): legal suffixes stripped, '&' and
+# 'and' equivalent, case and punctuation ignored.
+#
+# Curation rules:
+# - Flagship names only. The screen fires on org names containing an
+#   entry as a contiguous token run, so over-generic entries over-fire.
+# - No entries that read as ordinary person names unless the firm is
+#   unmistakable (Morgan Stanley, Edward Jones). Committed rosters
+#   contain e.g. "David Jones"; person matching is exact-equality.
+# - This list is a screen, not a guarantee.
+
+# --- banks and investment banks ---
+Goldman Sachs
+Morgan Stanley
+JPMorgan Chase
+J.P. Morgan
+Bank of America
+Merrill Lynch
+Wells Fargo
+Citigroup
+Citibank
+Barclays
+Credit Suisse
+UBS
+Deutsche Bank
+HSBC
+BNP Paribas
+Societe Generale
+Standard Chartered
+Santander
+Lazard
+Evercore
+Moelis & Company
+Centerview Partners
+Perella Weinberg Partners
+Houlihan Lokey
+Jefferies
+Raymond James
+Stifel
+Piper Sandler
+William Blair
+Robert W. Baird
+Brown Brothers Harriman
+Rothschild & Co
+Macquarie
+Nomura
+Mizuho
+
+# --- asset management and brokerage ---
+BlackRock
+The Vanguard Group
+Fidelity Investments
+State Street
+Charles Schwab
+Edward Jones
+T. Rowe Price
+Franklin Templeton
+Invesco
+PIMCO
+AllianceBernstein
+Northern Trust
+Wellington Management
+Neuberger Berman
+
+# --- private equity and venture capital ---
+Blackstone
+KKR
+The Carlyle Group
+Apollo Global Management
+Bain Capital
+TPG Capital
+Warburg Pincus
+Silver Lake
+Vista Equity Partners
+Thoma Bravo
+General Atlantic
+Advent International
+Hellman & Friedman
+Leonard Green & Partners
+Sequoia Capital
+Andreessen Horowitz
+Kleiner Perkins
+Bessemer Venture Partners
+Greylock Partners
+Lightspeed Venture Partners
+New Enterprise Associates
+
+# --- consulting ---
+McKinsey & Company
+Boston Consulting Group
+Bain & Company
+Deloitte
+Accenture
+Booz Allen Hamilton
+Oliver Wyman
+Roland Berger
+L.E.K. Consulting
+Alvarez & Marsal
+AlixPartners
+FTI Consulting
+Huron Consulting Group
+Guidehouse
+ZS Associates
+Charles River Associates
+Cornerstone Research
+NERA Economic Consulting
+Gartner
+Forrester Research
+Capgemini
+Cognizant
+Infosys
+Wipro
+Tata Consultancy Services
+
+# --- accounting ---
+PwC
+PricewaterhouseCoopers
+Ernst & Young
+KPMG
+Grant Thornton
+BDO
+RSM
+Baker Tilly
+Crowe
+CliftonLarsonAllen
+Plante Moran
+Moss Adams
+Marcum
+CohnReznick
+EisnerAmper
+Cherry Bekaert
+Withum
+Forvis
+
+# --- law ---
+Kirkland & Ellis
+Latham & Watkins
+Skadden
+Sullivan & Cromwell
+Cravath, Swaine & Moore
+Wachtell, Lipton, Rosen & Katz
+Davis Polk & Wardwell
+Simpson Thacher & Bartlett
+Weil, Gotshal & Manges
+Gibson Dunn
+Jones Day
+Sidley Austin
+White & Case
+Paul, Weiss
+Debevoise & Plimpton
+Cleary Gottlieb
+Covington & Burling
+WilmerHale
+Ropes & Gray
+King & Spalding
+Morrison & Foerster
+Baker McKenzie
+DLA Piper
+Hogan Lovells
+Norton Rose Fulbright
+Freshfields
+Linklaters
+Clifford Chance
+Allen & Overy
+Slaughter and May
+Quinn Emanuel
+Boies Schiller Flexner
+Foley & Lardner
+Greenberg Traurig
+Holland & Knight
+Akin Gump
+Arnold & Porter
+Milbank
+Shearman & Sterling
+Fried Frank
+Willkie Farr & Gallagher
+Cadwalader
+Dechert
+Dentons
+K&L Gates
+Mayer Brown
+McDermott Will & Emery
+Perkins Coie
+Pillsbury Winthrop
+Proskauer Rose
+Reed Smith
+Seyfarth Shaw
+Squire Patton Boggs
+Winston & Strawn
+Venable
+Paul Hastings
+O'Melveny & Myers
+Goodwin Procter
+Cooley
+Fenwick & West
+Wilson Sonsini
+Orrick
+
+# --- insurance and benefits ---
+Marsh & McLennan
+Arthur J. Gallagher
+Aon
+Willis Towers Watson
+Mercer
+Chubb
+AIG
+Allianz
+AXA
+Zurich Insurance
+MetLife
+Prudential
+Aetna
+Cigna
+Travelers
+Liberty Mutual
+Nationwide
+State Farm
+Berkshire Hathaway
+Lloyds Banking Group
+
+# --- real estate services ---
+CBRE
+JLL
+Jones Lang LaSalle
+Cushman & Wakefield
+Colliers
+Newmark
+Marcus & Millichap
+Eastdil Secured
+Savills
+Knight Frank
+Hines
+Tishman Speyer
+Brookfield
+Trammell Crow
+Prologis
+Greystar
+
+# --- valuation and restructuring advisory ---
+Duff & Phelps
+Kroll
+Lincoln International
+Harris Williams
+Greenhill & Co
+Ankura
+Berkeley Research Group

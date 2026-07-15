@@ -11,6 +11,7 @@ import re
 
 import yaml
 
+from .namescreen import screen_charter
 from .paths import OrgPaths
 from .schemas import Charter, write_model
 from .state import load_state, save_state, sha256_file
@@ -46,6 +47,15 @@ def run_charter(paths: OrgPaths) -> int:
     if not paths.charter_md.exists():
         raise SystemExit(f"no recipe at {paths.charter_md}")
     charter = parse_charter_md(paths.charter_md.read_text("utf-8"), paths.slug)
+    # The screen fires here, before any model tokens are spent on the org.
+    problems = screen_charter(charter)
+    if problems:
+        for msg, _ in problems:
+            print(f"charter: {msg}")
+        raise SystemExit(
+            "charter: name screen failed; rename the org in the recipe "
+            "(see the pre-commit checklist in docs/RECIPE-FORMAT.md)"
+        )
     write_model(paths.charter_json, charter)
 
     state = load_state(paths)
