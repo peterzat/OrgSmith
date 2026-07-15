@@ -11,63 +11,63 @@ grandfathered fixture.
 
 ### Acceptance Criteria
 
-- [ ] `graph_targets.affiliations_in_docs` lands additively: defaults off on
+- [x] `graph_targets.affiliations_in_docs` lands additively: defaults off on
   the existing schema id, `affiliations_in_docs: true` with
   `multi_affiliations: 0` is a charter error (tested), and the five untouched
   committed fixtures load, validate clean, and regenerate byte-identical
   pure-stage structure (determinism and org tiers stay green).
-- [ ] With the knob on, an RNG-free fabric planting pass guarantees every
+- [x] With the knob on, an RNG-free fabric planting pass guarantees every
   multi-affiliation external person participates in at least one engagement
   on each side of their affiliation boundary, reassigning clients
   deterministically and rebuilding client-dependent engagement fields; a
   recipe whose date range or engagement count makes this impossible fails at
   fabric with an actionable message (both tested).
-- [ ] With the knob on, an engagement's external participants always hold an
+- [x] With the knob on, an engagement's external participants always hold an
   affiliation to its client that covers the engagement window including the
   letter lead-in, and rendered signature blocks and authoring briefs show the
   employer matching each document's date (a rendered doc on each side of a
   boundary is tested for the era-correct employer name).
-- [ ] AFF-01 recomputes clients and external participants from charter plus
+- [x] AFF-01 recomputes clients and external participants from charter plus
   foundation and fails a tampered participant, a shifted affiliation window,
   or an undone reassignment; AFF-02 fails when a multi-affiliation person no
   longer appears under both employers or when affiliations are stripped with
   the knob on; both skip visibly only when the knob is off (corruption-tested
   in both directions).
-- [ ] NAME-01 screens the charter name and domain, external org names, and
+- [x] NAME-01 screens the charter name and domain, external org names, and
   all internal and external person names against a committed real-firm source
   list using deterministic, stdlib-only normalization and matching; the rule
   runs on every org with no grandfather, and all committed fixtures pass it
   (unit and org tiers).
-- [ ] The name screen also gates generation: the charter and scaffold stages
+- [x] The name screen also gates generation: the charter and scaffold stages
   fail with an actionable message before any model pass when a name collides,
   and the recipe pre-commit checklist in docs/RECIPE-FORMAT.md and the /forge
   skill reference the check (screen tested positive and negative).
-- [ ] SCAN-02's page-count read and LEG-01's OLE read yield findings instead
+- [x] SCAN-02's page-count read and LEG-01's OLE read yield findings instead
   of tracebacks on crafted artifacts, and the ingest and score failure
   printers strip control characters from untrusted strings before terminal
   output (tested with an escape-sequence probe; exit codes unchanged).
-- [ ] dev-mini is regenerated from its recipe with the seed unchanged and
+- [x] dev-mini is regenerated from its recipe with the seed unchanged and
   `min_mentions_per_person: 1` added: the roster, engagement, and document
   identities reproduce exactly, the fixture now carries mention ground truth,
   the ACL overlay, and visibility evals, and it validates clean with MENT and
   GRAPH rules running (no mention grandfather skips).
-- [ ] The mention grandfather mechanism survives dev-mini's regeneration: an
+- [x] The mention grandfather mechanism survives dev-mini's regeneration: an
   org without mention ground truth still skips visibly (tested on a synthetic
   org), and the additive-evolution compat tests are rebased onto synthetic
   old-shape artifacts instead of reading dev-mini.
-- [ ] A new fixture is committed whose recipe sets `multi_affiliations: 1`
+- [x] A new fixture is committed whose recipe sets `multi_affiliations: 1`
   and `affiliations_in_docs: true` with engagements on both sides of the
   boundary; it validates clean with the AFF and NAME rules running unskipped,
   its extraction ground truth scores 100%, its graph carries dated works_at
   edges and the multi-affiliation ambiguity tag, and it uses modern formats
   only.
-- [ ] The all-knobs test org exercises AFF-01 and AFF-02 alongside every
+- [x] The all-knobs test org exercises AFF-01 and AFF-02 alongside every
   other charter-gated rule (its visible skips remain exactly LEG-01).
-- [ ] The five untouched fixtures re-emit their evals byte-identically,
+- [x] The five untouched fixtures re-emit their evals byte-identically,
   pyproject.toml's version matches `orgsmith.__version__`, and the docs
   (RECIPE-FORMAT.md knob reference, README rule count and fixture list)
   reflect the new knob, rules, and fixtures.
-- [ ] From a fresh checkout, `bin/test` passes all tiers offline and keyless
+- [x] From a fresh checkout, `bin/test` passes all tiers offline and keyless
   with all seven committed fixtures (CI configuration unchanged: still no
   LibreOffice).
 
@@ -110,4 +110,56 @@ grandfathered fixture.
 *Prior spec (2026-07-15): M5 document formats (pptx, eml, scanned, legacy);
 all 12 criteria met, shipped as v1.4.0.*
 
-<!-- SPEC_META: {"date":"2026-07-15","title":"M6: pre-fleet hardening (affiliation-aware docs, name screen, dev-mini regeneration)","criteria_total":13,"criteria_met":0} -->
+### Proposal (2026-07-15)
+
+**What happened.** M6 shipped as v1.5.0 in nine commits, all 13 criteria met,
+250 tests green from a fresh checkout with `soffice` absent (as in CI).
+
+- `affiliations_in_docs` (new `GraphTargets` knob, inert on the existing
+  schema id) drives an RNG-free fabric post-pass: `affiliation_plan`
+  designates every multi-affiliation external person onto one engagement per
+  affiliation side, reassigning clients and rebuilding client-dependent
+  fields. RNG-freeness is what lets AFF-01 recompute the plan as tamper
+  evidence. `people_index(at=)` and `_brief_person(at=)` resolve employer
+  lines per doc date, so sigblocks and briefs are era-correct.
+- The name screen (`orgsmith/namescreen.py`, ~220 committed firms) fires at
+  three points: `run_charter`, `run_scaffold` (both before any model tokens),
+  and NAME-01, which has no grandfather. All seven fixtures screen clean.
+- dev-mini was regenerated under its spec-sanctioned waiver: seed unchanged,
+  `min_mentions_per_person: 1` added, identities reproduced exactly, now
+  carrying mention ground truth, the ACL overlay, and visibility evals. The
+  compat tests moved to synthetic old-shape artifacts, so the grandfather
+  mechanisms stay tested without a grandfathered fixture.
+- `fernhollow-partners` is the seventh fixture: 19 modern-format docs,
+  2019-2025, one client contact appearing under both employers across the
+  boundary. Its seed was iterated once past the planting gate, exactly the
+  workflow the actionable failure was designed for.
+- Two things surfaced that the plan did not predict. Fabric emitted one
+  `client_of` edge per engagement while GRAPH-04 derives distinct clients;
+  invisible until reassignment gave two engagements the same client, now
+  deduped at the source (byte-identical for every committed org). And
+  torchlake genuinely cannot host both sides of its boundary under its frozen
+  seed, which became the natural test for the actionable failure.
+- Validator is 29 rules. BACKLOG.md is empty. v1.4.0 and v1.5.0 are both
+  untagged (v1.0.0-v1.3.0 are tagged); tagging is a one-liner but your call.
+
+**Questions and directions.**
+
+- **Era naming** is the reserved next turn: `naming_style` / `it_maturity`
+  knobs so cindergrove's 1998 roster stops carrying modern seeded names. It
+  is the last thing between the generator and a period-credible fleet. Does
+  era naming want its own seeded name pools per decade, or a transform over
+  the existing Faker output?
+- **The six-recipe fleet (M7)** is now unblocked: the name screen gates it,
+  the AFF family covers the multi-employer recipes, and no fixture is
+  grandfathered. Worth deciding whether the fleet regenerates the existing
+  seven or stands alongside them.
+- **Adversarial review board** remains unscheduled. After two turns of the
+  validator catching real drift (client_of this turn, grandfathering in M4),
+  is it still wanted, or is the deterministic oracle carrying that weight?
+- **Charter re-dump drift** is worth a decision at some point: a committed
+  fixture's `charter.json` gains inert default fields when re-derived (true
+  since M3, orthogonal to this turn, harmless because frozen fixtures are
+  never re-written). Pin it with a test, or leave it as understood behavior?
+
+<!-- SPEC_META: {"date":"2026-07-15","title":"M6: pre-fleet hardening (affiliation-aware docs, name screen, dev-mini regeneration)","criteria_total":13,"criteria_met":13} -->
