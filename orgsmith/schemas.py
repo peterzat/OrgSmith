@@ -132,6 +132,20 @@ class GraphTargets(StrictModel):
     surname_collisions: int = Field(ge=0, default=0)
     nickname_aliases: int = Field(ge=0, default=0)
     multi_affiliations: int = Field(ge=0, default=0)
+    # M6+: multi-affiliation external people appear in rendered documents
+    # under both employers, era-appropriate per doc date. Default inert on
+    # the existing schema id.
+    affiliations_in_docs: bool = False
+
+    @model_validator(mode="after")
+    def _check(self) -> "GraphTargets":
+        if self.affiliations_in_docs and self.multi_affiliations < 1:
+            raise ValueError(
+                "affiliations_in_docs requires multi_affiliations >= 1; "
+                "without a multi-affiliation person there is no employer "
+                "boundary to surface in documents"
+            )
+        return self
 
 
 class HardCases(StrictModel):

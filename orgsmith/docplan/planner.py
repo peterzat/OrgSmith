@@ -18,7 +18,7 @@ from ..artifacts import (
     load_foundation,
     save_manifest,
 )
-from ..fabric.engagements import minutes_date
+from ..fabric.engagements import LETTER_LEAD_DAYS, minutes_date
 from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
 from ..seeds import rng
@@ -156,7 +156,9 @@ class _Planner:
             duration = (eng.end - eng.start).days
 
             letter_date = _clamp(
-                eng.start - timedelta(days=10), self.range_start, eng.start
+                eng.start - timedelta(days=LETTER_LEAD_DAYS),
+                self.range_start,
+                eng.start,
             )
             fee_ref = f"f:{eng.id}.fee"
             letter_params = {}
