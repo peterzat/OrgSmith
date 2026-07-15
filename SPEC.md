@@ -68,14 +68,14 @@ committed fixture.
   carry `scan:ocr`, `scan:image-only`, and `format:legacy` tags when their
   expected docs have those properties; all four committed pre-M5 fixtures
   re-emit their evals byte-identically (tested).
-- [ ] A modern fixture is committed: an org whose mix includes pptx and
+- [x] A modern fixture is committed: an org whose mix includes pptx and
   eml documents, generated through the airlock; it validates clean, its
   extraction ground truth scores 100%, and the org tier covers it.
-- [ ] A retro fixture is committed: an org founded around 1995 with docs
+- [x] A retro fixture is committed: an org founded around 1995 with docs
   1998-2004, scan and legacy knobs on, containing at least one image-only
   scan, one OCR-layer scan, one .doc, one .xls, and one .ppt; it validates
   clean with soffice absent, and its extraction ground truth scores 100%.
-- [ ] From a fresh checkout, `bin/test` passes all tiers offline with all
+- [x] From a fresh checkout, `bin/test` passes all tiers offline with all
   committed fixtures (CI configuration unchanged: no LibreOffice).
 
 ### Context
@@ -118,4 +118,4 @@ committed fixture.
 *Prior spec (2026-07-15): M4 ACL overlay and visibility evals; all 8
 criteria met, shipped as v1.3.0.*
 
-<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":9} -->
+<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":12} -->
