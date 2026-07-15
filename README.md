@@ -68,15 +68,17 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 19-rule validator ties every document back to the
+- After rendering, a 22-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
-  else; a filename-only date never appears in document text), workbook
-  formulas recompute to ledger values, authors were employed on the date
-  they wrote, org charts are acyclic, the people graph has no orphans or
-  dangling edges, every file opens in its native reader, and every file
-  carries a machine-readable synthetic-provenance marker.
+  else; a filename-only date never appears in document text), access
+  grants and PERMISSIONS.md match a recomputation from the recipe's ACL
+  posture, workbook formulas recompute to ledger values, authors were
+  employed on the date they wrote, org charts are acyclic, the people
+  graph has no orphans or dangling edges, every file opens in its native
+  reader, and every file carries a machine-readable synthetic-provenance
+  marker.
 
 ```
 charter -> foundation -> fabric -> docplan -> author -> render -> assemble
@@ -120,14 +122,22 @@ validation) run as plain Python and cost no tokens at all.
 
 ## What is in the box today
 
-- The full pipeline, end to end, proven on three committed fixtures:
+- The full pipeline, end to end, proven on four committed fixtures:
   `dev-mini` (a 5-person consultancy, 13 documents, three engagements,
   2019-2022); `torchlake-engineering` (a 6-person engineering firm, 11
   documents, 2018-2024) generated with every ambiguity knob on: a
   surname-collision pair, a nickname alias planted in rendered minutes,
-  and an external contact with a mid-history employer change; and
+  and an external contact with a mid-history employer change;
   `quillbrook-appraisal` (a 5-person appraisal practice, 11 documents,
-  2016-2020) generated with the hard-case knobs on.
+  2016-2020) generated with the hard-case knobs on; and
+  `bramblewood-legal` (a 5-person law practice, 11 documents, 2017-2021)
+  generated with a departmental ACL posture.
+- Access-control ground truth: the recipe's `acl_posture` derives
+  `ledger/acl.json` (exactly which internal people may read which
+  documents: matter teams plus the CEO-equivalent for engagement folders,
+  finance restricted to its owners) plus a human-readable PERMISSIONS.md
+  in the share root, both enforced by validator rules that recompute the
+  grants from the posture.
 - Hard-case fact planting: recipe knobs place facts where extractors have
   to work for them. A signature-page-only fee is injected at render time
   onto the final page of the engagement letter and appears nowhere else
@@ -140,11 +150,13 @@ validation) run as plain Python and cost no tokens at all.
   mention is missing from extractable text.
 - Golden evals: `emit-evals` derives retrieval questions, an extraction
   suite (one question per planted fact: exact expected value, source
-  documents, and its location class), and a people-graph answer key (with
-  alias credit and per-ambiguity-class recall) from the ledgers, and
-  `score` grades an external system's answers with per-question
-  attribution, from nothing but the `evals/` directory. Deterministic, no
-  model involved; ground-truth answers score 100% by construction.
+  documents, and its location class), a visibility suite (per internal
+  person, the exact document set their access allows), and a people-graph
+  answer key (with alias credit and per-ambiguity-class recall) from the
+  ledgers, and `score` grades an external system's answers with
+  per-question attribution, from nothing but the `evals/` directory.
+  Deterministic, no model involved; ground-truth answers score 100% by
+  construction.
 - Renderers: `.docx` (python-docx: letterhead, PAGE-field footers,
   signature blocks, real core properties), `.pdf` (WeasyPrint with
   paged-media letterhead, pikepdf metadata, remote fetches blocked), and
@@ -156,9 +168,8 @@ validation) run as plain Python and cost no tokens at all.
 - Skills: `/forge` (orchestrator) and `forge-author` (per-batch worker
   with a fresh context, which is what lets large orgs span sessions).
 
-On the roadmap, in rough order: an ACL overlay (PERMISSIONS.md) with a
-visibility eval suite, more formats (`.pptx`, `.eml` mail archives,
-scanned-and-degraded PDFs with synthetic OCR layers, legacy
+On the roadmap, in rough order: more formats (`.pptx`, `.eml` mail
+archives, scanned-and-degraded PDFs with synthetic OCR layers, legacy
 `.doc`/`.xls`/`.ppt`), an adversarial review board, and a committed
 six-company fleet from a 1988 boutique law firm to a modern B2B SaaS.
 
