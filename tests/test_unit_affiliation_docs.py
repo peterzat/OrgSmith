@@ -146,6 +146,154 @@ def test_knob_off_reproduces_committed_engagements_ledger(slug):
     assert dump_json(rebuilt) == committed
 
 
+def _boundary_people(foundation):
+    xp = next(p for p in foundation.external_people if p.affiliations)
+    prior, current = xp.affiliations
+    org_names = {o.id: o.name for o in foundation.external_orgs}
+    return xp, prior, current, org_names
+
+
+def test_people_index_resolves_employer_per_date():
+    from orgsmith.render import people_index
+
+    _, foundation, _ = _aff_org()
+    xp, prior, current, org_names = _boundary_people(foundation)
+    before = people_index(foundation, at=prior.end)
+    after = people_index(foundation, at=current.start)
+    assert before[xp.id]["title"] == f"{xp.title}, {org_names[prior.org]}"
+    assert after[xp.id]["title"] == f"{xp.title}, {org_names[current.org]}"
+    # without a date the current employer stands (single-era orgs)
+    plain = people_index(foundation)
+    assert plain[xp.id]["title"] == f"{xp.title}, {org_names[current.org]}"
+    # name and email are single ledger-owned fields: era-invariant
+    assert before[xp.id]["name"] == after[xp.id]["name"]
+    assert before[xp.id]["email"] == after[xp.id]["email"]
+
+
+def test_brief_person_resolves_employer_per_date():
+    from orgsmith.authoring.contexts import _brief_person
+
+    _, foundation, _ = _aff_org()
+    xp, prior, current, org_names = _boundary_people(foundation)
+    assert _brief_person(foundation, xp.id, prior.end).dept == org_names[prior.org]
+    assert (
+        _brief_person(foundation, xp.id, current.start).dept
+        == org_names[current.org]
+    )
+    assert _brief_person(foundation, xp.id).dept == org_names[current.org]
+
+
+AFF_LINES = "  multi_affiliations: 1\n  affiliations_in_docs: true\n"
+
+
+@pytest.fixture(scope="module")
+def aff_render_org(tmp_path_factory):
+    """dev-mini with the affiliation knobs on, authored (scripted) and
+    rendered."""
+    from orgsmith.assemble import run_assemble
+    from orgsmith.charter import run_charter
+    from orgsmith.docplan import run_docplan
+    from orgsmith.fabric import run_fabric
+    from orgsmith.foundation import run_scaffold
+    from orgsmith.render import run_render
+
+    from conftest import run_authoring, run_enrichment
+
+    root = tmp_path_factory.mktemp("affrender")
+    dest = root / "recipes" / "dev-mini"
+    dest.mkdir(parents=True)
+    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    anchor = "  external_people: 3\n"
+    assert anchor in text
+    (dest / "ORG-CHARTER.md").write_text(
+        text.replace(anchor, anchor + AFF_LINES)
+    )
+    paths = OrgPaths(root=root, slug="dev-mini")
+    assert run_charter(paths) == 0
+    assert run_scaffold(paths) == 0
+    assert run_fabric(paths) == 0
+    assert run_docplan(paths) == 0
+    run_enrichment(paths)
+    run_authoring(paths)
+    assert run_render(paths) == 0
+    assert run_assemble(paths) == 0
+    return paths
+
+
+def test_rendered_letters_show_era_correct_employer(aff_render_org):
+    import re
+
+    from pypdf import PdfReader
+
+    from orgsmith.artifacts import (
+        load_engagements,
+        load_foundation,
+        load_manifest,
+    )
+
+    foundation = load_foundation(aff_render_org)
+    ledger = load_engagements(aff_render_org)
+    manifest = load_manifest(aff_render_org)
+    xp, prior, current, org_names = _boundary_people(foundation)
+    sides = {prior.org: current.org, current.org: prior.org}
+    for side_org, other_org in sides.items():
+        eng = next(
+            e
+            for e in ledger.engagements
+            if e.client == side_org and xp.id in e.external_participants
+        )
+        letter = next(
+            m
+            for m in manifest
+            if m.genre == "engagement_letter" and m.engagement == eng.id
+        )
+        raw = "\n".join(
+            page.extract_text() or ""
+            for page in PdfReader(
+                str(aff_render_org.share_dir / letter.path)
+            ).pages
+        )
+        text = re.sub(r"\s+", " ", raw)
+        # the sigblock title line is the era surface: the xp signs under
+        # the employer matching the letter's date
+        assert f"{xp.title}, {org_names[side_org]}" in text
+        assert f"{xp.title}, {org_names[other_org]}" not in text
+
+
+def test_work_order_briefs_show_era_correct_employer(aff_render_org):
+    import json
+
+    from orgsmith.artifacts import (
+        load_engagements,
+        load_foundation,
+        load_manifest,
+    )
+
+    foundation = load_foundation(aff_render_org)
+    ledger = load_engagements(aff_render_org)
+    manifest = load_manifest(aff_render_org)
+    xp, prior, current, org_names = _boundary_people(foundation)
+    # authoring already converged; inspect the archived work orders
+    orders = sorted(aff_render_org.workorders_dir.glob("author-*.json"))
+    assert orders
+    briefs = {}  # doc_id -> dept briefed for the boundary xp
+    for path in orders:
+        data = json.loads(path.read_text("utf-8"))
+        for doc in data.get("docs", []):
+            for person in doc["authors"] + doc["participants"]:
+                if person["id"] == xp.id:
+                    briefs[doc["doc_id"]] = person["dept"]
+    entries = {m.doc_id: m for m in manifest}
+    boundary = prior.end
+    checked = 0
+    for doc_id, dept in briefs.items():
+        doc_date = entries[doc_id].date
+        expected = prior.org if doc_date <= boundary else current.org
+        assert dept == org_names[expected], (doc_id, doc_date)
+        checked += 1
+    assert checked >= 2
+
+
 def test_letter_lead_days_shared_with_docplan(pure_org):
     # docplan dates the engagement letter start - LETTER_LEAD_DAYS
     # (clamped); the covering window must agree or a letter could be

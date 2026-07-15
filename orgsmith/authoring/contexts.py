@@ -8,8 +8,11 @@ model must place `{{fact:...}}` placeholders it cannot resolve itself.
 
 from __future__ import annotations
 
+from datetime import date
+
 from ..airlock import emit_work_order
 from ..artifacts import load_charter, load_engagements, load_foundation, load_manifest
+from ..fabric.engagements import employer_at
 from ..paths import OrgPaths
 from ..schemas import (
     SCHEMA_IDS,
@@ -117,14 +120,20 @@ def _brief_summary(eng) -> str:
     )
 
 
-def _brief_person(foundation: Foundation, pid: str) -> PersonBrief:
+def _brief_person(
+    foundation: Foundation, pid: str, at: date | None = None
+) -> PersonBrief:
+    """`at` resolves an external person's employer (the brief's dept
+    line) as of that date, so era-appropriate briefs match what render
+    puts in the sigblock; None keeps the current employer."""
     if pid.startswith("p:"):
         p = foundation.person(pid)
         return PersonBrief(
             id=p.id, name=p.name, title=p.title, dept=p.dept, persona=p.persona
         )
     xp = next(x for x in foundation.external_people if x.id == pid)
-    org = next(o for o in foundation.external_orgs if o.id == xp.org)
+    org_id = employer_at(xp, at) if at is not None else xp.org
+    org = next(o for o in foundation.external_orgs if o.id == org_id)
     return PersonBrief(id=xp.id, name=xp.name, title=xp.title, dept=org.name)
 
 
@@ -166,6 +175,11 @@ def run_next_batch(paths: OrgPaths) -> int:
         print("author: all batchable docs authored")
         return 0
 
+    aff_docs = charter.graph_targets.affiliations_in_docs
+
+    def brief_at(entry) -> date | None:
+        return entry.date if aff_docs else None
+
     def build(wo_id: str) -> WorkOrder:
         briefs = []
         for entry in batch:
@@ -198,9 +212,13 @@ def run_next_batch(paths: OrgPaths) -> int:
                     title=entry.title,
                     genre=entry.genre,
                     date=entry.date,
-                    authors=[_brief_person(foundation, a) for a in entry.authors],
+                    authors=[
+                        _brief_person(foundation, a, brief_at(entry))
+                        for a in entry.authors
+                    ],
                     participants=[
-                        _brief_person(foundation, p) for p in entry.participants
+                        _brief_person(foundation, p, brief_at(entry))
+                        for p in entry.participants
                     ],
                     engagement_summary=_brief_summary(eng) if eng else "",
                     facts=[

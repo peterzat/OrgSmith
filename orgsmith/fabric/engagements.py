@@ -78,6 +78,18 @@ def affiliation_covering(xp, org_id: str, lo: date, hi: date) -> bool:
     return False
 
 
+def employer_at(xp, when: date) -> str:
+    """The org id whose affiliation covers `when`. Falls back to the
+    current employer for dates outside every window (e.g. a doc dated in
+    the one-day gap at an affiliation boundary)."""
+    for aff in xp_affiliations(xp):
+        if (aff.start is None or aff.start <= when) and (
+            aff.end is None or aff.end >= when
+        ):
+            return aff.org
+    return xp.org
+
+
 def padded_window(start: date, end: date, range_start: date) -> tuple[date, date]:
     """The affiliation-coverage window of an engagement's documents: the
     letter leads the start by LETTER_LEAD_DAYS, clamped to the charter

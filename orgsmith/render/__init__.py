@@ -8,6 +8,8 @@ browsable after every batch.
 
 from __future__ import annotations
 
+from datetime import date
+
 from ..artifacts import (
     load_charter,
     load_engagements,
@@ -15,6 +17,7 @@ from ..artifacts import (
     load_foundation,
     load_manifest,
 )
+from ..fabric.engagements import employer_at
 from ..paths import OrgPaths
 from ..schemas import DocIR
 from ..state import load_state, require_stages, save_state, sha256_file
@@ -22,15 +25,22 @@ from .resolve import resolve_docir
 from .styles import style_pack
 
 
-def people_index(foundation) -> dict[str, dict]:
+def people_index(foundation, at: date | None = None) -> dict[str, dict]:
     """name/title/email per person id; shared with the EML-01 validator so
-    header recomputation reads the ledger exactly the way render did."""
+    header recomputation reads the ledger exactly the way render did.
+
+    `at` resolves each external person's employer line via the affiliation
+    covering that date (era-appropriate sigblocks for affiliations_in_docs
+    orgs); None keeps the current employer. Only the title line varies:
+    name and email are single ledger-owned fields, so a prior-era doc
+    keeps the current-domain email (known, documented residual)."""
     people = {
         p.id: {"name": p.name, "title": p.title, "email": p.email}
         for p in foundation.people
     }
     for xp in foundation.external_people:
-        org = next(o for o in foundation.external_orgs if o.id == xp.org)
+        org_id = employer_at(xp, at) if at is not None else xp.org
+        org = next(o for o in foundation.external_orgs if o.id == org_id)
         people[xp.id] = {
             "name": xp.name,
             "title": f"{xp.title}, {org.name}",
@@ -79,8 +89,13 @@ def run_render(paths: OrgPaths) -> int:
 
         require_soffice()
 
+    aff_docs = charter.graph_targets.affiliations_in_docs
     for entry, basis, target in todo:
         doc_state = state.doc(entry.doc_id)
+        if aff_docs:
+            # Era-appropriate surfaces: each doc resolves external
+            # employer lines as of its own date.
+            people = people_index(foundation, at=entry.date)
         author_name = people[entry.authors[0]]["name"]
         if entry.authoring == "static":
             from .xlsx import render_financial_summary
