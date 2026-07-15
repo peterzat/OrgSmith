@@ -599,6 +599,14 @@ class GraphAnswers(StrictModel):
     edges: list[GraphAnswerEdge] = []
 
 
+class VisibilityAnswers(StrictModel):
+    """Same doc-set contract as retrieval: per question (one per internal
+    person), the exact set of share paths that person may read."""
+
+    suite: Literal["visibility"]
+    answers: list[RetrievalAnswerItem]
+
+
 class ExtractionAnswerItem(StrictModel):
     id: str
     value: str

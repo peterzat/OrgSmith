@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 
 from ..artifacts import (
+    load_acl,
     load_charter,
     load_engagements,
     load_foundation,
@@ -92,6 +93,27 @@ aliases. Edges are scored precision/recall after resolving names the same
 way. Entities may carry `ambiguity:<class>` tags (surname-collision,
 nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
+"""
+
+# Appended only when the org has an ACL overlay (ledger/acl.json), so
+# pre-ACL orgs re-emit byte-identical README files.
+_README_VISIBILITY = """
+## visibility.jsonl
+
+One question per internal person: the exact set of share documents that
+person may read, per the org's access-control ground truth (see
+PERMISSIONS.md in the share root). Answers file:
+
+```json
+{"suite": "visibility",
+  "answers": [
+    {"id": "vq:0001", "docs": ["Firm/Firm Overview 2021 v3.docx"]}
+  ]}
+```
+
+A question is correct when your doc set exactly matches `expected_docs`.
+Score: `python -m orgsmith score --suite visibility --answers answers.json
+--evals-dir <this directory>`.
 """
 
 
@@ -248,6 +270,24 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
     return questions
 
 
+def build_visibility(foundation, acl) -> list[RetrievalQuestion]:
+    """One doc-set question per internal person, roster order. Reuses the
+    retrieval question shape so the answers contract stays uniform."""
+    people = {p.id: p for p in foundation.people}
+    return [
+        RetrievalQuestion(
+            id=f"vq:{i:04d}",
+            question=(
+                f"Which documents in the share may "
+                f"{people[grant.person].name} read?"
+            ),
+            expected_docs=list(grant.docs),
+            tags=["visibility", grant.person],
+        )
+        for i, grant in enumerate(acl.grants, start=1)
+    ]
+
+
 def _ambiguity_tags(foundation) -> dict[str, list[str]]:
     """entity id -> sorted ambiguity:<class> tags, derived from ledgers."""
     surnames: dict[str, list[str]] = {}
@@ -327,6 +367,7 @@ def run_emit_evals(paths: OrgPaths) -> int:
     )
     extraction = build_extraction(engagements, manifest)
     expected = build_graph_expected(charter, foundation, graph)
+    acl = load_acl(paths)
 
     paths.evals_dir.mkdir(parents=True, exist_ok=True)
 
@@ -342,12 +383,24 @@ def run_emit_evals(paths: OrgPaths) -> int:
     write_jsonl("retrieval.jsonl", questions)
     write_jsonl("extraction.jsonl", extraction)
     write_model(paths.evals_dir / "graph_expected.json", expected)
-    (paths.evals_dir / "README.md").write_text(
-        _README.format(slug=charter.slug), encoding="utf-8"
-    )
+
+    readme = _README.format(slug=charter.slug)
+    visibility_note = ""
+    if acl is not None:
+        visibility = build_visibility(foundation, acl)
+        write_jsonl("visibility.jsonl", visibility)
+        readme += _README_VISIBILITY
+        visibility_note = f", {len(visibility)} visibility questions"
+    else:
+        print(
+            "emit-evals: visibility suite skipped (no ledger/acl.json; "
+            f"run `python -m orgsmith acl {charter.slug}`)"
+        )
+    (paths.evals_dir / "README.md").write_text(readme, encoding="utf-8")
     print(
         f"emit-evals: {len(questions)} retrieval questions, "
         f"{len(extraction)} extraction questions, "
-        f"{len(expected.entities)} graph entities -> {paths.evals_dir}"
+        f"{len(expected.entities)} graph entities"
+        f"{visibility_note} -> {paths.evals_dir}"
     )
     return 0

@@ -33,7 +33,12 @@ from orgsmith.schemas import (
     RetrievalAnswers,
 )
 
-from conftest import REPO, build_hardcase_stages, build_knobbed_stages
+from conftest import (
+    REPO,
+    build_acl_stages,
+    build_hardcase_stages,
+    build_knobbed_stages,
+)
 
 pytestmark = pytest.mark.unit
 
@@ -341,3 +346,127 @@ def test_committed_dev_mini_predates_ambiguity_tags():
         load_charter(paths), load_foundation(paths), load_graph(paths)
     )
     assert all(e.tags == [] for e in expected.entities)
+
+
+# --- visibility suite --------------------------------------------------------
+
+
+@pytest.fixture(scope="module")
+def acl_org(tmp_path_factory):
+    paths = build_acl_stages(tmp_path_factory.mktemp("evals-acl"))
+    assert run_emit_evals(paths) == 0
+    return paths
+
+
+def _visibility_questions(paths):
+    lines = (paths.evals_dir / "visibility.jsonl").read_text().splitlines()
+    return [json.loads(line) for line in lines if line.strip()]
+
+
+def _visibility_gt_answers(paths) -> dict:
+    return {
+        "suite": "visibility",
+        "answers": [
+            {"id": q["id"], "docs": q["expected_docs"]}
+            for q in _visibility_questions(paths)
+        ],
+    }
+
+
+def test_visibility_emitted_with_acl(acl_org):
+    from orgsmith.artifacts import load_acl
+
+    acl = load_acl(acl_org)
+    questions = _visibility_questions(acl_org)
+    assert len(questions) == len(acl.grants)
+    by_person = {g.person: g.docs for g in acl.grants}
+    for q in questions:
+        assert q["expected_docs"] == by_person[q["tags"][1]]
+    assert "## visibility.jsonl" in (acl_org.evals_dir / "README.md").read_text()
+    # Re-emission stays byte-identical, visibility file included.
+    before = {
+        name: (acl_org.evals_dir / name).read_bytes()
+        for name in ("visibility.jsonl", "README.md")
+    }
+    assert run_emit_evals(acl_org) == 0
+    for name, content in before.items():
+        assert (acl_org.evals_dir / name).read_bytes() == content, name
+
+
+def test_visibility_skipped_without_acl(org, capsys):
+    assert run_emit_evals(org) == 0
+    assert "visibility suite skipped" in capsys.readouterr().out
+    assert not (org.evals_dir / "visibility.jsonl").exists()
+    assert "visibility" not in (org.evals_dir / "README.md").read_text()
+
+
+def test_visibility_ground_truth_scores_100(acl_org):
+    from orgsmith.evals.score import score_visibility
+    from orgsmith.schemas import VisibilityAnswers
+
+    result = score_visibility(
+        acl_org.evals_dir,
+        VisibilityAnswers.model_validate(_visibility_gt_answers(acl_org)),
+    )
+    assert result.total == len(_visibility_questions(acl_org))
+    assert result.correct == result.total
+    assert result.failures == []
+
+
+def test_visibility_wrong_answers_attributed(acl_org, tmp_path):
+    payload = _visibility_gt_answers(acl_org)
+    payload["answers"][0]["docs"] = []
+    bare = tmp_path / "evals"
+    shutil.copytree(acl_org.evals_dir, bare)
+    answers = tmp_path / "answers.json"
+    answers.write_text(json.dumps(payload))
+    assert run_score(bare, "visibility", answers) == 0
+
+    from orgsmith.evals.score import score_visibility
+    from orgsmith.schemas import VisibilityAnswers
+
+    result = score_visibility(
+        acl_org.evals_dir, VisibilityAnswers.model_validate(payload)
+    )
+    assert result.correct == result.total - 1
+    assert result.failures[0]["id"] == payload["answers"][0]["id"]
+    assert result.failures[0]["missing"]
+
+
+def test_visibility_malformed_answers_rejected(acl_org, tmp_path):
+    bad = tmp_path / "bad.json"
+    bad.write_text('{"suite": "visibility", "answers": [{"id": 7}]}')
+    assert run_score(acl_org.evals_dir, "visibility", bad) == 2
+    # And a suite that was never emitted fails actionably.
+    good = tmp_path / "good.json"
+    good.write_text('{"suite": "visibility", "answers": []}')
+    with pytest.raises(SystemExit, match="no visibility suite"):
+        run_score(
+            REPO / "companies" / "dev-mini-metadata" / "evals",
+            "visibility",
+            good,
+        )
+
+
+def test_committed_fixture_evals_reemit_byte_identical(tmp_path):
+    """Pre-ACL fixtures must re-emit unchanged: no visibility file, no
+    README drift. Guards the conditional README section."""
+    import shutil as sh
+
+    for slug in ("dev-mini", "quillbrook-appraisal"):
+        root = tmp_path / slug
+        (root / "recipes").mkdir(parents=True)
+        sh.copytree(REPO / "recipes" / slug, root / "recipes" / slug)
+        (root / "companies").mkdir()
+        for suffix in ("", "-metadata"):
+            sh.copytree(
+                REPO / "companies" / f"{slug}{suffix}",
+                root / "companies" / f"{slug}{suffix}",
+            )
+        paths = OrgPaths(root=root, slug=slug)
+        before = {
+            p.name: p.read_bytes() for p in paths.evals_dir.iterdir()
+        }
+        assert run_emit_evals(paths) == 0
+        after = {p.name: p.read_bytes() for p in paths.evals_dir.iterdir()}
+        assert after == before, slug

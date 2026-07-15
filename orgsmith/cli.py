@@ -73,7 +73,9 @@ def main(argv=None) -> int:
     p_score.add_argument("slug", nargs="?", help="org slug (or use --evals-dir)")
     p_score.add_argument("--root", type=Path, default=None)
     p_score.add_argument(
-        "--suite", required=True, choices=["retrieval", "graph", "extraction"]
+        "--suite",
+        required=True,
+        choices=["retrieval", "graph", "extraction", "visibility"],
     )
     p_score.add_argument("--answers", required=True, metavar="FILE")
     p_score.add_argument(

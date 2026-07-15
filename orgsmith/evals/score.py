@@ -20,6 +20,7 @@ from ..schemas import (
     GraphExpected,
     RetrievalAnswers,
     RetrievalQuestion,
+    VisibilityAnswers,
 )
 
 
@@ -59,8 +60,11 @@ def load_questions(evals_dir: Path) -> list[RetrievalQuestion]:
     ]
 
 
-def score_retrieval(evals_dir: Path, answers: RetrievalAnswers) -> RetrievalResult:
-    questions = load_questions(evals_dir)
+def _score_docset(
+    questions: list[RetrievalQuestion], answers
+) -> RetrievalResult:
+    """Exact doc-set matching, shared by the retrieval and visibility
+    suites (identical answers contract)."""
     given = {a.id: a.docs for a in answers.answers}
     result = RetrievalResult(total=len(questions), correct=0)
     for q in questions:
@@ -79,6 +83,30 @@ def score_retrieval(evals_dir: Path, answers: RetrievalAnswers) -> RetrievalResu
             }
         )
     return result
+
+
+def score_retrieval(evals_dir: Path, answers: RetrievalAnswers) -> RetrievalResult:
+    return _score_docset(load_questions(evals_dir), answers)
+
+
+def load_visibility_questions(evals_dir: Path) -> list[RetrievalQuestion]:
+    path = evals_dir / "visibility.jsonl"
+    if not path.exists():
+        raise SystemExit(
+            f"score: no visibility suite at {path} (orgs without an ACL "
+            f"overlay do not emit one)"
+        )
+    return [
+        RetrievalQuestion.model_validate_json(line)
+        for line in path.read_text("utf-8").splitlines()
+        if line.strip()
+    ]
+
+
+def score_visibility(
+    evals_dir: Path, answers: VisibilityAnswers
+) -> RetrievalResult:
+    return _score_docset(load_visibility_questions(evals_dir), answers)
 
 
 def load_extraction_questions(evals_dir: Path) -> list[ExtractionQuestion]:
@@ -193,13 +221,16 @@ def run_score(
     try:
         if suite == "retrieval":
             answers = RetrievalAnswers.model_validate_json(raw)
+        elif suite == "visibility":
+            answers = VisibilityAnswers.model_validate_json(raw)
         elif suite == "graph":
             answers = GraphAnswers.model_validate_json(raw)
         elif suite == "extraction":
             answers = ExtractionAnswers.model_validate_json(raw)
         else:
             raise SystemExit(
-                f"score: unknown suite {suite!r} (retrieval|graph|extraction)"
+                f"score: unknown suite {suite!r} "
+                f"(retrieval|graph|extraction|visibility)"
             )
     except ValidationError as err:
         print(
@@ -208,13 +239,14 @@ def run_score(
         )
         return 2
 
-    if suite == "retrieval":
-        result = score_retrieval(evals_dir, answers)
+    if suite in ("retrieval", "visibility"):
+        scorer = score_retrieval if suite == "retrieval" else score_visibility
+        result = scorer(evals_dir, answers)
         if as_json:
             print(
                 json.dumps(
                     {
-                        "suite": "retrieval",
+                        "suite": suite,
                         "total": result.total,
                         "correct": result.correct,
                         "score": round(result.score, 4),
@@ -225,7 +257,7 @@ def run_score(
             )
         else:
             print(
-                f"retrieval: {result.correct}/{result.total} "
+                f"{suite}: {result.correct}/{result.total} "
                 f"({result.score:.1%})"
             )
             for failure in result.failures:
