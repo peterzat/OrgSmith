@@ -176,7 +176,10 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
     assert old_mix in text
     text = text.replace(
-        old_mix, "  format_mix: {docx: 8, pdf: 3, xlsx: 2, pptx: 1, eml: 2}\n"
+        old_mix,
+        "  format_mix: {docx: 8, pdf: 3, xlsx: 2, pptx: 1, eml: 2}\n"
+        "  scanned_ratio: 0.4\n"
+        "  ocr_layer_rate: 1.0\n",
     )
     text = text.replace("target_docs: 13", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)

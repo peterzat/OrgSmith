@@ -70,11 +70,19 @@ class Context:
                     chunks.extend(c.text for c in row.cells)
             text = "\n".join(chunks)
         elif entry.format == "pdf":
-            from pypdf import PdfReader
+            if _image_only(entry):
+                # An image-only scan exposes no text by design; its text
+                # obligations run against the archived truth. A missing or
+                # unreadable archive yields empty text here, so FACT/MENT
+                # fail loudly alongside SCAN-02, never a silent pass.
+                text = "\n".join(self.scan_archive(entry) or [])
+            else:
+                from pypdf import PdfReader
 
-            text = "\n".join(
-                page.extract_text() or "" for page in PdfReader(str(path)).pages
-            )
+                text = "\n".join(
+                    page.extract_text() or ""
+                    for page in PdfReader(str(path)).pages
+                )
         elif entry.format == "pptx":
             text = _pptx_text(path)
         elif entry.format == "eml":
@@ -95,19 +103,43 @@ class Context:
 
     def doc_pages(self, entry) -> list[str]:
         """Per-page extractable text (pdf only), whitespace-normalized.
-        Page addressing is what makes signature-page scoping checkable."""
+        Page addressing is what makes signature-page scoping checkable.
+        Image-only scans page-address the archived truth instead."""
         key = ("pages", entry.doc_id)
         if key in self._text_cache:
             return self._text_cache[key]
-        from pypdf import PdfReader
+        if _image_only(entry):
+            raw = self.scan_archive(entry) or []
+        else:
+            from pypdf import PdfReader
 
-        path = self.paths.share_dir / entry.path
-        pages = [
-            re.sub(r"\s+", " ", page.extract_text() or "")
-            for page in PdfReader(str(path)).pages
-        ]
+            path = self.paths.share_dir / entry.path
+            raw = [
+                page.extract_text() or "" for page in PdfReader(str(path)).pages
+            ]
+        pages = [re.sub(r"\s+", " ", p) for p in raw]
         self._text_cache[key] = pages
         return pages
+
+    def scan_archive(self, entry) -> list | None:
+        """Archived true per-page text for a scanned doc, or None when the
+        archive is missing or does not parse (SCAN-02's findings)."""
+        key = ("archive", entry.doc_id)
+        if key not in self._text_cache:
+            from ..render.scan import scan_pages_path
+            from ..schemas import ScanPages
+
+            path = scan_pages_path(self.paths, entry.doc_id)
+            pages = None
+            if path.exists():
+                try:
+                    pages = ScanPages.model_validate_json(
+                        path.read_text("utf-8")
+                    ).pages
+                except Exception:  # noqa: BLE001 - unparseable = absent
+                    pages = None
+            self._text_cache[key] = pages
+        return self._text_cache[key]
 
 
 def _pptx_text(path) -> str:
@@ -133,6 +165,12 @@ def _eml_message(path):
         return BytesParser(policy=policy.default).parse(fh)
 
 
+def _image_only(entry) -> bool:
+    return bool(entry.render_params.get("scan")) and not entry.render_params.get(
+        "ocr_layer"
+    )
+
+
 def _always(_ctx: Context) -> str | None:
     return None
 
@@ -140,6 +178,12 @@ def _always(_ctx: Context) -> str | None:
 def _needs_eml(ctx: Context) -> str | None:
     if ctx.charter.doc_culture.format_mix.eml == 0:
         return "format_mix.eml is 0 for this recipe"
+    return None
+
+
+def _needs_scan(ctx: Context) -> str | None:
+    if ctx.charter.doc_culture.scanned_ratio == 0:
+        return "scanned_ratio is 0 for this recipe"
     return None
 
 
@@ -665,6 +709,120 @@ def eml_01(ctx: Context):
                 )
 
 
+# --- SCAN -----------------------------------------------------------------
+
+
+def scan_01(ctx: Context):
+    """Scan flags recompute from the charter, scanned docs are raster
+    pdfs, and extractable text matches the planned OCR-layer presence."""
+    import pikepdf
+    from pypdf import PdfReader
+
+    from ..docplan.planner import scan_selection
+
+    policy = {
+        fid: f.location_policy
+        for fid, f in ctx.engagements.fact_index().items()
+    }
+    expected = scan_selection(
+        ctx.charter.seed,
+        ctx.charter.doc_culture,
+        [
+            (
+                e.date,
+                e.path,
+                any(
+                    policy.get(ref) == "signature_page" for ref in e.facts_refs
+                ),
+            )
+            for e in ctx.manifest
+            if e.format == "pdf"
+        ],
+    )
+    for e in ctx.manifest:
+        if e.format != "pdf":
+            continue
+        want_layer = expected.get(e.path)  # None=plain, False=image, True=ocr
+        got_scan = e.render_params.get("scan") == 1
+        got_layer = e.render_params.get("ocr_layer") == 1
+        if got_scan != (want_layer is not None) or got_layer != bool(want_layer):
+            yield (
+                f"scan flags do not recompute from the charter: manifest has "
+                f"scan={got_scan} ocr_layer={got_layer}, expected "
+                f"scan={want_layer is not None} ocr_layer={bool(want_layer)}",
+                e.path,
+            )
+            continue
+        if want_layer is None:
+            continue
+        path = ctx.paths.share_dir / e.path
+        if not path.exists():
+            continue  # FILE-01/MAN-01 report the absence
+        try:
+            with pikepdf.open(path) as pdf:
+                for page in pdf.pages:
+                    xobjects = page.get("/Resources", {}).get("/XObject", {})
+                    if not any(
+                        x.get("/Subtype") == pikepdf.Name.Image
+                        for x in xobjects.values()
+                    ):
+                        yield ("scanned doc has a page with no raster image",
+                               e.path)
+                        break
+        except pikepdf.PdfError as err:
+            yield (f"scanned doc does not open: {err}", e.path)
+            continue
+        text = "\n".join(
+            page.extract_text() or "" for page in PdfReader(str(path)).pages
+        )
+        if want_layer and not text.strip():
+            yield ("planned OCR layer exposes no extractable text", e.path)
+        if not want_layer and text.strip():
+            yield ("image-only scan exposes extractable text", e.path)
+
+
+def scan_02(ctx: Context):
+    """The true-text archive exists exactly for scanned docs and ties to
+    the rendered page count. Image-only text obligations run against this
+    archive via doc_text/doc_pages, so FACT/MENT/LOC own those findings."""
+    from pypdf import PdfReader
+
+    from ..render.scan import scan_pages_path
+
+    scanned = {
+        scan_pages_path(ctx.paths, e.doc_id).name: e
+        for e in ctx.manifest
+        if e.render_params.get("scan") == 1
+    }
+    on_disk = (
+        {p.name for p in ctx.paths.scans_dir.glob("*.pages.json")}
+        if ctx.paths.scans_dir.exists()
+        else set()
+    )
+    for name in sorted(set(scanned) - on_disk):
+        yield ("scanned doc has no archived page text", f"scans/{name}")
+    for name in sorted(on_disk - set(scanned)):
+        yield ("archived page text for a doc the plan never scanned",
+               f"scans/{name}")
+    for name, entry in sorted(scanned.items()):
+        if name not in on_disk:
+            continue
+        pages = ctx.scan_archive(entry)
+        if pages is None:
+            yield ("archived page text does not parse", f"scans/{name}")
+            continue
+        rendered = ctx.paths.share_dir / entry.path
+        if not rendered.exists():
+            continue  # FILE-01/MAN-01 report the absence
+        count = len(PdfReader(str(rendered)).pages)
+        if len(pages) != count:
+            yield (
+                f"archive holds {len(pages)} page(s), rendered pdf has "
+                f"{count}",
+                entry.path,
+            )
+
+
 # --- PROV -----------------------------------------------------------------
 
 
@@ -718,6 +876,10 @@ RULES = [
          acl_03, available=_needs_acl),
     Rule("EML-01", "ERROR", "eml transport headers recompute from the ledger",
          eml_01, available=_needs_eml),
+    Rule("SCAN-01", "ERROR", "scan flags recompute; raster and OCR presence "
+         "match the plan", scan_01, available=_needs_scan),
+    Rule("SCAN-02", "ERROR", "true-text archives exist exactly for scans",
+         scan_02, available=_needs_scan),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),

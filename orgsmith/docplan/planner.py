@@ -44,6 +44,32 @@ def _employed_at(person: Person, when: date) -> bool:
     return emp.start <= when and (emp.end is None or emp.end >= when)
 
 
+def scan_selection(
+    seed: int, culture, pdfs: list[tuple[date, str, bool]]
+) -> dict[str, bool]:
+    """Which pdfs become scans, and which of those keep an OCR layer:
+    {path: has_ocr_layer}. Pure function of the charter knobs and the pdf
+    identities, shared by the planner and the SCAN-01 recomputation so the
+    two can never drift. pdfs holds (date, path, hosts_signature_fact);
+    the scanned set is the oldest round(scanned_ratio * n) by (date,
+    path); layers draw from the docplan.ocr stream (knobs off consume
+    nothing); a signature_page host is never image-only."""
+    if culture.scanned_ratio == 0:
+        return {}
+    ordered = sorted(pdfs, key=lambda t: (t[0], t[1]))
+    scans = ordered[: round(culture.scanned_ratio * len(ordered))]
+    if not scans:
+        return {}
+    layered = round(culture.ocr_layer_rate * len(scans))
+    with_layer = set(
+        rng(seed, "docplan.ocr").sample(range(len(scans)), layered)
+    )
+    return {
+        path: (i in with_layer or hosts_sig)
+        for i, (_, path, hosts_sig) in enumerate(scans)
+    }
+
+
 def _clamp(d: date, lo: date, hi: date) -> date:
     return max(lo, min(d, hi))
 
@@ -396,37 +422,31 @@ class _Planner:
                 )
 
     def plan_scans(self) -> None:
-        """Scan selection: the oldest pdfs by (date, path) get flagged, per
-        scanned_ratio; ocr_layer_rate of those keep a synthetic OCR text
-        layer, drawn from a NEW seed stream so knobs-off recipes never
-        consume it and regenerate byte-identically. Paths stay .pdf: the
-        filename is immutable eval/ACL ground truth. A doc hosting a
-        signature_page fact is never image-only, or its per-page location
-        obligation would be unverifiable from extractable text."""
-        culture = self.charter.doc_culture
-        if culture.scanned_ratio == 0:
-            return
-        pdfs = sorted(
-            (d for d in self.planned if d["format"] == "pdf"),
-            key=lambda d: (d["date"], d["path"]),
+        """Flag scans per scan_selection. Paths stay .pdf: the filename is
+        immutable eval/ACL ground truth."""
+        selection = scan_selection(
+            self.charter.seed,
+            self.charter.doc_culture,
+            [
+                (
+                    d["date"],
+                    d["path"],
+                    any(
+                        self.policy.get(ref) == "signature_page"
+                        for ref in d.get("facts_refs", [])
+                    ),
+                )
+                for d in self.planned
+                if d["format"] == "pdf"
+            ],
         )
-        scans = pdfs[: round(culture.scanned_ratio * len(pdfs))]
-        if not scans:
-            return
-        layered = round(culture.ocr_layer_rate * len(scans))
-        with_layer = set(
-            rng(self.charter.seed, "docplan.ocr").sample(
-                range(len(scans)), layered
-            )
-        )
-        for i, doc in enumerate(scans):
+        for doc in self.planned:
+            layer = selection.get(doc["path"])
+            if layer is None:
+                continue
             params = dict(doc.get("render_params", {}))
             params["scan"] = 1
-            hosts_sig = any(
-                self.policy.get(ref) == "signature_page"
-                for ref in doc.get("facts_refs", [])
-            )
-            if i in with_layer or hosts_sig:
+            if layer:
                 params["ocr_layer"] = 1
             doc["render_params"] = params
 
