@@ -68,6 +68,20 @@ graph_targets:
   # surname_collisions: 1        # staff pairs sharing a last name
   # nickname_aliases: 1          # people whose nickname appears in doc text
   # multi_affiliations: 1        # external people with a mid-history employer change
+  # affiliations_in_docs: true   # multi-affiliation people appear in rendered
+  #                              # docs under BOTH employers, era-appropriate
+  #                              # per doc date (sigblocks, briefs). Requires
+  #                              # multi_affiliations >= 1. Fabric reassigns
+  #                              # clients deterministically to plant one
+  #                              # engagement per affiliation side; if the
+  #                              # date range or engagement count cannot host
+  #                              # both sides it fails at fabric with an
+  #                              # actionable message (multi_affiliations >= 2
+  #                              # realistically needs engagements.count >= 4).
+  #                              # Known residual: a person's email keeps the
+  #                              # current-employer domain even on prior-era
+  #                              # documents (the ledger owns a single email
+  #                              # field).
 
 # hard_cases:                    # facts planted to be hard to find (optional, default 0)
 #   signature_page_facts: 1      # fees appearing ONLY on the letter's signature page

@@ -70,7 +70,7 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 26-rule validator ties every document back to the
+- After rendering, a 29-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
@@ -80,6 +80,9 @@ surface prose, through an airlock:
   recompute exactly from the ledgers, scan flags and legacy assignments
   recompute from the recipe (with raster pages, OCR-layer presence, and
   true-text archives verified), legacy binaries are real OLE containers,
+  affiliation-aware client and participant assignments recompute from
+  the charter (with every multi-affiliation person appearing under both
+  employers), no generated name collides with a screened real firm,
   authors were employed on the date they wrote, org charts are acyclic,
   the people graph has no orphans or dangling edges, every file opens in
   its native reader, and every file carries a machine-readable
@@ -215,7 +218,7 @@ validation) run as plain Python and cost no tokens at all.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 26-rule validator, capability
+- The airlock, checkpoint/resume, the 29-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - Skills: `/forge` (orchestrator) and `forge-author` (per-batch worker
