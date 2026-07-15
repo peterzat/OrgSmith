@@ -26,6 +26,7 @@ companies/dev-mini-metadata/     <- ground truth for all of the above
 ├── ledger/                      # finance series, engagements, people graph
 ├── docplan/manifest.jsonl       # every doc: genre, date, authors, planted facts
 ├── docir/                       # authored text with facts still as placeholders
+├── evals/                       # golden suites: retrieval, extraction, graph
 └── state.json                   # resumable pipeline state
 ```
 
@@ -83,7 +84,8 @@ surface prose, through an airlock:
 ```
 charter -> foundation -> fabric -> docplan -> author -> render -> assemble
  (recipe)   (roster)    (ledgers)  (manifest)  (model)   (files)    (TOC)
-                            validate / status / doctor
+              overlays:  acl (grants + PERMISSIONS.md)
+              oracles:   validate / emit-evals / score / status / doctor
 ```
 
 Long runs checkpoint into `state.json`: kill the session mid-generation,
@@ -91,6 +93,30 @@ re-run `/forge <slug>`, and it resumes exactly where it stopped with no
 duplicated or lost documents. Structure is fully seeded; the same recipe
 regenerates the same org (ids, names, tree, numbers), with only the
 model-authored prose varying.
+
+## Design principles
+
+Five rules have survived every milestone so far and govern new work:
+
+- **Facts are load-bearing; prose is replaceable.** Every number, date,
+  id, name, and relationship comes from deterministic ledgers; the model
+  writes only surface prose around `{{fact:...}}` placeholders it cannot
+  resolve.
+- **Verification is the ceiling.** The validator and the eval suites are
+  oracles computed from ground truth, never another model's opinion; no
+  LLM grades an LLM anywhere in an automated path.
+- **Additive evolution.** New capabilities arrive as recipe knobs that
+  default off, schema fields that default inert, and randomness drawn
+  from new seed streams, so every previously committed fixture keeps
+  loading, validating, and regenerating byte-identical structure.
+- **Derive, don't store.** Anything recomputable from the ledgers (eval
+  suites, ACL grants, ambiguity tags, PERMISSIONS.md) is emitted at read
+  time, which is how frozen fixtures gain new capabilities without
+  regeneration.
+- **Grandfather by charter, not by absence.** Validator rules skip only
+  when the recipe says a feature is off; a missing artifact with the knob
+  on is a failure, so stripping ground truth from a distributed org can
+  never pass validation.
 
 ## Quick start
 
@@ -169,16 +195,19 @@ validation) run as plain Python and cost no tokens at all.
   paged-media letterhead, pikepdf metadata, remote fetches blocked), and
   `.xlsx` (xlsxwriter with real formulas plus cached values that tie to
   the ledger).
-- The airlock, checkpoint/resume, the 19-rule validator, capability
+- The airlock, checkpoint/resume, the 22-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - Skills: `/forge` (orchestrator) and `forge-author` (per-batch worker
   with a fresh context, which is what lets large orgs span sessions).
 
-On the roadmap, in rough order: more formats (`.pptx`, `.eml` mail
-archives, scanned-and-degraded PDFs with synthetic OCR layers, legacy
-`.doc`/`.xls`/`.ppt`), an adversarial review board, and a committed
-six-company fleet from a 1988 boutique law firm to a modern B2B SaaS.
+In progress (see SPEC.md): the formats milestone, adding `.pptx` decks,
+`.eml` mail messages, scanned-and-degraded PDFs with deterministic
+synthetic OCR layers, and legacy `.doc`/`.xls`/`.ppt` produced via
+LibreOffice at generation time (validation stays pure Python). After
+that, in rough order: era-appropriate naming for period orgs, an
+adversarial review board, and a committed six-company fleet from a 1988
+boutique law firm to a modern B2B SaaS.
 
 ## Provenance and safety
 

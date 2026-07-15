@@ -22,6 +22,18 @@ README.md for the product shape and SPEC.md for the current unit of work.
   inside skills.
 - `orgsmith/schemas.py` is the keystone: ALL inter-stage contracts live
   there as pydantic models with `orgsmith/<kind>@<ver>` schema ids.
+- **Additive evolution.** New capabilities are recipe knobs that default
+  off, schema fields that default inert on the existing schema ids, and
+  randomness drawn only from NEW `seeds.py` streams. Every committed
+  fixture must keep loading, validating clean, and regenerating
+  byte-identical structure, without regeneration or hand edits.
+- **Committed fixtures are frozen; derived artifacts are not.** Never
+  edit or regenerate a committed org's ledgers, manifest, or authored
+  prose. `evals/`, `acl.json`, and PERMISSIONS.md are derived and may be
+  re-emitted. Validator rules grandfather by CHARTER, not by artifact
+  absence: skip visibly only when the recipe knob is off; a knob that is
+  on with its artifact missing is a failure (tamper evidence), never a
+  skip.
 - The user-facing product name appears in code only via `PRODUCT_NAME` in
   `orgsmith/__init__.py`. The pre-rename working name must not appear
   anywhere in the repo (enforced by a short-tier test; see

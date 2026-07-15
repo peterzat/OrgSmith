@@ -6,8 +6,9 @@ and the prose around it is the narrative brief (company character, history
 hooks, tone). `python -m orgsmith charter <slug>` parses and validates the
 recipe into `companies/<slug>-metadata/charter.json`.
 
-Status: draft. Fields marked *(reserved)* are defined by the architecture
-but not consumed until their milestone lands.
+Maintained alongside the schema (`orgsmith/schemas.py` is authoritative).
+Fields marked *(reserved)* are defined by the architecture but not
+consumed until their milestone lands.
 
 ## Structure
 
