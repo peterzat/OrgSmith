@@ -1,0 +1,199 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "bramblewood-legal",
+  "entities": [
+    {
+      "id": "x:bramblewood-legal",
+      "canonical": "Bramblewood Legal PLLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:vanessa.brown",
+      "canonical": "Vanessa Brown",
+      "aliases": [
+        "vanessa.brown@bramblewoodlegal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:nicholas.cox",
+      "canonical": "Nicholas Cox",
+      "aliases": [
+        "nicholas.cox@bramblewoodlegal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:ashley.reese",
+      "canonical": "Ashley Reese",
+      "aliases": [
+        "ashley.reese@bramblewoodlegal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:brendan.walls",
+      "canonical": "Brendan Walls",
+      "aliases": [
+        "brendan.walls@bramblewoodlegal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:savannah.moreno",
+      "canonical": "Savannah Moreno",
+      "aliases": [
+        "savannah.moreno@bramblewoodlegal.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:miles-alexander-and-mccoy",
+      "canonical": "Miles, Alexander and Mccoy",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:foley-group",
+      "canonical": "Foley Group",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:jennifer.chavez",
+      "canonical": "Jennifer Chavez",
+      "aliases": [
+        "jennifer.chavez@milesalexanderandmccoy.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:patricia.young",
+      "canonical": "Patricia Young",
+      "aliases": [
+        "patricia.young@foleygroup.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:eric.williams",
+      "canonical": "Eric Williams",
+      "aliases": [
+        "eric.williams@milesalexanderandmccoy.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:vanessa.brown",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-02-15",
+      "end": null
+    },
+    {
+      "src": "p:nicholas.cox",
+      "dst": "p:vanessa.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nicholas.cox",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-03-15",
+      "end": null
+    },
+    {
+      "src": "p:ashley.reese",
+      "dst": "p:nicholas.cox",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:ashley.reese",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2017-06-03",
+      "end": null
+    },
+    {
+      "src": "p:brendan.walls",
+      "dst": "p:nicholas.cox",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:brendan.walls",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-05-21",
+      "end": null
+    },
+    {
+      "src": "p:savannah.moreno",
+      "dst": "p:vanessa.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:savannah.moreno",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:jennifer.chavez",
+      "dst": "x:miles-alexander-and-mccoy",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:patricia.young",
+      "dst": "x:foley-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:eric.williams",
+      "dst": "x:miles-alexander-and-mccoy",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:miles-alexander-and-mccoy",
+      "dst": "x:bramblewood-legal",
+      "kind": "client_of",
+      "start": "2018-07-03",
+      "end": null
+    },
+    {
+      "src": "x:foley-group",
+      "dst": "x:bramblewood-legal",
+      "kind": "client_of",
+      "start": "2019-04-16",
+      "end": null
+    }
+  ]
+}

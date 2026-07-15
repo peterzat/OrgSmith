@@ -54,6 +54,12 @@ graph_targets:
 # hard_cases:                    # facts planted to be hard to find (optional, default 0)
 #   signature_page_facts: 1      # fees appearing ONLY on the letter's signature page
 #   filename_dates: 1            # meeting dates appearing ONLY in the minutes filename
+
+# acl_posture: departmental      # read-access ground truth (optional, default open):
+#                                # open = everyone reads everything;
+#                                # departmental = engagement folders restricted to
+#                                # their teams + the CEO-equivalent, finance to the
+#                                # CEO-equivalent + workbook author
 ```
 
 Prose after the YAML block is the narrative brief. It is carried into
@@ -68,7 +74,6 @@ clients are, what its documents feel like.
   `naming_style`, `it_maturity` — scan/legacy pipeline (M5).
 - `graph_targets.min_mentions_per_person`, `exec_multiplier`, edge targets,
   ambiguity knobs — people-graph depth (M2/M3).
-- `acl_posture` — ACL overlay (post-M3).
 
 ## Rules
 

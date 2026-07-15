@@ -1,0 +1,166 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "bramblewood-legal",
+  "entities": [
+    "x:bramblewood-legal",
+    "p:vanessa.brown",
+    "p:nicholas.cox",
+    "p:ashley.reese",
+    "p:brendan.walls",
+    "p:savannah.moreno",
+    "x:miles-alexander-and-mccoy",
+    "x:foley-group",
+    "xp:jennifer.chavez",
+    "xp:patricia.young",
+    "xp:eric.williams"
+  ],
+  "edges": [
+    {
+      "src": "p:vanessa.brown",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-02-15",
+      "end": null
+    },
+    {
+      "src": "p:nicholas.cox",
+      "dst": "p:vanessa.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nicholas.cox",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-03-15",
+      "end": null
+    },
+    {
+      "src": "p:ashley.reese",
+      "dst": "p:nicholas.cox",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:ashley.reese",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2017-06-03",
+      "end": null
+    },
+    {
+      "src": "p:brendan.walls",
+      "dst": "p:nicholas.cox",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:brendan.walls",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-05-21",
+      "end": null
+    },
+    {
+      "src": "p:savannah.moreno",
+      "dst": "p:vanessa.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:savannah.moreno",
+      "dst": "x:bramblewood-legal",
+      "kind": "works_at",
+      "start": "2016-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:jennifer.chavez",
+      "dst": "x:miles-alexander-and-mccoy",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:patricia.young",
+      "dst": "x:foley-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:eric.williams",
+      "dst": "x:miles-alexander-and-mccoy",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:miles-alexander-and-mccoy",
+      "dst": "x:bramblewood-legal",
+      "kind": "client_of",
+      "start": "2018-07-03",
+      "end": null
+    },
+    {
+      "src": "p:nicholas.cox",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-03",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "p:ashley.reese",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-03",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "p:brendan.walls",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-03",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "xp:jennifer.chavez",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-03",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "x:foley-group",
+      "dst": "x:bramblewood-legal",
+      "kind": "client_of",
+      "start": "2019-04-16",
+      "end": null
+    },
+    {
+      "src": "p:nicholas.cox",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-04-16",
+      "end": "2019-08-02"
+    },
+    {
+      "src": "p:ashley.reese",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-04-16",
+      "end": "2019-08-02"
+    },
+    {
+      "src": "xp:patricia.young",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-04-16",
+      "end": "2019-08-02"
+    }
+  ]
+}

@@ -62,6 +62,7 @@ and show the rejection output; do not loop further.
 ```
 PY -m orgsmith render <slug>
 PY -m orgsmith assemble <slug>
+PY -m orgsmith acl <slug>
 PY -m orgsmith validate <slug>
 ```
 

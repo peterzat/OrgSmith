@@ -1,0 +1,135 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "bramblewood-legal",
+  "people": [
+    {
+      "id": "p:vanessa.brown",
+      "name": "Vanessa Brown",
+      "aliases": [],
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2016-02-15",
+        "end": null
+      },
+      "email": "vanessa.brown@bramblewoodlegal.com",
+      "phone": "+1 (303) 555-0192",
+      "persona": "Vanessa Brown runs the firm the way she drafts an engagement letter: scope first, signature last, nothing left implied. She reads every document that leaves the office under the firm's name and will send a draft back over a single loose antecedent or an unearned adjective. Her writing voice is formal but warm at the edges, the tone of someone who has calmed nervous clients across a closing table for most of her career, and she treats access rules with the same gravity as court deadlines."
+    },
+    {
+      "id": "p:nicholas.cox",
+      "name": "Nicholas Cox",
+      "aliases": [],
+      "title": "Senior Attorney",
+      "dept": "Attorneys",
+      "reports_to": "p:vanessa.brown",
+      "employment": {
+        "start": "2016-03-15",
+        "end": null
+      },
+      "email": "nicholas.cox@bramblewoodlegal.com",
+      "phone": "+1 (206) 555-0153",
+      "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+    },
+    {
+      "id": "p:ashley.reese",
+      "name": "Ashley Reese",
+      "aliases": [],
+      "title": "Attorney",
+      "dept": "Attorneys",
+      "reports_to": "p:nicholas.cox",
+      "employment": {
+        "start": "2017-06-03",
+        "end": null
+      },
+      "email": "ashley.reese@bramblewoodlegal.com",
+      "phone": "+1 (312) 555-0137",
+      "persona": "Ashley Reese drafts the status reports clients actually forward upward, and she takes visible pride in that; her memos anticipate the general counsel's next question and answer it a paragraph early. She is the quickest correspondent in the office, courteous and exact, though her internal notes carry a drier wit than anything a client ever sees. She keeps her matter folders in impeccable order and expects the same of anyone she shares them with."
+    },
+    {
+      "id": "p:brendan.walls",
+      "name": "Brendan Walls",
+      "aliases": [],
+      "title": "Paralegal",
+      "dept": "Attorneys",
+      "reports_to": "p:nicholas.cox",
+      "employment": {
+        "start": "2016-05-21",
+        "end": null
+      },
+      "email": "brendan.walls@bramblewoodlegal.com",
+      "phone": "+1 (617) 555-0188",
+      "persona": "Brendan Walls is the paralegal every attendee list depends on: he takes working-session minutes in real time, names everyone in the room, and circulates them before memory can soften what was decided. His voice on paper is plain and procedural, allergic to embellishment, and he flags a missing exhibit or an unrecorded filing with the calm persistence of a man who has been right about such things before. He regards the matter file as the firm's actual memory and himself as its custodian in the field."
+    },
+    {
+      "id": "p:savannah.moreno",
+      "name": "Savannah Moreno",
+      "aliases": [],
+      "title": "Records Clerk",
+      "dept": "Records",
+      "reports_to": "p:vanessa.brown",
+      "employment": {
+        "start": "2016-04-15",
+        "end": null
+      },
+      "email": "savannah.moreno@bramblewoodlegal.com",
+      "phone": "+1 (312) 555-0125",
+      "persona": "Savannah Moreno keeps the file room and the books, and treats the firm's permissions rules as scripture: if you are not on the matter team, the folder does not open, and no amount of hallway charm changes that. She writes in tidy, unadorned lines, mostly labels, indexes, and polite refusals, and she is the person who notices when a document is filed under the wrong matter before anyone else knows it is missing. Quiet, methodical, and privately amused by attorneys who cannot find their own paperwork."
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:miles-alexander-and-mccoy",
+      "name": "Miles, Alexander and Mccoy",
+      "org_type": "client"
+    },
+    {
+      "id": "x:foley-group",
+      "name": "Foley Group",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:jennifer.chavez",
+      "name": "Jennifer Chavez",
+      "org": "x:miles-alexander-and-mccoy",
+      "title": "General Manager",
+      "email": "jennifer.chavez@milesalexanderandmccoy.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:patricia.young",
+      "name": "Patricia Young",
+      "org": "x:foley-group",
+      "title": "General Manager",
+      "email": "patricia.young@foleygroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:eric.williams",
+      "name": "Eric Williams",
+      "org": "x:miles-alexander-and-mccoy",
+      "title": "VP Finance",
+      "email": "eric.williams@milesalexanderandmccoy.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2016-01-15",
+      "summary": "Bramblewood Legal PLLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2017-05-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

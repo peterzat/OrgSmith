@@ -1,0 +1,49 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "bramblewood-legal",
+  "org_name": "Bramblewood Legal PLLC",
+  "org_type": "boutique real-estate law practice",
+  "narrative": "Bramblewood Legal is a five-person real-estate practice: a Managing\nPartner who signs the engagement letters, two attorneys and a paralegal\nwho run the matters, and a Records Clerk who keeps the file room and the\nbooks. Matter confidentiality is the house religion; the client folder is\nreadable by the matter team and the Managing Partner, nobody else, and the\nfirm's PERMISSIONS.md is treated as seriously as any pleading. Documents\nread like a careful small firm wrote them: engagement letters with defined\nscopes and signature blocks, kickoff memos that list the parcels and\nfilings in play, working-session minutes naming every attendee, and status\nreports a client's general counsel can forward upward without a call.\nTone is precise and unhurried; dates and dollar figures appear exactly\nwhere the record requires them and nowhere else.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:vanessa.brown",
+      "name": "Vanessa Brown",
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:nicholas.cox",
+      "name": "Nicholas Cox",
+      "title": "Senior Attorney",
+      "dept": "Attorneys",
+      "persona": ""
+    },
+    {
+      "id": "p:ashley.reese",
+      "name": "Ashley Reese",
+      "title": "Attorney",
+      "dept": "Attorneys",
+      "persona": ""
+    },
+    {
+      "id": "p:brendan.walls",
+      "name": "Brendan Walls",
+      "title": "Paralegal",
+      "dept": "Attorneys",
+      "persona": ""
+    },
+    {
+      "id": "p:savannah.moreno",
+      "name": "Savannah Moreno",
+      "title": "Records Clerk",
+      "dept": "Records",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

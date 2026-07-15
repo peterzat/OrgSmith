@@ -1,0 +1,299 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0002",
+  "stage": "author",
+  "slug": "bramblewood-legal",
+  "org_name": "Bramblewood Legal PLLC",
+  "org_type": "boutique real-estate law practice",
+  "narrative": "Bramblewood Legal is a five-person real-estate practice: a Managing\nPartner who signs the engagement letters, two attorneys and a paralegal\nwho run the matters, and a Records Clerk who keeps the file room and the\nbooks. Matter confidentiality is the house religion; the client folder is\nreadable by the matter team and the Managing Partner, nobody else, and the\nfirm's PERMISSIONS.md is treated as seriously as any pleading. Documents\nread like a careful small firm wrote them: engagement letters with defined\nscopes and signature blocks, kickoff memos that list the parcels and\nfilings in play, working-session minutes naming every attendee, and status\nreports a client's general counsel can forward upward without a call.\nTone is precise and unhurried; dates and dollar figures appear exactly\nwhere the record requires them and nowhere else.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0005",
+      "title": "Engagement Letter: Zoning Variance Petition for Foley Group",
+      "genre": "engagement_letter",
+      "date": "2019-04-06",
+      "authors": [
+        {
+          "id": "p:vanessa.brown",
+          "name": "Vanessa Brown",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Vanessa Brown runs the firm the way she drafts an engagement letter: scope first, signature last, nothing left implied. She reads every document that leaves the office under the firm's name and will send a draft back over a single loose antecedent or an unearned adjective. Her writing voice is formal but warm at the edges, the tone of someone who has calmed nervous clients across a closing table for most of her career, and she treats access rules with the same gravity as court deadlines."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicholas.cox",
+          "name": "Nicholas Cox",
+          "title": "Senior Attorney",
+          "dept": "Attorneys",
+          "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+        },
+        {
+          "id": "p:ashley.reese",
+          "name": "Ashley Reese",
+          "title": "Attorney",
+          "dept": "Attorneys",
+          "persona": "Ashley Reese drafts the status reports clients actually forward upward, and she takes visible pride in that; her memos anticipate the general counsel's next question and answer it a paragraph early. She is the quickest correspondent in the office, courteous and exact, though her internal notes carry a drier wit than anything a client ever sees. She keeps her matter folders in impeccable order and expects the same of anyone she shares them with."
+        },
+        {
+          "id": "xp:patricia.young",
+          "name": "Patricia Young",
+          "title": "General Manager",
+          "dept": "Foley Group",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Zoning Variance Petition for Foley Group, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:vanessa.brown",
+          "surface": "Vanessa Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nicholas.cox",
+          "surface": "Nicholas Cox",
+          "kind": "person"
+        },
+        {
+          "entity": "p:ashley.reese",
+          "surface": "Ashley Reese",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:patricia.young",
+          "surface": "Patricia Young",
+          "kind": "person"
+        },
+        {
+          "entity": "x:foley-group",
+          "surface": "Foley Group",
+          "kind": "org"
+        }
+      ],
+      "target_words": 350,
+      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
+    },
+    {
+      "doc_id": "d:0006",
+      "title": "Kickoff Memo: Zoning Variance Petition for Foley Group",
+      "genre": "kickoff_memo",
+      "date": "2019-04-19",
+      "authors": [
+        {
+          "id": "p:nicholas.cox",
+          "name": "Nicholas Cox",
+          "title": "Senior Attorney",
+          "dept": "Attorneys",
+          "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicholas.cox",
+          "name": "Nicholas Cox",
+          "title": "Senior Attorney",
+          "dept": "Attorneys",
+          "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+        },
+        {
+          "id": "p:ashley.reese",
+          "name": "Ashley Reese",
+          "title": "Attorney",
+          "dept": "Attorneys",
+          "persona": "Ashley Reese drafts the status reports clients actually forward upward, and she takes visible pride in that; her memos anticipate the general counsel's next question and answer it a paragraph early. She is the quickest correspondent in the office, courteous and exact, though her internal notes carry a drier wit than anything a client ever sees. She keeps her matter folders in impeccable order and expects the same of anyone she shares them with."
+        },
+        {
+          "id": "xp:patricia.young",
+          "name": "Patricia Young",
+          "title": "General Manager",
+          "dept": "Foley Group",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Zoning Variance Petition for Foley Group, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:nicholas.cox",
+          "surface": "Nicholas Cox",
+          "kind": "person"
+        },
+        {
+          "entity": "p:ashley.reese",
+          "surface": "Ashley Reese",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:patricia.young",
+          "surface": "Patricia Young",
+          "kind": "person"
+        },
+        {
+          "entity": "x:foley-group",
+          "surface": "Foley Group",
+          "kind": "org"
+        }
+      ],
+      "target_words": 240,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps."
+    },
+    {
+      "doc_id": "d:0007",
+      "title": "Meeting Minutes: Zoning Variance Petition for Foley Group",
+      "genre": "meeting_minutes",
+      "date": "2019-05-29",
+      "authors": [
+        {
+          "id": "p:ashley.reese",
+          "name": "Ashley Reese",
+          "title": "Attorney",
+          "dept": "Attorneys",
+          "persona": "Ashley Reese drafts the status reports clients actually forward upward, and she takes visible pride in that; her memos anticipate the general counsel's next question and answer it a paragraph early. She is the quickest correspondent in the office, courteous and exact, though her internal notes carry a drier wit than anything a client ever sees. She keeps her matter folders in impeccable order and expects the same of anyone she shares them with."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicholas.cox",
+          "name": "Nicholas Cox",
+          "title": "Senior Attorney",
+          "dept": "Attorneys",
+          "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+        },
+        {
+          "id": "p:ashley.reese",
+          "name": "Ashley Reese",
+          "title": "Attorney",
+          "dept": "Attorneys",
+          "persona": "Ashley Reese drafts the status reports clients actually forward upward, and she takes visible pride in that; her memos anticipate the general counsel's next question and answer it a paragraph early. She is the quickest correspondent in the office, courteous and exact, though her internal notes carry a drier wit than anything a client ever sees. She keeps her matter folders in impeccable order and expects the same of anyone she shares them with."
+        },
+        {
+          "id": "xp:patricia.young",
+          "name": "Patricia Young",
+          "title": "General Manager",
+          "dept": "Foley Group",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Zoning Variance Petition for Foley Group, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:ashley.reese",
+          "surface": "Ashley Reese",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nicholas.cox",
+          "surface": "Nicholas Cox",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:patricia.young",
+          "surface": "Patricia Young",
+          "kind": "person"
+        },
+        {
+          "entity": "x:foley-group",
+          "surface": "Foley Group",
+          "kind": "org"
+        }
+      ],
+      "target_words": 220,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
+    },
+    {
+      "doc_id": "d:0008",
+      "title": "Status Report: Zoning Variance Petition for Foley Group",
+      "genre": "status_report",
+      "date": "2019-07-06",
+      "authors": [
+        {
+          "id": "p:nicholas.cox",
+          "name": "Nicholas Cox",
+          "title": "Senior Attorney",
+          "dept": "Attorneys",
+          "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicholas.cox",
+          "name": "Nicholas Cox",
+          "title": "Senior Attorney",
+          "dept": "Attorneys",
+          "persona": "Nicholas Cox is the firm's steady hand on complicated matters, a title-and-survey obsessive who believes most disputes die quietly when the kickoff memo lists every parcel and filing before anyone gets clever. He writes in short declarative sentences, front-loads the conclusion, and keeps his skepticism for anything a counterparty calls standard language. Colleagues bring him their hardest questions because he answers slowly, once, and correctly."
+        },
+        {
+          "id": "p:ashley.reese",
+          "name": "Ashley Reese",
+          "title": "Attorney",
+          "dept": "Attorneys",
+          "persona": "Ashley Reese drafts the status reports clients actually forward upward, and she takes visible pride in that; her memos anticipate the general counsel's next question and answer it a paragraph early. She is the quickest correspondent in the office, courteous and exact, though her internal notes carry a drier wit than anything a client ever sees. She keeps her matter folders in impeccable order and expects the same of anyone she shares them with."
+        }
+      ],
+      "engagement_summary": "Zoning Variance Petition for Foley Group, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:nicholas.cox",
+          "surface": "Nicholas Cox",
+          "kind": "person"
+        },
+        {
+          "entity": "p:ashley.reese",
+          "surface": "Ashley Reese",
+          "kind": "person"
+        },
+        {
+          "entity": "x:foley-group",
+          "surface": "Foley Group",
+          "kind": "org"
+        }
+      ],
+      "target_words": 300,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}
