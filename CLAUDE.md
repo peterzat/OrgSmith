@@ -32,8 +32,14 @@ README.md for the product shape and SPEC.md for the current unit of work.
 - This box runs Python 3.10; `.python-version` says 3.12. Code stays
   3.10-compatible (no `match` on types we ship, no 3.11+ stdlib).
 - Always `python3 -m venv .venv`; run everything via `.venv/bin/python`.
-- LibreOffice is absent here and not needed until the legacy-format
-  milestone; `python -m orgsmith doctor` probes and records capabilities.
+- LibreOffice is required on the generation box for legacy-format
+  rendering (`legacy_ratio` recipes convert .docx/.xlsx/.pptx to
+  .doc/.xls/.ppt via `soffice --headless` at render time only). Install:
+  `sudo apt-get install --no-install-recommends -y libreoffice-writer
+  libreoffice-calc libreoffice-impress`, then confirm `python -m orgsmith
+  doctor` reports `soffice ok`. CI deliberately has NO LibreOffice:
+  validation of every committed fixture (including legacy files) must
+  stay pure Python (olefile, xlrd, stdlib email, python-pptx, pypdf).
 
 ## Testing
 

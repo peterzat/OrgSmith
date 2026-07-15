@@ -101,6 +101,13 @@ python3 -m venv .venv
 bin/test                                        # short + unit + org tiers, offline
 ```
 
+Generating orgs with legacy formats (`legacy_ratio` recipes producing
+`.doc`/`.xls`/`.ppt`) additionally needs LibreOffice on the generation
+machine (`sudo apt-get install --no-install-recommends libreoffice-writer
+libreoffice-calc libreoffice-impress`); `python -m orgsmith doctor` reports
+whether `soffice` is available. Validating and scoring existing orgs,
+including legacy files, never needs it.
+
 Then open Claude Code in the repo and run:
 
 ```

@@ -15,7 +15,11 @@ conversation (that is what workers and validators are for).
 ## Step 0 — orient (always, including on resume)
 
 1. `PY -m orgsmith doctor <slug>` — capability probe. Stop and report if
-   required capabilities are missing.
+   required capabilities are missing. If the recipe sets a
+   `legacy_ratio > 0` and doctor reports `soffice absent`, stop BEFORE
+   any generation and tell the user to install LibreOffice (install
+   command in CLAUDE.md, Environment section); render would otherwise
+   fail mid-pipeline at the first legacy document.
 2. `PY -m orgsmith status <slug> --json` — this tells you exactly where a
    previous session stopped. Resume state is file-derived; never rely on
    conversation memory of earlier runs.
