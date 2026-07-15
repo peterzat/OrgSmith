@@ -466,12 +466,18 @@ def test_visibility_malformed_answers_rejected(acl_org, tmp_path):
 
 
 def test_committed_fixture_evals_reemit_byte_identical(tmp_path):
-    """Committed evals must re-emit unchanged, with the conditional
-    visibility file and README section present (dev-mini, post-M6) and
-    absent (quillbrook, pre-ACL)."""
+    """Every committed fixture's evals must re-emit unchanged, covering
+    the conditional visibility file and README section both present
+    (dev-mini, post-M6) and absent (the pre-ACL fixtures)."""
     import shutil as sh
 
-    for slug in ("dev-mini", "quillbrook-appraisal"):
+    slugs = sorted(
+        p.name[: -len("-metadata")]
+        for p in (REPO / "companies").iterdir()
+        if p.is_dir() and p.name.endswith("-metadata")
+    )
+    assert len(slugs) >= 7
+    for slug in slugs:
         root = tmp_path / slug
         (root / "recipes").mkdir(parents=True)
         sh.copytree(REPO / "recipes" / slug, root / "recipes" / slug)
