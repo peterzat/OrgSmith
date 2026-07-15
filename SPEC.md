@@ -1,121 +1,113 @@
 # SPEC
 
-## Spec — 2026-07-15 — M5: document formats (pptx, eml, scanned, legacy)
+## Spec — 2026-07-15 — M6: pre-fleet hardening (affiliation-aware docs, name screen, dev-mini regeneration)
 
-**Goal:** Make generated corpora stop looking uniformly clean and modern.
-Four recipe-dialable format capabilities land: presentation decks (.pptx),
-mail messages (.eml), scanned-and-degraded pdfs with synthetic OCR text
-layers, and pre-2007 legacy office binaries (.doc/.xls/.ppt) converted via
-LibreOffice at generation time only. Each follows the milestone rhythm:
-knob, deterministic derivation, validator enforcement, eval integration,
-committed fixture.
+**Goal:** Clear the deck before the era-naming and six-recipe-fleet turns by
+adopting all three backlog items and the M5 review cleanups: multi-affiliation
+external people appear in rendered documents under both employers
+(era-appropriate per doc date), generated names are mechanically screened
+against real firms before an org is committed, and dev-mini stops being the
+grandfathered fixture.
 
 ### Acceptance Criteria
 
-- [x] Recipe knobs land additively: `format_mix` gains `pptx` and `eml`
-  counts, `doc_culture` gains `scanned_ratio`, `legacy_ratio`, and
-  `ocr_layer_rate` (0..1; `ocr_layer_rate > 0` with `scanned_ratio == 0`
-  is a charter error, tested), all documented in docs/RECIPE-FORMAT.md and
-  defaulting to off: the four committed fixtures load and validate clean
-  without regeneration, and unchanged recipes regenerate byte-identical
-  structure (determinism and org tiers stay green).
-- [x] .pptx end to end: a deck genre is planned per engagement when
-  `format_mix.pptx > 0` (demanding more decks than engagements exist fails
-  at docplan with an actionable message), authored through the airlock,
-  and the rendered .pptx opens in python-pptx, carries the synthetic
-  provenance marker, and echoes its planted facts and planned mentions in
-  extractable text (fact/mention rules cover pptx; corruption-tested).
-- [x] .eml end to end: an email genre is planned when `format_mix.eml > 0`;
-  the rendered .eml parses with the stdlib email module, carries a
-  synthetic marker header, renders byte-identically on re-render, echoes
-  planted facts and mentions in its body, and a validator rule fails when
-  From/To/Date/Subject/Message-ID do not recompute exactly from ledger
-  data (corruption-tested).
-- [x] Scan planning is deterministic: with `scanned_ratio` on, docplan
-  marks the oldest pdf docs as scanned and assigns OCR layers per
-  `ocr_layer_rate` from a new seed stream; planning twice from the same
-  recipe yields identical flags; scanned docs keep their .pdf paths; a doc
-  hosting a signature_page fact is never image-only (all tested).
-- [x] Scan rendering holds: a scanned doc's pages are raster images;
-  degradation is seeded and reproducible per doc; an OCR-layer doc exposes
-  extractable text in which every planted fact and mention surface appears
-  verbatim while at least one synthetic OCR corruption exists outside
-  those protected spans; an image-only doc exposes no extractable text;
-  the true per-page text is archived under the org's metadata; the
-  provenance marker survives the rebuild (all tested).
-- [x] Scan validation never goes silent: validator rules verify scanned
-  docs are image pdfs whose OCR-layer presence matches the plan, and that
-  text obligations for image-only docs hold against the archived page
-  text; each rule fails a deliberately corrupted copy in both directions;
-  the rules skip visibly only when the charter's scan knobs are off, and
-  fail when knobs are on but scan artifacts are missing.
-- [x] Legacy end to end: with `legacy_ratio` on, docplan deterministically
-  assigns legacy formats and extensions (oldest office docs first); render
-  converts verified modern intermediates via LibreOffice and exits with an
-  actionable message when soffice is absent; every rendered legacy file
-  opens via pure-Python OLE reading with the expected container type and
-  carries a verifiable synthetic-provenance marker (validator rules,
-  corruption-tested); .xls financial summaries still tie to the finance
-  ledger, or financial summaries are excluded from legacy selection with
-  the exclusion documented.
-- [x] Validation is CI-safe: `orgsmith validate` on an org containing all
-  new formats passes with soffice masked from PATH (tested), and
-  FILE-01/PROV-01 have explicit branches for every supported format so an
-  unknown format produces a finding or loud error, never a silent pass or
-  a crash (tested).
-- [x] Evals ride along: retrieval, extraction, and visibility suites emit
-  and score over orgs containing the new formats; extraction questions
-  carry `scan:ocr`, `scan:image-only`, and `format:legacy` tags when their
-  expected docs have those properties; all four committed pre-M5 fixtures
-  re-emit their evals byte-identically (tested).
-- [x] A modern fixture is committed: an org whose mix includes pptx and
-  eml documents, generated through the airlock; it validates clean, its
-  extraction ground truth scores 100%, and the org tier covers it.
-- [x] A retro fixture is committed: an org founded around 1995 with docs
-  1998-2004, scan and legacy knobs on, containing at least one image-only
-  scan, one OCR-layer scan, one .doc, one .xls, and one .ppt; it validates
-  clean with soffice absent, and its extraction ground truth scores 100%.
-- [x] From a fresh checkout, `bin/test` passes all tiers offline with all
-  committed fixtures (CI configuration unchanged: no LibreOffice).
+- [ ] `graph_targets.affiliations_in_docs` lands additively: defaults off on
+  the existing schema id, `affiliations_in_docs: true` with
+  `multi_affiliations: 0` is a charter error (tested), and the five untouched
+  committed fixtures load, validate clean, and regenerate byte-identical
+  pure-stage structure (determinism and org tiers stay green).
+- [ ] With the knob on, an RNG-free fabric planting pass guarantees every
+  multi-affiliation external person participates in at least one engagement
+  on each side of their affiliation boundary, reassigning clients
+  deterministically and rebuilding client-dependent engagement fields; a
+  recipe whose date range or engagement count makes this impossible fails at
+  fabric with an actionable message (both tested).
+- [ ] With the knob on, an engagement's external participants always hold an
+  affiliation to its client that covers the engagement window including the
+  letter lead-in, and rendered signature blocks and authoring briefs show the
+  employer matching each document's date (a rendered doc on each side of a
+  boundary is tested for the era-correct employer name).
+- [ ] AFF-01 recomputes clients and external participants from charter plus
+  foundation and fails a tampered participant, a shifted affiliation window,
+  or an undone reassignment; AFF-02 fails when a multi-affiliation person no
+  longer appears under both employers or when affiliations are stripped with
+  the knob on; both skip visibly only when the knob is off (corruption-tested
+  in both directions).
+- [ ] NAME-01 screens the charter name and domain, external org names, and
+  all internal and external person names against a committed real-firm source
+  list using deterministic, stdlib-only normalization and matching; the rule
+  runs on every org with no grandfather, and all committed fixtures pass it
+  (unit and org tiers).
+- [ ] The name screen also gates generation: the charter and scaffold stages
+  fail with an actionable message before any model pass when a name collides,
+  and the recipe pre-commit checklist in docs/RECIPE-FORMAT.md and the /forge
+  skill reference the check (screen tested positive and negative).
+- [ ] SCAN-02's page-count read and LEG-01's OLE read yield findings instead
+  of tracebacks on crafted artifacts, and the ingest and score failure
+  printers strip control characters from untrusted strings before terminal
+  output (tested with an escape-sequence probe; exit codes unchanged).
+- [ ] dev-mini is regenerated from its recipe with the seed unchanged and
+  `min_mentions_per_person: 1` added: the roster, engagement, and document
+  identities reproduce exactly, the fixture now carries mention ground truth,
+  the ACL overlay, and visibility evals, and it validates clean with MENT and
+  GRAPH rules running (no mention grandfather skips).
+- [ ] The mention grandfather mechanism survives dev-mini's regeneration: an
+  org without mention ground truth still skips visibly (tested on a synthetic
+  org), and the additive-evolution compat tests are rebased onto synthetic
+  old-shape artifacts instead of reading dev-mini.
+- [ ] A new fixture is committed whose recipe sets `multi_affiliations: 1`
+  and `affiliations_in_docs: true` with engagements on both sides of the
+  boundary; it validates clean with the AFF and NAME rules running unskipped,
+  its extraction ground truth scores 100%, its graph carries dated works_at
+  edges and the multi-affiliation ambiguity tag, and it uses modern formats
+  only.
+- [ ] The all-knobs test org exercises AFF-01 and AFF-02 alongside every
+  other charter-gated rule (its visible skips remain exactly LEG-01).
+- [ ] The five untouched fixtures re-emit their evals byte-identically,
+  pyproject.toml's version matches `orgsmith.__version__`, and the docs
+  (RECIPE-FORMAT.md knob reference, README rule count and fixture list)
+  reflect the new knob, rules, and fixtures.
+- [ ] From a fresh checkout, `bin/test` passes all tiers offline and keyless
+  with all seven committed fixtures (CI configuration unchanged: still no
+  LibreOffice).
 
 ### Context
 
-- Adopted from `~/.claude/plans/we-want-the-next-parsed-scroll.md`; read it
-  for the full design (selection rules, renderer sketches, marker
-  strategy, increment order, risks). Key constraints:
-- Trust boundary: soffice is generation-only. All validation-time reading
-  is pure Python (python-pptx, stdlib email, olefile, xlrd, pypdf).
-  New pinned deps: python-pptx, pypdfium2, Pillow, numpy, olefile, xlrd.
-  The generation box needs `libreoffice-writer/-calc/-impress` installed
-  (user action, in progress); `doctor` must show `soffice ok` before the
-  legacy increments and the retro fixture.
-- The OCR layer is synthetic and deterministic: we own the text layer, and
-  corruptions (l/1, O/0, rn/m) may only touch prose outside planted fact
-  and mention surfaces, which is what keeps FACT/MENT/LOC rules honest on
-  scanned docs. No tesseract anywhere.
-- Spike early (before building the scan pipeline out): confirm pypdf can
-  extract the invisible text layer verbatim; fallbacks are in the plan.
-- M4's grandfathering lesson binds all new rules: skip only when the
-  CHARTER says the feature is off; fail when knobs are on but artifacts
-  are missing or stripped.
-- Additive discipline: no schema-id bumps; new fields default off; scan
-  and OCR selection draw only from NEW seed streams so unchanged recipes
-  regenerate byte-identically. Rendered binaries (including soffice
-  output and JPEG degradation) are not byte-stable across environments
-  and never were; the byte-identity contract covers pure stages only.
-- Era naming (`naming_style`, `it_maturity`) stays reserved for the fleet
-  turn: the retro org keeps modern Faker names, documented as a known
-  anachronism.
-- Both fixture names must not resemble real firms (the name-screen
-  validator remains deferred in BACKLOG; apply the informal screen).
-- Fixture authoring runs through /forge with forked workers; the turn is
-  the largest yet (~2x M4) and both forge and this spec are resumable
-  across sessions. House practices: small committable increments with
-  tests in the same increment; no push or remote mutation without
-  explicit user instruction.
+- Adopted from `~/.claude/plans/pass-this-plan-output-vast-rabbit.md`; read
+  it for the full design: the planting algorithm and its shared pure helpers,
+  name-screen normalization and matching rules, the dev-mini regeneration
+  procedure and test migrations, increment order, and risks. The plan was
+  written today against HEAD; no drift.
+- All three BACKLOG.md entries are annotated ACTIVE in this spec. They are
+  deleted at turn close when shipped, leaving the register clear going into
+  the era-naming and fleet turns. Era naming (`naming_style`, `it_maturity`)
+  stays reserved for its own turn by explicit user decision.
+- The doc-facing behavior must gate on the new knob, never on
+  `multi_affiliations`: torchlake-engineering is frozen with
+  `multi_affiliations: 1` and would fail a covering-affiliation check.
+- The planting pass consumes no randomness. RNG-freeness is what lets AFF-01
+  recompute assignments as tamper evidence; if tie-breaking randomness is
+  ever wanted, it must come from a new seeds.py stream.
+- The frozen-fixture rule is deliberately waived for dev-mini only, per the
+  adopted backlog item. The other five committed fixtures must not be edited
+  or regenerated; their ledgers and evals are the regression oracles.
+- Model passes (dev-mini re-authoring, new fixture authoring) run only
+  through /forge and forge-author; the airlock is unchanged. Both fixtures
+  are modern-format only, so CI stays LibreOffice-free.
+- M4's grandfathering lesson binds the AFF rules: skip only when the charter
+  says the knob is off; a knob that is on with artifacts missing or tampered
+  is a failure. NAME-01 deliberately has no grandfather: it reads only
+  charter and foundation, which every org has.
+- Known residual, documented rather than solved: an external person's email
+  keeps the current-employer domain even on prior-era documents (the ledger
+  owns a single email field).
+- House practices (zat.env): small committable increments with tests in the
+  same increment; verification stays the ceiling (validator and evals are
+  deterministic oracles, never a model's opinion); no push or remote
+  mutation without explicit user instruction.
 
 ---
-*Prior spec (2026-07-15): M4 ACL overlay and visibility evals; all 8
-criteria met, shipped as v1.3.0.*
+*Prior spec (2026-07-15): M5 document formats (pptx, eml, scanned, legacy);
+all 12 criteria met, shipped as v1.4.0.*
 
-<!-- SPEC_META: {"date":"2026-07-15","title":"M5: document formats (pptx, eml, scanned, legacy)","criteria_total":12,"criteria_met":12} -->
+<!-- SPEC_META: {"date":"2026-07-15","title":"M6: pre-fleet hardening (affiliation-aware docs, name screen, dev-mini regeneration)","criteria_total":13,"criteria_met":0} -->

@@ -3,7 +3,7 @@
 Durable register of considered proposals that were deferred, scoped out, or
 rejected. Read before drafting a new SPEC.md; swept at turn close.
 
-### regenerate-dev-mini-mentions
+### regenerate-dev-mini-mentions (ACTIVE in spec 2026-07-15)
 - **One-line description** of the proposal: regenerate the committed
   `companies/dev-mini` org so it carries mention ground truth
   (mention_map.json, manifest mentions) instead of being grandfathered
@@ -15,7 +15,7 @@ rejected. Read before drafting a new SPEC.md; swept at turn close.
   regenerates all committed orgs anyway.
 - **Origin:** spec 2026-07-14 (M2).
 
-### multi-affiliation-in-docs
+### multi-affiliation-in-docs (ACTIVE in spec 2026-07-15)
 - **One-line description** of the proposal: have multi-affiliation external
   people appear in rendered documents under BOTH employers (era-appropriate
   per doc date), not only in ledger/graph.json edges, so works_at
@@ -27,7 +27,7 @@ rejected. Read before drafting a new SPEC.md; swept at turn close.
   affiliation boundary (fleet recipes), or M3 ambiguity tagging lands.
 - **Origin:** spec 2026-07-14 (M2).
 
-### name-screen-validator
+### name-screen-validator (ACTIVE in spec 2026-07-15)
 - **One-line description** of the proposal: a name-screen check (validator
   rule plus review-checklist item) that flags generated company and person
   names colliding with real firms before an org is committed.
