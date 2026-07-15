@@ -1,0 +1,188 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "cindergrove-advisors",
+  "entities": [
+    "x:cindergrove-advisors",
+    "p:carlos.griffith",
+    "p:kimberly.price",
+    "p:andrea.diaz",
+    "p:sarah.miller",
+    "p:jack.reyes",
+    "x:ramos-gill-and-garcia",
+    "x:snow-berry",
+    "x:wagner-greene",
+    "xp:adam.cook",
+    "xp:darryl.rogers",
+    "xp:heather.king"
+  ],
+  "edges": [
+    {
+      "src": "p:carlos.griffith",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-02-15",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "p:carlos.griffith",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-03-15",
+      "end": null
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "p:kimberly.price",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1996-08-29",
+      "end": null
+    },
+    {
+      "src": "p:sarah.miller",
+      "dst": "p:kimberly.price",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sarah.miller",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-11-29",
+      "end": null
+    },
+    {
+      "src": "p:jack.reyes",
+      "dst": "p:carlos.griffith",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jack.reyes",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:adam.cook",
+      "dst": "x:ramos-gill-and-garcia",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:darryl.rogers",
+      "dst": "x:snow-berry",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:heather.king",
+      "dst": "x:wagner-greene",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:ramos-gill-and-garcia",
+      "dst": "x:cindergrove-advisors",
+      "kind": "client_of",
+      "start": "1998-06-21",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "E-1998-001",
+      "kind": "participant",
+      "start": "1998-06-21",
+      "end": "1998-10-17"
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "E-1998-001",
+      "kind": "participant",
+      "start": "1998-06-21",
+      "end": "1998-10-17"
+    },
+    {
+      "src": "xp:adam.cook",
+      "dst": "E-1998-001",
+      "kind": "participant",
+      "start": "1998-06-21",
+      "end": "1998-10-17"
+    },
+    {
+      "src": "x:snow-berry",
+      "dst": "x:cindergrove-advisors",
+      "kind": "client_of",
+      "start": "2001-08-23",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "E-2001-001",
+      "kind": "participant",
+      "start": "2001-08-23",
+      "end": "2002-01-12"
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "E-2001-001",
+      "kind": "participant",
+      "start": "2001-08-23",
+      "end": "2002-01-12"
+    },
+    {
+      "src": "xp:darryl.rogers",
+      "dst": "E-2001-001",
+      "kind": "participant",
+      "start": "2001-08-23",
+      "end": "2002-01-12"
+    },
+    {
+      "src": "x:wagner-greene",
+      "dst": "x:cindergrove-advisors",
+      "kind": "client_of",
+      "start": "2003-07-27",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "E-2003-001",
+      "kind": "participant",
+      "start": "2003-07-27",
+      "end": "2003-11-20"
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "E-2003-001",
+      "kind": "participant",
+      "start": "2003-07-27",
+      "end": "2003-11-20"
+    },
+    {
+      "src": "xp:heather.king",
+      "dst": "E-2003-001",
+      "kind": "participant",
+      "start": "2003-07-27",
+      "end": "2003-11-20"
+    }
+  ]
+}

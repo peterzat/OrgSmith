@@ -1,0 +1,226 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0004",
+  "stage": "author",
+  "slug": "cindergrove-advisors",
+  "org_name": "Cindergrove Advisors Inc",
+  "org_type": "management consulting",
+  "narrative": "Cindergrove Advisors is a five-person operations consultancy founded in\n1995, serving regional manufacturers and distributors. It is a firm of\nits era: proposals and memos are typed in Word and printed for the file,\nengagement letters come back countersigned by fax and are scanned into\nthe share by the office administrator, steering-committee decks are\nplain PowerPoint with bullet slides, and the annual numbers live in an\nExcel workbook kept by the President. Writing is formal but unfussy\nmid-90s American business prose: complete sentences, courteous closings,\nno buzzwords that would postdate the document. Consultants refer to\nclients by company name and to each other by full name in anything a\nclient might read.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0011",
+      "title": "Engagement Letter: Plant Consolidation Support for Wagner-Greene",
+      "genre": "engagement_letter",
+      "date": "2003-07-17",
+      "authors": [
+        {
+          "id": "p:carlos.griffith",
+          "name": "Carlos Griffith",
+          "title": "President",
+          "dept": "Leadership",
+          "persona": "Carlos Griffith runs the firm the way he advises clients to run their plants: on discipline, plain numbers, and a paper trail. He drafts in longhand before anything is typed, keeps the annual workbook close, and reads every proposal that leaves the office. His prose is courteous and unadorned, heavy on complete sentences and light on adjectives, and he signs off with a formal closing even in short memos. He addresses clients by company name and expects the same restraint from everyone who writes under the firm's letterhead."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kimberly.price",
+          "name": "Kimberly Price",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Kimberly Price is the firm's steadiest hand on client engagements, the consultant sent when a manufacturer's operations problem is tangled and the client is anxious. She writes in a measured, methodical voice, laying out findings before recommendations and never promising more than the fieldwork supports. Her steering-committee decks are spare bullet slides with no ornament, and her memos close politely but get to the point in the first paragraph."
+        },
+        {
+          "id": "p:andrea.diaz",
+          "name": "Andrea Diaz",
+          "title": "Consultant",
+          "dept": "Consulting",
+          "persona": "Andrea Diaz does much of the on-site legwork, walking distribution floors with a clipboard and turning her notes into clean, workmanlike drafts for review. Her writing is earnest and a touch formal, as befits someone still building her standing with clients, and she is careful to refer to colleagues by full name in anything a client might see. She asks good questions in memos and flags what she does not yet know rather than papering over it."
+        },
+        {
+          "id": "xp:heather.king",
+          "name": "Heather King",
+          "title": "VP Finance",
+          "dept": "Wagner-Greene",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Plant Consolidation Support for Wagner-Greene, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2003-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2003-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2003-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:carlos.griffith",
+          "surface": "Carlos Griffith",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.price",
+          "surface": "Kimberly Price",
+          "kind": "person"
+        },
+        {
+          "entity": "p:andrea.diaz",
+          "surface": "Andrea Diaz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:heather.king",
+          "surface": "Heather King",
+          "kind": "person"
+        },
+        {
+          "entity": "x:wagner-greene",
+          "surface": "Wagner-Greene",
+          "kind": "org"
+        }
+      ],
+      "target_words": 350,
+      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
+    },
+    {
+      "doc_id": "d:0012",
+      "title": "Meeting Minutes: Plant Consolidation Support for Wagner-Greene",
+      "genre": "meeting_minutes",
+      "date": "2003-09-11",
+      "authors": [
+        {
+          "id": "p:andrea.diaz",
+          "name": "Andrea Diaz",
+          "title": "Consultant",
+          "dept": "Consulting",
+          "persona": "Andrea Diaz does much of the on-site legwork, walking distribution floors with a clipboard and turning her notes into clean, workmanlike drafts for review. Her writing is earnest and a touch formal, as befits someone still building her standing with clients, and she is careful to refer to colleagues by full name in anything a client might see. She asks good questions in memos and flags what she does not yet know rather than papering over it."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kimberly.price",
+          "name": "Kimberly Price",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Kimberly Price is the firm's steadiest hand on client engagements, the consultant sent when a manufacturer's operations problem is tangled and the client is anxious. She writes in a measured, methodical voice, laying out findings before recommendations and never promising more than the fieldwork supports. Her steering-committee decks are spare bullet slides with no ornament, and her memos close politely but get to the point in the first paragraph."
+        },
+        {
+          "id": "p:andrea.diaz",
+          "name": "Andrea Diaz",
+          "title": "Consultant",
+          "dept": "Consulting",
+          "persona": "Andrea Diaz does much of the on-site legwork, walking distribution floors with a clipboard and turning her notes into clean, workmanlike drafts for review. Her writing is earnest and a touch formal, as befits someone still building her standing with clients, and she is careful to refer to colleagues by full name in anything a client might see. She asks good questions in memos and flags what she does not yet know rather than papering over it."
+        },
+        {
+          "id": "xp:heather.king",
+          "name": "Heather King",
+          "title": "VP Finance",
+          "dept": "Wagner-Greene",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Plant Consolidation Support for Wagner-Greene, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2003-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:andrea.diaz",
+          "surface": "Andrea Diaz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.price",
+          "surface": "Kimberly Price",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:heather.king",
+          "surface": "Heather King",
+          "kind": "person"
+        },
+        {
+          "entity": "x:wagner-greene",
+          "surface": "Wagner-Greene",
+          "kind": "org"
+        }
+      ],
+      "target_words": 220,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
+    },
+    {
+      "doc_id": "d:0013",
+      "title": "Status Report: Plant Consolidation Support for Wagner-Greene",
+      "genre": "status_report",
+      "date": "2003-10-22",
+      "authors": [
+        {
+          "id": "p:kimberly.price",
+          "name": "Kimberly Price",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Kimberly Price is the firm's steadiest hand on client engagements, the consultant sent when a manufacturer's operations problem is tangled and the client is anxious. She writes in a measured, methodical voice, laying out findings before recommendations and never promising more than the fieldwork supports. Her steering-committee decks are spare bullet slides with no ornament, and her memos close politely but get to the point in the first paragraph."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kimberly.price",
+          "name": "Kimberly Price",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Kimberly Price is the firm's steadiest hand on client engagements, the consultant sent when a manufacturer's operations problem is tangled and the client is anxious. She writes in a measured, methodical voice, laying out findings before recommendations and never promising more than the fieldwork supports. Her steering-committee decks are spare bullet slides with no ornament, and her memos close politely but get to the point in the first paragraph."
+        },
+        {
+          "id": "p:andrea.diaz",
+          "name": "Andrea Diaz",
+          "title": "Consultant",
+          "dept": "Consulting",
+          "persona": "Andrea Diaz does much of the on-site legwork, walking distribution floors with a clipboard and turning her notes into clean, workmanlike drafts for review. Her writing is earnest and a touch formal, as befits someone still building her standing with clients, and she is careful to refer to colleagues by full name in anything a client might see. She asks good questions in memos and flags what she does not yet know rather than papering over it."
+        }
+      ],
+      "engagement_summary": "Plant Consolidation Support for Wagner-Greene, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2003-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2003-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kimberly.price",
+          "surface": "Kimberly Price",
+          "kind": "person"
+        },
+        {
+          "entity": "p:andrea.diaz",
+          "surface": "Andrea Diaz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:wagner-greene",
+          "surface": "Wagner-Greene",
+          "kind": "org"
+        }
+      ],
+      "target_words": 300,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

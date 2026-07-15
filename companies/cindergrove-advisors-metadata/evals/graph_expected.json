@@ -1,0 +1,213 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "cindergrove-advisors",
+  "entities": [
+    {
+      "id": "x:cindergrove-advisors",
+      "canonical": "Cindergrove Advisors Inc",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:carlos.griffith",
+      "canonical": "Carlos Griffith",
+      "aliases": [
+        "carlos.griffith@cindergroveadvisors.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:kimberly.price",
+      "canonical": "Kimberly Price",
+      "aliases": [
+        "kimberly.price@cindergroveadvisors.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:andrea.diaz",
+      "canonical": "Andrea Diaz",
+      "aliases": [
+        "andrea.diaz@cindergroveadvisors.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:sarah.miller",
+      "canonical": "Sarah Miller",
+      "aliases": [
+        "sarah.miller@cindergroveadvisors.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jack.reyes",
+      "canonical": "Jack Reyes",
+      "aliases": [
+        "jack.reyes@cindergroveadvisors.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:ramos-gill-and-garcia",
+      "canonical": "Ramos, Gill and Garcia",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:snow-berry",
+      "canonical": "Snow-Berry",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:wagner-greene",
+      "canonical": "Wagner-Greene",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:adam.cook",
+      "canonical": "Adam Cook",
+      "aliases": [
+        "adam.cook@ramosgillandgarcia.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:darryl.rogers",
+      "canonical": "Darryl Rogers",
+      "aliases": [
+        "darryl.rogers@snowberry.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:heather.king",
+      "canonical": "Heather King",
+      "aliases": [
+        "heather.king@wagnergreene.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:carlos.griffith",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-02-15",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "p:carlos.griffith",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kimberly.price",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-03-15",
+      "end": null
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "p:kimberly.price",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:andrea.diaz",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1996-08-29",
+      "end": null
+    },
+    {
+      "src": "p:sarah.miller",
+      "dst": "p:kimberly.price",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sarah.miller",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-11-29",
+      "end": null
+    },
+    {
+      "src": "p:jack.reyes",
+      "dst": "p:carlos.griffith",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jack.reyes",
+      "dst": "x:cindergrove-advisors",
+      "kind": "works_at",
+      "start": "1995-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:adam.cook",
+      "dst": "x:ramos-gill-and-garcia",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:darryl.rogers",
+      "dst": "x:snow-berry",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:heather.king",
+      "dst": "x:wagner-greene",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:ramos-gill-and-garcia",
+      "dst": "x:cindergrove-advisors",
+      "kind": "client_of",
+      "start": "1998-06-21",
+      "end": null
+    },
+    {
+      "src": "x:snow-berry",
+      "dst": "x:cindergrove-advisors",
+      "kind": "client_of",
+      "start": "2001-08-23",
+      "end": null
+    },
+    {
+      "src": "x:wagner-greene",
+      "dst": "x:cindergrove-advisors",
+      "kind": "client_of",
+      "start": "2003-07-27",
+      "end": null
+    }
+  ]
+}

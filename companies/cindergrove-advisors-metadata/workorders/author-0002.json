@@ -1,0 +1,54 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0002",
+  "stage": "author",
+  "slug": "cindergrove-advisors",
+  "org_name": "Cindergrove Advisors Inc",
+  "org_type": "management consulting",
+  "narrative": "Cindergrove Advisors is a five-person operations consultancy founded in\n1995, serving regional manufacturers and distributors. It is a firm of\nits era: proposals and memos are typed in Word and printed for the file,\nengagement letters come back countersigned by fax and are scanned into\nthe share by the office administrator, steering-committee decks are\nplain PowerPoint with bullet slides, and the annual numbers live in an\nExcel workbook kept by the President. Writing is formal but unfussy\nmid-90s American business prose: complete sentences, courteous closings,\nno buzzwords that would postdate the document. Consultants refer to\nclients by company name and to each other by full name in anything a\nclient might read.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0006",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2001-07-02",
+      "authors": [
+        {
+          "id": "p:carlos.griffith",
+          "name": "Carlos Griffith",
+          "title": "President",
+          "dept": "Leadership",
+          "persona": "Carlos Griffith runs the firm the way he advises clients to run their plants: on discipline, plain numbers, and a paper trail. He drafts in longhand before anything is typed, keeps the annual workbook close, and reads every proposal that leaves the office. His prose is courteous and unadorned, heavy on complete sentences and light on adjectives, and he signs off with a formal closing even in short memos. He addresses clients by company name and expects the same restraint from everyone who writes under the firm's letterhead."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:carlos.griffith",
+          "name": "Carlos Griffith",
+          "title": "President",
+          "dept": "Leadership",
+          "persona": "Carlos Griffith runs the firm the way he advises clients to run their plants: on discipline, plain numbers, and a paper trail. He drafts in longhand before anything is typed, keeps the annual workbook close, and reads every proposal that leaves the office. His prose is courteous and unadorned, heavy on complete sentences and light on adjectives, and he signs off with a formal closing even in short memos. He addresses clients by company name and expects the same restraint from everyone who writes under the firm's letterhead."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-1998-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:carlos.griffith",
+          "surface": "Carlos Griffith",
+          "kind": "person"
+        }
+      ],
+      "target_words": 320,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}
