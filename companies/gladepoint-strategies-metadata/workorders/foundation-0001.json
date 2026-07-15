@@ -1,0 +1,49 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "gladepoint-strategies",
+  "org_name": "Gladepoint Strategies LLC",
+  "org_type": "strategy consulting",
+  "narrative": "Gladepoint Strategies is a five-person strategy consultancy founded in\n2020, working with mid-market software and industrial clients. The firm\nruns lean, distributed, and calendar-driven: engagement letters go out as\nsigned PDFs, kickoff memos and status reports live in Word, steering\nupdates are short PowerPoint decks presented over video calls, and a lot\nof the actual coordination happens in brisk email threads between the\nengagement lead, the client sponsor, and the team. The Managing Director\nsigns the letters; principals run the work. Tone is contemporary,\nplainspoken business English: short paragraphs, concrete verbs, first\nnames internally, full names and titles when a client is on the page.\nSpreadsheets are tidy and annual.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:david.jones",
+      "name": "David Jones",
+      "title": "Managing Director",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:caroline.mayo",
+      "name": "Caroline Mayo",
+      "title": "Principal",
+      "dept": "Strategy",
+      "persona": ""
+    },
+    {
+      "id": "p:jeff.pope",
+      "name": "Jeff Pope",
+      "title": "Engagement Manager",
+      "dept": "Strategy",
+      "persona": ""
+    },
+    {
+      "id": "p:john.johnson",
+      "name": "John Johnson",
+      "title": "Senior Analyst",
+      "dept": "Strategy",
+      "persona": ""
+    },
+    {
+      "id": "p:david.fowler",
+      "name": "David Fowler",
+      "title": "Operations Lead",
+      "dept": "Operations",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

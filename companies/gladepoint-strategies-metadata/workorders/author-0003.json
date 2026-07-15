@@ -1,0 +1,307 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0003",
+  "stage": "author",
+  "slug": "gladepoint-strategies",
+  "org_name": "Gladepoint Strategies LLC",
+  "org_type": "strategy consulting",
+  "narrative": "Gladepoint Strategies is a five-person strategy consultancy founded in\n2020, working with mid-market software and industrial clients. The firm\nruns lean, distributed, and calendar-driven: engagement letters go out as\nsigned PDFs, kickoff memos and status reports live in Word, steering\nupdates are short PowerPoint decks presented over video calls, and a lot\nof the actual coordination happens in brisk email threads between the\nengagement lead, the client sponsor, and the team. The Managing Director\nsigns the letters; principals run the work. Tone is contemporary,\nplainspoken business English: short paragraphs, concrete verbs, first\nnames internally, full names and titles when a client is on the page.\nSpreadsheets are tidy and annual.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0008",
+      "title": "Engagement Letter: Pricing Architecture for Brewer, Manning and Davis",
+      "genre": "engagement_letter",
+      "date": "2023-08-12",
+      "authors": [
+        {
+          "id": "p:david.jones",
+          "name": "David Jones",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "David is the firm's public face and final signature: he opens doors with mid-market executives, sets the terms of every engagement, and reads everything that carries the Gladepoint name before it leaves the building. His edits are surgical and his emails rarely run past three short paragraphs. He is warm on a call, formal on the page, and allergic to jargon; when a letter matters, he rewrites the closing himself."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:caroline.mayo",
+          "name": "Caroline Mayo",
+          "title": "Principal",
+          "dept": "Strategy",
+          "persona": "Caroline runs engagements end to end and is the intellectual engine behind most of the firm's client work. She thinks in frameworks but writes in plain sentences, and she pushes teams to state the recommendation in the first line rather than bury it. With clients she is direct and unhurried, comfortable delivering hard news; internally she fires off terse, first-name emails that get straight to what she needs and by when."
+        },
+        {
+          "id": "p:jeff.pope",
+          "name": "Jeff Pope",
+          "title": "Engagement Manager",
+          "dept": "Strategy",
+          "persona": "Jeff is the connective tissue of an engagement: he owns the calendar, the status reports, and the email threads that keep the client sponsor and the team in sync. His writing is brisk and organized, heavy on short bulleted updates and clear asks, and he has a knack for translating Caroline's thinking into something a steering committee can absorb in a glance. Colleagues know him as the one who follows up, politely and relentlessly, until the loose end is tied."
+        },
+        {
+          "id": "xp:vanessa.lewis",
+          "name": "Vanessa Lewis",
+          "title": "Chief Financial Officer",
+          "dept": "Brewer, Manning and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Pricing Architecture for Brewer, Manning and Davis, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:david.jones",
+          "surface": "David Jones",
+          "kind": "person"
+        },
+        {
+          "entity": "p:caroline.mayo",
+          "surface": "Caroline Mayo",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jeff.pope",
+          "surface": "Jeff Pope",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:vanessa.lewis",
+          "surface": "Vanessa Lewis",
+          "kind": "person"
+        },
+        {
+          "entity": "x:brewer-manning-and-davis",
+          "surface": "Brewer, Manning and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 350,
+      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
+    },
+    {
+      "doc_id": "d:0009",
+      "title": "Kickoff Memo: Pricing Architecture for Brewer, Manning and Davis",
+      "genre": "kickoff_memo",
+      "date": "2023-08-25",
+      "authors": [
+        {
+          "id": "p:caroline.mayo",
+          "name": "Caroline Mayo",
+          "title": "Principal",
+          "dept": "Strategy",
+          "persona": "Caroline runs engagements end to end and is the intellectual engine behind most of the firm's client work. She thinks in frameworks but writes in plain sentences, and she pushes teams to state the recommendation in the first line rather than bury it. With clients she is direct and unhurried, comfortable delivering hard news; internally she fires off terse, first-name emails that get straight to what she needs and by when."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:caroline.mayo",
+          "name": "Caroline Mayo",
+          "title": "Principal",
+          "dept": "Strategy",
+          "persona": "Caroline runs engagements end to end and is the intellectual engine behind most of the firm's client work. She thinks in frameworks but writes in plain sentences, and she pushes teams to state the recommendation in the first line rather than bury it. With clients she is direct and unhurried, comfortable delivering hard news; internally she fires off terse, first-name emails that get straight to what she needs and by when."
+        },
+        {
+          "id": "p:jeff.pope",
+          "name": "Jeff Pope",
+          "title": "Engagement Manager",
+          "dept": "Strategy",
+          "persona": "Jeff is the connective tissue of an engagement: he owns the calendar, the status reports, and the email threads that keep the client sponsor and the team in sync. His writing is brisk and organized, heavy on short bulleted updates and clear asks, and he has a knack for translating Caroline's thinking into something a steering committee can absorb in a glance. Colleagues know him as the one who follows up, politely and relentlessly, until the loose end is tied."
+        },
+        {
+          "id": "xp:vanessa.lewis",
+          "name": "Vanessa Lewis",
+          "title": "Chief Financial Officer",
+          "dept": "Brewer, Manning and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Pricing Architecture for Brewer, Manning and Davis, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:caroline.mayo",
+          "surface": "Caroline Mayo",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jeff.pope",
+          "surface": "Jeff Pope",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:vanessa.lewis",
+          "surface": "Vanessa Lewis",
+          "kind": "person"
+        },
+        {
+          "entity": "x:brewer-manning-and-davis",
+          "surface": "Brewer, Manning and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 240,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps."
+    },
+    {
+      "doc_id": "d:0010",
+      "title": "RE: Pricing Architecture for Brewer, Manning and Davis",
+      "genre": "engagement_email",
+      "date": "2023-09-21",
+      "authors": [
+        {
+          "id": "p:caroline.mayo",
+          "name": "Caroline Mayo",
+          "title": "Principal",
+          "dept": "Strategy",
+          "persona": "Caroline runs engagements end to end and is the intellectual engine behind most of the firm's client work. She thinks in frameworks but writes in plain sentences, and she pushes teams to state the recommendation in the first line rather than bury it. With clients she is direct and unhurried, comfortable delivering hard news; internally she fires off terse, first-name emails that get straight to what she needs and by when."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:caroline.mayo",
+          "name": "Caroline Mayo",
+          "title": "Principal",
+          "dept": "Strategy",
+          "persona": "Caroline runs engagements end to end and is the intellectual engine behind most of the firm's client work. She thinks in frameworks but writes in plain sentences, and she pushes teams to state the recommendation in the first line rather than bury it. With clients she is direct and unhurried, comfortable delivering hard news; internally she fires off terse, first-name emails that get straight to what she needs and by when."
+        },
+        {
+          "id": "p:jeff.pope",
+          "name": "Jeff Pope",
+          "title": "Engagement Manager",
+          "dept": "Strategy",
+          "persona": "Jeff is the connective tissue of an engagement: he owns the calendar, the status reports, and the email threads that keep the client sponsor and the team in sync. His writing is brisk and organized, heavy on short bulleted updates and clear asks, and he has a knack for translating Caroline's thinking into something a steering committee can absorb in a glance. Colleagues know him as the one who follows up, politely and relentlessly, until the loose end is tied."
+        },
+        {
+          "id": "xp:vanessa.lewis",
+          "name": "Vanessa Lewis",
+          "title": "Chief Financial Officer",
+          "dept": "Brewer, Manning and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Pricing Architecture for Brewer, Manning and Davis, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:caroline.mayo",
+          "surface": "Caroline Mayo",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jeff.pope",
+          "surface": "Jeff Pope",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:vanessa.lewis",
+          "surface": "Vanessa Lewis",
+          "kind": "person"
+        },
+        {
+          "entity": "x:brewer-manning-and-davis",
+          "surface": "Brewer, Manning and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 130,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock."
+    },
+    {
+      "doc_id": "d:0011",
+      "title": "Meeting Minutes: Pricing Architecture for Brewer, Manning and Davis",
+      "genre": "meeting_minutes",
+      "date": "2023-10-09",
+      "authors": [
+        {
+          "id": "p:jeff.pope",
+          "name": "Jeff Pope",
+          "title": "Engagement Manager",
+          "dept": "Strategy",
+          "persona": "Jeff is the connective tissue of an engagement: he owns the calendar, the status reports, and the email threads that keep the client sponsor and the team in sync. His writing is brisk and organized, heavy on short bulleted updates and clear asks, and he has a knack for translating Caroline's thinking into something a steering committee can absorb in a glance. Colleagues know him as the one who follows up, politely and relentlessly, until the loose end is tied."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:caroline.mayo",
+          "name": "Caroline Mayo",
+          "title": "Principal",
+          "dept": "Strategy",
+          "persona": "Caroline runs engagements end to end and is the intellectual engine behind most of the firm's client work. She thinks in frameworks but writes in plain sentences, and she pushes teams to state the recommendation in the first line rather than bury it. With clients she is direct and unhurried, comfortable delivering hard news; internally she fires off terse, first-name emails that get straight to what she needs and by when."
+        },
+        {
+          "id": "p:jeff.pope",
+          "name": "Jeff Pope",
+          "title": "Engagement Manager",
+          "dept": "Strategy",
+          "persona": "Jeff is the connective tissue of an engagement: he owns the calendar, the status reports, and the email threads that keep the client sponsor and the team in sync. His writing is brisk and organized, heavy on short bulleted updates and clear asks, and he has a knack for translating Caroline's thinking into something a steering committee can absorb in a glance. Colleagues know him as the one who follows up, politely and relentlessly, until the loose end is tied."
+        },
+        {
+          "id": "xp:vanessa.lewis",
+          "name": "Vanessa Lewis",
+          "title": "Chief Financial Officer",
+          "dept": "Brewer, Manning and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Pricing Architecture for Brewer, Manning and Davis, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jeff.pope",
+          "surface": "Jeff Pope",
+          "kind": "person"
+        },
+        {
+          "entity": "p:caroline.mayo",
+          "surface": "Caroline Mayo",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:vanessa.lewis",
+          "surface": "Vanessa Lewis",
+          "kind": "person"
+        },
+        {
+          "entity": "x:brewer-manning-and-davis",
+          "surface": "Brewer, Manning and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 220,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

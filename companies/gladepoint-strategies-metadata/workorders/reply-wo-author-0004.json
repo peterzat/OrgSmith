@@ -1,0 +1,69 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0004",
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0014",
+      "blocks": [
+        {"kind": "heading", "text": "Gladepoint Strategies LLC", "level": 1},
+        {"kind": "paragraph", "text": "Amanda Compton, Director of Operations, Gutierrez-Murphy"},
+        {"kind": "paragraph", "text": "Re: Operating Model Redesign"},
+        {"kind": "paragraph", "text": "Dear Ms. Compton:"},
+        {"kind": "paragraph", "text": "Thank you for the confidence you and your colleagues have shown in our firm. This letter confirms the terms on which Gladepoint Strategies LLC will carry out an operating model redesign for {{fact:f:E-2025-001.client}}. The work will begin on {{fact:f:E-2025-001.start}} and run approximately three months."},
+        {"kind": "paragraph", "text": "Our scope is the one we discussed in your offices. We will assess how the operations organization works today, design a future-state model with a clear structure and clear decision rights, and leave your team a transition plan it can execute without us. The work falls into three phases, assessment, design, and transition planning, and you will see our thinking as it forms. We do not save findings for a final reveal, and we will tell you plainly if the facts point somewhere uncomfortable."},
+        {"kind": "paragraph", "text": "Caroline Mayo, Principal, will lead the engagement day to day and should be your first call on any matter of substance. John Johnson, Senior Analyst, will build the fact base and will work directly with the people who own your data. I will read everything that carries our name before it reaches you, and I will join each steering discussion."},
+        {"kind": "paragraph", "text": "Our fee for this engagement is {{fact:f:E-2025-001.fee}}, fixed, covering all professional time and invoiced monthly in equal installments. Reasonable out-of-pocket expenses, if any, will be billed at cost with receipts. Should the scope change, we will agree on the change in writing before we do the work, not after."},
+        {"kind": "paragraph", "text": "We keep this firm small on purpose. Each client gets our full attention, and Gutierrez-Murphy will have ours. If these terms are acceptable, please sign below and return one copy; we will take care of the rest."},
+        {"kind": "paragraph", "text": "Sincerely,"},
+        {"kind": "sigblock", "signers": ["p:david.jones", "xp:amanda.compton"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0015",
+      "blocks": [
+        {"kind": "heading", "text": "Meeting Minutes: Operating Model Redesign Working Session", "level": 1},
+        {"kind": "paragraph", "text": "Prepared by John Johnson, Senior Analyst. These minutes record a working session held as part of the operating model redesign engagement for {{fact:f:E-2025-001.client}}."},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Caroline Mayo, Principal, Gladepoint Strategies",
+          "John Johnson, Senior Analyst, Gladepoint Strategies",
+          "Amanda Compton, Director of Operations, Gutierrez-Murphy"
+        ]},
+        {"kind": "heading", "text": "Discussion", "level": 2},
+        {"kind": "paragraph", "text": "Caroline Mayo opened with the current-state findings on structure and spans of control. The group agreed that the assessment reflects the organization as it operates today, subject to two corrections to reporting lines that Amanda Compton supplied during the session."},
+        {"kind": "paragraph", "text": "The balance of the session concerned decision rights. Amanda Compton described several recurring approvals inside Gutierrez-Murphy that route through her office without adding judgment, and Caroline Mayo proposed treating these as the first candidates for delegation in the future-state design. John Johnson noted that the spans-and-layers analysis does not yet cover the field organization, because the roster extract received to date is incomplete; conclusions for that group are deferred until the full extract arrives."},
+        {"kind": "heading", "text": "Action Items", "level": 2},
+        {"kind": "table",
+         "header": ["Action", "Owner"],
+         "rows": [
+           ["Circulate the corrected current-state assessment", "John Johnson"],
+           ["Provide the complete field organization roster extract", "Amanda Compton"],
+           ["Draft the decision-rights framework for the next working session", "Caroline Mayo"]
+         ]},
+        {"kind": "paragraph", "text": "The next working session will be scheduled by email once the roster extract is in hand."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0016",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Operating Model Redesign", "level": 1},
+        {"kind": "paragraph", "text": "Prepared by Caroline Mayo, Principal, Gladepoint Strategies, for {{fact:f:E-2025-001.client}}."},
+        {"kind": "heading", "text": "Status", "level": 2},
+        {"kind": "paragraph", "text": "The engagement is on track. The future-state design is complete and reviewed, transition planning has started, and we are operating within the engagement budget of {{fact:f:E-2025-001.fee}}. We see no need for a change order and do not expect one."},
+        {"kind": "heading", "text": "Accomplishments this period", "level": 2},
+        {"kind": "list", "items": [
+          "Completed the future-state operating model and reviewed it with the Gutierrez-Murphy leadership team. The design was accepted with minor adjustments to two reporting lines.",
+          "Finalized the decision-rights framework. The recurring approvals we flagged in April now sit with the managers closest to the work.",
+          "John Johnson completed the spans-and-layers analysis, including the field organization, using the full roster extract. His exhibits stand as the fact base for the transition plan."
+        ]},
+        {"kind": "heading", "text": "Upcoming work", "level": 2},
+        {"kind": "paragraph", "text": "We turn now to transition planning: sequencing the moves, drafting communications for affected managers, and preparing your leadership team to run the new model without us. We will bring a draft transition plan to the next working session and a final plan to the closing readout."},
+        {"kind": "heading", "text": "Risks", "level": 2},
+        {"kind": "paragraph", "text": "Two risks are worth naming. First, the transition asks a small number of your managers to absorb new approvals while running the business; if their time is not protected, the delegation will slip back to old habits. Second, timing. The plan assumes decisions are made when they are scheduled to be made. Deferred decisions cost calendar weeks, not effort, so we will flag any slippage in the week it occurs."}
+      ]
+    }
+  ]
+}

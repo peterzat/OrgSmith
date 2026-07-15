@@ -1,0 +1,213 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "gladepoint-strategies",
+  "entities": [
+    {
+      "id": "x:gladepoint-strategies",
+      "canonical": "Gladepoint Strategies LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:david.jones",
+      "canonical": "David Jones",
+      "aliases": [
+        "david.jones@gladepointstrategies.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:caroline.mayo",
+      "canonical": "Caroline Mayo",
+      "aliases": [
+        "caroline.mayo@gladepointstrategies.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jeff.pope",
+      "canonical": "Jeff Pope",
+      "aliases": [
+        "jeff.pope@gladepointstrategies.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:john.johnson",
+      "canonical": "John Johnson",
+      "aliases": [
+        "john.johnson@gladepointstrategies.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:david.fowler",
+      "canonical": "David Fowler",
+      "aliases": [
+        "david.fowler@gladepointstrategies.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:vance-and-sons",
+      "canonical": "Vance and Sons",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:brewer-manning-and-davis",
+      "canonical": "Brewer, Manning and Davis",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:gutierrez-murphy",
+      "canonical": "Gutierrez-Murphy",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:kelly.klein",
+      "canonical": "Kelly Klein",
+      "aliases": [
+        "kelly.klein@vanceandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:vanessa.lewis",
+      "canonical": "Vanessa Lewis",
+      "aliases": [
+        "vanessa.lewis@brewermanninganddavis.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:amanda.compton",
+      "canonical": "Amanda Compton",
+      "aliases": [
+        "amanda.compton@gutierrezmurphy.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:david.jones",
+      "dst": "x:gladepoint-strategies",
+      "kind": "works_at",
+      "start": "2020-02-15",
+      "end": null
+    },
+    {
+      "src": "p:caroline.mayo",
+      "dst": "p:david.jones",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:caroline.mayo",
+      "dst": "x:gladepoint-strategies",
+      "kind": "works_at",
+      "start": "2020-03-15",
+      "end": null
+    },
+    {
+      "src": "p:jeff.pope",
+      "dst": "p:caroline.mayo",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeff.pope",
+      "dst": "x:gladepoint-strategies",
+      "kind": "works_at",
+      "start": "2020-10-01",
+      "end": null
+    },
+    {
+      "src": "p:john.johnson",
+      "dst": "p:caroline.mayo",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.johnson",
+      "dst": "x:gladepoint-strategies",
+      "kind": "works_at",
+      "start": "2021-03-05",
+      "end": null
+    },
+    {
+      "src": "p:david.fowler",
+      "dst": "p:david.jones",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.fowler",
+      "dst": "x:gladepoint-strategies",
+      "kind": "works_at",
+      "start": "2020-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:kelly.klein",
+      "dst": "x:vance-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:vanessa.lewis",
+      "dst": "x:brewer-manning-and-davis",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:amanda.compton",
+      "dst": "x:gutierrez-murphy",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:vance-and-sons",
+      "dst": "x:gladepoint-strategies",
+      "kind": "client_of",
+      "start": "2022-02-04",
+      "end": null
+    },
+    {
+      "src": "x:brewer-manning-and-davis",
+      "dst": "x:gladepoint-strategies",
+      "kind": "client_of",
+      "start": "2023-08-22",
+      "end": null
+    },
+    {
+      "src": "x:gutierrez-murphy",
+      "dst": "x:gladepoint-strategies",
+      "kind": "client_of",
+      "start": "2025-03-18",
+      "end": null
+    }
+  ]
+}
