@@ -270,10 +270,13 @@ def run_score(
                 if failure["extra"]:
                     parts.append("extra: " + ", ".join(failure["extra"]))
                 # Failure lines echo answer-file content; never let an
-                # untrusted string drive the terminal.
+                # untrusted string drive the terminal. One failure is one
+                # line: keep="" so an embedded newline cannot forge a
+                # second line of output.
                 print(strip_control(
                     f"  {failure['id']} [{','.join(failure['tags'])}] "
-                    + "; ".join(parts)
+                    + "; ".join(parts),
+                    keep="",
                 ))
         return 0
 
@@ -316,7 +319,8 @@ def run_score(
                     )
                 print(strip_control(
                     f"  {failure['id']} [loc:{failure['location']}] "
-                    + "; ".join(parts)
+                    + "; ".join(parts),
+                    keep="",
                 ))
         return 0
 
@@ -338,8 +342,12 @@ def run_score(
             "edges P={edge_precision:.1%} R={edge_recall:.1%}".format(**payload)
         )
         for name, stats in result.classes.items():
-            print(
+            # Class names come from ambiguity tags in a third-party
+            # graph_expected.json (`--evals-dir` is a supported input);
+            # never let them drive the terminal.
+            print(strip_control(
                 f"  class {name}: R={stats['recall']:.1%} "
-                f"({stats['matched']}/{stats['expected']})"
-            )
+                f"({stats['matched']}/{stats['expected']})",
+                keep="",
+            ))
     return 0

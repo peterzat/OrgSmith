@@ -35,13 +35,19 @@ def pure_org(tmp_path_factory) -> OrgPaths:
     return build_pure_stages(tmp_path_factory.mktemp("pure-org"))
 
 
+# Knobs appended after the `external_people` anchor. `min_mentions_per_person`
+# is NOT here: the recipe already carries it, so appending would emit a
+# duplicate YAML key that PyYAML resolves silently. It is raised in place
+# by MENTIONS_FROM -> MENTIONS_TO instead.
 KNOB_LINES = (
-    "  min_mentions_per_person: 2\n"
     "  surname_collisions: 1\n"
     "  nickname_aliases: 1\n"
     "  multi_affiliations: 1\n"
     "  affiliations_in_docs: true\n"
 )
+
+MENTIONS_FROM = "  min_mentions_per_person: 1\n"
+MENTIONS_TO = "  min_mentions_per_person: 2\n"
 
 
 def write_hardcase_recipe(
@@ -174,6 +180,8 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     anchor = "  external_people: 3\n"
     assert anchor in text
     text = text.replace(anchor, anchor + KNOB_LINES)
+    assert MENTIONS_FROM in text
+    text = text.replace(MENTIONS_FROM, MENTIONS_TO)
     old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
     assert old_mix in text
     text = text.replace(

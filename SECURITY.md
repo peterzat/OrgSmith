@@ -2,76 +2,78 @@
 
 ## Security Review — 2026-07-15 (scope: paths)
 
-**Summary:** M5-close scan of the document-formats surface (range
-50eeefa..449dcdf): the pptx/eml/scan/legacy render pipeline, the single
-subprocess touchpoint (LibreOffice conversion), scan planning and the
-OCR corruption engine, the new EML/SCAN/LEG validator families, eval
-tag derivation, authoring contexts and ingest, and the two new recipe
-charters. This fulfills the prior entry's deferred item: the validator
-code that parses untrusted fixture bytes with the M5 dependencies has
-landed and is scanned here. One new NOTE (ingest rejection printer
-echoes deliverable-controlled strings raw to the terminal, the same
-class as the carried score.py NOTE). No BLOCKs, no WARNs. The two
-prior NOTEs carry forward; both files are unchanged in this range.
+**Summary:** M6-close scan of the pre-fleet hardening turn (range
+449dcdf..5a59288): the new name-screen module and its three enforcement
+points, the RNG-free affiliation planting pass and the AFF/NAME validator
+families, era-resolved employer surfaces in render and authoring briefs,
+the validator read hardening, and the two regenerated/new recipe charters.
+The prior entry's two printer NOTEs are remediated for the escape-sequence
+vector they described; one NOTE replaces them for the residual (the fix
+keeps `\n`, so forged-line injection still reaches the terminal, verified
+by probe at HEAD). The pdf letterhead NOTE carries forward unchanged. No
+BLOCKs, no WARNs.
 
 ### Findings
 
-**[NOTE] orgsmith/authoring/ingest.py:71,159,210-212 — deliverable
-strings echoed raw to the terminal in ingest rejection output**
+**[NOTE — REMEDIATED 2026-07-15 in the same review cycle, commit 5a59288+]
+orgsmith/naming.py:52-59, orgsmith/authoring/ingest.py:218,
+orgsmith/evals/score.py:274,317 — the control-character fix preserves
+newlines, so untrusted strings can still inject forged lines into failure
+output**
 
-  Attack vector: the authoring deliverable is the airlock's untrusted
-  input (model-authored, or any file passed to `--ingest <file>`).
-  `DocIR.doc_id` is an unconstrained str (schemas.py:490-493) and
-  placeholder ids are extracted from model prose with charset `[^}]*`
-  (ingest.py:30, 48-49), so a deliverable can embed ANSI escape
-  sequences via JSON `\u001b` escapes in a doc_id or a
-  `{{fact:...}}` id. Both flow into `', '.join(...)` problem strings
-  ("doc ids not in work order", "unbriefed fact ids used") that the
-  rejection printer emits unsanitized, letting a misbehaving or
-  adversarial deliverable repaint the operator's terminal, for example
-  erasing the rejection listing and printing a fake success line.
-  Verified reachable end to end with a probe deliverable at HEAD.
-  Impact is display-only: the exit code stays 1, nothing is written
-  (the unknown-doc-id problem forces return before the write loop at
-  ingest.py:209-218), and skill automation keys off exit codes, so
-  only a human reading the terminal can be misled. The schema-error
-  path at ingest.py:147 is not affected (pydantic reprs escape control
-  characters).
-  Evidence: probe deliverable with `\u001b[2K...` doc_id and
-  `{{fact:\u001b[31m...}}` placeholder passes
-  `AuthoringDeliverable.model_validate_json` and
-  `placeholders_in` returns the raw ESC bytes.
-  Remediation: apply `!r` (or strip control characters) to
-  deliverable-derived ids when building problem strings, or print each
-  problem line through a control-character filter. Constraining
-  `DocIR.doc_id` to `^d:\d{4}$` would also close the doc_id half but
-  narrows a versioned deliverable contract; the printer fix is the
-  minimal change. Fix alongside the score.py NOTE below, same class.
+  Remediation applied: the per-problem printer (ingest.py:218) and the
+  per-failure printers (score.py:274,317) now pass `keep=""`, so an
+  embedded newline can no longer forge a standalone line; the two
+  schema-error paths (ingest.py:147, score.py:237) legitimately need
+  newlines and stay on the default. The concurrent code review found and
+  fixed a third, related path the scan did not reach: the graph class
+  printer (score.py:341-353) echoed `--evals-dir` ambiguity tags entirely
+  unsanitized, verified by probe (`ambiguity:<ESC>[2J<ESC>[31mPWNED`
+  reached stdout raw); it is now wrapped with `keep=""` as well. Both
+  probes re-run clean at the fix, and the retrieval probe now scores the
+  injected answer as wrong (16/17) rather than printing a forged 17/17.
+  The original finding text follows, unedited.
 
-**[NOTE] orgsmith/evals/score.py:266-271,304-311 — untrusted
-answers-file strings printed raw to the terminal in score failure
-output (carried forward from 2026-07-14; file unchanged in this
-range, verified by empty diff; outside this run's path scope)**
-
-  Attack vector: the designed use of `score --answers <file>` is
-  grading a third-party extractor's output, so the answers file is
-  untrusted input. A malicious file embeds ANSI escape sequences in
-  strings that land in `missing`/`extra` or `docs_missing`/`docs_extra`,
-  which the human-readable failure printers join and print unsanitized,
-  letting the file manipulate the grader's terminal display, for
-  example repainting the score line to show a passing result. Applies
-  to retrieval, extraction, and visibility suites, and to unconstrained
-  `id` fields from a third-party `--evals-dir`.
-  Evidence: `", ".join(failure["extra"])` and sibling raw joins; values
-  by contrast pass through `!r`, and JSON mode escapes control
-  characters via `json.dumps` defaults.
-  Remediation: strip control characters (or apply `!r`) to answers-file
-  and evals-dir strings in the human-readable failure printers.
+  Attack vector: `strip_control(text, keep="\n\t")` replaces category-Cc
+  characters (ESC included) but deliberately keeps newline, and the
+  untrusted strings these printers echo can carry newlines. The deception
+  the remediated NOTE described (make the terminal show a passing result)
+  therefore survives in a different encoding: line injection instead of
+  cursor control. The true summary prints first in both tools, so padding
+  the injected string with newlines scrolls it off-screen and leaves the
+  forgery as the last thing on the operator's terminal.
+  - `score --answers <file>`: grading a third-party extractor's output is
+    the designed use (score.py:1-5), so the answers file is untrusted.
+    Doc strings pass only `.strip()` (leading/trailing, score.py:73,132)
+    and land in `missing`/`extra`/`docs_missing`/`docs_extra`, which the
+    failure printers join and print.
+  - `author --ingest <file>`: fact ids are extracted with charset `[^}]*`
+    (ingest.py:31), which matches newline in Python, and land in the
+    "unbriefed fact ids used" problem string; `DocIR.doc_id` is likewise
+    an unconstrained str.
+  Evidence: probes at HEAD. An answers file whose `docs` entry is
+  `"Real Doc.docx\n\n\n\nretrieval: 17/17 (100.0%)"`, scored against
+  `companies/dev-mini-metadata/evals`, prints the forged
+  `retrieval: 17/17 (100.0%)` on its own line while the real score is
+  0/17. A deliverable carrying
+  `{{fact:x\n\n\ningest: merged 4 docs; 0 batchable docs remaining}}`
+  prints that forged success line beneath the rejection listing.
+  Impact is display-only and unchanged from the prior entry: exit codes
+  stay 1 (ingest) and 0 (score, what a wrong answer earns), no DocIR is
+  written, and skill automation keys off exit codes, so only a human
+  reading the terminal can be misled. The schema-error paths
+  (ingest.py:148-151, score.py:237-240) legitimately need newlines and are
+  unaffected: pydantic escapes control characters inside its value reprs
+  (re-verified at HEAD).
+  Remediation: pass `keep=""` at the per-problem and per-failure printers,
+  whose lines are single-line by construction; leave the two schema-error
+  paths on the default. This closes the class rather than one encoding of
+  it.
 
 **[NOTE] orgsmith/render/pdf.py:37,64 — letterhead lines rendered
 unescaped (residual from prior reviews; no current attack vector; file
-unchanged in this range, verified by empty diff; outside this run's
-path scope)**
+unchanged in this range, verified by empty diff; outside this run's path
+scope)**
 
   Attack vector: none concrete. The letterhead is `charter.name` and
   `www.{charter.domain}`, interpolated raw into the HTML template under
@@ -84,98 +86,84 @@ path scope)**
 
 ### Reviewed Surface
 
-- Subprocess boundary (the pipeline's only shell-out): render_legacy
-  invokes soffice via argv list, no shell (legacy.py:142-155).
-  Arguments are the PATH-resolved binary (`require_soffice`), a
-  Literal-constrained format from the pydantic-validated manifest, and
-  tmpdir paths render created itself; an isolated
-  `-env:UserInstallation` profile in the tmpdir, `capture_output`, and
-  a 300s timeout bound the run. Input is the marker-verified modern
-  intermediate render just produced, never external bytes. Render
-  fails closed: missing soffice aborts before any doc renders
-  (render/__init__.py:75-80), and an unmarked or unconverted result is
-  a SystemExit, not a shipped file (legacy.py:157-169).
-- Path safety: check_relpath (rejects `..`, absolute, control and
-  forbidden characters) re-validates on every manifest load
-  (artifacts.py:70-81) before render or validate joins entry.path to
-  the share; the planner gates every planned path the same way
-  (planner.py:137-140). DocIR files are written only for doc_ids
-  present in the work order (unknown ids force rejection before the
-  write loop, ingest.py:154-162, 209-218), and scan-archive filenames
-  derive from pattern-validated manifest doc_ids (`^d:\d{4}$`).
-  sanitize_component strips separators from client names used in
-  folders (naming.py:52-58).
-- eml integrity: every transport header is a pure function of ledger
-  data (`expected_headers`, eml.py:22-43), shared verbatim with EML-01
-  so renderer and checker cannot drift; stdlib EmailMessage under
-  policy.SMTP rejects CR/LF in header values, closing header
-  injection; bodies carry model prose only via set_content. Message-ID
-  domains are the recipes' fictional domains; files are corpus
-  artifacts, never transmitted mail.
-- PDF content injection: the OCR text layer is written into content
-  streams through `_pdf_escape`, which escapes backslash before
-  parentheses (scan.py:95-97), and the layer text is pypdf's
-  extraction of the self-rendered pdf, not raw model text. The
-  corruption engine cannot alter planted surfaces: protected-span
-  masking plus a post-check that recounts every surface and raises on
-  drift (scan.py:204-220).
-- Validator parsing of untrusted fixture bytes (the prior entry's
-  deferred scan, now landed): FILE-01 wraps every native reader in a
-  catch-all that converts parser failures into findings
-  (rules.py:449-450); FIN-02's xlrd open is wrapped
-  (rules.py:366-369); SCAN-01 catches pikepdf.PdfError
-  (rules.py:836-838). Residual unwrapped paths (pypdf inside
-  doc_text/scan_01, python-pptx inside _pptx_text) crash the run with
-  a traceback and nonzero exit on malformed input: loud failure, never
-  a silent pass. Robustness of those paths is code-review material,
-  not a vulnerability.
-- Tamper evidence follows the M4 lesson: rules skip only on the
-  charter knob (EML-01/SCAN-01/SCAN-02/LEG-01 availability guards,
-  rules.py:216-231), and knob-on-with-artifact-missing fails
-  (manifest stripped of eml docs, missing/stray/gutted scan archives,
-  legacy format stripped back to modern), each direction
-  corruption-tested (test_unit_eml.py:140-146,
-  test_unit_scan_validate.py:75-149, test_unit_legacy.py:227-239).
-  FILE-01/PROV-01 treat unknown formats as findings, never a pass
-  (rules.py:446-448, 966-968; test_unit_legacy.py:249-270).
-- Residual risks accepted by design, documented in code, requiring
-  repository write access (no privilege boundary crossed): image-only
-  scan text obligations run against the metadata archive because
-  pixels cannot be text-verified without OCR (SCAN-02 ties archive
-  page counts to the rendered pdf, and a gutted archive fails FACT-01
-  loudly); legacy .doc/.ppt prose obligations run against the
-  fact-resolved DocIR because no pure-Python binary-format text
-  extractor exists (rules.py:126-133); LEG-01 and PROV-01 still verify
-  container type, stream, and marker on the binary itself.
-- Airlock intact: work orders brief fact ids with hints and withhold
-  rendered values (schemas.py:509-514); engagement summaries redact
-  fee and dates (contexts.py:109-117); ingest rejects literal
-  money/date surfaces arriving outside placeholders (ingest.py:176-187)
-  and resolve_docir fails loudly on unknown or unresolved placeholders
-  (resolve.py:20-30). Grep over orgsmith/ finds no network or model
-  imports; the soffice call above is the package's only subprocess.
-  match_outstanding resolves the work-order path from state, never
-  from the deliverable's id string (airlock.py:60-75).
-- Secrets and PII: pattern grep over all 24 scoped files and `git log
-  -p` over the range and both charter histories: clean (the only
-  "token" hits are the provenance marker token). The new charters
-  contain fictional firms, no personal names, no contact details;
-  test data is synthetic. No scoped file handles credentials.
-- Dependencies: requirements.txt unchanged in this range; the six M5
-  deps were verified pinned and CVE-clean in the prior entry. Offline
-  review, no live vulnerability database query.
+- Name screen (new, `orgsmith/namescreen.py`): pure stdlib, offline, no
+  network or subprocess. `load_firms` reads a package-relative constant
+  (namescreen.py:19) and no caller passes a user-controlled path.
+  Findings interpolate charter and foundation names through `!r`
+  (namescreen.py:121,127,141-151), so the validator printer cannot be
+  driven by them. Both generation gates fire before their artifact is
+  written (charter.py:51-59, scaffold.py:336-344), each tested for the
+  write-not-happening half. NAME-01 is a brand-collision screen, not a
+  security boundary; its "screen, not a guarantee" limit is documented at
+  namescreen.py:6-9 and real_firms.txt:12 and is the recipe author's risk
+  to carry.
+- `orgsmith/data/real_firms.txt`: ~220 public corporate brands, no
+  contact details, no private individuals. The eponymous entries (Morgan
+  Stanley, Edward Jones) are a deliberate, documented curation choice
+  (real_firms.txt:9-11) and person matching is exact-equality
+  (namescreen.py:100-102), so committed rosters do not over-fire. Not
+  PII.
+- Airlock intact and unchanged by this turn: `_brief_summary` still
+  withholds fee and dates (contexts.py:112-120). The new
+  `_brief_person(at=)` (contexts.py:123-137) and `people_index(at=)`
+  (render/__init__.py:28-48) only re-resolve WHICH external employer name
+  appears on a brief's dept line or a sigblock; the client name is
+  already a `text` fact by design, and ingest's literal-value rejection
+  deliberately covers money and date only (ingest.py:184-191) because the
+  mention contract requires verbatim names. No new value leaks into a
+  work order.
+- Path safety: `docir_path` joins a deliverable-controlled `doc_id`
+  (ingest.py:34-35), but ids absent from the work order force rejection
+  before the write loop (ingest.py:161-163, 213-219), so writes stay
+  inside work-order ids; `match_outstanding` still resolves the work
+  order from state, never from the deliverable's id string. Re-verified,
+  unchanged in this range.
+- Validator read hardening (the SPEC criterion): SCAN-02's page-count
+  read (rules.py:986-993) and LEG-01's `isOleFile`/`OleFileIO` reads
+  (rules.py:1042-1064) now convert reader failures into findings instead
+  of tracebacks. Both fail closed; a crafted artifact cannot pass
+  silently.
+- AFF-01/AFF-02 recompute the plan from charter plus foundation and catch
+  `affiliation_plan`'s SystemExit into a finding rather than aborting the
+  run (rules.py:766-774). Their inputs are repo-controlled ledgers: a
+  tamperer already needs repository write access, so no privilege
+  boundary is crossed. Both skip only on the charter knob
+  (rules.py:753-757), per the M4 grandfathering lesson; NAME-01 has no
+  grandfather.
+- `charter.py` parses recipes with `yaml.safe_load` (charter.py:26); no
+  arbitrary-object construction. Recipes are repo-controlled.
+- Grep over all 29 scoped files finds no network, subprocess, `eval`,
+  `exec`, `pickle`, or `yaml.load` sink; the LibreOffice call remains the
+  package's only subprocess and is untouched in this range.
+- `strip_control` neutralizes category Cc but not Cf, so bidi overrides
+  (U+202E and kin) survive. Left as scoped, not a finding: they can
+  reorder glyphs within a line but cannot erase or forge one, and
+  terminal bidi support is rare enough that no concrete deception is
+  demonstrable.
+- Secrets and PII: pattern grep over all 29 scoped files plus
+  `git log -p --follow` over the new files (namescreen.py,
+  real_firms.txt, the fernhollow charter): clean. The only "token" hits
+  are the words "model tokens" and "name tokens". Both charters are
+  fictional firms with no personal names or contact details; fixture
+  rosters remain Faker-synthetic. No scoped file handles credentials.
+- Dependencies: requirements.txt, requirements-dev.txt and .github/ are
+  unchanged in this range (verified by empty diff); pyproject.toml's only
+  change is the version reconcile to 1.5.0, now pinned to
+  `orgsmith.__version__` by a short-tier test (test_short.py:53-61).
+  Pinning is still enforced for every requirement (test_short.py:42-50).
+  Offline review, no live vulnerability database query.
 
 ### Accepted Risks
 
 None recorded.
 
 ---
-*Prior review (2026-07-15, scope paths, commit 50eeefa): M5-opening
-scan of the format-knob increment (doctor probes, charter knobs, six
-new pinned dependencies, ACL validator family and its test suites); no
-new findings, the M4 ACL skip-evasion WARN verified remediated, 2
-carried NOTEs; flagged that the untrusted-parse surface for the new
-dependencies would arrive with later M5 increments and must be scanned
-when that code lands (done in the current entry).*
+*Prior review (2026-07-15, scope paths, commit 449dcdf): M5-close scan of
+the document-formats surface (pptx/eml/scan/legacy render, the LibreOffice
+subprocess boundary, the new validator families parsing untrusted fixture
+bytes, authoring contexts and ingest); no BLOCKs or WARNs, one new NOTE
+(ingest rejection printer echoing deliverable-controlled strings raw to
+the terminal) and two carried; it fulfilled the M5-opening entry's
+deferred scan of the untrusted-parse surface.*
 
-<!-- SECURITY_META: {"date":"2026-07-15","commit":"449dcdf112e75b73fc63fecc5cccfe1dce9910fd","scope":"paths","scanned_files":["orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/docplan/planner.py","orgsmith/evals/emit.py","orgsmith/paths.py","orgsmith/render/__init__.py","orgsmith/render/docx.py","orgsmith/render/eml.py","orgsmith/render/legacy.py","orgsmith/render/pptx.py","orgsmith/render/provenance.py","orgsmith/render/scan.py","orgsmith/schemas.py","orgsmith/validate/rules.py","recipes/cindergrove-advisors/ORG-CHARTER.md","recipes/gladepoint-strategies/ORG-CHARTER.md","tests/conftest.py","tests/test_unit_eml.py","tests/test_unit_evals_formats.py","tests/test_unit_legacy.py","tests/test_unit_pptx.py","tests/test_unit_scan_render.py","tests/test_unit_scan_validate.py","tests/test_unit_scanplan.py"],"block":0,"warn":0,"note":3} -->
+<!-- SECURITY_META: {"date":"2026-07-15","commit":"5a59288652af7aa4f6be6c286f63724c9b36361e","scope":"paths","scanned_files":["orgsmith/__init__.py","orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/charter.py","orgsmith/data/real_firms.txt","orgsmith/docplan/planner.py","orgsmith/evals/score.py","orgsmith/fabric/engagements.py","orgsmith/fabric/graph.py","orgsmith/foundation/scaffold.py","orgsmith/namescreen.py","orgsmith/naming.py","orgsmith/render/__init__.py","orgsmith/schemas.py","orgsmith/validate/rules.py","pyproject.toml","recipes/dev-mini/ORG-CHARTER.md","recipes/fernhollow-partners/ORG-CHARTER.md","tests/conftest.py","tests/test_org_fleet.py","tests/test_short.py","tests/test_unit_affiliation_docs.py","tests/test_unit_airlock.py","tests/test_unit_compat.py","tests/test_unit_evals.py","tests/test_unit_legacy.py","tests/test_unit_namescreen.py","tests/test_unit_scan_validate.py","tests/test_unit_validate_graph.py"],"block":0,"warn":0,"note":2,"remediated":1} -->

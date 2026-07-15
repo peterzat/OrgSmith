@@ -214,8 +214,10 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         print("ingest: deliverable rejected:")
         for p in problems:
             # Problem strings can embed deliverable-controlled text (fact
-            # ids, surfaces); never let them drive the terminal.
-            print(f"  - {strip_control(p)}")
+            # ids, surfaces); never let them drive the terminal. One problem
+            # is one line: keep="" so an embedded newline cannot forge a
+            # second line of output.
+            print(f"  - {strip_control(p, keep='')}")
         return 1
 
     paths.docir_dir.mkdir(parents=True, exist_ok=True)
