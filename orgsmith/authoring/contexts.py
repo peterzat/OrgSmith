@@ -56,6 +56,12 @@ _GENRE_GUIDANCE = {
         "title slide for the engagement, close with a next-steps slide. "
         "4-6 slides total. No sigblock."
     ),
+    "engagement_email": (
+        "Plain-text status email within the engagement thread: a greeting "
+        "line naming the recipients, 2-3 short paragraphs of progress and "
+        "asks, a sign-off line with the sender's name. The subject lives in "
+        "the message header, not the body. No sigblock."
+    ),
 }
 
 _TARGET_WORDS = {
@@ -65,6 +71,7 @@ _TARGET_WORDS = {
     "status_report": 300,
     "company_overview": 320,
     "briefing_deck": 180,
+    "engagement_email": 130,
 }
 
 _INSTRUCTIONS = """\

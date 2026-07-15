@@ -22,13 +22,20 @@ from .resolve import resolve_docir
 from .styles import style_pack
 
 
-def _people_index(foundation) -> dict[str, dict]:
+def people_index(foundation) -> dict[str, dict]:
+    """name/title/email per person id; shared with the EML-01 validator so
+    header recomputation reads the ledger exactly the way render did."""
     people = {
-        p.id: {"name": p.name, "title": p.title} for p in foundation.people
+        p.id: {"name": p.name, "title": p.title, "email": p.email}
+        for p in foundation.people
     }
     for xp in foundation.external_people:
         org = next(o for o in foundation.external_orgs if o.id == xp.org)
-        people[xp.id] = {"name": xp.name, "title": f"{xp.title}, {org.name}"}
+        people[xp.id] = {
+            "name": xp.name,
+            "title": f"{xp.title}, {org.name}",
+            "email": xp.email,
+        }
     return people
 
 
@@ -42,7 +49,7 @@ def run_render(paths: OrgPaths) -> int:
     facts = load_engagements(paths).fact_index()
     manifest = load_manifest(paths)
     style = style_pack(charter)
-    people = _people_index(foundation)
+    people = people_index(foundation)
 
     finance_hash = sha256_file(paths.finance_json)
     rendered = skipped = pending = 0
@@ -87,6 +94,14 @@ def run_render(paths: OrgPaths) -> int:
 
                 target.write_bytes(
                     render_pptx(resolved, entry, style, author_name)
+                )
+            elif entry.format == "eml":
+                from .eml import render_eml
+
+                target.write_bytes(
+                    render_eml(
+                        resolved, entry, people, charter.slug, charter.domain
+                    )
                 )
             elif entry.format == "pdf":
                 from .pdf import render_pdf

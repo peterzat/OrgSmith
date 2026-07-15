@@ -125,15 +125,23 @@ def build_mix_stages(root: Path, mix: dict, slug: str = "dev-mini") -> OrgPaths:
 
 
 def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
-    """dev-mini recipe with every ambiguity knob on, through docplan."""
+    """dev-mini recipe with every ambiguity knob on and every format in the
+    mix, through docplan. The zero-skip validator test keys off this org:
+    charter-gated rules must all find their knob on here (except legacy,
+    which CI cannot render: no LibreOffice)."""
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
     text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
     anchor = "  external_people: 3\n"
     assert anchor in text
-    (dest / "ORG-CHARTER.md").write_text(
-        text.replace(anchor, anchor + KNOB_LINES)
+    text = text.replace(anchor, anchor + KNOB_LINES)
+    old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
+    assert old_mix in text
+    text = text.replace(
+        old_mix, "  format_mix: {docx: 8, pdf: 3, xlsx: 2, pptx: 1, eml: 2}\n"
     )
+    text = text.replace("target_docs: 13", "target_docs: 16")
+    (dest / "ORG-CHARTER.md").write_text(text)
     paths = OrgPaths(root=root, slug=slug)
     assert run_charter(paths) == 0
     assert run_scaffold(paths) == 0

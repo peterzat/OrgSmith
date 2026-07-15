@@ -92,6 +92,8 @@ def _check_doc(doc: DocIR, brief: DocBrief) -> list[str]:
             )
         if sigblocks:
             problems.append("briefing_deck must not contain a sigblock")
+    if brief.genre == "engagement_email" and sigblocks:
+        problems.append("engagement_email must not contain a sigblock")
     return problems
 
 

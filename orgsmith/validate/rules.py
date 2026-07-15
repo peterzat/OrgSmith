@@ -77,6 +77,9 @@ class Context:
             )
         elif entry.format == "pptx":
             text = _pptx_text(path)
+        elif entry.format == "eml":
+            body = _eml_message(path).get_body(preferencelist=("plain",))
+            text = body.get_content() if body is not None else ""
         elif entry.format == "xlsx":
             # Workbooks are checked cell-by-cell (FIN-02), not as prose;
             # FACT-01 skips them explicitly.
@@ -122,7 +125,21 @@ def _pptx_text(path) -> str:
     return "\n".join(chunks)
 
 
+def _eml_message(path):
+    from email import policy
+    from email.parser import BytesParser
+
+    with open(path, "rb") as fh:
+        return BytesParser(policy=policy.default).parse(fh)
+
+
 def _always(_ctx: Context) -> str | None:
+    return None
+
+
+def _needs_eml(ctx: Context) -> str | None:
+    if ctx.charter.doc_culture.format_mix.eml == 0:
+        return "format_mix.eml is 0 for this recipe"
     return None
 
 
@@ -311,6 +328,12 @@ def file_01(ctx: Context):
 
                 if len(Presentation(str(path)).slides) < 1:
                     yield ("pptx has no slides", e.path)
+            elif e.format == "eml":
+                msg = _eml_message(path)
+                for header in ("From", "To", "Date", "Subject", "Message-ID"):
+                    if msg[header] is None:
+                        yield (f"eml missing {header} header", e.path)
+                msg.get_content()  # undecodable body -> reader failure below
             else:
                 # Every supported format must have a reader branch above; a
                 # format this rule does not know is a finding, not a pass.
@@ -606,14 +629,51 @@ def acl_03(ctx: Context):
         )
 
 
+# --- EML ------------------------------------------------------------------
+
+
+def eml_01(ctx: Context):
+    """Transport headers recompute exactly from the ledgers, via the same
+    helper the renderer used. Runs only when the charter asks for mail, so
+    a knob that is on with no .eml documents is tamper evidence."""
+    from ..render import people_index
+    from ..render.eml import expected_headers
+
+    entries = [e for e in ctx.manifest if e.format == "eml"]
+    if not entries:
+        yield (
+            "format_mix.eml > 0 but the manifest plans no eml documents",
+            "docplan/manifest.jsonl",
+        )
+        return
+    people = people_index(ctx.foundation)
+    for e in entries:
+        path = ctx.paths.share_dir / e.path
+        if not path.exists():
+            continue  # FILE-01/MAN-01 report the absence
+        msg = _eml_message(path)
+        expected = expected_headers(
+            e, people, ctx.charter.slug, ctx.charter.domain
+        )
+        for name, want in expected.items():
+            got = re.sub(r"\s+", " ", str(msg[name] or "")).strip()
+            if got != re.sub(r"\s+", " ", want).strip():
+                yield (
+                    f"header {name} does not recompute from the ledger: "
+                    f"{got!r} != {want!r}",
+                    e.path,
+                )
+
+
 # --- PROV -----------------------------------------------------------------
 
 
 def prov_01(ctx: Context):
-    from ..render.provenance import opc_has_marker, pdf_has_marker
+    from ..render.provenance import eml_has_marker, opc_has_marker, pdf_has_marker
 
     checkers = {"docx": opc_has_marker, "pdf": pdf_has_marker,
-                "xlsx": opc_has_marker, "pptx": opc_has_marker}
+                "xlsx": opc_has_marker, "pptx": opc_has_marker,
+                "eml": eml_has_marker}
     for e in ctx.manifest:
         path = ctx.paths.share_dir / e.path
         if not path.exists():
@@ -656,6 +716,8 @@ RULES = [
          available=_needs_acl),
     Rule("ACL-03", "ERROR", "grants and PERMISSIONS.md match the posture",
          acl_03, available=_needs_acl),
+    Rule("EML-01", "ERROR", "eml transport headers recompute from the ledger",
+         eml_01, available=_needs_eml),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),

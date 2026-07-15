@@ -234,6 +234,41 @@ class _Planner:
                 facts_refs=deck_refs,
             )
 
+    def plan_email_docs(self) -> None:
+        """Engagement mail: format_mix.eml messages assigned round-robin
+        over engagements (wrapping is fine; a thread carries many mails),
+        dated deterministically inside each engagement's window."""
+        want = self.charter.doc_culture.format_mix.eml
+        if want == 0:
+            return
+        engs = self.engagements.engagements
+        rounds: dict[str, int] = {}
+        for i in range(want):
+            eng = engs[i % len(engs)]
+            k = rounds.get(eng.id, 0)
+            rounds[eng.id] = k + 1
+            client = sanitize_component(self._client_name(eng))
+            service = eng.title.split(" for ")[0]
+            ed = self._clamp_range(eng.start + timedelta(days=30 + 45 * k))
+            refs = [
+                ref
+                for ref in (f"f:{eng.id}.client",)
+                if self.policy.get(ref, "body") == "body"
+            ]
+            self._add(
+                path=f"Engagements/{client}/{ed:%Y.%m.%d} - Email {k + 1} - "
+                f"{service} - {client}.eml",
+                title=f"RE: {eng.title}",
+                genre="engagement_email",
+                format="eml",
+                date=ed,
+                authors=[self._author_for(eng, ed, junior=False).id],
+                participants=eng.internal_participants
+                + eng.external_participants,
+                engagement=eng.id,
+                facts_refs=refs,
+            )
+
     def plan_firm_docs(self) -> None:
         first_eng = self.engagements.engagements[0]
         mid = self.range_start + (self.range_end - self.range_start) / 2
@@ -362,6 +397,7 @@ class _Planner:
     def build(self) -> list[ManifestEntry]:
         self.plan_engagement_docs()
         self.plan_deck_docs()
+        self.plan_email_docs()
         self.plan_firm_docs()
         self.plan_mentions()
 

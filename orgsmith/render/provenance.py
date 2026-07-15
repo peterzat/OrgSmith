@@ -85,6 +85,18 @@ def opc_has_marker(path: Path) -> bool:
         return False
 
 
+def eml_has_marker(path: Path) -> bool:
+    from email import policy
+    from email.parser import BytesParser
+
+    try:
+        with open(path, "rb") as fh:
+            msg = BytesParser(policy=policy.default).parse(fh)
+    except OSError:
+        return False
+    return (msg.get(f"X-{PRODUCT_NAME}-Synthetic") or "").strip() == "true"
+
+
 def stamp_pdf(path: Path, *, title: str, author: str, doc_date: date) -> None:
     import pikepdf
 
