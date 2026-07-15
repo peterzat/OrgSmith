@@ -81,3 +81,45 @@ def test_committed_org_is_complete(slug):
         assert status["stages"][stage] == "done", stage
     assert status["outstanding"] == {}
     assert paths.toc_md.exists()
+
+
+def test_fernhollow_exercises_affiliation_surfaces(capsys):
+    """The M6 fixture: AFF and NAME rules run unskipped, the graph
+    carries dated works_at edges for the boundary person plus the
+    multi-affiliation ambiguity tag, and the corpus is modern-format
+    only (CI stays LibreOffice-free)."""
+    from orgsmith.artifacts import (
+        load_charter,
+        load_foundation,
+        load_graph,
+        load_manifest,
+    )
+    from orgsmith.evals.emit import build_graph_expected
+
+    paths = OrgPaths(root=REPO, slug="fernhollow-partners")
+    if not paths.meta_dir.exists():
+        pytest.skip("fernhollow-partners not committed yet")
+
+    assert run_validate(
+        paths, as_json=True, only=["AFF-01", "AFF-02", "NAME-01"]
+    ) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["rules_run"] == ["NAME-01", "AFF-01", "AFF-02"]
+    assert payload["skipped"] == []
+
+    foundation = load_foundation(paths)
+    xp = next(p for p in foundation.external_people if p.affiliations)
+    graph = load_graph(paths)
+    works_at = [
+        e for e in graph.edges if e.kind == "works_at" and e.src == xp.id
+    ]
+    assert len(works_at) == 2
+    assert any(e.end is not None for e in works_at)
+    assert any(e.start is not None and e.end is None for e in works_at)
+
+    expected = build_graph_expected(load_charter(paths), foundation, graph)
+    entity = next(e for e in expected.entities if e.id == xp.id)
+    assert "ambiguity:multi-affiliation" in entity.tags
+
+    formats = {e.format for e in load_manifest(paths)}
+    assert formats <= {"docx", "pdf", "xlsx", "pptx", "eml"}

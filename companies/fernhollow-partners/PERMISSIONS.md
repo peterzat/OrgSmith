@@ -1,0 +1,114 @@
+# PERMISSIONS
+
+Read-access ground truth for Fernhollow Partners LLC (fernhollow-partners); posture: open.
+Derived from ledger/acl.json; regenerate with `python -m orgsmith acl fernhollow-partners`.
+
+## Michael White (Managing Partner)
+
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.18 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.31 - Kickoff Memo - Transaction Readiness Review.docx
+- Engagements/Nguyen, Reynolds and Martinez/2022.06.27 - Email 1 - Transaction Readiness Review - Nguyen, Reynolds and Martinez.eml
+- Engagements/Nguyen, Reynolds and Martinez/2022.07.18 - Briefing Deck - Nguyen, Reynolds and Martinez.pptx
+- Engagements/Nguyen, Reynolds and Martinez/2024.06.29 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2025.01.04 - Status Report - Nguyen, Reynolds and Martinez v2 FINAL.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2022-08-17 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2024-10-12 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Woods LLC/2020.05.31 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/2020.06.13 - Kickoff Memo - Valuation Analysis.docx
+- Engagements/Woods LLC/2020.07.10 - Email 1 - Valuation Analysis - Woods LLC.eml
+- Engagements/Woods LLC/2020.07.16 - Briefing Deck - Woods LLC.pptx
+- Engagements/Woods LLC/2020.09.26 - Status Report - Woods LLC v2 FINAL.docx
+- Engagements/Woods LLC/2023.05.01 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/Meeting Minutes 2020-08-06 - Woods LLC.docx
+- Engagements/Woods LLC/Meeting Minutes 2023-07-03 - Woods LLC.docx
+- Finance/FY2023 Financial Summary.xlsx
+- Finance/FY2024 Financial Summary.xlsx
+- Firm/Firm Overview 2022 v3.docx
+
+## Sandra Perez (Director)
+
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.18 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.31 - Kickoff Memo - Transaction Readiness Review.docx
+- Engagements/Nguyen, Reynolds and Martinez/2022.06.27 - Email 1 - Transaction Readiness Review - Nguyen, Reynolds and Martinez.eml
+- Engagements/Nguyen, Reynolds and Martinez/2022.07.18 - Briefing Deck - Nguyen, Reynolds and Martinez.pptx
+- Engagements/Nguyen, Reynolds and Martinez/2024.06.29 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2025.01.04 - Status Report - Nguyen, Reynolds and Martinez v2 FINAL.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2022-08-17 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2024-10-12 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Woods LLC/2020.05.31 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/2020.06.13 - Kickoff Memo - Valuation Analysis.docx
+- Engagements/Woods LLC/2020.07.10 - Email 1 - Valuation Analysis - Woods LLC.eml
+- Engagements/Woods LLC/2020.07.16 - Briefing Deck - Woods LLC.pptx
+- Engagements/Woods LLC/2020.09.26 - Status Report - Woods LLC v2 FINAL.docx
+- Engagements/Woods LLC/2023.05.01 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/Meeting Minutes 2020-08-06 - Woods LLC.docx
+- Engagements/Woods LLC/Meeting Minutes 2023-07-03 - Woods LLC.docx
+- Finance/FY2023 Financial Summary.xlsx
+- Finance/FY2024 Financial Summary.xlsx
+- Firm/Firm Overview 2022 v3.docx
+
+## Briana Dennis (Senior Associate)
+
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.18 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.31 - Kickoff Memo - Transaction Readiness Review.docx
+- Engagements/Nguyen, Reynolds and Martinez/2022.06.27 - Email 1 - Transaction Readiness Review - Nguyen, Reynolds and Martinez.eml
+- Engagements/Nguyen, Reynolds and Martinez/2022.07.18 - Briefing Deck - Nguyen, Reynolds and Martinez.pptx
+- Engagements/Nguyen, Reynolds and Martinez/2024.06.29 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2025.01.04 - Status Report - Nguyen, Reynolds and Martinez v2 FINAL.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2022-08-17 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2024-10-12 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Woods LLC/2020.05.31 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/2020.06.13 - Kickoff Memo - Valuation Analysis.docx
+- Engagements/Woods LLC/2020.07.10 - Email 1 - Valuation Analysis - Woods LLC.eml
+- Engagements/Woods LLC/2020.07.16 - Briefing Deck - Woods LLC.pptx
+- Engagements/Woods LLC/2020.09.26 - Status Report - Woods LLC v2 FINAL.docx
+- Engagements/Woods LLC/2023.05.01 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/Meeting Minutes 2020-08-06 - Woods LLC.docx
+- Engagements/Woods LLC/Meeting Minutes 2023-07-03 - Woods LLC.docx
+- Finance/FY2023 Financial Summary.xlsx
+- Finance/FY2024 Financial Summary.xlsx
+- Firm/Firm Overview 2022 v3.docx
+
+## Ryan Strong (Analyst)
+
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.18 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.31 - Kickoff Memo - Transaction Readiness Review.docx
+- Engagements/Nguyen, Reynolds and Martinez/2022.06.27 - Email 1 - Transaction Readiness Review - Nguyen, Reynolds and Martinez.eml
+- Engagements/Nguyen, Reynolds and Martinez/2022.07.18 - Briefing Deck - Nguyen, Reynolds and Martinez.pptx
+- Engagements/Nguyen, Reynolds and Martinez/2024.06.29 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2025.01.04 - Status Report - Nguyen, Reynolds and Martinez v2 FINAL.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2022-08-17 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2024-10-12 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Woods LLC/2020.05.31 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/2020.06.13 - Kickoff Memo - Valuation Analysis.docx
+- Engagements/Woods LLC/2020.07.10 - Email 1 - Valuation Analysis - Woods LLC.eml
+- Engagements/Woods LLC/2020.07.16 - Briefing Deck - Woods LLC.pptx
+- Engagements/Woods LLC/2020.09.26 - Status Report - Woods LLC v2 FINAL.docx
+- Engagements/Woods LLC/2023.05.01 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/Meeting Minutes 2020-08-06 - Woods LLC.docx
+- Engagements/Woods LLC/Meeting Minutes 2023-07-03 - Woods LLC.docx
+- Finance/FY2023 Financial Summary.xlsx
+- Finance/FY2024 Financial Summary.xlsx
+- Firm/Firm Overview 2022 v3.docx
+
+## Daniel Powell (Office Manager)
+
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.18 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2022.05.31 - Kickoff Memo - Transaction Readiness Review.docx
+- Engagements/Nguyen, Reynolds and Martinez/2022.06.27 - Email 1 - Transaction Readiness Review - Nguyen, Reynolds and Martinez.eml
+- Engagements/Nguyen, Reynolds and Martinez/2022.07.18 - Briefing Deck - Nguyen, Reynolds and Martinez.pptx
+- Engagements/Nguyen, Reynolds and Martinez/2024.06.29 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf
+- Engagements/Nguyen, Reynolds and Martinez/2025.01.04 - Status Report - Nguyen, Reynolds and Martinez v2 FINAL.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2022-08-17 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Nguyen, Reynolds and Martinez/Meeting Minutes 2024-10-12 - Nguyen, Reynolds and Martinez.docx
+- Engagements/Woods LLC/2020.05.31 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/2020.06.13 - Kickoff Memo - Valuation Analysis.docx
+- Engagements/Woods LLC/2020.07.10 - Email 1 - Valuation Analysis - Woods LLC.eml
+- Engagements/Woods LLC/2020.07.16 - Briefing Deck - Woods LLC.pptx
+- Engagements/Woods LLC/2020.09.26 - Status Report - Woods LLC v2 FINAL.docx
+- Engagements/Woods LLC/2023.05.01 - Engagement Letter - Woods LLC - EXECUTED.pdf
+- Engagements/Woods LLC/Meeting Minutes 2020-08-06 - Woods LLC.docx
+- Engagements/Woods LLC/Meeting Minutes 2023-07-03 - Woods LLC.docx
+- Finance/FY2023 Financial Summary.xlsx
+- Finance/FY2024 Financial Summary.xlsx
+- Firm/Firm Overview 2022 v3.docx

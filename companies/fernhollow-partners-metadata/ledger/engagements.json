@@ -1,0 +1,166 @@
+{
+  "schema_id": "orgsmith/engagements@1",
+  "slug": "fernhollow-partners",
+  "engagements": [
+    {
+      "id": "E-2020-001",
+      "title": "Valuation Analysis for Woods LLC",
+      "client": "x:woods-llc",
+      "start": "2020-06-10",
+      "end": "2020-11-01",
+      "fee": 83500,
+      "internal_participants": [
+        "p:sandra.perez",
+        "p:briana.dennis",
+        "p:ryan.strong"
+      ],
+      "external_participants": [
+        "xp:amanda.golden"
+      ],
+      "summary": "Valuation Analysis engagement for Woods LLC, running June 2020 through November 2020 at a fixed fee of $83,500.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.fee",
+          "kind": "money",
+          "value": 83500,
+          "rendered": "$83,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.start",
+          "kind": "date",
+          "value": "2020-06-10",
+          "rendered": "June 10, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "kind": "text",
+          "value": "Woods LLC",
+          "rendered": "Woods LLC",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2022-001",
+      "title": "Transaction Readiness Review for Nguyen, Reynolds and Martinez",
+      "client": "x:nguyen-reynolds-and-martinez",
+      "start": "2022-05-28",
+      "end": "2022-12-18",
+      "fee": 45000,
+      "internal_participants": [
+        "p:sandra.perez",
+        "p:ryan.strong",
+        "p:briana.dennis"
+      ],
+      "external_participants": [
+        "xp:amanda.golden"
+      ],
+      "summary": "Transaction Readiness Review engagement for Nguyen, Reynolds and Martinez, running May 2022 through December 2022 at a fixed fee of $45,000.",
+      "facts": [
+        {
+          "id": "f:E-2022-001.fee",
+          "kind": "money",
+          "value": 45000,
+          "rendered": "$45,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2022-001.start",
+          "kind": "date",
+          "value": "2022-05-28",
+          "rendered": "May 28, 2022",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2022-001.client",
+          "kind": "text",
+          "value": "Nguyen, Reynolds and Martinez",
+          "rendered": "Nguyen, Reynolds and Martinez",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2023-001",
+      "title": "Working Capital Assessment for Woods LLC",
+      "client": "x:woods-llc",
+      "start": "2023-05-11",
+      "end": "2023-09-22",
+      "fee": 55500,
+      "internal_participants": [
+        "p:sandra.perez",
+        "p:briana.dennis",
+        "p:ryan.strong"
+      ],
+      "external_participants": [
+        "xp:gerald.ross"
+      ],
+      "summary": "Working Capital Assessment engagement for Woods LLC, running May 2023 through September 2023 at a fixed fee of $55,500.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "kind": "money",
+          "value": 55500,
+          "rendered": "$55,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "kind": "date",
+          "value": "2023-05-11",
+          "rendered": "May 11, 2023",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "kind": "text",
+          "value": "Woods LLC",
+          "rendered": "Woods LLC",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2024-001",
+      "title": "Post-Close Integration Support for Nguyen, Reynolds and Martinez",
+      "client": "x:nguyen-reynolds-and-martinez",
+      "start": "2024-07-09",
+      "end": "2025-03-05",
+      "fee": 54000,
+      "internal_participants": [
+        "p:sandra.perez",
+        "p:briana.dennis",
+        "p:ryan.strong"
+      ],
+      "external_participants": [
+        "xp:amanda.golden"
+      ],
+      "summary": "Post-Close Integration Support engagement for Nguyen, Reynolds and Martinez, running July 2024 through March 2025 at a fixed fee of $54,000.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "kind": "money",
+          "value": 54000,
+          "rendered": "$54,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2024-001.start",
+          "kind": "date",
+          "value": "2024-07-09",
+          "rendered": "July 9, 2024",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "kind": "text",
+          "value": "Nguyen, Reynolds and Martinez",
+          "rendered": "Nguyen, Reynolds and Martinez",
+          "location_policy": "body"
+        }
+      ]
+    }
+  ]
+}

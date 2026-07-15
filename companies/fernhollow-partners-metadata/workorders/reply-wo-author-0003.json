@@ -1,0 +1,112 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0003",
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0008",
+      "blocks": [
+        {"kind": "heading", "text": "Fernhollow Partners LLC", "level": 1},
+        {"kind": "paragraph", "text": "Amanda Golden, VP Finance, Nguyen, Reynolds and Martinez"},
+        {"kind": "paragraph", "text": "Re: Transaction Readiness Review"},
+        {"kind": "paragraph", "text": "Dear Ms. Golden:"},
+        {"kind": "paragraph", "text": "This letter confirms that {{fact:f:E-2022-001.client}} has engaged Fernhollow Partners LLC to conduct a transaction readiness review of Nguyen, Reynolds and Martinez. The work begins {{fact:f:E-2022-001.start}} and runs approximately seven months, through delivery of a written readiness assessment and a briefing to your board. We are glad the working relationship continues in your new seat, and we intend to keep earning it."},
+        {"kind": "paragraph", "text": "The purpose of the review is plain: when a buyer or lender arrives, your numbers should already answer the questions. We will assemble and organize the data room, perform a quality-of-numbers review of the financial statements and supporting schedules, and prepare management for diligence itself. Document needs come to you in a single request list at kickoff. We do not opine on legal, tax, or accounting matters, and we do not negotiate on your behalf. The deliverables are an organized data room, a readiness assessment with remediation items ranked by importance, and a short briefing suitable for board use."},
+        {"kind": "paragraph", "text": "Sandra Perez, Director, leads the engagement day to day and is your first call. Briana Dennis, Senior Associate, runs the quality-of-numbers review and drafts the assessment. Ryan Strong, Analyst, builds the data room index and ties the schedules to source. I read the assessment and the remediation log before either reaches you."},
+        {"kind": "paragraph", "text": "Our fee for this scope is {{fact:f:E-2022-001.fee}}. The fee is fixed and covers professional time and routine expenses. Unusual expenses require your written approval before we incur them. Invoices are issued monthly and are payable on receipt. Should the scope change, we agree the adjustment in writing before additional work begins."},
+        {"kind": "paragraph", "text": "We hold your information in confidence. Materials you provide are used only for this engagement and are returned or destroyed at your direction when the work concludes. Our workpapers remain our property."},
+        {"kind": "paragraph", "text": "If these terms are acceptable, please sign below and return one copy to my attention. Until then, questions can go to Sandra Perez or to me directly. We look forward to the work."},
+        {"kind": "sigblock", "signers": ["p:michael.white", "xp:amanda.golden"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0009",
+      "blocks": [
+        {"kind": "heading", "text": "Kickoff Memo: Transaction Readiness Review for Nguyen, Reynolds and Martinez", "level": 1},
+        {"kind": "paragraph", "text": "To: Briana Dennis; Ryan Strong. From: Sandra Perez. Re: readiness review kickoff."},
+        {"kind": "paragraph", "text": "The engagement letter is countersigned. {{fact:f:E-2022-001.client}} has engaged us for a transaction readiness review, effective {{fact:f:E-2022-001.start}} and running roughly seven months. The objective is a company that walks into diligence with nothing left to explain: a data room a buyer can navigate without asking, figures that tie to source, and a management team that has already heard the hard questions. Amanda Golden, VP Finance, is our client lead. She has worked with us before and knows how we run, so route every request through her and copy me."},
+        {"kind": "heading", "text": "Workstreams", "level": 2},
+        {"kind": "list", "items": [
+          "Data room. Ryan builds the index and loads batches as they arrive; the structure mirrors the request list so gaps show themselves.",
+          "Quality of numbers. Briana owns the review of the annual financials and supporting schedules, every figure tied to source.",
+          "Remediation log. Briana keeps the ranked list of items to fix before outside eyes see the room; I review it weekly.",
+          "Management preparation. I run the diligence-question sessions with Amanda Golden's team once the room is substantially loaded."
+        ]},
+        {"kind": "heading", "text": "Next Steps", "level": 2},
+        {"kind": "paragraph", "text": "Request list to Amanda by Friday. Ryan stands up the workbook and the data room skeleton this week; first internal check-in next Tuesday. Bring gaps, not polish. On readiness work the client pays us to find problems before a buyer does, so finding one means the job is going well."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0010",
+      "blocks": [
+        {"kind": "paragraph", "text": "Amanda Golden, Briana Dennis, Ryan Strong:"},
+        {"kind": "paragraph", "text": "A short status on the {{fact:f:E-2022-001.client}} readiness review before the midweek calls. The data room index is complete and the first two document batches are loaded. Briana's quality-of-numbers review is through the annual statements, and the remediation log is ranked, short, and mostly documentation rather than substance."},
+        {"kind": "paragraph", "text": "Two asks on the Nguyen, Reynolds and Martinez side. Amanda, we need the remaining lease and contract schedules Ryan requested, and thirty minutes with you this week to walk the open items together. With both in hand we hold the briefing date we discussed."},
+        {"kind": "paragraph", "text": "Nothing above is off plan. I will write again after we walk the log."},
+        {"kind": "paragraph", "text": "Sandra Perez"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0011",
+      "blocks": [
+        {"kind": "heading", "text": "Transaction Readiness Review: Nguyen, Reynolds and Martinez", "level": 1},
+        {"kind": "paragraph", "text": "Midpoint client briefing prepared for {{fact:f:E-2022-001.client}} by Fernhollow Partners LLC. Presented by Sandra Perez, Director."},
+        {"kind": "heading", "text": "Engagement Snapshot", "level": 1},
+        {"kind": "list", "items": [
+          "Readiness review under way since {{fact:f:E-2022-001.start}}",
+          "Scope: data room build, quality of numbers, diligence preparation",
+          "Client lead: Amanda Golden, VP Finance",
+          "Seven-month program, now past its midpoint"
+        ]},
+        {"kind": "heading", "text": "Progress Since Kickoff", "level": 1},
+        {"kind": "list", "items": [
+          "Data room index complete; core document batches loaded (Ryan Strong)",
+          "Quality-of-numbers review through the annual statements (Briana Dennis)",
+          "Remediation log established, ranked by importance, and shrinking",
+          "No finding to date that would move a buyer's view of the numbers"
+        ]},
+        {"kind": "heading", "text": "Open Items", "level": 1},
+        {"kind": "list", "items": [
+          "Remaining lease and contract schedules from the finance team",
+          "Management diligence-question sessions to be scheduled",
+          "Final pass on customer and supplier documentation"
+        ]},
+        {"kind": "heading", "text": "Next Steps", "level": 1},
+        {"kind": "list", "items": [
+          "Close remaining remediation items with Amanda Golden's team",
+          "Run the management preparation sessions",
+          "Deliver the written readiness assessment",
+          "Confirm timing for the closing board briefing"
+        ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0012",
+      "blocks": [
+        {"kind": "heading", "text": "Meeting Minutes: Transaction Readiness Review for Nguyen, Reynolds and Martinez", "level": 1},
+        {"kind": "paragraph", "text": "Working session on the {{fact:f:E-2022-001.client}} readiness engagement, held by video conference. Minutes prepared by Briana Dennis; corrections by Friday, after which these stand as written."},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Sandra Perez, Director, Fernhollow Partners LLC",
+          "Briana Dennis, Senior Associate, Fernhollow Partners LLC",
+          "Ryan Strong, Analyst, Fernhollow Partners LLC",
+          "Amanda Golden, VP Finance, Nguyen, Reynolds and Martinez"
+        ]},
+        {"kind": "heading", "text": "Discussion", "level": 2},
+        {"kind": "paragraph", "text": "Sandra Perez opened on the remediation log. The ranked items are down to a short tail, and nothing remaining touches the core financial statements. Ryan Strong walked through the state of the data room: the index is stable, and the latest document batch from the client loaded cleanly against it. Amanda Golden confirmed her team can turn the last schedule requests within the week."},
+        {"kind": "paragraph", "text": "The back half of the session covered management preparation. Amanda Golden asked that the diligence-question sessions run before her quarter-end close, and Sandra Perez agreed to compress the schedule rather than split it. The written readiness assessment will follow the sessions, so its findings reflect how management actually answers, not only what the room contains."},
+        {"kind": "heading", "text": "Action Items", "level": 2},
+        {"kind": "list", "items": [
+          "Amanda Golden: return the remaining schedule requests to Ryan Strong within the week",
+          "Sandra Perez: circulate the compressed plan for the management preparation sessions",
+          "Ryan Strong: freeze the data room index and log any late additions separately",
+          "Briana Dennis: outline the readiness assessment so drafting starts the day the sessions end"
+        ]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "fernhollow-partners",
+  "entities": [
+    "x:fernhollow-partners",
+    "p:michael.white",
+    "p:sandra.perez",
+    "p:briana.dennis",
+    "p:ryan.strong",
+    "p:daniel.powell",
+    "x:nguyen-reynolds-and-martinez",
+    "x:perez-kemp",
+    "x:woods-llc",
+    "xp:amanda.golden",
+    "xp:jeffery.waller",
+    "xp:gerald.ross",
+    "xp:theresa.waller"
+  ],
+  "edges": [
+    {
+      "src": "p:michael.white",
+      "dst": "x:fernhollow-partners",
+      "kind": "works_at",
+      "start": "2018-02-15",
+      "end": null
+    },
+    {
+      "src": "p:sandra.perez",
+      "dst": "p:michael.white",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sandra.perez",
+      "dst": "x:fernhollow-partners",
+      "kind": "works_at",
+      "start": "2018-03-15",
+      "end": null
+    },
+    {
+      "src": "p:briana.dennis",
+      "dst": "p:sandra.perez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:briana.dennis",
+      "dst": "x:fernhollow-partners",
+      "kind": "works_at",
+      "start": "2019-04-06",
+      "end": null
+    },
+    {
+      "src": "p:ryan.strong",
+      "dst": "p:sandra.perez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:ryan.strong",
+      "dst": "x:fernhollow-partners",
+      "kind": "works_at",
+      "start": "2019-02-17",
+      "end": null
+    },
+    {
+      "src": "p:daniel.powell",
+      "dst": "p:michael.white",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:daniel.powell",
+      "dst": "x:fernhollow-partners",
+      "kind": "works_at",
+      "start": "2018-04-15",
+      "end": null
+    },
+    {
+      "src": "xp:amanda.golden",
+      "dst": "x:woods-llc",
+      "kind": "works_at",
+      "start": null,
+      "end": "2022-05-11"
+    },
+    {
+      "src": "xp:amanda.golden",
+      "dst": "x:nguyen-reynolds-and-martinez",
+      "kind": "works_at",
+      "start": "2022-05-12",
+      "end": null
+    },
+    {
+      "src": "xp:jeffery.waller",
+      "dst": "x:perez-kemp",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:gerald.ross",
+      "dst": "x:woods-llc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:theresa.waller",
+      "dst": "x:nguyen-reynolds-and-martinez",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:woods-llc",
+      "dst": "x:fernhollow-partners",
+      "kind": "client_of",
+      "start": "2020-06-10",
+      "end": null
+    },
+    {
+      "src": "p:sandra.perez",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-06-10",
+      "end": "2020-11-01"
+    },
+    {
+      "src": "p:briana.dennis",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-06-10",
+      "end": "2020-11-01"
+    },
+    {
+      "src": "p:ryan.strong",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-06-10",
+      "end": "2020-11-01"
+    },
+    {
+      "src": "xp:amanda.golden",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-06-10",
+      "end": "2020-11-01"
+    },
+    {
+      "src": "x:nguyen-reynolds-and-martinez",
+      "dst": "x:fernhollow-partners",
+      "kind": "client_of",
+      "start": "2022-05-28",
+      "end": null
+    },
+    {
+      "src": "p:sandra.perez",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-28",
+      "end": "2022-12-18"
+    },
+    {
+      "src": "p:ryan.strong",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-28",
+      "end": "2022-12-18"
+    },
+    {
+      "src": "p:briana.dennis",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-28",
+      "end": "2022-12-18"
+    },
+    {
+      "src": "xp:amanda.golden",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-28",
+      "end": "2022-12-18"
+    },
+    {
+      "src": "p:sandra.perez",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-05-11",
+      "end": "2023-09-22"
+    },
+    {
+      "src": "p:briana.dennis",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-05-11",
+      "end": "2023-09-22"
+    },
+    {
+      "src": "p:ryan.strong",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-05-11",
+      "end": "2023-09-22"
+    },
+    {
+      "src": "xp:gerald.ross",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-05-11",
+      "end": "2023-09-22"
+    },
+    {
+      "src": "p:sandra.perez",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-07-09",
+      "end": "2025-03-05"
+    },
+    {
+      "src": "p:briana.dennis",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-07-09",
+      "end": "2025-03-05"
+    },
+    {
+      "src": "p:ryan.strong",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-07-09",
+      "end": "2025-03-05"
+    },
+    {
+      "src": "xp:amanda.golden",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-07-09",
+      "end": "2025-03-05"
+    }
+  ]
+}

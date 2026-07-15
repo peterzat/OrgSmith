@@ -1,0 +1,189 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0004",
+  "stage": "author",
+  "slug": "fernhollow-partners",
+  "org_name": "Fernhollow Partners LLC",
+  "org_type": "financial advisory",
+  "narrative": "Fernhollow Partners is a five-person financial advisory boutique serving\nfounder-owned and sponsor-backed operating companies through valuations,\ntransaction readiness, and post-close work. The relationship runs long:\nclient finance leads move between employers mid-history and bring\nFernhollow with them, so the same outside contact may sign an engagement\nletter under one firm and appear in minutes under another years later.\nEngagement letters go out as signed PDFs over the Managing Partner's\nname, kickoff memos and status reports live in Word, board-ready\nreadouts are short PowerPoint decks, and scheduling happens in concise\nemail threads. Tone is measured, numerate business English: figures\ncarry the argument, adjectives do not; first names inside the firm,\nfull names and titles when a client is on the page. Spreadsheets are\nannual, tidy, and tie out.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0013",
+      "title": "Engagement Letter: Working Capital Assessment for Woods LLC",
+      "genre": "engagement_letter",
+      "date": "2023-05-01",
+      "authors": [
+        {
+          "id": "p:michael.white",
+          "name": "Michael White",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Michael is the firm's face to clients and the signature on every engagement letter, and he writes the way he negotiates: short declarative sentences, the fee and scope stated plainly, no adjectives doing work a figure could do. He came up through valuation practice and still reads every model before a readout goes to a board, though he trusts his team to build them. With clients he is formal to the letter, full names and titles on the page; inside the firm he is first-name warm and allergic to long meetings."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:sandra.perez",
+          "name": "Sandra Perez",
+          "title": "Director",
+          "dept": "Advisory",
+          "persona": "Sandra runs engagements day to day and is the person clients actually call when something wobbles mid-transaction. Her background is in transaction diligence, and it shows in her writing: status reports organized around what changed, what it means, and what she needs from the client by when. She edits the associates' drafts hard but kindly, and her margin notes have quietly become the house style guide. On the phone she is unhurried and precise, which clients read as confidence."
+        },
+        {
+          "id": "p:briana.dennis",
+          "name": "Briana Dennis",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "Briana owns the working drafts, the kickoff memos, the first cut of every deck, and she prides herself on documents that survive Sandra's red pen mostly intact. She thinks in structure first, prose second, and will rebuild a readout's flow before she polishes a sentence. Her spreadsheets tie out to the penny because she learned early that a single loose figure costs the firm a room's trust. In email she is brisk and cheerful, closing threads rather than extending them."
+        },
+        {
+          "id": "p:ryan.strong",
+          "name": "Ryan Strong",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Ryan is the newest analyst and the firm's engine room: comps, tie-outs, and the unglamorous tabs at the back of the model. He is careful to a fault, flagging anything he cannot source rather than smoothing over it, and he asks his questions in batched emails so he interrupts nobody twice. His written voice is still forming, earnest and slightly formal, and he leans on the firm's older documents as templates while he finds his own footing."
+        },
+        {
+          "id": "xp:gerald.ross",
+          "name": "Gerald Ross",
+          "title": "Chief Financial Officer",
+          "dept": "Woods LLC",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Working Capital Assessment for Woods LLC, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michael.white",
+          "surface": "Michael White",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.perez",
+          "surface": "Sandra Perez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:briana.dennis",
+          "surface": "Briana Dennis",
+          "kind": "person"
+        },
+        {
+          "entity": "p:ryan.strong",
+          "surface": "Ryan Strong",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gerald.ross",
+          "surface": "Gerald Ross",
+          "kind": "person"
+        },
+        {
+          "entity": "x:woods-llc",
+          "surface": "Woods LLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 350,
+      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
+    },
+    {
+      "doc_id": "d:0014",
+      "title": "Meeting Minutes: Working Capital Assessment for Woods LLC",
+      "genre": "meeting_minutes",
+      "date": "2023-07-03",
+      "authors": [
+        {
+          "id": "p:ryan.strong",
+          "name": "Ryan Strong",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Ryan is the newest analyst and the firm's engine room: comps, tie-outs, and the unglamorous tabs at the back of the model. He is careful to a fault, flagging anything he cannot source rather than smoothing over it, and he asks his questions in batched emails so he interrupts nobody twice. His written voice is still forming, earnest and slightly formal, and he leans on the firm's older documents as templates while he finds his own footing."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:sandra.perez",
+          "name": "Sandra Perez",
+          "title": "Director",
+          "dept": "Advisory",
+          "persona": "Sandra runs engagements day to day and is the person clients actually call when something wobbles mid-transaction. Her background is in transaction diligence, and it shows in her writing: status reports organized around what changed, what it means, and what she needs from the client by when. She edits the associates' drafts hard but kindly, and her margin notes have quietly become the house style guide. On the phone she is unhurried and precise, which clients read as confidence."
+        },
+        {
+          "id": "p:briana.dennis",
+          "name": "Briana Dennis",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "Briana owns the working drafts, the kickoff memos, the first cut of every deck, and she prides herself on documents that survive Sandra's red pen mostly intact. She thinks in structure first, prose second, and will rebuild a readout's flow before she polishes a sentence. Her spreadsheets tie out to the penny because she learned early that a single loose figure costs the firm a room's trust. In email she is brisk and cheerful, closing threads rather than extending them."
+        },
+        {
+          "id": "p:ryan.strong",
+          "name": "Ryan Strong",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Ryan is the newest analyst and the firm's engine room: comps, tie-outs, and the unglamorous tabs at the back of the model. He is careful to a fault, flagging anything he cannot source rather than smoothing over it, and he asks his questions in batched emails so he interrupts nobody twice. His written voice is still forming, earnest and slightly formal, and he leans on the firm's older documents as templates while he finds his own footing."
+        },
+        {
+          "id": "xp:gerald.ross",
+          "name": "Gerald Ross",
+          "title": "Chief Financial Officer",
+          "dept": "Woods LLC",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Working Capital Assessment for Woods LLC, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:ryan.strong",
+          "surface": "Ryan Strong",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.perez",
+          "surface": "Sandra Perez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:briana.dennis",
+          "surface": "Briana Dennis",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gerald.ross",
+          "surface": "Gerald Ross",
+          "kind": "person"
+        },
+        {
+          "entity": "x:woods-llc",
+          "surface": "Woods LLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 220,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

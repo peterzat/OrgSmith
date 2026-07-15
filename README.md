@@ -162,9 +162,10 @@ validation) run as plain Python and cost no tokens at all.
 
 ## What is in the box today
 
-- The full pipeline, end to end, proven on six committed fixtures:
+- The full pipeline, end to end, proven on seven committed fixtures:
   `dev-mini` (a 5-person consultancy, 13 documents, three engagements,
-  2019-2022); `torchlake-engineering` (a 6-person engineering firm, 11
+  2019-2022, with mention ground truth, the ACL overlay, and visibility
+  evals); `torchlake-engineering` (a 6-person engineering firm, 11
   documents, 2018-2024) generated with every ambiguity knob on: a
   surname-collision pair, a nickname alias planted in rendered minutes,
   and an external contact with a mid-history employer change;
@@ -179,7 +180,13 @@ validation) run as plain Python and cost no tokens at all.
   doc a real pre-2007 binary, two engagement letters rasterized as
   degraded scans (one with a synthetic OCR layer, one image-only). Known
   anachronism, reserved for the era-naming turn: the retro roster keeps
-  modern seeded names.
+  modern seeded names. And `fernhollow-partners` (a 5-person financial
+  advisory boutique, 19 documents, four engagements, 2019-2025)
+  generated with `affiliations_in_docs` on: one client contact signs an
+  early engagement letter under one employer and appears in late
+  documents under another, era-correct per document date, with dated
+  works_at edges and the multi-affiliation ambiguity tag in its answer
+  key.
 - Access-control ground truth: the recipe's `acl_posture` derives
   `ledger/acl.json` (exactly which internal people may read which
   documents: matter teams plus the CEO-equivalent for engagement folders,

@@ -1,0 +1,148 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0001",
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0001",
+      "blocks": [
+        {"kind": "heading", "text": "Fernhollow Partners LLC", "level": 1},
+        {"kind": "paragraph", "text": "Amanda Golden, VP Finance, Woods LLC"},
+        {"kind": "paragraph", "text": "Re: Valuation Analysis for Woods LLC"},
+        {"kind": "paragraph", "text": "Dear Ms. Golden:"},
+        {"kind": "paragraph", "text": "This letter confirms that {{fact:f:E-2020-001.client}} has engaged Fernhollow Partners LLC to prepare a valuation analysis of Woods LLC. Work begins on {{fact:f:E-2020-001.start}} and runs through delivery of a final report and a readout to your board. We appreciate the confidence this engagement reflects, and we intend to earn it."},
+        {"kind": "paragraph", "text": "The scope is fixed. We will estimate the fair market value of the company using income and market approaches. The work rests on management interviews, the financial statements and supporting schedules your office provides, and our own research into comparable companies and transactions. We will identify the records we need in a single request list at kickoff. We do not opine on legal, tax, or accounting matters. The deliverable is a written valuation report suitable for board use, preceded by a client briefing and regular status reporting along the way."},
+        {"kind": "paragraph", "text": "Sandra Perez, Director, leads the engagement day to day and is your first call. Briana Dennis, Senior Associate, builds the model and drafts the report. Ryan Strong, Analyst, prepares the comparable-company work and ties out the figures. I review the model and the report before either reaches your board."},
+        {"kind": "paragraph", "text": "Our fee for this scope is {{fact:f:E-2020-001.fee}}. The fee is fixed. It covers professional time and routine expenses. Unusual expenses require your written approval before we incur them. Invoices are issued monthly and are payable on receipt. If the scope changes, we will agree on any adjustment in writing before additional work begins."},
+        {"kind": "paragraph", "text": "We will hold your information in confidence. Materials you provide are used only for this engagement and are returned or destroyed at your direction when the work concludes. Our workpapers remain our property."},
+        {"kind": "paragraph", "text": "If these terms are acceptable, please sign below and return one copy to my attention. Questions before then can go to Sandra Perez or to me directly. We are glad to be working with Woods LLC."},
+        {"kind": "sigblock", "signers": ["p:michael.white", "xp:amanda.golden"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0002",
+      "blocks": [
+        {"kind": "heading", "text": "Kickoff Memo: Valuation Analysis for Woods LLC", "level": 1},
+        {"kind": "paragraph", "text": "To: Briana Dennis; Ryan Strong. Cc: Daniel Powell. From: Sandra Perez. Re: Woods LLC valuation, engagement kickoff."},
+        {"kind": "paragraph", "text": "The engagement letter is signed. {{fact:f:E-2020-001.client}} has engaged us to prepare a valuation analysis for board use, and the clock starts {{fact:f:E-2020-001.start}}. The objective is a report that survives a skeptical board read: every figure sourced, both approaches reconciled, no loose ends left for the readout. Amanda Golden, VP Finance, is our primary contact and will coordinate everything on the client side, so route document requests through her rather than around her."},
+        {"kind": "heading", "text": "Workstreams", "level": 2},
+        {"kind": "list", "items": [
+          "Request list: Briana owns the initial document request; it goes out this week so document flow does not gate the model.",
+          "Income approach: Briana builds the model; Ryan prepares the supporting schedules and reconciliations.",
+          "Market approach: Ryan assembles the comparable-company and transaction sets, flagging anything he cannot source.",
+          "Management interviews: I schedule these with the client; Daniel Powell coordinates calendars and files the notes.",
+          "Report and readout: Briana drafts, I edit, and nothing leaves the building without a final read."
+        ]},
+        {"kind": "heading", "text": "Next Steps", "level": 2},
+        {"kind": "paragraph", "text": "Request list to Amanda Golden by end of week. Kickoff call with the client once the first document batch lands. Ryan sets up the engagement workbook; Daniel opens the file and sets the invoice schedule. Bring me problems early. Surprises age badly on a valuation."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0003",
+      "blocks": [
+        {"kind": "paragraph", "text": "Amanda Golden, Briana Dennis, Ryan Strong --"},
+        {"kind": "paragraph", "text": "Status on the {{fact:f:E-2020-001.client}} valuation as of this week. The income approach is drafted and through my first review. Briana has folded in the latest monthly close, and Ryan has finished the comparable-company set and begun the tie-out. We are tracking to the plan we set at kickoff."},
+        {"kind": "paragraph", "text": "Two asks on the Woods LLC side. Amanda, we still need the updated customer concentration schedule and your confirmation of the readout slot we discussed. With both in hand by Friday we hold the schedule; without them the tie-out slips a week."},
+        {"kind": "paragraph", "text": "I will flag anything that moves. Thank you all for the quick turns so far."},
+        {"kind": "paragraph", "text": "Sandra Perez"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0004",
+      "blocks": [
+        {"kind": "heading", "text": "Valuation Analysis for Woods LLC", "level": 1},
+        {"kind": "paragraph", "text": "Client briefing prepared for {{fact:f:E-2020-001.client}} by Fernhollow Partners LLC."},
+        {"kind": "heading", "text": "Engagement at a Glance", "level": 1},
+        {"kind": "list", "items": [
+          "Engaged effective {{fact:f:E-2020-001.start}}",
+          "Scope: valuation analysis of Woods LLC for board use",
+          "Client contact: Amanda Golden, VP Finance",
+          "Deliverables: valuation report, board readout, periodic status reporting"
+        ]},
+        {"kind": "heading", "text": "Progress to Date", "level": 1},
+        {"kind": "list", "items": [
+          "Income approach model drafted and in first review",
+          "Comparable-company set complete; tie-out under way",
+          "Management interviews finished and notes circulated",
+          "Client document requests substantially fulfilled"
+        ]},
+        {"kind": "heading", "text": "Team", "level": 1},
+        {"kind": "list", "items": [
+          "Sandra Perez, Director (engagement lead and day-to-day contact)",
+          "Briana Dennis, Senior Associate (model and report drafting)",
+          "Ryan Strong, Analyst (comparables, schedules, tie-out)"
+        ]},
+        {"kind": "heading", "text": "Next Steps", "level": 1},
+        {"kind": "list", "items": [
+          "Complete tie-out and close remaining data items",
+          "Second internal review of the draft model",
+          "Circulate draft findings to management for factual review",
+          "Confirm the board readout window with Amanda Golden's office"
+        ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0005",
+      "blocks": [
+        {"kind": "heading", "text": "Meeting Minutes: Valuation Analysis for Woods LLC", "level": 1},
+        {"kind": "paragraph", "text": "Working session on the {{fact:f:E-2020-001.client}} engagement, held by video conference. Minutes prepared by Ryan Strong; please send corrections to him directly."},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Sandra Perez, Director, Fernhollow Partners LLC",
+          "Briana Dennis, Senior Associate, Fernhollow Partners LLC",
+          "Ryan Strong, Analyst, Fernhollow Partners LLC",
+          "Amanda Golden, VP Finance, Woods LLC",
+          "Daniel Powell, Office Manager, Fernhollow Partners LLC"
+        ]},
+        {"kind": "heading", "text": "Discussion", "level": 2},
+        {"kind": "paragraph", "text": "Sandra Perez opened with model status. The income approach has cleared first review, and the open items now sit in the supporting schedules rather than the core model. Briana Dennis walked through the working-capital reconciliation and noted one figure she cannot yet trace to source; it is flagged in the workbook rather than smoothed over, and Amanda Golden agreed to run it down with her controller."},
+        {"kind": "paragraph", "text": "Discussion then turned to the readout. Amanda Golden expects the board to press hardest on the market approach, so the comparable-company section will carry a fuller appendix than usual. Daniel Powell confirmed the client's preferred meeting windows and will circulate calendar holds once the draft clears second review."},
+        {"kind": "heading", "text": "Action Items", "level": 2},
+        {"kind": "table",
+         "header": ["Item", "Owner", "Target"],
+         "rows": [
+          ["Trace the flagged working-capital figure with the controller", "Amanda Golden", "Before next session"],
+          ["Complete tie-out of the comparable-company tabs", "Ryan Strong", "End of next week"],
+          ["Expand the market-approach appendix in the draft report", "Briana Dennis", "With next draft"],
+          ["Circulate readout calendar holds", "Daniel Powell", "After second review"]
+        ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0006",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Valuation Analysis for Woods LLC", "level": 1},
+        {"kind": "paragraph", "text": "Prepared by Sandra Perez, Director, Fernhollow Partners LLC, for the {{fact:f:E-2020-001.client}} executive team."},
+        {"kind": "heading", "text": "Status Summary", "level": 2},
+        {"kind": "paragraph", "text": "The engagement is on schedule. What changed this period: the draft valuation model cleared second internal review, and the last open data item on the Woods LLC side was resolved and traced to source. What it means: the analytical work is substantially complete, and the remaining effort is drafting, review, and the board readout. What we need from you appears under Upcoming Work."},
+        {"kind": "heading", "text": "Accomplishments This Period", "level": 2},
+        {"kind": "list", "items": [
+          "Draft valuation model completed and through second internal review, with income and market approaches reconciled",
+          "Briana Dennis completed the draft report structure and the expanded market-approach appendix requested for the board",
+          "Ryan Strong finished the comparable-company tie-out; every figure in the model now traces to source",
+          "Final open client data item resolved with your controller's office"
+        ]},
+        {"kind": "heading", "text": "Upcoming Work", "level": 2},
+        {"kind": "list", "items": [
+          "Full draft report to you for factual review",
+          "Final partner review of the model and report before board materials are produced",
+          "Board readout deck prepared once factual-review comments are in",
+          "Confirmation of the board presentation window"
+        ]},
+        {"kind": "heading", "text": "Budget", "level": 2},
+        {"kind": "paragraph", "text": "The engagement remains within the fixed fee of {{fact:f:E-2020-001.fee}} set in the engagement letter. No scope changes have been requested or made, and we do not expect any adjustment. Invoicing continues on the monthly schedule."},
+        {"kind": "heading", "text": "Risks", "level": 2},
+        {"kind": "list", "items": [
+          "Board calendar: if the presentation window moves, the factual-review period compresses; early confirmation protects the schedule",
+          "Late data changes: any restatement of the monthly figures after factual review would require rework of the tie-out",
+          "Availability: the review period overlaps client close activities, so we have kept the factual-review packet deliberately short"
+        ]}
+      ]
+    }
+  ]
+}
