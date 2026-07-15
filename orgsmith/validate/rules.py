@@ -276,7 +276,7 @@ def file_01(ctx: Context):
 
 # --- MAN ------------------------------------------------------------------
 
-_SHARE_EXTRAS = {"TOC.md"}
+_SHARE_EXTRAS = {"TOC.md", "PERMISSIONS.md"}
 
 
 def man_01(ctx: Context):

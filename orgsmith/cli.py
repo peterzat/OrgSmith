@@ -64,6 +64,9 @@ def main(argv=None) -> int:
     p_val.add_argument("--json", action="store_true", dest="as_json")
     p_val.add_argument("--only", help="comma-separated rule ids")
 
+    _add_slug(
+        sub.add_parser("acl", help="derive read-access overlay (acl.json + PERMISSIONS.md)")
+    )
     _add_slug(sub.add_parser("emit-evals", help="golden eval suites from ground truth"))
 
     p_score = sub.add_parser("score", help="grade external answers against evals")
@@ -166,6 +169,10 @@ def main(argv=None) -> int:
         from .assemble import run_assemble
 
         return run_assemble(paths)
+    if args.verb == "acl":
+        from .acl import run_acl
+
+        return run_acl(paths)
     if args.verb == "emit-evals":
         from .evals import run_emit_evals
 

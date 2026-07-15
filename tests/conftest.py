@@ -71,6 +71,30 @@ def build_hardcase_stages(
     return paths
 
 
+def build_acl_stages(
+    root: Path, slug: str = "dev-mini", posture: str = "departmental"
+) -> OrgPaths:
+    """dev-mini recipe with an acl_posture, through docplan plus the ACL
+    overlay."""
+    from orgsmith.acl import run_acl
+
+    dest = root / "recipes" / slug
+    dest.mkdir(parents=True, exist_ok=True)
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    anchor = "  external_people: 3\n"
+    assert anchor in text
+    (dest / "ORG-CHARTER.md").write_text(
+        text.replace(anchor, anchor + f"\nacl_posture: {posture}\n")
+    )
+    paths = OrgPaths(root=root, slug=slug)
+    assert run_charter(paths) == 0
+    assert run_scaffold(paths) == 0
+    assert run_fabric(paths) == 0
+    assert run_docplan(paths) == 0
+    assert run_acl(paths) == 0
+    return paths
+
+
 def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     """dev-mini recipe with every ambiguity knob on, through docplan."""
     dest = root / "recipes" / slug
