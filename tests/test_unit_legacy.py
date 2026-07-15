@@ -239,6 +239,25 @@ def test_stripped_legacy_format_fails_recomputation(org_copy, capsys):
     assert "does not recompute" in capsys.readouterr().out
 
 
+def test_corrupt_ole_binary_is_a_finding_not_a_traceback(tmp_path, capsys):
+    """A file with a valid OLE magic but a garbage body makes olefile raise
+    on open; LEG-01 must report a finding, not crash. Pure-python read path
+    (no soffice), corrupting a COPY of the committed retro fixture."""
+    slug = "cindergrove-advisors"
+    (tmp_path / "recipes").mkdir()
+    shutil.copytree(REPO / "recipes" / slug, tmp_path / "recipes" / slug)
+    (tmp_path / "companies").mkdir()
+    for d in (slug, f"{slug}-metadata"):
+        shutil.copytree(REPO / "companies" / d, tmp_path / "companies" / d)
+    paths = OrgPaths(root=tmp_path, slug=slug)
+    entry = _legacy(paths)[0]
+    (paths.share_dir / entry.path).write_bytes(
+        b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1" + b"\x00" * 64
+    )
+    assert run_validate(paths, only=["LEG-01"]) == 1
+    assert "does not open as an OLE container" in capsys.readouterr().out
+
+
 def test_leg01_skips_visibly_when_knob_off(capsys):
     committed = OrgPaths(root=REPO, slug="dev-mini")
     assert run_validate(committed, only=["LEG-01"]) == 0

@@ -72,6 +72,14 @@ def test_sig_page_fact_on_ocr_scan_validates_clean(tmp_path):
     assert run_validate(paths) == 0
 
 
+def test_corrupt_scanned_pdf_is_a_finding_not_a_traceback(org_copy, capsys):
+    _, image_only, _ = _split(org_copy)
+    entry = image_only[0]
+    (org_copy.share_dir / entry.path).write_bytes(b"%PDF-1.4 garbage no eof")
+    assert run_validate(org_copy, only=["SCAN-02"]) == 1
+    assert "does not open" in capsys.readouterr().out
+
+
 def test_stripped_scan_flag_fails_recomputation(org_copy, capsys):
     _, image_only, _ = _split(org_copy)
     doc_id = image_only[0].doc_id

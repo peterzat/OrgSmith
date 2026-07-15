@@ -13,6 +13,7 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
+from ..naming import strip_control
 from ..schemas import (
     ExtractionAnswers,
     ExtractionQuestion,
@@ -235,7 +236,7 @@ def run_score(
     except ValidationError as err:
         print(
             f"score: answers file does not match the {suite} contract "
-            f"(see evals/README.md):\n{err}"
+            "(see evals/README.md):\n" + strip_control(str(err))
         )
         return 2
 
@@ -268,8 +269,12 @@ def run_score(
                     parts.append("missing: " + ", ".join(failure["missing"]))
                 if failure["extra"]:
                     parts.append("extra: " + ", ".join(failure["extra"]))
-                print(f"  {failure['id']} [{','.join(failure['tags'])}] "
-                      + "; ".join(parts))
+                # Failure lines echo answer-file content; never let an
+                # untrusted string drive the terminal.
+                print(strip_control(
+                    f"  {failure['id']} [{','.join(failure['tags'])}] "
+                    + "; ".join(parts)
+                ))
         return 0
 
     if suite == "extraction":
@@ -309,10 +314,10 @@ def run_score(
                     parts.append(
                         "docs extra: " + ", ".join(failure["docs_extra"])
                     )
-                print(
+                print(strip_control(
                     f"  {failure['id']} [loc:{failure['location']}] "
                     + "; ".join(parts)
-                )
+                ))
         return 0
 
     result = score_graph(evals_dir, answers)

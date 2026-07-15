@@ -17,6 +17,7 @@ from pydantic import ValidationError
 from ..airlock import clear_outstanding, match_outstanding
 from ..artifacts import load_engagements, load_manifest
 from ..fabric.engagements import render_date
+from ..naming import strip_control
 from ..paths import OrgPaths
 from ..schemas import (
     AuthoringDeliverable,
@@ -144,7 +145,10 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
             deliverable_path.read_text("utf-8")
         )
     except ValidationError as err:
-        print(f"ingest: deliverable rejected (schema):\n{err}")
+        print(
+            "ingest: deliverable rejected (schema):\n"
+            + strip_control(str(err))
+        )
         return 1
 
     order = match_outstanding(paths, state, "author", deliverable.work_order_id)
@@ -209,7 +213,9 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     if problems:
         print("ingest: deliverable rejected:")
         for p in problems:
-            print(f"  - {p}")
+            # Problem strings can embed deliverable-controlled text (fact
+            # ids, surfaces); never let them drive the terminal.
+            print(f"  - {strip_control(p)}")
         return 1
 
     paths.docir_dir.mkdir(parents=True, exist_ok=True)

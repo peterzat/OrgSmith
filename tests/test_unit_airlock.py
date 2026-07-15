@@ -93,7 +93,7 @@ def test_authoring_requires_enrichment(org):
         run_next_batch(org)
 
 
-def test_authoring_flow_and_rejections(org):
+def test_authoring_flow_and_rejections(org, capsys):
     run_enrichment(org)
     assert run_next_batch(org) == 0
     wo = _outstanding_wo(org, "author")
@@ -139,6 +139,16 @@ def test_authoring_flow_and_rejections(org):
     tampered = json.loads(json.dumps(good))
     tampered["docs"][0]["doc_id"] = "d:9999"
     assert ingest_author(org, _write(org, "a3.json", tampered)) == 1
+
+    # deliverable-controlled text must never drive the terminal: an escape
+    # sequence smuggled through a fact id is neutralized in the rejection
+    # printout (exit code unchanged)
+    tampered = json.loads(json.dumps(good))
+    tampered["docs"][0]["blocks"][1]["text"] += " {{fact:\x1b[2Jevil}}"
+    assert ingest_author(org, _write(org, "a4.json", tampered)) == 1
+    probe_out = capsys.readouterr().out
+    assert "\x1b" not in probe_out
+    assert "[2Jevil" in probe_out  # content survives, the escape does not
 
     # nothing merged
     assert not org.docir_dir.exists()

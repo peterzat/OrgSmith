@@ -49,6 +49,16 @@ def check_relpath(relpath: str) -> list[str]:
     return problems
 
 
+def strip_control(text: str, keep: str = "\n\t") -> str:
+    """Neutralize control characters in untrusted strings bound for a
+    terminal (escape sequences can rewrite or hide earlier output).
+    Control characters not in `keep` become U+FFFD."""
+    return "".join(
+        "�" if unicodedata.category(ch) == "Cc" and ch not in keep else ch
+        for ch in text
+    )
+
+
 def sanitize_component(text: str) -> str:
     """Make an arbitrary display string safe as one path component while
     keeping it readable (spaces preserved)."""

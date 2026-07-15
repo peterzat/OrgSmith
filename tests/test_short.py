@@ -50,6 +50,17 @@ def test_requirements_are_pinned():
             )
 
 
+def test_pyproject_version_matches_package():
+    # orgsmith.__version__ is the source of truth; pyproject.toml must not
+    # drift from it. Regex parse: tomllib is 3.11+, this box runs 3.10.
+    import orgsmith
+
+    text = (REPO / "pyproject.toml").read_text()
+    match = re.search(r'^version = "([^"]+)"$', text, re.MULTILINE)
+    assert match, "pyproject.toml has no version line"
+    assert match.group(1) == orgsmith.__version__
+
+
 def test_core_modules_import():
     import orgsmith.cli  # noqa: F401
     import orgsmith.paths  # noqa: F401

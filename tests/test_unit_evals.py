@@ -129,6 +129,20 @@ def test_wrong_answers_attributed(org):
     assert by_id[q1]["extra"] == ["Firm/Not A Real Doc.docx"]
 
 
+def test_score_failure_printer_neutralizes_control_chars(org, tmp_path, capsys):
+    # Answer files are untrusted; a doc path carrying an escape sequence
+    # must not drive the terminal, and the exit code stays what a wrong
+    # answer earns.
+    payload = _ground_truth_answers(org)
+    payload["answers"][0]["docs"] = ["\x1b[2J\x1b[31mEvil Doc.docx"]
+    answers = tmp_path / "answers.json"
+    answers.write_text(json.dumps(payload))
+    assert run_score(org.evals_dir, "retrieval", answers) == 0
+    out = capsys.readouterr().out
+    assert "\x1b" not in out
+    assert "Evil Doc.docx" in out  # content survives, the escape does not
+
+
 def test_graph_alias_credit(org):
     expected = GraphExpected.model_validate_json(
         (org.evals_dir / "graph_expected.json").read_text()

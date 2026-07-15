@@ -878,7 +878,11 @@ def scan_02(ctx: Context):
         rendered = ctx.paths.share_dir / entry.path
         if not rendered.exists():
             continue  # FILE-01/MAN-01 report the absence
-        count = len(PdfReader(str(rendered)).pages)
+        try:
+            count = len(PdfReader(str(rendered)).pages)
+        except Exception:  # noqa: BLE001 - unreadable = finding
+            yield ("rendered pdf does not open", entry.path)
+            continue
         if len(pages) != count:
             yield (
                 f"archive holds {len(pages)} page(s), rendered pdf has "
@@ -930,17 +934,26 @@ def leg_01(ctx: Context):
         path = ctx.paths.share_dir / e.path
         if not path.exists():
             continue  # FILE-01/MAN-01 report the absence
-        if not olefile.isOleFile(str(path)):
+        try:
+            is_ole = olefile.isOleFile(str(path))
+        except Exception:  # noqa: BLE001 - unreadable = finding
+            is_ole = False
+        if not is_ole:
             yield ("legacy file is not an OLE container", e.path)
             continue
         stream = LEGACY_STREAMS[e.format]
-        with olefile.OleFileIO(str(path)) as ole:
-            if not ole.exists(stream):
-                yield (
-                    f"OLE container has no {stream!r} stream; not a real "
-                    f".{e.format}",
-                    e.path,
-                )
+        try:
+            with olefile.OleFileIO(str(path)) as ole:
+                has_stream = ole.exists(stream)
+        except Exception:  # noqa: BLE001 - unreadable = finding
+            yield ("legacy file does not open as an OLE container", e.path)
+            continue
+        if not has_stream:
+            yield (
+                f"OLE container has no {stream!r} stream; not a real "
+                f".{e.format}",
+                e.path,
+            )
 
 
 # --- PROV -----------------------------------------------------------------
