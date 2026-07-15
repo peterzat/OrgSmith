@@ -28,6 +28,7 @@ SCHEMA_IDS = {
     "finance": "orgsmith/finance@1",
     "engagements": "orgsmith/engagements@1",
     "graph": "orgsmith/graph@1",
+    "acl": "orgsmith/acl@1",
     "manifest_entry": "orgsmith/manifest-entry@1",
     "mention_map": "orgsmith/mention-map@1",
     "graph_expected": "orgsmith/graph-expected@1",
@@ -147,6 +148,10 @@ class Charter(StrictModel):
     engagements: EngagementPlan
     graph_targets: GraphTargets
     hard_cases: HardCases = HardCases()
+    # Access-control posture (M4+). `open` derives an ACL where every
+    # internal person reads every document; `departmental` restricts
+    # engagement folders to their teams and finance to its owners.
+    acl_posture: Literal["open", "departmental"] = "open"
     narrative: str
 
     @model_validator(mode="after")
@@ -324,6 +329,22 @@ class GraphEdge(StrictModel):
     kind: Literal["reports_to", "works_at", "client_of", "participant"]
     start: date | None = None
     end: date | None = None
+
+
+class AclGrant(StrictModel):
+    person: str  # p: id
+    docs: list[str]  # share-relative paths this person may read, sorted
+
+
+class AclLedger(StrictModel):
+    """Read-access ground truth: one grant per internal person, roster
+    order. Derived (never authored) from the charter's posture plus the
+    manifest and engagement teams; external people carry no grants."""
+
+    schema_id: Literal["orgsmith/acl@1"] = SCHEMA_IDS["acl"]
+    slug: str
+    posture: Literal["open", "departmental"]
+    grants: list[AclGrant]
 
 
 class GraphLedger(StrictModel):

@@ -31,6 +31,10 @@ class OrgPaths:
     def toc_md(self) -> Path:
         return self.share_dir / "TOC.md"
 
+    @property
+    def permissions_md(self) -> Path:
+        return self.share_dir / "PERMISSIONS.md"
+
     # --- output: ground truth ---
     @property
     def meta_dir(self) -> Path:
@@ -63,6 +67,10 @@ class OrgPaths:
     @property
     def mention_map_json(self) -> Path:
         return self.ledger_dir / "mention_map.json"
+
+    @property
+    def acl_json(self) -> Path:
+        return self.ledger_dir / "acl.json"
 
     @property
     def evals_dir(self) -> Path:

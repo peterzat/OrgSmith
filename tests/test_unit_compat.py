@@ -53,6 +53,15 @@ def test_m2_manifest_loads_with_body_location_defaults():
             assert all(k.location == "body" for k in entry.key_facts)
 
 
+def test_committed_charters_load_with_open_acl_posture():
+    """All pre-M4 fixtures predate acl_posture; the default must be open
+    and none of them may grow an ACL ledger without regeneration."""
+    for slug in ("dev-mini", "torchlake-engineering", "quillbrook-appraisal"):
+        paths = OrgPaths(root=REPO, slug=slug)
+        assert load_charter(paths).acl_posture == "open"
+        assert not paths.acl_json.exists()
+
+
 def test_location_policies_round_trip():
     from orgsmith.schemas import Fact, KeyFact
 

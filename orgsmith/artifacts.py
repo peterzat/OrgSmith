@@ -57,6 +57,16 @@ def load_mention_map(paths: OrgPaths):
     return MentionMap.model_validate_json(paths.mention_map_json.read_text("utf-8"))
 
 
+def load_acl(paths: OrgPaths):
+    """AclLedger, or None for orgs generated before the ACL overlay (the
+    three pre-M4 committed fixtures). Callers must handle None."""
+    from .schemas import AclLedger
+
+    if not paths.acl_json.exists():
+        return None
+    return AclLedger.model_validate_json(paths.acl_json.read_text("utf-8"))
+
+
 def load_manifest(paths: OrgPaths) -> list[ManifestEntry]:
     entries = []
     for line in _read(paths.manifest_jsonl).splitlines():
