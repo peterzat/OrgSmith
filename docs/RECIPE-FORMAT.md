@@ -41,7 +41,14 @@ doc_culture:
   #                         # scanned_ratio > 0
   # legacy_ratio: 0.4       # fraction of office docs converted to
   #                         # .doc/.xls/.ppt (needs LibreOffice at
-  #                         # generation time; see `orgsmith doctor`)
+  #                         # generation time; see `orgsmith doctor`).
+  #                         # Validation stays pure Python: text
+  #                         # obligations for converted binaries are
+  #                         # checked against the verified authoring
+  #                         # source (DocIR), so conversion fidelity of
+  #                         # the binary itself is a documented residual
+  #                         # risk; workbook values are read back via
+  #                         # xlrd, containers and markers via olefile.
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD

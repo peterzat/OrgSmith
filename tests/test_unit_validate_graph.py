@@ -40,9 +40,12 @@ def test_knobbed_org_validates_clean_with_all_rules(knobbed_org, capsys):
     assert run_validate(knobbed_org, as_json=True) == 0
     payload = json.loads(capsys.readouterr().out)
     for rule in ("MENT-01", "MENT-02", "GRAPH-01", "GRAPH-02",
-                 "GRAPH-03", "GRAPH-04"):
+                 "GRAPH-03", "GRAPH-04", "EML-01", "SCAN-01", "SCAN-02"):
         assert rule in payload["rules_run"], rule
-    assert payload["skipped"] == []
+    # Every charter-gated rule must find its knob on here, with one
+    # exception: legacy stays off because rendering it needs LibreOffice
+    # and this org must build in CI.
+    assert [s["rule"] for s in payload["skipped"]] == ["LEG-01"]
 
 
 def test_pre_m2_org_skips_visibly(capsys):

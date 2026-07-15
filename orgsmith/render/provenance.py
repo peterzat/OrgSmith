@@ -85,6 +85,24 @@ def opc_has_marker(path: Path) -> bool:
         return False
 
 
+def legacy_has_marker(path: Path) -> bool:
+    """The pre-2007 binaries carry `<marker>:true` in their OLE
+    SummaryInformation comments: LibreOffice maps the OPC dc:description
+    planted before conversion onto that field, and it is the only marker
+    channel that survives conversion (custom properties do not). Read
+    back with olefile, pure Python, CI-safe."""
+    import olefile
+
+    try:
+        if not olefile.isOleFile(str(path)):
+            return False
+        with olefile.OleFileIO(str(path)) as ole:
+            comments = ole.get_metadata().comments or b""
+    except OSError:
+        return False
+    return f"{MARKER_NAME}:true" in comments.decode("utf-8", "replace")
+
+
 def eml_has_marker(path: Path) -> bool:
     from email import policy
     from email.parser import BytesParser

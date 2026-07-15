@@ -386,7 +386,14 @@ Genre = Literal[
     "engagement_email",  # eml
 ]
 
-DocFormat = Literal["docx", "pdf", "xlsx", "pptx", "eml"]
+DocFormat = Literal[
+    "docx", "pdf", "xlsx", "pptx", "eml", "doc", "xls", "ppt"
+]
+
+# Legacy binaries occupy their modern format's format_mix bucket; docplan
+# swaps format and extension only after quota accounting, and validators
+# recover the bucket through this map.
+BASE_FORMAT = {"doc": "docx", "xls": "xlsx", "ppt": "pptx"}
 
 
 class PlannedMention(StrictModel):

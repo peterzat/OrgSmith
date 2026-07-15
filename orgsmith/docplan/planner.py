@@ -23,6 +23,7 @@ from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
 from ..seeds import rng
 from ..schemas import (
+    BASE_FORMAT,
     Charter,
     Engagement,
     EngagementsLedger,
@@ -42,6 +43,20 @@ from ..state import load_state, require_stages, save_state, sha256_file
 def _employed_at(person: Person, when: date) -> bool:
     emp = person.employment
     return emp.start <= when and (emp.end is None or emp.end >= when)
+
+
+_LEGACY_FOR = {base: legacy for legacy, base in BASE_FORMAT.items()}
+
+
+def legacy_selection(culture, office: list[tuple[date, str]]) -> set[str]:
+    """Which office docs become pre-2007 binaries: the oldest
+    round(legacy_ratio * n) by (date, path). Pure and RNG-free, shared by
+    the planner and the LEG-01 recomputation. office holds (date, path)
+    with the MODERN extension; membership is by that path."""
+    if culture.legacy_ratio == 0:
+        return set()
+    ordered = sorted(office, key=lambda t: (t[0], t[1]))
+    return {path for _, path in ordered[: round(culture.legacy_ratio * len(ordered))]}
 
 
 def scan_selection(
@@ -450,6 +465,25 @@ class _Planner:
                 params["ocr_layer"] = 1
             doc["render_params"] = params
 
+    def plan_legacy(self) -> None:
+        """The oldest office docs become .doc/.xls/.ppt per legacy_ratio;
+        paths swap extension, everything else about the doc's identity
+        stays. RNG-free, so knobs-off recipes regenerate byte-identically."""
+        legacy = legacy_selection(
+            self.charter.doc_culture,
+            [
+                (d["date"], d["path"])
+                for d in self.planned
+                if d["format"] in _LEGACY_FOR
+            ],
+        )
+        for doc in self.planned:
+            if doc["path"] not in legacy:
+                continue
+            fmt = _LEGACY_FOR[doc["format"]]
+            doc["path"] = doc["path"][: -len(doc["format"])] + fmt
+            doc["format"] = fmt
+
     def build(self) -> list[ManifestEntry]:
         self.plan_engagement_docs()
         self.plan_deck_docs()
@@ -457,6 +491,7 @@ class _Planner:
         self.plan_firm_docs()
         self.plan_mentions()
         self.plan_scans()
+        self.plan_legacy()
 
         mix = self.charter.doc_culture.format_mix
         want = {
@@ -464,7 +499,7 @@ class _Planner:
         }
         counts = dict.fromkeys(want, 0)
         for doc in self.planned:
-            counts[doc["format"]] += 1
+            counts[BASE_FORMAT.get(doc["format"], doc["format"])] += 1
         if counts != want:
             raise SystemExit(
                 f"docplan: format mix {counts} does not match charter {want}"

@@ -53,6 +53,7 @@ def run_render(paths: OrgPaths) -> int:
 
     finance_hash = sha256_file(paths.finance_json)
     rendered = skipped = pending = 0
+    todo = []
     for entry in manifest:
         doc_state = state.doc(entry.doc_id)
         if entry.authoring == "static":
@@ -67,14 +68,39 @@ def run_render(paths: OrgPaths) -> int:
         if doc_state.rendered_from == basis and target.exists():
             skipped += 1
             continue
+        todo.append((entry, basis, target))
 
+    from ..schemas import BASE_FORMAT
+
+    if any(entry.format in BASE_FORMAT for entry, _, _ in todo):
+        # Fail before rendering anything: a run that needs LibreOffice and
+        # lacks it should not leave a half-rendered share behind.
+        from .legacy import require_soffice
+
+        require_soffice()
+
+    for entry, basis, target in todo:
+        doc_state = state.doc(entry.doc_id)
         author_name = people[entry.authors[0]]["name"]
         if entry.authoring == "static":
             from .xlsx import render_financial_summary
 
-            render_financial_summary(
-                entry, charter, finance, style, author_name, target
-            )
+            if entry.format == "xls":
+                import tempfile
+                from pathlib import Path
+
+                from .legacy import render_legacy
+
+                with tempfile.TemporaryDirectory() as tmp:
+                    modern = Path(tmp) / "intermediate.xlsx"
+                    render_financial_summary(
+                        entry, charter, finance, style, author_name, modern
+                    )
+                    render_legacy(entry, modern.read_bytes(), target, facts)
+            else:
+                render_financial_summary(
+                    entry, charter, finance, style, author_name, target
+                )
         else:
             from ..authoring.ingest import docir_path
 
@@ -89,6 +115,20 @@ def run_render(paths: OrgPaths) -> int:
                 target.write_bytes(
                     render_docx(resolved, entry, style, author_name, people)
                 )
+            elif entry.format in ("doc", "ppt"):
+                from .legacy import render_legacy
+
+                if entry.format == "doc":
+                    from .docx import render_docx
+
+                    modern = render_docx(
+                        resolved, entry, style, author_name, people
+                    )
+                else:
+                    from .pptx import render_pptx
+
+                    modern = render_pptx(resolved, entry, style, author_name)
+                render_legacy(entry, modern, target, facts)
             elif entry.format == "pptx":
                 from .pptx import render_pptx
 

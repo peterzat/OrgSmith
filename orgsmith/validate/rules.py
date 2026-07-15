@@ -88,10 +88,12 @@ class Context:
         elif entry.format == "eml":
             body = _eml_message(path).get_body(preferencelist=("plain",))
             text = body.get_content() if body is not None else ""
-        elif entry.format == "xlsx":
+        elif entry.format in ("xlsx", "xls"):
             # Workbooks are checked cell-by-cell (FIN-02), not as prose;
             # FACT-01 skips them explicitly.
             text = ""
+        elif entry.format in ("doc", "ppt"):
+            text = self._legacy_text(entry)
         else:
             raise SystemExit(
                 f"validate: no text extractor for format {entry.format!r} "
@@ -120,6 +122,42 @@ class Context:
         pages = [re.sub(r"\s+", " ", p) for p in raw]
         self._text_cache[key] = pages
         return pages
+
+    def _legacy_text(self, entry) -> str:
+        """Text obligations for a converted binary run against its
+        authoring source: the fact-resolved DocIR (plus signer names, which
+        the modern renderers print as signature lines). Reading prose back
+        out of .doc/.ppt would need a binary-format parser; conversion
+        fidelity is a documented residual risk, but the DocIR is exactly
+        what the verified modern intermediate rendered. Missing or
+        unresolvable DocIR yields empty text, so FACT/MENT fail loudly."""
+        from ..authoring.ingest import docir_path
+        from ..render import people_index
+        from ..render.resolve import FactResolutionError, resolve_docir
+        from ..schemas import DocIR
+
+        source = docir_path(self.paths, entry.doc_id)
+        if not source.exists():
+            return ""
+        try:
+            resolved = resolve_docir(
+                DocIR.model_validate_json(source.read_text("utf-8")),
+                self.engagements.fact_index(),
+            )
+        except FactResolutionError:
+            return ""
+        people = people_index(self.foundation)
+        chunks: list[str] = []
+        for b in resolved.blocks:
+            chunks.append(b.text)
+            chunks.extend(b.items)
+            chunks.extend(b.header)
+            for row in b.rows:
+                chunks.extend(row)
+            for signer in b.signers:
+                if signer in people:
+                    chunks.append(people[signer]["name"])
+        return "\n".join(chunks)
 
     def scan_archive(self, entry) -> list | None:
         """Archived true per-page text for a scanned doc, or None when the
@@ -184,6 +222,12 @@ def _needs_eml(ctx: Context) -> str | None:
 def _needs_scan(ctx: Context) -> str | None:
     if ctx.charter.doc_culture.scanned_ratio == 0:
         return "scanned_ratio is 0 for this recipe"
+    return None
+
+
+def _needs_legacy(ctx: Context) -> str | None:
+    if ctx.charter.doc_culture.legacy_ratio == 0:
+        return "legacy_ratio is 0 for this recipe"
     return None
 
 
@@ -297,10 +341,8 @@ def fin_01(ctx: Context):
 
 
 def fin_02(ctx: Context):
-    from openpyxl import load_workbook
-
     for e in ctx.manifest:
-        if e.format != "xlsx":
+        if e.format not in ("xlsx", "xls"):
             continue
         path = ctx.paths.share_dir / e.path
         if not path.exists():
@@ -310,14 +352,29 @@ def fin_02(ctx: Context):
         if fy is None:
             yield (f"workbook year {year} not in finance ledger", e.path)
             continue
-        cached = load_workbook(path, data_only=True)["Summary"]
-        if cached["F4"].value != fy.revenue:
+        if e.format == "xlsx":
+            from openpyxl import load_workbook
+
+            cached = load_workbook(path, data_only=True)["Summary"]
+            revenue = cached["F4"].value
+            quarters = [cached[f"{c}4"].value for c in "BCDE"]
+        else:
+            # LibreOffice preserves cached formula results in .xls (spiked
+            # at M5); xlrd reads them back without recalculation.
+            import xlrd
+
+            try:
+                sheet = xlrd.open_workbook(str(path)).sheet_by_name("Summary")
+            except Exception as err:  # noqa: BLE001 - unreadable = finding
+                yield (f"xls workbook does not open via xlrd: {err}", e.path)
+                continue
+            revenue = sheet.cell_value(3, 5)
+            quarters = [sheet.cell_value(3, c) for c in range(1, 5)]
+        if revenue != fy.revenue:
             yield (
-                f"cached revenue total {cached['F4'].value} != ledger "
-                f"{fy.revenue}",
+                f"cached revenue total {revenue} != ledger {fy.revenue}",
                 e.path,
             )
-        quarters = [cached[f"{c}4"].value for c in "BCDE"]
         if quarters != fy.quarters:
             yield (f"cached quarters {quarters} != ledger {fy.quarters}", e.path)
 
@@ -378,6 +435,13 @@ def file_01(ctx: Context):
                     if msg[header] is None:
                         yield (f"eml missing {header} header", e.path)
                 msg.get_content()  # undecodable body -> reader failure below
+            elif e.format in ("doc", "xls", "ppt"):
+                import olefile
+
+                if not olefile.isOleFile(str(path)):
+                    yield ("legacy file is not an OLE container", e.path)
+                else:
+                    olefile.OleFileIO(str(path)).close()
             else:
                 # Every supported format must have a reader branch above; a
                 # format this rule does not know is a finding, not a pass.
@@ -823,15 +887,77 @@ def scan_02(ctx: Context):
             )
 
 
+# --- LEG ------------------------------------------------------------------
+
+
+def leg_01(ctx: Context):
+    """Legacy assignment recomputes from the charter, and every legacy
+    binary is an OLE container holding the stream its format promises."""
+    import olefile
+
+    from ..docplan.planner import legacy_selection
+    from ..render.legacy import LEGACY_STREAMS
+    from ..schemas import BASE_FORMAT
+
+    def modern_path(e) -> str:
+        if e.format in BASE_FORMAT:
+            return e.path[: -len(e.format)] + BASE_FORMAT[e.format]
+        return e.path
+
+    expected = legacy_selection(
+        ctx.charter.doc_culture,
+        [
+            (e.date, modern_path(e))
+            for e in ctx.manifest
+            if e.format in BASE_FORMAT or e.format in set(BASE_FORMAT.values())
+        ],
+    )
+    for e in ctx.manifest:
+        is_legacy = e.format in BASE_FORMAT
+        if not is_legacy and e.format not in set(BASE_FORMAT.values()):
+            continue
+        should_be = modern_path(e) in expected
+        if is_legacy != should_be:
+            yield (
+                f"legacy assignment does not recompute from the charter: "
+                f"manifest format is {e.format!r}, expected "
+                f"{'legacy' if should_be else 'modern'}",
+                e.path,
+            )
+            continue
+        if not is_legacy:
+            continue
+        path = ctx.paths.share_dir / e.path
+        if not path.exists():
+            continue  # FILE-01/MAN-01 report the absence
+        if not olefile.isOleFile(str(path)):
+            yield ("legacy file is not an OLE container", e.path)
+            continue
+        stream = LEGACY_STREAMS[e.format]
+        with olefile.OleFileIO(str(path)) as ole:
+            if not ole.exists(stream):
+                yield (
+                    f"OLE container has no {stream!r} stream; not a real "
+                    f".{e.format}",
+                    e.path,
+                )
+
+
 # --- PROV -----------------------------------------------------------------
 
 
 def prov_01(ctx: Context):
-    from ..render.provenance import eml_has_marker, opc_has_marker, pdf_has_marker
+    from ..render.provenance import (
+        eml_has_marker,
+        legacy_has_marker,
+        opc_has_marker,
+        pdf_has_marker,
+    )
 
     checkers = {"docx": opc_has_marker, "pdf": pdf_has_marker,
                 "xlsx": opc_has_marker, "pptx": opc_has_marker,
-                "eml": eml_has_marker}
+                "eml": eml_has_marker, "doc": legacy_has_marker,
+                "xls": legacy_has_marker, "ppt": legacy_has_marker}
     for e in ctx.manifest:
         path = ctx.paths.share_dir / e.path
         if not path.exists():
@@ -880,6 +1006,8 @@ RULES = [
          "match the plan", scan_01, available=_needs_scan),
     Rule("SCAN-02", "ERROR", "true-text archives exist exactly for scans",
          scan_02, available=_needs_scan),
+    Rule("LEG-01", "ERROR", "legacy assignment recomputes; binaries are real "
+         "OLE containers", leg_01, available=_needs_legacy),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),
