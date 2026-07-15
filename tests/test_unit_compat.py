@@ -62,6 +62,39 @@ def test_committed_charters_load_with_open_acl_posture():
         assert not paths.acl_json.exists()
 
 
+def test_committed_charters_load_with_format_knob_defaults():
+    """All pre-M5 fixtures predate the format knobs; defaults must be off
+    and format_mix totals must still satisfy target_docs."""
+    for slug in (
+        "dev-mini",
+        "torchlake-engineering",
+        "quillbrook-appraisal",
+        "bramblewood-legal",
+    ):
+        charter = load_charter(OrgPaths(root=REPO, slug=slug))
+        culture = charter.doc_culture
+        assert culture.format_mix.pptx == 0, slug
+        assert culture.format_mix.eml == 0, slug
+        assert culture.scanned_ratio == 0.0, slug
+        assert culture.legacy_ratio == 0.0, slug
+        assert culture.ocr_layer_rate == 0.0, slug
+        assert culture.format_mix.total == culture.target_docs, slug
+
+
+def test_ocr_layer_rate_requires_scanned_ratio():
+    from pydantic import ValidationError
+
+    from orgsmith.schemas import DocCulture, FormatMix
+
+    with pytest.raises(ValidationError, match="scanned_ratio"):
+        DocCulture(
+            target_docs=2,
+            date_range=("2020-01-01", "2021-01-01"),
+            format_mix=FormatMix(docx=1, pdf=1),
+            ocr_layer_rate=0.5,
+        )
+
+
 def test_location_policies_round_trip():
     from orgsmith.schemas import Fact, KeyFact
 

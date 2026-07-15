@@ -31,6 +31,16 @@ doc_culture:
   target_docs: 13
   date_range: [2019-01-01, 2023-12-31]
   format_mix: {docx: 8, pdf: 3, xlsx: 2}   # exact counts for small orgs
+  # format_mix may also include pptx (briefing decks) and eml (mail
+  # messages), both default 0.
+  # Scan/legacy transforms, all optional and default 0 (off):
+  # scanned_ratio: 0.5      # fraction of pdfs rendered as degraded scans
+  # ocr_layer_rate: 0.5     # fraction of scans with a synthetic OCR text
+  #                         # layer (rest are image-only); requires
+  #                         # scanned_ratio > 0
+  # legacy_ratio: 0.4       # fraction of office docs converted to
+  #                         # .doc/.xls/.ppt (needs LibreOffice at
+  #                         # generation time; see `orgsmith doctor`)
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD
@@ -70,10 +80,10 @@ clients are, what its documents feel like.
 
 ## Reserved fields (later milestones)
 
-- `doc_culture.scanned_ratio`, `legacy_ratio`, `ocr_layer_rate`,
-  `naming_style`, `it_maturity` — scan/legacy pipeline (M5).
-- `graph_targets.min_mentions_per_person`, `exec_multiplier`, edge targets,
-  ambiguity knobs — people-graph depth (M2/M3).
+- `doc_culture.naming_style`, `it_maturity` — era-appropriate naming and
+  document culture (fleet milestone).
+- `graph_targets.exec_multiplier`, edge targets — people-graph depth
+  extensions.
 
 ## Rules
 

@@ -1,7 +1,5 @@
-# Runtime dependencies for the M0+M1 pipeline (charter -> assemble, validate).
+# Runtime dependencies for the pipeline (charter -> assemble, validate).
 # Pinned exactly; update deliberately, one at a time.
-# Deferred to their milestones: python-pptx (M4), pypdfium2/img2pdf/augraphy/
-# opencv/pillow/numpy (M5 scan pipeline).
 
 pydantic==2.13.4        # inter-stage contracts in orgsmith/schemas.py
 Jinja2==3.1.6           # HTML templates for WeasyPrint PDFs
@@ -13,3 +11,9 @@ weasyprint==69.0        # primary PDF renderer (needs system Pango)
 pypdf==6.14.2           # PDF text extraction for the fact-echo validator
 pikepdf==10.10.0        # PDF provenance metadata
 openpyxl==3.1.5         # xlsx reader; runtime because the validator reads cached cell values
+python-pptx==1.0.2      # .pptx renderer and validation-time reader
+pypdfium2==5.11.0       # pdf rasterization for the scan pipeline (generation)
+Pillow==12.3.0          # scan degradation (rotation, noise, contrast)
+numpy==2.2.6            # seeded noise fields for scan degradation
+olefile==0.47           # pure-python OLE reading: legacy container + provenance checks
+xlrd==2.0.2             # .xls reader so FIN-02 ties legacy workbooks to the ledger

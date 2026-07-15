@@ -68,16 +68,27 @@ class FormatMix(StrictModel):
     docx: int = 0
     pdf: int = 0
     xlsx: int = 0
+    # M5+: decks and mail. Additive with zero defaults so pre-M5 recipes
+    # and committed charters keep loading and summing unchanged.
+    pptx: int = 0
+    eml: int = 0
 
     @property
     def total(self) -> int:
-        return self.docx + self.pdf + self.xlsx
+        return self.docx + self.pdf + self.xlsx + self.pptx + self.eml
 
 
 class DocCulture(StrictModel):
     target_docs: int = Field(gt=0)
     date_range: tuple[date, date]
     format_mix: FormatMix
+    # M5+ transforms, all default off. scanned_ratio: fraction of pdf docs
+    # rendered as degraded raster scans; ocr_layer_rate: fraction of those
+    # scans carrying a synthetic OCR text layer (the rest are image-only);
+    # legacy_ratio: fraction of office docs converted to .doc/.xls/.ppt.
+    scanned_ratio: float = Field(ge=0.0, le=1.0, default=0.0)
+    legacy_ratio: float = Field(ge=0.0, le=1.0, default=0.0)
+    ocr_layer_rate: float = Field(ge=0.0, le=1.0, default=0.0)
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":
@@ -88,6 +99,11 @@ class DocCulture(StrictModel):
             raise ValueError(
                 f"format_mix sums to {self.format_mix.total}, "
                 f"target_docs is {self.target_docs}"
+            )
+        if self.ocr_layer_rate > 0 and self.scanned_ratio == 0:
+            raise ValueError(
+                "ocr_layer_rate requires scanned_ratio > 0; an OCR layer "
+                "only exists on scanned documents"
             )
         return self
 

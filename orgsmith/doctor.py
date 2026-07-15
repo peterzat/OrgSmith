@@ -25,9 +25,15 @@ _REQUIRED = [
     "pypdf",
     "pikepdf",
     "openpyxl",
+    "pptx",
+    "pypdfium2",
+    "PIL",
+    "numpy",
+    "olefile",
+    "xlrd",
 ]
 
-_OPTIONAL_BINARIES = {"soffice": "legacy .doc/.xls/.ppt conversion (M5)"}
+_OPTIONAL_BINARIES = {"soffice": "legacy .doc/.xls/.ppt conversion at render time"}
 
 
 def probe() -> tuple[dict[str, str], bool]:
