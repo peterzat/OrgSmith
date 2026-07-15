@@ -1,90 +1,87 @@
 # Security
 
-## Security Review — 2026-07-14 (scope: changes-only)
+## Security Review — 2026-07-15 (scope: changes-only)
 
-**Summary:** Review of the 12 commits since the last audit
-(`b94d7f5..9d60f44`, the M2 milestone; working tree clean, so the pending
-branch delta is the scope). No new vulnerabilities. Both hardening items
-from the prior audit are verified remediated: manifest paths are now
-re-validated on every load, and the WeasyPrint fetcher refuses all
-non-`data:` URLs (tested, including `file://`). CI actions are SHA-pinned.
-One residual NOTE carries forward.
+**Summary:** The only uncommitted change is SECURITY.md itself, the
+not-yet-committed report from the 2026-07-14 audit of the M3 delta
+(`9d60f44..1830a11`); no code, config, dependency, or fixture changes are
+pending and nothing is staged or untracked. This review verified that
+report before it enters the record: its load-bearing code citations were
+re-read at HEAD and all hold, and the diff contains no secrets, no real
+PII, and no reproduced secret values. No new findings. The two open NOTEs
+from the prior entry were re-verified as still present at HEAD and carry
+forward below.
 
 ### Findings
 
-**[NOTE] orgsmith/render/pdf.py:37,63 — letterhead lines still rendered
-unescaped (residual from prior review; no current attack vector)**
+**[NOTE] orgsmith/evals/score.py:278 — untrusted answers-file strings
+printed raw to the terminal in score failure output (carried forward from
+2026-07-14; re-verified at HEAD)**
+
+  Attack vector: The designed use of `score --answers <file>` is grading a
+  third-party extractor's output, so the answers file is untrusted input.
+  A malicious file embeds ANSI escape sequences in a `docs` entry that does
+  not match `expected_docs`; it lands in `docs_extra` and is printed
+  unsanitized in the human-readable failure report (score.py:276-279),
+  letting the file manipulate the grader's terminal display, for example
+  repainting the score line to show a passing result. The same class
+  applies to unconstrained `id` fields from a third-party `--evals-dir`
+  (score.py:281) and to the pre-existing retrieval printer
+  (score.py:236-240, `extra` from the answers file).
+  Evidence: `", ".join(failure["docs_extra"])` printed without escaping
+  (score.py:276-279). By contrast `got_value`/`expected_value` pass through
+  `!r` (score.py:269-270) and JSON mode escapes control characters via
+  `json.dumps` defaults, so only the raw joins in the human-readable branch
+  are exposed. Impact is bounded to display manipulation in the operator's
+  terminal; no code execution or file access.
+  Remediation: strip control characters (or apply `!r`) to answers-file
+  and evals-dir strings in the human-readable failure printer.
+
+**[NOTE] orgsmith/render/pdf.py:37,64 — letterhead lines still rendered
+unescaped (residual from prior reviews; no current attack vector;
+re-verified at HEAD)**
 
   Attack vector: None concrete. The letterhead is `charter.name` and
-  `www.{charter.domain}` (styles.py:43), interpolated raw into the HTML
-  template under `Environment(autoescape=False)` (pdf.py:72). The only
-  party who controls the charter is the recipe author, who already authors
-  the entire document set; with the new `no_remote_fetcher` blocking
-  `http:`, `https:`, and `file:` (pdf.py:18-26, tested in
-  tests/test_unit_hardening.py), injected markup can no longer egress or
-  read local files, so injection gains an attacker nothing beyond content
-  they already control. Retained as informational hardening only.
-  Evidence: pdf.py:37 (`content: "{{ letterhead0 }}"` inside a CSS
-  string), pdf.py:63 (raw `{{ letterhead0 }}` in body), pdf.py:72
-  (`autoescape=False`); all block content is escaped in `_blocks_to_html`.
+  `www.{charter.domain}`, interpolated raw into the HTML template under
+  `Environment(autoescape=False)` (pdf.py:73). Only the recipe author
+  controls the charter, and `no_remote_fetcher` blocks all non-`data:`
+  URLs, so injected markup cannot egress or read files. The signature-page
+  injection is escaped (`esc(sig_fact_text)`, pdf.py:110-111) and does not
+  widen this surface.
   Remediation: `html.escape()` the letterhead lines (and CSS-escape the
   `@top-left` string) when building the template context. One-line change,
   no urgency.
 
-### Resolved Since Prior Review
-
-- **[WARN 2026-07-14] manifest paths trusted at consumption** — Fixed.
-  `check_relpath` now rejects absolute paths, empty components, and `..`
-  (orgsmith/naming.py:42-46), and `load_manifest` re-runs it on every
-  entry at load, raising on failure (orgsmith/artifacts.py:60-66). All
-  consumers that join `entry.path` to the filesystem (render, validate,
-  assemble, emit-evals) load through this chokepoint. Verified by
-  executing the check against `/etc/x.docx`, `../../x.docx`, `a/../x.docx`,
-  `//srv/share/x.docx`, and `a/./x.docx`: all rejected; normal paths pass.
-- **[NOTE 2026-07-14] WeasyPrint default fetcher could egress** — Fixed.
-  `no_remote_fetcher` serves only `data:` URIs and raises before any
-  socket exists (orgsmith/render/pdf.py:18-26); covered by unit tests for
-  `http:`, `https:`, `file:`, and `ftp:` plus an end-to-end render with
-  blocked resources (tests/test_unit_hardening.py). The letterhead-escape
-  half of that NOTE remains open as the residual NOTE above.
-- **[NOTE 2026-07-14] CI actions pinned to mutable tags** — Fixed.
-  `actions/checkout` and `actions/setup-python` are pinned to full commit
-  SHAs (.github/workflows/ci.yml:11-12). The SHA-to-version comments were
-  not verifiable offline, but pinning to immutable objects is the property
-  sought.
-
 ### Reviewed Surface (this delta)
 
-- New external-input surface `score --answers <file>` / `--evals-dir`:
-  answers parsed with strict pydantic models, malformed input exits 2 with
-  a message; file contents are compared as strings only and never joined
-  to the filesystem (orgsmith/evals/score.py). No injection path.
-- `emit-evals` writes only under the org's own `evals/` dir derived from
-  the CLI slug; charter slugs are pattern-constrained
-  (`^[a-z0-9][a-z0-9-]*$`, schemas.py:120). No path escape.
-- New fixture `companies/torchlake-engineering*` and its workorder/eval
-  records: all identities synthetic (Faker names, 555-01xx fictional
-  phones, invented domains e.g. `torchlakeeng.com`, same convention as the
-  audited dev-mini fixture); docx/xlsx/pdf metadata carries synthetic
-  creators only, no local usernames or paths (verified by unzipping core
-  properties and scanning PDF objects).
-- Secret scan: cumulative diff and per-commit `git log -p` over the range
-  matched zero credential patterns. The one `file:///etc/passwd` string is
-  a hardening-test asset.
-- Mention enforcement at ingest tightens validation of model output
-  (placeholder-resolved matching, orgsmith/authoring/ingest.py); no new
-  trust placed in model output.
+- Pending diff is SECURITY.md only (75 insertions, 68 deletions): the
+  2026-07-14 review entry replacing the 9d60f44-era entry. Read in full.
+  No credential patterns, no real names, emails, or phone numbers; the
+  only identifiers are fictional fixture domains, and no secret values
+  are reproduced in finding text.
+- Spot-verified the report's code citations against HEAD `1830a11`:
+  sig_fact validated against the engagement ledger before render
+  (render/__init__.py:88-92); sigfee text HTML-escaped (pdf.py:110-111)
+  while letterhead remains raw under `autoescape=False` (pdf.py:37,64,73);
+  score failure printers raw-join answers-file strings (score.py:236-240,
+  276-283) while values use `!r`; `surface_in_text` regex built with
+  `re.escape` and standalone-token lookarounds (schemas.py:413); ingest
+  rejects non-body facts in prose as placeholder, literal, or long-form
+  date (authoring/ingest.py:90-126). All claims hold.
+- No staged changes, no untracked files, no CI/workflow or dependency
+  manifest changes in scope.
 
 ### Accepted Risks
 
 None recorded.
 
 ---
-*Prior review (2026-07-14, scope full, commit b94d7f5): first full audit
-of the package, skills, tests, and config; no secrets, injection, or auth
-issues; one WARN (manifest paths trusted at consumption, arbitrary file
-write if a tampered third-party org is rendered) and two NOTEs (WeasyPrint
-default fetcher enabled, CI actions on mutable tags), all three remediated
-in the delta reviewed above.*
+*Prior review (2026-07-14, scope changes-only, commit 1830a11): M3 delta
+`9d60f44..1830a11` (hard-case planting, location policies, extraction
+evals, quillbrook fixture); no new vulnerabilities; signature-page
+injection HTML-escaped, ingest validation of model output tightened,
+mention matching regex-escaped, fixture identities synthetic, secret scans
+over the range clean; two NOTEs (score-printer terminal hygiene, unescaped
+letterhead), both still open and carried forward above.*
 
-<!-- SECURITY_META: {"date":"2026-07-14","commit":"9d60f44273b769fd8b5721701f579980128b6307","scope":"changes-only","block":0,"warn":0,"note":1} -->
+<!-- SECURITY_META: {"date":"2026-07-15","commit":"1830a112d82a7ff1f9caffd07e57a6a9b9883e10","scope":"changes-only","block":0,"warn":0,"note":2} -->
