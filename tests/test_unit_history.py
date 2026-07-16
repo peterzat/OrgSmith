@@ -11,6 +11,7 @@ from pydantic import ValidationError
 
 from orgsmith.artifacts import load_foundation
 from orgsmith.authoring.contexts import _brief_person
+from orgsmith.fabric.finance import _avg_headcount, build_finance
 from orgsmith.foundation.scaffold import build_foundation
 from orgsmith.schemas import (
     Charter,
@@ -331,6 +332,152 @@ def test_churn_is_deterministic_under_the_seed():
     assert a.model_dump(mode="json") == b.model_dump(mode="json")
     c = build_foundation(_charter(seed=99))
     assert c.model_dump(mode="json") != a.model_dump(mode="json")
+
+
+# --- behavioral finance ----------------------------------------------------
+
+
+def _finance(**over):
+    charter = _charter(**over)
+    return charter, build_finance(charter, build_foundation(charter))
+
+
+def _rates(a, b):
+    return {c: b.expenses[c] / a.expenses[c] - 1 for c in a.expenses}
+
+
+def test_no_two_expense_categories_grow_at_the_same_rate():
+    """rf:finance-1: 'every expense line is a frozen percentage of revenue in
+    all eight years, which no real P&L does'. Under the old model every rate
+    in a year was identical by construction."""
+    charter, f = _finance()
+    checked = 0
+    for a, b in zip(f.years, f.years[1:]):
+        if a.year == charter.founded:
+            continue  # the founding year is a partial ramp, not a comparison
+        rates = [round(r, 6) for r in _rates(a, b).values()]
+        assert len(set(rates)) == len(rates), f"FY{b.year} rates tie: {rates}"
+        checked += 1
+    assert checked >= 5
+
+
+def test_the_lease_is_step_fixed_across_a_multi_year_span():
+    """rf:finance-2: 'rent is a lease cost and cannot compound 11% a year
+    because fees went up'."""
+    charter, f = _finance()
+    full = [y for y in f.years if y.year > charter.founded]
+    rent = [y.expenses["Office & Facilities"] for y in full]
+    runs, run = [], 1
+    for a, b in zip(rent, rent[1:]):
+        run = run + 1 if a == b else 1
+        runs.append(run)
+    assert max(runs) >= 3, f"rent never holds still: {rent}"
+    assert len(set(rent)) > 1, "rent must step on renewal, not be constant"
+    # Revenue rises every full year; rent must not follow it.
+    assert [y.revenue for y in full] == sorted(y.revenue for y in full)
+
+
+def test_compensation_does_not_track_revenue():
+    """The specific shape rf:finance-1 indicts. In a year where headcount did
+    not move and revenue sprinted 50%, compensation must move at raises.
+
+    Years are selected by asking `_avg_headcount` rather than assumed flat:
+    `_build_people` starts its last hire 25-45% into the range, so the early
+    years of any org are still filling up and compensation rightly jumps
+    there. Asserting over them would fail for the opposite of the reason this
+    test exists.
+    """
+    charter, f = _finance(
+        finance=FinanceProfile(
+            base_revenue=1000000, growth_rate=0.5, expense_ratio=0.7
+        ),
+        roster_churn=RosterChurn(departures=0, promotions=0),
+    )
+    foundation = build_foundation(
+        _charter(
+            finance=FinanceProfile(
+                base_revenue=1000000, growth_rate=0.5, expense_ratio=0.7
+            ),
+            roster_churn=RosterChurn(departures=0, promotions=0),
+        )
+    )
+    checked = 0
+    for a, b in zip(f.years, f.years[1:]):
+        if _avg_headcount(foundation, a.year) != _avg_headcount(foundation, b.year):
+            continue
+        rev = b.revenue / a.revenue - 1
+        comp = b.expenses["Compensation"] / a.expenses["Compensation"] - 1
+        assert rev > 0.3, "the test needs revenue to actually be sprinting"
+        assert comp < 0.1, f"FY{b.year} compensation chased revenue: {comp:+.3f}"
+        checked += 1
+    assert checked >= 2, "no flat-headcount year to compare; test is vacuous"
+
+
+def test_compensation_falls_when_a_seat_empties():
+    """The positive half: headcount is what drives it. Identical charters but
+    for one departure; the revenue and expense RNG streams are untouched by
+    churn, so compensation is the only reason the number can move."""
+    _, churned = _finance(roster_churn=RosterChurn(departures=1, promotions=0))
+    _, frozen = _finance(roster_churn=RosterChurn(departures=0, promotions=0))
+    assert [y.revenue for y in churned.years] == [y.revenue for y in frozen.years]
+    comp_c = {y.year: y.expenses["Compensation"] for y in churned.years}
+    comp_f = {y.year: y.expenses["Compensation"] for y in frozen.years}
+    assert any(comp_c[y] < comp_f[y] for y in comp_f), (
+        "a seat sat empty and compensation did not notice"
+    )
+    assert all(comp_c[y] <= comp_f[y] for y in comp_f), "churn only removes here"
+
+
+def test_the_first_full_year_is_calibrated_to_expense_ratio():
+    """expense_ratio's remaining job: it sizes the P&L once and then stops
+    applying. If it did not land here it would mean nothing at all."""
+    for ratio in (0.55, 0.71, 0.85):
+        charter, f = _finance(
+            finance=FinanceProfile(
+                base_revenue=1000000, growth_rate=0.1, expense_ratio=ratio
+            )
+        )
+        first_full = next(y for y in f.years if y.year == charter.founded + 1)
+        realized = sum(first_full.expenses.values()) / first_full.revenue
+        assert abs(realized - ratio) < 0.02, f"{realized:.3f} vs {ratio}"
+
+
+def test_tie_outs_still_hold_and_a_loss_is_recorded_not_raised():
+    """A firm whose costs outrun its fees is a fact about the firm, not a
+    generator error. Under the old model this was unreachable: expenses were
+    revenue * a ratio that the schema pins below 1.0, so net income was
+    positive by construction."""
+    charter, f = _finance(
+        finance=FinanceProfile(
+            base_revenue=4000000, growth_rate=-0.45, expense_ratio=0.95
+        )
+    )
+    assert all(c.ok for c in f.checks), [c for c in f.checks if not c.ok]
+    for y in f.years:
+        assert sum(y.quarters) == y.revenue
+    losses = [y for y in f.years if sum(y.expenses.values()) > y.revenue]
+    assert losses, "the shrinking firm never posted a loss"
+    for y in losses:
+        rec = next(c for c in f.checks if c.name == f"FY{y.year}.net-income")
+        assert rec.ok, "a loss is not a failed check"
+        assert f"net=-" in rec.detail, rec.detail
+
+
+def test_expenses_draw_from_their_own_stream():
+    """Tuning the expense model must not move the revenue series. Same seed,
+    different expense_ratio: revenue is identical."""
+    _, a = _finance(
+        finance=FinanceProfile(
+            base_revenue=1000000, growth_rate=0.1, expense_ratio=0.5
+        )
+    )
+    _, b = _finance(
+        finance=FinanceProfile(
+            base_revenue=1000000, growth_rate=0.1, expense_ratio=0.9
+        )
+    )
+    assert [y.revenue for y in a.years] == [y.revenue for y in b.years]
+    assert [y.quarters for y in a.years] == [y.quarters for y in b.years]
 
 
 def test_title_history_is_additive_on_the_existing_schema_id():

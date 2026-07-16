@@ -32,7 +32,7 @@ def _knobbed_manifest(**graph_target_updates):
     charter = charter.model_copy(update={"graph_targets": gt})
     foundation = build_foundation(charter)
     engagements = build_engagements(charter, foundation)
-    finance = build_finance(charter)
+    finance = build_finance(charter, foundation)
     return charter, foundation, build_manifest(
         charter, foundation, finance, engagements
     )

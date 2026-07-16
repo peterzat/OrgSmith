@@ -21,7 +21,7 @@ def run_fabric(paths: OrgPaths) -> int:
     charter = load_charter(paths)
     foundation = load_foundation(paths)
 
-    finance = build_finance(charter)
+    finance = build_finance(charter, foundation)
     bad = [c for c in finance.checks if not c.ok]
     if bad:
         raise SystemExit(f"fabric: finance tie-out failed: {bad}")

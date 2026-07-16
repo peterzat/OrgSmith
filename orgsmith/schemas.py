@@ -116,6 +116,17 @@ class DocCulture(StrictModel):
 class FinanceProfile(StrictModel):
     base_revenue: int = Field(gt=0, description="first full fiscal year, USD")
     growth_rate: float = Field(ge=-0.5, le=2.0)
+    # CALIBRATION ONLY, and this changed meaning in M8. It used to define
+    # every year: expense_total = revenue * expense_ratio, with the
+    # categories split out of it by fixed weights, which is why every line
+    # moved in lockstep with fees forever (rf:finance-1, rf:finance-2).
+    #
+    # Now the categories are computed from what actually drives them and the
+    # total is their sum, so the causality is inverted and this ratio sizes
+    # the P&L exactly once: in the first FULL fiscal year. Afterwards the
+    # realized ratio drifts on its own, and a firm whose costs outrun its
+    # fees can post a loss. Read it as "how expensive this firm is out of the
+    # gate", not as an invariant it is held to. See fabric/finance.py.
     expense_ratio: float = Field(gt=0.0, lt=1.0)
 
 
