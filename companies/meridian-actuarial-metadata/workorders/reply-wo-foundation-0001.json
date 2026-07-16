@@ -1,0 +1,55 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:robert.lawrence",
+      "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+    },
+    {
+      "person_id": "p:jennifer.vasquez",
+      "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
+    },
+    {
+      "person_id": "p:david.sherman",
+      "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+    },
+    {
+      "person_id": "p:jeffrey.ochoa",
+      "persona": "Methodical, patient with the parts of the job nobody wants, and unusually good at explaining a result to someone who does not do this for a living. He tends to write longer than he needs to on the first pass and then cuts it hard, so what leaves his desk is clean. He is careful to separate measurement from judgment, sometimes to the point of labeling which is which. Approaches client staff as colleagues rather than as a data source, and gets faster answers because of it."
+    },
+    {
+      "person_id": "p:megan.dudley",
+      "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
+    },
+    {
+      "person_id": "p:carol.cooper",
+      "persona": "Keeps the practice running and treats a deadline as a real object. Her writing is warm but efficient, and she is the firm's memory for what was promised to whom and when it was promised. She has no patience for a document that goes out without a scope paragraph, and she will hold it. Around actuaries she is comfortable admitting she does not follow the mathematics, and equally comfortable pointing out that the sentence they wrote does not parse."
+    },
+    {
+      "person_id": "p:linda.hanna",
+      "persona": "Handles engagement administration and the paper trail behind it, and is quietly meticulous about versions and files. Writes in complete, slightly formal sentences, the kind that read like they were composed once and not revised. She is the person who asks whether the letter says what everyone thinks it says, which has saved the firm real trouble. Shares a surname with a colleague on the consulting side and considers the whole subject unremarkable."
+    },
+    {
+      "person_id": "p:jennifer.johnson",
+      "persona": "Works the data end of valuations and has developed a good ear for when a file is wrong before she can prove it is. Her emails are direct and a little clipped, with the question in the first line. She is studying toward credentials and it shows in how carefully she cites which standard a procedure follows. Would rather flag an uncertainty and be told it does not matter than let it through."
+    },
+    {
+      "person_id": "p:amanda.white",
+      "persona": "Cheerful, quick, and better at the client-facing side than most associates at her stage; she writes the kind of short note that gets an answer the same day. Her drafts need trimming for confidence, since she states conclusions a shade more firmly than the evidence supports, and she takes the correction without complaint. Detail-oriented on reconciliation work and genuinely interested in why a method exists rather than only how to run it."
+    },
+    {
+      "person_id": "p:michelle.banks",
+      "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+    },
+    {
+      "person_id": "p:karen.harris",
+      "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+    },
+    {
+      "person_id": "p:nicole.hanna",
+      "persona": "Newer to the practice and visibly working at it, with a habit of asking the follow-up question that reveals she understood the first answer. Her drafts are earnest and slightly over-explained, and she is being taught to separate the sentence that reports a number from the sentence that judges it. Reliable on the mechanical passes and quick to admit an error, which the seniors count as the important trait. Shares a surname with someone in operations and has never once found it worth remarking on."
+    }
+  ]
+}

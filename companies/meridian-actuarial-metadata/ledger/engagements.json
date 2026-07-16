@@ -1,0 +1,251 @@
+{
+  "schema_id": "orgsmith/engagements@1",
+  "slug": "meridian-actuarial",
+  "engagements": [
+    {
+      "id": "E-2016-001",
+      "title": "Pension Valuation for Howard and Sons",
+      "client": "x:howard-and-sons",
+      "start": "2016-04-17",
+      "end": "2016-08-31",
+      "fee": 30500,
+      "internal_participants": [
+        "p:jennifer.vasquez",
+        "p:david.sherman",
+        "p:jeffrey.ochoa"
+      ],
+      "external_participants": [
+        "xp:elizabeth.horne"
+      ],
+      "summary": "Pension Valuation engagement for Howard and Sons, running April 2016 through August 2016 at a fixed fee of $30,500.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.fee",
+          "kind": "money",
+          "value": 30500,
+          "rendered": "$30,500",
+          "location_policy": "signature_page"
+        },
+        {
+          "id": "f:E-2016-001.start",
+          "kind": "date",
+          "value": "2016-04-17",
+          "rendered": "April 17, 2016",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "kind": "text",
+          "value": "Howard and Sons",
+          "rendered": "Howard and Sons",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2016-001.minutes-date",
+          "kind": "date",
+          "value": "2016-06-10",
+          "rendered": "2016-06-10",
+          "location_policy": "filename"
+        }
+      ]
+    },
+    {
+      "id": "E-2017-001",
+      "title": "Reserve Adequacy Review for Miller, Cook and Snyder",
+      "client": "x:miller-cook-and-snyder",
+      "start": "2017-08-28",
+      "end": "2018-03-12",
+      "fee": 78000,
+      "internal_participants": [
+        "p:megan.dudley",
+        "p:jennifer.vasquez",
+        "p:david.sherman"
+      ],
+      "external_participants": [
+        "xp:michelle.hudson"
+      ],
+      "summary": "Reserve Adequacy Review engagement for Miller, Cook and Snyder, running August 2017 through March 2018 at a fixed fee of $78,000.",
+      "facts": [
+        {
+          "id": "f:E-2017-001.fee",
+          "kind": "money",
+          "value": 78000,
+          "rendered": "$78,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2017-001.start",
+          "kind": "date",
+          "value": "2017-08-28",
+          "rendered": "August 28, 2017",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2017-001.client",
+          "kind": "text",
+          "value": "Miller, Cook and Snyder",
+          "rendered": "Miller, Cook and Snyder",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2019-001",
+      "title": "Experience Study for Estes Group",
+      "client": "x:estes-group",
+      "start": "2019-02-04",
+      "end": "2019-05-23",
+      "fee": 65000,
+      "internal_participants": [
+        "p:david.sherman",
+        "p:jeffrey.ochoa",
+        "p:megan.dudley"
+      ],
+      "external_participants": [
+        "xp:barbara.hall"
+      ],
+      "summary": "Experience Study engagement for Estes Group, running February 2019 through May 2019 at a fixed fee of $65,000.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "kind": "money",
+          "value": 65000,
+          "rendered": "$65,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "kind": "date",
+          "value": "2019-02-04",
+          "rendered": "February 4, 2019",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "kind": "text",
+          "value": "Estes Group",
+          "rendered": "Estes Group",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2020-001",
+      "title": "Retiree Medical Valuation for Martinez LLC",
+      "client": "x:martinez-llc",
+      "start": "2020-07-01",
+      "end": "2021-02-12",
+      "fee": 118500,
+      "internal_participants": [
+        "p:jeffrey.ochoa",
+        "p:amanda.white",
+        "p:jennifer.vasquez"
+      ],
+      "external_participants": [
+        "xp:jason.wagner"
+      ],
+      "summary": "Retiree Medical Valuation engagement for Martinez LLC, running July 2020 through February 2021 at a fixed fee of $118,500.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.fee",
+          "kind": "money",
+          "value": 118500,
+          "rendered": "$118,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.start",
+          "kind": "date",
+          "value": "2020-07-01",
+          "rendered": "July 1, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "kind": "text",
+          "value": "Martinez LLC",
+          "rendered": "Martinez LLC",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2023-001",
+      "title": "Funding Policy Study for Wells, Walsh and Martinez",
+      "client": "x:wells-walsh-and-martinez",
+      "start": "2023-04-16",
+      "end": "2023-08-28",
+      "fee": 32500,
+      "internal_participants": [
+        "p:michelle.banks",
+        "p:david.sherman"
+      ],
+      "external_participants": [
+        "xp:lisa.hubbard"
+      ],
+      "summary": "Funding Policy Study engagement for Wells, Walsh and Martinez, running April 2023 through August 2023 at a fixed fee of $32,500.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "kind": "money",
+          "value": 32500,
+          "rendered": "$32,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "kind": "date",
+          "value": "2023-04-16",
+          "rendered": "April 16, 2023",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "kind": "text",
+          "value": "Wells, Walsh and Martinez",
+          "rendered": "Wells, Walsh and Martinez",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2024-001",
+      "title": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "client": "x:gonzalez-campbell-and-kelly",
+      "start": "2024-07-25",
+      "end": "2024-11-27",
+      "fee": 42000,
+      "internal_participants": [
+        "p:karen.harris",
+        "p:michelle.banks"
+      ],
+      "external_participants": [
+        "xp:james.garcia"
+      ],
+      "summary": "Reinsurance Pricing Review engagement for Gonzalez, Campbell and Kelly, running July 2024 through November 2024 at a fixed fee of $42,000.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "kind": "money",
+          "value": 42000,
+          "rendered": "$42,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2024-001.start",
+          "kind": "date",
+          "value": "2024-07-25",
+          "rendered": "July 25, 2024",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "kind": "text",
+          "value": "Gonzalez, Campbell and Kelly",
+          "rendered": "Gonzalez, Campbell and Kelly",
+          "location_policy": "body"
+        }
+      ]
+    }
+  ]
+}

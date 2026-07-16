@@ -1,0 +1,97 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0004",
+  "stage": "author",
+  "slug": "meridian-actuarial",
+  "org_name": "Meridian Actuarial Advisors LLC",
+  "org_type": "actuarial consulting",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0018",
+      "title": "Meeting Minutes: Reserve Adequacy Review for Miller, Cook and Snyder",
+      "genre": "meeting_minutes",
+      "date": "2018-02-12",
+      "authors": [
+        {
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
+          "dept": "Consulting",
+          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:megan.dudley",
+          "name": "Megan Dudley",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
+        },
+        {
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
+          "dept": "Consulting",
+          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
+        },
+        {
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
+          "dept": "Consulting",
+          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+        },
+        {
+          "id": "xp:michelle.hudson",
+          "name": "Michelle Hudson",
+          "title": "Director of Operations",
+          "dept": "Miller, Cook and Snyder",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2017-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:david.sherman",
+          "surface": "David Sherman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:megan.dudley",
+          "surface": "Megan Dudley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.vasquez",
+          "surface": "Jennifer Vasquez",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:michelle.hudson",
+          "surface": "Michelle Hudson",
+          "kind": "person"
+        },
+        {
+          "entity": "x:miller-cook-and-snyder",
+          "surface": "Miller, Cook and Snyder",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 86% of the way through the engagement (in the later phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

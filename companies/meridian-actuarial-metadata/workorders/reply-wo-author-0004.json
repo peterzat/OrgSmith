@@ -1,0 +1,92 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0004",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0018",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Reserve Adequacy Review — Working Session Minutes"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Working session held at the offices of {{fact:f:E-2017-001.client}} to review the state of the reserve adequacy analysis ahead of the final report. The draft report and the current exhibit set had been circulated in advance. Minutes recorded by David Sherman and reviewed by Jennifer Vasquez before distribution."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Attendees"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors",
+            "David Sherman, Senior Analyst, Meridian Actuarial Advisors",
+            "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors",
+            "Michelle Hudson, Director of Operations, Miller, Cook and Snyder"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Data and Reconciliation"
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Sherman reported that the replacement extract reconciles to the population used in the prior review once a duplicated block of records is removed. The duplication was introduced on the client side during the export and is not a data quality problem in the administration system itself. Michelle Hudson confirmed that understanding. Sherman noted that the reconciliation is a check on counts and totals, not an audit of the underlying records, and that the report will say so in the reliance section."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Megan Dudley rebuilt the affected exhibits against the corrected extract. She reported that the exhibit set is otherwise stable and that no further changes are expected to the summary schedules. One exhibit remains open pending the assumption discussion below. Dudley asked whether the prior-period comparatives should be restated on the corrected basis; the session agreed they should, and that the restatement be footnoted rather than made silently."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Assumptions"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez walked through the change to the lapse assumption. The change is supported by the firm's own experience study of the block, which shows persistency running better than the assumption in place at the last review. Vasquez was explicit that this is a judgment resting on a limited number of exposure years: the experience is what it is, the assumption is what we have chosen to make of it, and the two should not be confused when the results are described internally. The effect on the indicated reserve is favorable in direction, and the report will quantify it and show the result on both the old and the new assumption so that the reader can see the sensitivity rather than take the number on faith."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle Hudson asked whether the change would need to be revisited if the next year of experience runs the other way. Vasquez answered that it would, and that the report will say the assumption is subject to review as experience emerges. She declined to characterize the result as an improvement in the block's condition; the analysis addresses the adequacy of the reserves under the stated conditions and does not speak to profitability, and she asked that the distinction be preserved in any summary prepared for management."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Scope and Reporting"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Hudson raised a request from her side for a short summary section written for a non-technical reader. Vasquez agreed to include one, on the condition that it carry the same qualifications as the body of the report and not stand on its own if it is circulated. The work continues to be performed in accordance with the applicable Actuarial Standards of Practice, and the scope of the engagement is unchanged from the engagement letter. No extension of scope was requested and none was agreed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The session agreed that the remaining work is drafting and review rather than analysis. Meridian will complete the internal review of the draft, deliver the report and the exhibit workbook together, and hold a short call with Miller, Cook and Snyder to walk the results before the report is distributed further inside the client."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Action Items"
+        },
+        {
+          "kind": "table",
+          "header": ["Item", "Owner", "Timing"],
+          "rows": [
+            ["Restate prior-period comparatives on the corrected extract and footnote the restatement", "Megan Dudley", "Before the draft goes to internal review"],
+            ["Close the open exhibit on the revised lapse assumption; show old and new bases", "Megan Dudley", "Before the draft goes to internal review"],
+            ["Document the extract reconciliation and the duplicated-block correction in the reliance section", "David Sherman", "With the draft"],
+            ["Draft the non-technical summary section, carrying the report's qualifications", "Jennifer Vasquez", "With the draft"],
+            ["Confirm the client contact list for distribution of the final report", "Michelle Hudson", "Before delivery"],
+            ["Schedule the walkthrough call ahead of internal distribution", "Jennifer Vasquez", "After the draft clears review"]
+          ]
+        }
+      ]
+    }
+  ]
+}

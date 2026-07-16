@@ -1,0 +1,176 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0015",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "Working Session: Reserve Adequacy Review",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Working session with the staff of {{fact:f:E-2017-001.client}} to review the state of the data reconciliation and the assumption inventory. Called by David Sherman after the reconciliation of the in-force extract failed to tie to the prior valuation. Minutes recorded by David Sherman.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Attendees",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors LLC",
+        "David Sherman, Senior Analyst, Meridian Actuarial Advisors LLC",
+        "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors LLC",
+        "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Data reconciliation",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "David Sherman reported that the extract supplied for this review does not reconcile to the population used in the prior valuation. The counts differ by more than the movement in the period explains, and the difference is concentrated in one plan. The totals differ in the same direction. He was explicit about what he was and was not saying: he is not saying the extract is wrong, he is saying it describes a different population than the one the prior exhibits were built on, and that the difference has to be explained before anything is built on top of it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Michelle Hudson said the administration system was migrated during the period and that the extract logic was rewritten to match the new structure. She will establish whether the rewrite changed the selection criteria or only the field mapping. Sherman noted that either answer is workable but that they lead to different treatments, and that the choice of treatment belongs to the client with our recommendation attached, not to us alone.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Assumption inventory",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jennifer Vasquez presented the inventory of assumptions in force and the subset changed since the prior valuation. Basis is documented for all but the lapse assumption, where the documentation located so far describes a study predating the current product mix. She separated the two questions rather than answering the one she was asked: whether the assumption is documented is a fact, and it is not; whether it is reasonable is a judgment she is not prepared to offer until the population question is closed, because the data feed the judgment.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Michelle Hudson asked whether the gap was a problem. Vasquez said it is a problem only if it stays open, and that it is the kind of item usually solved by finding the right person rather than by anyone doing more work.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Exhibits",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Megan Dudley reported the workbook shell is complete and the reconciled tabs are populated for the plans that tie. She has held the affected plan out rather than loading it and correcting later, on the grounds that a corrected tab is harder to audit than an empty one. Sherman agreed. Dudley asked that any replacement extract arrive as a full re-cut rather than a delta file. Agreed.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Action items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [
+        "Item",
+        "Owner",
+        "Due"
+      ],
+      "rows": [
+        [
+          "Confirm whether the extract rewrite changed selection criteria or only field mapping",
+          "Michelle Hudson",
+          "Next week"
+        ],
+        [
+          "Document the reconciliation difference by plan and quantify it",
+          "David Sherman",
+          "On receipt of the above"
+        ],
+        [
+          "Locate the study supporting the lapse assumption in force, or confirm none exists",
+          "Michelle Hudson",
+          "Two weeks"
+        ],
+        [
+          "Hold the affected plan out of the workbook until the population question closes",
+          "Megan Dudley",
+          "Ongoing"
+        ],
+        [
+          "Draft the reliance language covering the data as received",
+          "Jennifer Vasquez",
+          "With the draft report"
+        ]
+      ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "No conclusions were reached in this session and none should be inferred from these minutes. The calculated exhibits have not been built. A further working session will be scheduled once the population question is answered.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    }
+  ]
+}

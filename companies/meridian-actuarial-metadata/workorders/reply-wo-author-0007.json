@@ -1,0 +1,193 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0007",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0036",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Onboarding Record: Karen Harris",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Filed by Robert Lawrence, Managing Actuary. For the personnel file and the Consulting group's records."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Karen Harris starts with us today as an Actuarial Associate in the Consulting group. She arrives at a point where the book of work is growing faster than the staff is, which is a good problem to have and one she is part of the answer to. She is welcome here, and I would rather say so in writing than assume it was understood."
+        },
+        {
+          "kind": "heading",
+          "text": "Role and Reporting",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Karen sits in Consulting and reports to me. Her work is valuation support to begin with: census reconciliation, exhibit preparation, and the checking passes that stand behind an exhibit before anyone signs anything. She will also carry a share of the routine client correspondence about data files and data requests. That is not clerical work. The quality of a valuation is largely set at the point where the data comes in the door, and the person who asks the plan administrator a precise question is doing actuarial work whether or not it looks like it from the outside."
+        },
+        {
+          "kind": "heading",
+          "text": "First Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Her first week is administrative: accounts and access, the file structure, the standards library, and a walk through a completed working paper file so she can see what a finished job looks like before she is asked to build one. Through her first month she shadows the valuation work rather than owning a piece of it, and I have asked her to spend that month reading rather than producing. After that she takes exhibits of her own with a reviewer over them, and the reviewer stays over them for a good while. Nothing leaves here with one set of eyes on it, and that is a rule about the work, not about her."
+        },
+        {
+          "kind": "heading",
+          "text": "Expectations",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "What we expect of her is what we expect of everyone. Keep what the data show, what was assumed, and what we conclude in separate sentences, and do not let one borrow authority from another. Raise an anomaly early and in plain language rather than resolving it quietly and mentioning it later. Say you do not know when you do not know; it costs nothing here and it is considerably cheaper than the alternative. Karen has a good instinct for what a trustee will actually look at on a page, which is not a common thing to arrive with, and I would sooner sharpen that than train it out of her."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0038",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Meridian Actuarial Advisors LLC",
+          "level": 1
+        },
+        {
+          "kind": "heading",
+          "text": "Firm Overview",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Meridian Actuarial Advisors is a consulting actuarial practice. We measure benefit obligations, we test whether the money set aside to meet them is sufficient, and we put our names on the opinion that says so. Our clients are public pension boards, a life insurer, and multiemployer benefit funds. In every case the work ends in a document that somebody else has to be able to rely on, and we write it accordingly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are a small practice and we intend to stay a practice rather than become an institution. The people who do the analysis are the people who present it. A client who calls us gets the actuary who ran the numbers, not an account manager who will find out and call back."
+        },
+        {
+          "kind": "heading",
+          "text": "Service Lines",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Funding valuations of defined benefit pension plans, with the supporting exhibits, the gain and loss analysis, and the disclosure schedules an auditor will ask for.",
+            "Reserve adequacy review for life and annuity business, including asset adequacy testing and review of the assumptions underlying the reserves.",
+            "Experience studies: what the plan population actually did, measured against what the assumptions said it would do, and a recommendation on which assumptions should change.",
+            "Retiree medical and other postemployment benefit valuations, including trend assumptions and the accounting disclosures that follow from them.",
+            "Board and trustee support: education sessions, plain presentation of results, and answers to the questions actually asked."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Representative Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "For {{fact:f:E-2016-001.client}} we performed a funding valuation of the sponsored defined benefit pension plan: reconciliation of the participant census against the prior valuation, development of the liabilities on the plan's funding basis, an attribution of the change in funded position to its sources, and a recommendation on the contribution. The engagement produced a report, a workbook of exhibits behind every number in it, and the schedules the sponsor's auditors required."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For {{fact:f:E-2017-001.client}} we conducted a reserve adequacy review. The question there was narrower and harder: whether the reserves held would be sufficient under a range of scenarios rather than under one set of assumptions, and what the answer depended on. We reported the measurement, the assumptions, and our conclusion as three separate things, which is how a reader can tell which of them to argue with."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For {{fact:f:E-2019-001.client}} we completed an experience study comparing several years of plan experience against the assumptions in force. Some assumptions were left alone. Where the data supported a change we recommended one and showed the effect on the liability; where the data were thin we said the data were thin and recommended waiting. A study that recommends changing everything it looked at is usually a study that mistook noise for a signal."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For {{fact:f:E-2020-001.client}} we valued a retiree medical program. Medical trend is the assumption that drives that result and it is the assumption nobody can know, so we set out what we assumed, showed what the obligation would be if we were wrong in either direction, and left the board in a position to weigh that themselves rather than take our word for it."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our work is performed under the applicable Actuarial Standards of Practice and the Code of Professional Conduct, and our reports say plainly which standards apply to them. We rely on data supplied by the client and by the plan's administrators and record holders. We test that data for reasonableness and internal consistency, we tell you what we tested and what we did not, and we do not audit it. Where a reliance is material to the result, the report says so on its face rather than in a footnote."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our reports separate measurement from judgment. What the data show is one paragraph. What was assumed is the next. What the actuary concludes is the third. Trustees are asked to make decisions on our work, and they cannot do that if the number and the opinion about the number arrive fused together."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We qualify what should be qualified. A hedge in an actuarial report is not hesitation; it is the accurate width of the answer. An estimate presented without its uncertainty is not more useful than one presented with it, only more comfortable, and the comfort is borrowed against somebody else's balance sheet."
+        },
+        {
+          "kind": "heading",
+          "text": "Presentation",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our board decks are plain: one chart to a slide, the point of the slide written on it, and nothing on the page that is not load-bearing. Between formal deliverables we are reachable by email and we answer questions about data and assumptions as they come up rather than saving them for a meeting. Nobody has ever complained that a valuation report was too easy to follow."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Inquiries about the firm or about a proposed engagement may be directed to Robert Lawrence, Managing Actuary."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0044",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Onboarding Record: Nicole Hanna",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Robert Lawrence, Managing Actuary. Copy to the personnel file."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nicole Hanna joins the Consulting group today as an Actuarial Associate. She is early in the practice and we hired her that way on purpose. The mechanical work of a valuation is learned by doing it under someone who has done it, and there is a limit to how much of that can be skipped."
+        },
+        {
+          "kind": "heading",
+          "text": "Role and Reporting",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nicole reports to me and works across the consulting engagements as the schedule requires; she is not assigned to one client. Her first responsibilities are the mechanical passes: census reconciliation, tie-outs between the workbook and the report, and the checks that confirm an exhibit says what the exhibit behind it says. Work of that kind is the foundation the rest of the report stands on, and it is given to the newest person here because it is where the newest person learns what the numbers are made of, not because it is unimportant."
+        },
+        {
+          "kind": "heading",
+          "text": "First Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first week is accounts, access, the standards library, and the working paper conventions, which are not optional and are not a matter of taste. She should read two or three completed files end to end before she touches a live one. Through her first month she works alongside the associates on current engagements with everything she produces reviewed line by line, and I would rather she ask three questions than guess once. Her drafts will be marked up heavily and that is not a verdict on her; the review is heavy here for everybody, and the day it stops being heavy is the day to worry."
+        },
+        {
+          "kind": "heading",
+          "text": "Expectations",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things I will keep saying to her until they are habit. First, the sentence that reports a number and the sentence that judges it are different sentences, and they belong in different paragraphs; a draft that blends them will come back. Second, when a figure will not reconcile, say so while it will not reconcile, not after it has been resolved by someone else. An error found early is a data question. The same error found late is a correction to a signed report, and I have written that letter and would prefer not to write it again."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nicole Hanna asks the follow-up question that shows she understood the first answer, which is the trait I look for and the one that is hardest to teach. Nothing else in this record matters as much as that."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0009",
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0046",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "James Garcia\nChief Financial Officer\n{{fact:f:E-2024-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Mr. Garcia:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter confirms the terms on which we will review the pricing of the reinsurance program of {{fact:f:E-2024-001.client}}. It sets down the work we have agreed to perform, the material we will rely on, the standards the work is performed under, and the commercial terms. If it records our understanding correctly, please countersign and return a copy."
+        },
+        {
+          "kind": "heading",
+          "text": "Background and Purpose",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Gonzalez, Campbell and Kelly has asked us to examine the rates and terms of the treaties under which it cedes risk, and to say whether what is being paid is consistent with the experience of the business ceded and with terms a cedent of comparable size and experience could expect today. You have told us that the principal treaty has been renewed twice without a rate review, that the ceding allowance has not been revisited in that period, and that the retention was last set when the in-force was materially smaller. None of that is evidence of a mispriced program. It is a reason to look at one."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A pricing review is three things, and we will keep them apart. There is what the experience shows, which is measurement. There is what must be assumed to project that experience forward and to price a treaty against it, which is judgment applied to measurement. There is what we conclude, which is judgment. Where a conclusion rests on an assumption rather than on the data, we will name the assumption and say what happens to the conclusion if it is wrong."
+        },
+        {
+          "kind": "heading",
+          "text": "Scope of Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review has five parts. We expect to review the first two with your staff before the pricing work begins. A pricing comparison built on a misread treaty is worse than none, because it looks like an answer."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Treaty review. We will read the treaties in force, together with amendments and side letters, and set down in one place what is ceded, on what basis, at what rates, with what allowances, and under what recapture and rate-adjustment provisions.",
+            "Experience study. We will compile the ceded mortality experience over the available observation period, reconciled to your in-force records, and express it against the table the treaty rates were set on. We will report exposure and credibility with the results, not separately from them.",
+            "Assumption basis. We will set out the mortality, lapse, and expense assumptions we propose to price against, distinguishing those supported by your own experience from those we have taken from published or industry sources because your experience is not credible at that level of detail.",
+            "Pricing comparison. We will price the ceded business on the basis above and compare the result to the rates and allowances actually paid, treaty by treaty, and to terms we understand to be presently available in the market.",
+            "Findings and options. We will report what we found, what it rests on, and what courses are open to you at the next renewal, including the option of doing nothing."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Approach and Reliance on Data",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will rely on data and information supplied by you and by your reinsurers without audit or independent verification. We will review the material for reasonableness and internal consistency, and we will reconcile the ceded records to your in-force. That is a check on consistency. It is not an audit and should not be represented as one. If we find the data unsuitable for the purpose, we will say so and we will not proceed as though we had not found it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work will be performed in accordance with the Actuarial Standards of Practice promulgated by the Actuarial Standards Board, and the report will identify the standards material to it. Our deliverable is an actuarial report and the workbook of exhibits supporting it. It is prepared for the use of your management and board, for the purpose stated in this letter, and it should not be relied upon for another purpose or by another party without our written consent."
+        },
+        {
+          "kind": "heading",
+          "text": "The Team",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will be the actuary responsible for the work and will sign the report. Karen Harris will run the engagement day to day and will be your staff's first point of contact on data and scheduling. Michelle Banks will perform the experience study and the pricing work and will maintain the working papers supporting the exhibits. Both are Actuarial Associates of this firm. The composition of the team may change; the responsible actuary will not, without notice to you."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and Timing",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the work described above is {{fact:f:E-2024-001.fee}}, fixed. It covers the five parts of the scope, one working session with your staff on each of the first two, and one presentation of the findings. Work begins {{fact:f:E-2024-001.start}}, subject to receipt of the treaty documents and the ceded records. We expect the review to run about four months from commencement, and the schedule assumes the data arrive substantially complete in the first month. If they do not, the completion date moves; the fee does not, unless the scope does."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will invoice monthly in arrears against progress, with the balance on delivery of the report. Invoices are payable within thirty days. Reasonable out-of-pocket expenses, principally travel to your offices, are billed at cost and are not included in the fee above. Work outside the scope described will be performed only on your written instruction, and we will estimate it before we begin it."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This engagement runs until the report is delivered and the findings presented. Either of us may terminate it on fifteen days' written notice. On termination you will pay for work performed to the termination date, and we will deliver what is complete at that date, marked as incomplete, because a partial pricing review presented as a whole one is misleading."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will treat your data, your treaty terms, and our findings as confidential, and will not disclose them to a third party except with your consent or as required by law or by the standards of the profession. Our working papers remain our property. We will retain them for the period our record retention policy requires and no longer."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our aggregate liability to you arising out of this engagement, on any theory, is limited to the fees paid under it, except for our fraud or willful misconduct, for which liability may not be limited. Neither of us is liable to the other for consequential, indirect, or punitive damages. Our findings are opinions about uncertain future events. They are not, and cannot be, a guarantee of a result."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter is governed by the laws of the state in which our principal office is located, without regard to its conflict of laws provisions. It is the entire agreement between us on this engagement and supersedes prior discussion of it. It may be amended only in writing signed by both of us."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the foregoing sets out our understanding, please sign below and return one copy to Karen Harris. We are glad to be asked, and we will begin on receipt."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Very truly yours,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:robert.lawrence",
+            "xp:james.garcia"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0047",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Kickoff Memorandum",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Michelle Banks, Nicole Hanna\nFrom: Karen Harris\nCopy: Robert Lawrence\nRe: Reinsurance pricing review, {{fact:f:E-2024-001.client}} — engagement commenced {{fact:f:E-2024-001.start}}"
+        },
+        {
+          "kind": "heading",
+          "text": "Objective",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are to say whether the rates and allowances Gonzalez, Campbell and Kelly pays on its ceded business are consistent with the experience of that business and with terms available now, and to lay out the options at the next renewal. The client's own view is that the program has drifted; that is a hypothesis we are testing, not a conclusion we are documenting. Robert Lawrence signs the report, so the standard for what goes in it is his: what the experience shows, what we assumed, what we conclude, in that order and not blended. Nothing we write should imply more precision than the exposure supports."
+        },
+        {
+          "kind": "heading",
+          "text": "Workstreams",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Treaty review — Karen Harris. Read the treaties, amendments, and side letters and produce a one-page summary per treaty: what is ceded, on what basis, rates, allowances, retention, recapture, and rate-adjustment rights. This is the foundation for everything else and it comes first.",
+            "Data intake and reconciliation — Nicole Hanna. Take delivery of the ceded records and the in-force extract, reconcile counts and amounts between them, and log every discrepancy with its disposition. Do not fix a discrepancy silently. Log it, then ask.",
+            "Experience study — Michelle Banks. Compile ceded mortality over the available observation period against the treaty basis, with exposure and credibility reported alongside every result. Working papers should let Robert Lawrence retrace the calculation without asking you a question.",
+            "Assumption basis — Michelle Banks, reviewed by Karen Harris. Set down the mortality, lapse, and expense assumptions we will price against, and mark each one as supported by client experience or taken from an external source because the experience will not carry it.",
+            "Pricing comparison and exhibits — Karen Harris. Price the ceded business on the agreed basis, compare treaty by treaty to what is paid, and build the exhibit workbook. One exhibit per question. No decoration."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Working Practices",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Garcia is the client contact and the route for anything that changes scope, schedule, or the shape of the deliverable. Data requests and scheduling go through me to his staff; I would rather send one consolidated request than four ad hoc ones, so route what you need through me and I will batch it. If a request is urgent, say so and I will send it on its own."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Everything that supports a number in the report lives in the working papers, filed as you go, not assembled at the end. Michelle Banks knows the standard we hold to here; Nicole Hanna, use her files from the last valuation as the model. If you are unsure whether a step is worth documenting, document it. The cost of writing a line you did not need is much lower than the cost of reconstructing a step in November."
+        },
+        {
+          "kind": "heading",
+          "text": "Next Steps",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "I have asked the client for the treaty file and the ceded records. Nicole Hanna: acknowledge receipt the day they land and start the reconciliation; do not wait for the full set to begin on what has arrived.",
+            "Michelle Banks and I meet Thursday to agree the observation period and the segmentation before any exposure is compiled.",
+            "Treaty summaries circulated within two weeks. We review them with the client's staff before the pricing work starts.",
+            "Robert Lawrence will want the assumption basis in front of him before it is used, not after. Plan on that review, do not schedule around it."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions to me. It is early enough that asking one costs nothing."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0048",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Minutes: Working Session, Reinsurance Pricing Review",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Client: {{fact:f:E-2024-001.client}}. Prepared by Michelle Banks. These minutes record what was discussed and agreed. Where a figure is mentioned below it is preliminary and subject to the reconciliation and review described."
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Karen Harris, Actuarial Associate",
+            "Michelle Banks, Actuarial Associate",
+            "James Garcia, Chief Financial Officer, Gonzalez, Campbell and Kelly"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Karen Harris reviewed the status of the treaty summaries, which are complete and have been with the client's staff for comment. One drafting question is open: the rate-adjustment provision in the principal treaty appears to permit the reinsurer to propose a rate change on notice, subject to the cedent's right to recapture. James Garcia's understanding matches ours in substance. He noted that the provision has not been exercised and that no one presently at the firm was involved in negotiating it. We agreed the summary should record the provision as written and should not characterize what either party would do under it, because we do not know."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I reported on the experience study. Exposure has been compiled for the observation period and reconciled to the in-force extract; the reconciliation closes on count and is within a tolerance we regard as acceptable on amount, with the residual traced to two blocks that were transferred mid-period and are recorded differently in the two systems. That is a recording difference, not a data defect, and it is documented in the working papers. Actual-to-expected has been calculated at the level of the whole ceded block. It has not been calculated by age band or duration, and I said that I do not yet know whether exposure will support that segmentation. Karen Harris asked what the whole-block result is. I gave it, with the caveat that a single ratio over a block this size tells you the direction and not much more, and that I would rather it not travel to the client's board in that form."
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Garcia asked whether the result so far means the program is mispriced. It does not mean that. It means the experience over this period differs from the basis the rates were set on, in one direction. Whether that difference is credible, whether it persists, and whether it is worth anything at renewal are three separate questions and we have not answered any of them. He accepted that and asked instead what would make the answer more or less certain. Exposure, mostly, and time. Where the block will not carry a segmentation on its own experience, we will have to blend to an external basis, and we will show which assumptions are ours and which are borrowed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On data, two items remain outstanding: the reinsurer's rate confirmations for the two renewals in the observation period, and the expense allocation the client uses for the ceded business. James Garcia will chase the first with the broker. The second, he said, may not exist in a form we can use, in which case we will assume one and say we assumed it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Karen Harris raised the shape of the eventual presentation. The client's board will see the findings; the working assumption is one chart per slide and the exhibits in the workbook behind it. No decision was needed today and none was taken."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "By"
+          ],
+          "rows": [
+            [
+              "Chase the reinsurer's rate confirmations for both renewals in the observation period",
+              "James Garcia",
+              "Next week"
+            ],
+            [
+              "Confirm whether a usable expense allocation for the ceded business exists; if not, say so",
+              "James Garcia",
+              "Two weeks"
+            ],
+            [
+              "Test whether exposure supports segmentation by age band and duration; report the answer either way",
+              "Michelle Banks",
+              "Two weeks"
+            ],
+            [
+              "Document the mid-period transfer recording difference in the reconciliation working paper",
+              "Michelle Banks",
+              "This week"
+            ],
+            [
+              "Finalize treaty summaries once the client's comments are in; record the rate-adjustment provision as written",
+              "Karen Harris",
+              "Next week"
+            ],
+            [
+              "Circulate the draft assumption basis for review before any pricing is run on it",
+              "Michelle Banks",
+              "Three weeks"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Next working session to be scheduled once the assumption basis has been reviewed. Corrections to these minutes to Michelle Banks."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0049",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Status Report: Reinsurance Pricing Review",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Client: {{fact:f:E-2024-001.client}}\nPrepared by: Karen Harris, Actuarial Associate"
+        },
+        {
+          "kind": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report covers the reinsurance pricing review being performed for Gonzalez, Campbell and Kelly. The review is at its midpoint and on schedule. The treaty review is complete. The experience study is compiled and reconciled at the whole-block level and is now being tested for whether it will support segmentation. The assumption basis is in draft and goes to review shortly. The pricing comparison has not begun and will not begin until the basis is settled. Two data items remain outstanding; neither is presently on the critical path, and one of them will be if it is still outstanding in three weeks. We have no findings to report. We have work that is proceeding as described, which is a different statement and the only one supportable today."
+        },
+        {
+          "kind": "heading",
+          "text": "This Period",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Treaty summaries completed for every treaty in force, covering what is ceded, the rate and allowance basis, retention, recapture, and rate-adjustment rights. Your staff have reviewed them and their comments are being incorporated. The rate-adjustment provision in the principal treaty is recorded as written; we have not characterized how either party would use it, because we have no basis to.",
+            "Ceded records and in-force extract received, reconciled, and accepted for use. The reconciliation closes on count and is within tolerance on amount. The residual traces to two blocks transferred mid-period and recorded differently in the two systems. Michelle Banks has documented it in the working papers. It is a recording difference and does not affect the exposure we will price against.",
+            "Exposure compiled for the observation period and actual-to-expected calculated against the treaty basis for the ceded block as a whole. The result differs from the basis the rates were set on. We are not reporting the figure in this report and we will not report it as a finding until it has been tested for credibility and reviewed. A single ratio over one block indicates a direction. It is not a conclusion about price.",
+            "Working session held with your Chief Financial Officer to review status, the open treaty question, and the outstanding data items."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Next Period",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Test whether exposure supports segmentation by age band and duration. We will report the answer either way. If it does not support it, we will blend to an external basis and identify every assumption so borrowed.",
+            "Complete and review the assumption basis for mortality, lapse, and expenses. Robert Lawrence reviews it before any pricing is run against it; this sequencing is deliberate and we will not shortcut it to save a week.",
+            "Begin the pricing comparison, treaty by treaty, against the agreed basis and against terms we understand to be presently available.",
+            "Begin the exhibit workbook in parallel with the pricing, so the exhibits are built as the numbers are produced rather than assembled afterward."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Budget",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The fixed fee for the review is {{fact:f:E-2024-001.fee}}. Effort to date is consistent with that fee and with the work remaining; we are not forecasting an overrun and we are not requesting a change. Nothing performed this period was outside the agreed scope, and no out-of-pocket expenses of consequence have been incurred. The estimate assumes the pricing comparison runs once on a settled basis rather than twice on a moving one, which is the reason for the sequencing described above. If either of the items below turns into scope, we will estimate it and ask before we do it, not after."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and Watch Items",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Credibility is the principal risk to the usefulness of the result, and it is not a risk we can manage away. The block may not have the exposure to say anything defensible below the whole-block level. If it does not, the review will still produce an answer, but the answer will lean more heavily on an external basis and will be correspondingly more qualified. We would rather tell you that in September than have you learn it from the report."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The reinsurer's rate confirmations for both renewals in the observation period are outstanding with the broker. We can price without them, but we cannot state with confidence what was actually paid in the earlier renewal year without them, and that comparison is a material part of the deliverable. This becomes critical path in roughly three weeks."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The expense allocation for the ceded business may not exist in a usable form. If it does not, we will assume one, state it plainly as an assumption, and show what the comparison looks like if the assumption is moved. That is a satisfactory answer. It is not as good as the allocation."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Data arrival for anything still outstanding is the schedule risk, and it is the one risk that is largely in your staff's hands rather than ours. The plan assumes the remaining items land within the next month. Beyond that, completion moves. We would tell you at the time rather than at the end, and we would tell you how far it moves rather than that it has moved."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions on this report to Karen Harris. Questions on the experience work to Michelle Banks, who did it."
+        }
+      ]
+    }
+  ]
+}

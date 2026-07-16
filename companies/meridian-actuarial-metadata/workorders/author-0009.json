@@ -1,0 +1,319 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0009",
+  "stage": "author",
+  "slug": "meridian-actuarial",
+  "org_name": "Meridian Actuarial Advisors LLC",
+  "org_type": "actuarial consulting",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0046",
+      "title": "Engagement Letter: Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "engagement_letter",
+      "date": "2024-07-15",
+      "authors": [
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2024-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0047",
+      "title": "Kickoff Memo: Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "kickoff_memo",
+      "date": "2024-07-28",
+      "authors": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        },
+        {
+          "id": "p:nicole.hanna",
+          "name": "Nicole Hanna",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Newer to the practice and visibly working at it, with a habit of asking the follow-up question that reveals she understood the first answer. Her drafts are earnest and slightly over-explained, and she is being taught to separate the sentence that reports a number from the sentence that judges it. Reliable on the mechanical passes and quick to admit an error, which the seniors count as the important trait. Shares a surname with someone in operations and has never once found it worth remarking on."
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        },
+        {
+          "entity": "p:nicole.hanna",
+          "surface": "Nicole Hanna",
+          "kind": "person"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0048",
+      "title": "Meeting Minutes: Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "meeting_minutes",
+      "date": "2024-09-13",
+      "authors": [
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0049",
+      "title": "Status Report: Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "status_report",
+      "date": "2024-09-25",
+      "authors": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

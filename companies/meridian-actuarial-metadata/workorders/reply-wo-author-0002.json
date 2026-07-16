@@ -1,0 +1,113 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0002",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0005",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Firm Overview"},
+        {"kind": "paragraph", "text": "Meridian Actuarial Advisors LLC is a consulting actuarial practice. We measure defined benefit obligations, analyze what it costs to fund them, and issue the opinions and certifications that accompany that work. We do not administer benefits, sell investment products, or place insurance. What a client buys from this firm is a conclusion, the working papers that support it, and a name at the bottom of the page."},
+        {"kind": "paragraph", "text": "The practice keeps three things apart in everything it writes: what the data show, what was assumed, and what the actuary concludes. Those are different kinds of statement and they carry different weight. A reader who cannot tell them apart in one of our reports should say so, because the report is defective."},
+        {"kind": "heading", "level": 2, "text": "Services"},
+        {"kind": "paragraph", "text": "The firm is organized to serve the trustees, sponsors, and finance staff who are accountable for a defined benefit obligation, whatever form the plan takes. The service lines are narrow on purpose."},
+        {"kind": "list", "items": [
+          "Scheduled and interim actuarial valuations, with the supporting exhibits",
+          "Funding and contribution analysis, including projections under alternative assumption sets",
+          "Experience studies and periodic assumption reviews",
+          "Statements of actuarial opinion and the certifications required by statute, by regulation, or by a plan's governing documents",
+          "Assistance to boards, trustees, and client auditors on actuarial questions that arise between valuation cycles"
+        ]},
+        {"kind": "paragraph", "text": "Work is performed under the applicable Actuarial Standards of Practice. Where a standard permits a range of methods, we state which method we used and why. Where a result depends on an assumption the client selected rather than one we recommended, we state that as well, and we state what we think of it."},
+        {"kind": "heading", "level": 2, "text": "How an engagement runs"},
+        {"kind": "paragraph", "text": "Every engagement begins with an engagement letter. The letter sets out the scope of the work, the data we will rely on and who is responsible for furnishing it, the standards the work is performed under, the deliverables, and the fee basis. Nothing leaves this office without that paragraph. Carol Cooper, who manages the practice, holds documents that are missing it, and she is right to hold them."},
+        {"kind": "paragraph", "text": "We rely on data furnished by the client. We test it for reasonableness and for internal consistency, we reconcile it to the prior measurement, and we report what the testing found. We do not audit it, and the report says so. A valuation is only as good as the census behind it. That is not a disclaimer; it is a fact about the arithmetic."},
+        {"kind": "heading", "level": 2, "text": "Deliverables"},
+        {"kind": "paragraph", "text": "A valuation typically arrives as two documents and a meeting. The exhibits come as a workbook: liabilities, normal cost, assets, development of the contribution, and the reconciliation between this measurement and the last. The report interprets the workbook in ordinary language and carries the opinion. Where a board wants the results presented, we present them, one chart to a slide and no decoration, and the actuary who did the work answers the questions that are asked."},
+        {"kind": "heading", "level": 2, "text": "Representative work"},
+        {"kind": "paragraph", "text": "The firm's engagement of record is with {{fact:f:E-2016-001.client}}. It is representative of the practice: an obligation measured on a schedule, the assumptions behind the measurement stated where a reader can find them without asking, and a result the client's own advisors can retrace. We would rather be engaged for the second valuation than for the first, because the second is where the reconciliation tells you whether the first was any good."},
+        {"kind": "paragraph", "text": "Prospective clients ask what makes this practice worth engaging, and the honest answer is unremarkable. We do the work on the schedule we agreed to. We explain the number in language a trustee can use in a meeting without an actuary standing next to him. We qualify what deserves qualification and we leave the rest alone, because a hedge attached to every sentence conveys nothing at all."},
+        {"kind": "heading", "level": 2, "text": "Staffing"},
+        {"kind": "paragraph", "text": "The firm is small, and every engagement is staffed by people whose names the client will learn. There is no arrangement here in which the person who wins the work and the person who does it are different people. The actuary who signs the opinion has read the working papers. That is a constraint on how fast this practice can grow, and we have decided we would rather be constrained by it than explain, later, why nobody senior looked at the file."},
+        {"kind": "paragraph", "text": "Robert Lawrence, Managing Actuary, is responsible for the opinions this firm issues and signs them. Questions of scope, timing, or fees should go to Carol Cooper in the first instance, and she will bring in whoever needs to answer them."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0010",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Onboarding Record: Jennifer Johnson"},
+        {"kind": "paragraph", "text": "Jennifer Johnson joins the firm as an Actuarial Associate in the consulting practice. This record is for the personnel file and for her own, so that what was said to her on arrival is written down somewhere other than in my memory."},
+        {"kind": "paragraph", "text": "She will work the data end of valuations. That means intake of client census and asset files, reasonableness and consistency testing, reconciliation to the prior measurement, and the exhibits that come out of the reconciliation. It is the part of the work that people outside the profession assume is clerical, and it is where the errors that matter actually live: a valuation is a very precise arithmetic performed on whatever was in the file. She sits with the consulting staff and reports to me for the present. That reporting line is a function of the size of the practice and not of her seniority, and she should read nothing into it when it changes."},
+        {"kind": "paragraph", "text": "Her workstation, network account, and access to the engagement files should be in place before she sits down; if they are not, the fault is ours and she should say so rather than wait. The practice manager will take her through timekeeping, benefits enrollment, and the firm's support for exams in her first week. She is to read the engagement letter for any client whose data she touches before she touches it. Client data stays in the office. It does not go home on a drive, and it is not discussed outside the firm, including with people who already know what we are working on."},
+        {"kind": "paragraph", "text": "Two expectations, and they are the ones I state to everyone. Document as you go: a working paper a reviewer cannot retrace is not finished, whatever number sits at the bottom of it. And flag what you are unsure of. I would rather hear about ten uncertainties that turn out not to matter than meet the eleventh in front of a board. No one here has been criticized for raising a question early. Everything Jennifer Johnson produces will be reviewed by a credentialed actuary before it leaves the office, which is not a comment on her work; it is how the work is done."},
+        {"kind": "paragraph", "text": "Prepared by Robert Lawrence, Managing Actuary, for the personnel file."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0019",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Onboarding Record: Amanda White"},
+        {"kind": "paragraph", "text": "Amanda White joins the firm as an Actuarial Associate in the consulting practice. The record below is what she was told on arrival."},
+        {"kind": "paragraph", "text": "Her work will be valuation support: census and asset file intake, data reconciliation, exhibit preparation, and the correspondence with client staff that keeps a data request from turning into three weeks of silence. She has more aptitude for that correspondence than most associates at her stage, and I intend to use it, within limits. A note that gets an answer the same day is worth a great deal to an engagement running against a reporting deadline. It is worth nothing at all if it commits us to something we have not measured. She sits with the consulting staff. Anything she sends outside the firm comes past a credentialed actuary first, which is the rule for everyone and not a judgment about her."},
+        {"kind": "paragraph", "text": "Logistics for the first period are ordinary. Workstation, network account, and engagement file access on day one. Timekeeping, benefits, and the exam support policy with the practice manager in the first week; the exam schedule is her own to manage, and she should tell us her sittings early enough that we can staff around them rather than late enough that we cannot. She reads the engagement letter for a client before she works on that client, every time, and she should expect to be asked what the scope paragraph says. Client data stays in the office and stays inside the firm."},
+        {"kind": "paragraph", "text": "One habit to learn early, because it is the habit this firm is built on: state what the data show, then what was assumed, then what you conclude, and do not let one sentence carry two of those. Associates arrive stating conclusions a shade more firmly than the evidence supports. It is common, it is correctable, and we correct it in review, which is why the review exists. Amanda White should not take the red ink personally. A qualifier in an actuarial report is not timidity, it is accuracy, and she will understand the difference the first time somebody reads a sentence of hers back to her in a room where it matters. Until then she can take it on my authority, which is the only shortcut on offer here."},
+        {"kind": "paragraph", "text": "Robert Lawrence, Managing Actuary. Copy to the personnel file."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0026",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Firm Overview"},
+        {"kind": "paragraph", "text": "Meridian Actuarial Advisors LLC is a consulting actuarial practice. We measure defined benefit obligations, analyze what it costs to fund them, and issue the opinions and certifications that go with that work. We do not administer plans, sell investments, or place coverage. The product is a conclusion, the working papers that support it, and a signature."},
+        {"kind": "paragraph", "text": "The discipline of the practice is a matter of paragraphs. Measurement is one paragraph, assumption is another, and judgment is a third. Blur them together and a reader cannot tell which part of the answer is arithmetic and which part is opinion, which means the report has failed at the only thing it exists to do."},
+        {"kind": "heading", "level": 2, "text": "Service lines"},
+        {"kind": "list", "items": [
+          "Scheduled and interim valuations, delivered as an exhibit workbook and an interpretive report",
+          "Contribution and funding policy analysis, including projections under alternative assumption sets",
+          "Experience studies and assumption reviews",
+          "Statements of actuarial opinion and the certifications required by statute, by regulation, or by a plan's governing documents",
+          "Board and trustee education, and support to client auditors on actuarial matters"
+        ]},
+        {"kind": "paragraph", "text": "The list is short and has stayed short. The practice has grown since it opened, and the growth has gone into staff and into the depth of the review, not into the range of things we are willing to claim we do."},
+        {"kind": "heading", "level": 2, "text": "Standards and reliance"},
+        {"kind": "paragraph", "text": "Work is performed under the applicable Actuarial Standards of Practice. Where a standard admits more than one method, the report names the method used and the reason for it. Where a result turns on an assumption the client selected, the report says whose assumption it is and what we think of it. A client is entitled to prescribe an assumption. A client is not entitled to have our silence read as agreement."},
+        {"kind": "paragraph", "text": "We rely on data furnished by the client. We test it for reasonableness and internal consistency, reconcile it against the prior measurement, and disclose what the testing found. We do not audit it. Where the data will not support a conclusion at the precision a client wants, we say what precision it will support, which is a less satisfying answer and the only honest one."},
+        {"kind": "heading", "level": 2, "text": "Representative client work"},
+        {"kind": "paragraph", "text": "The firm's engagements are with {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, and {{fact:f:E-2019-001.client}}. They differ in their particulars, in their reporting calendars, and in what their governing documents require of us, and each is staffed accordingly. What is common to all three is the shape of the work: an obligation measured on a schedule, assumptions set out where a reader can find them, exhibits that reconcile to the last measurement, and a report that a person who is not an actuary can act on."},
+        {"kind": "paragraph", "text": "The relationship with {{fact:f:E-2016-001.client}} is the longest-running of the three and, for that reason, the most useful description of what this firm is like to work with. The first valuation of any engagement is largely an exercise in finding out what the data are. The value shows up afterward, in the cycles where the reconciliation can tell you whether last year's answer was any good, and in the years when the answer moves and somebody has to explain why. Explaining why is most of the job."},
+        {"kind": "heading", "level": 2, "text": "Deliverables and presentation"},
+        {"kind": "paragraph", "text": "Exhibits arrive as a workbook: liabilities, normal cost, assets, development of the contribution, and the reconciliation to the prior measurement. The report interprets the workbook and carries the opinion. Where a board wants the results presented, we present them: one chart to a slide, no decoration, and the actuary who performed the work takes the questions rather than a partner who has read the summary on the way in."},
+        {"kind": "heading", "level": 2, "text": "Staffing and review"},
+        {"kind": "paragraph", "text": "Every engagement is staffed by people the client will know by name, and the actuary who signs the opinion has read the working papers rather than the summary of them. Every deliverable is reviewed by a credentialed actuary before it leaves the office, without exception and without regard to how routine the cycle looked going in. Review costs time that a client does not see and pays for, and it is the least negotiable item in the fee."},
+        {"kind": "paragraph", "text": "Robert Lawrence, Managing Actuary, is responsible for the opinions this firm issues and signs them."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0028",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Onboarding Record: Linda Hanna"},
+        {"kind": "paragraph", "text": "Linda Hanna joins the firm as Practice Manager in operations. This note records her role and what was said to her in her first days, so that the file has it."},
+        {"kind": "paragraph", "text": "She owns engagement administration and the paper trail behind it: engagement letters from draft through execution, the deliverable calendar, version control on working files, billing intake, and the correspondence log for each engagement. That is not a support function arranged around the edges of the actuarial work. A firm whose letters are vague and whose files are disordered will eventually be asked to prove what it agreed to do and when it agreed to do it, and it will not be able to. The exhibits can be rebuilt from the data. The record of what was promised cannot be rebuilt from anything."},
+        {"kind": "paragraph", "text": "First-period logistics: workstation, network account, and file access on arrival; access to the deliverable calendar and the billing records in the first week. In her first month she should read every open engagement letter, and read them the way an outsider would rather than the way the people who wrote them remember writing them. If a scope paragraph is vague, it is vague, and I want to hear about it while the engagement is still running and the sentence can still be fixed. She holds the calendar, and I expect her to hold it against me on the same terms she holds it against everyone else; a deadline that bends for the Managing Actuary is not a deadline, it is a preference. Client data stays in the office and inside the firm, and that applies to the administrative record as much as to the census files."},
+        {"kind": "paragraph", "text": "Linda Hanna comes to us already knowing this kind of work, so what she has to learn here is mostly which of our habits are considered and which are merely old. There are more of the second kind than we would like to admit. She is entitled to ask which is which in any given case, and entitled to a straight answer rather than an explanation of how we have always done it."},
+        {"kind": "paragraph", "text": "Recorded by Robert Lawrence, Managing Actuary."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0029",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Onboarding Record: Michelle Banks"},
+        {"kind": "paragraph", "text": "Michelle Banks joins the firm as an Actuarial Associate in the consulting practice. Her start comes at a time when the office is not fully occupied, so her first weeks will run remotely. That is not how any of us would choose to bring someone in, and it puts an obligation on the staff rather than on her: she cannot learn how this practice works by overhearing it, so it will have to be said out loud."},
+        {"kind": "paragraph", "text": "Her work will be valuation support: census and asset file intake, testing and reconciliation, exhibit preparation, and the working papers behind all of it. She sits with the consulting staff and her work is reviewed by a credentialed actuary before it leaves, which is the rule and not a comment. Remote access to the engagement files, her network account, and timekeeping are to be arranged before her first day. Benefits enrollment and the exam support policy come from the practice manager in the first week. Client data does not move outside the firm's systems, and the fact that the systems are being reached from a kitchen table this year does not change the rule; if anything it makes it worth restating."},
+        {"kind": "paragraph", "text": "What I told her, I will put in the file. Document as you go, so that a reviewer can retrace the steps without telephoning you to ask what you did; this matters more than usual while nobody is sitting within reach of anybody else. Keep what you measured separate from what you assumed, in the working papers and not only in the report, because by the time it reaches the report it is too late to reconstruct which was which. And expect to be slower than you think you should be for the first several cycles. Associates who are fast in their first year are usually fast because they are not checking. Michelle Banks appears disinclined to that particular error, which is the correct disposition for this work and one we have no intention of training out of her."},
+        {"kind": "paragraph", "text": "Robert Lawrence, Managing Actuary, for the file."}
+      ]
+    }
+  ]
+}

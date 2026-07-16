@@ -1,0 +1,318 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "meridian-actuarial",
+  "people": [
+    {
+      "id": "p:robert.lawrence",
+      "name": "Robert Lawrence",
+      "aliases": [],
+      "title": "Managing Actuary",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2014-02-15",
+        "end": null
+      },
+      "email": "robert.lawrence@meridianactuarial.com",
+      "phone": "+1 (212) 555-0117",
+      "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for.",
+      "title_history": []
+    },
+    {
+      "id": "p:jennifer.vasquez",
+      "name": "Jennifer Vasquez",
+      "aliases": [],
+      "title": "Consulting Actuary",
+      "dept": "Consulting",
+      "reports_to": "p:robert.lawrence",
+      "employment": {
+        "start": "2014-03-15",
+        "end": null
+      },
+      "email": "jennifer.vasquez@meridianactuarial.com",
+      "phone": "+1 (206) 555-0123",
+      "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out.",
+      "title_history": []
+    },
+    {
+      "id": "p:david.sherman",
+      "name": "David Sherman",
+      "aliases": [],
+      "title": "Senior Analyst",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2015-07-09",
+        "end": null
+      },
+      "email": "david.sherman@meridianactuarial.com",
+      "phone": "+1 (312) 555-0179",
+      "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted.",
+      "title_history": []
+    },
+    {
+      "id": "p:jeffrey.ochoa",
+      "name": "Jeffrey Ochoa",
+      "aliases": [],
+      "title": "Senior Analyst",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2014-12-09",
+        "end": null
+      },
+      "email": "jeffrey.ochoa@meridianactuarial.com",
+      "phone": "+1 (303) 555-0117",
+      "persona": "Methodical, patient with the parts of the job nobody wants, and unusually good at explaining a result to someone who does not do this for a living. He tends to write longer than he needs to on the first pass and then cuts it hard, so what leaves his desk is clean. He is careful to separate measurement from judgment, sometimes to the point of labeling which is which. Approaches client staff as colleagues rather than as a data source, and gets faster answers because of it.",
+      "title_history": [
+        {
+          "title": "Actuarial Analyst",
+          "start": "2014-12-09",
+          "end": "2021-04-07"
+        },
+        {
+          "title": "Senior Analyst",
+          "start": "2021-04-08",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:megan.dudley",
+      "name": "Megan Dudley",
+      "aliases": [],
+      "title": "Actuarial Analyst",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2015-02-02",
+        "end": null
+      },
+      "email": "megan.dudley@meridianactuarial.com",
+      "phone": "+1 (206) 555-0146",
+      "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand.",
+      "title_history": [
+        {
+          "title": "Actuarial Associate",
+          "start": "2015-02-02",
+          "end": "2019-10-20"
+        },
+        {
+          "title": "Actuarial Analyst",
+          "start": "2019-10-21",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:carol.cooper",
+      "name": "Carol Cooper",
+      "aliases": [],
+      "title": "Practice Manager",
+      "dept": "Operations",
+      "reports_to": "p:robert.lawrence",
+      "employment": {
+        "start": "2014-04-15",
+        "end": "2019-12-01"
+      },
+      "email": "carol.cooper@meridianactuarial.com",
+      "phone": "+1 (312) 555-0157",
+      "persona": "Keeps the practice running and treats a deadline as a real object. Her writing is warm but efficient, and she is the firm's memory for what was promised to whom and when it was promised. She has no patience for a document that goes out without a scope paragraph, and she will hold it. Around actuaries she is comfortable admitting she does not follow the mathematics, and equally comfortable pointing out that the sentence they wrote does not parse.",
+      "title_history": []
+    },
+    {
+      "id": "p:linda.hanna",
+      "name": "Linda Hanna",
+      "aliases": [],
+      "title": "Practice Manager",
+      "dept": "Operations",
+      "reports_to": "p:robert.lawrence",
+      "employment": {
+        "start": "2020-01-09",
+        "end": null
+      },
+      "email": "linda.hanna@meridianactuarial.com",
+      "phone": "+1 (415) 555-0154",
+      "persona": "Handles engagement administration and the paper trail behind it, and is quietly meticulous about versions and files. Writes in complete, slightly formal sentences, the kind that read like they were composed once and not revised. She is the person who asks whether the letter says what everyone thinks it says, which has saved the firm real trouble. Shares a surname with a colleague on the consulting side and considers the whole subject unremarkable.",
+      "title_history": []
+    },
+    {
+      "id": "p:jennifer.johnson",
+      "name": "Jennifer Johnson",
+      "aliases": [],
+      "title": "Actuarial Associate",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2017-01-29",
+        "end": null
+      },
+      "email": "jennifer.johnson@meridianactuarial.com",
+      "phone": "+1 (303) 555-0123",
+      "persona": "Works the data end of valuations and has developed a good ear for when a file is wrong before she can prove it is. Her emails are direct and a little clipped, with the question in the first line. She is studying toward credentials and it shows in how carefully she cites which standard a procedure follows. Would rather flag an uncertainty and be told it does not matter than let it through.",
+      "title_history": []
+    },
+    {
+      "id": "p:amanda.white",
+      "name": "Amanda White",
+      "aliases": [],
+      "title": "Actuarial Associate",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2018-08-06",
+        "end": null
+      },
+      "email": "amanda.white@meridianactuarial.com",
+      "phone": "+1 (303) 555-0126",
+      "persona": "Cheerful, quick, and better at the client-facing side than most associates at her stage; she writes the kind of short note that gets an answer the same day. Her drafts need trimming for confidence, since she states conclusions a shade more firmly than the evidence supports, and she takes the correction without complaint. Detail-oriented on reconciliation work and genuinely interested in why a method exists rather than only how to run it.",
+      "title_history": []
+    },
+    {
+      "id": "p:michelle.banks",
+      "name": "Michelle Banks",
+      "aliases": [],
+      "title": "Actuarial Associate",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2020-06-13",
+        "end": null
+      },
+      "email": "michelle.banks@meridianactuarial.com",
+      "phone": "+1 (415) 555-0124",
+      "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does.",
+      "title_history": []
+    },
+    {
+      "id": "p:karen.harris",
+      "name": "Karen Harris",
+      "aliases": [],
+      "title": "Actuarial Associate",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2021-10-26",
+        "end": null
+      },
+      "email": "karen.harris@meridianactuarial.com",
+      "phone": "+1 (206) 555-0149",
+      "persona": "Deck-and-exhibit oriented, with a good instinct for what a trustee will actually look at on a slide. She argues for one chart per page and no decoration, and she wins the argument because the firm already agrees with her. In writing she is economical and a bit flat, and she resists any phrasing that implies more precision than the work supports. Handles routine client correspondence about data requests without needing to be told twice.",
+      "title_history": []
+    },
+    {
+      "id": "p:nicole.hanna",
+      "name": "Nicole Hanna",
+      "aliases": [],
+      "title": "Actuarial Associate",
+      "dept": "Consulting",
+      "reports_to": "p:jennifer.vasquez",
+      "employment": {
+        "start": "2023-07-26",
+        "end": null
+      },
+      "email": "nicole.hanna@meridianactuarial.com",
+      "phone": "+1 (415) 555-0176",
+      "persona": "Newer to the practice and visibly working at it, with a habit of asking the follow-up question that reveals she understood the first answer. Her drafts are earnest and slightly over-explained, and she is being taught to separate the sentence that reports a number from the sentence that judges it. Reliable on the mechanical passes and quick to admit an error, which the seniors count as the important trait. Shares a surname with someone in operations and has never once found it worth remarking on.",
+      "title_history": []
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:howard-and-sons",
+      "name": "Howard and Sons",
+      "org_type": "client"
+    },
+    {
+      "id": "x:miller-cook-and-snyder",
+      "name": "Miller, Cook and Snyder",
+      "org_type": "client"
+    },
+    {
+      "id": "x:estes-group",
+      "name": "Estes Group",
+      "org_type": "client"
+    },
+    {
+      "id": "x:martinez-llc",
+      "name": "Martinez LLC",
+      "org_type": "client"
+    },
+    {
+      "id": "x:wells-walsh-and-martinez",
+      "name": "Wells, Walsh and Martinez",
+      "org_type": "client"
+    },
+    {
+      "id": "x:gonzalez-campbell-and-kelly",
+      "name": "Gonzalez, Campbell and Kelly",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:elizabeth.horne",
+      "name": "Elizabeth Horne",
+      "org": "x:howard-and-sons",
+      "title": "Director of Operations",
+      "email": "elizabeth.horne@howardandsons.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:michelle.hudson",
+      "name": "Michelle Hudson",
+      "org": "x:miller-cook-and-snyder",
+      "title": "Director of Operations",
+      "email": "michelle.hudson@millercookandsnyder.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:barbara.hall",
+      "name": "Barbara Hall",
+      "org": "x:estes-group",
+      "title": "Chief Operating Officer",
+      "email": "barbara.hall@estesgroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:jason.wagner",
+      "name": "Jason Wagner",
+      "org": "x:martinez-llc",
+      "title": "General Manager",
+      "email": "jason.wagner@martinezllc.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:lisa.hubbard",
+      "name": "Lisa Hubbard",
+      "org": "x:wells-walsh-and-martinez",
+      "title": "Chief Operating Officer",
+      "email": "lisa.hubbard@wellswalshandmartinez.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:james.garcia",
+      "name": "James Garcia",
+      "org": "x:gonzalez-campbell-and-kelly",
+      "title": "Chief Financial Officer",
+      "email": "james.garcia@gonzalezcampbellandkelly.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2014-01-15",
+      "summary": "Meridian Actuarial Advisors LLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2015-10-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

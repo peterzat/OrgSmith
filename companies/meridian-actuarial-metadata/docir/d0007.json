@@ -1,0 +1,181 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0007",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "Working Session: Data Reconciliation and Assumptions",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Minutes recorded by Jeffrey Ochoa. Subject: {{fact:f:E-2016-001.client}} pension valuation.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Attendees",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Jennifer Vasquez, Consulting Actuary",
+        "David Sherman, Senior Analyst",
+        "Jeffrey Ochoa, Actuarial Analyst",
+        "Elizabeth Horne, Director of Operations, Howard and Sons"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Data Reconciliation",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "David Sherman walked through the reconciliation of the census extract against the population used in the prior valuation. Measurement: the active count ties, the inactive count is higher than the prior valuation by a number of records that the recordkeeper's status-code change fully explains, and the total is therefore reconciled. Judgment: none required here, and I record that deliberately, because the number reconciling does not by itself mean the population is the same population, and David Sherman said as much before anyone asked.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The beneficiary dates of birth reported as missing at the last status are partially resolved. Elizabeth Horne obtained about half from the recordkeeper's archive. The remainder do not exist in any system her staff can reach. Jennifer Vasquez stated the position plainly: we will assume a spousal age difference for those records, we will disclose the assumption and the count of records it touches, and we will not represent the result as though the data had been complete. Elizabeth Horne agreed and asked whether the assumption materially affects the liability. Jennifer Vasquez said she expects the effect to be small given the count, but that she would not put a characterization in the report until we have measured it, and that we will show the figure rather than the adjective.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Plan Provisions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "I presented the provisions summary drafted from the plan document and the amendments. It disagrees with the prior valuation's summary on the early retirement factors. The missing amendment has since arrived and it supports the summary I drafted, not the prior report's. Measurement: the amendment says what it says. Judgment: whether the prior valuation applied the factors correctly notwithstanding its summary is a separate question we have not answered. David Sherman will test it against the prior liability output before we conclude anything, and we will not characterize the prior work until he has.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Elizabeth Horne asked whether this needs to go to the trustees now. Jennifer Vasquez recommended waiting until we know whether it is a summary error or a valuation error, on the grounds that the trustees should hear the finding once, correctly, rather than twice.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Assumptions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Discussion of the mortality assumption. Jennifer Vasquez set out the case for updating the table and projection scale, and was explicit that this is a judgment about future improvement, not a correction of an error, and that the current assumption was reasonable when it was adopted. She expects an update to increase the measured liability. Elizabeth Horne asked for the size of the effect before the trustees see a recommendation. Agreed: we will run the valuation on both bases and present the difference as its own exhibit, so the board can see what the assumption is doing rather than take our word for it. No recommendation was made in this session and none should be inferred from it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Retirement, termination, and salary increase assumptions were reviewed against recent plan experience. Nothing in the experience suggests a change. Jennifer Vasquez noted that we will say so in the report explicitly, since an assumption left unchanged after review is a different thing from an assumption left unchanged without one.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Action Items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [
+        "Item",
+        "Owner",
+        "Due"
+      ],
+      "rows": [
+        [
+          "Confirm remaining beneficiary dates are unobtainable and close the item in writing",
+          "Elizabeth Horne",
+          "Before valuation runs begin"
+        ],
+        [
+          "Test prior liability output against the early retirement factors in the amendment",
+          "David Sherman",
+          "Before the next working session"
+        ],
+        [
+          "Finalize provisions summary and note the disagreement with the prior report",
+          "Jeffrey Ochoa",
+          "With the draft exhibits"
+        ],
+        [
+          "Run valuation on current and updated mortality bases; build the comparison exhibit",
+          "David Sherman",
+          "With the draft exhibits"
+        ],
+        [
+          "Draft the assumption discussion, separating measurement from judgment",
+          "Jennifer Vasquez",
+          "With the draft report"
+        ],
+        [
+          "Circulate draft results to Howard and Sons before any trustee material is prepared",
+          "Jennifer Vasquez",
+          "Prior to board scheduling"
+        ]
+      ],
+      "signers": []
+    }
+  ]
+}

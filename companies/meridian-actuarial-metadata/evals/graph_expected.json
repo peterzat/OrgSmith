@@ -1,0 +1,468 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "meridian-actuarial",
+  "entities": [
+    {
+      "id": "x:meridian-actuarial",
+      "canonical": "Meridian Actuarial Advisors LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:robert.lawrence",
+      "canonical": "Robert Lawrence",
+      "aliases": [
+        "robert.lawrence@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jennifer.vasquez",
+      "canonical": "Jennifer Vasquez",
+      "aliases": [
+        "jennifer.vasquez@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:david.sherman",
+      "canonical": "David Sherman",
+      "aliases": [
+        "david.sherman@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jeffrey.ochoa",
+      "canonical": "Jeffrey Ochoa",
+      "aliases": [
+        "jeffrey.ochoa@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:megan.dudley",
+      "canonical": "Megan Dudley",
+      "aliases": [
+        "megan.dudley@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:carol.cooper",
+      "canonical": "Carol Cooper",
+      "aliases": [
+        "carol.cooper@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:linda.hanna",
+      "canonical": "Linda Hanna",
+      "aliases": [
+        "linda.hanna@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
+    },
+    {
+      "id": "p:jennifer.johnson",
+      "canonical": "Jennifer Johnson",
+      "aliases": [
+        "jennifer.johnson@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:amanda.white",
+      "canonical": "Amanda White",
+      "aliases": [
+        "amanda.white@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:michelle.banks",
+      "canonical": "Michelle Banks",
+      "aliases": [
+        "michelle.banks@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:karen.harris",
+      "canonical": "Karen Harris",
+      "aliases": [
+        "karen.harris@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:nicole.hanna",
+      "canonical": "Nicole Hanna",
+      "aliases": [
+        "nicole.hanna@meridianactuarial.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
+    },
+    {
+      "id": "x:howard-and-sons",
+      "canonical": "Howard and Sons",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:miller-cook-and-snyder",
+      "canonical": "Miller, Cook and Snyder",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:estes-group",
+      "canonical": "Estes Group",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:martinez-llc",
+      "canonical": "Martinez LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:wells-walsh-and-martinez",
+      "canonical": "Wells, Walsh and Martinez",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:gonzalez-campbell-and-kelly",
+      "canonical": "Gonzalez, Campbell and Kelly",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:elizabeth.horne",
+      "canonical": "Elizabeth Horne",
+      "aliases": [
+        "elizabeth.horne@howardandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:michelle.hudson",
+      "canonical": "Michelle Hudson",
+      "aliases": [
+        "michelle.hudson@millercookandsnyder.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:barbara.hall",
+      "canonical": "Barbara Hall",
+      "aliases": [
+        "barbara.hall@estesgroup.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:jason.wagner",
+      "canonical": "Jason Wagner",
+      "aliases": [
+        "jason.wagner@martinezllc.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:lisa.hubbard",
+      "canonical": "Lisa Hubbard",
+      "aliases": [
+        "lisa.hubbard@wellswalshandmartinez.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:james.garcia",
+      "canonical": "James Garcia",
+      "aliases": [
+        "james.garcia@gonzalezcampbellandkelly.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:robert.lawrence",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2014-02-15",
+      "end": null
+    },
+    {
+      "src": "p:jennifer.vasquez",
+      "dst": "p:robert.lawrence",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jennifer.vasquez",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2014-03-15",
+      "end": null
+    },
+    {
+      "src": "p:david.sherman",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.sherman",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2015-07-09",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.ochoa",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.ochoa",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2014-12-09",
+      "end": null
+    },
+    {
+      "src": "p:megan.dudley",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:megan.dudley",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2015-02-02",
+      "end": null
+    },
+    {
+      "src": "p:carol.cooper",
+      "dst": "p:robert.lawrence",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:carol.cooper",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2014-04-15",
+      "end": null
+    },
+    {
+      "src": "p:linda.hanna",
+      "dst": "p:robert.lawrence",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:linda.hanna",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2020-01-09",
+      "end": null
+    },
+    {
+      "src": "p:jennifer.johnson",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jennifer.johnson",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2017-01-29",
+      "end": null
+    },
+    {
+      "src": "p:amanda.white",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:amanda.white",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2018-08-06",
+      "end": null
+    },
+    {
+      "src": "p:michelle.banks",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:michelle.banks",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2020-06-13",
+      "end": null
+    },
+    {
+      "src": "p:karen.harris",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:karen.harris",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2021-10-26",
+      "end": null
+    },
+    {
+      "src": "p:nicole.hanna",
+      "dst": "p:jennifer.vasquez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nicole.hanna",
+      "dst": "x:meridian-actuarial",
+      "kind": "works_at",
+      "start": "2023-07-26",
+      "end": null
+    },
+    {
+      "src": "xp:elizabeth.horne",
+      "dst": "x:howard-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:michelle.hudson",
+      "dst": "x:miller-cook-and-snyder",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:barbara.hall",
+      "dst": "x:estes-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:jason.wagner",
+      "dst": "x:martinez-llc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:lisa.hubbard",
+      "dst": "x:wells-walsh-and-martinez",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:james.garcia",
+      "dst": "x:gonzalez-campbell-and-kelly",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:howard-and-sons",
+      "dst": "x:meridian-actuarial",
+      "kind": "client_of",
+      "start": "2016-04-17",
+      "end": null
+    },
+    {
+      "src": "x:miller-cook-and-snyder",
+      "dst": "x:meridian-actuarial",
+      "kind": "client_of",
+      "start": "2017-08-28",
+      "end": null
+    },
+    {
+      "src": "x:estes-group",
+      "dst": "x:meridian-actuarial",
+      "kind": "client_of",
+      "start": "2019-02-04",
+      "end": null
+    },
+    {
+      "src": "x:martinez-llc",
+      "dst": "x:meridian-actuarial",
+      "kind": "client_of",
+      "start": "2020-07-01",
+      "end": null
+    },
+    {
+      "src": "x:wells-walsh-and-martinez",
+      "dst": "x:meridian-actuarial",
+      "kind": "client_of",
+      "start": "2023-04-16",
+      "end": null
+    },
+    {
+      "src": "x:gonzalez-campbell-and-kelly",
+      "dst": "x:meridian-actuarial",
+      "kind": "client_of",
+      "start": "2024-07-25",
+      "end": null
+    }
+  ]
+}

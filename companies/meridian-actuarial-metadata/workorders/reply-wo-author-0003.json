@@ -1,0 +1,551 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0003",
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0011",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "{{fact:f:E-2017-001.client}}\nAttention: Michelle Hudson, Director of Operations"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Hudson:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter confirms the terms on which Meridian Actuarial Advisors LLC will perform a reserve adequacy review for {{fact:f:E-2017-001.client}}. It supersedes our earlier correspondence on the subject. If the terms below reflect your understanding, please sign and return one copy. Your countersignature is our authority to begin."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Scope of Services"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will review the adequacy of the reserves carried by {{fact:f:E-2017-001.client}} as of a valuation date to be agreed with your staff. The review covers three things. First, whether the data supplied are sufficient to support an analysis of the kind described here. Second, the reasonableness of the reserve assumptions in force, considered individually and in aggregate. Third, our conclusion as to whether the carried reserves make adequate provision for the liabilities they are intended to cover."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review is not an audit of your financial statements and is not a substitute for one. We will not verify the accuracy of the underlying records. We will test the data supplied for internal consistency and for consistency with the prior period, and we will state in the report what we relied on and what we did not examine. Where the data are insufficient to support a conclusion, we will say so rather than assume around the gap."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work will be performed in accordance with the applicable Actuarial Standards of Practice, including ASOP No. 23 on data quality and ASOP No. 41 on actuarial communications. Any deliverable stating an actuarial opinion will identify the actuary responsible for it."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Approach"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We expect the work to proceed in four stages: data request and reconciliation; assumption review; calculation and exhibit build; and reporting. The exhibits will be delivered as a workbook. The report will interpret them, and it will keep separate what the data show, what we assumed, and what we conclude. Those are three different things and we do not blend them, because a reader who cannot tell them apart cannot judge the opinion."
+        },
+        {
+          "kind": "paragraph",
+          "text": "You will receive the following:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "A data request specifying the extracts and supporting records we require, together with a reconciliation of what is received against what was asked for.",
+            "A memorandum documenting the assumptions reviewed, the basis on file for each, and any assumption we recommend be reconsidered.",
+            "An exhibit workbook containing the reserve calculations, with every exhibit traceable to a named input.",
+            "A written report stating our findings and our conclusion on reserve adequacy, signed by the responsible actuary."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold a working session with your staff near the midpoint of the review to walk through the state of the analysis before anything is committed to a draft. Interim results discussed in that session are not conclusions and should not be relied upon as such."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Engagement Team"
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will serve as the responsible actuary and will sign the report. Jennifer Vasquez, Consulting Actuary, will lead the assumption review and draft the report narrative. David Sherman, Senior Analyst, will run the valuation and own the reconciliation of the data you supply. Megan Dudley, Actuarial Associate, will build the exhibit workbook and will be your day-to-day contact for data requests and scheduling. Substitutions within the team are possible if circumstances require. The responsible actuary will not change without notice to you."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Fees and Payment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the services described above is {{fact:f:E-2017-001.fee}}, and work will commence on {{fact:f:E-2017-001.start}}. The fee is fixed for the scope as written and assumes the data are supplied substantially in the form and on the schedule we request. Work outside this scope, including a change in the valuation date, a restatement of the data after reconciliation, or additional scenarios requested by your board, will be quoted separately and will not be performed until you have approved the quote in writing. Invoices are payable within thirty days of receipt. Out-of-pocket expenses will be billed at cost, and we will notify you before incurring any expense that is not nominal."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Term and Termination"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement begins on the commencement date stated above and continues until we deliver the final report and you have had a reasonable opportunity to review it. Either party may terminate on written notice. On termination by you, the portion of the fee corresponding to work performed to that date remains payable. On termination by us, we owe you an explanation and will release whatever completed work product can responsibly be released. We will not release partial results in a form that invites reliance on a conclusion we have not reached."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Confidentiality"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will treat the data and information you supply as confidential and will not disclose them to third parties except with your consent or as required by law or by the standards under which we practice. Our staff are bound to the same obligation. We will retain work papers documenting the engagement; those work papers are ours and remain subject to this obligation. If a regulator or an auditor requests them, we will notify you before responding unless notification is itself prohibited."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Limitation of Liability"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our liability arising from this engagement, whether in contract, in tort, or otherwise, is limited in the aggregate to the fee paid for the services giving rise to the claim, except in the case of our fraud or willful misconduct, where no limit applies. We are not liable for consequential or indirect losses. Any claim must be brought within one year of delivery of the final report. This limitation is a term of the fee. It is not a statement about the quality of the work."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Governing Law"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter is governed by the laws of the state in which Meridian's principal office is located, without regard to its conflict of laws provisions. It is the entire agreement between us on this subject and may be amended only in writing signed by both parties. If any provision is held unenforceable, the remainder stands."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the foregoing reflects your understanding, please sign below and return one copy to Megan Dudley. We are ready to begin on the date stated above. Questions about the work itself can go to any of the team. Questions about scope should come to me directly, because scope is the term that erodes quietly and by good intentions."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Yours sincerely,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:robert.lawrence",
+            "xp:michelle.hudson"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0012",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Kickoff Memo: Reserve Adequacy Review"
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Jennifer Vasquez, David Sherman, Jennifer Johnson\nFrom: Megan Dudley\nRe: Reserve adequacy review for {{fact:f:E-2017-001.client}}, engagement kickoff"
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Objectives"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement letter is countersigned and work commences on {{fact:f:E-2017-001.start}}. What we owe the client is a written opinion on whether the reserves carried by {{fact:f:E-2017-001.client}} make adequate provision for the liabilities they cover, supported by an exhibit workbook a reader can trace from a number back to the extract it came from. The opinion is the deliverable. The workbook is what makes the opinion checkable, which is the same thing as saying the workbook is not optional."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Lawrence is the responsible actuary and signs the report. Jennifer Vasquez leads the assumption review and drafts the narrative. David Sherman runs the valuation and owns the reconciliation. Jennifer Johnson supports the data work and logs what arrives. I am building the exhibits and holding the schedule. Michelle Hudson, Director of Operations, is the client's single point of contact and we should keep her that way."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Workstreams"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Data request and reconciliation. David Sherman owns this. The request goes out this week and asks for the in-force extract, the reserve detail by plan, and the prior valuation's reconciliation summary. Jennifer Johnson logs what arrives against what was asked for, including what arrives in a different shape than requested.",
+            "Assumption review. Jennifer Vasquez owns this. Inventory the assumptions in force, identify which have changed since the prior valuation, and record the basis documented for each. Inventory only at this stage. No recommendations.",
+            "Exhibit build. I own this. The workbook follows the prior review's layout so the exhibits are comparable side by side. One tab per exhibit, inputs on their own tabs, no links to files outside the workbook.",
+            "Reporting. Jennifer Vasquez drafts, Robert Lawrence reviews and signs. Drafting does not start until the exhibits are stable, because rewriting a narrative around a moved number is how errors get in."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "What is not in scope"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This is not an audit and we do not verify the underlying records. We test the data for internal consistency and against the prior period, and we disclose what we relied on. We are not repricing anything, we are not commenting on the administration system, and we are not producing anything beyond what the reserve adequacy conclusion requires. If a request arrives that sits outside the letter, route it to Robert Lawrence rather than absorbing it. The fee is fixed against the scope as written."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Standing rules for this engagement"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Every number in an exhibit traces to a named input tab. If it cannot be traced, it does not go in the workbook.",
+            "Data questions go to Michelle Hudson through David Sherman or through me. Not from four directions at once.",
+            "Nothing goes to the client described as a result until Jennifer Vasquez has seen it.",
+            "If an extract looks like a different population than the last one, say so before anyone builds on it."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Next steps"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Issue the data request and confirm receipt with Michelle Hudson.",
+            "Stand up the workbook shell and the input tabs.",
+            "Circulate the assumption inventory once the reserve detail arrives.",
+            "Team check-in every other week until the data are reconciled, then weekly."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The schedule has room in it. The part that costs time on this kind of review is the extract, not the arithmetic, and we have asked for it early enough that it should not cost us any. Flag anything that looks like it will move a date and I will adjust the plan rather than absorb it quietly."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0013",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Michelle Hudson, copying Jennifer Vasquez and David Sherman."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Short status on the reserve adequacy review for {{fact:f:E-2017-001.client}}. The in-force extract and the reserve detail by plan both arrived last week and are loaded. David Sherman has started the reconciliation against the prior period. Nothing is flagged so far. He expects a view by the end of next week, and you will hear it either way rather than only if there is something wrong."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two asks. The prior valuation's reconciliation summary was not in the transfer. If sending the working file is easier than re-cutting it, that is fine; we only need the counts and the totals. Second, we have no documentation of the basis for the lapse assumption in force. Jennifer Vasquez does not need it to start the inventory, but she will need it before she can say anything about the assumption, and in our experience that item takes longer to find than anyone expects it to."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One scheduling note. Once the reconciliation view is in, Jennifer Vasquez would like a short call with whoever owns the extract logic on your side. Half an hour, no preparation needed. It is faster than a thread and it usually settles three questions at once."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Neither of the asks above is a concern at this point. We are early, the work is where it should be, and I would rather ask now than a month from now."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Megan Dudley\nActuarial Associate\nMeridian Actuarial Advisors LLC"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0014",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Reserve Adequacy Review: Progress Briefing"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Prepared for {{fact:f:E-2017-001.client}}",
+            "Client contact: Michelle Hudson, Director of Operations",
+            "Engagement commenced {{fact:f:E-2017-001.start}}",
+            "Prepared by Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors LLC",
+            "Status: early phase. Data received, reconciliation under way."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Scope and Standards"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "An opinion on whether carried reserves make adequate provision for the liabilities they cover.",
+            "Performed under the applicable Actuarial Standards of Practice, including ASOP No. 23 on data quality.",
+            "Not an audit. The underlying records are not verified; reliance is disclosed in the report.",
+            "Robert Lawrence is the responsible actuary and signs the opinion."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Data Received"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "In-force extract and reserve detail by plan received and loaded.",
+            "David Sherman is reconciling counts and totals against the prior valuation.",
+            "Most record classes reconcile within an explained difference. One does not, and is being looked at.",
+            "The prior reconciliation summary is outstanding. Not blocking today.",
+            "Data are tested for internal consistency and against the prior period. They are not audited."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Assumption Review"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Vasquez has inventoried the assumptions in force and flagged those changed since the prior valuation.",
+            "Documented basis located for most. The lapse assumption's basis is still being traced.",
+            "No recommendation on any assumption at this stage. This is measurement, not judgment.",
+            "Anything said today about direction is preliminary and is not a conclusion.",
+            "The inventory itself will be delivered as a memorandum with the basis on file recorded for each assumption."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Exhibit Workbook"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The workbook follows the prior review's layout so exhibits sit side by side with their predecessors. Every exhibit traces to a named input tab, and the inputs are the extracts as received rather than a cleaned copy. Where a record is excluded, the exclusion is on the face of the exhibit, not in a footnote. The shell is built and the reconciled tabs are populated. Calculated exhibits follow once the open data question is closed."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Next Steps"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Close out the reconciliation difference and the lapse assumption basis with your staff.",
+            "Complete the calculated exhibits and put them through internal review.",
+            "Working session with Michelle Hudson and her team near the midpoint to walk preliminary results.",
+            "Draft report after that session. Robert Lawrence reviews before anything is circulated.",
+            "Your day-to-day contact for data requests and scheduling remains Megan Dudley."
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0015",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Working Session: Reserve Adequacy Review"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Working session with the staff of {{fact:f:E-2017-001.client}} to review the state of the data reconciliation and the assumption inventory. Called by David Sherman after the reconciliation of the in-force extract failed to tie to the prior valuation. Minutes recorded by David Sherman."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Attendees"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors LLC",
+            "David Sherman, Senior Analyst, Meridian Actuarial Advisors LLC",
+            "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors LLC",
+            "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Data reconciliation"
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Sherman reported that the extract supplied for this review does not reconcile to the population used in the prior valuation. The counts differ by more than the movement in the period explains, and the difference is concentrated in one plan. The totals differ in the same direction. He was explicit about what he was and was not saying: he is not saying the extract is wrong, he is saying it describes a different population than the one the prior exhibits were built on, and that the difference has to be explained before anything is built on top of it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle Hudson said the administration system was migrated during the period and that the extract logic was rewritten to match the new structure. She will establish whether the rewrite changed the selection criteria or only the field mapping. Sherman noted that either answer is workable but that they lead to different treatments, and that the choice of treatment belongs to the client with our recommendation attached, not to us alone."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Assumption inventory"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez presented the inventory of assumptions in force and the subset changed since the prior valuation. Basis is documented for all but the lapse assumption, where the documentation located so far describes a study predating the current product mix. She separated the two questions rather than answering the one she was asked: whether the assumption is documented is a fact, and it is not; whether it is reasonable is a judgment she is not prepared to offer until the population question is closed, because the data feed the judgment."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle Hudson asked whether the gap was a problem. Vasquez said it is a problem only if it stays open, and that it is the kind of item usually solved by finding the right person rather than by anyone doing more work."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Exhibits"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Megan Dudley reported the workbook shell is complete and the reconciled tabs are populated for the plans that tie. She has held the affected plan out rather than loading it and correcting later, on the grounds that a corrected tab is harder to audit than an empty one. Sherman agreed. Dudley asked that any replacement extract arrive as a full re-cut rather than a delta file. Agreed."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Action items"
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Item",
+            "Owner",
+            "Due"
+          ],
+          "rows": [
+            [
+              "Confirm whether the extract rewrite changed selection criteria or only field mapping",
+              "Michelle Hudson",
+              "Next week"
+            ],
+            [
+              "Document the reconciliation difference by plan and quantify it",
+              "David Sherman",
+              "On receipt of the above"
+            ],
+            [
+              "Locate the study supporting the lapse assumption in force, or confirm none exists",
+              "Michelle Hudson",
+              "Two weeks"
+            ],
+            [
+              "Hold the affected plan out of the workbook until the population question closes",
+              "Megan Dudley",
+              "Ongoing"
+            ],
+            [
+              "Draft the reliance language covering the data as received",
+              "Jennifer Vasquez",
+              "With the draft report"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "No conclusions were reached in this session and none should be inferred from these minutes. The calculated exhibits have not been built. A further working session will be scheduled once the population question is answered."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0016",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Status Report: Reserve Adequacy Review"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for {{fact:f:E-2017-001.client}} by Megan Dudley, Actuarial Associate. Covering the period since the last working session."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Status summary"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review is at its midpoint. It is on scope and within budget. It is not at the point in the plan we expected to reach by now, for a reason documented below that we do not regard as a problem yet. The data reconciliation, which the plan treated as a short front-end task, has run long because the extract supplied for this review draws on a different population than the prior valuation used. Everything downstream of the reconciliation sits behind it. The assumption review has proceeded in parallel and is substantially complete apart from one item."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Stated in the order we prefer to state things. What the data show: the reconciliation is open on one plan, and the exhibits are partially built. What we are assuming: that the population difference resolves into an explained change in the extract logic rather than a change in what is being valued. What we conclude: the engagement can be delivered within the scope and fee of the engagement letter, provided the outstanding data question closes in the near term. The conclusion depends on the assumption, and we will say so again if the assumption stops holding."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Accomplishments this period"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Received and loaded the in-force extract and the reserve detail by plan.",
+            "Reconciled counts and totals for all plans but one against the prior valuation. David Sherman has documented the reconciliation and quantified the difference in the plan that does not tie.",
+            "Completed the inventory of assumptions in force and identified those changed since the prior valuation. Jennifer Vasquez has located documented basis for all of them except the lapse assumption.",
+            "Built the exhibit workbook shell and populated the tabs for the plans that reconcile. Each exhibit traces to a named input tab holding the extract as received.",
+            "Held a working session with your staff to walk the reconciliation and the assumption inventory, and agreed the treatment of any replacement extract."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Upcoming work"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Close the population question. If a replacement extract is required, reload from a full re-cut rather than a delta file.",
+            "Complete the calculated exhibits and put them through internal review.",
+            "Resolve the basis for the lapse assumption, or establish that no current study supports it and carry that as a finding rather than as a gap.",
+            "Draft the report. Jennifer Vasquez drafts; Robert Lawrence reviews and signs. Drafting does not begin until the exhibits are stable.",
+            "Deliver the workbook and the report and walk them with you before they go anywhere further."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Risks"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three, in the order we would rank them."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The population question stays open. This is the one that matters. Every remaining task sits behind it, and the elapsed time it costs is time your staff spend answering, not time we spend working. If it does not close in the next few weeks, the delivery date becomes a conversation.",
+            "The lapse assumption basis is never located. This does not stop the work. It changes what the report says, and it changes it in a direction that is uncomfortable rather than fatal: we would disclose that the assumption in force is not supported by a current study, and we would state what we did in its place.",
+            "Scope movement. Nothing has moved. We raise it because the fee of {{fact:f:E-2017-001.fee}} is fixed against the scope in the engagement letter, and the requests that erode a scope are individually reasonable ones. A change in the valuation date, or an additional scenario, would be quoted before any work on it begins."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Budget"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Fees incurred to date are consistent with the work performed and remain within the fixed fee of {{fact:f:E-2017-001.fee}} for the engagement as scoped. The reconciliation has taken more hours than planned and the assumption review has taken fewer. There is no request for additional fee in this report and we do not anticipate one on the current scope."
+        },
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "What we would ask of you"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "An answer on the extract selection criteria. This is the whole critical path and nothing else on this list competes with it.",
+            "A name for the lapse study, if one exists, or confirmation that it does not.",
+            "Continued routing of data questions through the single channel agreed at kickoff. Parallel requests cost more than they save."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing in this report is a conclusion about reserve adequacy. No conclusion has been reached and none will be until the exhibits are complete and reviewed. Questions on the work can come to me. Questions on scope should go to Robert Lawrence."
+        }
+      ]
+    }
+  ]
+}

@@ -99,9 +99,15 @@ _NET_MARGIN_CEILING = 0.40
 # The fixtures whose committed bytes are pinned. Scoped to the tracer for
 # M8..M10 (see the module docstring); M11 restores it to the whole fleet by
 # setting this back to SLUGS once the new fleet is generated. Kept as a
-# derived list rather than a literal so an absent dev-mini degrades to an
-# empty pin and a visible skip, not a KeyError.
-PINNED = [s for s in SLUGS if s == "dev-mini"]
+# derived list rather than a literal so an absent slug degrades to an empty
+# pin and a visible skip, not a KeyError.
+#
+# meridian-actuarial joins at M11a: it is the first org generated under the
+# v2.0 stack, so unlike the six retiring fixtures there is no pre-v2.0 drift
+# to grandfather -- it is pinned from birth, which is the state the whole
+# fleet returns to when M11 sets this back to SLUGS.
+_PIN = {"dev-mini", "meridian-actuarial"}
+PINNED = [s for s in SLUGS if s in _PIN]
 
 
 @pytest.fixture(scope="module")
