@@ -45,6 +45,26 @@ def _employed_at(person: Person, when: date) -> bool:
     return emp.start <= when and (emp.end is None or emp.end >= when)
 
 
+# Genres the coverage top-up may add a participant to. All four name internal
+# staff as a matter of course, so a planted mention reads as the document
+# doing its job rather than as a plant.
+#
+# Deliberately excluded: engagement_letter (a countersigned contract; its
+# signatories are the CEO and the client, not the team), briefing_deck and
+# engagement_email (the eml renderer derives To/Cc headers from
+# `participants`, so a plant there would move headers EML-01 checks).
+#
+# Minutes and kickoffs alone were enough while every person was employed for
+# the whole date range. Roster churn narrows employment windows, so a
+# late-joining backfill can find no minutes dated after their start and the
+# knob fails for a corpus that has perfectly good documents to name them in.
+_TOP_UP_GENRES = (
+    "meeting_minutes",
+    "kickoff_memo",
+    "status_report",
+    "company_overview",
+)
+
 _LEGACY_FOR = {base: legacy for legacy, base in BASE_FORMAT.items()}
 
 
@@ -406,7 +426,7 @@ class _Planner:
                     d
                     for d in self.planned
                     if d.get("authoring") != "static"
-                    and d["genre"] in ("meeting_minutes", "kickoff_memo")
+                    and d["genre"] in _TOP_UP_GENRES
                     and _employed_at(person, d["date"])
                     and not any(m.entity == person.id for m in d["mentions"])
                 ]

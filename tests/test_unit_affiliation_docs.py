@@ -18,7 +18,7 @@ from orgsmith.fabric.engagements import (
 )
 from orgsmith.foundation.scaffold import build_foundation
 from orgsmith.paths import OrgPaths
-from orgsmith.schemas import Affiliation, GraphTargets, dump_json
+from orgsmith.schemas import Affiliation, GraphTargets, RosterChurn, dump_json
 
 from conftest import REPO
 
@@ -131,14 +131,26 @@ def test_plan_direct_failure_on_empty_windows():
         affiliation_plan(foundation, [], range_start)
 
 
-@pytest.mark.parametrize("slug", ["dev-mini", "torchlake-engineering"])
+@pytest.mark.parametrize("slug", ["torchlake-engineering"])
 def test_knob_off_reproduces_committed_engagements_ledger(slug):
     # The planting pass must not run, touch fields, or consume RNG when
     # the knob is off: the committed ledgers are the oracles. torchlake
-    # is the load-bearing case: it is frozen with multi_affiliations: 1,
+    # is the load-bearing case: it is committed with multi_affiliations: 1,
     # and a covering-affiliation pass would rewrite it.
+    #
+    # Churn is pinned off because this test is about the affiliations knob:
+    # a hire or a departure moves engagement staffing through _employed_at
+    # and would fail this for a reason it is not testing. dev-mini left the
+    # parametrization when M8 made it the byte-pinned fixture -- it is
+    # regenerated WITH churn, so its committed ledger stops being an oracle
+    # for a churn-off build. test_org_regen.py's byte pin covers dev-mini's
+    # engagements.json directly; torchlake is not regenerated, so its
+    # pre-M8 ledger stays the honest oracle here.
     charter = _charter(slug)
     assert charter.graph_targets.affiliations_in_docs is False
+    charter = charter.model_copy(
+        update={"roster_churn": RosterChurn(departures=0, promotions=0)}
+    )
     rebuilt = build_engagements(charter, build_foundation(charter))
     committed = (
         REPO / "companies" / f"{slug}-metadata" / "ledger" / "engagements.json"

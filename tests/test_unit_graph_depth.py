@@ -7,7 +7,7 @@ from orgsmith.charter import parse_charter_md
 from orgsmith.fabric.engagements import build_engagements
 from orgsmith.fabric.graph import build_graph
 from orgsmith.foundation.scaffold import _NICKNAMES, build_foundation
-from orgsmith.schemas import dump_json
+from orgsmith.schemas import RosterChurn, dump_json
 
 from conftest import REPO
 
@@ -15,30 +15,55 @@ from conftest import REPO
 pytestmark = pytest.mark.unit
 
 
-def _dev_mini_charter(**graph_target_updates):
+def _dev_mini_charter(churn_off: bool = False, **graph_target_updates):
+    """dev-mini's real recipe. `churn_off` isolates a test from the roster's
+    time dimension: these assert what the ambiguity knobs do, and a hire or a
+    promotion arriving alongside is noise that would make them fail for a
+    reason they are not about."""
     text = (REPO / "recipes/dev-mini/ORG-CHARTER.md").read_text()
     charter = parse_charter_md(text, "dev-mini")
     if graph_target_updates:
         gt = charter.graph_targets.model_copy(update=graph_target_updates)
         charter = charter.model_copy(update={"graph_targets": gt})
+    if churn_off:
+        charter = charter.model_copy(
+            update={"roster_churn": RosterChurn(departures=0, promotions=0)}
+        )
     return charter
 
 
-def test_default_knobs_leave_v1_roster_identical():
-    # The committed dev-mini foundation must be reproducible from its
-    # unchanged recipe: same ids, names, tree, emails, spans.
+def test_churn_off_leaves_the_base_roster_identical():
+    """Roster churn is an addition, not a rewrite: with it off, the seats
+    `_build_people` creates must be exactly the ones it created before M8 --
+    same ids, names, tree, emails, and start dates.
+
+    Compared against the committed fixture's roster restricted to the ids
+    both share, which is what makes this survive dev-mini's regeneration:
+    churn only ever ADDS people (backfill hires), so every id in the
+    churn-off roster must still be in the churned one, unmoved. It keeps the
+    property TESTING.md credits this test with -- it names the knob that
+    broke rather than reporting that some bytes moved -- and it is why a
+    stray Faker draw in _build_people fails here first.
+    """
     from orgsmith.artifacts import load_foundation
     from orgsmith.paths import OrgPaths
 
+    def ident(p):
+        # title and employment.end are excluded on purpose: promotions move
+        # the former and departures set the latter, and both are churn's job.
+        return (p.id, p.name, p.reports_to, p.email, p.employment.start)
+
     committed = load_foundation(OrgPaths(root=REPO, slug="dev-mini"))
-    rebuilt = build_foundation(_dev_mini_charter())
-    assert [
-        (p.id, p.name, p.title, p.reports_to, p.email, p.employment.start)
-        for p in rebuilt.people
-    ] == [
-        (p.id, p.name, p.title, p.reports_to, p.email, p.employment.start)
-        for p in committed.people
-    ]
+    rebuilt = build_foundation(_dev_mini_charter(churn_off=True))
+    assert all(p.employment.end is None for p in rebuilt.people)
+
+    base_ids = {p.id for p in rebuilt.people}
+    shared = [p for p in committed.people if p.id in base_ids]
+    assert len(shared) == len(rebuilt.people), (
+        "churn-off produced a person the committed roster does not have; "
+        "churn must only ever add"
+    )
+    assert [ident(p) for p in rebuilt.people] == [ident(p) for p in shared]
     assert [o.id for o in rebuilt.external_orgs] == [
         o.id for o in committed.external_orgs
     ]

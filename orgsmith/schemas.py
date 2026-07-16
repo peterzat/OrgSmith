@@ -165,6 +165,36 @@ class HardCases(StrictModel):
     filename_dates: int = Field(ge=0, default=0)
 
 
+class RosterChurn(StrictModel):
+    """The roster's time dimension (M8). ON by default: a firm where nobody
+    is ever hired, promoted, or leaves is the shape the review board
+    indicted (`rf:orgreal-1`), so a frozen roster is now the opt-out rather
+    than the default. Set both to 0 for the pre-M8 shape.
+
+    Counts, not rates, matching the surname_collisions / nickname_aliases /
+    multi_affiliations idiom: a recipe asks for a shape and the generator
+    plants exactly it. A count also makes the fixture a specimen rather than
+    a sample, which is the house position -- an org must CONTAIN the case,
+    not contain it on average.
+
+    Both degrade rather than crash when the roster cannot host them, because
+    unlike the knobs above these default ON and every recipe in the repo is
+    5-6 people. The degradation is reported at scaffold time and visible in
+    the ledger.
+
+    departures: seats whose incumbent leaves mid-range and is backfilled by
+    a new hire into the same seat. Only seats that manage nobody are
+    eligible, so the reporting tree cannot dangle: `reports_to` is a scalar
+    with no time dimension, so a departing manager has nowhere to hand its
+    reports to.
+    promotions: people who move up one rung of their department's `titles`
+    list mid-range. Recorded in `Person.title_history`.
+    """
+
+    departures: int = Field(ge=0, default=1)
+    promotions: int = Field(ge=0, default=1)
+
+
 class Charter(StrictModel):
     schema_id: Literal["orgsmith/charter@1"] = SCHEMA_IDS["charter"]
     slug: str = Field(pattern=r"^[a-z0-9][a-z0-9-]*$")
@@ -173,6 +203,9 @@ class Charter(StrictModel):
     org_type: str
     founded: int = Field(ge=1800, le=2100)
     domain: str
+    # CONCURRENT SEATS, not people-ever. Under roster churn a seat may be
+    # held by successive people across the date range, so a 5-seat firm with
+    # one departure has six people in its foundation and five at any instant.
     headcount: dict[str, int]
     # Per-dept title lists assigned in order; missing entries fall back to
     # generic titles. The first person of the first dept is the
@@ -183,6 +216,7 @@ class Charter(StrictModel):
     engagements: EngagementPlan
     graph_targets: GraphTargets
     hard_cases: HardCases = HardCases()
+    roster_churn: RosterChurn = RosterChurn()
     # Access-control posture (M4+). `open` derives an ACL where every
     # internal person reads every document; `departmental` restricts
     # engagement folders to their teams and finance to its owners.
