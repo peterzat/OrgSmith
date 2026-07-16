@@ -9,7 +9,11 @@ from datetime import date
 import pytest
 from pydantic import ValidationError
 
+from orgsmith.artifacts import load_foundation
+from orgsmith.authoring.contexts import _brief_person
 from orgsmith.schemas import EmploymentSpan, Person, TitleSpan
+
+from conftest import build_pure_stages
 
 pytestmark = pytest.mark.unit
 
@@ -104,6 +108,48 @@ def test_title_span_rejects_end_at_or_before_start():
         TitleSpan(title="Analyst", start=date(2021, 1, 1), end=date(2021, 1, 1))
     with pytest.raises(ValidationError, match="title span end must follow start"):
         TitleSpan(title="Analyst", start=date(2021, 6, 1), end=date(2021, 1, 1))
+
+
+def test_brief_resolves_the_title_held_on_the_document_date(tmp_path):
+    """The criterion: an earlier document briefs the earlier title. Built on
+    a real derived org and a promotion planted into it, so this exercises the
+    path run_next_batch actually takes rather than a hand-made Person."""
+    paths = build_pure_stages(tmp_path)
+    foundation = load_foundation(paths)
+    p = next(x for x in foundation.people if x.reports_to is not None)
+    promoted_on = date(2022, 1, 1)
+    p.title = "Principal"
+    p.title_history = [
+        TitleSpan(
+            title="Associate", start=p.employment.start, end=date(2021, 12, 31)
+        ),
+        TitleSpan(title="Principal", start=promoted_on),
+    ]
+
+    before = _brief_person(foundation, p.id, date(2020, 6, 1))
+    after = _brief_person(foundation, p.id, date(2023, 6, 1))
+    assert before.title == "Associate"
+    assert after.title == "Principal"
+    # Everything else about the person is era-invariant.
+    assert before.name == after.name and before.dept == after.dept
+
+
+def test_brief_title_scoping_does_not_depend_on_the_affiliations_knob(tmp_path):
+    """affiliations_in_docs is a hard-case planting knob for external
+    employers. Only fernhollow sets it, so gating title resolution on it
+    would leave the anachronism in place for every other recipe -- which is
+    what `brief_at` did before M8."""
+    paths = build_pure_stages(tmp_path)
+    foundation = load_foundation(paths)
+    p = next(x for x in foundation.people if x.reports_to is not None)
+    p.title = "Principal"
+    p.title_history = [
+        TitleSpan(title="Associate", start=p.employment.start, end=date(2021, 12, 31)),
+        TitleSpan(title="Principal", start=date(2022, 1, 1)),
+    ]
+    for historical_employer in (False, True):
+        brief = _brief_person(foundation, p.id, date(2020, 6, 1), historical_employer)
+        assert brief.title == "Associate"
 
 
 def test_title_history_is_additive_on_the_existing_schema_id():

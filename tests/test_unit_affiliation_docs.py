@@ -171,16 +171,35 @@ def test_people_index_resolves_employer_per_date():
 
 
 def test_brief_person_resolves_employer_per_date():
+    """With affiliations_in_docs on (historical_employer=True), the brief's
+    dept line follows the doc date across the employer boundary."""
     from orgsmith.authoring.contexts import _brief_person
 
     _, foundation, _ = _aff_org()
     xp, prior, current, org_names = _boundary_people(foundation)
-    assert _brief_person(foundation, xp.id, prior.end).dept == org_names[prior.org]
     assert (
-        _brief_person(foundation, xp.id, current.start).dept
+        _brief_person(foundation, xp.id, prior.end, True).dept
+        == org_names[prior.org]
+    )
+    assert (
+        _brief_person(foundation, xp.id, current.start, True).dept
         == org_names[current.org]
     )
-    assert _brief_person(foundation, xp.id).dept == org_names[current.org]
+
+
+def test_brief_person_keeps_current_employer_when_the_knob_is_off():
+    """The knob's off state, which torchlake-engineering ships: affiliation
+    history exists in the graph, but documents brief the current employer.
+    M8 date-scopes titles unconditionally and must not drag this with it."""
+    from orgsmith.authoring.contexts import _brief_person
+
+    _, foundation, _ = _aff_org()
+    xp, prior, current, org_names = _boundary_people(foundation)
+    for when in (prior.end, current.start):
+        assert (
+            _brief_person(foundation, xp.id, when, False).dept
+            == org_names[current.org]
+        )
 
 
 AFF_LINES = "  multi_affiliations: 1\n  affiliations_in_docs: true\n"

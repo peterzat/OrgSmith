@@ -121,18 +121,37 @@ def _brief_summary(eng) -> str:
 
 
 def _brief_person(
-    foundation: Foundation, pid: str, at: date | None = None
+    foundation: Foundation,
+    pid: str,
+    at: date,
+    historical_employer: bool = False,
 ) -> PersonBrief:
-    """`at` resolves an external person's employer (the brief's dept
-    line) as of that date, so era-appropriate briefs match what render
-    puts in the sigblock; None keeps the current employer."""
+    """The brief for one person as of `at`, the document's date.
+
+    An internal person's title is ALWAYS resolved as of `at`. That is not a
+    knob: briefing a 2024 title into a 2020 letter is an anachronism, and
+    nothing should be able to switch it on.
+
+    An external person's employer resolves as of `at` only when
+    `historical_employer` is set, which is the `affiliations_in_docs` knob.
+    That knob plants the employer boundary as a labeled hard case (both
+    sides surfaced in sigblocks and briefs); with it off, a recipe that
+    populated affiliation history still briefs everyone under their current
+    employer, which is torchlake-engineering's shape. Keeping the two
+    resolutions independent is the point: title correctness is not
+    something a hard-case knob gets a vote on.
+    """
     if pid.startswith("p:"):
         p = foundation.person(pid)
         return PersonBrief(
-            id=p.id, name=p.name, title=p.title, dept=p.dept, persona=p.persona
+            id=p.id,
+            name=p.name,
+            title=p.title_at(at),
+            dept=p.dept,
+            persona=p.persona,
         )
     xp = next(x for x in foundation.external_people if x.id == pid)
-    org_id = employer_at(xp, at) if at is not None else xp.org
+    org_id = employer_at(xp, at) if historical_employer else xp.org
     org = next(o for o in foundation.external_orgs if o.id == org_id)
     return PersonBrief(id=xp.id, name=xp.name, title=xp.title, dept=org.name)
 
@@ -175,10 +194,9 @@ def run_next_batch(paths: OrgPaths) -> int:
         print("author: all batchable docs authored")
         return 0
 
+    # The document's date always reaches the brief; this knob decides only
+    # whether an external person's employer is resolved historically.
     aff_docs = charter.graph_targets.affiliations_in_docs
-
-    def brief_at(entry) -> date | None:
-        return entry.date if aff_docs else None
 
     def build(wo_id: str) -> WorkOrder:
         briefs = []
@@ -213,11 +231,11 @@ def run_next_batch(paths: OrgPaths) -> int:
                     genre=entry.genre,
                     date=entry.date,
                     authors=[
-                        _brief_person(foundation, a, brief_at(entry))
+                        _brief_person(foundation, a, entry.date, aff_docs)
                         for a in entry.authors
                     ],
                     participants=[
-                        _brief_person(foundation, p, brief_at(entry))
+                        _brief_person(foundation, p, entry.date, aff_docs)
                         for p in entry.participants
                     ],
                     engagement_summary=_brief_summary(eng) if eng else "",
