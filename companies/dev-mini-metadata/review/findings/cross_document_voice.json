@@ -1,0 +1,26 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "dev-mini",
+  "dimension": "cross_document_voice",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0001",
+        "d:0002",
+        "d:0005",
+        "d:0006",
+        "d:0011"
+      ],
+      "summary": "The authorial voice does not vary by author: Managing Partner, both Principals, and the analysts all deploy the same balanced 'not X but Y' antithesis, the same triadic cadence, and the same 'settle it now rather than in front of the client' aphorism, so the distinct personas the foundation promises never surface, and internal staff-to-staff memos carry the same literary polish as the partner's client letters where the partner's editing does not even apply.",
+      "evidence": "Same methodology antithesis in two different hands: Daniel Jones's engagement letter (d:0005) 'not on a general theory of what a firm like yours ought to charge' vs. Robert Miller's internal kickoff memo (d:0006) 'not from anyone's view of what the prices ought to be.' The now-vs-later aphorism crosses authors: Jennifer Fletcher (d:0002) 'I would far rather answer them here than in front of the client'; Robert Miller (d:0006) 'A bad number is cheap to fix now and expensive in front of the client'; Daniel Jones (d:0001) 'a scope is far easier to settle now than in the middle of the work.' The analyst-authored client status report (d:0011, Cynthia Ball) closes on the same aphoristic note, 'the parts of an integration that reward being early, and we are treating them that way,' indistinguishable from the partners' cadence though her persona casts an analyst's drafts as raw material a principal later shapes."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "max"
+  }
+}

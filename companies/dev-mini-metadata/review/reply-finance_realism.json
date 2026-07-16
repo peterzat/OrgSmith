@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "dev-mini",
+  "dimension": "finance_realism",
+  "generator": {"model": "claude-opus-4-8", "effort": "max"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-payment-terms-1",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0001", "d:0005", "d:0008"],
+      "summary": "All three executed fixed-fee engagement letters state the fee but specify no payment terms: no invoicing schedule, retainer, installments, or net terms for a signed six-figure contract.",
+      "evidence": "d:0001: 'Our fee for the review is a fixed fee of {{fact}}, which covers the work described above from start through delivery. There are no hourly charges to track and no reconciliation at the end. Any out-of-pocket costs ... billed only as incurred, with documentation.' The letter spells out how trivial out-of-pockets are billed but never says when or how the ~$100k fee itself is invoiced or paid. Same in d:0005 ('billed only as incurred') and d:0008 ('nothing to reconcile at the close'). A CFO/VP Finance signing an EXECUTED fixed-fee agreement would expect a billing schedule."
+    }
+  ]
+}

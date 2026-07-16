@@ -28,4 +28,14 @@ No same-genre pair reaches 0.15 4-gram Jaccard (highest: 0.087).
 
 ## Review board
 
-No board findings ingested. Run `/forge-review dev-mini` to dispatch the review board; the metrics above stand on their own without it.
+7 findings from the review board.
+
+| id | dimension | severity | docs | summary |
+| --- | --- | --- | --- | --- |
+| rf:docplaus-letterhead-dup | document_plausibility | major | d:0001, d:0005, d:0008 | Every rendered engagement letter prints the firm name twice at the top, once in the letterhead/running header and again as the first body line placed directly above the client's inside address, so the recipient block reads as though the letter were addressed to Pinebrook itself. |
+| rf:voice-1 | cross_document_voice | minor | d:0001, d:0002, d:0005, d:0006, d:0011 | The authorial voice does not vary by author: Managing Partner, both Principals, and the analysts all deploy the same balanced 'not X but Y' antithesis, the same triadic cadence, and the same 'settle it now rather than in front of the client' aphorism, so the distinct personas the foundation promises never surface, and internal staff-to-staff memos carry the same literary polish as the partner's client letters where the partner's editing does not even apply. |
+| rf:docplaus-missing-dates | document_plausibility | minor | d:0002, d:0006, d:0003, d:0007, d:0009 | The internal working documents carry no date on the document itself: the kickoff-memo header is To/From/Re with the conventional Date line omitted, and the meeting minutes give location and attendees but no meeting date or time; each document's date survives only in its filename. |
+| rf:finance-payment-terms-1 | finance_realism | minor | d:0001, d:0005, d:0008 | All three executed fixed-fee engagement letters state the fee but specify no payment terms: no invoicing schedule, retainer, installments, or net terms for a signed six-figure contract. |
+| rf:graphacl-1 | graph_acl_naturalness | minor | d:0008, d:0009, d:0010, d:0011, d:0012, d:0013 | The open-posture ACL grants departed analyst Susan Wiley read access to every document created after she left, including both annual financial summaries, because grants are built over the whole roster with no employment-date filter. |
+| rf:graphacl-2 | graph_acl_naturalness | note | corpus | The who-knows-whom half reads organic, not assembled: staffing varies with headcount and tracks the one departure/backfill, mentions are role-appropriate, and each client carries a single named sponsor. Recording as a strength so it is not flattened. |
+| rf:org-realism-1 | org_realism | note | d:0001, d:0008 | In two of the three engagements the firm presents Senior Consultant Jennifer Fletcher to the client as the engagement lead over Principal Consultant Robert Miller, the manager she reports to, who does the hands-on work under her direction. |
