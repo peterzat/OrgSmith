@@ -482,6 +482,91 @@ def test_expenses_draw_from_their_own_stream():
     assert [y.quarters for y in a.years] == [y.quarters for y in b.years]
 
 
+# --- era naming ------------------------------------------------------------
+
+
+def _era_charter(founded: int, **over):
+    """A charter whose date range is consistent with `founded` (the base
+    _charter pins 2016-2023, which cannot start before a 2020 founding)."""
+    return _charter(
+        founded=founded,
+        doc_culture=DocCulture(
+            target_docs=11,
+            date_range=(date(founded + 1, 1, 1), date(founded + 7, 12, 31)),
+            format_mix=FormatMix(docx=7, pdf=2, xlsx=2),
+        ),
+        **over,
+    )
+
+
+def test_era_names_track_the_founding_decade():
+    """A 1995 firm should not read like a 2015 one. cindergrove's known
+    anachronism (a retro firm with modern seeded names) is what this closes."""
+    from orgsmith.data.era_names import ERA_FIRST_NAMES
+
+    retro = build_foundation(_era_charter(1995, seed=1995001))
+    modern = build_foundation(_era_charter(2020, seed=2020001))
+
+    # Every roster first name comes from the bundled table (offline), not Faker.
+    all_names = {n for pool in ERA_FIRST_NAMES.values() for n in pool}
+    for f in (retro, modern):
+        for p in f.people:
+            assert p.name.split(" ", 1)[0] in all_names, p.name
+
+    # The retro firm skews to earlier-decade names, the modern one later. Not
+    # every single name (the bands overlap), but the centroid must move.
+    def mean_decade(f):
+        idx = {n: d for d, pool in ERA_FIRST_NAMES.items() for n in pool}
+        firsts = [p.name.split(" ", 1)[0] for p in f.people]
+        # A name in several decades contributes its earliest, which is enough
+        # to compare two rosters drawn from different bands.
+        return sum(idx[n] for n in firsts) / len(firsts)
+
+    assert mean_decade(retro) < mean_decade(modern)
+
+
+def test_external_first_names_are_also_era_drawn():
+    from orgsmith.data.era_names import ERA_FIRST_NAMES
+
+    all_names = {n for pool in ERA_FIRST_NAMES.values() for n in pool}
+    f = build_foundation(_era_charter(1995))
+    for xp in f.external_people:
+        assert xp.name.split(" ", 1)[0] in all_names, xp.name
+
+
+def test_era_naming_is_deterministic_and_seed_sensitive():
+    a = build_foundation(_charter(founded=2000))
+    b = build_foundation(_charter(founded=2000))
+    assert [p.name for p in a.people] == [p.name for p in b.people]
+    c = build_foundation(_charter(founded=2000, seed=777))
+    assert [p.name for p in c.people] != [p.name for p in a.people]
+
+
+def test_era_names_draw_from_their_own_stream():
+    """Roster, external, and churn names each take a separate stream, so
+    changing the external count does not move the roster's names."""
+    a = build_foundation(_charter())
+    b = build_foundation(
+        _charter(graph_targets=GraphTargets(external_orgs=3, external_people=6))
+    )
+    assert [p.name for p in a.people if p.employment.end is None] == [
+        p.name for p in b.people if p.employment.end is None
+    ], "roster names moved when only the external count changed"
+
+
+def test_name_screen_still_runs_on_era_names():
+    """NAME-01 screens the generated names, which are now era-drawn. The
+    screen must see the era roster: baseline clean, and a real-firm name
+    planted onto an era person is caught."""
+    from orgsmith.namescreen import screen_foundation
+
+    foundation = build_foundation(_era_charter(founded=1995))
+    assert screen_foundation(foundation) == [], "era roster should screen clean"
+    foundation.people[1].name = "Goldman Sachs"
+    findings = screen_foundation(foundation)
+    assert findings and "Goldman Sachs" in findings[0][0]
+
+
 # --- date-scoped briefs: engagement position and firm digest ---------------
 
 

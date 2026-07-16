@@ -16,6 +16,7 @@ from faker import Faker
 
 from ..namescreen import screen_foundation
 from ..paths import OrgPaths
+from ..data.era_names import names_for_birth_year
 from ..schemas import (
     Affiliation,
     Charter,
@@ -43,6 +44,15 @@ _MIN_TENURE_DAYS = 180
 
 # Nickname pool for the nickname_aliases knob. Keys double as replacement
 # first names when a seeded roster has no nicknamable member.
+#
+# ERA LIMIT (M8): this pool is era-agnostic while roster first names are now
+# era-drawn. In practice the keys (Michael, Robert, Jennifer, ...) are common
+# across the table's decades, so an era roster usually already contains a
+# nicknamable member and no replacement is drawn. When one IS drawn (only for
+# a roster that happens to have none), the replacement name may sit outside
+# the org's era. This is a documented limit, not a silent one: the
+# nickname_aliases knob is off in every committed recipe, and making the pool
+# era-keyed is deferred rather than pretended.
 _NICKNAMES = {
     "Michael": "Mike", "Robert": "Bob", "William": "Bill", "James": "Jim",
     "Jennifer": "Jen", "Elizabeth": "Liz", "Katherine": "Kate",
@@ -67,6 +77,28 @@ def _person_id(first: str, last: str) -> str:
     return f"p:{_slugify(first)}.{_slugify(last)}"
 
 
+# A working adult is 25-60 in the org's era, so born that many years before it.
+# The firm's founding year is the era anchor: "a 1995 firm" means the roster
+# reads 1995, which is the whole point of era naming.
+_ADULT_MIN, _ADULT_MAX = 25, 60
+
+
+def _era_first_names(seed: int, stream: str, founded: int):
+    """A callable drawing era-appropriate first names from a dedicated stream.
+
+    First names come from the bundled era table (offline); last names still
+    come from Faker, which is era-insensitive enough not to matter. Each call
+    site takes its own stream so a change to one roster's size cannot move
+    another's names, the same discipline every post-pass follows."""
+    r = rng(seed, stream)
+
+    def pick() -> str:
+        birth_year = founded - r.randint(_ADULT_MIN, _ADULT_MAX)
+        return r.choice(names_for_birth_year(birth_year))
+
+    return pick
+
+
 def _mid_month(year: int, month: int) -> date:
     return date(year, month, 15)
 
@@ -78,6 +110,7 @@ def _build_people(charter: Charter, fake: Faker, rand) -> list[Person]:
     ceo_id: str | None = None
     dept_lead: dict[str, str] = {}
     range_start, range_end = charter.doc_culture.date_range
+    era_first = _era_first_names(charter.seed, "foundation.names", charter.founded)
 
     total = sum(n for _, n in depts)
     built = 0
@@ -86,7 +119,7 @@ def _build_people(charter: Charter, fake: Faker, rand) -> list[Person]:
         for i in range(count):
             # Unique, ascii-safe name (regenerate on id collision).
             while True:
-                first, last = fake.first_name(), fake.last_name()
+                first, last = era_first(), fake.last_name()
                 pid = _person_id(first, last)
                 if pid not in used_ids and _slugify(first) and _slugify(last):
                     break
@@ -159,10 +192,13 @@ def _build_externals(
 
     people: list[ExternalPerson] = []
     used_p: set[str] = set()
+    era_first = _era_first_names(
+        charter.seed, "foundation.names.external", charter.founded
+    )
     for i in range(charter.graph_targets.external_people):
         org = orgs[i % len(orgs)]
         while True:
-            first, last = fake.first_name(), fake.last_name()
+            first, last = era_first(), fake.last_name()
             pid = f"xp:{_slugify(first)}.{_slugify(last)}"
             if pid not in used_p and _slugify(first) and _slugify(last):
                 break
@@ -277,6 +313,9 @@ def _apply_roster_churn(
 
     hires: list[Person] = []
     used = {p.id for p in people}
+    era_first = _era_first_names(
+        charter.seed, "foundation.names.churn", charter.founded
+    )
     want_dep = min(churn.departures, len(eligible))
     if want_dep < churn.departures:
         print(
@@ -291,7 +330,7 @@ def _apply_roster_churn(
             start=incumbent.employment.start, end=leave
         )
         while True:
-            first, last = fake.first_name(), fake.last_name()
+            first, last = era_first(), fake.last_name()
             if (
                 _person_id(first, last) not in used
                 and _slugify(first)
