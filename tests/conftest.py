@@ -108,15 +108,15 @@ def write_mix_recipe(root: Path, mix: dict, slug: str = "dev-mini") -> OrgPaths:
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
     text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
-    old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
-    assert old_mix in text and "target_docs: 13" in text
+    old_mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    assert old_mix in text and "target_docs: 22" in text
     new_mix = (
         "  format_mix: {"
         + ", ".join(f"{k}: {v}" for k, v in mix.items())
         + "}\n"
     )
     text = text.replace(old_mix, new_mix)
-    text = text.replace("target_docs: 13", f"target_docs: {sum(mix.values())}")
+    text = text.replace("target_docs: 22", f"target_docs: {sum(mix.values())}")
     (dest / "ORG-CHARTER.md").write_text(text)
     return OrgPaths(root=root, slug=slug)
 
@@ -143,7 +143,7 @@ def write_culture_recipe(
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
     text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
-    mix_anchor = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
+    mix_anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
     assert mix_anchor in text
     text = text.replace(mix_anchor, mix_anchor + culture_lines)
     if extra_blocks:
@@ -192,15 +192,15 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     old_range = "  date_range: [2019-01-01, 2023-12-31]\n"
     assert old_range in text
     text = text.replace(old_range, "  date_range: [2019-01-01, 2025-12-31]\n")
-    old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
+    old_mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
     assert old_mix in text
     text = text.replace(
         old_mix,
-        "  format_mix: {docx: 8, pdf: 3, xlsx: 2, pptx: 1, eml: 2}\n"
+        "  format_mix: {docx: 14, pdf: 3, xlsx: 5, pptx: 1, eml: 2}\n"
         "  scanned_ratio: 0.4\n"
         "  ocr_layer_rate: 1.0\n",
     )
-    text = text.replace("target_docs: 13", "target_docs: 16")
+    text = text.replace("target_docs: 22", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)
     paths = OrgPaths(root=root, slug=slug)
     assert run_charter(paths) == 0

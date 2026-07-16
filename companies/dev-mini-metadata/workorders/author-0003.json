@@ -10,60 +10,60 @@
   "docs": [
     {
       "doc_id": "d:0008",
-      "title": "Engagement Letter: Integration Support for Reeves, Miller and Thompson",
+      "title": "Engagement Letter: Pricing Study for Dean PLC",
       "genre": "engagement_letter",
-      "date": "2021-03-26",
+      "date": "2020-02-07",
       "authors": [
         {
           "id": "p:daniel.jones",
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
+          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
         }
       ],
       "participants": [
-        {
-          "id": "p:cynthia.ball",
-          "name": "Cynthia Ball",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Cynthia is the analyst who likes a hard question and a spreadsheet to answer it, most in her element pulling apart a pricing question until the drivers are clear. She is sharp and a little skeptical, quick to ask whether an assumption actually holds. Her drafts are crisp and evidence-first, laid out so a principal can see how she got there and lift what they need."
-        },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
         },
         {
           "id": "p:jennifer.fletcher",
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
         },
         {
-          "id": "xp:christopher.cole",
-          "name": "Christopher Cole",
-          "title": "General Manager",
-          "dept": "Reeves, Miller and Thompson",
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
+        },
+        {
+          "id": "xp:cynthia.foley",
+          "name": "Cynthia Foley",
+          "title": "VP Finance",
+          "dept": "Dean PLC",
           "persona": ""
         }
       ],
-      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Pricing Study for Dean PLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
-          "id": "f:E-2021-001.fee",
+          "id": "f:E-2020-001.fee",
           "hint": "amount of money; place where the figure belongs"
         },
         {
-          "id": "f:E-2021-001.start",
+          "id": "f:E-2020-001.start",
           "hint": "calendar date; place where the date belongs"
         },
         {
-          "id": "f:E-2021-001.client",
+          "id": "f:E-2020-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
@@ -74,11 +74,6 @@
           "kind": "person"
         },
         {
-          "entity": "p:cynthia.ball",
-          "surface": "Cynthia Ball",
-          "kind": "person"
-        },
-        {
           "entity": "p:robert.miller",
           "surface": "Robert Miller",
           "kind": "person"
@@ -89,81 +84,168 @@
           "kind": "person"
         },
         {
-          "entity": "xp:christopher.cole",
-          "surface": "Christopher Cole",
+          "entity": "p:susan.wiley",
+          "surface": "Susan Wiley",
           "kind": "person"
         },
         {
-          "entity": "x:reeves-miller-and-thompson",
-          "surface": "Reeves, Miller and Thompson",
+          "entity": "xp:cynthia.foley",
+          "surface": "Cynthia Foley",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dean-plc",
+          "surface": "Dean PLC",
           "kind": "org"
         }
       ],
-      "target_words": 350,
-      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs.",
-      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": ""
     },
     {
       "doc_id": "d:0009",
-      "title": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
-      "genre": "meeting_minutes",
-      "date": "2021-06-23",
+      "title": "Kickoff Memo: Pricing Study for Dean PLC",
+      "genre": "kickoff_memo",
+      "date": "2020-02-20",
       "authors": [
-        {
-          "id": "p:jennifer.fletcher",
-          "name": "Jennifer Fletcher",
-          "title": "Senior Consultant",
-          "dept": "Consulting",
-          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:cynthia.ball",
-          "name": "Cynthia Ball",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Cynthia is the analyst who likes a hard question and a spreadsheet to answer it, most in her element pulling apart a pricing question until the drivers are clear. She is sharp and a little skeptical, quick to ask whether an assumption actually holds. Her drafts are crisp and evidence-first, laid out so a principal can see how she got there and lift what they need."
-        },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
         },
         {
           "id": "p:jennifer.fletcher",
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
         },
         {
-          "id": "xp:christopher.cole",
-          "name": "Christopher Cole",
-          "title": "General Manager",
-          "dept": "Reeves, Miller and Thompson",
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
+        },
+        {
+          "id": "xp:cynthia.foley",
+          "name": "Cynthia Foley",
+          "title": "VP Finance",
+          "dept": "Dean PLC",
           "persona": ""
         }
       ],
-      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Pricing Study for Dean PLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
-          "id": "f:E-2021-001.client",
+          "id": "f:E-2020-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2020-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
+        {
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
         {
           "entity": "p:jennifer.fletcher",
           "surface": "Jennifer Fletcher",
           "kind": "person"
         },
         {
-          "entity": "p:cynthia.ball",
-          "surface": "Cynthia Ball",
+          "entity": "p:susan.wiley",
+          "surface": "Susan Wiley",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:cynthia.foley",
+          "surface": "Cynthia Foley",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dean-plc",
+          "surface": "Dean PLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 1% of the way through the engagement (in the early phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0010",
+      "title": "Meeting Minutes: Pricing Study for Dean PLC",
+      "genre": "meeting_minutes",
+      "date": "2020-05-17",
+      "authors": [
+        {
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
+        },
+        {
+          "id": "xp:cynthia.foley",
+          "name": "Cynthia Foley",
+          "title": "VP Finance",
+          "dept": "Dean PLC",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Pricing Study for Dean PLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:susan.wiley",
+          "surface": "Susan Wiley",
           "kind": "person"
         },
         {
@@ -172,73 +254,156 @@
           "kind": "person"
         },
         {
-          "entity": "xp:christopher.cole",
-          "surface": "Christopher Cole",
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
           "kind": "person"
         },
         {
-          "entity": "x:reeves-miller-and-thompson",
-          "surface": "Reeves, Miller and Thompson",
+          "entity": "xp:cynthia.foley",
+          "surface": "Cynthia Foley",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dean-plc",
+          "surface": "Dean PLC",
           "kind": "org"
         }
       ],
-      "target_words": 220,
+      "target_words": 600,
       "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": ""
     },
     {
       "doc_id": "d:0011",
-      "title": "Status Report: Integration Support for Reeves, Miller and Thompson",
+      "title": "Status Report: Pricing Study for Dean PLC",
       "genre": "status_report",
-      "date": "2021-08-31",
+      "date": "2020-06-09",
       "authors": [
-        {
-          "id": "p:cynthia.ball",
-          "name": "Cynthia Ball",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Cynthia is the analyst who likes a hard question and a spreadsheet to answer it, most in her element pulling apart a pricing question until the drivers are clear. She is sharp and a little skeptical, quick to ask whether an assumption actually holds. Her drafts are crisp and evidence-first, laid out so a principal can see how she got there and lift what they need."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:cynthia.ball",
-          "name": "Cynthia Ball",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Cynthia is the analyst who likes a hard question and a spreadsheet to answer it, most in her element pulling apart a pricing question until the drivers are clear. She is sharp and a little skeptical, quick to ask whether an assumption actually holds. Her drafts are crisp and evidence-first, laid out so a principal can see how she got there and lift what they need."
-        },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
         },
         {
           "id": "p:jennifer.fletcher",
           "name": "Jennifer Fletcher",
-          "title": "Principal Consultant",
+          "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
         }
       ],
-      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Pricing Study for Dean PLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
-          "id": "f:E-2021-001.fee",
+          "id": "f:E-2020-001.fee",
           "hint": "amount of money; place where the figure belongs"
         },
         {
-          "id": "f:E-2021-001.client",
+          "id": "f:E-2020-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:cynthia.ball",
-          "surface": "Cynthia Ball",
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:susan.wiley",
+          "surface": "Susan Wiley",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dean-plc",
+          "surface": "Dean PLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0012",
+      "title": "Meeting Minutes: Pricing Study for Dean PLC",
+      "genre": "meeting_minutes",
+      "date": "2020-08-15",
+      "authors": [
+        {
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "p:susan.wiley",
+          "name": "Susan Wiley",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
+        },
+        {
+          "id": "xp:cynthia.foley",
+          "name": "Cynthia Foley",
+          "title": "VP Finance",
+          "dept": "Dean PLC",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Pricing Study for Dean PLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:susan.wiley",
+          "surface": "Susan Wiley",
           "kind": "person"
         },
         {
@@ -252,14 +417,19 @@
           "kind": "person"
         },
         {
-          "entity": "x:reeves-miller-and-thompson",
-          "surface": "Reeves, Miller and Thompson",
+          "entity": "xp:cynthia.foley",
+          "surface": "Cynthia Foley",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dean-plc",
+          "surface": "Dean PLC",
           "kind": "org"
         }
       ],
-      "target_words": 300,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
-      "engagement_position": "This document is dated about 75% of the way through the engagement (in the later phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 79% of the way through the engagement (in the later phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": ""
     }
   ],

@@ -1,31 +1,31 @@
 {
   "schema_id": "orgsmith/enrichment-deliverable@1",
   "work_order_id": "wo:foundation:0001",
-  "generator": {"model": "claude-opus-4-8", "effort": "max"},
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "max"},
   "personas": [
     {
       "person_id": "p:daniel.jones",
-      "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
+      "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
     },
     {
       "person_id": "p:robert.miller",
-      "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
+      "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
     },
     {
       "person_id": "p:jennifer.fletcher",
-      "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+      "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
     },
     {
       "person_id": "p:susan.wiley",
-      "persona": "Susan does the underlying analysis the principals build on, turning scattered inputs into clean exhibits and first drafts. She is careful and quietly thorough, the kind of analyst who flags the inconsistency everyone else skimmed past. When she writes it is tidy and understated, usually the raw material a principal will later shape for the client's eyes."
+      "persona": "Susan is the Analyst who does the ground-level digging an engagement rests on, from assembling operational data to reconstructing how a process really flows. She is careful and literal, and she flags what she is unsure of rather than papering over a gap. Her draft sections come back dense with observation, which the principals then shape into client-facing prose."
     },
     {
       "person_id": "p:michelle.lopez",
-      "persona": "Michelle keeps the firm running so the consultants can stay in front of clients, handling the letterhead, the scheduling, and the small logistics that hold an engagement together. She is organized, personable, and the person who knows where everything is and when everything is due. Her writing is friendly and efficient, the practical note that confirms a time or chases a missing piece without any fuss."
+      "persona": "Michelle is the Office Manager who keeps the firm running, handling the letterhead, scheduling, and the steady administrative rhythm behind every engagement. She writes crisply and courteously, and hers is the voice a client hears when confirming a meeting or receiving a signed document. Detail-oriented and unflappable, she is the person who makes sure nothing that needs the Managing Partner's signature slips through."
     },
     {
       "person_id": "p:cynthia.ball",
-      "persona": "Cynthia is the analyst who likes a hard question and a spreadsheet to answer it, most in her element pulling apart a pricing question until the drivers are clear. She is sharp and a little skeptical, quick to ask whether an assumption actually holds. Her drafts are crisp and evidence-first, laid out so a principal can see how she got there and lift what they need."
+      "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
     }
   ]
 }

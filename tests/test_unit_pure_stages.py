@@ -61,7 +61,7 @@ def test_charter_accepts_advisory_format_mix_total():
     whose format_mix no longer sums to target_docs still parses, because the
     genre registry -- not this number -- decides how many documents exist."""
     text = (REPO / "recipes/dev-mini/ORG-CHARTER.md").read_text()
-    loosened = text.replace("target_docs: 13", "target_docs: 12")
+    loosened = text.replace("target_docs: 22", "target_docs: 12")
     charter = parse_charter_md(loosened, "dev-mini")
     assert charter.doc_culture.target_docs == 12
     assert charter.doc_culture.format_mix.total != charter.doc_culture.target_docs

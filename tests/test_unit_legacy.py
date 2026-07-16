@@ -45,8 +45,8 @@ def _write_recipe(root, culture_lines, mix=DECK_MIX, target=14):
     paths = write_culture_recipe(root, culture_lines)
     text = (paths.recipe_dir / "ORG-CHARTER.md").read_text()
     text = text.replace(
-        "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n", mix
-    ).replace("target_docs: 13", f"target_docs: {target}")
+        "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n", mix
+    ).replace("target_docs: 22", f"target_docs: {target}")
     (paths.recipe_dir / "ORG-CHARTER.md").write_text(text)
     return paths
 

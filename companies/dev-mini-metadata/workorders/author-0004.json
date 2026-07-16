@@ -9,37 +9,58 @@
   "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0010",
-      "title": "Firm Overview",
-      "genre": "company_overview",
-      "date": "2021-07-01",
+      "doc_id": "d:0015",
+      "title": "Engagement Letter: Integration Support for Reeves, Miller and Thompson",
+      "genre": "engagement_letter",
+      "date": "2021-03-26",
       "authors": [
         {
           "id": "p:daniel.jones",
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
+          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
         }
       ],
       "participants": [
         {
-          "id": "p:daniel.jones",
-          "name": "Daniel Jones",
-          "title": "Managing Partner",
-          "dept": "Leadership",
-          "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
-        }
-      ],
-      "engagement_summary": "",
-      "facts": [
-        {
-          "id": "f:E-2019-001.client",
-          "hint": "proper name; place where the name belongs"
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
         },
         {
-          "id": "f:E-2020-001.client",
-          "hint": "proper name; place where the name belongs"
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "xp:christopher.cole",
+          "name": "Christopher Cole",
+          "title": "General Manager",
+          "dept": "Reeves, Miller and Thompson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2021-001.start",
+          "hint": "calendar date; place where the date belongs"
         },
         {
           "id": "f:E-2021-001.client",
@@ -51,12 +72,365 @@
           "entity": "p:daniel.jones",
           "surface": "Daniel Jones",
           "kind": "person"
+        },
+        {
+          "entity": "p:cynthia.ball",
+          "surface": "Cynthia Ball",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:christopher.cole",
+          "surface": "Christopher Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "x:reeves-miller-and-thompson",
+          "surface": "Reeves, Miller and Thompson",
+          "kind": "org"
         }
       ],
-      "target_words": 320,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
-      "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 3 client engagement(s) across 2019-2021. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, {{fact:f:E-2021-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0016",
+      "title": "Kickoff Memo: Integration Support for Reeves, Miller and Thompson",
+      "genre": "kickoff_memo",
+      "date": "2021-04-08",
+      "authors": [
+        {
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "xp:christopher.cole",
+          "name": "Christopher Cole",
+          "title": "General Manager",
+          "dept": "Reeves, Miller and Thompson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:cynthia.ball",
+          "surface": "Cynthia Ball",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:christopher.cole",
+          "surface": "Christopher Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "x:reeves-miller-and-thompson",
+          "surface": "Reeves, Miller and Thompson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0017",
+      "title": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
+      "genre": "meeting_minutes",
+      "date": "2021-06-23",
+      "authors": [
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "xp:christopher.cole",
+          "name": "Christopher Cole",
+          "title": "General Manager",
+          "dept": "Reeves, Miller and Thompson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:cynthia.ball",
+          "surface": "Cynthia Ball",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:christopher.cole",
+          "surface": "Christopher Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "x:reeves-miller-and-thompson",
+          "surface": "Reeves, Miller and Thompson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0018",
+      "title": "Status Report: Integration Support for Reeves, Miller and Thompson",
+      "genre": "status_report",
+      "date": "2021-07-13",
+      "authors": [
+        {
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        }
+      ],
+      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:cynthia.ball",
+          "surface": "Cynthia Ball",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "x:reeves-miller-and-thompson",
+          "surface": "Reeves, Miller and Thompson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0019",
+      "title": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
+      "genre": "meeting_minutes",
+      "date": "2021-09-21",
+      "authors": [
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:cynthia.ball",
+          "name": "Cynthia Ball",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+        },
+        {
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Principal Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+        },
+        {
+          "id": "xp:christopher.cole",
+          "name": "Christopher Cole",
+          "title": "General Manager",
+          "dept": "Reeves, Miller and Thompson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Integration Support for Reeves, Miller and Thompson, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:cynthia.ball",
+          "surface": "Cynthia Ball",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:christopher.cole",
+          "surface": "Christopher Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "x:reeves-miller-and-thompson",
+          "surface": "Reeves, Miller and Thompson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 85% of the way through the engagement (in the later phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
     }
   ],
   "people": [],

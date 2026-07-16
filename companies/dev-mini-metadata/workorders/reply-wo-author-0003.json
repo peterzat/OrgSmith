@@ -1,112 +1,120 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0003",
-  "generator": {"model": "claude-opus-4-8", "effort": "max"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "max"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0008",
       "blocks": [
         {
+          "kind": "paragraph",
+          "text": "Cynthia Foley\nVP Finance\n{{fact:f:E-2020-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Pricing study for Dean PLC"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Foley:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter sets out the terms on which Pinebrook Advisory Group will carry out a pricing study for {{fact:f:E-2020-001.client}}, and I am glad we are doing it. When we met, you put the question plainly: your margins are thinner than the business should support, and no one can say with confidence where the erosion happens between the price you set and the price you keep. That is exactly the kind of question this study is built to answer. What follows lays out the scope, the team, the fee, and the standard terms that will govern our work together. If any of it needs adjusting before we begin, tell me and we will settle it."
+        },
+        {
           "kind": "heading",
-          "text": "Pinebrook Advisory Group LLC",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Scope and Approach",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Christopher Cole, General Manager",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The study will trace how price is set and how much of it survives to the bottom line, and it will proceed in four steps. First, we will assemble your transaction-level records for a recent full year, so that list price, invoiced price, discounts, rebates, credits, and freight can be read line by line rather than in the aggregate. Second, we will build a price waterfall from list price down to the pocket price you actually realize, and quantify what is lost at each step. Third, we will examine how discounts and off-invoice terms are granted and approved in practice, and compare the net price paid by customers who ought to look alike. Fourth, we will turn that evidence into a short, prioritized set of pricing actions you can put to work."
         },
         {
           "kind": "paragraph",
-          "text": "Reeves, Miller and Thompson",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our aim is a focused result rather than a survey of everything that touches price. We will start where the margin is thinnest and the leakage is easiest to see, and work outward from there. At the close you will receive a written findings report, a prioritized set of recommendations, and a working session in which we walk your leadership through both, so the conclusions are understood and owned before we hand them over. Carrying the changes into your pricing systems and renegotiating with customers is work for your team, not this study; where a recommendation turns on a system or contract change, we will say so. Matters outside pricing, such as tax and legal treatment, are not part of this engagement, and where we happen to notice something in those areas we will flag it for you rather than opine on it."
+        },
+        {
+          "kind": "heading",
+          "text": "Engagement Team",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Re: Integration Support",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "I will oversee the engagement personally, as I do for all of our work, and stay close enough to it to answer for the result. Robert Miller, a principal consultant on our team, will carry the analytical spine of the study: the price waterfall, the margin analysis, and the findings that come out of them. Jennifer Fletcher, one of our senior consultants, will lead the day-to-day relationship and be your point of contact for scheduling and questions, and she will see that the recommendations are framed in terms your leadership can act on. Susan Wiley, our analyst, will assemble and check the transaction and pricing data the whole study rests on. On your side, we understand Cynthia Foley, VP Finance, will coordinate access to your people and records, which is the single thing that most affects how smoothly a study like this runs."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and Timing",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Dear Mr. Cole:",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our fee for this engagement is a fixed professional fee of {{fact:f:E-2020-001.fee}}, covering all of the work described above. We expect to begin on {{fact:f:E-2020-001.start}} and to complete the study in approximately eight months. The fixed fee is not tied to hours; it covers the engagement as scoped, so you know your cost at the outset and it does not move with the effort we put in. If, as the work proceeds, we and you agree that the scope should change in a way that materially affects the fee, we will put that in writing and settle it with you before doing the additional work."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "An acquisition is agreed in a matter of weeks and absorbed over the many months that follow, and it is those months that decide whether the deal was worth making. Pinebrook Advisory Group LLC will stand with {{fact:f:E-2021-001.client}} through that second stretch. Before you sign, I want the whole of the engagement in front of you on a single page: what we will do, who will do it, what it costs, and when we begin.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The fixed professional fee of {{fact:f:E-2020-001.fee}} will be invoiced in equal monthly installments over the term of the engagement, and each invoice is payable within thirty days of receipt. Reasonable out-of-pocket expenses, if any, will be billed at cost and itemized, and we will clear any expense of consequence with you before we incur it."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Integration support means helping you make the hundreds of small decisions that turn two firms into one, and making them in the order that keeps the business running while they are made. We will set the two sides side by side, where they overlap and where they only differ, across reporting, systems, and the way each one books and bills its work, and hold every proposed change against one plain question: does it serve the combined business, or only tidy the org chart. What you will get is not a binder. It is a sequenced plan, a short list of the decisions that need your own hand, and a running way to see whether the savings the deal promised are actually arriving.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "This engagement runs for the term of the study, approximately eight months. Either of us may end it earlier on written notice. If that happens, you will owe fees for the work performed through the date of termination, and we will hand over our working materials and analysis in usable form."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jennifer Fletcher, our Senior Consultant, will lead the engagement and be the person you call. Integration is where she does her best work, because it rewards sequence and follow-through and she keeps both. Robert Miller, our Principal Consultant, will work the operating side alongside her, and Cynthia Ball, our Analyst, will keep the reconciliations and the savings tracker honest from one week to the next. Nothing reaches you under our name until I have read it end to end; I have always been the last set of eyes at this firm, and I mean to stay that way.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Pricing is among the most sensitive information a company holds, and we will treat everything we learn about yours as confidential and use it only for this engagement. Our people are bound by the same obligation. In turn, we ask that the analysis and recommendations we prepare for you stay within your organization, since they are built for your circumstances rather than for general reliance. Either of us may of course disclose what the law or a regulator requires."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The fee is a fixed {{fact:f:E-2021-001.fee}} for the engagement as set out above, from the first day through the handover. We do not bill by the hour, so there is no clock for your people to watch and nothing to reconcile at the close. We begin on {{fact:f:E-2021-001.start}}, and an integration of this size usually runs about seven months; we have planned around that, and if what we find on the ground changes it, you will hear so from me early rather than late.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our aggregate liability to Dean PLC for any claim arising out of this engagement will be limited to the fees paid to us for the work, and we do not accept liability for indirect or consequential losses. This is not a matter of confidence in the analysis; it reflects the advisory nature of what we do. The recommendations are ours to make well, but the pricing decisions, and their execution, remain yours."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "If that matches your understanding, sign below and return one copy to me and we will begin. If it does not, I would far sooner hear it now. Either way you have my word that this firm will treat the handover as carefully as you are treating it, and that I will be reading behind every step of the work.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "This engagement will be governed by the laws of the state in which our firm maintains its principal office, without regard to its conflict-of-laws rules. Any dispute we cannot resolve between us will be handled in the courts of that state."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms are acceptable, please sign below and return one copy to us, keeping the other for your files. We are glad to be working with you, and we will be ready to begin on the date set out above. Thank you for your confidence in the firm."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
         },
         {
           "kind": "sigblock",
-          "text": "",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
           "signers": [
             "p:daniel.jones",
-            "xp:christopher.cole"
+            "xp:cynthia.foley"
           ]
         }
       ]
@@ -117,73 +125,145 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Engagement Kickoff: Pricing Study",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Working session on the integration, held at the offices of {{fact:f:E-2021-001.client}}. Minutes recorded by Jennifer Fletcher and circulated to everyone present to correct anything I have set down wrong.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "To: Engagement team\nFrom: Robert Miller\nRe: Pricing study for {{fact:f:E-2020-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our pricing study for Dean PLC is underway as of {{fact:f:E-2020-001.start}}, and I want the team aligned on what we are trying to learn before we are deep in the data. The objective is narrow and answerable: understand how the client sets price, measure how much of that price survives to the bottom line, and hand back a short, prioritized set of pricing actions. Put plainly, their margins are thinner than the business should support, and the erosion between list price and realized price is not visible in the reporting they have today. Our work is to make it visible and then to say what to do about it. We do that by building the picture from transaction-level evidence first and drawing conclusions second, not the other way around."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our primary contact is Cynthia Foley, VP Finance, and she is arranging access to the transaction and pricing records we need. A word on how we will divide the work. Susan Wiley will assemble the transaction-level data and check it, line by line, against source; the whole study rests on that foundation, so it has to be right before anything is built on top of it. I will own the price waterfall and the margin analysis that comes out of it. Jennifer Fletcher will keep us connected to the client and see that our findings are framed so leadership can act on them. Route scheduling and client questions through Jennifer rather than contacting the client directly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One methodological point, since it shapes everything downstream. We build the waterfall from what customers were actually invoiced, not from the list or the standard price. The off-invoice items, the rebates, year-end credits, and freight that never appear on the order, are where realized margin usually goes to hide, so we account for them from the start rather than bolting them on at the end. And we document how a discount is actually granted before we form any view about whether it should have been. Describe the practice as it runs; the judgment comes afterward."
+        },
+        {
+          "kind": "heading",
+          "text": "Workstreams",
+          "level": 2
         },
         {
           "kind": "list",
-          "text": "",
-          "level": 1,
           "items": [
-            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group LLC",
-            "Robert Miller, Principal Consultant, Pinebrook Advisory Group LLC",
-            "Cynthia Ball, Analyst, Pinebrook Advisory Group LLC",
-            "Christopher Cole, General Manager, Reeves, Miller and Thompson"
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+            "Data assembly. Pull the transaction-level records for a recent full year, with list price, invoiced price, discounts, rebates, credits, freight, and unit cost, so realized price can be reconstructed line by line.",
+            "Price waterfall. Build the waterfall from list price to pocket price and quantify what is lost at each step, across products and customers.",
+            "Discounting and approvals. Document how discretionary discounts and off-invoice terms are actually granted and approved, before we judge whether they should be.",
+            "Customer and segment profitability. Compare the net price realized by customers that ought to be priced alike, and find the dispersion the current reporting hides.",
+            "Cost-to-serve. Attach the serving costs, small orders, expedites, and returns, that list-based margin ignores, and test where price falls below the cost of filling the order.",
+            "Synthesis and readout. Turn the findings into a prioritized set of pricing actions for a leadership working session at the close."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Next Steps",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Susan Wiley will draft the data request covering the last full year of transactions and circulate it this week.",
+            "I will define the waterfall structure so the data lands in the right buckets when it arrives.",
+            "Jennifer Fletcher will confirm the kickoff meeting with Cynthia Foley and her finance team.",
+            "Everyone: log the data questions as they come up. A waterfall is only as good as the fields feeding it, and the questions are easiest to answer while we are still in the records."
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0010",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: Pricing Study",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "We measured the plan against where we actually stand at the midpoint. The finance and reporting side is furthest along: the two charts of accounts are mapped and a single monthly report is drafted, though it does not yet reconcile to both sets of prior books, and it will go to no one until it does. On the operating side, the overlap in roles is now clear enough to act on, and that decision belongs to Christopher Cole and his team rather than to us. I asked that we hold the announced savings figures until Cynthia Ball has tied each one to real line items; an integration is judged in the end on whether those numbers prove true.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Subject: Pricing study for {{fact:f:E-2020-001.client}}\nRecorded by: Susan Wiley"
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Susan Wiley, Analyst, Pinebrook Advisory Group",
+            "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
+            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group",
+            "Cynthia Foley, VP Finance, Dean PLC"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The session reviewed the state of the transaction data and the first pass at the price waterfall. We now have the last full year of line-level records loaded, roughly matching the order and invoice counts Cynthia Foley's team gave us as a control total, and I walked the group through what is complete and what is not. List price, invoiced price, and on-invoice discounts are in for essentially all lines, and they reconcile to the monthly sales totals within a small variance I have not yet chased down. The off-invoice items are the real gap: rebates and year-end credits are still being matched back to the customer and, where the records allow, to the line, and until that is done the pocket-price figures at the bottom of the waterfall should be read as provisional. I would rather note that plainly than let the early numbers travel further than they should."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert walked the first waterfall and pointed to the spread between list and pocket price, which is wider than the reporting the client uses today would suggest. What drew attention was less the average than the dispersion: customers who look alike on paper are realizing meaningfully different net prices, and we do not yet have a clean explanation for all of it. We talked through the obvious candidates, customer size, how long the account has been on the books, the sales rep who owns it, and the region, and agreed to test each against the data rather than assume which one is driving the gap. Cynthia Foley described how discretionary discounts are approved in practice, which is more informal than the written policy implies, and that description lines up with what the transaction data is showing. Robert was careful to say we are not drawing conclusions yet; the purpose of this stage is to confirm the numbers are trustworthy before we weigh what they mean."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Fletcher raised which of the emerging patterns will matter most to leadership, so the analysis stays pointed at decisions the client can actually make. We also flagged two open data items. The cost-to-serve figures, which we need in order to test whether some small orders are priced below the cost of filling them, are only partly available, and we will have to decide how much to reconstruct from what exists. And a sample of the rebate accruals needs tracing back to source before I will rely on them, since the accrual timing does not always line up with the invoices they relate to. Cynthia Foley agreed to help us get both."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
         },
         {
           "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
           "header": [
-            "Action Item",
-            "Owner"
+            "Action",
+            "Owner",
+            "Target"
           ],
           "rows": [
             [
-              "Reconcile the combined monthly report to both sets of prior books before it is shared",
-              "Jennifer Fletcher"
+              "Match the off-invoice rebates and credits to customer and line",
+              "Susan Wiley",
+              "Before the next working session"
             ],
             [
-              "Tie each announced saving to specific line items in the combined ledger",
-              "Cynthia Ball"
+              "Reconcile the remaining variance against the monthly sales totals",
+              "Susan Wiley",
+              "Before the next working session"
             ],
             [
-              "Confirm the redundant-role list and the sequence for acting on it",
-              "Christopher Cole"
+              "Extend the price waterfall once the off-invoice items are mapped",
+              "Robert Miller",
+              "Before the next working session"
             ],
             [
-              "Walk the operating handoffs at the second location and flag where they break",
-              "Robert Miller"
+              "Test the dispersion against customer size, tenure, rep, and region",
+              "Robert Miller",
+              "Within two weeks"
+            ],
+            [
+              "Frame the emerging findings for a leadership preview",
+              "Jennifer Fletcher",
+              "By the next working session"
+            ],
+            [
+              "Provide the cost-to-serve and freight detail",
+              "Cynthia Foley",
+              "By the next working session"
             ]
-          ],
-          "signers": []
+          ]
         }
       ]
     },
@@ -193,101 +273,203 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Integration Support for Reeves, Miller and Thompson",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Status Report: Pricing Study",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for {{fact:f:E-2021-001.client}} by Cynthia Ball, Analyst, Pinebrook Advisory Group LLC.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Prepared for: Dean PLC leadership\nPrepared by: Robert Miller, Principal Consultant\nStatus: through the midpoint of the engagement"
         },
         {
           "kind": "heading",
-          "text": "Overall Status",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Summary",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The integration is in its final phase and running to plan. The combined reporting is live and reconciling, the structural decisions have been made and are being carried out, and what is left is consolidation and handover rather than new analysis. The work is still inside the fixed fee of {{fact:f:E-2021-001.fee}} set in the engagement letter, and nothing in the remaining tasks looks likely to move that figure. If something does, I will flag it the day it does, not at the next milestone.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We are about halfway through the pricing study for {{fact:f:E-2020-001.client}}, and the work is on track and within budget. The data assembly is complete, the price waterfall is built, and we have moved from gathering the evidence to analyzing it, which is where the value of the study is made. The question you set at the outset was where the erosion happens between the price you set and the price you keep, and we can now see the shape of the answer even if the figures are not yet final. Nothing we have found so far changes the plan or the timeline we agreed at the start. This report covers what we accomplished this period, the early signals worth sharing, the budget, what comes next, and the handful of items worth watching. I have kept it to what the evidence currently supports; the substantiated conclusions, with numbers attached, belong in the final findings rather than here."
         },
         {
           "kind": "heading",
-          "text": "Completed This Period",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Accomplishments This Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The core of this period was turning a year of raw transaction records into a picture your current reporting does not provide: how much of each list price actually survives to the bottom line, and where the rest goes. That meant building the data foundation carefully before drawing anything on top of it, because a waterfall built on figures no one trusts is worse than no waterfall at all."
         },
         {
           "kind": "list",
-          "text": "",
-          "level": 1,
           "items": [
-            "Brought the combined monthly reporting live and reconciled it to both sets of prior books, so the numbers now tie out on either basis.",
-            "Closed out the redundant-role decisions with your team and stood up the new reporting lines; Robert Miller carried the operating side of that through to the end.",
-            "Rebuilt the savings tracker against actual line items instead of the deal model, so every claimed synergy now points at a figure someone can check."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Remaining Work",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Finish the systems cutover and retire the duplicate finance system on the agreed date.",
-            "Hand the combined reporting and the savings tracker to your finance team with the documentation to run both without us; Jennifer Fletcher is walking them through it.",
-            "Close the last two open account reconciliations and confirm the opening balances for the combined entity."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Risks and Open Items",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+            "Assembled and reconciled the last full year of line-level transaction data, including the off-invoice rebates and credits that ordinary margin reporting leaves out.",
+            "Built the price waterfall from list price to realized pocket price and quantified, provisionally, what is lost at each step, from on-invoice discounts through the off-invoice items.",
+            "Documented how discretionary discounts and off-invoice terms are granted and approved in practice, rather than as the written policy describes them.",
+            "Began the customer-level dispersion analysis, comparing the net price realized by customers that ought to be priced alike."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Two items are worth watching. The cutover has a fixed window, and one upstream data feed from the Reeves, Miller and Thompson side is not yet confirmed clean; if it slips the cutover waits, so we are testing it now rather than on the day. And a share of the tracked savings depends on headcount changes that take time to land, so the run rate will trail the plan for a few months even with the decisions made. Neither is off track. Both are simply the parts of an integration that reward being early, and we are treating them that way.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Susan Wiley led the data assembly and the reconciliation back to source, which is the reason the waterfall rests on figures we trust. Jennifer Fletcher has kept the analysis anchored to the decisions your leadership will face, so the work stays pointed at what you can actually change rather than at what is merely interesting."
+        },
+        {
+          "kind": "heading",
+          "text": "Early Signals",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "It is early to attach numbers to any of this, and I do not want to get ahead of the analysis, but three themes are clear enough to name. The first is price dispersion: comparable customers are realizing quite different net prices, and the difference does not track anything about their size or volume that we can yet see. The second is off-invoice leakage, where rebates and credits granted after the sale quietly erode a margin the invoice made look healthy. The third, smaller for now, is a set of small orders that appear to be filled at a loss once the cost of serving them is counted. We will test each of these against the data and size it before it reaches the findings, and you will see the substantiated version there, not before."
+        },
+        {
+          "kind": "heading",
+          "text": "Budget",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is being delivered against the fixed professional fee of {{fact:f:E-2020-001.fee}}. Our effort to date is tracking within that budget, and because the fee is fixed, your cost does not move with the hours we invest. We are not anticipating any change to scope; if that view changes, you will hear it from us well in advance rather than at the end."
+        },
+        {
+          "kind": "heading",
+          "text": "Upcoming Work",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Complete the customer and segment dispersion analysis, and attach cost-to-serve where small orders may be priced below the cost of filling them.",
+            "Quantify the size of the opportunity in each leakage category, so the recommendations can be ranked by what they are worth.",
+            "Draft a short, prioritized set of pricing actions you can act on.",
+            "Preview the emerging findings with your leadership before we finalize, so nothing in the readout comes as a surprise."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What We Will Need From You",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A study like this moves at the speed of the access it gets, and there are a few things from your side that would keep us on schedule over the next stretch."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The remaining cost-to-serve and freight detail, ideally within the next week or two, so we can finish testing the small-order question.",
+            "Confirmation of the rebate and credit figures we are tracing back to source.",
+            "A review slot with your leadership once the draft findings are ready, so the readout is a working discussion rather than a first look."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and Watch Items",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Data completeness. A few of the off-invoice and cost-to-serve details are still being traced to source, and delays there would slow the final quantification.",
+            "Governance question. The dispersion we are seeing may point to a discount-approval issue larger than the study was scoped to fix; we will raise it plainly rather than expand the work quietly.",
+            "Scheduling. The leadership preview depends on finding time on your calendar over the coming weeks, and earlier is better than later."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are pleased with where the study stands and confident in the path from here. Please reach out with any questions in the meantime."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Miller\nPrincipal Consultant"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0012",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: Pricing Study",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Subject: Pricing study for {{fact:f:E-2020-001.client}}\nRecorded by: Susan Wiley"
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Susan Wiley, Analyst, Pinebrook Advisory Group",
+            "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
+            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group",
+            "Cynthia Foley, VP Finance, Dean PLC"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "With the analysis essentially complete, the session focused on the draft recommendations and how they will be presented to leadership. I walked the group through the near-final waterfall and the dispersion analysis, both of which now rest on data traced to source. The provisional figures we were working from at the midpoint have held up, with only minor revisions once the off-invoice items were fully mapped, and the small variance we had against the monthly sales totals has been closed. A handful of customer cases are still being validated, mostly accounts whose net price sits well outside the pattern for reasons the data alone does not explain, and I flagged those as open rather than settle them before the checking is done."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The discussion centered on four recommendations taking shape. The first is tightening the authority under which discretionary discounts are granted, since much of the dispersion traces back to discounts approved informally and never revisited. The second is repricing the small orders that the cost-to-serve work shows are being filled at a loss once handling and freight are counted. The third is narrowing the net-price dispersion among comparable customers, so that similar accounts are not paying materially different prices for reasons no one can defend. The fourth is bringing the off-invoice rebates and credits under the same review and visibility as on-invoice price, which today sits outside anyone's regular look. Robert laid out how he would rank the four by the margin each is worth, and was deliberate that the ranking has to rest on the quantified figures and not on impression. Jennifer Fletcher pressed the group to state each recommendation plainly, in a form leadership can approve or reject, rather than hedge it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Cynthia Foley gave a candid read on which of the changes will meet resistance inside the company and which can move quickly, which is useful for how we sequence them in the readout; she was clear that the discount-authority change is the one most likely to draw pushback from the sales side. She also confirmed the last data items we had been waiting on. We agreed that the next step is a clean draft of the findings and recommendations for the leadership working session, and that nothing goes into that draft which we cannot trace back to the data."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We closed by confirming what the leadership working session will need to contain: the four recommendations, each with the margin it is worth and the evidence behind it, and a clear sequence for acting on them. Robert and Jennifer will build that draft, and I will supply the supporting exhibits, each tied back to the underlying data so any figure raised in the room can be traced on the spot. Nothing decided today changes the direction of the work; the session confirmed we are ready to move from analysis into the readout."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "Target"
+          ],
+          "rows": [
+            [
+              "Finalize the recommendation ranking against the quantified margin figures",
+              "Robert Miller",
+              "Before the readout"
+            ],
+            [
+              "Validate the remaining customer dispersion cases",
+              "Susan Wiley",
+              "Within one week"
+            ],
+            [
+              "Draft the findings and recommendations for the leadership working session",
+              "Jennifer Fletcher",
+              "Before the readout"
+            ],
+            [
+              "Confirm the final rebate and cost-to-serve figures",
+              "Cynthia Foley",
+              "This week"
+            ],
+            [
+              "Assemble the supporting exhibits, each traced to source",
+              "Susan Wiley",
+              "Before the readout"
+            ]
+          ]
         }
       ]
     }

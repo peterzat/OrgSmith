@@ -19,9 +19,13 @@ titles:
   Operations: [Office Manager]
 
 doc_culture:
-  target_docs: 13
+  # target_docs and the docx/pdf/xlsx buckets are advisory as of M9: the
+  # genre registry derives the real supply from the firm's engagements,
+  # fiscal years, and hires. These record what that comes to for this recipe
+  # (22 documents). pptx/eml stay load-bearing (this firm produces neither).
+  target_docs: 22
   date_range: [2019-01-01, 2023-12-31]
-  format_mix: {docx: 8, pdf: 3, xlsx: 2}
+  format_mix: {docx: 14, pdf: 3, xlsx: 5}
 
 finance:
   base_revenue: 850000

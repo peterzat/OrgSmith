@@ -1,254 +1,173 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
-  "generator": {"model": "claude-opus-4-8", "effort": "max"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "max"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0005",
+      "doc_id": "d:0004",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Pinebrook Advisory Group LLC",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Pinebrook Advisory Group",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Cynthia Foley, VP Finance",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Pinebrook Advisory Group is a management consulting firm built for mid-market operating companies. We are five people, and that is a deliberate choice rather than a stage we are trying to grow out of. A company that hires us gets the people whose names are on the proposal, not a rotating cast of juniors, and a partner stays close to the work from the first conversation to the last. If you run a business in the middle market and you want a straight answer about how your operation is performing and what to do about it, that is the work we do, and we would rather do a handful of engagements well each year than chase every one that comes along."
+        },
+        {
+          "kind": "heading",
+          "text": "Who We Serve",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Dean PLC",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our clients are operating companies, the businesses that make, move, and sell real things. They are usually past the scrappy early years and into the harder middle stretch, where the company has grown faster than the systems and habits meant to support it, and the people running it can feel the friction without always being able to name its source. That is precisely the situation in which an outside, evidence-based read pays for itself. We are not the right firm for every problem, and we will tell you when we are not. When we are the right firm, you get our full attention and a partner's direct involvement, not a proposal team that disappears once the work begins."
+        },
+        {
+          "kind": "heading",
+          "text": "What We Do",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Re: Pricing Study",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our engagements fall into three areas. Whatever the starting point, the way we work does not change: we work from evidence, we keep the scope tight, and we make only the recommendations we would be willing to carry out ourselves."
         },
         {
-          "kind": "paragraph",
-          "text": "Dear Ms. Foley:",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "This letter confirms the terms on which Pinebrook Advisory Group LLC will carry out a pricing study for {{fact:f:E-2020-001.client}}. I ask that you read it through before you sign. What you need in order to decide is all here: what we will examine, how we will go about it, who will do the work, what it costs, and when we begin. If any of it reads differently than the conversation we have had, I would rather know now than once we are underway.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "A pricing study turns on a plain question that is seldom simple to answer: are you being paid what your work is worth. We will look at how your prices are set today and how they hold once they reach a customer, where discounting and terms quietly wear them down, and what it truly costs to serve one account against another. The work rests on your own records, your billings and your cost figures, not on a general theory of what a firm like yours ought to charge. You will not receive a treatise, but a short, ordered set of pricing changes worth making, each one traced to a figure you can check.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Three of our people will carry the engagement. Robert Miller, our Principal Consultant, holds the work and will be your point of contact; he treats a client relationship as his to look after. Jennifer Fletcher, our Senior Consultant, runs the analysis, and she will not let a number reach your desk before it reconciles. Susan Wiley, our Analyst, builds the underlying work the two of them rely on. I read everything before it leaves this office and stand behind all of it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for the study is a fixed fee of {{fact:f:E-2020-001.fee}}, covering the whole of the work from start through delivery. There are no hourly charges to track and nothing to reconcile at the close. Any out-of-pocket costs would be modest, billed only as incurred and with documentation. We will begin on {{fact:f:E-2020-001.start}} and expect the study to run about eight months from that point.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "If this matches your understanding, please sign below and return one copy to me. If it does not, telephone me before you sign; the shape of an engagement is far easier to settle now than in the middle of it. We are glad to have the work, and we mean to give you reason to call on us again.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "sigblock",
-          "text": "",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": [
-            "p:daniel.jones",
-            "xp:cynthia.foley"
+          "kind": "list",
+          "items": [
+            "Operational reviews. We map how work actually gets done across your core functions, find where cost, time, or quality is being lost, and hand back a short, prioritized set of changes you can act on, rather than a survey of everything that could conceivably be improved.",
+            "Pricing studies. We examine how you price, what that pricing is costing you, and where there is room to price with more discipline, so that margin stops leaking in the places no one is watching.",
+            "Post-acquisition integration support. We help a buyer bring an acquired business into the fold without breaking what made it worth buying, from the pressured first months through the harder work that follows."
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "These problems overlap more than the list suggests. A pricing question often turns out to be an operations question wearing a different hat, and the first hundred days after an acquisition are mostly an operational review run at speed. We follow the work where it leads, within a scope we have agreed with you, and we say so when we come to think the real problem is not the one you hired us to solve."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Every engagement is led by a partner and staffed by people who do the analysis themselves. We begin by getting the objective stated plainly, in your own words, so that we are solving the problem you actually have and not the one that happens to be easiest to study. From there we go to the work. We watch how the operation runs, we talk with the people who run it, and we reconcile what we see against the numbers you already produce, weighting the figures your team trusts and tracing the ones it does not back to their source. We keep you informed as we go, because no client of ours should be surprised at the readout. At the close you receive a short written findings report, a prioritized set of recommendations, and a working session in which we walk your leadership through both, so the conclusions are understood and owned before we hand them over."
+        },
+        {
+          "kind": "heading",
+          "text": "Representative Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our current engagement is an operational review for {{fact:f:E-2019-001.client}}, a mid-market operating company working through the familiar problem of an operation that has outgrown its processes. The objective is the one we set for every review of this kind: a clear, honest picture of how the operation runs today, and a practical, prioritized set of changes worth making. The work stays close to the operation and rests on what we can observe rather than on what any manual claims, and it is a fair example of what this firm does best."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If any of this fits a problem you are wrestling with, the fastest way to find out whether we can help is a direct conversation. We will tell you plainly whether the work is a good fit for us. If it is not, we will say so, and point you toward someone better suited to it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Daniel Jones\nManaging Partner\nPinebrook Advisory Group"
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0006",
+      "doc_id": "d:0013",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Kickoff Memo: Pricing Study for Dean PLC",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Onboarding Record: Cynthia Ball",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "To: Jennifer Fletcher, Susan Wiley. From: Robert Miller. Re: Kickoff for the pricing study, Dean PLC.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "To: The firm\nFrom: Daniel Jones\nRe: Cynthia Ball joins the consulting team"
         },
         {
           "kind": "paragraph",
-          "text": "The engagement letter is signed and back, and we begin on {{fact:f:E-2020-001.start}}. The job states plainly: tell {{fact:f:E-2020-001.client}} whether it is being paid what its work is worth, show where it is not, and say what to do about it. Cynthia Foley, their VP Finance, is our sponsor and our door to the numbers; anything we need from their side goes through her office. We build this from the billings up, from what was actually invoiced and collected, not from anyone's view of what the prices ought to be.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Price realization: pull recent invoices and measure what we collected against list, line by line. This is the spine of the study, and everything else hangs off it.",
-            "Cost to serve: put a defensible cost against each product line and each major account, so margin is measured rather than assumed.",
-            "Discounting and terms: trace where price leaks out after the quote, through discounts, allowances, freight, and payment terms.",
-            "Segmentation: group the accounts that behave alike, so any pricing move can be aimed rather than spread flat across the book."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Please join me in welcoming Cynthia Ball, who starts with Pinebrook Advisory Group this week as an Analyst on our consulting team. Cynthia comes to us with a strong quantitative background and, just as important, a knack for taking a tangled set of findings and turning it into clean exhibits and tables that a client can actually read. That combination is exactly what our engagements run on. We are five people, so a new colleague is not a small addition, and I expect her to be in the middle of the analytical work before long."
         },
         {
           "kind": "paragraph",
-          "text": "Next steps are short. Susan starts the billing and cost pull this week and gets it into a working file the rest of us can build on. Jennifer sets the framework for cutting margin and cost to serve, so we are all measuring the same way from the first day. I will settle the data request with Cynthia Foley's office and keep her posted on what we need and when. One standing rule: bring me anything that does not tie out the moment you see it. A bad number is cheap to fix now and expensive in front of the client.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Cynthia will sit with the consulting team and work across our active engagements, pairing with the principals and senior consultants who lead the day-to-day. Her role is the analytical spine of an engagement: pulling and checking the operating data, building the exhibits and tables that carry our findings, and drafting the working notes that a principal can lift straight into a status report. She should also feel free to ask the blunt question in a working session. We would far rather surface a hard issue early than polish around it, and that instinct is one of the reasons we hired her."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A word on how we work, since it is easier to say than to pick up by osmosis. We keep our documents lean and our findings grounded in evidence, the partner reviews everything that leaves the office, and inside the firm we use first names and speak plainly with one another. Cynthia will not be expected to know our clients or our methods on her first day. She will be expected to ask when something is unclear, to write down what she observes while it is fresh, and to raise a problem early rather than let it ride. Those habits matter more here than polish, and they are quicker to learn than most people fear."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For her first few weeks the plan is simple. Cynthia will spend time with each of us to learn how we run an engagement and how we like our work reviewed, and she will take on a defined piece of a live engagement rather than waiting on the sidelines. I have asked the team to make sure she has what she needs from day one: access to the working files, a walk through our templates and the plain rules we follow for how documents are dated and filed, and a standing invitation to bring questions to me directly. We are a small firm, and that is a feature, not a limitation. Welcome aboard, Cynthia."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0007",
+      "doc_id": "d:0021",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: Pricing Study for Dean PLC",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Pinebrook Advisory Group",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Working session on the pricing study, held at the offices of {{fact:f:E-2020-001.client}}. Minutes recorded by Susan Wiley and circulated to all present for correction.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Robert Miller, Principal Consultant, Pinebrook Advisory Group LLC",
-            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group LLC",
-            "Susan Wiley, Analyst, Pinebrook Advisory Group LLC",
-            "Cynthia Foley, VP Finance, Dean PLC"
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Pinebrook Advisory Group is a management consulting firm of five people, and we mean to keep it that size. The size is the strategy. It lets a partner stay on every engagement from start to finish, it keeps our clients out of the hands of a rotating bench of juniors, and it enforces the discipline that makes our work worth paying for: we take on only what we can do well, we keep the scope tight, and we hand back decisions rather than binders."
         },
         {
           "kind": "paragraph",
-          "text": "Robert Miller opened with where the work stands at the midpoint. The billing extract is in hand and reconciled to the general ledger, and a first read of price realization is drafted. The early picture is that realized prices sit well below list on a sizable share of volume, and that the gap runs widest on the smaller accounts. Robert was careful to call these observations and not findings; no recommendation was put forward.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We work with mid-market operating companies, the businesses that make, move, and sell real things and that have grown to the point where the way they run needs a hard, honest look. Over the past three years that has meant a steady handful of engagements a year, each one led by a partner and staffed by people who do the analysis themselves. The problems change from one client to the next. The method does not: we work from evidence, we say what we find plainly, and we recommend only what we would be willing to carry out ourselves. We have stayed in the middle market on purpose. It is where a firm our size can come to know a client's operation in real depth, and where clear, practical advice still changes the trajectory of a business rather than getting lost in a much larger machine."
+        },
+        {
+          "kind": "heading",
+          "text": "What We Do",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jennifer Fletcher noted that the cost-to-serve figures are not yet final, and that margin by account cannot be set until they are. She flagged a discrepancy between the freight allowances in the billing file and the figures finance carries, which the team will run down before any account is called unprofitable. Cynthia Foley asked whether payment terms were reflected in the realized-price view; they are not yet, and were added to the open items.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our work falls into three areas. Operational reviews are the core of the practice: mapping how work actually gets done across a company's key functions, finding where cost, time, and quality are being lost, and turning that into a short, prioritized set of changes. Pricing studies look at how a company prices and where margin is leaking, so that discipline replaces habit in the places that most affect the bottom line. Post-acquisition integration work helps a buyer fold an acquired business in without breaking what made it worth buying. Most clients come to us with one of these problems clearly in view; often the work that matters most is the problem sitting right next to it."
         },
         {
-          "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
-          "header": [
-            "Action Item",
-            "Owner"
-          ],
-          "rows": [
-            [
-              "Run down the freight-allowance discrepancy between the billing file and finance's figures",
-              "Susan Wiley"
-            ],
-            [
-              "Finalize cost to serve so margin by account can be set",
-              "Jennifer Fletcher"
-            ],
-            [
-              "Provide the account-level payment terms for the major customers",
-              "Cynthia Foley"
-            ],
-            [
-              "Hold the preliminary realization read from the client until the figures reconcile",
-              "Robert Miller"
-            ]
-          ],
-          "signers": []
+          "kind": "heading",
+          "text": "The Team",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The firm is deliberately flat. A partner leads each engagement and answers for the result, and the day-to-day is carried by senior and principal consultants and an analyst who do the mapping, the data work, and the writing themselves. There is no layer between the people who meet the client and the people who do the work, because at five people they are the same people. It is the arrangement that lets us promise a client the partner's attention and actually keep the promise."
+        },
+        {
+          "kind": "heading",
+          "text": "Selected Engagements",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The firm's first operational review was for {{fact:f:E-2019-001.client}}, an operating company whose processes had not kept pace with its growth. The pattern of that work, close to the operation and grounded in what we could observe rather than in what a manual claimed, set the template for the reviews that followed. Since then our engagements have included work for {{fact:f:E-2020-001.client}} and {{fact:f:E-2021-001.client}}, across the range of problems described above. In each case the shape of the result was the same: a clear read on the situation, a handful of recommendations the client believed in, and a leadership working session to make sure the conclusions were understood and owned before we handed them over."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Run an Engagement",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Every engagement starts the same way, with the objective stated plainly in the client's own words, so that we solve the problem you have and not the one that is easiest to study. From there the work is direct. We observe the operation, we talk with the people who run it, and we reconcile what we see against the numbers the company already produces. We keep the client informed as we go, because no client of ours should be surprised at the readout. At the close you get a short written findings report, a prioritized set of recommendations, and a working session where we walk your leadership through both. The engagement is over when you have what you need to act, not when the hours run out."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If your company is at the point where how it runs deserves a hard, outside look, that is our work, and the fastest way to find out whether we are the right firm for it is a direct conversation. We will tell you honestly whether it is a good fit. If it is not, we will point you somewhere better."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Daniel Jones\nManaging Partner\nPinebrook Advisory Group"
         }
       ]
     }

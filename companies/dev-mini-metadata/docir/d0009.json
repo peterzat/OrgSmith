@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
+      "text": "Engagement Kickoff: Pricing Study",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,8 +13,44 @@
     },
     {
       "kind": "paragraph",
-      "text": "Working session on the integration, held at the offices of {{fact:f:E-2021-001.client}}. Minutes recorded by Jennifer Fletcher and circulated to everyone present to correct anything I have set down wrong.",
+      "text": "To: Engagement team\nFrom: Robert Miller\nRe: Pricing study for {{fact:f:E-2020-001.client}}",
       "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our pricing study for Dean PLC is underway as of {{fact:f:E-2020-001.start}}, and I want the team aligned on what we are trying to learn before we are deep in the data. The objective is narrow and answerable: understand how the client sets price, measure how much of that price survives to the bottom line, and hand back a short, prioritized set of pricing actions. Put plainly, their margins are thinner than the business should support, and the erosion between list price and realized price is not visible in the reporting they have today. Our work is to make it visible and then to say what to do about it. We do that by building the picture from transaction-level evidence first and drawing conclusions second, not the other way around.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our primary contact is Cynthia Foley, VP Finance, and she is arranging access to the transaction and pricing records we need. A word on how we will divide the work. Susan Wiley will assemble the transaction-level data and check it, line by line, against source; the whole study rests on that foundation, so it has to be right before anything is built on top of it. I will own the price waterfall and the margin analysis that comes out of it. Jennifer Fletcher will keep us connected to the client and see that our findings are framed so leadership can act on them. Route scheduling and client questions through Jennifer rather than contacting the client directly.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "One methodological point, since it shapes everything downstream. We build the waterfall from what customers were actually invoiced, not from the list or the standard price. The off-invoice items, the rebates, year-end credits, and freight that never appear on the order, are where realized margin usually goes to hide, so we account for them from the start rather than bolting them on at the end. And we document how a discount is actually granted before we form any view about whether it should have been. Describe the practice as it runs; the judgment comes afterward.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Workstreams",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -25,51 +61,38 @@
       "text": "",
       "level": 1,
       "items": [
-        "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group LLC",
-        "Robert Miller, Principal Consultant, Pinebrook Advisory Group LLC",
-        "Cynthia Ball, Analyst, Pinebrook Advisory Group LLC",
-        "Christopher Cole, General Manager, Reeves, Miller and Thompson"
+        "Data assembly. Pull the transaction-level records for a recent full year, with list price, invoiced price, discounts, rebates, credits, freight, and unit cost, so realized price can be reconstructed line by line.",
+        "Price waterfall. Build the waterfall from list price to pocket price and quantify what is lost at each step, across products and customers.",
+        "Discounting and approvals. Document how discretionary discounts and off-invoice terms are actually granted and approved, before we judge whether they should be.",
+        "Customer and segment profitability. Compare the net price realized by customers that ought to be priced alike, and find the dispersion the current reporting hides.",
+        "Cost-to-serve. Attach the serving costs, small orders, expedites, and returns, that list-based margin ignores, and test where price falls below the cost of filling the order.",
+        "Synthesis and readout. Turn the findings into a prioritized set of pricing actions for a leadership working session at the close."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "We measured the plan against where we actually stand at the midpoint. The finance and reporting side is furthest along: the two charts of accounts are mapped and a single monthly report is drafted, though it does not yet reconcile to both sets of prior books, and it will go to no one until it does. On the operating side, the overlap in roles is now clear enough to act on, and that decision belongs to Christopher Cole and his team rather than to us. I asked that we hold the announced savings figures until Cynthia Ball has tied each one to real line items; an integration is judged in the end on whether those numbers prove true.",
-      "level": 1,
+      "kind": "heading",
+      "text": "Next Steps",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "table",
+      "kind": "list",
       "text": "",
       "level": 1,
-      "items": [],
-      "header": [
-        "Action Item",
-        "Owner"
+      "items": [
+        "Susan Wiley will draft the data request covering the last full year of transactions and circulate it this week.",
+        "I will define the waterfall structure so the data lands in the right buckets when it arrives.",
+        "Jennifer Fletcher will confirm the kickoff meeting with Cynthia Foley and her finance team.",
+        "Everyone: log the data questions as they come up. A waterfall is only as good as the fields feeding it, and the questions are easiest to answer while we are still in the records."
       ],
-      "rows": [
-        [
-          "Reconcile the combined monthly report to both sets of prior books before it is shared",
-          "Jennifer Fletcher"
-        ],
-        [
-          "Tie each announced saving to specific line items in the combined ledger",
-          "Cynthia Ball"
-        ],
-        [
-          "Confirm the redundant-role list and the sequence for acting on it",
-          "Christopher Cole"
-        ],
-        [
-          "Walk the operating handoffs at the second location and flag where they break",
-          "Robert Miller"
-        ]
-      ],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

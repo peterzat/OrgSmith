@@ -1,84 +1,460 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0004",
-  "generator": {"model": "claude-opus-4-8", "effort": "max"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "max"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0010",
+      "doc_id": "d:0015",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Pinebrook Advisory Group LLC",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "kind": "paragraph",
+          "text": "Christopher Cole\nGeneral Manager\n{{fact:f:E-2021-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Pinebrook Advisory Group is a small management consulting firm. We work with mid-market operating companies, the kind of business that has outgrown running on instinct but is too lean to keep in-house strategists on staff. There are five of us. We take on a handful of engagements a year, and each gets the whole firm's attention, because that is the only way an outfit this size earns what it charges. I am Daniel Jones, the Managing Partner, and nothing leaves this office under our name until I have read it end to end and can stand behind every line.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Re: Integration Support for Reeves, Miller and Thompson"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Mr. Cole:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter confirms the terms on which Pinebrook Advisory Group will support {{fact:f:E-2021-001.client}} through the integration of the business you have acquired. You put the task plainly when we met: the deal is closed, the two organizations are still run as two, and the window in which an acquisition either comes together or quietly drifts apart is the one you are in now. Our work is to give that integration a plan, a pace, and an honest account of where it stands, so the value you paid for does not leak away in the months after the signing. What follows sets out the scope, the team, the fee, and the standard terms that will govern our work together. If anything here needs adjusting before we begin, tell me and we will settle it."
         },
         {
           "kind": "heading",
-          "text": "What we do",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Scope and Approach",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our work falls into three lines. We run operational reviews for owners who suspect their business could be tighter and want an outside read before they act. We do pricing studies for companies that have not looked hard at what they charge in years. And we provide post-acquisition integration support, standing with a buyer through the long stretch after a deal closes, when two companies have to become one without the day-to-day work grinding to a halt. What ties the three together is plain: clients call us when a decision is real and the cost of getting it wrong is high.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The engagement runs for approximately seven months and moves in three overlapping phases. First, we will take stock of both organizations as they actually operate today, function by function, so that the plan rests on how the work gets done rather than on the org chart. Second, we will build a single integration plan with you: the sequence of moves across leadership and reporting lines, finance and systems, operations, commercial continuity, and people, each with a named owner and a plain measure of done. Third, we will help your team run that plan, holding a regular cadence that surfaces what is on track, what is stuck, and what needs a decision, and keeping the whole effort visible on one page rather than scattered across a dozen."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two principles shape how we work. The decisions and the running of the business stay with your people; we bring the structure, the analysis, and the discipline to keep the integration moving, but we do not sign for you. And we will tell you what we see, including the parts that are behind or harder than hoped, because an integration status that only ever reads green is the surest way to be surprised late. Matters outside the integration itself, such as the tax and legal treatment of the transaction, are not part of this engagement; where we happen to notice something in those areas we will flag it for you rather than opine on it."
         },
         {
           "kind": "heading",
-          "text": "Who we have worked with",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Engagement Team",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We have kept the client list short on purpose. Since 2019 the operating companies we have worked with include {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, and {{fact:f:E-2021-001.client}}. Each dealt with the same firm from the first conversation onward: a senior team on the work, a plan they could hold in one hand, and a Managing Partner who read every page that carried our name before it reached them. That is the reason we would rather turn work away than take on more than we can do that way.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "I will oversee the engagement personally, as I do for all of our work, and stay close enough to it to answer for the result. Jennifer Fletcher, a senior consultant with our firm, will lead the integration day to day and be your principal point of contact; she is at her best when a situation is delicate and the people questions are real. Robert Miller, a principal consultant, will carry the operational analysis, tracing how each function actually runs so the plan reflects the floor and not the theory. Cynthia Ball, our analyst, will build and keep the integration tracker and the exhibits that let all of us read the same picture at a glance. On your side, we understand you will sponsor the work and clear the path to your people and records, which is the single thing that most determines how well an integration like this goes."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and Timing",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "That is the whole of it. We are not a large firm and have no plans to become one. If your company is facing a decision that would be easier with an experienced outside hand, I would be glad to talk it over.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our fee for this engagement is a fixed professional fee of {{fact:f:E-2021-001.fee}}, covering all of the work described above. We expect to begin on {{fact:f:E-2021-001.start}} and to carry the engagement through approximately seven months of integration work. The fixed fee is not tied to hours; it covers the engagement as scoped, so you know your cost at the outset and it does not move with the effort we put in. If, as the work proceeds, we and you agree that the scope should change in a way that materially affects the fee, we will put that in writing and settle it with you before doing the additional work."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The fixed professional fee of {{fact:f:E-2021-001.fee}} will be invoiced in equal monthly installments over the term of the engagement, and each invoice is payable within thirty days of receipt. Reasonable out-of-pocket expenses, if any, will be billed at cost and itemized, and we will clear any expense of consequence with you before we incur it."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This engagement runs for the term of the integration work, approximately seven months. Either of us may end it earlier on written notice. If that happens, you will owe fees for the work performed through the date of termination, and we will hand over the integration plan, the tracker, and our working analysis in usable form so your team can carry it forward without us."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "An integration puts us close to sensitive ground: the acquisition terms, your people decisions, and the plans of both organizations. We will treat everything we learn as confidential and use it only for this engagement, and our people are bound by the same obligation. In turn, we ask that the plans and analysis we prepare for you stay within your organization, since they are built for your circumstances rather than for general reliance. Either of us may of course disclose what the law or a regulator requires."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our aggregate liability to Reeves, Miller and Thompson for any claim arising out of this engagement will be limited to the fees paid to us for the work, and we do not accept liability for indirect or consequential losses. This is not a matter of confidence in the work; it reflects the advisory nature of what we do. The plan and the analysis are ours to make well, but the integration decisions, and their execution, remain yours."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This engagement will be governed by the laws of the state in which our firm maintains its principal office, without regard to its conflict-of-laws rules. Any dispute we cannot resolve between us will be handled in the courts of that state."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms are acceptable, please sign below and return one copy to us, keeping the other for your files. We are glad to be doing this work with you, and we will be ready to begin on the date set out above. Thank you for your confidence in the firm."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
         },
         {
           "kind": "sigblock",
-          "text": "",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
           "signers": [
-            "p:daniel.jones"
+            "p:daniel.jones",
+            "xp:christopher.cole"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0016",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Engagement Kickoff: Integration Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Engagement team\nFrom: Cynthia Ball\nRe: Integration support for {{fact:f:E-2021-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our integration support for Reeves, Miller and Thompson is underway as of {{fact:f:E-2021-001.start}}, and I want us aligned on what we are here to do before we are heads-down in it. The objective is narrow and practical: help the client bring the business it acquired into one organization over the coming months, without dropping the day-to-day in the process. Two companies are still being run as two. Our job is to give the integration a plan, put a simple cadence around it, and keep an honest picture of where it stands so nothing important slips while everyone is busy. We build that picture from how the work actually runs today, function by function, and draw conclusions second. An integration is not one big decision but a few hundred small ones, and the ones that hurt are usually the ones nobody owned. Our sponsor and primary contact is Christopher Cole, General Manager, and requests to the client for people, data, or time should route through Jennifer Fletcher rather than going direct."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A word on how we are splitting the work. Robert Miller will lead the current-state read of operations, tracing how each function is run on both sides so the plan reflects the floor and not the org chart. Jennifer Fletcher owns the integration plan and the client relationship, and will keep the work pointed at the decisions Christopher Cole and his team actually have to make. I will stand up and keep the integration tracker, the one page that shows every move, its owner, and whether it is on track, so we are all reading from the same sheet. If a workstream is not on that tracker, it is not being managed, so flag anything you are carrying that I have missed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On cadence: we will run a short weekly working session with the client, held to what is on track, what is stuck, and what needs a decision, and we will not let it turn into status theater. Between sessions the tracker is the source of truth, so keep your entries current and plain. The whole value of the cadence is that Christopher Cole can look at one page and know where the integration actually stands, not where we hope it stands. When something slips, say so early; a slip named this week is a scheduling problem, and the same slip found late is a fire."
+        },
+        {
+          "kind": "heading",
+          "text": "Workstreams",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Organization and leadership. Confirm the combined reporting lines, name an owner for each function, and settle the handful of role questions that are holding other decisions up.",
+            "Finance and systems. Map the two finance functions and the systems behind them, and set the sequence for bringing reporting, the chart of accounts, and payables onto one basis.",
+            "Operations. Read how each side runs its core operations today, find the overlaps and the gaps, and plan the moves that consolidate without interrupting service.",
+            "Commercial continuity. Make sure customers, orders, and key contracts carry across the transition cleanly, and that no account goes quiet because no one was sure who owned it.",
+            "People and communications. Keep the people questions ahead of the rumor mill: retention of the staff who matter, a plain integration message, and a schedule for who hears what and when."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Next Steps",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Robert Miller will schedule the current-state interviews across both organizations and circulate the function list this week.",
+            "Robert Miller and Jennifer Fletcher will agree the interview guide so both sides are read the same way and the findings line up.",
+            "Jennifer Fletcher will set the weekly integration cadence with Christopher Cole and confirm who from the client joins each workstream.",
+            "I will stand up the integration tracker and send the template so owners can start logging moves against it.",
+            "Everyone: capture the open questions as they surface. The early weeks are when the awkward ones are cheapest to ask, so ask them."
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0017",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: Integration Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Subject: Integration support for {{fact:f:E-2021-001.client}}\nRecorded by: Jennifer Fletcher"
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group",
+            "Cynthia Ball, Analyst, Pinebrook Advisory Group",
+            "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
+            "Christopher Cole, General Manager, Reeves, Miller and Thompson"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The session took stock at roughly the midpoint of the engagement. The current-state read is behind us: Robert Miller walked the group through how each core function runs on both sides, and the integration plan we built off that read is now the working document, with an owner and a measure of done against every move. Seven months in total means the plan has to be more than half real by now, and it is; what remains is turning read-and-plan into done. The purpose of today was to confirm what has landed, what is stuck, and where a decision from Christopher Cole would unblock the next step."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two workstreams are moving well. The combined reporting lines are largely settled, and the finance team has the first consolidated management report coming together on a single basis, which was the piece a great deal downstream was waiting on. Cynthia Ball showed the tracker, which now carries every integration move on one page; she made the blunt but fair point that a few owners are logging status generously, and we agreed that on track has to mean on track to the measure of done, not to good intentions. Robert Miller flagged that the two operations still run on different systems and that the cutover is the single hardest item in front of us, harder than the plan first assumed. For now both sides keep their own systems in parallel, which is safe but doubles the work in a few back-office corners, so the sooner we can sequence the cutover the sooner that drag comes off the team. He would rather we treat it as a project of its own than let it hide inside the operations workstream, and the group agreed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The people and commercial threads got real attention. Christopher Cole raised two retention questions on the acquired side that are worth getting ahead of, and we agreed the honest move is to talk with those individuals directly rather than let uncertainty do the deciding for us. We also touched on communications: the acquired staff have heard enough to be curious and not enough to be settled, and I will get a plain message in front of them rather than let the quiet fill with guesses. On commercial continuity, a handful of larger accounts are still not cleanly assigned to an owner after the close, and I took the point that leaving that ambiguous is exactly how a good account goes quiet. Nothing today changed the direction of the work; the plan is holding, and the value now is in closing the open items before they compound."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "Target"
+          ],
+          "rows": [
+            [
+              "Break the systems cutover out as its own tracked project, with a phased plan",
+              "Robert Miller",
+              "Before the next working session"
+            ],
+            [
+              "Complete the first consolidated management report on a single basis",
+              "Cynthia Ball",
+              "Within two weeks"
+            ],
+            [
+              "Tighten the tracker so status reflects the measure of done",
+              "Cynthia Ball",
+              "This week"
+            ],
+            [
+              "Frame the two retention conversations and the message for each",
+              "Jennifer Fletcher",
+              "Before the next working session"
+            ],
+            [
+              "Assign every key account to a named owner after the close",
+              "Christopher Cole",
+              "Within two weeks"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0018",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Status Report: Integration Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for: Reeves, Miller and Thompson leadership\nPrepared by: Cynthia Ball, Analyst\nStatus: through the midpoint of the engagement"
+        },
+        {
+          "kind": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are about halfway through the integration support engagement for {{fact:f:E-2021-001.client}}, and the work is on track and within budget. The current-state read of both organizations is complete, the integration plan is built and being executed, and we have moved from planning the integration to running it, which is where the value of the engagement is made. Nothing we have found so far changes the plan or the timeline we set at the start. Halfway is the point where an integration is either being run or merely being watched, and this one is being run: there is a plan, an owner on every move, and a weekly cadence that keeps the awkward items from going quiet. This report covers what we accomplished this period, the budget, what comes next, and the handful of items worth watching. I have kept it to what is actually settled; the moves still in flight are described as in flight, not as done."
+        },
+        {
+          "kind": "heading",
+          "text": "Accomplishments This Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The heart of this period was turning a plan on paper into moves that have actually landed. We built the integration from how each function runs today rather than from the org chart, which is slower at the front but keeps the plan honest, and it is now the working document the whole effort runs against."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Completed the current-state read across both organizations, function by function, and turned it into a single integration plan with an owner and a measure of done against every move.",
+            "Settled the combined reporting lines for the core functions, which unblocked a set of decisions that were waiting on them.",
+            "Stood up one integration tracker that shows every move, its owner, and its status on a single page, so the whole effort is visible in one place rather than scattered.",
+            "Began consolidating financial reporting onto a single basis, the first step toward running the combined business off one set of numbers."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The tracker deserves its own mention. Before it, the integration lived in a dozen inboxes and a few spreadsheets; now every move sits on one page with an owner and a status, and the weekly session runs off it. That is not glamorous, but it is the difference between an integration that is managed and one that is merely hoped for."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Miller led the operational read that the plan rests on, and has been clear-eyed about the parts that are harder than they first looked. Jennifer Fletcher has kept the work anchored to the decisions your leadership actually faces, and has led the people and communications thread so the integration is not learned through rumor."
+        },
+        {
+          "kind": "heading",
+          "text": "Early View",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "It is too early to call results, and I will not get ahead of the work, but the shape is encouraging. The combined reporting lines are settling faster than we planned, which frees attention for the harder operational moves. The one area we are watching closely is the gap between the two operating systems; the plan on paper is sound, but the cutover is where integrations of this kind usually lose time, so we are giving it room and a separate plan rather than treating it as one line among many."
+        },
+        {
+          "kind": "heading",
+          "text": "Budget",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is being delivered against the fixed professional fee of {{fact:f:E-2021-001.fee}}. Our effort to date is tracking within that budget, and because the fee is fixed, your cost does not move with the hours we invest. We are not anticipating any change to scope; if that view changes, you will hear it from us well in advance rather than at the end."
+        },
+        {
+          "kind": "heading",
+          "text": "Upcoming Work",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Carry the systems cutover forward as its own tracked project; it is the single hardest move in the plan, and we are treating it accordingly.",
+            "Finish consolidating financial reporting onto one basis and hand the routine to your finance team.",
+            "Work the operational overlaps into the consolidated model without interrupting service to customers.",
+            "Close out the account-ownership and retention items so nothing important depends on an unanswered question."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What We Will Need From You",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Timely decisions on the two open role questions, which a few downstream moves are waiting on.",
+            "Continued access to both finance teams during the reporting consolidation.",
+            "A short leadership check-in as the systems cutover plan firms up, since it touches the most people."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and Watch Items",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Systems cutover. Bringing the two operations onto common systems is the hardest item in the plan; we have broken it out separately and are planning it in phases to keep the risk contained.",
+            "Key-account continuity. A few larger accounts still need a clearly named owner after the close, and ambiguity there is how an account quietly goes cold.",
+            "Retention. A small number of people on the acquired side are worth holding onto deliberately rather than hoping they stay; those conversations are underway."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are pleased with where the integration stands and confident in the path from here. Please reach out with any questions in the meantime."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Cynthia Ball\nAnalyst"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0019",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: Integration Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Subject: Integration support for {{fact:f:E-2021-001.client}}\nRecorded by: Jennifer Fletcher"
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Fletcher, Principal Consultant, Pinebrook Advisory Group",
+            "Cynthia Ball, Analyst, Pinebrook Advisory Group",
+            "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
+            "Christopher Cole, General Manager, Reeves, Miller and Thompson"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "With the engagement in its later stretch, the session was less about new problems and more about closing well. Most of the integration plan is behind us. The combined reporting lines are in place and working, financial reporting is running on a single basis, and the systems cutover that we flagged at the midpoint as the hardest move is complete, with the two operations now on common systems and the early wrinkles worked out. Robert Miller was candid that the cutover took more effort than the original plan assumed, which is exactly why breaking it out as its own project was the right call. It is the right time to be pedantic about done: a move that works while we are in the room but has not run a full cycle on its own is not finished, and we said so plainly about two of the items still open."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The remaining work is tail items and stabilization rather than new fronts. Cynthia Ball walked the tracker, which now shows the large majority of moves closed to their measure of done and a short list still open, mostly items that need a few weeks of the combined organization actually running before we can call them settled. She noted, fairly, that a couple of the closed items deserve one more look before the handoff, not because we doubt them but because the managers who will own them afterward have not yet run them unaided. The two retention conversations on the acquired side landed well, and the key accounts that were unassigned at the midpoint now each have a named owner, which Christopher Cole confirmed from his side. I made the point, and the group agreed, that the test of this integration is not that the moves are checked off but that they hold once we step back."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Most of the discussion was about handoff. The plan, the tracker, and the routines we built need to belong to Reeves, Miller and Thompson's own managers, not to us, so that the integration keeps its pace after the engagement closes. We agreed on a short closeout pack: the final state of each workstream, the handful of items still maturing with a named owner and a target on the client's side, and the two or three matters leadership will want to keep an eye on. We also agreed it should be short enough that a busy manager will actually read it and specific enough that no one has to guess who owns what once we are gone. Christopher Cole asked that we walk his managers through it in a working session rather than hand over a binder, which is the right instinct and how the changes will actually stick."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "Target"
+          ],
+          "rows": [
+            [
+              "Prepare the integration closeout pack: final state, open items, and owners",
+              "Cynthia Ball",
+              "Before the next working session"
+            ],
+            [
+              "Confirm the systems cutover is stable through a full reporting cycle",
+              "Robert Miller",
+              "Within two weeks"
+            ],
+            [
+              "Schedule the handoff working session with the client's managers",
+              "Jennifer Fletcher",
+              "Before the next working session"
+            ],
+            [
+              "Name a client-side owner and target for each item still maturing",
+              "Christopher Cole",
+              "Within two weeks"
+            ]
           ]
         }
       ]

@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Pinebrook Advisory Group LLC",
+      "text": "Working Session Minutes: Pricing Study",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Pinebrook Advisory Group is a small management consulting firm. We work with mid-market operating companies, the kind of business that has outgrown running on instinct but is too lean to keep in-house strategists on staff. There are five of us. We take on a handful of engagements a year, and each gets the whole firm's attention, because that is the only way an outfit this size earns what it charges. I am Daniel Jones, the Managing Partner, and nothing leaves this office under our name until I have read it end to end and can stand behind every line.",
+      "text": "Subject: Pricing study for {{fact:f:E-2020-001.client}}\nRecorded by: Susan Wiley",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,30 @@
     },
     {
       "kind": "heading",
-      "text": "What we do",
+      "text": "Attendees",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Susan Wiley, Analyst, Pinebrook Advisory Group",
+        "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
+        "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group",
+        "Cynthia Foley, VP Finance, Dean PLC"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Discussion",
       "level": 2,
       "items": [],
       "header": [],
@@ -31,7 +54,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "Our work falls into three lines. We run operational reviews for owners who suspect their business could be tighter and want an outside read before they act. We do pricing studies for companies that have not looked hard at what they charge in years. And we provide post-acquisition integration support, standing with a buyer through the long stretch after a deal closes, when two companies have to become one without the day-to-day work grinding to a halt. What ties the three together is plain: clients call us when a decision is real and the cost of getting it wrong is high.",
+      "text": "The session reviewed the state of the transaction data and the first pass at the price waterfall. We now have the last full year of line-level records loaded, roughly matching the order and invoice counts Cynthia Foley's team gave us as a control total, and I walked the group through what is complete and what is not. List price, invoiced price, and on-invoice discounts are in for essentially all lines, and they reconcile to the monthly sales totals within a small variance I have not yet chased down. The off-invoice items are the real gap: rebates and year-end credits are still being matched back to the customer and, where the records allow, to the line, and until that is done the pocket-price figures at the bottom of the waterfall should be read as provisional. I would rather note that plainly than let the early numbers travel further than they should.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Robert walked the first waterfall and pointed to the spread between list and pocket price, which is wider than the reporting the client uses today would suggest. What drew attention was less the average than the dispersion: customers who look alike on paper are realizing meaningfully different net prices, and we do not yet have a clean explanation for all of it. We talked through the obvious candidates, customer size, how long the account has been on the books, the sales rep who owns it, and the region, and agreed to test each against the data rather than assume which one is driving the gap. Cynthia Foley described how discretionary discounts are approved in practice, which is more informal than the written policy implies, and that description lines up with what the transaction data is showing. Robert was careful to say we are not drawing conclusions yet; the purpose of this stage is to confirm the numbers are trustworthy before we weigh what they mean.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jennifer Fletcher raised which of the emerging patterns will matter most to leadership, so the analysis stays pointed at decisions the client can actually make. We also flagged two open data items. The cost-to-serve figures, which we need in order to test whether some small orders are priced below the cost of filling them, are only partly available, and we will have to decide how much to reconstruct from what exists. And a sample of the rebate accruals needs tracing back to source before I will rely on them, since the accrual timing does not always line up with the invoices they relate to. Cynthia Foley agreed to help us get both.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +81,7 @@
     },
     {
       "kind": "heading",
-      "text": "Who we have worked with",
+      "text": "Action Items",
       "level": 2,
       "items": [],
       "header": [],
@@ -48,33 +89,48 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "We have kept the client list short on purpose. Since 2019 the operating companies we have worked with include {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, and {{fact:f:E-2021-001.client}}. Each dealt with the same firm from the first conversation onward: a senior team on the work, a plan they could hold in one hand, and a Managing Partner who read every page that carried our name before it reached them. That is the reason we would rather turn work away than take on more than we can do that way.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "That is the whole of it. We are not a large firm and have no plans to become one. If your company is facing a decision that would be easier with an experienced outside hand, I would be glad to talk it over.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "sigblock",
+      "kind": "table",
       "text": "",
       "level": 1,
       "items": [],
-      "header": [],
-      "rows": [],
-      "signers": [
-        "p:daniel.jones"
-      ]
+      "header": [
+        "Action",
+        "Owner",
+        "Target"
+      ],
+      "rows": [
+        [
+          "Match the off-invoice rebates and credits to customer and line",
+          "Susan Wiley",
+          "Before the next working session"
+        ],
+        [
+          "Reconcile the remaining variance against the monthly sales totals",
+          "Susan Wiley",
+          "Before the next working session"
+        ],
+        [
+          "Extend the price waterfall once the off-invoice items are mapped",
+          "Robert Miller",
+          "Before the next working session"
+        ],
+        [
+          "Test the dispersion against customer size, tenure, rep, and region",
+          "Robert Miller",
+          "Within two weeks"
+        ],
+        [
+          "Frame the emerging findings for a leadership preview",
+          "Jennifer Fletcher",
+          "By the next working session"
+        ],
+        [
+          "Provide the cost-to-serve and freight detail",
+          "Cynthia Foley",
+          "By the next working session"
+        ]
+      ],
+      "signers": []
     }
   ]
 }
