@@ -120,6 +120,50 @@ def test_the_old_fixed_skeleton_identity_no_longer_holds():
     assert len(manifest) != 2 * len(engs) + 7
 
 
+def test_per_hire_genre_lands_an_onboarding_record_in_a_new_folder():
+    """A driver the fixed skeleton could not express: one onboarding record
+    per person who joined after the window opened, in a People/ folder no
+    prior genre used."""
+    charter = _charter(roster_churn=RosterChurn(departures=1, promotions=0))
+    manifest, _, _ = _build(charter)
+    onb = [e for e in manifest if e.genre == "onboarding_record"]
+    assert onb, "a backfill hire should get an onboarding record"
+    for e in onb:
+        assert e.path.startswith("People/")
+        assert e.facts_refs == []
+        assert len(e.participants) == 1  # the new hire, named
+    assert "People" in {e.path.split("/")[0] for e in manifest}
+
+
+def test_onboarding_count_matches_the_number_of_mid_range_joiners():
+    """The driver is exact: one record per person who joined after the window
+    opened, whichever way they joined (the scaffold's late joiner or a churn
+    backfill)."""
+    charter = _charter(roster_churn=RosterChurn(departures=1, promotions=0))
+    manifest, _, _ = _build(charter)
+    lo, _ = charter.doc_culture.date_range
+    joiners = [p for p in build_foundation(charter).people if p.employment.start > lo]
+    onb = [e for e in manifest if e.genre == "onboarding_record"]
+    assert len(onb) == len(joiners) >= 1
+
+
+def test_per_hire_at_minimum_roster_degrades_without_crashing():
+    """At the smallest roster a recipe can host, per_hire still produces a
+    coherent record for the lone mid-range joiner rather than crashing."""
+    charter = _charter(
+        headcount={"Leadership": 1, "Consulting": 1},
+        titles={"Leadership": ["Managing Partner"], "Consulting": ["Analyst"]},
+        engagements=EngagementPlan(count=1),
+        graph_targets=GraphTargets(external_orgs=1, external_people=1),
+        roster_churn=RosterChurn(departures=0, promotions=0),
+    )
+    manifest, _, _ = _build(charter)
+    assert manifest, "minimum roster still yields a non-empty plan"
+    for e in (x for x in manifest if x.genre == "onboarding_record"):
+        assert e.path.startswith("People/")
+        assert e.facts_refs == [] and len(e.participants) == 1
+
+
 def test_registry_lengths_are_realistic_and_the_brief_sources_them():
     """M9: word targets live in the registry and were raised to real-world
     lengths. The authoring brief reads that one table, not a second copy."""

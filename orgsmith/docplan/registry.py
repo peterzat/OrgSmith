@@ -172,6 +172,21 @@ REGISTRY: tuple[GenreRule, ...] = (
         target_words=250,  # a real status email, raised from 130
     ),
     GenreRule(
+        genre="onboarding_record",
+        driver="per_hire",
+        format="docx",
+        folder="People",  # a folder the fixed skeleton never had
+        author_role="ceo",  # the principal signs a small firm's hires in
+        # A record per person who joined AFTER the document window opened (a
+        # roster-churn backfill). A firm with no such hire produces none of
+        # these, which is the degradation, not an error. hire_offset_days
+        # dates it a week into the new hire's tenure.
+        hire_offset_days=7,
+        target_words=450,
+        title_prefix="Onboarding",
+        filename="{date:%Y.%m.%d} - Onboarding - {person}.docx",
+    ),
+    GenreRule(
         genre="company_overview",
         driver="firm_periodic",
         format="docx",

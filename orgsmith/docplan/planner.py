@@ -186,6 +186,8 @@ class _Planner:
                 self._emit_fiscal_year(rule)
             elif rule.driver == "firm_periodic":
                 self._emit_firm_periodic(rule)
+            elif rule.driver == "per_hire":
+                self._emit_hire(rule)
             else:
                 raise SystemExit(
                     f"docplan: registry row {rule.genre!r} names driver "
@@ -406,6 +408,34 @@ class _Planner:
                 participants=[self.ceo.id],
                 engagement=None,
                 facts_refs=[f"f:{e.id}.client" for e in as_of],
+                authoring=rule.authoring,
+            )
+
+    def _emit_hire(self, rule: GenreRule) -> None:
+        """One onboarding record per person who joined AFTER the document
+        window opened -- a roster-churn backfill. A firm with no such hire
+        produces none, which is the degradation, not an error. The record
+        names the new hire (a mention) and carries no ledger facts."""
+        offset = rule.hire_offset_days or 7
+        for person in self.foundation.people:
+            if person.employment.start <= self.range_start:
+                continue  # a founder / pre-window employee, not a hire
+            when = self._clamp_range(
+                person.employment.start + timedelta(days=offset)
+            )
+            name = rule.filename.format(
+                date=when, person=sanitize_component(person.name)
+            )
+            self._add(
+                path=f"{rule.folder}/{name}",
+                title=f"{rule.title_prefix}: {person.name}",
+                genre=rule.genre,
+                format=rule.format,
+                date=when,
+                authors=[self._author_id(rule, None, when)],
+                participants=[person.id],
+                engagement=None,
+                facts_refs=[],
                 authoring=rule.authoring,
             )
 

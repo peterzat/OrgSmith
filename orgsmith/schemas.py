@@ -481,6 +481,7 @@ Genre = Literal[
     "financial_summary",  # xlsx, static (no model pass)
     "briefing_deck",  # pptx
     "engagement_email",  # eml
+    "onboarding_record",  # docx, per-hire (M9); lands in People/
 ]
 
 DocFormat = Literal[

@@ -66,6 +66,12 @@ _GENRE_GUIDANCE = {
         "asks, a sign-off line with the sender's name. The subject lives in "
         "the message header, not the body. No sigblock."
     ),
+    "onboarding_record": (
+        "Internal onboarding record welcoming a new hire to the firm: a "
+        "short welcome, the person's role and where they sit in the "
+        "practice, and first-period logistics and expectations. Name the "
+        "new employee. 2-4 short paragraphs, no sigblock."
+    ),
 }
 
 # The genre registry owns per-genre word targets (raised to real-world
