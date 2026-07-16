@@ -155,15 +155,24 @@ voice.
 
 **Which model writes the documents?** Whatever model your Claude Code
 session is running; OrgSmith pins nothing and needs no API keys, so
-generation bills to your existing plan. Content quality tracks the model
-and the effort it runs at, and nothing downstream can detect a weak
-authoring pass from the artifacts, so OrgSmith surfaces the pair before
-tokens are spent rather than gating on it: `python -m orgsmith doctor`
-prints the session effort against the authoring floor (stated once, in
-`orgsmith/effort.py`) and warns when you are below it, `/forge` reports
-the model and effort in Step 0, and each batch records what actually
-authored it. Deterministic stages (scaffold, ledgers, rendering,
-validation) run as plain Python and cost no tokens at all.
+generation bills to your existing plan. Deterministic stages (scaffold,
+ledgers, rendering, validation) run as plain Python and cost no tokens at
+all.
+
+Use the strongest model available for authoring passes. That is measured,
+not folklore: the same recipe authored twice, at the same seed and so
+against byte-identical ledgers and briefs, produced one corpus a blind
+reviewer said would "take a deliberate effort to catch out" and one it
+rejected outright as too thin to survive first contact — at 60% of the
+words its briefs asked for. **Both passed all 29 validator rules with
+zero errors.** See [docs/MODEL-AB.md](docs/MODEL-AB.md).
+
+Nothing downstream can detect a weak authoring pass from the artifacts, so
+OrgSmith surfaces the setting before tokens are spent rather than gating
+on it: `python -m orgsmith doctor` prints the session effort against the
+authoring floor (stated once, in `orgsmith/effort.py`) and warns when you
+are below it, `/forge` reports the model and effort in Step 0, and each
+batch records what actually authored it.
 
 ## What is in the box today
 
@@ -233,12 +242,25 @@ validation) run as plain Python and cost no tokens at all.
 - The airlock, checkpoint/resume, the 29-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
-- Skills: `/forge` (orchestrator) and `forge-author` (per-batch worker
-  with a fresh context, which is what lets large orgs span sessions).
+- The quality instrument, which measures the one thing the validator
+  cannot: whether the prose reads like a real firm wrote it. `report`
+  computes deterministic corpus metrics with no model (each document's
+  length against the words its brief asked for, same-genre n-gram
+  overlap) and writes GENERATION-REPORT.md; `/forge-review` dispatches a
+  read-only board of fresh-context reviewers across six dimensions,
+  including the cross-document voice check no author can perform on
+  itself, because nothing in the pipeline holds two authored documents at
+  once. Neither gates: the metric measures, the board judges, the human
+  decides. Each batch records the model and effort that authored it, as a
+  report and never as a check.
+- Skills: `/forge` (orchestrator), `forge-author` (per-batch worker with
+  a fresh context, which is what lets large orgs span sessions), and
+  `/forge-review` + `forge-reviewer` (the board).
 
 Next, in rough order (see SPEC.md): era-appropriate naming for period
-orgs, an adversarial review board, and a committed six-company fleet
-from a 1988 boutique law firm to a modern B2B SaaS.
+orgs and realistic document lengths, parallel authoring, and a committed
+six-company fleet from a 1988 boutique law firm to a modern B2B SaaS.
+See [docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
 
 ## Provenance and safety
 
