@@ -125,7 +125,12 @@ def test_review_package_cannot_reach_a_model_or_the_network():
 
 
 def test_no_test_tier_invokes_the_review_board():
-    """No test may dispatch the board skill or fabricate a model pass."""
+    """No test may dispatch the board skill or fabricate a model pass.
+
+    This file is exempt: a static check has to name the thing it forbids,
+    and the checks here read skill files as data without running them.
+    Same exemption the pre-rename check takes above.
+    """
     board_markers = ("forge-review", "forge_review")
     for path in sorted((REPO / "tests").rglob("*.py")):
         if path.resolve() == Path(__file__).resolve():
@@ -135,6 +140,38 @@ def test_no_test_tier_invokes_the_review_board():
             assert marker not in text, (
                 f"{path.name} references the board skill {marker!r}; the "
                 f"board is a skill and no tier may invoke it"
+            )
+
+
+def test_board_dimensions_match_the_schema():
+    """The skill and the schema name the same six dimensions.
+
+    The skill tells reviewers what to write; the schema decides what
+    ingest accepts. Drift between them means a reviewer spends a model
+    pass producing findings that are rejected on arrival.
+    """
+    import typing
+
+    from orgsmith.schemas import ReviewDimension
+
+    declared = set(typing.get_args(ReviewDimension))
+    skill = (REPO / ".claude" / "skills" / "forge-review" / "SKILL.md").read_text()
+    for dimension in declared:
+        assert f"`{dimension}`" in skill, (
+            f"dimension {dimension!r} is in the schema but not offered to "
+            f"the board in forge-review/SKILL.md"
+        )
+    # And nothing the skill invents can be ingested.
+    for token in re.findall(r"`([a-z][a-z_]{4,})`", skill):
+        if token.endswith("_realism") or token in {
+            "narrative_consistency",
+            "document_plausibility",
+            "graph_acl_naturalness",
+            "cross_document_voice",
+        }:
+            assert token in declared, (
+                f"forge-review/SKILL.md offers dimension {token!r}, which "
+                f"the review-finding schema would reject"
             )
 
 
