@@ -1,80 +1,73 @@
 # CODEREVIEW
 
-## Review — 2026-07-16 (commit: 50be889)
+## Review — 2026-07-16 (commit: c013c06)
 
-**Summary:** Light review of the README opening rewrite, scope
-origin/main..HEAD: `README.md` (+12/-7), the airlock sentence and the Claude
-Code skills paragraph. Docs-only, so light tier by the skill's rule. That
-classification proved too generous this turn: a docs-only diff broke a test,
-so the suite was run anyway. `bin/test` green after the fix (12 / 272 / 22 =
-306).
+**Summary:** Full review of the unpushed M8+M9 arc (scope origin/main..HEAD),
+focused at full depth on the M9 document-supply changes committed this turn:
+the genre registry (`docplan/registry.py`), the registry-driven planner
+rewrite (`docplan/planner.py`), per-genre lengths sourced from the registry
+(`authoring/contexts.py`), the `target_docs`/`format_mix` advisory change
+(`schemas.py`), the two PDF letter fixes (`render/pdf.py`), and the email
+cadence. The M8 code in scope (behavioral finance, engagements, scaffold
+churn, era names) shipped as v1.7.0 and was checked for interactions with the
+M9 planner, which the org tier exercises end to end. `bin/test` green: 386
+passing (12 short / 334 unit / 40 org). The 72 changed `companies/` files are
+machine-generated fixtures (the dev-mini regeneration) validated by the org
+tier, not reviewed by hand.
 
-**External reviewers:** Skipped (light review).
+**External reviewers:** None configured.
 
 ### Findings
 
-No open findings. Two defects were caught in this turn's own draft and fixed
-before push; both are recorded under Fixes Applied, and one of them was caught
-by the push gate rather than by this review.
+No BLOCK or WARN findings. The M9 delta is clean on every dimension checked:
 
-Verified against artifacts: the authoring floor is assigned exactly once
-(`orgsmith/effort.py:30`) and referenced from four call sites; `doctor` reads
-it via `effort_report()` and warns rather than fails (`doctor.py:74,83-84`),
-so "warns" is the right verb and "prints your session's effort against the
-authoring floor" matches what the code does; `docs/MODEL-AB.md` opens by
-calling the strongest-model advice "folklore... never measured. This is the
-measurement", so "measured rather than folklore" is that document's own
-framing. All README links resolve. No secret-shaped strings.
+- **Correctness / hard cases preserved.** The planner walks the registry;
+  the signature-page fee still lands only on the letter (`hosts_signature`)
+  and the filename-only minutes date only on the first minutes instance
+  (`hosts_filename`, dated by the shared `minutes_date()`), so
+  `_check_hard_cases` still finds each non-body fact in exactly one doc.
+  Verified by the passing hard-case/loc unit tests and the clean org tier.
+- **Paths and injection.** Every emit path is a code-constant registry
+  template filled with recipe/ledger values, then run through `_add` →
+  `check_relpath`; the model controls no path. `render/pdf.py`'s new
+  `_para_html` HTML-escapes before inserting `<br>`, and the leading-heading
+  suppression only reads the recipe-controlled firm name, so neither adds an
+  injection vector (confirmed by the `/security` pass).
+- **Determinism / regression.** New randomness (email cadence) draws from a
+  dedicated `seeds.py` stream; `dev-mini` re-pins byte-identically and the
+  six frozen fixtures derive without crashing and validate clean
+  (`test_org_regen.py`, `test_org_fleet.py`). `contexts._TARGET_WORDS` now
+  derives from the registry with no circular import (`review/corpus.py`
+  imports it unchanged).
 
-Not claimed, deliberately: which model authored the committed fleet. All seven
-fixtures predate M7's generator field and record no provenance, so the honest
-answer is "unrecorded" and the README says nothing about it.
+Three NOTEs carried from prior reviews, all pre-existing and outside the M9
+intent:
 
-[NOTE] tests/test_short.py:238 — carried, unchanged, outside this diff's
-scope: `test_no_validator_rule_references_the_generator` asserts on free text
-under `orgsmith/validate/`; brittle against innocuous future prose.
+[NOTE] orgsmith/render/pdf.py:38,65-66 — letterhead context (`letterhead0`,
+`letterhead_rest`) interpolated unescaped under `autoescape=False`.
+Recipe-author-controlled and `no_remote_fetcher` blocks egress/file-read, so
+no concrete vector. M9 reworked this file but left the letterhead
+interpolation untouched. One-line `html.escape()` fixes it; no urgency.
 
-[NOTE] orgsmith/render/__init__.py:28-48 — carried, unchanged, outside this
-diff's scope: `people_index`'s docstring claims an EML-01 contract narrower
-than stated. M8 makes titles date-dependent, which is when it starts to
-matter.
+[NOTE] orgsmith/render/__init__.py:28-48 — `people_index`'s docstring claims
+an EML-01 contract narrower than what holds now that titles are date-scoped.
+Documentation drift, not a defect.
 
-[NOTE] orgsmith/render/pdf.py:37,64 — carried, unchanged, outside this diff's
-scope: letterhead lines unescaped, recipe-author controlled, no concrete
-vector.
+[NOTE] tests/test_short.py:238 — `test_no_validator_rule_references_the_generator`
+asserts on free text under `orgsmith/validate/`; brittle against innocuous
+future prose.
 
 ### Fixes Applied
 
-- [BLOCK-class, caught by the push gate] README.md — the draft wrote the
-  authoring floor's value into prose. `test_short.py:198-221` failed the push:
-  the floor must be assigned once in `orgsmith/effort.py` and never restated,
-  and the test checks every SKILL.md and the README for a hardcoded value. Its
-  comment is the rationale: a doc saying "use <value> effort" is "a second
-  source of truth that no test could keep honest, and it is exactly the
-  folklore this replaces." Rewritten to point at `doctor` and name no value,
-  matching the phrasing the README already used further down. This is M7
-  criterion 5 defending itself, and it is the one finding this turn that a
-  light review would never have caught, because light tier skips the suite.
-
-- [factual overstatement, caught pre-commit] README.md — the first draft of
-  the airlock sentence read "a frontier LLM that never sees the facts it is
-  writing about." The schema refutes it: `DocBrief` (schemas.py:534) carries
-  the document's own `date`, `authors`/`participants` are `PersonBrief`
-  (schemas.py:519) carrying real `name` and `title`, and `mentions` carries
-  verbatim surface strings. Only `FactBrief` (schemas.py:527) withholds, and
-  its own comment says "The rendered value is deliberately withheld." The
-  model sees plenty of facts; what it never sees is the values behind the
-  placeholders. Rewritten to claim exactly that. The phrasing this replaced
-  ("never sees a number") was awkward but nearer the truth, so the rewrite had
-  to fix the prose without losing the precision.
+None. No BLOCK or WARN findings to fix.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-16, commit 7820fcf): light review of the backlog update
-closing the M8 spec turn; 0 BLOCK / 0 WARN / 3 NOTEs, all carried, with the
-45-day thread cadence and the k>0 test coverage verified at HEAD.*
+*Prior review (2026-07-16, commit 50be889): light review of the README
+opening rewrite; 0 BLOCK / 0 WARN / 3 NOTE, two draft defects fixed before
+push (one caught by the push gate).*
 
-<!-- REVIEW_META: {"date":"2026-07-16","commit":"50be889","reviewed_up_to":"50be88922e4ec93d916f24fc3a7a97577550a4f3","base":"origin/main","tier":"light","block":0,"warn":0,"note":3} -->
+<!-- REVIEW_META: {"date":"2026-07-16","commit":"c013c06","reviewed_up_to":"c013c064","base":"origin/main","tier":"full","block":0,"warn":0,"note":3} -->
