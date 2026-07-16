@@ -1,6 +1,7 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0003",
+  "generator": {"model": "claude-opus-4-8", "effort": "max"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -8,44 +9,285 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Firm Overview",
-          "level": 1
+          "text": "Pinebrook Advisory Group LLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Pinebrook Advisory Group is a management consultancy serving mid-market operating companies. We take on a handful of engagements each year, and we staff every one with senior people from the first meeting to the last. If your company needs a hard look at its operations, its pricing, or an acquisition it has just closed, we can help."
+          "text": "Christopher Cole, General Manager",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "We are small by design. A lean firm keeps our attention on your problem instead of our overhead, and it means the people who sell the work are the people who do the work. You will not meet a partner at the proposal and a stranger at the kickoff."
+          "text": "Reeves, Miller and Thompson",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Our work falls into three practice areas:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Operational reviews. We walk the floor, map the work, and tell you plainly where time and money are leaking out of the business.",
-            "Pricing studies. We test what your customers pay against what your products cost, and we recommend prices you can defend in the market.",
-            "Post-acquisition integration support. We help management teams combine two companies without losing the customers, or the people, who made the deal worth doing."
-          ]
+          "text": "Re: Integration Support",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Our clients tend to come back, and most new work reaches us by referral. We are pleased to count {{fact:f:E-2019-001.client}} among the companies we have served, and we are glad to provide client references on request."
+          "text": "Dear Mr. Cole:",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "One more thing you should know about how we operate. Every page that leaves this firm carries the signature of our Managing Partner, Chad Miller. That is not ceremony. It means one person answers to you for the quality of the work, and you know his name."
+          "text": "An acquisition is agreed in a matter of weeks and absorbed over the many months that follow, and it is those months that decide whether the deal was worth making. Pinebrook Advisory Group LLC will stand with {{fact:f:E-2021-001.client}} through that second stretch. Before you sign, I want the whole of the engagement in front of you on a single page: what we will do, who will do it, what it costs, and when we begin.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "If any of this sounds like a fit, write or call. We will put a partner on the phone, not a brochure in the mail."
+          "text": "Integration support means helping you make the hundreds of small decisions that turn two firms into one, and making them in the order that keeps the business running while they are made. We will set the two sides side by side, where they overlap and where they only differ, across reporting, systems, and the way each one books and bills its work, and hold every proposed change against one plain question: does it serve the combined business, or only tidy the org chart. What you will get is not a binder. It is a sequenced plan, a short list of the decisions that need your own hand, and a running way to see whether the savings the deal promised are actually arriving.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Fletcher, our Senior Consultant, will lead the engagement and be the person you call. Integration is where she does her best work, because it rewards sequence and follow-through and she keeps both. Robert Miller, our Principal Consultant, will work the operating side alongside her, and Cynthia Ball, our Analyst, will keep the reconciliations and the savings tracker honest from one week to the next. Nothing reaches you under our name until I have read it end to end; I have always been the last set of eyes at this firm, and I mean to stay that way.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The fee is a fixed {{fact:f:E-2021-001.fee}} for the engagement as set out above, from the first day through the handover. We do not bill by the hour, so there is no clock for your people to watch and nothing to reconcile at the close. We begin on {{fact:f:E-2021-001.start}}, and an integration of this size usually runs about seven months; we have planned around that, and if what we find on the ground changes it, you will hear so from me early rather than late.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "If that matches your understanding, sign below and return one copy to me and we will begin. If it does not, I would far sooner hear it now. Either way you have my word that this firm will treat the handover as carefully as you are treating it, and that I will be reading behind every step of the work.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "sigblock",
-          "signers": ["p:chad.miller"]
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": [
+            "p:daniel.jones",
+            "xp:christopher.cole"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0009",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Working session on the integration, held at the offices of {{fact:f:E-2021-001.client}}. Minutes recorded by Jennifer Fletcher and circulated to everyone present to correct anything I have set down wrong.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group LLC",
+            "Robert Miller, Principal Consultant, Pinebrook Advisory Group LLC",
+            "Cynthia Ball, Analyst, Pinebrook Advisory Group LLC",
+            "Christopher Cole, General Manager, Reeves, Miller and Thompson"
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We measured the plan against where we actually stand at the midpoint. The finance and reporting side is furthest along: the two charts of accounts are mapped and a single monthly report is drafted, though it does not yet reconcile to both sets of prior books, and it will go to no one until it does. On the operating side, the overlap in roles is now clear enough to act on, and that decision belongs to Christopher Cole and his team rather than to us. I asked that we hold the announced savings figures until Cynthia Ball has tied each one to real line items; an integration is judged in the end on whether those numbers prove true.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "table",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [
+            "Action Item",
+            "Owner"
+          ],
+          "rows": [
+            [
+              "Reconcile the combined monthly report to both sets of prior books before it is shared",
+              "Jennifer Fletcher"
+            ],
+            [
+              "Tie each announced saving to specific line items in the combined ledger",
+              "Cynthia Ball"
+            ],
+            [
+              "Confirm the redundant-role list and the sequence for acting on it",
+              "Christopher Cole"
+            ],
+            [
+              "Walk the operating handoffs at the second location and flag where they break",
+              "Robert Miller"
+            ]
+          ],
+          "signers": []
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0011",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Status Report: Integration Support for Reeves, Miller and Thompson",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for {{fact:f:E-2021-001.client}} by Cynthia Ball, Analyst, Pinebrook Advisory Group LLC.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Overall Status",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The integration is in its final phase and running to plan. The combined reporting is live and reconciling, the structural decisions have been made and are being carried out, and what is left is consolidation and handover rather than new analysis. The work is still inside the fixed fee of {{fact:f:E-2021-001.fee}} set in the engagement letter, and nothing in the remaining tasks looks likely to move that figure. If something does, I will flag it the day it does, not at the next milestone.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Completed This Period",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Brought the combined monthly reporting live and reconciled it to both sets of prior books, so the numbers now tie out on either basis.",
+            "Closed out the redundant-role decisions with your team and stood up the new reporting lines; Robert Miller carried the operating side of that through to the end.",
+            "Rebuilt the savings tracker against actual line items instead of the deal model, so every claimed synergy now points at a figure someone can check."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Remaining Work",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Finish the systems cutover and retire the duplicate finance system on the agreed date.",
+            "Hand the combined reporting and the savings tracker to your finance team with the documentation to run both without us; Jennifer Fletcher is walking them through it.",
+            "Close the last two open account reconciliations and confirm the opening balances for the combined entity."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and Open Items",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two items are worth watching. The cutover has a fixed window, and one upstream data feed from the Reeves, Miller and Thompson side is not yet confirmed clean; if it slips the cutover waits, so we are testing it now rather than on the day. And a share of the tracked savings depends on headcount changes that take time to land, so the run rate will trail the plan for a few months even with the decisions made. Neither is off track. Both are simply the parts of an integration that reward being early, and we are treating them that way.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     }

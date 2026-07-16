@@ -10,94 +10,103 @@
       "tags": []
     },
     {
-      "id": "p:chad.miller",
-      "canonical": "Chad Miller",
+      "id": "p:daniel.jones",
+      "canonical": "Daniel Jones",
       "aliases": [
-        "chad.miller@pinebrookadvisory.com"
+        "daniel.jones@pinebrookadvisory.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "p:jenna.wiley",
-      "canonical": "Jenna Wiley",
+      "id": "p:robert.miller",
+      "canonical": "Robert Miller",
       "aliases": [
-        "jenna.wiley@pinebrookadvisory.com"
+        "robert.miller@pinebrookadvisory.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "p:jacob.williams",
-      "canonical": "Jacob Williams",
+      "id": "p:jennifer.fletcher",
+      "canonical": "Jennifer Fletcher",
       "aliases": [
-        "jacob.williams@pinebrookadvisory.com"
+        "jennifer.fletcher@pinebrookadvisory.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "p:lisa.hernandez",
-      "canonical": "Lisa Hernandez",
+      "id": "p:susan.wiley",
+      "canonical": "Susan Wiley",
       "aliases": [
-        "lisa.hernandez@pinebrookadvisory.com"
+        "susan.wiley@pinebrookadvisory.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "p:megan.garcia",
-      "canonical": "Megan Garcia",
+      "id": "p:michelle.lopez",
+      "canonical": "Michelle Lopez",
       "aliases": [
-        "megan.garcia@pinebrookadvisory.com"
+        "michelle.lopez@pinebrookadvisory.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "x:weaver-reeves",
-      "canonical": "Weaver-Reeves",
+      "id": "p:cynthia.ball",
+      "canonical": "Cynthia Ball",
+      "aliases": [
+        "cynthia.ball@pinebrookadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:johnson-and-sons",
+      "canonical": "Johnson and Sons",
       "aliases": [],
       "kind": "org",
       "tags": []
     },
     {
-      "id": "x:johnson-plc",
-      "canonical": "Johnson PLC",
+      "id": "x:dean-plc",
+      "canonical": "Dean PLC",
       "aliases": [],
       "kind": "org",
       "tags": []
     },
     {
-      "id": "x:foley-group",
-      "canonical": "Foley Group",
+      "id": "x:reeves-miller-and-thompson",
+      "canonical": "Reeves, Miller and Thompson",
       "aliases": [],
       "kind": "org",
       "tags": []
     },
     {
-      "id": "xp:jacob.andersen",
-      "canonical": "Jacob Andersen",
+      "id": "xp:stephanie.campos",
+      "canonical": "Stephanie Campos",
       "aliases": [
-        "jacob.andersen@weaverreeves.com"
+        "stephanie.campos@johnsonandsons.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "xp:melissa.sexton",
-      "canonical": "Melissa Sexton",
+      "id": "xp:cynthia.foley",
+      "canonical": "Cynthia Foley",
       "aliases": [
-        "melissa.sexton@johnsonplc.com"
+        "cynthia.foley@deanplc.com"
       ],
       "kind": "person",
       "tags": []
     },
     {
-      "id": "xp:douglas.payne",
-      "canonical": "Douglas Payne",
+      "id": "xp:christopher.cole",
+      "canonical": "Christopher Cole",
       "aliases": [
-        "douglas.payne@foleygroup.com"
+        "christopher.cole@reevesmillerandthompson.com"
       ],
       "kind": "person",
       "tags": []
@@ -105,108 +114,122 @@
   ],
   "edges": [
     {
-      "src": "p:chad.miller",
+      "src": "p:daniel.jones",
       "dst": "x:dev-mini",
       "kind": "works_at",
       "start": "2018-02-15",
       "end": null
     },
     {
-      "src": "p:jenna.wiley",
-      "dst": "p:chad.miller",
+      "src": "p:robert.miller",
+      "dst": "p:daniel.jones",
       "kind": "reports_to",
       "start": null,
       "end": null
     },
     {
-      "src": "p:jenna.wiley",
+      "src": "p:robert.miller",
       "dst": "x:dev-mini",
       "kind": "works_at",
       "start": "2018-03-15",
       "end": null
     },
     {
-      "src": "p:jacob.williams",
-      "dst": "p:jenna.wiley",
+      "src": "p:jennifer.fletcher",
+      "dst": "p:robert.miller",
       "kind": "reports_to",
       "start": null,
       "end": null
     },
     {
-      "src": "p:jacob.williams",
+      "src": "p:jennifer.fletcher",
       "dst": "x:dev-mini",
       "kind": "works_at",
       "start": "2018-04-26",
       "end": null
     },
     {
-      "src": "p:lisa.hernandez",
-      "dst": "p:jenna.wiley",
+      "src": "p:susan.wiley",
+      "dst": "p:robert.miller",
       "kind": "reports_to",
       "start": null,
       "end": null
     },
     {
-      "src": "p:lisa.hernandez",
+      "src": "p:susan.wiley",
       "dst": "x:dev-mini",
       "kind": "works_at",
       "start": "2018-09-19",
       "end": null
     },
     {
-      "src": "p:megan.garcia",
-      "dst": "p:chad.miller",
+      "src": "p:michelle.lopez",
+      "dst": "p:daniel.jones",
       "kind": "reports_to",
       "start": null,
       "end": null
     },
     {
-      "src": "p:megan.garcia",
+      "src": "p:michelle.lopez",
       "dst": "x:dev-mini",
       "kind": "works_at",
       "start": "2018-04-15",
       "end": null
     },
     {
-      "src": "xp:jacob.andersen",
-      "dst": "x:weaver-reeves",
+      "src": "p:cynthia.ball",
+      "dst": "p:robert.miller",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:cynthia.ball",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2020-11-01",
+      "end": null
+    },
+    {
+      "src": "xp:stephanie.campos",
+      "dst": "x:johnson-and-sons",
       "kind": "works_at",
       "start": null,
       "end": null
     },
     {
-      "src": "xp:melissa.sexton",
-      "dst": "x:johnson-plc",
+      "src": "xp:cynthia.foley",
+      "dst": "x:dean-plc",
       "kind": "works_at",
       "start": null,
       "end": null
     },
     {
-      "src": "xp:douglas.payne",
-      "dst": "x:foley-group",
+      "src": "xp:christopher.cole",
+      "dst": "x:reeves-miller-and-thompson",
       "kind": "works_at",
       "start": null,
       "end": null
     },
     {
-      "src": "x:weaver-reeves",
+      "src": "x:johnson-and-sons",
       "dst": "x:dev-mini",
       "kind": "client_of",
       "start": "2019-07-17",
       "end": null
     },
     {
-      "src": "x:johnson-plc",
+      "src": "x:dean-plc",
       "dst": "x:dev-mini",
       "kind": "client_of",
-      "start": "2020-03-28",
+      "start": "2020-02-17",
       "end": null
     },
     {
-      "src": "x:foley-group",
+      "src": "x:reeves-miller-and-thompson",
       "dst": "x:dev-mini",
       "kind": "client_of",
-      "start": "2021-08-01",
+      "start": "2021-04-05",
       "end": null
     }
   ]

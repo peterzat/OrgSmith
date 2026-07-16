@@ -4,25 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Pinebrook Advisory Group LLC",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Re: Integration Support for Foley Group",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Dear Mr. Payne:",
+      "text": "Meeting Minutes: Integration Support for Reeves, Miller and Thompson",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,16 +13,30 @@
     },
     {
       "kind": "paragraph",
-      "text": "Thank you for asking Pinebrook Advisory Group to support the integration now underway at {{fact:f:E-2021-001.client}}. This letter confirms the scope of our work, the team assigned to it, and the commercial terms. If everything here matches your understanding, please sign where indicated and return one copy to my attention.",
+      "text": "Working session on the integration, held at the offices of {{fact:f:E-2021-001.client}}. Minutes recorded by Jennifer Fletcher and circulated to everyone present to correct anything I have set down wrong.",
       "level": 1,
       "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group LLC",
+        "Robert Miller, Principal Consultant, Pinebrook Advisory Group LLC",
+        "Cynthia Ball, Analyst, Pinebrook Advisory Group LLC",
+        "Christopher Cole, General Manager, Reeves, Miller and Thompson"
+      ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Our assignment is post-acquisition integration support. We will work alongside your management team to combine operations without losing the customers and the people who made the acquisition worth doing. In practice that means a working integration checklist that we maintain and you may inspect at any time, regular working sessions with your managers, and short written status reports for your desk. We will tell you plainly what is on track, what is behind, and what needs a decision from you.",
+      "text": "We measured the plan against where we actually stand at the midpoint. The finance and reporting side is furthest along: the two charts of accounts are mapped and a single monthly report is drafted, though it does not yet reconcile to both sets of prior books, and it will go to no one until it does. On the operating side, the overlap in roles is now clear enough to act on, and that decision belongs to Christopher Cole and his team rather than to us. I asked that we hold the announced savings figures until Cynthia Ball has tied each one to real line items; an integration is judged in the end on whether those numbers prove true.",
       "level": 1,
       "items": [],
       "header": [],
@@ -48,52 +44,33 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Jenna Wiley, Principal Consultant, will run the engagement day to day and will be your first call. Jacob Williams, Senior Consultant, will own the integration checklist and the analysis behind it. Lisa Hernandez, Analyst, will support the fieldwork and keep the record of every working session. I stay close to every engagement this firm accepts, and nothing will reach you that I have not read and signed.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Our fee for this work is a fixed {{fact:f:E-2021-001.fee}}, covering all professional time for the engagement. We will begin on {{fact:f:E-2021-001.start}}, and we expect the work to run approximately eight months. If the scope changes along the way, we will raise it with you in writing before we act on it.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "We are a small firm by design, and we do not accept work we cannot staff with senior people. Foley Group will have our full attention. We appreciate your confidence, and we look forward to the work.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Sincerely,",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "sigblock",
+      "kind": "table",
       "text": "",
       "level": 1,
       "items": [],
-      "header": [],
-      "rows": [],
-      "signers": [
-        "p:chad.miller",
-        "xp:douglas.payne"
-      ]
+      "header": [
+        "Action Item",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Reconcile the combined monthly report to both sets of prior books before it is shared",
+          "Jennifer Fletcher"
+        ],
+        [
+          "Tie each announced saving to specific line items in the combined ledger",
+          "Cynthia Ball"
+        ],
+        [
+          "Confirm the redundant-role list and the sequence for acting on it",
+          "Christopher Cole"
+        ],
+        [
+          "Walk the operating handoffs at the second location and flag where they break",
+          "Robert Miller"
+        ]
+      ],
+      "signers": []
     }
   ]
 }

@@ -1,67 +1,255 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
+  "generator": {"model": "claude-opus-4-8", "effort": "max"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0005",
       "blocks": [
-        {"kind": "heading", "text": "Engagement Letter: Pricing Study for Johnson PLC", "level": 1},
-        {"kind": "paragraph", "text": "Ms. Melissa Sexton, VP Finance, Johnson PLC"},
-        {"kind": "paragraph", "text": "Dear Ms. Sexton:"},
-        {"kind": "paragraph", "text": "This letter sets out the terms of the pricing study Pinebrook Advisory Group LLC will conduct for {{fact:f:E-2020-001.client}}. Sign and return the enclosed copy, and we will hold the start date of {{fact:f:E-2020-001.start}} for you."},
-        {"kind": "paragraph", "text": "The question you put to us is the right one: whether your prices reflect what your products are worth, and where your discounting gives that value back. Our study will answer it. We will build the price and margin picture from your own invoice records, walk the discounting practice account by account, and set your list and realized prices against the competitors your team follows. What you will receive is not a binder of charts. You will receive a pricing structure your leadership can defend, a discount policy your sales organization can follow, and the analysis behind both. The work will run roughly seven months, and you will hear from us throughout. We report as we learn, not only at the end."},
-        {"kind": "paragraph", "text": "Jenna Wiley, Principal Consultant, will run the study day to day and will be your first call on any question. Lisa Hernandez, Analyst, will build and test the numbers. I review every page before it reaches you, and I sign what we send. You will always know whose name stands behind the work."},
-        {"kind": "paragraph", "text": "We will need access to invoice-level data and time with the people who set and approve prices. Jenna will send the opening data request once we begin, and we will keep the burden on your staff as light as the work allows. Anything you hand us stays inside this engagement."},
-        {"kind": "paragraph", "text": "Our fee is fixed at {{fact:f:E-2020-001.fee}} and covers all professional time. Out-of-pocket expenses, if any, are billed at cost. Work begins on {{fact:f:E-2020-001.start}}, once your signed copy is in hand."},
-        {"kind": "paragraph", "text": "Johnson PLC will have our full attention. If anything in this letter reads differently than you understood it, call me before you sign and we will set it right."},
-        {"kind": "paragraph", "text": "Sincerely,"},
-        {"kind": "sigblock", "signers": ["p:chad.miller", "xp:melissa.sexton"]}
+        {
+          "kind": "heading",
+          "text": "Pinebrook Advisory Group LLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Cynthia Foley, VP Finance",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dean PLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Pricing Study",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Foley:",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter confirms the terms on which Pinebrook Advisory Group LLC will carry out a pricing study for {{fact:f:E-2020-001.client}}. I ask that you read it through before you sign. What you need in order to decide is all here: what we will examine, how we will go about it, who will do the work, what it costs, and when we begin. If any of it reads differently than the conversation we have had, I would rather know now than once we are underway.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "A pricing study turns on a plain question that is seldom simple to answer: are you being paid what your work is worth. We will look at how your prices are set today and how they hold once they reach a customer, where discounting and terms quietly wear them down, and what it truly costs to serve one account against another. The work rests on your own records, your billings and your cost figures, not on a general theory of what a firm like yours ought to charge. You will not receive a treatise, but a short, ordered set of pricing changes worth making, each one traced to a figure you can check.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three of our people will carry the engagement. Robert Miller, our Principal Consultant, holds the work and will be your point of contact; he treats a client relationship as his to look after. Jennifer Fletcher, our Senior Consultant, runs the analysis, and she will not let a number reach your desk before it reconciles. Susan Wiley, our Analyst, builds the underlying work the two of them rely on. I read everything before it leaves this office and stand behind all of it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the study is a fixed fee of {{fact:f:E-2020-001.fee}}, covering the whole of the work from start through delivery. There are no hourly charges to track and nothing to reconcile at the close. Any out-of-pocket costs would be modest, billed only as incurred and with documentation. We will begin on {{fact:f:E-2020-001.start}} and expect the study to run about eight months from that point.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "If this matches your understanding, please sign below and return one copy to me. If it does not, telephone me before you sign; the shape of an engagement is far easier to settle now than in the middle of it. We are glad to have the work, and we mean to give you reason to call on us again.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "sigblock",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": [
+            "p:daniel.jones",
+            "xp:cynthia.foley"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0006",
       "blocks": [
-        {"kind": "heading", "text": "Kickoff Memo: Pricing Study for Johnson PLC", "level": 1},
-        {"kind": "paragraph", "text": "To: Lisa Hernandez. From: Jenna Wiley. Re: Kickoff for the {{fact:f:E-2020-001.client}} pricing study."},
-        {"kind": "paragraph", "text": "Johnson PLC has signed, and we start {{fact:f:E-2020-001.start}}. The brief in one sentence: tell them what their pricing should be, where their discounting leaks, and what to change first, in a form their leadership can act on. Our client contact is Melissa Sexton, VP Finance. She reads carefully and skims nothing that involves a number, so every exhibit ties before it leaves the building. Findings first in everything we write; she can pull the support from the appendix if she wants it."},
-        {"kind": "heading", "text": "Workstreams", "level": 2},
-        {"kind": "list", "items": [
-          "Data build. Lisa assembles the invoice-level price and margin dataset from the client's records and reconciles it before any analysis rests on it.",
-          "Discount practice. Lisa maps who approves what off list and where realized price departs from it; I review the account-level findings before they go anywhere.",
-          "Competitive position. I build the comparison against the competitors the client's team follows, with their input on the comparison set.",
-          "Recommendations. I draft the pricing structure and discount policy options; the Managing Partner reviews and signs anything that goes to the client."
-        ]},
-        {"kind": "heading", "text": "Next steps", "level": 2},
-        {"kind": "list", "items": [
-          "Lisa: draft the opening data request for my review so it goes out the day we start.",
-          "Me: schedule the first working session with Melissa Sexton's office.",
-          "Both: reread the engagement letter before the first client call. The scope is the scope."
-        ]}
+        {
+          "kind": "heading",
+          "text": "Kickoff Memo: Pricing Study for Dean PLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Jennifer Fletcher, Susan Wiley. From: Robert Miller. Re: Kickoff for the pricing study, Dean PLC.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement letter is signed and back, and we begin on {{fact:f:E-2020-001.start}}. The job states plainly: tell {{fact:f:E-2020-001.client}} whether it is being paid what its work is worth, show where it is not, and say what to do about it. Cynthia Foley, their VP Finance, is our sponsor and our door to the numbers; anything we need from their side goes through her office. We build this from the billings up, from what was actually invoiced and collected, not from anyone's view of what the prices ought to be.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Price realization: pull recent invoices and measure what we collected against list, line by line. This is the spine of the study, and everything else hangs off it.",
+            "Cost to serve: put a defensible cost against each product line and each major account, so margin is measured rather than assumed.",
+            "Discounting and terms: trace where price leaks out after the quote, through discounts, allowances, freight, and payment terms.",
+            "Segmentation: group the accounts that behave alike, so any pricing move can be aimed rather than spread flat across the book."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Next steps are short. Susan starts the billing and cost pull this week and gets it into a working file the rest of us can build on. Jennifer sets the framework for cutting margin and cost to serve, so we are all measuring the same way from the first day. I will settle the data request with Cynthia Foley's office and keep her posted on what we need and when. One standing rule: bring me anything that does not tie out the moment you see it. A bad number is cheap to fix now and expensive in front of the client.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0007",
       "blocks": [
-        {"kind": "heading", "text": "Meeting Minutes: Pricing Study for Johnson PLC", "level": 1},
-        {"kind": "paragraph", "text": "Working session, held by videoconference. Minutes prepared by Lisa Hernandez, Analyst, and circulated the same afternoon. Corrections are welcome and should be sent to me directly."},
-        {"kind": "heading", "text": "Attendees", "level": 2},
-        {"kind": "list", "items": [
-          "Jenna Wiley, Principal Consultant, Pinebrook Advisory Group",
-          "Lisa Hernandez, Analyst, Pinebrook Advisory Group (minutes)",
-          "Melissa Sexton, VP Finance, Johnson PLC"
-        ]},
-        {"kind": "heading", "text": "Discussion", "level": 2},
-        {"kind": "paragraph", "text": "Jenna Wiley reviewed progress on the pricing study for {{fact:f:E-2020-001.client}}. The invoice-level dataset is assembled and reconciled, and the margin analysis is underway. Early indications, which should probably be treated as preliminary until the account-level review is complete, are that discounting is concentrated in a relatively small set of accounts."},
-        {"kind": "paragraph", "text": "Melissa Sexton asked how the competitive comparison would treat products without a direct competitor equivalent. Jenna proposed grouping them by nearest substitute, and Melissa Sexton agreed, with the caveat that her team review the groupings before the analysis is finalized. It was also agreed, or at least generally understood, that pricing recommendations will go to Melissa Sexton for a factual read before any wider distribution at the client."},
-        {"kind": "heading", "text": "Action items", "level": 2},
-        {"kind": "table", "header": ["Action", "Owner"], "rows": [
-          ["Complete the account-level discount review and circulate preliminary observations internally", "Lisa Hernandez"],
-          ["Send the proposed product groupings to the client team for review", "Jenna Wiley"],
-          ["Confirm the client-side reviewers for the competitive groupings", "Melissa Sexton"]
-        ]}
+        {
+          "kind": "heading",
+          "text": "Meeting Minutes: Pricing Study for Dean PLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Working session on the pricing study, held at the offices of {{fact:f:E-2020-001.client}}. Minutes recorded by Susan Wiley and circulated to all present for correction.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Robert Miller, Principal Consultant, Pinebrook Advisory Group LLC",
+            "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group LLC",
+            "Susan Wiley, Analyst, Pinebrook Advisory Group LLC",
+            "Cynthia Foley, VP Finance, Dean PLC"
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Miller opened with where the work stands at the midpoint. The billing extract is in hand and reconciled to the general ledger, and a first read of price realization is drafted. The early picture is that realized prices sit well below list on a sizable share of volume, and that the gap runs widest on the smaller accounts. Robert was careful to call these observations and not findings; no recommendation was put forward.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Fletcher noted that the cost-to-serve figures are not yet final, and that margin by account cannot be set until they are. She flagged a discrepancy between the freight allowances in the billing file and the figures finance carries, which the team will run down before any account is called unprofitable. Cynthia Foley asked whether payment terms were reflected in the realized-price view; they are not yet, and were added to the open items.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "table",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [
+            "Action Item",
+            "Owner"
+          ],
+          "rows": [
+            [
+              "Run down the freight-allowance discrepancy between the billing file and finance's figures",
+              "Susan Wiley"
+            ],
+            [
+              "Finalize cost to serve so margin by account can be set",
+              "Jennifer Fletcher"
+            ],
+            [
+              "Provide the account-level payment terms for the major customers",
+              "Cynthia Foley"
+            ],
+            [
+              "Hold the preliminary realization read from the client until the figures reconcile",
+              "Robert Miller"
+            ]
+          ],
+          "signers": []
+        }
       ]
     }
   ]

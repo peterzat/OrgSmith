@@ -12,11 +12,11 @@
         95918
       ],
       "expenses": {
-        "Compensation": 184735,
-        "Office & Facilities": 41714,
-        "Travel": 26816,
-        "Professional Services": 23836,
-        "Other": 20859
+        "Compensation": 294600,
+        "Office & Facilities": 41800,
+        "Travel": 21130,
+        "Professional Services": 23870,
+        "Other": 21560
       }
     },
     {
@@ -29,11 +29,11 @@
         181923
       ],
       "expenses": {
-        "Compensation": 411060,
-        "Office & Facilities": 92820,
-        "Travel": 59670,
-        "Professional Services": 53040,
-        "Other": 46410
+        "Compensation": 411100,
+        "Office & Facilities": 92800,
+        "Travel": 57650,
+        "Professional Services": 54340,
+        "Other": 57840
       }
     },
     {
@@ -46,11 +46,11 @@
         253424
       ],
       "expenses": {
-        "Compensation": 458452,
-        "Office & Facilities": 103521,
-        "Travel": 66549,
-        "Professional Services": 59155,
-        "Other": 51763
+        "Compensation": 413900,
+        "Office & Facilities": 92800,
+        "Travel": 70470,
+        "Professional Services": 56450,
+        "Other": 59890
       }
     },
     {
@@ -63,11 +63,11 @@
         295173
       ],
       "expenses": {
-        "Compensation": 519386,
-        "Office & Facilities": 117280,
-        "Travel": 75394,
-        "Professional Services": 67017,
-        "Other": 58643
+        "Compensation": 431000,
+        "Office & Facilities": 92800,
+        "Travel": 84390,
+        "Professional Services": 58890,
+        "Other": 53720
       }
     },
     {
@@ -80,11 +80,11 @@
         344198
       ],
       "expenses": {
-        "Compensation": 571131,
-        "Office & Facilities": 128965,
-        "Travel": 82906,
-        "Professional Services": 73694,
-        "Other": 64484
+        "Compensation": 444600,
+        "Office & Facilities": 92800,
+        "Travel": 75850,
+        "Professional Services": 61120,
+        "Other": 45190
       }
     },
     {
@@ -97,11 +97,11 @@
         307640
       ],
       "expenses": {
-        "Compensation": 649474,
-        "Office & Facilities": 146655,
-        "Travel": 94278,
-        "Professional Services": 83803,
-        "Other": 73330
+        "Compensation": 461100,
+        "Office & Facilities": 98900,
+        "Travel": 88390,
+        "Professional Services": 62670,
+        "Other": 53030
       }
     }
   ],
@@ -114,7 +114,12 @@
     {
       "name": "FY2018.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=297960 total=297960"
+      "detail": "sum(expenses)=402960 total=402960"
+    },
+    {
+      "name": "FY2018.net-income",
+      "ok": true,
+      "detail": "revenue=382000 expenses=402960 net=-20960"
     },
     {
       "name": "FY2019.quarters-tie-out",
@@ -124,7 +129,12 @@
     {
       "name": "FY2019.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=663000 total=663000"
+      "detail": "sum(expenses)=673730 total=673730"
+    },
+    {
+      "name": "FY2019.net-income",
+      "ok": true,
+      "detail": "revenue=850000 expenses=673730 net=176270"
     },
     {
       "name": "FY2020.quarters-tie-out",
@@ -134,7 +144,12 @@
     {
       "name": "FY2020.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=739440 total=739440"
+      "detail": "sum(expenses)=693510 total=693510"
+    },
+    {
+      "name": "FY2020.net-income",
+      "ok": true,
+      "detail": "revenue=948000 expenses=693510 net=254490"
     },
     {
       "name": "FY2021.quarters-tie-out",
@@ -144,7 +159,12 @@
     {
       "name": "FY2021.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=837720 total=837720"
+      "detail": "sum(expenses)=720800 total=720800"
+    },
+    {
+      "name": "FY2021.net-income",
+      "ok": true,
+      "detail": "revenue=1074000 expenses=720800 net=353200"
     },
     {
       "name": "FY2022.quarters-tie-out",
@@ -154,7 +174,12 @@
     {
       "name": "FY2022.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=921180 total=921180"
+      "detail": "sum(expenses)=719560 total=719560"
+    },
+    {
+      "name": "FY2022.net-income",
+      "ok": true,
+      "detail": "revenue=1181000 expenses=719560 net=461440"
     },
     {
       "name": "FY2023.quarters-tie-out",
@@ -164,7 +189,12 @@
     {
       "name": "FY2023.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=1047540 total=1047540"
+      "detail": "sum(expenses)=764090 total=764090"
+    },
+    {
+      "name": "FY2023.net-income",
+      "ok": true,
+      "detail": "revenue=1343000 expenses=764090 net=578910"
     }
   ]
 }

@@ -1,181 +1,85 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0004",
+  "generator": {"model": "claude-opus-4-8", "effort": "max"},
   "docs": [
-    {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0009",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Pinebrook Advisory Group LLC",
-          "level": 1
-        },
-        {
-          "kind": "heading",
-          "text": "Re: Integration Support for Foley Group",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Mr. Payne:"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thank you for asking Pinebrook Advisory Group to support the integration now underway at {{fact:f:E-2021-001.client}}. This letter confirms the scope of our work, the team assigned to it, and the commercial terms. If everything here matches your understanding, please sign where indicated and return one copy to my attention."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our assignment is post-acquisition integration support. We will work alongside your management team to combine operations without losing the customers and the people who made the acquisition worth doing. In practice that means a working integration checklist that we maintain and you may inspect at any time, regular working sessions with your managers, and short written status reports for your desk. We will tell you plainly what is on track, what is behind, and what needs a decision from you."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jenna Wiley, Principal Consultant, will run the engagement day to day and will be your first call. Jacob Williams, Senior Consultant, will own the integration checklist and the analysis behind it. Lisa Hernandez, Analyst, will support the fieldwork and keep the record of every working session. I stay close to every engagement this firm accepts, and nothing will reach you that I have not read and signed."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for this work is a fixed {{fact:f:E-2021-001.fee}}, covering all professional time for the engagement. We will begin on {{fact:f:E-2021-001.start}}, and we expect the work to run approximately eight months. If the scope changes along the way, we will raise it with you in writing before we act on it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are a small firm by design, and we do not accept work we cannot staff with senior people. Foley Group will have our full attention. We appreciate your confidence, and we look forward to the work."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely,"
-        },
-        {
-          "kind": "sigblock",
-          "signers": ["p:chad.miller", "xp:douglas.payne"]
-        }
-      ]
-    },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0010",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: Integration Support for Foley Group",
-          "level": 1
+          "text": "Pinebrook Advisory Group LLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Working session on the {{fact:f:E-2021-001.client}} integration engagement. Minutes prepared by Jacob Williams, Senior Consultant, Pinebrook Advisory Group."
+          "text": "Pinebrook Advisory Group is a small management consulting firm. We work with mid-market operating companies, the kind of business that has outgrown running on instinct but is too lean to keep in-house strategists on staff. There are five of us. We take on a handful of engagements a year, and each gets the whole firm's attention, because that is the only way an outfit this size earns what it charges. I am Daniel Jones, the Managing Partner, and nothing leaves this office under our name until I have read it end to end and can stand behind every line.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "heading",
-          "text": "Attendees",
-          "level": 2
+          "text": "What we do",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
-          "kind": "list",
-          "items": [
-            "Jenna Wiley, Principal Consultant, Pinebrook Advisory Group",
-            "Jacob Williams, Senior Consultant, Pinebrook Advisory Group",
-            "Lisa Hernandez, Analyst, Pinebrook Advisory Group",
-            "Douglas Payne, General Manager, Foley Group"
+          "kind": "paragraph",
+          "text": "Our work falls into three lines. We run operational reviews for owners who suspect their business could be tighter and want an outside read before they act. We do pricing studies for companies that have not looked hard at what they charge in years. And we provide post-acquisition integration support, standing with a buyer through the long stretch after a deal closes, when two companies have to become one without the day-to-day work grinding to a halt. What ties the three together is plain: clients call us when a decision is real and the cost of getting it wrong is high.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Who we have worked with",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We have kept the client list short on purpose. Since 2019 the operating companies we have worked with include {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, and {{fact:f:E-2021-001.client}}. Each dealt with the same firm from the first conversation onward: a senior team on the work, a plan they could hold in one hand, and a Managing Partner who read every page that carried our name before it reached them. That is the reason we would rather turn work away than take on more than we can do that way.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "That is the whole of it. We are not a large firm and have no plans to become one. If your company is facing a decision that would be easier with an experienced outside hand, I would be glad to talk it over.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "sigblock",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": [
+            "p:daniel.jones"
           ]
-        },
-        {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jenna Wiley opened with a review of the integration checklist. Most items in the current phase are closed or on schedule. Two items relating to the consolidation of back-office functions remain open, and both depend on information that has been requested but not yet received."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Douglas Payne walked the group through the staffing picture on the client side and flagged one department where the combined headcount plan has not yet settled. Lisa Hernandez reviewed her notes from the prior working sessions and confirmed that the open questions on the checklist match what was raised in the room. Jacob Williams noted that one figure in the draft consolidation summary could not be traced back to a source document and asked that it be confirmed before it appears in anything the client reads."
-        },
-        {
-          "kind": "heading",
-          "text": "Action items",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": ["Action item", "Owner"],
-          "rows": [
-            ["Provide the outstanding back-office information requested by the team", "Douglas Payne"],
-            ["Confirm the source for the flagged figure in the consolidation summary", "Jacob Williams"],
-            ["Circulate the updated integration checklist before the next working session", "Jenna Wiley"],
-            ["Distribute these minutes to all attendees", "Lisa Hernandez"]
-          ]
-        }
-      ]
-    },
-    {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0012",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Status Report: Integration Support for Foley Group",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Prepared by Jenna Wiley, Principal Consultant, for the {{fact:f:E-2021-001.client}} executive team."
-        },
-        {
-          "kind": "heading",
-          "text": "Status summary",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is on track. The integration checklist for the current phase is substantially complete, every open item has a named owner, and nothing before us requires an immediate decision from you. Two risks are worth your attention; both are described below."
-        },
-        {
-          "kind": "heading",
-          "text": "Accomplishments this period",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Closed the remaining back-office items from the prior phase of the integration checklist.",
-            "Jacob Williams completed the consolidation summary; every figure in it now traces to a source document.",
-            "Lisa Hernandez compiled the working-session record for the engagement to date, so the reasoning behind each decision is on paper.",
-            "Continued the regular working sessions with your management team."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Upcoming work",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Begin the final phase of the integration checklist, covering the customer-facing functions.",
-            "Draft the closing report for the engagement, findings first, with recommendations your team can act on.",
-            "Schedule the remaining working sessions through the end of the engagement."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "The combined staffing plan for one department is still unsettled. Until it settles, the affected checklist items cannot close.",
-            "Several open items depend on information held outside the working group. Delays there push the schedule directly."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Work performed to date is within the fixed fee of {{fact:f:E-2021-001.fee}} set out in our engagement letter, and we expect to complete the engagement within it. Questions on any of the above can come to me directly."
         }
       ]
     }

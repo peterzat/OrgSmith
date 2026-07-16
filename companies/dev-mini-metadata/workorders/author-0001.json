@@ -6,46 +6,46 @@
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
   "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0001",
-      "title": "Engagement Letter: Operational Review for Weaver-Reeves",
+      "title": "Engagement Letter: Operational Review for Johnson and Sons",
       "genre": "engagement_letter",
       "date": "2019-07-07",
       "authors": [
         {
-          "id": "p:chad.miller",
-          "name": "Chad Miller",
+          "id": "p:daniel.jones",
+          "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Chad built the firm on repeat business and treats every outbound page as a reflection of his own name, which is why nothing leaves without his signature. His edits push toward shorter sentences, concrete verbs, and a clear ask in the first paragraph. In writing he is courtly with clients and blunt inside the firm, and he has no patience for hedging language or consultant jargon."
+          "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
         }
       ],
       "participants": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
+          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
         },
         {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
-        },
-        {
-          "id": "xp:jacob.andersen",
-          "name": "Jacob Andersen",
+          "id": "xp:stephanie.campos",
+          "name": "Stephanie Campos",
           "title": "Chief Financial Officer",
-          "dept": "Weaver-Reeves",
+          "dept": "Johnson and Sons",
           "persona": ""
         }
       ],
-      "engagement_summary": "Operational Review for Weaver-Reeves, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Operational Review for Johnson and Sons, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
           "id": "f:E-2019-001.fee",
@@ -62,79 +62,81 @@
       ],
       "mentions": [
         {
-          "entity": "p:chad.miller",
-          "surface": "Chad Miller",
+          "entity": "p:daniel.jones",
+          "surface": "Daniel Jones",
           "kind": "person"
         },
         {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
           "kind": "person"
         },
         {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
           "kind": "person"
         },
         {
-          "entity": "xp:jacob.andersen",
-          "surface": "Jacob Andersen",
+          "entity": "xp:stephanie.campos",
+          "surface": "Stephanie Campos",
           "kind": "person"
         },
         {
-          "entity": "x:weaver-reeves",
-          "surface": "Weaver-Reeves",
+          "entity": "x:johnson-and-sons",
+          "surface": "Johnson and Sons",
           "kind": "org"
         }
       ],
       "target_words": 350,
-      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
+      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
     },
     {
       "doc_id": "d:0002",
-      "title": "Kickoff Memo: Operational Review for Weaver-Reeves",
+      "title": "Kickoff Memo: Operational Review for Johnson and Sons",
       "genre": "kickoff_memo",
       "date": "2019-07-20",
       "authors": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
+          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
         }
       ],
       "participants": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
+          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
         },
         {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
-        },
-        {
-          "id": "xp:jacob.andersen",
-          "name": "Jacob Andersen",
+          "id": "xp:stephanie.campos",
+          "name": "Stephanie Campos",
           "title": "Chief Financial Officer",
-          "dept": "Weaver-Reeves",
+          "dept": "Johnson and Sons",
           "persona": ""
         },
         {
-          "id": "p:megan.garcia",
-          "name": "Megan Garcia",
+          "id": "p:michelle.lopez",
+          "name": "Michelle Lopez",
           "title": "Office Manager",
           "dept": "Operations",
-          "persona": "Megan keeps the office running: scheduling, invoicing paperwork, letterhead stock, and the filing system only she fully understands. Her emails are short, friendly, and relentlessly practical, usually ending with exactly what she needs and by when. She is on a first-name basis with every client's assistant and knows which partner to nudge to get a signature out the door."
+          "persona": "Michelle keeps the firm running so the consultants can stay in front of clients, handling the letterhead, the scheduling, and the small logistics that hold an engagement together. She is organized, personable, and the person who knows where everything is and when everything is due. Her writing is friendly and efficient, the practical note that confirms a time or chases a missing piece without any fuss."
         }
       ],
-      "engagement_summary": "Operational Review for Weaver-Reeves, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Operational Review for Johnson and Sons, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
           "id": "f:E-2019-001.start",
@@ -147,72 +149,74 @@
       ],
       "mentions": [
         {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
           "kind": "person"
         },
         {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
           "kind": "person"
         },
         {
-          "entity": "xp:jacob.andersen",
-          "surface": "Jacob Andersen",
+          "entity": "xp:stephanie.campos",
+          "surface": "Stephanie Campos",
           "kind": "person"
         },
         {
-          "entity": "x:weaver-reeves",
-          "surface": "Weaver-Reeves",
+          "entity": "x:johnson-and-sons",
+          "surface": "Johnson and Sons",
           "kind": "org"
         },
         {
-          "entity": "p:megan.garcia",
-          "surface": "Megan Garcia",
+          "entity": "p:michelle.lopez",
+          "surface": "Michelle Lopez",
           "kind": "person"
         }
       ],
       "target_words": 240,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps."
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 3% of the way through the engagement (in the early phase); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
     },
     {
       "doc_id": "d:0003",
-      "title": "Meeting Minutes: Operational Review for Weaver-Reeves",
+      "title": "Meeting Minutes: Operational Review for Johnson and Sons",
       "genre": "meeting_minutes",
       "date": "2019-08-27",
       "authors": [
         {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
+          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
         }
       ],
       "participants": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
+          "dept": "Consulting",
+          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
+        },
+        {
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
+          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
         },
         {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
-        },
-        {
-          "id": "xp:jacob.andersen",
-          "name": "Jacob Andersen",
+          "id": "xp:stephanie.campos",
+          "name": "Stephanie Campos",
           "title": "Chief Financial Officer",
-          "dept": "Weaver-Reeves",
+          "dept": "Johnson and Sons",
           "persona": ""
         }
       ],
-      "engagement_summary": "Operational Review for Weaver-Reeves, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Operational Review for Johnson and Sons, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
           "id": "f:E-2019-001.client",
@@ -221,60 +225,62 @@
       ],
       "mentions": [
         {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
           "kind": "person"
         },
         {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
           "kind": "person"
         },
         {
-          "entity": "xp:jacob.andersen",
-          "surface": "Jacob Andersen",
+          "entity": "xp:stephanie.campos",
+          "surface": "Stephanie Campos",
           "kind": "person"
         },
         {
-          "entity": "x:weaver-reeves",
-          "surface": "Weaver-Reeves",
+          "entity": "x:johnson-and-sons",
+          "surface": "Johnson and Sons",
           "kind": "org"
         }
       ],
       "target_words": 220,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
     },
     {
       "doc_id": "d:0004",
-      "title": "Status Report: Operational Review for Weaver-Reeves",
+      "title": "Status Report: Operational Review for Johnson and Sons",
       "genre": "status_report",
       "date": "2019-10-03",
       "authors": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
+          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
         }
       ],
       "participants": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
+          "id": "p:jennifer.fletcher",
+          "name": "Jennifer Fletcher",
+          "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
+          "persona": "Jennifer leads engagements with a structured, methodical hand and is the partner most likely to insist the numbers reconcile before anyone briefs the client. She gravitates toward pricing studies and the discipline of integration work, where sequence and follow-through matter. Her tone is measured and organized; she runs a tight meeting and writes minutes that leave no attendee guessing what they agreed to."
         },
         {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
+          "id": "p:robert.miller",
+          "name": "Robert Miller",
+          "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
+          "persona": "Robert carries engagements from kickoff through delivery and treats the client relationship as his to protect. He is most at home in an operational review, walking a floor and turning what he sees into a short list of things worth fixing. His writing is direct and practical, built around recommendations a busy operator can act on, and he would rather be concrete than impressive."
         }
       ],
-      "engagement_summary": "Operational Review for Weaver-Reeves, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Operational Review for Johnson and Sons, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
           "id": "f:E-2019-001.fee",
@@ -287,23 +293,25 @@
       ],
       "mentions": [
         {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
+          "entity": "p:jennifer.fletcher",
+          "surface": "Jennifer Fletcher",
           "kind": "person"
         },
         {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
+          "entity": "p:robert.miller",
+          "surface": "Robert Miller",
           "kind": "person"
         },
         {
-          "entity": "x:weaver-reeves",
-          "surface": "Weaver-Reeves",
+          "entity": "x:johnson-and-sons",
+          "surface": "Johnson and Sons",
           "kind": "org"
         }
       ],
       "target_words": 300,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed."
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 75% of the way through the engagement (in the later phase); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
     }
   ],
   "people": [],

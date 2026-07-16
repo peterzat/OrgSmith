@@ -6,61 +6,40 @@
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
   "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0009",
-      "title": "Engagement Letter: Integration Support for Foley Group",
-      "genre": "engagement_letter",
-      "date": "2021-07-22",
+      "doc_id": "d:0010",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2021-07-01",
       "authors": [
         {
-          "id": "p:chad.miller",
-          "name": "Chad Miller",
+          "id": "p:daniel.jones",
+          "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Chad built the firm on repeat business and treats every outbound page as a reflection of his own name, which is why nothing leaves without his signature. His edits push toward shorter sentences, concrete verbs, and a clear ask in the first paragraph. In writing he is courtly with clients and blunt inside the firm, and he has no patience for hedging language or consultant jargon."
+          "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
         }
       ],
       "participants": [
         {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
-          "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
-        },
-        {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
-        },
-        {
-          "id": "p:jacob.williams",
-          "name": "Jacob Williams",
-          "title": "Senior Consultant",
-          "dept": "Consulting",
-          "persona": "Jacob is the workhorse on pricing studies and integration checklists, most comfortable when the analysis is in a table and the prose just explains it. He writes plainly and a little dryly, tends toward longer, careful sentences, and flags any claim he cannot trace back to a source. Inside the firm he is the one who asks the uncomfortable question in the kickoff meeting."
-        },
-        {
-          "id": "xp:douglas.payne",
-          "name": "Douglas Payne",
-          "title": "General Manager",
-          "dept": "Foley Group",
-          "persona": ""
+          "id": "p:daniel.jones",
+          "name": "Daniel Jones",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Daniel is the firm's final signature and knows it; nothing reaches a client until he has read it end to end and can stand behind every line. He thinks in terms of what the client's own executive will take away from a single skim, and he trims anything that does not survive that test. His voice is plain, confident, and unhurried, the senior partner who would rather say one useful thing clearly than three that hedge."
         }
       ],
-      "engagement_summary": "Integration Support for Foley Group, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "",
       "facts": [
         {
-          "id": "f:E-2021-001.fee",
-          "hint": "amount of money; place where the figure belongs"
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
         },
         {
-          "id": "f:E-2021-001.start",
-          "hint": "calendar date; place where the date belongs"
+          "id": "f:E-2020-001.client",
+          "hint": "proper name; place where the name belongs"
         },
         {
           "id": "f:E-2021-001.client",
@@ -69,192 +48,15 @@
       ],
       "mentions": [
         {
-          "entity": "p:chad.miller",
-          "surface": "Chad Miller",
+          "entity": "p:daniel.jones",
+          "surface": "Daniel Jones",
           "kind": "person"
-        },
-        {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
-          "kind": "person"
-        },
-        {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jacob.williams",
-          "surface": "Jacob Williams",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:douglas.payne",
-          "surface": "Douglas Payne",
-          "kind": "person"
-        },
-        {
-          "entity": "x:foley-group",
-          "surface": "Foley Group",
-          "kind": "org"
         }
       ],
-      "target_words": 350,
-      "guidance": "Formal letter on firm letterhead confirming the engagement: scope, approach, team, fee and start date, closing. End with a sigblock block signed by the letter's author and the client contact. 3-6 paragraphs."
-    },
-    {
-      "doc_id": "d:0010",
-      "title": "Meeting Minutes: Integration Support for Foley Group",
-      "genre": "meeting_minutes",
-      "date": "2021-11-08",
-      "authors": [
-        {
-          "id": "p:jacob.williams",
-          "name": "Jacob Williams",
-          "title": "Senior Consultant",
-          "dept": "Consulting",
-          "persona": "Jacob is the workhorse on pricing studies and integration checklists, most comfortable when the analysis is in a table and the prose just explains it. He writes plainly and a little dryly, tends toward longer, careful sentences, and flags any claim he cannot trace back to a source. Inside the firm he is the one who asks the uncomfortable question in the kickoff meeting."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
-          "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
-        },
-        {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
-        },
-        {
-          "id": "p:jacob.williams",
-          "name": "Jacob Williams",
-          "title": "Senior Consultant",
-          "dept": "Consulting",
-          "persona": "Jacob is the workhorse on pricing studies and integration checklists, most comfortable when the analysis is in a table and the prose just explains it. He writes plainly and a little dryly, tends toward longer, careful sentences, and flags any claim he cannot trace back to a source. Inside the firm he is the one who asks the uncomfortable question in the kickoff meeting."
-        },
-        {
-          "id": "xp:douglas.payne",
-          "name": "Douglas Payne",
-          "title": "General Manager",
-          "dept": "Foley Group",
-          "persona": ""
-        }
-      ],
-      "engagement_summary": "Integration Support for Foley Group, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2021-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:jacob.williams",
-          "surface": "Jacob Williams",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
-          "kind": "person"
-        },
-        {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:douglas.payne",
-          "surface": "Douglas Payne",
-          "kind": "person"
-        },
-        {
-          "entity": "x:foley-group",
-          "surface": "Foley Group",
-          "kind": "org"
-        }
-      ],
-      "target_words": 220,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners."
-    },
-    {
-      "doc_id": "d:0012",
-      "title": "Status Report: Integration Support for Foley Group",
-      "genre": "status_report",
-      "date": "2022-02-03",
-      "authors": [
-        {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
-          "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:jenna.wiley",
-          "name": "Jenna Wiley",
-          "title": "Principal Consultant",
-          "dept": "Consulting",
-          "persona": "Jenna runs engagements day to day and writes most of what the client actually reads, drafting for Chad's signature and anticipating his red pen. Her style is structured and economical: findings first, support second, and a recommendation the client executive can act on without reading page two. Colleagues know her for tight meeting minutes and for chasing down loose ends nobody else noticed."
-        },
-        {
-          "id": "p:lisa.hernandez",
-          "name": "Lisa Hernandez",
-          "title": "Analyst",
-          "dept": "Consulting",
-          "persona": "Lisa is the junior on the team, sharp with spreadsheets and eager in a way that shows in her drafts, which arrive thorough but overlong until Jenna trims them. She takes meticulous notes in client meetings and is usually the one turning them into minutes the same afternoon. Her written voice is earnest and precise, still shaking off a slightly academic habit of qualifying everything."
-        },
-        {
-          "id": "p:jacob.williams",
-          "name": "Jacob Williams",
-          "title": "Senior Consultant",
-          "dept": "Consulting",
-          "persona": "Jacob is the workhorse on pricing studies and integration checklists, most comfortable when the analysis is in a table and the prose just explains it. He writes plainly and a little dryly, tends toward longer, careful sentences, and flags any claim he cannot trace back to a source. Inside the firm he is the one who asks the uncomfortable question in the kickoff meeting."
-        }
-      ],
-      "engagement_summary": "Integration Support for Foley Group, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2021-001.fee",
-          "hint": "amount of money; place where the figure belongs"
-        },
-        {
-          "id": "f:E-2021-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:jenna.wiley",
-          "surface": "Jenna Wiley",
-          "kind": "person"
-        },
-        {
-          "entity": "p:lisa.hernandez",
-          "surface": "Lisa Hernandez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jacob.williams",
-          "surface": "Jacob Williams",
-          "kind": "person"
-        },
-        {
-          "entity": "x:foley-group",
-          "surface": "Foley Group",
-          "kind": "org"
-        }
-      ],
-      "target_words": 300,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed."
+      "target_words": 320,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 3 client engagement(s) across 2019-2021. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, {{fact:f:E-2021-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
     }
   ],
   "people": [],

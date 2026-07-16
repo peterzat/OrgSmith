@@ -3,82 +3,98 @@
 Read-access ground truth for Pinebrook Advisory Group LLC (dev-mini); posture: open.
 Derived from ledger/acl.json; regenerate with `python -m orgsmith acl dev-mini`.
 
-## Chad Miller (Managing Partner)
+## Daniel Jones (Managing Partner)
 
-- Engagements/Foley Group/2021.07.22 - Engagement Letter - Foley Group - EXECUTED.pdf
-- Engagements/Foley Group/2022.02.03 - Status Report - Foley Group v2 FINAL.docx
-- Engagements/Foley Group/Meeting Minutes 2021-11-08 - Foley Group.docx
-- Engagements/Johnson PLC/2020.03.18 - Engagement Letter - Johnson PLC - EXECUTED.pdf
-- Engagements/Johnson PLC/2020.03.31 - Kickoff Memo - Pricing Study.docx
-- Engagements/Johnson PLC/Meeting Minutes 2020-06-15 - Johnson PLC.docx
-- Engagements/Weaver-Reeves/2019.07.07 - Engagement Letter - Weaver-Reeves - EXECUTED.pdf
-- Engagements/Weaver-Reeves/2019.07.20 - Kickoff Memo - Operational Review.docx
-- Engagements/Weaver-Reeves/2019.10.03 - Status Report - Weaver-Reeves v2 FINAL.docx
-- Engagements/Weaver-Reeves/Meeting Minutes 2019-08-27 - Weaver-Reeves.docx
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.10.03 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.08.31 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
 - Firm/Firm Overview 2021 v3.docx
 
-## Jenna Wiley (Principal Consultant)
+## Robert Miller (Principal Consultant)
 
-- Engagements/Foley Group/2021.07.22 - Engagement Letter - Foley Group - EXECUTED.pdf
-- Engagements/Foley Group/2022.02.03 - Status Report - Foley Group v2 FINAL.docx
-- Engagements/Foley Group/Meeting Minutes 2021-11-08 - Foley Group.docx
-- Engagements/Johnson PLC/2020.03.18 - Engagement Letter - Johnson PLC - EXECUTED.pdf
-- Engagements/Johnson PLC/2020.03.31 - Kickoff Memo - Pricing Study.docx
-- Engagements/Johnson PLC/Meeting Minutes 2020-06-15 - Johnson PLC.docx
-- Engagements/Weaver-Reeves/2019.07.07 - Engagement Letter - Weaver-Reeves - EXECUTED.pdf
-- Engagements/Weaver-Reeves/2019.07.20 - Kickoff Memo - Operational Review.docx
-- Engagements/Weaver-Reeves/2019.10.03 - Status Report - Weaver-Reeves v2 FINAL.docx
-- Engagements/Weaver-Reeves/Meeting Minutes 2019-08-27 - Weaver-Reeves.docx
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.10.03 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.08.31 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
 - Firm/Firm Overview 2021 v3.docx
 
-## Jacob Williams (Senior Consultant)
+## Jennifer Fletcher (Principal Consultant)
 
-- Engagements/Foley Group/2021.07.22 - Engagement Letter - Foley Group - EXECUTED.pdf
-- Engagements/Foley Group/2022.02.03 - Status Report - Foley Group v2 FINAL.docx
-- Engagements/Foley Group/Meeting Minutes 2021-11-08 - Foley Group.docx
-- Engagements/Johnson PLC/2020.03.18 - Engagement Letter - Johnson PLC - EXECUTED.pdf
-- Engagements/Johnson PLC/2020.03.31 - Kickoff Memo - Pricing Study.docx
-- Engagements/Johnson PLC/Meeting Minutes 2020-06-15 - Johnson PLC.docx
-- Engagements/Weaver-Reeves/2019.07.07 - Engagement Letter - Weaver-Reeves - EXECUTED.pdf
-- Engagements/Weaver-Reeves/2019.07.20 - Kickoff Memo - Operational Review.docx
-- Engagements/Weaver-Reeves/2019.10.03 - Status Report - Weaver-Reeves v2 FINAL.docx
-- Engagements/Weaver-Reeves/Meeting Minutes 2019-08-27 - Weaver-Reeves.docx
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.10.03 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.08.31 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
 - Firm/Firm Overview 2021 v3.docx
 
-## Lisa Hernandez (Analyst)
+## Susan Wiley (Analyst)
 
-- Engagements/Foley Group/2021.07.22 - Engagement Letter - Foley Group - EXECUTED.pdf
-- Engagements/Foley Group/2022.02.03 - Status Report - Foley Group v2 FINAL.docx
-- Engagements/Foley Group/Meeting Minutes 2021-11-08 - Foley Group.docx
-- Engagements/Johnson PLC/2020.03.18 - Engagement Letter - Johnson PLC - EXECUTED.pdf
-- Engagements/Johnson PLC/2020.03.31 - Kickoff Memo - Pricing Study.docx
-- Engagements/Johnson PLC/Meeting Minutes 2020-06-15 - Johnson PLC.docx
-- Engagements/Weaver-Reeves/2019.07.07 - Engagement Letter - Weaver-Reeves - EXECUTED.pdf
-- Engagements/Weaver-Reeves/2019.07.20 - Kickoff Memo - Operational Review.docx
-- Engagements/Weaver-Reeves/2019.10.03 - Status Report - Weaver-Reeves v2 FINAL.docx
-- Engagements/Weaver-Reeves/Meeting Minutes 2019-08-27 - Weaver-Reeves.docx
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.10.03 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.08.31 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
 - Firm/Firm Overview 2021 v3.docx
 
-## Megan Garcia (Office Manager)
+## Michelle Lopez (Office Manager)
 
-- Engagements/Foley Group/2021.07.22 - Engagement Letter - Foley Group - EXECUTED.pdf
-- Engagements/Foley Group/2022.02.03 - Status Report - Foley Group v2 FINAL.docx
-- Engagements/Foley Group/Meeting Minutes 2021-11-08 - Foley Group.docx
-- Engagements/Johnson PLC/2020.03.18 - Engagement Letter - Johnson PLC - EXECUTED.pdf
-- Engagements/Johnson PLC/2020.03.31 - Kickoff Memo - Pricing Study.docx
-- Engagements/Johnson PLC/Meeting Minutes 2020-06-15 - Johnson PLC.docx
-- Engagements/Weaver-Reeves/2019.07.07 - Engagement Letter - Weaver-Reeves - EXECUTED.pdf
-- Engagements/Weaver-Reeves/2019.07.20 - Kickoff Memo - Operational Review.docx
-- Engagements/Weaver-Reeves/2019.10.03 - Status Report - Weaver-Reeves v2 FINAL.docx
-- Engagements/Weaver-Reeves/Meeting Minutes 2019-08-27 - Weaver-Reeves.docx
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.10.03 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.08.31 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
+- Finance/FY2021 Financial Summary.xlsx
+- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2021 v3.docx
+
+## Cynthia Ball (Analyst)
+
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.10.03 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.08.31 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
 - Firm/Firm Overview 2021 v3.docx
