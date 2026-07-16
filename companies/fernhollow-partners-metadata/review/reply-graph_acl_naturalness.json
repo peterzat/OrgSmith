@@ -1,0 +1,53 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "fernhollow-partners",
+  "dimension": "graph_acl_naturalness",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [],
+      "summary": "Every engagement across five years is staffed by exactly the same three people and every engagement document names all three, so the internal contact graph is perfectly flat where a real firm's is lopsided.",
+      "evidence": "engagements.json holds one distinct internal_participants set across all four engagements (E-2020-001, E-2022-001, E-2023-001, E-2024-001): always {Sandra Perez, Briana Dennis, Ryan Strong}. graph.json gives each of the three exactly 4 participant edges; mention_map.json gives each exactly 16 mentions; all three are named together in 16 of 16 engagement documents and there is not one document that names two of them and not the third. The role split is also frozen: 'Sandra Perez, Director, leads the engagement day to day and is your first call. Briana Dennis, Senior Associate, builds the model and drafts the report. Ryan Strong, Analyst, prepares the comparable-company work and ties out the figures.' (d:0001, 2020) is still 'Sandra Perez, Director, will run the engagement day to day and is your first call. Briana Dennis, Senior Associate, will prepare the working drafts and readouts. Ryan Strong, Analyst, will build and tie out the supporting schedules.' (d:0016, 2024). Four clients, five years, and the analyst is never off a job, never unmentioned in a 114-word email, and never once handed different work."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0001", "d:0008", "d:0013", "d:0016"],
+      "summary": "The Managing Partner co-signs all four engagement letters but holds zero participant edges, so the graph records no relationship at all between him and any client contact.",
+      "evidence": "graph.json gives p:michael.white total degree 3 (one works_at, two inbound reports_to) and no participant edge to any engagement; engagements.json omits him from internal_participants on all four. Yet the sigblock of d:0001 lists signers ['p:michael.white', 'xp:amanda.golden'], as do d:0008 and d:0016, with d:0013 pairing him with xp:gerald.ross, and d:0007 claims 'Every engagement is partner-led from proposal through readout, and nothing leaves the office that a partner has not read.' Ask this graph whether Michael White knows Amanda Golden and the answer is no recorded edge, across four letters the two of them signed together. Defensible if 'participant' means only staffed delivery time, but then the firm's single most important external relationship is unrepresentable in the ledger that is supposed to be ground truth."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-3",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0008"],
+      "summary": "The org's one multi-affiliation is modeled with zero slack: Golden changes employer on consecutive days and executes an engagement letter with her old advisors six days into the new job.",
+      "evidence": "foundation.json ends xp:amanda.golden at x:woods-llc on 2022-05-11 and starts her at x:nguyen-reynolds-and-martinez on 2022-05-12, a Wednesday-to-Thursday handoff with no gap at all. d:0008 is '2022.05.18 - Engagement Letter - Nguyen, Reynolds and Martinez - EXECUTED.pdf', addressed 'Amanda Golden, VP Finance, Nguyen, Reynolds and Martinez' and countersigned by her, with the client_of edge and E-2022-001 both starting 2022-05-28. A VP Finance scoping, pricing, conflict-checking and executing a $45,000 outside engagement in her first week at a new employer is the tight end of plausible, and the letter's own 'We are glad the working relationship continues in your new seat' points straight at the timing. The affiliation boundary looks placed just before the engagement rather than modeled with a lag."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "note",
+      "docs": [],
+      "summary": "The three zero-mention external entities read as a genuine contact list rather than a gap; recording this as a strength so it does not get 'fixed'.",
+      "evidence": "x:perez-kemp, xp:jeffery.waller and xp:theresa.waller each have degree 1 and zero mentions in any document, and the two Wallers share a surname across two unrelated employers for no recorded reason. That is what a real firm's contact list looks like: a prospect that never converted, contacts nobody ever logged, and a coincidence. This is the most organic thing in the graph and it should stay. One wrinkle worth noting: foundation.json types x:perez-kemp as 'org_type': 'client' while graph.json issues client_of edges only to x:woods-llc and x:nguyen-reynolds-and-martinez, so 'client' carries two different meanings in the same fixture."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-5",
+      "dimension": "graph_acl_naturalness",
+      "severity": "note",
+      "docs": [],
+      "summary": "With acl_posture open, all five people hold byte-identical 19-document grants, so this fixture exercises the graph half of this dimension and none of the ACL half.",
+      "evidence": "acl.json records posture 'open' and five grants that list the same 19 paths each, including 'Finance/FY2023 Financial Summary.xlsx' and every executed engagement letter for the Office Manager. That is correct by construction and it is well matched to the org: a five-person boutique really does run an open share, so nothing here reads as wrong. It does mean there is no read-access pattern to judge as organic or assembled, and no reviewer on this dimension can say anything about ACL naturalness from this fixture. Testing that half needs a recipe whose posture actually partitions."
+    }
+  ]
+}

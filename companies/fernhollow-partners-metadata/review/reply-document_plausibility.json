@@ -1,0 +1,44 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "fernhollow-partners",
+  "dimension": "document_plausibility",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": ["d:0001", "d:0008", "d:0013", "d:0016"],
+      "summary": "All four engagement letters are countersigned EXECUTED contracts that allocate no risk: no termination clause, no limitation of liability, no indemnification, no governing law or dispute resolution, no retainer, and no incorporation of standard terms by reference.",
+      "evidence": "The words terminat*, indemnif*, 'limitation of liability', 'governing law', arbitrat*, jurisdiction, dispute, 'standard terms', 'terms and conditions', exhibit, attachment, retainer and 'hold harmless' appear zero times in all 17 authored documents; the only 'liabilit' hits are the substantive 'accrued liabilities' in d:0013 and d:0014. The furthest any letter goes is d:0001: 'We will hold your information in confidence... Our workpapers remain our property.' A real short-form letter that omits these clauses incorporates them ('our Standard Terms, attached as Exhibit A'); these letters neither state them nor reference them, yet a client VP Finance signs the page."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-2",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": ["d:0007", "d:0001"],
+      "summary": "A firm selling independent valuations for financial reporting never once names a credential, a valuation standard, or a restriction on use, across six years of documents.",
+      "evidence": "d:0007 sells 'Independent valuations of businesses, equity interests, and intangible assets, prepared for transactions, financial reporting, and shareholder planning' and closes on 'The practice is led by Michael White, Managing Partner' with no letters after his name, in the one document whose entire job is credibility. ASA, CFA, ABV, CPA, USPAP, SSVS, NACVA, 'certified' and 'accredited' appear zero times corpus-wide. d:0001 scopes a fair-market-value opinion 'suitable for board use' with no standards reference and no restricted-use or no-third-party-reliance language ('third part' and 'reliance' also appear zero times). For a valuation practice the credential is the product; a valuation report addressed to a board with no named standard and no use restriction would not leave a real firm."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-3",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": ["d:0017"],
+      "summary": "Minutes written in the first person by their own named minute-taker, who appears in the third person in the byline of the same document.",
+      "evidence": "d:0017 byline: 'Minutes prepared by Ryan Strong, Analyst, and circulated to all attendees for correction.' Its Discussion section then reads 'I have flagged each of these rather than carrying them forward unsupported, and Sandra Perez agreed that the flags should stand', and later 'requests continue to come in batches rather than piecemeal, which suits our current practice' -- first-person singular and first-person plural in a genre that is third-person throughout. The same minute-taker gets it right elsewhere: d:0014 has 'Ryan Strong flagged one accrued liability balance he could not trace to a source schedule', and d:0005 keeps every attendee in third person."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-4",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": ["d:0016", "d:0003", "d:0010"],
+      "summary": "People are addressed by full name in salutations where real correspondence uses a first name or an honorific and surname, including a director addressing her own two direct reports.",
+      "evidence": "d:0016 opens 'Dear Amanda Golden:' -- neither 'Dear Amanda' nor 'Dear Ms. Golden:', the form the other three letters use ('Dear Ms. Golden:' in d:0001 and d:0008, 'Dear Mr. Ross:' in d:0013), and the classic mail-merge tell in a letter a client countersigned. The emails repeat it: d:0003 greets 'Amanda Golden, Briana Dennis, Ryan Strong --' and d:0010 'Amanda Golden, Briana Dennis, Ryan Strong:', where Sandra is writing to her own Senior Associate and Analyst. The charter asks for 'first names inside the firm'; nobody greets their analyst by first and last name."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "fernhollow-partners",
+  "dimension": "cross_document_voice",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0001", "d:0008", "d:0013", "d:0016"],
+      "summary": "Michael White signs four engagement letters that share no letter format; the firm's most templated document is rebuilt from scratch each time, and the conventions cluster by authoring batch rather than by client, year, or recipient.",
+      "evidence": "Same signatory, same recipient, three salutation conventions: 'Dear Ms. Golden:' (d:0001, 2020), 'Dear Ms. Golden:' (d:0008, 2022), then 'Dear Amanda Golden:' (d:0016, 2024) to the same woman. d:0001/d:0008 carry an addressee block, a confidentiality clause ('We will hold your information in confidence... Our workpapers remain our property') and no complimentary close. d:0013 alone promotes 'Re: Working Capital Assessment' to a heading, uses labeled paragraphs ('Scope.' 'Approach.' 'Team.' 'Fee and timing.'), drops the confidentiality clause, and is the only letter to close 'Sincerely,'. d:0016 has no addressee block at all. The manifest prescribes only title, genre, author and facts, so every one of these choices is the author's."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0005", "d:0012", "d:0014", "d:0017"],
+      "summary": "All four sets of meeting minutes run one narrative skeleton -- Sandra opens, a colleague walks through a schedule, an untraceable figure gets flagged, the client agrees to chase it -- across two different minute-takers, five years, and four separate authoring batches.",
+      "evidence": "Every Discussion section opens on the same verb with the same subject: 'Sandra Perez opened with model status.' (d:0005), 'Sandra Perez opened on the remediation log.' (d:0012), 'Sandra Perez opened with the state of the analysis' (d:0014), 'Sandra Perez opened with the state of the chart of accounts mapping' (d:0017). All four then use 'walked through' for the second speaker. Minutes are attributed to Ryan Strong (d:0005, d:0014, d:0017) and Briana Dennis (d:0012), so two people allegedly produced the identical sentence order. Each of the four engagements also contains exactly one un-sourceable figure, resolved the same way."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-3",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0006", "d:0018", "d:0004", "d:0011"],
+      "summary": "Same-author, same-genre pairs have identical section architecture with every heading reworded, which is the signature of reconstruction from scratch rather than a professional reusing her own file.",
+      "evidence": "Sandra Perez's two status reports: 'Accomplishments This Period' (d:0006) becomes 'Accomplished This Period' (d:0018); both keep 'Status Summary' and 'Upcoming Work' verbatim, while 'Risks' becomes 'Risks and Requests' and swaps order with 'Budget'. Her two briefing decks: 'Engagement at a Glance' / 'Progress to Date' (d:0004) becomes 'Engagement Snapshot' / 'Progress Since Kickoff' (d:0011), same bullet order underneath. Nobody reusing last quarter's deck retypes the title slide's heading as a synonym."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-4",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0003", "d:0010"],
+      "summary": "The two engagement emails are one email with the nouns swapped, down to a verbatim framing sentence and the same recipient list in the same order.",
+      "evidence": "'Two asks on the Woods LLC side.' (d:0003) and 'Two asks on the Nguyen, Reynolds and Martinez side.' (d:0010) sit in the same paragraph slot two years apart, and each time there are exactly two asks. Both open by addressing 'Amanda Golden, Briana Dennis, Ryan Strong' in that order (differing only in '--' vs ':'), both close on a reassurance plus a promise to write again, and they run 114 and 113 words. The report's similarity table does not flag this pair; 4-gram Jaccard is noisy on 114-word documents."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-5",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0005", "d:0006", "d:0017", "d:0018"],
+      "summary": "Persona-sheet wording surfaces as literal prose, and one person's characteristic trait floats onto whoever happens to be on stage.",
+      "evidence": "Sandra's persona says her reports are 'organized around what changed, what it means, and what she needs from the client by when'; both status reports print that sentence as labels -- 'What changed this period: ... What it means: ...' (d:0006 and d:0018 alike), with 'What we need from you' following in each. Ryan's persona says he flags 'anything he cannot source rather than smoothing over it'; d:0005 renders 'it is flagged in the workbook rather than smoothed over' -- but attributes the act to Briana Dennis, in minutes Ryan is taking. d:0017 echoes the same formula again ('flagged each of these rather than carrying them forward unsupported'). The trait is a stylistic tic the generator reapplies, not a habit that distinguishes one colleague from another."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-6",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0017", "d:0018"],
+      "summary": "The firm's own legal name loses 'LLC' in the last two documents only, in exactly the roster and byline slots where the earlier documents spell it out.",
+      "evidence": "Eleven documents name the firm 'Fernhollow Partners LLC' across 24 occurrences, including d:0016 dated 2024-06-29. Then d:0017 (2024-10-12) lists 'Sandra Perez, Director, Fernhollow Partners' three times in an attendee roster whose counterparts in d:0005, d:0012 and d:0014 all read 'Fernhollow Partners LLC', and d:0018's byline follows suit. This is not a rebrand -- d:0016 sits in the same authoring batch and still says LLC."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-7",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": ["d:0001", "d:0008"],
+      "summary": "Interpreting the report's one flagged pair: d:0001/d:0008 is the only pair in the corpus that reads as a real firm reusing its template, so the single similarity flag is a false alarm and the actual defect is inverted.",
+      "evidence": "The shared clause is near-verbatim ('We will hold your information in confidence...' vs 'We hold your information in confidence...', same three sentences, same order) -- which is what an engagement letter template genuinely looks like. A same-genre similarity metric can only flag prose that repeats; it is structurally blind to prose that fails to repeat where a firm's house style requires it. The 0.2524 Jaccard on d:0001/d:0008 is the corpus behaving correctly; the finding is that d:0013 and d:0016 share none of it (rf:voice-1)."
+    }
+  ]
+}
