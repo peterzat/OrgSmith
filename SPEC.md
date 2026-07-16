@@ -17,7 +17,7 @@ fixture. K=1 must reproduce today's serial behavior exactly.
 
 ### Acceptance Criteria
 
-- [ ] **The author stage tracks multiple concurrent outstanding work orders,
+- [x] **The author stage tracks multiple concurrent outstanding work orders,
   additively.** `state.json` gains a new field (empty by default) mapping each
   outstanding authoring work order to the documents it covers; the existing
   `outstanding` (one-per-stage) is unchanged and still governs foundation
@@ -26,7 +26,7 @@ fixture. K=1 must reproduce today's serial behavior exactly.
   (they carry `outstanding: {}` and no new field), proven by the `org` tier
   staying green.
 
-- [ ] **`author --next-batch` emits the next batch disjoint from every
+- [x] **`author --next-batch` emits the next batch disjoint from every
   outstanding one; repeated calls partition the batchable manifest with no
   overlap and no gap.** Two successive `--next-batch` calls with no intervening
   ingest produce two distinct work orders whose document sets are disjoint;
@@ -34,7 +34,7 @@ fixture. K=1 must reproduce today's serial behavior exactly.
   orders, none skipped). The partition is a pure function of the immutable
   manifest: the same recipe built twice yields identical batch/doc groupings.
 
-- [ ] **Each deliverable ingests independently and in any order.**
+- [x] **Each deliverable ingests independently and in any order.**
   `author --ingest` matches a deliverable to its own outstanding work order by
   id, writes that batch's DocIR, and clears only that batch; other outstanding
   batches are untouched. Ingesting batch B before batch A leaves A outstanding
@@ -43,7 +43,7 @@ fixture. K=1 must reproduce today's serial behavior exactly.
   `work_order_id` that is not an outstanding author batch fails loudly (no
   partial write).
 
-- [ ] **Resume across a kill loses nothing and duplicates nothing with multiple
+- [x] **Resume across a kill loses nothing and duplicates nothing with multiple
   batches in flight.** With N batches dispatched and only some ingested,
   reloading state in a fresh process preserves the outstanding set;
   `--next-batch` then emits only genuinely uncovered batches (never re-covering
@@ -52,13 +52,13 @@ fixture. K=1 must reproduce today's serial behavior exactly.
   rendered file, the stage is `done`, and `validate` passes. (Extends the
   existing single-batch resume tests to a multi-batch kill point.)
 
-- [ ] **`status --json` surfaces the outstanding author batches so a fresh
+- [x] **`status --json` surfaces the outstanding author batches so a fresh
   session can re-dispatch them.** For each outstanding authoring work order,
   `status` reports its work-order path and the count of documents it covers;
   with none outstanding the set is empty. This is the file-derived signal
   `/forge` reads on resume (never conversation memory).
 
-- [ ] **`/forge` dispatches a bounded window of authoring workers concurrently,
+- [x] **`/forge` dispatches a bounded window of authoring workers concurrently,
   preserving the airlock and resumability.** The forge `SKILL.md` authoring step
   fills a window of up to K outstanding batches (K stated in the skill), spawns
   one `forge-author` worker per batch *in a single message* so they run
@@ -68,14 +68,14 @@ fixture. K=1 must reproduce today's serial behavior exactly.
   self-contained JSON file, and every deliverable still ingests through
   `author --ingest`. K=1 reproduces the prior serial loop.
 
-- [ ] **Determinism and the seed discipline hold; no new randomness is
+- [x] **Determinism and the seed discipline hold; no new randomness is
   introduced.** Parallel authoring reorders work, it does not generate anything,
   so it adds no `seeds.py` stream: the batch partition derives from the immutable
   manifest and work-order emission is deterministic per run. No committed fixture
   is regenerated or edited; `dev-mini`'s pure-stage pin (`test_org_regen.py`)
   stays green because authoring is downstream of the pinned stages.
 
-- [ ] **From a fresh checkout, `bin/test` passes all tiers offline and keyless,
+- [x] **From a fresh checkout, `bin/test` passes all tiers offline and keyless,
   with `org` under ~5s and `unit` under ~30s.** New unit tests cover the
   concurrent-batch airlock: emission disjointness, out-of-order and reject-path
   ingest, multi-batch resume, `status` surfacing, and partition determinism.
@@ -164,4 +164,39 @@ fixture. K=1 must reproduce today's serial behavior exactly.
 driver-derived supply, realistic per-genre lengths, folder taxonomy beyond
 Engagements/Finance/Firm); all 9 criteria met, dev-mini regenerated and re-pinned.*
 
-<!-- SPEC_META: {"date":"2026-07-16","title":"M10: parallel authoring (concurrent-batch airlock)","criteria_total":8,"criteria_met":0} -->
+### Proposal (2026-07-16)
+
+**What happened.** M10 lifted the authoring wall offline. Five commits: the
+concurrent-batch airlock (`author_batches` in state.json, additive so all
+seven committed state.json load unchanged; `emit/match/clear_author_batch`),
+`author --next-batch` emitting disjoint batches that partition the manifest
+exactly once, per-id independent `--ingest`, `status --json` surfacing the
+outstanding set, seven new unit tests, and `/forge` rewritten to dispatch a
+K=4 parallel window with the orchestrator serializing ingest (workers author
+only) so the CLI stays a lock-free single writer. All tiers green (393; org
+1.3s, unit 29.8s). An end-to-end CLI drive confirmed three disjoint batches
+emit, ingest in reverse order, and validate clean. No org regenerated: the
+wall-clock payoff is realized only when `/forge` runs with real workers.
+
+**Questions and directions.**
+1. *Prove parallel authoring with real workers before the fleet.* This turn
+   proved the machinery offline; nothing has yet measured the actual
+   speedup or exercised the skill's concurrent dispatch + serial-ingest loop
+   with live forge-author workers. A single real `/forge dev-mini` run (small,
+   cheap) would de-risk M11's large generation and produce the first per-batch
+   timing SCALE.md admits it lacks. Do this first, or fold it into M11?
+2. *M11: the reference fleet* (`docs/SCALE.md`: ~6-8 orgs, 30-60 docs each,
+   ~360 total, breadth over volume). This is the big model-driven turn:
+   regenerate/author the fleet under the full v2.0 stack (M8 fabric + M9
+   supply + M10 parallel), then **restore the frozen-fixtures and additive
+   rules** (CLAUDE.md says M11 does this) and re-freeze. Keep six slugs or
+   widen to eight for sector/era/ACL/format breadth? Regenerate existing
+   recipes or write new ones?
+3. *The deferred backlog comes due at M11.* `recipe-growth-outruns-headcount`
+   (make each recipe's growth/headcount/span describe one firm),
+   `charter-redump-drift` (decide byte-frozen vs additive charter.json),
+   `acl-blind-to-departure` (departed-employee read access), and
+   `org-tier-scaling-plan` (the tier will cross its split triggers as the
+   fleet grows) all have M11 as their revisit signal.
+
+<!-- SPEC_META: {"date":"2026-07-16","title":"M10: parallel authoring (concurrent-batch airlock)","criteria_total":8,"criteria_met":8} -->
