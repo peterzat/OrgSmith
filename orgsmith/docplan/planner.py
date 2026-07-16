@@ -320,20 +320,32 @@ class _Planner:
 
     def _emit_email(self, rule: GenreRule) -> None:
         """Engagement mail: format_mix.eml messages assigned round-robin over
-        engagements (wrapping is fine; a thread carries many mails), dated
-        deterministically inside each engagement's window."""
+        engagements (wrapping is fine; a thread carries many mails). A thread
+        opens about four weeks into its engagement and its replies land a day
+        or two apart, so it reads as a thread rather than as monthly memos
+        (the old 45-day spacing; email-thread-spacing). The per-reply gap
+        draws from its OWN seed stream so the cadence never perturbs another
+        pass's randomness."""
         want = getattr(self.charter.doc_culture.format_mix, rule.optional_count)
         if want == 0:
             return
         engs = self.engagements.engagements
+        erand = rng(self.charter.seed, "docplan.email.cadence")
         rounds: dict[str, int] = {}
+        last: dict[str, date] = {}
         for i in range(want):
             eng = engs[i % len(engs)]
             k = rounds.get(eng.id, 0)
             rounds[eng.id] = k + 1
             client = sanitize_component(self._client_name(eng))
             service = eng.title.split(" for ")[0]
-            ed = self._clamp_range(eng.start + timedelta(days=30 + 45 * k))
+            if k == 0:
+                ed = self._clamp_range(eng.start + timedelta(days=28))
+            else:
+                ed = self._clamp_range(
+                    last[eng.id] + timedelta(days=erand.randint(1, 3))
+                )
+            last[eng.id] = ed
             refs, _, _ = self._facts_for(rule, eng, False)
             name = rule.filename.format(
                 date=ed, client=client, service=service, n=k + 1

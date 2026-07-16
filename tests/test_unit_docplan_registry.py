@@ -177,6 +177,25 @@ def test_registry_lengths_are_realistic_and_the_brief_sources_them():
     assert authored and all(r.target_words >= 250 for r in authored)
 
 
+def test_email_thread_replies_are_days_apart_not_weeks():
+    """A thread's messages cluster: successive mails within one engagement are
+    a handful of days apart, not the old fixed 45 (email-thread-spacing)."""
+    charter = _charter(doc_culture=DocCulture(
+        target_docs=11, date_range=(date(2016, 1, 1), date(2023, 12, 31)),
+        format_mix=FormatMix(docx=7, pdf=2, xlsx=2, eml=6)))
+    manifest, _, _ = _build(charter)
+    mails = [e for e in manifest if e.genre == "engagement_email"]
+    assert len(mails) == 6
+    by_eng: dict[str, list] = {}
+    for m in mails:
+        by_eng.setdefault(m.engagement, []).append(m.date)
+    threads = [sorted(ds) for ds in by_eng.values() if len(ds) >= 2]
+    assert threads, "6 mails over 3 engagements should form multi-message threads"
+    for ds in threads:
+        gaps = [(b - a).days for a, b in zip(ds, ds[1:])]
+        assert all(1 <= g <= 7 for g in gaps), gaps
+
+
 def test_registry_is_declarative_removing_a_row_removes_its_docs(monkeypatch):
     charter = _charter()
     full, _, _ = _build(charter)
