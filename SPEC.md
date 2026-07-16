@@ -217,4 +217,59 @@ an untracked session setting.
 *Prior spec (2026-07-15): M6 pre-fleet hardening (affiliation-aware docs, name
 screen, dev-mini regeneration); all 13 criteria met, shipped as v1.5.0.*
 
+### Proposal (2026-07-16)
+
+**What happened.** M7 shipped 13/13 in 12 commits, released as v1.6.0. The
+instrument exists: `report` (no-model corpus metrics), `/forge-review` (a
+read-only board across six dimensions), `review --sample/--ingest`, an
+authoring floor surfaced before tokens are spent, and per-batch provenance.
+Review: 0 BLOCK / 3 WARN (all fixed, probe-verified) / 3 NOTE.
+
+Four results that should drive the next turn:
+
+1. **The board indicts the Python, not the prose.** Of its 11 major findings
+   against fernhollow, only **3 are about the model's writing**. Four indict
+   the *brief* (`contexts.py` asks engagement letters for "scope, approach,
+   team, fee, closing" and never for a termination or liability clause; no
+   brief is date-scoped, so the 2022 firm overview confidently describes
+   events that happen 12-28 days later). Four indict the *ledgers* (nobody is
+   ever hired, promoted, or leaves; every expense line is a frozen percentage
+   of revenue in all eight years; all four engagements are staffed by the same
+   three people). The instrument was built to grade the model and it mostly
+   found that our deterministic side is too clean. "Facts are load-bearing"
+   holds — and the facts are the unrealistic part.
+2. **This reframes the planned `_TARGET_WORDS` raise.** A real engagement
+   letter is 800-1500 words *because it has clauses*. Raising the target
+   without enriching the brief buys padding, not realism. Length and brief
+   richness are one change, not two.
+3. **Low similarity is not health; the signal is inverted.** Measured twice,
+   independently (calibration + the A/B): the corpus that scored *lower*
+   same-genre overlap was the worse one. A metric can only flag prose that
+   repeats and is blind to prose that fails to repeat where house style
+   requires it. Never make it a bar.
+4. **Scale needs longer documents, not just more.** A 2,000-doc org at today's
+   236-word mean is ~628K tokens and fits in a 1M context window, so it would
+   prove nothing about retrieval (`docs/SCALE.md`). That makes the length work
+   a precondition for the flagship, not a nicety.
+
+**Questions and directions.**
+
+- **Is M8 "fabric realism" or "document lengths"?** They are separable but
+  point the same way, and the board's evidence favors fabric: roster churn,
+  step-fixed vs revenue-tracking costs, staffing rotation — all as knobs that
+  default off, so the seven fixtures stay byte-identical. Doing lengths first
+  risks longer documents about an equally frozen firm.
+- **Date-scoped briefs look cheap and high-value.** Two majors (`rf:narr-1`,
+  `rf:narr-2`) share one root cause: the author sees the whole narrative
+  regardless of the document's date. Scoping the brief to what exists as of
+  that date is a small change to `contexts.py`.
+- **`forge-fix` can now be designed against real findings** rather than
+  imagined ones. Worth it, or is "the board reports, the human decides" the
+  right stopping point? A fix loop is where a critic quietly becomes a gate.
+- **Era naming** has been deferred twice (M6 -> M7 -> M8). Still wanted, or is
+  cindergrove's known anachronism acceptable indefinitely?
+- **The board has no negative control.** Its false-positive rate is unmeasured
+  (`docs/REVIEW-CALIBRATION.md`). Worth one turn's attention before its
+  findings drive expensive work?
+
 <!-- SPEC_META: {"date":"2026-07-16","title":"M7: the quality instrument (review board, generation provenance, model/effort policy)","criteria_total":13,"criteria_met":13} -->
