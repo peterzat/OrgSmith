@@ -15,8 +15,8 @@ python3 -m venv .venv
 bin/test                      # short + unit + org; exit 0
 ```
 
-Expect ~21s wall and 335 passing (12 short, 272 unit, 51 org) on a box
-with LibreOffice; ~14s and 329 passing + 6 skipped without it. Both are
+Expect ~21s wall and 331 passing (12 short, 279 unit, 40 org) on a box
+with LibreOffice; ~14s and 325 passing + 6 skipped without it. Both are
 green states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem.
 
@@ -44,8 +44,8 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants | 12 | < 1s | 0.11s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 272 (266 in CI) | ~20s | 16.3s local / 9.5s CI |
-| `org` | full validation of every committed fixture under `companies/`, plus re-deriving each from its recipe | 51 | ~5s | 1.51s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 279 (273 in CI) | ~20s | 16.5s local / 9.5s CI |
+| `org` | full validation of every committed fixture under `companies/`, plus re-deriving each from its recipe (byte-pinned on `dev-mini` only until M11) | 40 | ~5s | 1.45s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
 assert on a shared runner is a flaky test, and this suite has none.
@@ -65,14 +65,27 @@ think the output is any good"). It is unusually well kept here and this
 contract does not relax it.
 
 **Deterministic output must not drift; this is the load-bearing
-invariant.** CLAUDE.md requires every committed fixture to keep
-"regenerating byte-identical structure." Enforced by
-`tests/test_org_regen.py` (added 2026-07-16): it re-derives all seven
-fixtures from `recipes/<slug>/ORG-CHARTER.md` and diffs `foundation.json`
-(structure; personas are model-authored and blanked on both sides),
-`ledger/*.json`, and `docplan/manifest.jsonl` byte-for-byte. The fleet
-re-derives in ~60ms, so it covers every fixture rather than a
-representative one.
+invariant.** Enforced by `tests/test_org_regen.py` (added 2026-07-16): it
+re-derives fixtures from `recipes/<slug>/ORG-CHARTER.md` and diffs
+`foundation.json` (structure; personas are model-authored and blanked on
+both sides), `ledger/*.json`, and `docplan/manifest.jsonl` byte-for-byte.
+
+**The byte-pin is scoped to `dev-mini` for M8..M10** (was: all seven).
+M8 lifts the freeze on `companies/` and makes v2.0 a breaking window:
+churn moves `foundation.json`, behavioral finance moves `finance.json`,
+and rotation moves the manifest, so no pin against the other six
+fixtures' committed bytes can pass, and they retire in M11 rather than
+being regenerated twice to no end. The six stay committed and keep
+validating clean; only the byte comparison narrows. **This is a real loss
+of coverage on six recipes, and it is temporary** — M11 sets `PINNED`
+back to `SLUGS` once the new fleet exists. It is an argument for M11
+landing promptly, not a new steady state.
+
+What survives fleet-wide, because it costs ~60ms and catches a different
+class of break: `test_every_committed_recipe_still_derives` runs all four
+pure stages on all seven recipes. A generator that crashes on
+cindergrove's 1998 recipe or on a knob cluster no other fixture carries
+is still caught; only "the bytes moved" is not.
 
 `charter.json` is the one artifact not pinned to committed bytes.
 Re-dumping gains inert default keys on five of seven (measured at leaf
@@ -90,10 +103,32 @@ ledgers or the manifest.
 **What this closed, measured by fault injection rather than argued.**
 Adding `+ 1` to every expense line in `fabric/finance.py` (a corruption of
 the ledger this project calls ground truth) passed the *entire*
-pre-existing suite green; `test_org_regen.py` fails on all seven fixtures.
+pre-existing suite green; `test_org_regen.py` fails on it.
 `finance.json`, `graph.json`, `mention_map.json`, and `manifest.jsonl` had
-no regeneration coverage at all. Re-run that injection before trusting any
-future edit to this module: a fleet diff that cannot fail is decoration.
+no regeneration coverage at all. A fleet diff that cannot fail is
+decoration, so re-run an injection before trusting any future edit to this
+module — but **not that one**, and this is a correction to the original
+contract rather than a restatement of it.
+
+**The `+ 1` injection proves less than it appears to.** Re-run 2026-07-16
+against the scoped pin: it produces 17 fixture *errors*, not pin failures,
+because `run_fabric` rejects the corrupted ledger against its own tie-out
+before `test_org_regen.py` ever compares a byte. It would fail the same way
+with no pin at all. It is a fine demonstration that tie-outs work and a
+poor one that the diff does.
+
+Use an injection that **ties out cleanly**, which is the only class the pin
+is the sole detector of. Both of these are verified to fail the scoped pin
+and to pass every other tier:
+
+- Swap two `_EXPENSE_CATEGORIES` weights in `fabric/finance.py` (e.g.
+  Travel 0.09 -> 0.08, Professional Services 0.08 -> 0.09). The total is
+  unchanged, so every tie-out passes. Fails the ledger pin, 1 test.
+- Add a stray `fake.first_name()` before the `is_ceo` assignment in
+  `foundation/scaffold.py:_build_people`. This is the reordered-`Faker`-draw
+  landmine the module docstring names, and it is semantically invisible:
+  every name is still a plausible name. Fails foundation, ledgers, and
+  manifest, 3 tests.
 
 Coverage here was partial, not absent, and the difference matters when
 deciding what else to add. Two unit tests already pin regeneration as a

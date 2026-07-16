@@ -216,17 +216,46 @@ class EmploymentSpan(StrictModel):
         return self
 
 
+class TitleSpan(StrictModel):
+    """One title held over a window. Mirrors Affiliation: entries run oldest
+    first, the last entry's title equals Person.title, and end=None means the
+    title is still held."""
+
+    title: str
+    start: date
+    end: date | None = None
+
+    @model_validator(mode="after")
+    def _check(self) -> "TitleSpan":
+        if self.end is not None and self.end <= self.start:
+            raise ValueError("title span end must follow start")
+        return self
+
+
 class Person(StrictModel):
     id: str = Field(pattern=r"^p:[a-z0-9.\-]+$")
     name: str
     aliases: list[str] = []
-    title: str
+    title: str  # the LATEST title held; title_at() resolves it by date
     dept: str
     reports_to: str | None = None  # None = the CEO-equivalent
     employment: EmploymentSpan
     email: str
     phone: str
     persona: str = ""  # model-authored prose; ONLY field enrichment may fill
+    # Empty for anyone never promoted, which is most of a roster; `title` is
+    # then the answer for every date. Populated only where a title moved.
+    title_history: list[TitleSpan] = []
+
+    def title_at(self, when: date) -> str:
+        """The title held on `when`. Falls back to `title` for dates outside
+        every span and for an empty history, mirroring employer_at: a resolver
+        that raised on a boundary date would make every caller handle a case
+        the ledger cannot produce."""
+        for span in self.title_history:
+            if span.start <= when and (span.end is None or span.end >= when):
+                return span.title
+        return self.title
 
 
 class ExternalOrg(StrictModel):

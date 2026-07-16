@@ -1,17 +1,28 @@
-"""Org tier: every committed fixture re-derives from its recipe unchanged.
+"""Org tier: committed fixtures re-derive from their recipes unchanged.
 
-CLAUDE.md calls the committed fleet frozen: every fixture must keep
-"regenerating byte-identical structure, without regeneration or hand
-edits." Nothing enforced that. `test_unit_pure_stages.py`'s determinism
-test proves the code agrees with *itself* run-to-run, on dev-mini only;
-the rest of this tier validates committed artifacts against each other
-and never re-runs the generator. So a change that moves every fixture
-*consistently* was green in all three tiers, which is exactly what a
-reordered `Faker` draw or a re-used `rng` stream does.
+The property this exists to hold: `test_unit_pure_stages.py`'s determinism
+test proves the code agrees with *itself* run-to-run, so a change that
+moves every fixture *consistently* is green there and everywhere else in
+the suite. That is exactly what a reordered `Faker` draw or a re-used
+`rng` stream does. Only a diff against previously committed bytes catches
+it, which is why `+ 1` on every expense line in `fabric/finance.py` passed
+the entire suite before this module existed.
 
-The fleet re-derives in ~60ms, so this runs over every fixture rather
-than a representative one: a seed change that misses dev-mini and hits
-one real recipe is the case worth catching.
+**The byte-pin is scoped to `dev-mini` until the fleet resets in M11.**
+M8 lifts the freeze on `companies/`: churn moves `foundation.json`,
+behavioral finance moves `finance.json`, and rotation moves the manifest,
+so no pin against the other six fixtures' committed bytes can pass, and
+they retire in M11 rather than being regenerated twice. Scoping the pin to
+one recipe keeps the fault-injection property alive and gives it up on
+six; that is the priced cost of the lift, recorded in SPEC.md, and it is
+an argument for M11 landing promptly. The six stay committed and keep
+validating clean (`test_org_fleet.py`) -- their artifacts are internally
+consistent, and validation never re-runs the generator.
+
+What survives the unpin fleet-wide, because it costs ~60ms and still
+catches a real class of break: every recipe must keep *deriving* through
+all four pure stages. A generator that crashes on cindergrove's 1998
+recipe is caught here even though its bytes are no longer pinned.
 """
 
 import json
@@ -48,6 +59,13 @@ def _committed_slugs():
 
 COMMITTED = _committed_slugs()
 SLUGS = [s for s in COMMITTED if (REPO / "recipes" / s).is_dir()]
+
+# The fixtures whose committed bytes are pinned. Scoped to the tracer for
+# M8..M10 (see the module docstring); M11 restores it to the whole fleet by
+# setting this back to SLUGS once the new fleet is generated. Kept as a
+# derived list rather than a literal so an absent dev-mini degrades to an
+# empty pin and a visible skip, not a KeyError.
+PINNED = [s for s in SLUGS if s == "dev-mini"]
 
 
 @pytest.fixture(scope="module")
@@ -107,6 +125,25 @@ def test_every_committed_fixture_has_a_recipe():
 
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
 @pytest.mark.parametrize("slug", SLUGS or ["none"])
+def test_every_committed_recipe_still_derives(slug, regenerated):
+    """Fleet-wide, and the coverage that survives the scoped pin: all four
+    pure stages run to completion on every recipe and write what the next
+    stage reads. Cheap (~60ms for the fleet) and catches a generator that
+    crashes on one era or knob cluster, which the pin no longer would."""
+    paths = regenerated[slug]
+    for artifact in (
+        paths.charter_json,
+        paths.foundation_json,
+        paths.finance_json,
+        paths.engagements_json,
+        paths.manifest_jsonl,
+    ):
+        assert artifact.exists(), artifact.name
+        assert artifact.stat().st_size > 0, artifact.name
+
+
+@pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
+@pytest.mark.parametrize("slug", PINNED or ["none"])
 def test_committed_foundation_regenerates(slug, regenerated):
     fresh = regenerated[slug].foundation_json.read_text()
     # Blanking personas is only sound while scaffold leaves them to the model.
@@ -115,8 +152,8 @@ def test_committed_foundation_regenerates(slug, regenerated):
     assert _blank_personas(fresh) == _blank_personas(committed)
 
 
-@pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
+@pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
+@pytest.mark.parametrize("slug", PINNED or ["none"])
 def test_committed_ledgers_regenerate_byte_identical(slug, regenerated):
     committed = OrgPaths(root=REPO, slug=slug)
     names = sorted(
@@ -131,8 +168,8 @@ def test_committed_ledgers_regenerate_byte_identical(slug, regenerated):
         ).read_bytes(), name
 
 
-@pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
+@pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
+@pytest.mark.parametrize("slug", PINNED or ["none"])
 def test_committed_manifest_regenerates_byte_identical(slug, regenerated):
     committed = OrgPaths(root=REPO, slug=slug)
     assert (
