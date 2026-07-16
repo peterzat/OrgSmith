@@ -337,6 +337,14 @@ class _Planner:
         first_eng = self.engagements.engagements[0]
         mid = self.range_start + (self.range_end - self.range_start) / 2
         mid = self._clamp_range(max(mid, first_eng.start + timedelta(days=30)))
+        # Every client whose engagement has begun by the overview's date. The
+        # brief's firm digest names exactly these (by fact id), so briefing
+        # their client facts here is what keeps FACT-01 satisfied: the digest
+        # can reference only facts the document is briefed to carry. Dating
+        # the overview mid-range means it legitimately cites the early clients
+        # and cannot cite the later ones -- which is the anachronism rf:narr-1
+        # was about.
+        as_of = [e for e in self.engagements.engagements if e.start <= mid]
         self._add(
             path=f"Firm/Firm Overview {mid:%Y} v3.docx",
             title="Firm Overview",
@@ -346,7 +354,7 @@ class _Planner:
             authors=[self.ceo.id],
             participants=[self.ceo.id],
             engagement=None,
-            facts_refs=[f"f:{first_eng.id}.client"],
+            facts_refs=[f"f:{e.id}.client" for e in as_of],
         )
 
         fy_years = [

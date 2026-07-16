@@ -105,6 +105,14 @@ Hard rules:
   as mentions of themselves. Short surfaces are nicknames: work them into
   prose naturally ("...as {{nickname}} noted..."), alongside, not instead
   of, the person's full name.
+- If a doc carries `engagement_position`, honor it: it states where the
+  document sits in its engagement's timeline. Do not describe progress or a
+  phase inconsistent with it, and do not state the engagement's start or
+  end date (those are fact placeholders, not yours to write).
+- If a doc carries `firm_digest`, it is the ONLY firm history you may treat
+  as established as of this document's date. Reference clients only through
+  the placeholders it names; claim no engagement it does not list; present
+  nothing later than this document as already true.
 - Write plain, era-appropriate business prose in the org's voice.
 """
 
@@ -117,6 +125,68 @@ def _brief_summary(eng) -> str:
     return (
         f"{eng.title}, running about {months} months. Commercial terms and "
         f"dates are briefed as fact placeholders only."
+    )
+
+
+def _engagement_position(eng, when: date) -> str:
+    """Where `when` sits inside the engagement, in Python. rf:narr-2's exact
+    failure (a deck 51 days into a 204-day program calling itself 'past its
+    midpoint') stops being expressible because the author is told the position
+    instead of inferring it from a start date it must not see.
+
+    States elapsed days and a phase, never the start or end date: those are
+    facts, and the airlock holds only if the brief carries structure, not
+    values. A document dated before the letter's lead-in or after the close
+    is clamped to the engagement's own window."""
+    total = max(1, (eng.end - eng.start).days)
+    elapsed = (when - eng.start).days
+    pct = max(0, min(100, round(100 * elapsed / total)))
+    if elapsed <= 0:
+        phase = "at or before kickoff"
+    elif elapsed >= total:
+        phase = "at or after the close"
+    elif pct < 40:
+        phase = "in the early phase"
+    elif pct <= 60:
+        phase = "around the midpoint"
+    else:
+        phase = "in the later phase"
+    return (
+        f"This document is dated about {pct}% of the way through the "
+        f"engagement ({phase}); it runs roughly {round(total / 30)} months "
+        f"end to end. Do not describe progress inconsistent with that "
+        f"position, and do not state the engagement's start or end date."
+    )
+
+
+def _firm_digest(all_engagements, when: date) -> str:
+    """What the firm can truthfully say about itself AS OF `when`: how many
+    engagements have begun, over how many years, and their clients BY FACT ID
+    (never by value -- a client name is `f:E-....client` and would leak). This
+    replaces handing the timeless recipe narrative to a dated overview
+    (rf:narr-1), which invented a relationship because it had nothing true and
+    a whole-arc brief.
+
+    An overview dated early in the firm's life gets a short digest, which is
+    the point: it cannot claim client work that has not happened yet."""
+    started = sorted(
+        (e for e in all_engagements if e.start <= when), key=lambda e: e.start
+    )
+    if not started:
+        return (
+            "As of this document's date the firm has no completed client "
+            "engagements to cite; describe the practice and its intent, and "
+            "claim no specific client work."
+        )
+    years = sorted({e.start.year for e in started})
+    span = f"{years[0]}" if len(years) == 1 else f"{years[0]}-{years[-1]}"
+    client_refs = ", ".join(f"{{{{fact:f:{e.id}.client}}}}" for e in started)
+    return (
+        f"As of this document's date the firm has begun {len(started)} "
+        f"client engagement(s) across {span}. Reference clients ONLY through "
+        f"these placeholders, never by inventing a name: {client_refs}. "
+        f"Present nothing that post-dates this document as established, and "
+        f"claim no engagement not listed here."
     )
 
 
@@ -256,6 +326,14 @@ def run_next_batch(paths: OrgPaths) -> int:
                     mentions=list(entry.mentions),
                     target_words=_TARGET_WORDS[entry.genre],
                     guidance=guidance,
+                    engagement_position=(
+                        _engagement_position(eng, entry.date) if eng else ""
+                    ),
+                    firm_digest=(
+                        _firm_digest(engagements.values(), entry.date)
+                        if entry.genre == "company_overview"
+                        else ""
+                    ),
                 )
             )
         return WorkOrder(

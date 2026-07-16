@@ -482,6 +482,102 @@ def test_expenses_draw_from_their_own_stream():
     assert [y.quarters for y in a.years] == [y.quarters for y in b.years]
 
 
+# --- date-scoped briefs: engagement position and firm digest ---------------
+
+
+def test_engagement_position_is_stated_not_the_dates():
+    """rf:narr-2: a deck 51 days into a 204-day program called itself 'past
+    its midpoint'. The brief now states the position in Python, and never the
+    start or end date -- those stay fact placeholders (the airlock)."""
+    from datetime import timedelta
+
+    from orgsmith.authoring.contexts import _engagement_position
+
+    class E:
+        start = date(2020, 1, 1)
+        end = start + timedelta(days=204)
+
+    e = E()
+    early = _engagement_position(e, e.start + timedelta(days=51))
+    assert "25%" in early and "early phase" in early
+    late = _engagement_position(e, e.start + timedelta(days=180))
+    assert "later phase" in late
+    # The exact rf:narr-2 failure is no longer expressible: 51/204 is not
+    # "past the midpoint".
+    assert "midpoint" not in early
+    # No literal engagement date leaks into the brief.
+    for text in (early, late):
+        assert "2020" not in text and "01-01" not in text
+
+
+def test_engagement_position_clamps_out_of_window_dates():
+    from datetime import timedelta
+
+    from orgsmith.authoring.contexts import _engagement_position
+
+    class E:
+        start = date(2020, 1, 1)
+        end = start + timedelta(days=100)
+
+    e = E()
+    # A letter dated before kickoff (lead-in) and a doc after close both stay
+    # inside 0..100% rather than reading -30% or 130%.
+    assert "0%" in _engagement_position(e, e.start - timedelta(days=30))
+    assert "100%" in _engagement_position(e, e.end + timedelta(days=30))
+
+
+def test_firm_digest_names_clients_by_fact_id_and_scopes_to_the_date():
+    """rf:narr-1: an overview invented a relationship because it was handed the
+    whole-arc narrative and one client fact. The digest carries only what has
+    begun as of the date, clients as placeholders, never by value."""
+    from datetime import timedelta
+
+    from orgsmith.authoring.contexts import _firm_digest
+
+    class E:
+        def __init__(self, eid, start):
+            self.id = eid
+            self.start = start
+
+    engs = [
+        E("E-2019-001", date(2019, 6, 1)),
+        E("E-2021-001", date(2021, 6, 1)),
+        E("E-2023-001", date(2023, 6, 1)),
+    ]
+    # Dated mid-2021: the first two have begun, the third has not.
+    digest = _firm_digest(engs, date(2021, 12, 31))
+    assert "2 client engagement" in digest
+    assert "{{fact:f:E-2019-001.client}}" in digest
+    assert "{{fact:f:E-2021-001.client}}" in digest
+    assert "E-2023-001" not in digest, "cited an engagement that had not begun"
+
+
+def test_firm_digest_before_any_engagement_claims_no_client_work():
+    from orgsmith.authoring.contexts import _firm_digest
+
+    class E:
+        id = "E-2022-001"
+        start = date(2022, 1, 1)
+
+    digest = _firm_digest([E()], date(2020, 1, 1))
+    assert "no completed client engagements" in digest or "no " in digest.lower()
+    assert "{{fact" not in digest, "claimed a client before any engagement began"
+
+
+def test_overview_briefs_only_the_clients_that_exist_as_of_its_date(tmp_path):
+    """End to end: the planted facts_refs match the digest, so FACT-01 is
+    satisfiable -- the overview is briefed exactly the clients it may cite,
+    and more than the single one it used to carry."""
+    paths = build_pure_stages(tmp_path)
+    from orgsmith.artifacts import load_manifest
+
+    man = load_manifest(paths)
+    overview = next(e for e in man if e.genre == "company_overview")
+    # dev-mini's engagements that begin before the mid-range overview.
+    assert len(overview.facts_refs) >= 2, "overview should cite more than one client"
+    assert all(ref.endswith(".client") for ref in overview.facts_refs)
+
+
 # --- staffing rotation -----------------------------------------------------
 
 

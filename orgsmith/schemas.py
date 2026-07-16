@@ -619,6 +619,17 @@ class DocBrief(StrictModel):
     mentions: list[PlannedMention] = []
     target_words: int = 250
     guidance: str = ""
+    # Where this document sits inside its engagement AS OF its date, computed
+    # in Python (M8). rf:narr-2 was a deck 51 days into a 204-day program
+    # calling itself "past its midpoint"; told its position, the author cannot
+    # guess wrong. States position, never the start date, so the airlock holds:
+    # a date is a fact and stays a placeholder. Empty for firm-level docs.
+    engagement_position: str = ""
+    # For company_overview: what the firm can truthfully claim AS OF its date
+    # (M8). rf:narr-1 was an overview inventing a relationship because it was
+    # handed the timeless recipe narrative and one client fact. This carries a
+    # date-scoped digest naming clients by FACT ID only, never by value.
+    firm_digest: str = ""
 
 
 class WorkOrder(StrictModel):
