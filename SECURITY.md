@@ -2,140 +2,127 @@
 
 ## Security Review — 2026-07-16 (scope: paths)
 
-**Summary:** M10 concurrent-batch airlock scan: the work-order plumbing
-(`airlock.py`), the resume-state models (`state.py`), the status surface
-(`status.py`), the outbound author work-order builder (`contexts.py`), and the
-inbound deliverable validator (`ingest.py`). These five files were not in any
-prior review's scope (the M9 pass explicitly excluded the ingest modules). No
-BLOCKs and no WARNs. One NOTE: `ingest.py`'s single model-output-to-filesystem
-sink (`docir_path`) derives a path from the model-controlled, schema-
-unconstrained `DocIR.doc_id`, made safe today only by an upstream membership
-check in the same function, not by a guard at the sink or a schema pattern.
-**That NOTE is fixed as of the M11a turn (2026-07-16); see its Resolution
-below. No re-scan was run: the fix is recorded against the finding rather
-than as a new review entry.**
-The airlock holds: model output is the only untrusted input in scope, and every
-value it carries into a sink (doc ids, work-order ids, facts, mentions,
-placeholders) is validated against the trusted work order / ledgers before any
-write, and every terminal echo of model-controlled text is `strip_control`ed.
+**Summary:** M11a scan of the turn's changed surface: the ACL overlay
+(`acl.py`, employment-scoped grants), the hardened inbound airlock
+(`ingest.py` + `schemas.py`, closing the M10 NOTE), the guarded charter write
+(`charter.py`), roster growth (`foundation/scaffold.py`), and the five test
+modules pinning them. No BLOCK, no WARN, no NOTE. **The M10 NOTE is closed and
+independently verified this pass** (the M11a turn recorded the fix without a
+re-scan; this is that re-scan). The airlock's one model-output-to-filesystem
+sink is now guarded at two layers that fail independently, confirmed by
+execution rather than by reading.
 
 ### Findings
 
-**[NOTE — FIXED 2026-07-16] orgsmith/authoring/ingest.py:34,228 (with
-orgsmith/schemas.py:590) — `docir_path` builds a filesystem path from the
-model-controlled, schema-unconstrained `DocIR.doc_id`; safe today only by
-non-local check ordering.**
-
-  Attack vector: none reachable at HEAD. A malicious deliverable could set a
-  `DocIR.doc_id` such as `../../evil` (the field has no schema pattern), and
-  `docir_path` (ingest.py:34) maps it to a write target by stripping only `:`
-  (`doc_id.replace(':', '')`), not `/` or `..`, then `run_ingest` writes
-  `dump_json(doc)` to that path (ingest.py:228-229). The traversal does NOT
-  reach the write because `run_ingest` first computes
-  `unknown = set(got) - set(briefs)` (ingest.py:161-163) and returns 1 on any
-  non-empty `problems` (ingest.py:213-221) BEFORE the write loop (line 227), so
-  every written `doc.doc_id` is provably a key of `briefs` = the trusted
-  work-order doc ids, which the manifest constrains to `^d:\d{4}$`
-  (`ManifestEntry.doc_id`, schemas.py:517). This confirms the prior reviews'
-  "the model never controls a path" for this newly-in-scope sink. It is a
-  defense-in-depth NOTE, not an exploitable finding: the safety is non-local
-  (it depends on the `unknown` check running, and running before the write),
-  and unlike `ManifestEntry.doc_id` the `DocIR.doc_id` the sink consumes
-  carries no pattern of its own.
-  Evidence: ingest.py:34 `return paths.docir_dir / f"{doc_id.replace(':', '')}.json"`;
-  ingest.py:228 `target = docir_path(paths, doc.doc_id)` inside the post-gate
-  write loop; schemas.py:590 `doc_id: str` (no `Field(pattern=...)`) versus
-  schemas.py:517 `doc_id: str = Field(pattern=r"^d:\d{4}$")`. `docir_path`'s
-  other three callers (render/__init__.py:123, validate/rules.py:139,
-  review/corpus.py:92) all pass a manifest `entry.doc_id`, which is already
-  pattern-constrained; ingest.py:228 is the only caller passing a model-
-  controlled id.
-  Remediation: add `Field(pattern=r"^d:\d{4}$")` to `DocIR.doc_id` in
-  schemas.py so the schema layer rejects a hostile id before any check runs
-  (mirrors `ManifestEntry.doc_id`), and/or have `docir_path` take the basename
-  / run `check_relpath` on the derived name so the sink is self-guarding rather
-  than caller-guarded. Either is a one-line change; no urgency.
-
-  **Resolution (2026-07-16, M11a):** both layers, since they fail
-  independently. `DocIR.doc_id` now carries `Field(pattern=r"^d:\d{4}$")`
-  (schemas.py), so a hostile deliverable is rejected by
-  `AuthoringDeliverable.model_validate_json` at ingest.py:154 — before
-  `match_author_batch` and before the `unknown` check that was previously the
-  only thing standing between the id and the write loop. `docir_path`
-  (ingest.py:34) additionally guards itself with `check_filename` on the
-  derived basename and raises `ValueError` on a problem, so the sink is safe
-  for any future caller regardless of the schema. One correction to the
-  remediation as written: `check_relpath` is the **wrong** guard here — it
-  splits on `/` before checking each component, so it accepts `"a/b"`;
-  `check_filename` is what forbids `/` and `\`. Pinned by
-  `tests/test_unit_airlock.py::test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink`,
-  which asserts rejection at both layers for `../../evil`,
-  `d:0001/../../evil`, `/etc/passwd`, and `..\..\evil`, that a legitimate id
-  still resolves inside `docir_dir`, and that no rejected attempt writes
-  anything. Full suite green: 12 short / 342 unit / 40 org.
+No security issues identified in the reviewed scope.
 
 ### Reviewed Surface
 
-- The airlock's inbound boundary (`ingest.py`) is the only untrusted-input
-  path in scope. `AuthoringDeliverable.model_validate_json` (ingest.py:144)
-  schema-validates first (unknown fields rejected by `StrictModel`). Every
-  model-controlled value that could reach a sink is checked against trusted
-  state before it is used or written: `work_order_id` must be an outstanding
-  key in `state.author_batches` (`match_author_batch`, airlock.py:126-131) and
-  is used only as a dict key and a stored-order equality check, never a path;
-  `doc_id`s must match the work order (`unknown`/`missing`, ingest.py:161-166);
+- **The M10 NOTE is closed, verified by execution.** `DocIR.doc_id` now
+  carries `Field(pattern=r"^d:\d{4}$")` (schemas.py:616) and `docir_path`
+  guards its own derived basename with `check_filename`, raising `ValueError`
+  (ingest.py:34-45). Both layers were exercised directly against `../../evil`,
+  `d:0001/../../evil`, `/etc/passwd`, `..\..\evil`, embedded NUL, and the
+  anchor-bypass payloads `d:0001\n` / `d:0001\nd:0002`: **every payload is
+  rejected by each layer independently**, and a legitimate id still resolves
+  inside `docir_dir`. Two details worth recording because they are load-bearing
+  and non-obvious. First, pydantic 2.13.4 resolves `regex_engine` to the
+  default `rust-regex`, whose `$` matches end-of-haystack only, so the classic
+  `"d:0001\n"` trailing-newline bypass (which Python's `re` would accept, since
+  its `$` also matches before a final newline) is rejected at the schema layer;
+  the repo does not depend on that alone, because `check_filename`'s
+  control-character rule rejects the same payload at the sink. Second, the
+  fix's own comment is right that `check_relpath` would have been the wrong
+  guard: it splits on `/` before checking components, so it accepts `"a/b"`.
+  `check_filename` forbids `/` and `\`, which is what this sink needs. The
+  safety is now local to each layer rather than a consequence of `run_ingest`'s
+  check ordering, which is exactly what the NOTE asked for. Pinned by
+  `tests/test_unit_airlock.py::test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink`
+  (module green, 8 passed).
+- **`ingest.py` remains the only untrusted-input path in scope, and it
+  holds.** Schema validation runs first (`StrictModel`, extra fields
+  rejected); `work_order_id` is a dict lookup into `state.author_batches`
+  (`match_author_batch`, airlock.py:121-140), never a path component; doc ids,
   placeholders, non-body facts, literal fact values, and mentions are all
-  validated against the ledger fact index (ingest.py:65-72, 101-136, 182-211);
-  and the write loop runs only after `if problems: return 1`. The stored
-  `deliverable.generator` (ingest.py:223-224) is recorded, never trusted as an
-  oracle (per its schema docstring); no in-scope code uses it as a gate.
-- Terminal-injection from model-controlled strings is defended. Both echoes of
-  deliverable text run through `strip_control`: the schema-error path keeps
-  `\n\t` (ingest.py:150, harmless — ESC/CR are category Cc and become U+FFFD),
-  and the per-problem path uses `keep=''` so an embedded newline cannot forge a
-  second output line (ingest.py:220). The JSON status branch uses `json.dumps`
-  (status.py:51); its human branch prints only Python-derived ids/paths
-  (`wo:author:NNNN`, serial filenames), never model text.
-- `contexts.py` builds OUTBOUND work orders only and consumes no deliverable.
-  Its inputs are the charter, foundation, engagements, and manifest — all pure-
-  stage ledgers, trusted. It withholds ledger values from briefs by design
-  (`_brief_summary`, `FactBrief` carries a hint but never the rendered value),
-  which is the airlock's fact-leak discipline, not a gap. The one model-to-
-  model flow (a prior pass's `persona` into the next brief, contexts.py:232) is
-  inside the operator's own trust domain and gates nothing; consistent with
-  prior reviews, not a concrete finding.
-- `airlock.py`/`state.py`/`status.py` construct paths only from Python-derived
-  serial filenames (`emit_work_order`, `emit_author_batch`) or from strings
-  stored in `state.json` (`outstanding[stage]`, `BatchRef.workorder`). Those
-  stored strings are never derived from model output — they are set by the emit
-  functions to computed basenames — so the `paths.workorders_dir / name` joins
-  (airlock.py:29,132) are not a model-reachable traversal. `state.json` itself
-  is Python-written and committed; tampering it is a local-filesystem
-  compromise, outside the airlock threat model (model deliverables are the sole
-  untrusted input).
-- Secrets / dangerous sinks / PII: pattern grep over all five files is clean
-  (no secret/token/key material); there is no `subprocess`/`eval`/`exec`/
-  `os.system`/`pickle`/`open`/`shell=True` anywhere in scope; no real names,
-  emails, or phone numbers are hardcoded (all such data flows through ledgers
-  at runtime). `git log` over the five modules shows only M9/M10 feature
-  commits, no secret-shaped diffs. No credential-handling code is present, so
-  no deep `git log -p` secret sweep was warranted.
-- Out of security scope but noted for the reader: `emit_author_batch`'s
-  serial-numbering (airlock.py:108) is safe only under sequential emission (the
-  orchestrator is the single serial writer, per the M10 design); a concurrent
-  double-emit would be a local correctness race, not an externally-reachable
-  vulnerability, so it is not a security finding.
+  checked against the trusted work order and ledger fact index before the
+  `if problems: return 1` gate at line 223, and the write loop runs only after
+  it. `_PLACEHOLDER` (`\{\{fact:([^}]*)\}\}`) is a non-nesting star with no
+  backtracking blowup, and `surface_in_text` calls `re.escape` on a
+  work-order-derived surface.
+- **Model-controlled text reaching a terminal or a persisted artifact is
+  neutralized at every echo.** The rejection printer uses
+  `strip_control(p, keep='')` (ingest.py:230) so a smuggled newline cannot
+  forge a second line; the schema-error path strip_controls the
+  `ValidationError` (ingest.py:160). `docir_path`'s `ValueError` interpolates
+  the hostile id with `!r`, and `repr()` escapes control characters, so even
+  an uncaught raise cannot drive the terminal. The one place model output
+  persists into a human-read artifact, `deliverable.generator` ->
+  `state.generators` (ingest.py:233-234) -> `review/report.py`, passes through
+  `_cell`, which strips control characters and escapes both newlines and pipes
+  so a forged markdown row is not expressible. Nothing gates on `generator`
+  (grep-confirmed: `report.py` renders it, no validator rule reads it),
+  consistent with its schema docstring calling it a record and not an oracle.
+- **`acl.py` takes no untrusted input, so its rewrite is not an auth
+  surface.** It is derived ground truth for grading someone else's system, not
+  an enforcement point: no request, session, or principal from outside reaches
+  it. Its four inputs are the charter (recipe, operator trust domain) and the
+  foundation / engagements / manifest ledgers (pure-stage Python). The
+  foundation is the only one the model touches at all, and enrichment merges
+  `persona` only, which is enforced structurally rather than by convention
+  (`PersonaEnrichment` is a `StrictModel` carrying two fields, so a payload
+  setting `reports_to` is rejected at parse; pinned by
+  `test_unit_airlock.py::test_enrichment_rejections`). `derive_acl` reads
+  `employment.end`, `id`, and `reports_to`, none of them model-writable. The
+  new employment scoping is a product-correctness decision, not a security
+  boundary, and the ACL-02 invariant it leans on is sound by construction: the
+  CEO-equivalent is `reports_to is None` and churn eligibility requires
+  `reports_to is not None`, so the CEO can never depart and every document
+  keeps a reader under all three posture branches.
+- **`charter.py` parses recipes with `yaml.safe_load` (line 26),** not
+  `yaml.load`, so a recipe cannot construct arbitrary objects. `Charter.slug`
+  is pattern-constrained (`^[a-z0-9][a-z0-9-]*$`) and cross-checked against the
+  recipe directory, so no slug reaches a path as a traversal. The new
+  write-suppression guard compares rendered bytes and changes no trust
+  boundary. Recipes are operator-authored and in-repo; consistent with every
+  prior review, that is the established trust domain.
+- **`scaffold.py` composes ids and emails through `_slugify`**
+  (NFKD -> ascii -> `[^a-z0-9]+` collapse), and `Person.id` is additionally
+  pattern-bound. Nothing it emits reaches a path, a shell, or a query. No
+  network and no model call, per the airlock.
+- **Secrets / dangerous sinks / PII: clean.** No `subprocess`, `eval`, `exec`,
+  `os.system`, `pickle`, `open`, or `shell=True` anywhere in scope. Content
+  grep for secret material is clean, and a `git log -p` sweep over the full
+  history of every scoped module returns no secret-shaped line ever committed
+  (the only hit is the `/etc/passwd` traversal payload in the test above). No
+  credential-handling code exists in scope. No PII: the only literal emails are
+  `example.com` (RFC 2606 reserved) in `test_unit_history.py:44,866`, phone
+  numbers are drawn from the reserved fictional 555-01xx block
+  (scaffold.py:36,158), and `_NICKNAMES` / `_EXT_TITLES` are generic word
+  tables identifying nobody. "Goldman Sachs" (`test_unit_history.py:648`) is a
+  firm name used as the negative fixture for the real-firm name screen, which
+  is the test's purpose. File modes are 664.
+- **Not re-verified, and named rather than implied:** the M9 `render/pdf.py`
+  letterhead NOTE (recipe-author-controlled interpolation under
+  `autoescape=False`) is against unchanged code outside this path scope and
+  carries forward open. Dependency manifests are outside the scope too; noted
+  only because `charter.py` consumes PyYAML, which is pinned at 6.0.3 and used
+  safely.
 
 ### Accepted Risks
 
 None recorded.
 
 ---
-*Prior review (2026-07-16, scope paths, commit c013c06): M9 document-supply
-scan of the genre registry, registry-driven planner, date-scoped work orders,
-and the reworked PDF renderer; 0 BLOCK / 0 WARN / 1 NOTE (the `render/pdf.py`
-letterhead interpolated unescaped under `autoescape=False`, recipe-author-
-controlled with egress blocked, carried unchanged from every prior review).
-That NOTE's file is outside the current path scope and was not re-verified.*
+*Prior review (2026-07-16, scope paths, commit 7cd134b): M10 concurrent-batch
+airlock scan of `airlock.py`, `state.py`, `status.py`, `contexts.py`, and
+`ingest.py`; 0 BLOCK / 0 WARN / 1 NOTE. The NOTE was a defense-in-depth
+observation that `docir_path` derived a filesystem path from the
+model-controlled, schema-unconstrained `DocIR.doc_id`, exploitable only if
+`run_ingest`'s upstream work-order membership check were ever reordered after
+the write loop. The M11a turn fixed it at both the schema and the sink and
+recorded the resolution against the finding without re-scanning; this review
+is that re-scan and confirms the closure by execution. It also carried forward
+the M9 `render/pdf.py` letterhead NOTE, still open against unchanged
+out-of-scope code.*
 
-<!-- SECURITY_META: {"date":"2026-07-16","commit":"7cd134b78e678943b2f865e95c08b6996aea9401","scope":"paths","scanned_files":["orgsmith/airlock.py","orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/state.py","orgsmith/status.py"],"block":0,"warn":0,"note":1} -->
+<!-- SECURITY_META: {"date":"2026-07-16","commit":"38d79aa2a0ebe2a049aca4849190980da359925d","scope":"paths","scanned_files":["orgsmith/acl.py","orgsmith/authoring/ingest.py","orgsmith/charter.py","orgsmith/foundation/scaffold.py","orgsmith/schemas.py","tests/test_org_regen.py","tests/test_unit_acl.py","tests/test_unit_airlock.py","tests/test_unit_history.py","tests/test_unit_resume.py"],"block":0,"warn":0,"note":0} -->

@@ -1,63 +1,79 @@
 # CODEREVIEW
 
-## Review — 2026-07-16 (commit: 7cd134b)
+## Review — 2026-07-16 (commit: 38d79aa)
 
-**Summary:** Refresh review of the unpushed M10 arc (the concurrent-batch
-airlock for parallel authoring) plus this turn's live-authoring de-risk, scope
-`origin/main..HEAD` with focus since the prior review (c013c06, M9). Focus set,
-full depth: `orgsmith/airlock.py` (emit/match/clear_author_batch),
-`orgsmith/state.py` (BatchRef + author_batches), `orgsmith/authoring/contexts.py`
-(pick_batch exclude), `orgsmith/authoring/ingest.py` (per-batch match/clear),
-`orgsmith/status.py` (author_batches surfacing), the `/forge` and `/forge-author`
-skills, the M10 unit tests, and `docs/SCALE.md`. The review is corroborated by an
-end-to-end live run this turn: dev-mini authored through the real `/forge` loop
-with concurrent forge-author workers (three batches outstanding at once, disjoint,
-ingested out of emission order), `validate` clean, structure byte-identical to the
-committed fixture. `bin/test` green: 393 passing (12 short / 341 unit / 40 org).
+**Summary:** Full-depth review of the unpushed M11a arc (nine commits,
+`origin/main..HEAD`): the reference fleet's six new recipes, roster growth
+(`RosterChurn.hires`), employment-scoped ACL grants, the guarded charter write,
+the M10 security fix, and the live generation of `meridian-actuarial`. Scope
+resolved as a refresh review (prior review `7cd134b`, 0 BLOCK, same base), but
+the focus set turned out to equal the full set — `origin/main` is at `4067f3c`,
+so the M10 arc is already pushed and everything unpushed is M11a. All 20 source
+files were therefore reviewed at full depth, not as a refresh. `bin/test` green
+and unmoved from the pre-change baseline: **422 passing** (12 short / 349 unit /
+61 org), keyless and offline.
 
 **External reviewers:** None configured.
 
 ### Findings
 
-No BLOCK or WARN findings. The M10 concurrent-batch airlock is clean on every
-dimension checked:
+No BLOCK or WARN findings.
 
-- **Correctness (verified live, not just read).** `emit_author_batch` numbers
-  work orders by globbing `author-*.json` (reply files start with `reply-`, so
-  they do not inflate the serial); `pick_batch` excludes `state.covered_docs()`
-  so concurrent batches are disjoint and draining partitions the manifest exactly
-  once; `ingest` clears only the batch whose `work_order_id` matched and marks the
-  stage `done` only when the last outstanding batch lands. All four behaviors were
-  exercised on real data this turn (4 disjoint batches over 17 docs, 3 outstanding
-  concurrently, reverse-order ingest, done-on-last) and match the code.
-- **Additivity / regression.** `author_batches` defaults empty via
-  `Field(default_factory=dict)`, so all seven committed `state.json` still load
-  under the unchanged `orgsmith/state@1` id (org tier green, and the live run
-  re-derived dev-mini byte-identical in structure). The single-outstanding
-  `outstanding` path (foundation enrichment) is untouched.
-- **Failure paths.** `match_author_batch` raises `SystemExit` with an actionable
-  message when the id is not outstanding, the stored order file is missing, or the
-  stored order's id does not round-trip, so a bad or double ingest fails loudly
-  before any write.
-- **Airlock preserved.** Python still makes no model or network call; concurrency
-  lives entirely in the `/forge` skill (multiple Agent dispatches in one message),
-  and the CLI stays a single serial writer of `state.json`. Confirmed by the
-  chained `/security` pass.
+The turn's four highest-risk changes each verified rather than read:
 
-One NOTE from the chained `/security` scan (recorded in SECURITY.md):
+- **`_apply_growth_hires` (foundation/scaffold.py) is inert when off, which is
+  what protects the byte pin.** It returns before drawing anything at
+  `hires == 0`, and takes its own `Faker` and `rng` stream when on — the same
+  discipline churn follows, and the reason `foundation.growth` cannot reorder a
+  draw in `foundation.scaffold`. Confirmed by the pin itself: dev-mini's
+  ledgers, manifest, and foundation are byte-identical across the change, and
+  only its charter moved (one inert `"hires": 0`). Checked the id-collision
+  surface the separate `Faker` creates: internal ids are `p:`, external people
+  `xp:`, orgs `x:`, so a growth hire cannot collide with an external drawn from
+  the shared instance (24 unique ids in the tracer).
+- **`derive_acl`'s `readers & current` is correct and cannot strand a
+  document.** `current` is roster-derived, so the intersection subsumes the old
+  `if pid in readable` external guard rather than dropping it. ACL-02 holds by
+  construction: the CEO-equivalent is `reports_to is None`, churn eligibility
+  requires `reports_to is not None`, so the CEO can never depart and every
+  document keeps a reader under all three posture branches. Independently
+  confirmed by the chained `/security` pass.
+- **The two ACL tests that changed were not weakened to accommodate the
+  change.** `test_open_posture_grants_everything_to_current_staff` now asserts
+  two things where it asserted one (current staff read everything AND departed
+  staff read nothing) and guards against vacuity by requiring both sets
+  non-empty; `test_departmental_posture_restricts` tightened each expected
+  reader set by intersecting with `current`. The contract change is the spec's
+  stated intent, and a new test names the departed-employee case directly.
+- **Both new checks are fault-injection verified, per this project's own rule
+  that a diff which cannot fail is decoration.** Reverting `brackenridge-civil`
+  to `hires: 0` fails the coherence check with the full margin trail
+  (21.3% -> 42.4%); removing the charter write guard fails the resume test on
+  `st_mtime_ns`. Both reverted clean.
 
-[NOTE] orgsmith/authoring/ingest.py:34,228 (with orgsmith/schemas.py:590) —
-`docir_path()` derives a write target from the model-controlled `DocIR.doc_id`,
-which has no schema pattern (unlike `ManifestEntry.doc_id`'s `^d:\d{4}$`).
-Not exploitable at HEAD: `run_ingest` rejects any `doc_id` not in the trusted
-work order (the `unknown` set) before the write loop runs, so every written id is
-a work-order id. Defense-in-depth only; cheap future hardening is a
-`Field(pattern=...)` on `DocIR.doc_id` or a basename guard on `docir_path`. Not
-fixed this turn: it is a NOTE, and unmotivated by the de-risk's run.
+One NOTE:
 
-Three NOTEs from the prior (M9) review persist against unchanged code and are not
-re-listed here: pdf.py letterhead interpolation, render/__init__ docstring drift,
-and test_short brittleness. See the prior entry.
+**[NOTE] tests/test_org_regen.py:66-88 — `_COHERENCE_EXEMPT` names seven slugs
+with no check that they still exist, so it cannot fail when it goes stale.**
+
+  Evidence: `_COHERENCE_EXEMPT = {"dev-mini", "torchlake-engineering", ...}`
+  feeds `FLEET = [s for s in RECIPES if s not in _COHERENCE_EXEMPT]`. Nothing
+  asserts `_COHERENCE_EXEMPT <= set(RECIPES)`. The comment above it states the
+  set "must shrink to {"dev-mini"} when the fleet turn lands", which is a
+  comment, not a contract.
+  Why it matters beyond tidiness: the same module already carries
+  `test_every_committed_fixture_has_a_recipe` for precisely this reason —
+  "without this check a deleted recipe would silently shrink the fleet under
+  test instead of failing" — and CLAUDE.md's standing rule is grandfather by
+  charter, not by absence. The concrete trap: the fleet turn deletes the six
+  legacy recipes, the set keeps six dead entries, and if any future fleet
+  recipe ever reuses one of those slugs (regenerating `fernhollow-partners` as
+  a new fleet org is the obvious candidate) it is silently exempted from the
+  coherence check with no signal.
+  Suggested fix: assert `_COHERENCE_EXEMPT <= set(RECIPES)` in a test, so a
+  deleted recipe forces the set to be pruned in the same commit.
+  Not fixed here: NOTEs are not auto-fixed, and this one is a one-line test
+  addition best made when the fleet turn prunes the set anyway.
 
 ### Fixes Applied
 
@@ -68,8 +84,14 @@ None. No BLOCK or WARN findings to fix.
 None.
 
 ---
-*Prior review (2026-07-16, commit c013c06): full review of the unpushed M8+M9
-arc (genre registry, registry-driven planner, per-genre lengths, PDF letter
-fixes); 0 BLOCK / 0 WARN / 3 NOTE, no fixes required.*
+*Prior review (2026-07-16, commit 7cd134b): refresh review of the M10
+concurrent-batch airlock plus its live-authoring de-risk; 0 BLOCK / 0 WARN /
+1 NOTE. That NOTE (`docir_path` deriving a write target from the
+model-controlled, schema-unconstrained `DocIR.doc_id`) is **closed by this
+turn** at both the schema and the sink, and independently re-verified by
+execution in the chained `/security` pass. Three older M9 NOTEs persist against
+unchanged code (pdf.py letterhead interpolation, render/__init__ docstring
+drift, test_short brittleness); the first is re-confirmed open and outside this
+turn's path scope.*
 
-<!-- REVIEW_META: {"date":"2026-07-16","commit":"7cd134b","reviewed_up_to":"7cd134b78e678943b2f865e95c08b6996aea9401","base":"origin/main","tier":"refresh","block":0,"warn":0,"note":1} -->
+<!-- REVIEW_META: {"date":"2026-07-16","commit":"38d79aa","reviewed_up_to":"38d79aa2a0ebe2a049aca4849190980da359925d","base":"origin/main","tier":"full","block":0,"warn":0,"note":1} -->
