@@ -179,11 +179,18 @@ stay byte-identical.
   fixture born with a known smear is worse than one that inherited it. Not scoped
   in as a criterion; call it before generating.
 
-- **Charter re-dump drift, now larger.** A committed fixture's `charter.json`
-  gains inert default fields when re-derived (harmless today only because frozen
-  fixtures are never re-written). This turn adds at least three more such fields
-  (churn, expense model, era). Carried forward from the M7 spec as still open and
-  uncarried; worth a `/spec backlog` entry if it should survive this turn.
+- **Charter re-dump drift, now larger, and measured.** Recorded in `BACKLOG.md`
+  as `charter-redump-drift`, where the numbers live. The premise the M7 spec
+  carried ("harmless because frozen fixtures are never re-written") turns out to
+  be false: `run_charter` writes unconditionally (`charter.py:59`, unlike
+  `run_scaffold` at `scaffold.py:327`), and `/forge <slug>` invokes it
+  unconditionally, so the advertised resume path rewrites a frozen fixture's
+  charter. Re-deriving from the recipes today drifts 5 of 7 fixtures
+  (torchlake +8 fields, quillbrook +7, bramblewood +6, cindergrove and
+  gladepoint +1). Relevance to this turn: M8 adds at least three more inert
+  charter fields, which widens that drift and starts dev-mini and
+  fernhollow-partners (the only two clean today) drifting for the first time.
+  Not scoped in as a criterion; know it is there before touching the schema.
 
 - **Scope discipline.** Deliberately out: raising `_TARGET_WORDS` together with
   clause-rich and credential-aware briefs (M9, and they are one change, not two,
