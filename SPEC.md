@@ -12,7 +12,7 @@ as the generator's only behavior rather than as knobs defaulting off.
 
 ### Acceptance Criteria
 
-- [ ] The roster has a time dimension. Across the charter's date range people are
+- [x] The roster has a time dimension. Across the charter's date range people are
   hired, promoted, and depart, as backfills into the seats `headcount` declares,
   so `headcount` means concurrent seats rather than people-ever and that meaning
   is stated where the field is defined. `Person` gains a title history and a
@@ -24,7 +24,7 @@ as the generator's only behavior rather than as knobs defaulting off.
   dangling edges) passes unchanged. Randomness comes from a NEW `seeds.py`
   stream.
 
-- [ ] **Churn degrades, it does not crash, at the smallest roster a recipe can
+- [x] **Churn degrades, it does not crash, at the smallest roster a recipe can
   declare.** This is what the freeze lift changes: with the knob defaulting off,
   a roster too small could fail with an actionable message and no committed
   recipe would ever see it. On by default, that message becomes a crash on a
@@ -32,7 +32,7 @@ as the generator's only behavior rather than as knobs defaulting off.
   against a synthetic charter at the schema minimum (`headcount` total 2): the
   pipeline completes and the degradation is visible in the ledger, not inferred.
 
-- [ ] Every brief is scoped to its document's date, and three separate
+- [x] Every brief is scoped to its document's date, and three separate
   fabrications stop being expressible:
   - `_brief_person` (`authoring/contexts.py:123`) resolves an internal person's
     title and employment as of the document date, the way it already resolves an
@@ -55,7 +55,7 @@ as the generator's only behavior rather than as knobs defaulting off.
   The airlock holds throughout: ingest still rejects a literal value written
   where a placeholder belongs.
 
-- [ ] Expenses stop moving in lockstep, and behavioral is the **only** mode —
+- [x] Expenses stop moving in lockstep, and behavioral is the **only** mode —
   no legacy path is carried alongside it. Verified against a synthetic charter:
   no two categories grow at the same rate in a given year, at least one category
   is step-fixed across a multi-year span (`rf:finance-2`: rent is a lease cost
@@ -65,19 +65,19 @@ as the generator's only behavior rather than as knobs defaulting off.
   do), so its remaining job is stated in the schema where it is defined. A year
   of negative net income is recorded rather than crashed.
 
-- [ ] Engagement leads and teams vary. With a roster large enough to rotate, no
+- [x] Engagement leads and teams vary. With a roster large enough to rotate, no
   two engagements carry an identical internal participant set and no consultant
   appears on every engagement. Today `lead = available[0]`
   (`fabric/engagements.py:225`) is the same person for every engagement in the
   org's life. A roster too small to rotate degrades visibly rather than crashing.
 
-- [ ] Roster and external first names are drawn era-appropriately from a table
+- [x] Roster and external first names are drawn era-appropriately from a table
   bundled under `orgsmith/data/`, offline, with no network. The name screen
   (NAME-01) still runs on era-drawn names. The interaction with `_NICKNAMES` (an
   era-agnostic pool the collision and nickname passes draw replacement first
   names from) is either made era-consistent or documented as a limit.
 
-- [ ] **A single generation is still reproducible, and the seeds discipline that
+- [x] **A single generation is still reproducible, and the seeds discipline that
   makes it so is not weakened by the freeze lift.** Cross-version byte-identity
   is gone; same-seed determinism is not. Every pass added this turn draws from
   its own NEW named `seeds.py` stream rather than sharing
@@ -86,7 +86,7 @@ as the generator's only behavior rather than as knobs defaulting off.
   destinations and diffing: byte-identical charter, foundation, ledgers, and
   manifest.
 
-- [ ] **The `org` tier survives the freeze lift with its fault-injection property
+- [x] **The `org` tier survives the freeze lift with its fault-injection property
   intact.** Behavioral finance moves `finance.json` and churn moves
   `foundation.json`, so three of `test_org_regen.py`'s four assertions cannot
   pass against the seven committed fixtures and must not be papered over.
@@ -98,14 +98,14 @@ as the generator's only behavior rather than as knobs defaulting off.
   TESTING.md documents (`+ 1` on every expense line in `fabric/finance.py`) still
   fails `test_org_regen.py`; re-run it rather than assuming it.
 
-- [ ] The six board majors this turn targets (`rf:orgreal-1`, `rf:finance-1`,
+- [x] The six board majors this turn targets (`rf:orgreal-1`, `rf:finance-1`,
   `rf:finance-2`, `rf:graph-1`, `rf:narr-1`, `rf:narr-2`) are verified resolved
   at the **ledger** level by deterministic tests, which is the oracle. The board
   is run against the regenerated `dev-mini` and its outcome recorded; findings
   that persist are recorded rather than resolved by assertion. No metric and no
   board finding becomes a validator rule or a gate.
 
-- [ ] The roadmap renumbering is stated once in this file and referenced
+- [x] The roadmap renumbering is stated once in this file and referenced
   everywhere else, and no document still attributes work to a milestone that no
   longer owns it. `docs/SCALE.md` currently says "Until they are raised (M8)" and
   "Raising the targets is what makes the flagship affordable, which is why M8
@@ -115,7 +115,7 @@ as the generator's only behavior rather than as knobs defaulting off.
   SCALE.md stop describing knobs that default off and fixtures that stay
   byte-identical, because neither is true after this turn.
 
-- [ ] From a fresh checkout, `bin/test` passes all tiers offline and keyless,
+- [x] From a fresh checkout, `bin/test` passes all tiers offline and keyless,
   with `unit` under ~20s and `org` under ~5s. CI configuration unchanged: still
   no LibreOffice. Baseline at adoption: 335 passing (12 short / 272 unit / 51
   org) in 21.9s.
@@ -251,4 +251,49 @@ as the generator's only behavior rather than as knobs defaulting off.
 *Prior spec (2026-07-16): M7 the quality instrument (review board, generation
 provenance, model/effort policy); all 13 criteria met, shipped as v1.6.0.*
 
-<!-- SPEC_META: {"date":"2026-07-16","title":"M8: the firm gets a history (roster churn, behavioral finance, staffing rotation, date-scoped briefs, era naming)","criteria_total":10,"criteria_met":0} -->
+### Proposal (2026-07-16)
+
+**What happened.** M8 gave the fabric a time dimension and shipped as v1.7.0,
+the second step of the v2.0 arc. The freeze on `companies/` was lifted by user
+decision, which collapsed the spec from 13 criteria to 11 (the byte-identical
+and default-off ceremony went away) and made the realism knobs default on with
+one code path. Landed, each with tests in the same increment: roster churn
+(`RosterChurn`, hires/promotions/departures, `headcount` now means concurrent
+seats), `Person.title_history` + `title_at`, date-scoped person briefs,
+engagement elapsed position and a date-scoped firm digest in the brief,
+behavioral finance (categories drive the total, `expense_ratio` calibrates the
+first full year only, losses are recordable), staffing rotation, and
+era-appropriate names from a bundled offline table. `dev-mini` was regenerated
+end to end (Opus 4.8 at max effort) as the sole byte-pinned fixture; the other
+six stay committed and validate clean until the M11 fleet reset. The board read
+the regenerated `dev-mini` and confirmed all six targeted majors are gone,
+surfacing new findings instead. Suite: 367 passing, ~19s.
+
+**What we learned, that changes the next turns.** The document count is not a
+knob and never was: the planner emits a fixed `2E + 7 + pptx + eml` skeleton
+with three genres hard-capped at 2, so scaling documents is a planner rewrite,
+not a recipe number. Behavioral finance also exposed that every committed
+recipe's `growth_rate` is incoherent with its fixed `headcount` (a firm doubles
+fees without hiring), which the old lockstep model hid. Both are M9/M11
+substance and are in BACKLOG.
+
+**Questions and directions for M9 (the document-supply model).** This is the
+keystone the whole v2.0 arc waits on. A genre registry with per-genre drivers
+(per-engagement-recurring, per-hire, per-year, per-vendor, firm-periodic),
+cadences, folders beyond `Engagements/Finance/Firm`, and realistic per-genre
+lengths, so `target_docs` becomes honest and a firm's share looks like a
+business rather than a fixed skeleton. Open questions: does `target_docs` drive
+the registry or does the registry derive it; how does `format_mix`'s
+exact-sum constraint survive when format follows genre; and where do the two
+render/authoring findings this turn produced get settled, since M9 re-renders
+every letter. Both are in BACKLOG and both are on the engagement letter:
+`letterhead-duplicated-in-letters` (major, the firm name printed twice) and
+`pdf-newline-flattening` (the addressee smear).
+
+**Revisit candidates for M9.** `letterhead-duplicated-in-letters` and
+`pdf-newline-flattening` — both are letter-rendering findings on the genre M9
+rebuilds, and settling the letterhead convention is naturally part of the
+registry work. `email-thread-spacing` — real thread cadence is a per-genre
+cadence question, which is exactly what the registry models.
+
+<!-- SPEC_META: {"date":"2026-07-16","title":"M8: the firm gets a history (roster churn, behavioral finance, staffing rotation, date-scoped briefs, era naming)","criteria_total":11,"criteria_met":11} -->
