@@ -100,21 +100,24 @@ longer ones.
 
 Which makes the corpus-length finding load-bearing for scale, not just for
 realism. Measured mean across all 81 authored documents at v1.5.0: **236
-words**, against briefs asking 130-350 (`_TARGET_WORDS`, `contexts.py`).
-Real engagement letters run 800-1500. The model was roughly hitting its
-targets; the targets were wrong. Until they are raised (**M9**, the
-document-supply model, where length is a per-genre property of the genre
-table), a flagship would need ~8,500 documents to be a genuine retrieval
-problem, and at realistic lengths it needs ~2,000. **Raising the targets is
-what makes the flagship affordable**, which is why M9 precedes M12.
+words**, against briefs asking 130-350. Real engagement letters run 800-1500.
+The model was roughly hitting its targets; the targets were wrong. **M9
+raised them**: length is now a per-genre property of the genre registry
+(`docplan/registry.py`), with engagement letters targeting 1100 (800-1500)
+and every authored genre raised off the old band. At the old lengths a
+flagship would need ~8,500 documents to be a genuine retrieval problem; at
+realistic lengths it needs ~2,000. **Raising the targets is what makes the
+flagship affordable**, which is why M9 preceded M12.
 
-Two cautions on the 236 figure now that M8 has landed. First, it predates
-the behavioral facts and date-scoped briefs, which give the model more true
-material to write from; the regenerated `dev-mini` authored at 331 words
-against the same targets, so the mean is not a fixed property of the
-generator. Second, and more important, a document count is not a knob today:
-the planner emits a fixed genre skeleton (`2E + 7 + pptx + eml`), so
-"~2,000 documents" is M9 work before it is M12 work. See the M9 spec.
+Two facts on the 236 figure now that M9 has landed. First, only `dev-mini`
+is regenerated so far: it authored at **mean 717 words** under the raised
+targets (every document within 75-150% of its brief), while the six frozen
+fixtures retain their pre-M9 lengths until the M11 fleet reset, so the
+fleet mean is currently mixed. Second, the fixed genre skeleton is gone:
+document supply is now driver-derived (the registry walks the firm's
+engagements, fiscal years, and hires), so "~2,000 documents" is a recipe of
+the right shape rather than a planner rewrite. `dev-mini` grew from 13 to 22
+documents on the same recipe purely from the drivers.
 
 ## The authoring wall is the binding constraint
 

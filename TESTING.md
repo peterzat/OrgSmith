@@ -15,10 +15,13 @@ python3 -m venv .venv
 bin/test                      # short + unit + org; exit 0
 ```
 
-Expect ~21s wall and 331 passing (12 short, 279 unit, 40 org) on a box
-with LibreOffice; ~14s and 325 passing + 6 skipped without it. Both are
+Expect ~28s wall and 386 passing (12 short, 334 unit, 40 org) on a box
+with LibreOffice; ~16s and 380 passing + 6 skipped without it. Both are
 green states, see Environment axis. No API key, no network, no model: a
-tier that wants any of those is a bug, not a setup problem.
+tier that wants any of those is a bug, not a setup problem. (M9 enlarged
+the tracer -- `dev-mini` grew from 13 to 22 documents -- so every
+dev-mini-based fixture, and the LibreOffice legacy fixture most of all,
+does proportionally more work than the pre-M9 numbers.)
 
 ## Entry point
 
@@ -44,7 +47,7 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants | 12 | < 1s | 0.11s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 279 (273 in CI) | ~20s | 16.5s local / 9.5s CI |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 334 (328 in CI) | ~20s | ~26s local / ~14.6s CI |
 | `org` | full validation of every committed fixture under `companies/`, plus re-deriving each from its recipe (byte-pinned on `dev-mini` only until M11) | 40 | ~5s | 1.45s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
@@ -53,10 +56,13 @@ Measure with `--durations` before and after a change that adds fixtures or
 knobs.
 
 Two facts before trusting the unit number: one module-scoped fixture
-(`tests/test_unit_legacy.py::legacy_org`) owns 8.8s of the 16.3s local
-unit tier and is skipped entirely in CI. The tier is one expensive fixture
-away from its budget, and the budget is measured against the local
-(slower) run.
+(`tests/test_unit_legacy.py::legacy_org`) owns ~14.5s of the ~26s local
+unit tier (it converts every office doc through LibreOffice at ratio 1.0,
+and M9's richer tracer gave it more office docs to convert) and is skipped
+entirely in CI. Without it the tier is ~14.6s -- the CI-relevant number,
+comfortably inside budget -- so the local run with LibreOffice now exceeds
+the stated ~20s while the offline/CI gate does not. Measure both when a
+change grows the tracer.
 
 ## Proxy and drift strategy
 

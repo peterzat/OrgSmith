@@ -29,11 +29,19 @@ headcount:                    # departments and staff counts (roster size)
   Operations: 1
 
 doc_culture:
-  target_docs: 13
+  # ADVISORY since M9. The genre registry (orgsmith/docplan/registry.py)
+  # derives document supply from the firm's drivers -- its engagements,
+  # fiscal years, and hires -- so the manifest count is whatever the drivers
+  # yield, not these numbers. target_docs and the docx/pdf/xlsx buckets are
+  # size hints the recipe author records; nothing asserts the manifest
+  # equals them. Record what the recipe actually comes to (run docplan and
+  # count) so the file stays honest.
+  target_docs: 22
   date_range: [2019-01-01, 2023-12-31]
-  format_mix: {docx: 8, pdf: 3, xlsx: 2}   # exact counts for small orgs
-  # format_mix may also include pptx (briefing decks) and eml (mail
-  # messages), both default 0.
+  format_mix: {docx: 14, pdf: 3, xlsx: 5}
+  # pptx (briefing decks) and eml (mail messages) stay LOAD-BEARING: they are
+  # the count of those two optional genres, which a firm may produce none of.
+  # Both default 0.
   # Scan/legacy transforms, all optional and default 0 (off):
   # scanned_ratio: 0.5      # fraction of pdfs rendered as degraded scans
   # ocr_layer_rate: 0.5     # fraction of scans with a synthetic OCR text
@@ -114,7 +122,9 @@ clients are, what its documents feel like.
   outside the CEO's staffs engagements.
 - `slug` must equal the directory name; lowercase, hyphens only.
 - `date_range` must start no earlier than `founded`.
-- `format_mix` values must sum to `target_docs`.
+- `target_docs` and the docx/pdf/xlsx `format_mix` buckets are advisory
+  (M9): document supply is registry-derived, so they need not sum or match
+  the manifest. `format_mix.pptx`/`.eml` still set the deck/mail counts.
 - Same seed + same recipe = same org structure (ids, names, tree, numbers).
   Only model-authored prose may vary between runs.
 

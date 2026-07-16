@@ -9,18 +9,20 @@ plus a ground-truth ledger that knows every fact planted in them.
 companies/dev-mini/
 ├── TOC.md
 ├── Engagements/
-│   ├── Weaver-Reeves/
-│   │   ├── 2019.07.07 - Engagement Letter - Weaver-Reeves - EXECUTED.pdf
+│   ├── Johnson and Sons/
+│   │   ├── 2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
 │   │   ├── 2019.07.20 - Kickoff Memo - Operational Review.docx
-│   │   ├── Meeting Minutes 2019-08-27 - Weaver-Reeves.docx
-│   │   └── 2019.10.03 - Status Report - Weaver-Reeves v2 FINAL.docx
-│   ├── Johnson PLC/ ...
-│   └── Foley Group/ ...
+│   │   ├── Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+│   │   └── 2019.09.07 - Status Report - Johnson and Sons v2 FINAL.docx
+│   ├── Dean PLC/ ...
+│   └── Reeves, Miller and Thompson/ ...
 ├── Finance/
-│   ├── FY2021 Financial Summary.xlsx
-│   └── FY2022 Financial Summary.xlsx
-└── Firm/
-    └── Firm Overview 2021 v3.docx
+│   ├── FY2018 Financial Summary.xlsx  ... through FY2022
+├── Firm/
+│   ├── Firm Overview 2019 v3.docx
+│   └── Firm Overview 2022 v3.docx
+└── People/
+    └── 2020.11.08 - Onboarding - Cynthia Ball.docx
 
 companies/dev-mini-metadata/     <- ground truth for all of the above
 ├── foundation.json              # roster, org chart, personas, clients
@@ -125,7 +127,7 @@ recipe allowed:
 
 | company | docs | share | answer key |
 | --- | --- | --- | --- |
-| 5-person consultancy, 2019–2023 | 13 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
+| 5-person consultancy, 2019–2023 | 22 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
 | 6-person engineering firm, 2019–2024 | 11 | [torchlake-engineering](companies/torchlake-engineering/) | [key](companies/torchlake-engineering-metadata/) |
 | 5-person appraisal practice, 2019–2020 | 11 | [quillbrook-appraisal](companies/quillbrook-appraisal/) | [key](companies/quillbrook-appraisal-metadata/) |
 | 5-person law practice, 2018–2021 | 11 | [bramblewood-legal](companies/bramblewood-legal/) | [key](companies/bramblewood-legal-metadata/) |
@@ -139,19 +141,27 @@ Seven companies, 1998–2025, ~3.9 MB of share plus ~1.3 MB of ground truth:
 | --- | --- |
 | companies | 7 |
 | people (internal) | 36 |
-| planned documents | 95 (81 model-authored + 14 deterministic workbooks) |
+| planned documents | 104 (87 model-authored + 17 deterministic workbooks) |
 | engagements | 19 |
-| mean words per authored doc | 236 |
-| whole fleet as tokens | ~25K |
+| mean words per authored doc | transitional (see below) |
+| whole fleet as tokens | ~30K |
 
-Per company: 5–6 people, 11–19 documents, 2–4 engagements, a 3–7 year span.
+The fleet is mid-rebuild (the v2.0 arc, M8-M11). `dev-mini` is regenerated
+under the M9 document-supply model and authors at **mean 717 words**; the
+six frozen fixtures retain their pre-M9 lengths (the old ~236-word era)
+until the M11 fleet reset, so the fleet mean is a transitional mix. Each
+org's current numbers live in its `GENERATION-REPORT.md`.
 
-By format: 46 `.docx`, 19 `.pdf`, 12 `.xlsx`, 8 `.doc`, 3 `.pptx`, 2 `.xls`,
+Per company: 5–6 people, 11–22 documents, 2–4 engagements, a 3–7 year span.
+
+By format: 52 `.docx`, 19 `.pdf`, 15 `.xlsx`, 8 `.doc`, 3 `.pptx`, 2 `.xls`,
 4 `.eml`, 1 `.ppt`.
 
-By genre: 19 engagement letters, 19 sets of meeting minutes, 14 kickoff
-memos, 14 status reports, 14 financial summaries, 7 firm overviews, 4
-briefing decks, 4 email threads.
+By genre: 19 engagement letters, 21 sets of meeting minutes, 15 kickoff
+memos, 15 status reports, 17 financial summaries, 8 firm overviews, 4
+briefing decks, 4 email threads, 1 onboarding record. (`dev-mini`'s share
+of these grew when M9 regenerated it; the six frozen fixtures are unchanged
+until M11.)
 
 ### Where that sits against a real firm
 
@@ -165,13 +175,16 @@ produce 14 documents. It produces, very roughly:
   fidelity gap.
 - **Files in the thousands to hundreds of thousands**, most of them junk:
   drafts, near-duplicate versions, dead templates, misfiled scans, someone's
-  lunch menu. OrgSmith ships 11–19 documents per company, each one
+  lunch menu. OrgSmith ships 11–22 documents per company, each one
   deliberate and none of them junk.
-- **Documents 3–6× longer.** Real engagement letters run 800–1,500 words.
-  OrgSmith's authored mean is **236 words**, against briefs asking 130–350.
-  The model is roughly hitting its targets; the targets are wrong. This is
-  measured, published in every org's `GENERATION-REPORT.md`, and scheduled
-  to be raised.
+- **Documents 3–6× longer — now being fixed.** Real engagement letters run
+  800–1,500 words; the fleet's old authored mean was **236 words** against
+  briefs asking 130–350. The model was roughly hitting its targets; the
+  targets were wrong. **M9 raised them**: length is a per-genre property of
+  the genre registry, engagement letters now target 1,100, and the
+  regenerated `dev-mini` authors at **mean 717 words** with clause-bearing
+  letters. The six frozen fixtures are raised at the M11 reset. Measured and
+  published in every org's `GENERATION-REPORT.md`.
 
 There is no honest way to call 14 documents a sample of that. What it is: a
 corpus where **every** hard case you care about is present, labeled, and
@@ -218,8 +231,11 @@ computes each expense line from what drives it. The board read
 `fernhollow-partners`, and **fernhollow is not regenerated this turn** — the
 committed fleet is rebuilt wholesale at the v2.0 fleet reset (M11), so the
 findings above still describe the committed fernhollow you can browse, not
-the generator that would produce it today. The missing contract clauses land
-with the document-length work (M9). [SPEC.md](SPEC.md) is the current unit of
+the generator that would produce it today. M9 has since landed the
+document-supply model: the generator now drives document volume from the
+firm's real activity (no fixed skeleton), authors at realistic per-genre
+lengths, and gives engagement letters the standard clauses a real one
+carries. [SPEC.md](SPEC.md) is the current unit of
 work and says exactly what it commits to. Each turn's board findings stay
 committed next to the org they judged. Cross-document voice is the genuinely
 hard one, and it has no scheduled fix.
@@ -466,7 +482,7 @@ batch records what actually authored it.
 ## What is in the box today
 
 - The full pipeline, end to end, proven on seven committed fixtures:
-  `dev-mini` (a 5-person consultancy, 13 documents, three engagements,
+  `dev-mini` (a 5-person consultancy, 22 documents, three engagements,
   2019-2023, with mention ground truth, the ACL overlay, and visibility
   evals); `torchlake-engineering` (a 6-person engineering firm, 11
   documents, 2019-2024) generated with every ambiguity knob on: a
@@ -548,12 +564,15 @@ batch records what actually authored it.
   `/forge-review` + `forge-reviewer` (the board).
 
 M8 landed roster churn, behavioral finance, staffing rotation,
-date-scoped briefs, and era-appropriate naming; `dev-mini` is regenerated
-to exercise them. Next, in rough order (see SPEC.md): the document-supply
-model with realistic per-genre lengths (M9), parallel authoring and the
-scale fixes (M10), a committed reference fleet spanning sectors and eras
-(M11), and one flagship org large enough to defeat a context window (M12).
-See [docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
+date-scoped briefs, and era-appropriate naming; M9 landed the
+document-supply model: a genre registry that drives document volume from
+the firm's engagements, fiscal years, and hires (no fixed skeleton),
+realistic per-genre lengths, and a folder taxonomy beyond
+`Engagements/Finance/Firm`. `dev-mini` is regenerated to exercise both.
+Next, in rough order (see SPEC.md): parallel authoring and the scale fixes
+(M10), a committed reference fleet spanning sectors and eras (M11), and one
+flagship org large enough to defeat a context window (M12). See
+[docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
 
 ## Provenance and safety
 

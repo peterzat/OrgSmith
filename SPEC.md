@@ -19,7 +19,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
 
 ### Acceptance Criteria
 
-- [ ] **A declarative genre registry is the single source of document supply.**
+- [x] **A declarative genre registry is the single source of document supply.**
   Each genre is a registry row declaring its driver, cadence, folder, format,
   and target length; the planner builds the manifest by walking the registry,
   not by calling one hard-coded method per genre. The three caps are gone
@@ -31,7 +31,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   drives the planner off a modified registry. Every new genre reuses an existing
   renderer/format (docx/pdf/xlsx/pptx/eml); M9 adds no new renderer.
 
-- [ ] **Document supply is a pure function of the firm's drivers, and it
+- [x] **Document supply is a pure function of the firm's drivers, and it
   scales.** For a synthetic charter, changing a driver moves the count in the
   declared direction: more engagements → proportionally more per-engagement
   docs; a longer `date_range` → more per-year docs; a hire or a vendor → the
@@ -43,7 +43,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   ~2,000-document flagship affordable at M12. Verified at the manifest level by
   deterministic tests.
 
-- [ ] **`target_docs` becomes honest and the `format_mix` exact-sum constraint
+- [x] **`target_docs` becomes honest and the `format_mix` exact-sum constraint
   is replaced.** The open question is resolved in favor of the registry
   *deriving* the count and format distribution from drivers: the planner no
   longer asserts `len(manifest) == target_docs` or `counts == format_mix`, and
@@ -57,7 +57,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   wants to bound size does so through a driver/cadence knob, not a checksum,
   and that knob is documented in `docs/RECIPE-FORMAT.md`.
 
-- [ ] **Per-genre target lengths are realistic and live in the registry.**
+- [x] **Per-genre target lengths are realistic and live in the registry.**
   Target words move out of `_TARGET_WORDS` (`authoring/contexts.py`) into the
   registry as a genre property and are raised to real-world bands: engagement
   letters 800-1500, and every other authored genre raised commensurately (memos,
@@ -68,7 +68,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   than the old ~350-word target (measured by `orgsmith report` /
   GENERATION-REPORT.md, recorded in the turn).
 
-- [ ] **The folder taxonomy extends beyond `Engagements / Finance / Firm`.** At
+- [x] **The folder taxonomy extends beyond `Engagements / Finance / Firm`.** At
   least one new-driver genre lands in a new top-level share folder (e.g. a
   per-hire onboarding record under `People/`, or a per-vendor document under a
   vendor/admin folder), declared by the registry row rather than hard-coded in a
@@ -76,7 +76,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   regenerated `dev-mini` share contains at least one folder beyond the original
   three, and its manifest and TOC reflect it.
 
-- [ ] **The two engagement-letter rendering findings are settled.**
+- [x] **The two engagement-letter rendering findings are settled.**
   `letterhead-duplicated-in-letters`: a rendered engagement letter shows the
   firm name once (in the letterhead), not doubled by an author-written
   firm-name heading, resolved either by the letter guidance in
@@ -87,7 +87,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   Both are covered by a unit test on the renderer output and are visible on the
   regenerated `dev-mini` letter; both BACKLOG entries are closed at turn end.
 
-- [ ] **Email-thread cadence is realistic.** Successive messages in the same
+- [x] **Email-thread cadence is realistic.** Successive messages in the same
   engagement thread are spaced hours to days, not the current fixed 45 days
   (`docplan/planner.py:316`), so a thread reads as a thread. A synthetic recipe
   with multiple emails in one engagement produces plausible in-thread spacing,
@@ -95,7 +95,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   (`tests/test_unit_eml.py`) still pass. Any added randomness draws from a NEW
   `seeds.py` stream. The `email-thread-spacing` BACKLOG entry is closed.
 
-- [ ] **Determinism holds and the committed fleet survives the rewrite.** Every
+- [x] **Determinism holds and the committed fleet survives the rewrite.** Every
   pass added this turn draws from its own NEW named `seeds.py` stream rather than
   reusing an existing one. `dev-mini` is regenerated end-to-end with the M9
   supply model and remains the sole byte-pinned fixture: its `foundation.json`,
@@ -107,7 +107,7 @@ exercise it and stays the sole byte-pinned fixture until M11.
   (`test_org_fleet.py`) — validation never re-runs the planner, so their frozen
   manifests are unaffected.
 
-- [ ] **From a fresh checkout, `bin/test` passes all tiers offline and keyless**,
+- [x] **From a fresh checkout, `bin/test` passes all tiers offline and keyless**,
   with `org` under ~5s and `unit` under ~20s, and every document `docs/SCALE.md`,
   `README.md`, and `TESTING.md` states that M9 makes false is corrected: the
   fixed-skeleton description, the 236-word length figure now that lengths are
@@ -229,4 +229,4 @@ exercise it and stays the sole byte-pinned fixture until M11.
 finance, staffing rotation, date-scoped briefs, era naming); all 11 criteria
 met, shipped as v1.7.0.*
 
-<!-- SPEC_META: {"date":"2026-07-16","title":"M9: the document-supply model (genre registry, driver-derived supply, realistic lengths, folder taxonomy)","criteria_total":9,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-16","title":"M9: the document-supply model (genre registry, driver-derived supply, realistic lengths, folder taxonomy)","criteria_total":9,"criteria_met":9} -->
