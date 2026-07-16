@@ -1,61 +1,63 @@
 # CODEREVIEW
 
-## Review — 2026-07-16 (commit: c013c06)
+## Review — 2026-07-16 (commit: 7cd134b)
 
-**Summary:** Full review of the unpushed M8+M9 arc (scope origin/main..HEAD),
-focused at full depth on the M9 document-supply changes committed this turn:
-the genre registry (`docplan/registry.py`), the registry-driven planner
-rewrite (`docplan/planner.py`), per-genre lengths sourced from the registry
-(`authoring/contexts.py`), the `target_docs`/`format_mix` advisory change
-(`schemas.py`), the two PDF letter fixes (`render/pdf.py`), and the email
-cadence. The M8 code in scope (behavioral finance, engagements, scaffold
-churn, era names) shipped as v1.7.0 and was checked for interactions with the
-M9 planner, which the org tier exercises end to end. `bin/test` green: 386
-passing (12 short / 334 unit / 40 org). The 72 changed `companies/` files are
-machine-generated fixtures (the dev-mini regeneration) validated by the org
-tier, not reviewed by hand.
+**Summary:** Refresh review of the unpushed M10 arc (the concurrent-batch
+airlock for parallel authoring) plus this turn's live-authoring de-risk, scope
+`origin/main..HEAD` with focus since the prior review (c013c06, M9). Focus set,
+full depth: `orgsmith/airlock.py` (emit/match/clear_author_batch),
+`orgsmith/state.py` (BatchRef + author_batches), `orgsmith/authoring/contexts.py`
+(pick_batch exclude), `orgsmith/authoring/ingest.py` (per-batch match/clear),
+`orgsmith/status.py` (author_batches surfacing), the `/forge` and `/forge-author`
+skills, the M10 unit tests, and `docs/SCALE.md`. The review is corroborated by an
+end-to-end live run this turn: dev-mini authored through the real `/forge` loop
+with concurrent forge-author workers (three batches outstanding at once, disjoint,
+ingested out of emission order), `validate` clean, structure byte-identical to the
+committed fixture. `bin/test` green: 393 passing (12 short / 341 unit / 40 org).
 
 **External reviewers:** None configured.
 
 ### Findings
 
-No BLOCK or WARN findings. The M9 delta is clean on every dimension checked:
+No BLOCK or WARN findings. The M10 concurrent-batch airlock is clean on every
+dimension checked:
 
-- **Correctness / hard cases preserved.** The planner walks the registry;
-  the signature-page fee still lands only on the letter (`hosts_signature`)
-  and the filename-only minutes date only on the first minutes instance
-  (`hosts_filename`, dated by the shared `minutes_date()`), so
-  `_check_hard_cases` still finds each non-body fact in exactly one doc.
-  Verified by the passing hard-case/loc unit tests and the clean org tier.
-- **Paths and injection.** Every emit path is a code-constant registry
-  template filled with recipe/ledger values, then run through `_add` →
-  `check_relpath`; the model controls no path. `render/pdf.py`'s new
-  `_para_html` HTML-escapes before inserting `<br>`, and the leading-heading
-  suppression only reads the recipe-controlled firm name, so neither adds an
-  injection vector (confirmed by the `/security` pass).
-- **Determinism / regression.** New randomness (email cadence) draws from a
-  dedicated `seeds.py` stream; `dev-mini` re-pins byte-identically and the
-  six frozen fixtures derive without crashing and validate clean
-  (`test_org_regen.py`, `test_org_fleet.py`). `contexts._TARGET_WORDS` now
-  derives from the registry with no circular import (`review/corpus.py`
-  imports it unchanged).
+- **Correctness (verified live, not just read).** `emit_author_batch` numbers
+  work orders by globbing `author-*.json` (reply files start with `reply-`, so
+  they do not inflate the serial); `pick_batch` excludes `state.covered_docs()`
+  so concurrent batches are disjoint and draining partitions the manifest exactly
+  once; `ingest` clears only the batch whose `work_order_id` matched and marks the
+  stage `done` only when the last outstanding batch lands. All four behaviors were
+  exercised on real data this turn (4 disjoint batches over 17 docs, 3 outstanding
+  concurrently, reverse-order ingest, done-on-last) and match the code.
+- **Additivity / regression.** `author_batches` defaults empty via
+  `Field(default_factory=dict)`, so all seven committed `state.json` still load
+  under the unchanged `orgsmith/state@1` id (org tier green, and the live run
+  re-derived dev-mini byte-identical in structure). The single-outstanding
+  `outstanding` path (foundation enrichment) is untouched.
+- **Failure paths.** `match_author_batch` raises `SystemExit` with an actionable
+  message when the id is not outstanding, the stored order file is missing, or the
+  stored order's id does not round-trip, so a bad or double ingest fails loudly
+  before any write.
+- **Airlock preserved.** Python still makes no model or network call; concurrency
+  lives entirely in the `/forge` skill (multiple Agent dispatches in one message),
+  and the CLI stays a single serial writer of `state.json`. Confirmed by the
+  chained `/security` pass.
 
-Three NOTEs carried from prior reviews, all pre-existing and outside the M9
-intent:
+One NOTE from the chained `/security` scan (recorded in SECURITY.md):
 
-[NOTE] orgsmith/render/pdf.py:38,65-66 — letterhead context (`letterhead0`,
-`letterhead_rest`) interpolated unescaped under `autoescape=False`.
-Recipe-author-controlled and `no_remote_fetcher` blocks egress/file-read, so
-no concrete vector. M9 reworked this file but left the letterhead
-interpolation untouched. One-line `html.escape()` fixes it; no urgency.
+[NOTE] orgsmith/authoring/ingest.py:34,228 (with orgsmith/schemas.py:590) —
+`docir_path()` derives a write target from the model-controlled `DocIR.doc_id`,
+which has no schema pattern (unlike `ManifestEntry.doc_id`'s `^d:\d{4}$`).
+Not exploitable at HEAD: `run_ingest` rejects any `doc_id` not in the trusted
+work order (the `unknown` set) before the write loop runs, so every written id is
+a work-order id. Defense-in-depth only; cheap future hardening is a
+`Field(pattern=...)` on `DocIR.doc_id` or a basename guard on `docir_path`. Not
+fixed this turn: it is a NOTE, and unmotivated by the de-risk's run.
 
-[NOTE] orgsmith/render/__init__.py:28-48 — `people_index`'s docstring claims
-an EML-01 contract narrower than what holds now that titles are date-scoped.
-Documentation drift, not a defect.
-
-[NOTE] tests/test_short.py:238 — `test_no_validator_rule_references_the_generator`
-asserts on free text under `orgsmith/validate/`; brittle against innocuous
-future prose.
+Three NOTEs from the prior (M9) review persist against unchanged code and are not
+re-listed here: pdf.py letterhead interpolation, render/__init__ docstring drift,
+and test_short brittleness. See the prior entry.
 
 ### Fixes Applied
 
@@ -66,8 +68,8 @@ None. No BLOCK or WARN findings to fix.
 None.
 
 ---
-*Prior review (2026-07-16, commit 50be889): light review of the README
-opening rewrite; 0 BLOCK / 0 WARN / 3 NOTE, two draft defects fixed before
-push (one caught by the push gate).*
+*Prior review (2026-07-16, commit c013c06): full review of the unpushed M8+M9
+arc (genre registry, registry-driven planner, per-genre lengths, PDF letter
+fixes); 0 BLOCK / 0 WARN / 3 NOTE, no fixes required.*
 
-<!-- REVIEW_META: {"date":"2026-07-16","commit":"c013c06","reviewed_up_to":"c013c064","base":"origin/main","tier":"full","block":0,"warn":0,"note":3} -->
+<!-- REVIEW_META: {"date":"2026-07-16","commit":"7cd134b","reviewed_up_to":"7cd134b78e678943b2f865e95c08b6996aea9401","base":"origin/main","tier":"refresh","block":0,"warn":0,"note":1} -->
