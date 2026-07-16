@@ -24,15 +24,37 @@ from .state import load_state, require_stages
 def derive_acl(charter, foundation, engagements, manifest) -> AclLedger:
     """One grant per internal person, roster order, doc paths sorted.
 
-    open: every internal person reads every manifest document.
+    Grants are read access **as of the end of the corpus**, so a person who
+    left mid-history holds none: their account is gone, and access is a
+    present-tense property of the live share, not a record of what they could
+    once see. `open` therefore means "everyone currently employed reads
+    everything", not "everyone who ever worked here" (BACKLOG:
+    acl-blind-to-departure, resolved 2026-07-16).
+
+    A departed person stays a principal with an empty doc list rather than
+    being dropped: ACL-01 requires principals to mirror the roster, and an
+    empty expected set is a real visibility question ("does your system deny
+    a departed employee?") that `score` grades by exact set match.
+
+    Symmetry worth naming: joining is not scoped the same way. A current hire
+    reads documents that predate them, because a real new joiner is handed the
+    existing share. Only leaving revokes.
+
+    open: every currently-employed person reads every manifest document.
     departmental: engagement documents are readable by that engagement's
     internal participants plus the CEO-equivalent; financial summaries by
     the CEO-equivalent plus the workbook's author; everything else
-    (firm-level documents) by everyone.
+    (firm-level documents) by everyone. Employment scoping applies on top of
+    all three.
     """
     ceo = next(p for p in foundation.people if p.reports_to is None)
     eng_by_id = {e.id: e for e in engagements.engagements}
     readable: dict[str, list[str]] = {p.id: [] for p in foundation.people}
+    # `end is None` is the roster's own encoding of "still employed"
+    # (EmploymentSpan). Every document keeps at least one reader under every
+    # posture because the CEO-equivalent cannot depart: churn only retires
+    # seats that manage nobody, so ACL-02 stays satisfied by construction.
+    current = {p.id for p in foundation.people if p.employment.end is None}
 
     for entry in manifest:
         if charter.acl_posture == "open":
@@ -44,9 +66,10 @@ def derive_acl(charter, foundation, engagements, manifest) -> AclLedger:
             readers = {ceo.id} | set(entry.authors)
         else:
             readers = set(readable)
-        for pid in readers:
-            if pid in readable:  # externals carry no grants
-                readable[pid].append(entry.path)
+        # `current` is roster-derived, so this also drops externals, which
+        # carry no grants.
+        for pid in readers & current:
+            readable[pid].append(entry.path)
 
     grants = [
         AclGrant(person=p.id, docs=sorted(readable[p.id]))

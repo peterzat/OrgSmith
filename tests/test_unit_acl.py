@@ -33,7 +33,7 @@ def test_absent_acl_loads_as_none(pure_org):
     assert load_acl(pure_org) is None
 
 
-def test_open_posture_grants_everything(tmp_path):
+def test_open_posture_grants_everything_to_current_staff(tmp_path):
     paths = build_pure_stages(tmp_path)
     assert run_acl(paths) == 0
     acl = load_acl(paths)
@@ -41,7 +41,47 @@ def test_open_posture_grants_everything(tmp_path):
     all_paths = sorted(e.path for e in load_manifest(paths))
     people = load_foundation(paths).people
     assert [g.person for g in acl.grants] == [p.id for p in people]
-    assert all(g.docs == all_paths for g in acl.grants)
+
+    current = {p.id for p in people if p.employment.end is None}
+    departed = {p.id for p in people if p.employment.end is not None}
+    assert current and departed, "dev-mini's churn should plant both"
+    by_person = {g.person: g.docs for g in acl.grants}
+    assert all(by_person[pid] == all_paths for pid in current)
+    # `open` is everyone currently employed, not everyone who ever was.
+    assert all(by_person[pid] == [] for pid in departed)
+
+
+def test_departed_person_keeps_no_read_access(tmp_path):
+    """BACKLOG acl-blind-to-departure, resolved 2026-07-16 (M11a). The open
+    posture used to hand a departed employee every document in the share,
+    including ones created after they left, because grants were built over
+    the roster with no reference to `employment.end`. The org modelled the
+    departure as a first-class dated fact and the ACL overlay ignored it.
+
+    Only newly visible since M8: before roster churn every person spanned the
+    whole range, so an employment-blind ACL was indistinguishable from a
+    correct one.
+    """
+    paths = build_pure_stages(tmp_path)
+    assert run_acl(paths) == 0
+    foundation = load_foundation(paths)
+    manifest = load_manifest(paths)
+    departed = [p for p in foundation.people if p.employment.end is not None]
+    assert departed, "dev-mini's roster churn should retire a seat"
+
+    acl = load_acl(paths)
+    by_person = {g.person: g.docs for g in acl.grants}
+    for person in departed:
+        assert by_person[person.id] == [], person.name
+        # The documents that motivated the finding: created after they left.
+        assert [e for e in manifest if e.date > person.employment.end], (
+            f"{person.name} left before the corpus ends, so post-departure "
+            f"documents must exist for this test to prove anything"
+        )
+
+    # Still principals, so ACL-01 holds and the visibility suite asks the
+    # question ("may they read anything?") instead of omitting the person.
+    assert {g.person for g in acl.grants} == {p.id for p in foundation.people}
 
 
 def test_departmental_posture_restricts(dept_org):
@@ -52,16 +92,21 @@ def test_departmental_posture_restricts(dept_org):
     engagements = load_engagements(dept_org).engagements
     ceo = next(p for p in foundation.people if p.reports_to is None)
     by_person = {g.person: set(g.docs) for g in acl.grants}
+    # Employment scoping applies on top of every posture, so each expected
+    # reader set below is intersected with current staff. The CEO-equivalent
+    # is always current: churn only retires seats that manage nobody.
+    current = {p.id for p in foundation.people if p.employment.end is None}
+    assert ceo.id in current
 
     # The CEO-equivalent reads everything.
     assert by_person[ceo.id] == {e.path for e in manifest}
 
-    # Engagement docs: exactly the team plus the CEO.
+    # Engagement docs: exactly the team plus the CEO, less anyone departed.
     for entry in manifest:
         if entry.engagement is None:
             continue
         eng = next(e for e in engagements if e.id == entry.engagement)
-        team = set(eng.internal_participants) | {ceo.id}
+        team = (set(eng.internal_participants) | {ceo.id}) & current
         readers = {p for p, docs in by_person.items() if entry.path in docs}
         assert readers == team, entry.path
 
@@ -70,13 +115,13 @@ def test_departmental_posture_restricts(dept_org):
         if entry.genre != "financial_summary":
             continue
         readers = {p for p, docs in by_person.items() if entry.path in docs}
-        assert readers == {ceo.id} | set(entry.authors), entry.path
+        assert readers == ({ceo.id} | set(entry.authors)) & current, entry.path
 
-    # Firm-level non-finance docs: everyone.
+    # Firm-level non-finance docs: everyone currently employed.
     for entry in manifest:
         if entry.engagement is None and entry.genre != "financial_summary":
             readers = {p for p, docs in by_person.items() if entry.path in docs}
-            assert readers == set(by_person), entry.path
+            assert readers == current, entry.path
 
     # The posture actually restricts: someone is denied something.
     assert any(

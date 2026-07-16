@@ -512,7 +512,11 @@ batch records what actually authored it.
   documents: matter teams plus the CEO-equivalent for engagement folders,
   finance restricted to its owners) plus a human-readable PERMISSIONS.md
   in the share root, both enforced by validator rules that recompute the
-  grants from the posture.
+  grants from the posture. Grants are access *as of the end of the
+  corpus*, so someone the roster retires mid-history holds none — which
+  makes "does your system correctly deny a departed employee?" a scored
+  visibility question with an empty expected set, rather than a case the
+  answer key is blind to.
 - Hard-case fact planting: recipe knobs place facts where extractors have
   to work for them. A signature-page-only fee is injected at render time
   onto the final page of the engagement letter and appears nowhere else

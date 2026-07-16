@@ -100,6 +100,14 @@ graph_targets:
 #                                # departmental = engagement folders restricted to
 #                                # their teams + the CEO-equivalent, finance to the
 #                                # CEO-equivalent + workbook author
+#                                # Both postures are scoped to CURRENT employment:
+#                                # grants are read access as of the end of the
+#                                # corpus, so a person retired by roster_churn
+#                                # holds none (they stay a principal with an empty
+#                                # doc list). Joining is not scoped the same way --
+#                                # a current hire reads documents that predate
+#                                # them, as a real joiner is handed the existing
+#                                # share. Only leaving revokes.
 ```
 
 Prose after the YAML block is the narrative brief. It is carried into
