@@ -31,13 +31,18 @@ companies/dev-mini-metadata/     <- ground truth for all of the above
 └── state.json                   # resumable pipeline state
 ```
 
-The documents are written by a frontier LLM, but it never sees a number.
-Deterministic Python plants every fact first, and the model writes only the
-prose around `{{fact:...}}` placeholders it cannot resolve, so a value cannot
-be mistranscribed into a document. And OrgSmith runs as Claude Code skills
-rather than against an API: authoring bills to the Claude subscription you
-already have, needs no API keys, and the deterministic stages (ledgers,
-rendering, validation) cost no tokens at all.
+The documents are written by a frontier LLM, but every fact in them was
+planted by deterministic Python before any prose existed. The model writes
+only the text around `{{fact:...}}` placeholders whose values it is never
+shown, so a fee or a date cannot be mistranscribed into a document.
+
+OrgSmith runs as Claude Code skills rather than against an API, so authoring
+bills to the Claude subscription you already have, needs no API keys, and the
+deterministic stages (ledgers, rendering, validation) cost no tokens at all.
+The writer is whatever model your Claude Code session is set to: OrgSmith
+pins none. Use the strongest you have. That is measured rather than folklore
+([docs/MODEL-AB.md](docs/MODEL-AB.md)), and `doctor` prints your session's
+effort against the authoring floor and warns when you are under it.
 
 The result reads like a real firm wrote it: engagement letters on letterhead
 with signature blocks, meeting minutes that name every attendee, spreadsheets
