@@ -31,21 +31,30 @@ companies/dev-mini-metadata/     <- ground truth for all of the above
 └── state.json                   # resumable pipeline state
 ```
 
-The documents are written by a frontier LLM and read like a real firm wrote
-them: engagement letters on letterhead with signature blocks, meeting
-minutes that name every attendee, spreadsheets whose formulas recompute to
-the values the finance ledger says. The `-metadata` directory is the answer
-key.
+The documents are written by a frontier LLM, but it never sees a number.
+Deterministic Python plants every fact first, and the model writes only the
+prose around `{{fact:...}}` placeholders it cannot resolve, so a value cannot
+be mistranscribed into a document. And OrgSmith runs as Claude Code skills
+rather than against an API: authoring bills to the Claude subscription you
+already have, needs no API keys, and the deterministic stages (ledgers,
+rendering, validation) cost no tokens at all.
 
-Seven companies are committed to this repo and ready to use. You can also
-write a recipe and generate your own.
+The result reads like a real firm wrote it: engagement letters on letterhead
+with signature blocks, meeting minutes that name every attendee, spreadsheets
+whose formulas recompute to the values the finance ledger says. The
+`-metadata` directory is the answer key.
+
+**Seven companies are already generated and committed here. Browse them
+now: [`companies/`](companies/)** — real files and their answer keys, in the
+browser, nothing to clone or install. You can also write a recipe and
+generate your own.
 
 ## Who this is for
 
 You are building something that has to operate over a real organization's
 documents — retrieval, extraction, a people graph, an agent that navigates
 a file share — and you need a corpus to develop against. Your options today
-are bad:
+are limited:
 
 - **Real corpora** are confidential, single-instance, and carry no ground
   truth. You cannot publish your benchmark, your collaborator cannot
@@ -91,7 +100,7 @@ harness is measuring what you think.
 This matters double if an AI is writing your retrieval system: an agent's
 feedback loop is only as honest as the corpus it verifies against.
 
-## Scale and representativeness: read this before you rely on it
+## Scale and representativeness
 
 The fastest way to lose a serious user is to let them discover the limits
 themselves. So, plainly:
@@ -103,6 +112,24 @@ document footprint, and it is roughly two to four orders of magnitude away
 from being one.
 
 ### What ships today
+
+**Browse the fleet in your browser: [`companies/`](companies/).** All seven
+are committed and public, so every `<slug>/` is a real file share you can
+click through and every `<slug>-metadata/` is its answer key, sitting right
+next to it. Nothing to clone, install, or authenticate.
+
+Document spans below are the real dates on the files, not the window the
+recipe allowed:
+
+| company | docs | share | answer key |
+| --- | --- | --- | --- |
+| 5-person consultancy, 2019–2023 | 13 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
+| 6-person engineering firm, 2019–2024 | 11 | [torchlake-engineering](companies/torchlake-engineering/) | [key](companies/torchlake-engineering-metadata/) |
+| 5-person appraisal practice, 2019–2020 | 11 | [quillbrook-appraisal](companies/quillbrook-appraisal/) | [key](companies/quillbrook-appraisal-metadata/) |
+| 5-person law practice, 2018–2021 | 11 | [bramblewood-legal](companies/bramblewood-legal/) | [key](companies/bramblewood-legal-metadata/) |
+| 5-person strategy consultancy, 2022–2025 | 16 | [gladepoint-strategies](companies/gladepoint-strategies/) | [key](companies/gladepoint-strategies-metadata/) |
+| 5-person ops consultancy, 1998–2004, legacy binaries and scans | 14 | [cindergrove-advisors](companies/cindergrove-advisors/) | [key](companies/cindergrove-advisors-metadata/) |
+| 5-person financial advisory, 2020–2025 | 19 | [fernhollow-partners](companies/fernhollow-partners/) | [key](companies/fernhollow-partners-metadata/) |
 
 Seven companies, 1998–2025, ~3.9 MB of share plus ~1.3 MB of ground truth:
 
@@ -151,7 +178,7 @@ signature page of a degraded scan, it will fail here, on 19 documents, in
 1.7 seconds, with an exact answer key — instead of failing silently on
 50,000 real ones.
 
-### What is deliberately not modeled
+### What is not modeled today
 
 Our own adversarial review board read the flagship fixture,
 `fernhollow-partners`, and said it better than we could. These are its
@@ -179,9 +206,26 @@ actual committed findings — all rated major, all in
   recipient" — the generator's context resets are more legible in the output
   than the firm's five employees are.
 
-Also absent: multi-org document exchange, litigation-style volume, real
-duplicate/version chains, personal and off-topic content, adversarial or
-malicious documents, and any human editing pass.
+**This is where the generator stands today, not a design position.** Four of
+those five findings are already scheduled, and the next milestone was scoped
+directly from this list: the board found these problems, and we wrote the
+roadmap from what it found. The frozen roster, the flat staffing graph, and
+the lockstep finance are that milestone's substance, arriving as recipe knobs
+that default off so the committed fixtures keep regenerating
+byte-identically; the missing contract clauses land with the document-length
+work behind it. [SPEC.md](SPEC.md) is the current unit of work and says
+exactly what it commits to. Each turn's board findings stay committed next to
+the org they judged, so you can watch the list shrink instead of taking our
+word for it. Cross-document voice is the genuinely hard one, and it has no
+scheduled fix.
+
+Out of scope by choice rather than pending: multi-org document exchange,
+litigation-style volume, real duplicate/version chains, personal and
+off-topic content, adversarial or malicious documents, and any human editing
+pass. Email volume is the largest gap above and sits in between: the recipe's
+`format_mix` does dial the email share, but no committed fixture leans that
+way, and the planner currently spaces successive messages in a thread 45 days
+apart, so email-dominant realism needs more than turning the knob up.
 
 **Choose accordingly.** If you need volume, noise distribution, or email
 realism, this is the wrong tool today. If you need labeled hard cases,
@@ -414,16 +458,16 @@ batch records what actually authored it.
 
 - The full pipeline, end to end, proven on seven committed fixtures:
   `dev-mini` (a 5-person consultancy, 13 documents, three engagements,
-  2019-2022, with mention ground truth, the ACL overlay, and visibility
+  2019-2023, with mention ground truth, the ACL overlay, and visibility
   evals); `torchlake-engineering` (a 6-person engineering firm, 11
-  documents, 2018-2024) generated with every ambiguity knob on: a
+  documents, 2019-2024) generated with every ambiguity knob on: a
   surname-collision pair, a nickname alias planted in rendered minutes,
   and an external contact with a mid-history employer change;
   `quillbrook-appraisal` (a 5-person appraisal practice, 11 documents,
-  2016-2020) generated with the hard-case knobs on;
-  `bramblewood-legal` (a 5-person law practice, 11 documents, 2017-2021)
+  2019-2020) generated with the hard-case knobs on;
+  `bramblewood-legal` (a 5-person law practice, 11 documents, 2018-2021)
   generated with a departmental ACL posture; `gladepoint-strategies`
-  (a 5-person strategy consultancy, 16 documents, 2021-2025) whose mix
+  (a 5-person strategy consultancy, 16 documents, 2022-2025) whose mix
   adds a briefing deck and email threads; and `cindergrove-advisors`
   (a 5-person operations consultancy founded 1995, 14 documents,
   1998-2004) generated with the scan and legacy knobs on: every office
@@ -431,7 +475,7 @@ batch records what actually authored it.
   degraded scans (one with a synthetic OCR layer, one image-only). Known
   anachronism, reserved for the era-naming turn: the retro roster keeps
   modern seeded names. And `fernhollow-partners` (a 5-person financial
-  advisory boutique, 19 documents, four engagements, 2019-2025)
+  advisory boutique, 19 documents, four engagements, 2020-2025)
   generated with `affiliations_in_docs` on: one client contact signs an
   early engagement letter under one employer and appears in late
   documents under another, era-correct per document date, with dated
