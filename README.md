@@ -37,22 +37,159 @@ minutes that name every attendee, spreadsheets whose formulas recompute to
 the values the finance ledger says. The `-metadata` directory is the answer
 key.
 
-## Why
+Seven companies are committed to this repo and ready to use. You can also
+write a recipe and generate your own.
 
-If you are building anything that operates over an organization's documents
-(knowledge bases, RAG pipelines, people-graph extraction, agents that
-navigate file shares) you need corpora to develop and test against. Real
-corpora are confidential, single-instance, and carry no ground truth.
+## Who this is for
 
-A synthetic org is shareable, regenerable in variants, and, because the
-generator planted every fact, comes with a deterministic answer key: which
-documents mention which people, what the fee on that engagement was, which
-spreadsheet cell ties to which ledger line. "Did my extractor find the fee
-in the signature page?" becomes a checkable assertion instead of a vibe.
+You are building something that has to operate over a real organization's
+documents — retrieval, extraction, a people graph, an agent that navigates
+a file share — and you need a corpus to develop against. Your options today
+are bad:
 
-This matters double for agentically coded projects: when an AI is writing
-your retrieval system, high-fidelity test corpora with ground truth are
-what make its feedback loop honest.
+- **Real corpora** are confidential, single-instance, and carry no ground
+  truth. You cannot publish your benchmark, your collaborator cannot
+  reproduce it, and "did the extractor get the fee right?" is answered by a
+  human squinting at a PDF.
+- **Public corpora** (Enron and its descendants) are real, which is their
+  virtue and their problem: one organization, one era, one format profile,
+  and still no answer key. Nobody labeled which message mentions which
+  person under which alias.
+- **Ad-hoc LLM generation** gives you plausible text with no ground truth
+  at all. The model that wrote "the fee was $120,000" is the only record
+  that the fee was $120,000, and if it wrote $12,000 in the spreadsheet
+  nothing notices.
+
+OrgSmith targets the specific gap: **a corpus you can publish, regenerate,
+and check answers against.** Because deterministic code planted every fact
+before any prose existed, every question has a computed answer:
+
+- **Retrieval / RAG.** Which documents answer this question? The suite ships
+  the expected document set per question.
+- **Extraction.** What was the fee on E-2021-003, and where does it live?
+  The suite ships the exact expected value, the source documents, and the
+  *location class* — so you can score "found it in the body" separately from
+  "found it on the signature page of a scanned PDF."
+- **People-graph / entity resolution.** Who works with whom, who is the same
+  person under a nickname, who changed employers mid-history? The answer key
+  carries alias credit and per-ambiguity-class recall.
+- **Access-control-aware systems.** Given this person's permissions, exactly
+  which documents may they see? The visibility suite ships the exact set per
+  person, recomputed from the recipe's ACL posture.
+- **Heterogeneous "ugly" format handling.** This is the part most synthetic
+  corpora skip entirely. Recipes can produce genuine pre-2007 OLE binaries,
+  PDFs rasterized and degraded to look scanned, an invisible synthetic OCR
+  layer with realistic corruptions, and image-only scans with no extractable
+  text at all — each with the *true* page text archived as ground truth, so
+  you can measure exactly what your OCR pipeline lost.
+
+`score` grades an external system's answers against any suite with
+per-question attribution, from nothing but the `evals/` directory. Ground
+truth scores 100% by construction, which is the sanity check that the
+harness is measuring what you think.
+
+This matters double if an AI is writing your retrieval system: an agent's
+feedback loop is only as honest as the corpus it verifies against.
+
+## Scale and representativeness: read this before you rely on it
+
+The fastest way to lose a serious user is to let them discover the limits
+themselves. So, plainly:
+
+**OrgSmith generates specimens, not samples.** A committed org is a small,
+fully-labeled artifact chosen to contain the *shapes* your system has to
+handle. It is not a statistically faithful reproduction of a real company's
+document footprint, and it is roughly two to four orders of magnitude away
+from being one.
+
+### What ships today
+
+Seven companies, 1998–2025, ~3.9 MB of share plus ~1.3 MB of ground truth:
+
+| | fleet |
+| --- | --- |
+| companies | 7 |
+| people (internal) | 36 |
+| planned documents | 95 (81 model-authored + 14 deterministic workbooks) |
+| engagements | 19 |
+| mean words per authored doc | 236 |
+| whole fleet as tokens | ~25K |
+
+Per company: 5–6 people, 11–19 documents, 2–4 engagements, a 3–7 year span.
+
+By format: 46 `.docx`, 19 `.pdf`, 12 `.xlsx`, 8 `.doc`, 3 `.pptx`, 2 `.xls`,
+4 `.eml`, 1 `.ppt`.
+
+By genre: 19 engagement letters, 19 sets of meeting minutes, 14 kickoff
+memos, 14 status reports, 14 financial summaries, 7 firm overviews, 4
+briefing decks, 4 email threads.
+
+### Where that sits against a real firm
+
+A real five-person professional-services firm over five years does not
+produce 14 documents. It produces, very roughly:
+
+- **Email in the tens of thousands.** Five people sending even 20 messages a
+  working day is ~125,000 messages over five years. OrgSmith ships **4
+  `.eml` files across the entire fleet.** Real firms are email-dominant
+  corpora; this one is document-dominant. That is the single largest
+  fidelity gap.
+- **Files in the thousands to hundreds of thousands**, most of them junk:
+  drafts, near-duplicate versions, dead templates, misfiled scans, someone's
+  lunch menu. OrgSmith ships 11–19 documents per company, each one
+  deliberate and none of them junk.
+- **Documents 3–6× longer.** Real engagement letters run 800–1,500 words.
+  OrgSmith's authored mean is **236 words**, against briefs asking 130–350.
+  The model is roughly hitting its targets; the targets are wrong. This is
+  measured, published in every org's `GENERATION-REPORT.md`, and scheduled
+  to be raised.
+
+There is no honest way to call 14 documents a sample of that. What it is: a
+corpus where **every** hard case you care about is present, labeled, and
+checkable. If your extractor cannot find a fee that exists only on the
+signature page of a degraded scan, it will fail here, on 19 documents, in
+1.7 seconds, with an exact answer key — instead of failing silently on
+50,000 real ones.
+
+### What is deliberately not modeled
+
+Our own adversarial review board read the flagship fixture,
+`fernhollow-partners`, and said it better than we could. These are its
+actual committed findings — all rated major, all in
+`companies/fernhollow-partners-metadata/review/findings/`:
+
+- **Nobody's career moves.** "Across the corpus's five-year span nobody is
+  hired, promoted, or leaves... which leaves Ryan Strong an Analyst five and
+  a half years after joining a firm that has no other analyst to be junior
+  to."
+- **The contracts are not contracts.** "All four engagement letters are
+  countersigned EXECUTED contracts that allocate no risk: no termination
+  clause, no limitation of liability, no indemnification, no governing law
+  or dispute resolution, no retainer, and no incorporation of standard terms
+  by reference."
+- **The org graph is flat where a real one is lopsided.** "Every engagement
+  across five years is staffed by exactly the same three people and every
+  engagement document names all three."
+- **Finance is too clean.** "Every expense line is a frozen percentage of
+  revenue in all eight years... which no real P&L does" — so Office &
+  Facilities compounds to +89% for a firm whose own ground truth says the
+  same five people never left the same office.
+- **The firm doesn't template what a real firm would template.** The
+  conventions "cluster by authoring batch rather than by client, year, or
+  recipient" — the generator's context resets are more legible in the output
+  than the firm's five employees are.
+
+Also absent: multi-org document exchange, litigation-style volume, real
+duplicate/version chains, personal and off-topic content, adversarial or
+malicious documents, and any human editing pass.
+
+**Choose accordingly.** If you need volume, noise distribution, or email
+realism, this is the wrong tool today. If you need labeled hard cases,
+format heterogeneity, reproducibility, and a corpus you can legally publish,
+it is a good one. See [docs/SCALE.md](docs/SCALE.md) for the size targets
+and the measurements behind them, including why a 2,000-document org at
+today's lengths would still fit inside a 1M-token context window and
+therefore prove nothing about retrieval.
 
 ## How it works
 
@@ -101,6 +238,90 @@ duplicated or lost documents. Structure is fully seeded; the same recipe
 regenerates the same org (ids, names, tree, numbers), with only the
 model-authored prose varying.
 
+## Why we think the output is any good
+
+Any generator can claim quality. The question a researcher should ask is:
+*what would catch you if you were wrong?* OrgSmith's answer is a deliberate
+hierarchy, taken from [The Bitter Lesson of Agentic
+Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
+**oracles beat proxies beat critics**, and you should know which one you are
+relying on for any given claim.
+
+**Oracles — strongest, and where all the facts live.** An oracle recomputes
+the answer from ground truth. The 29-rule validator and the eval suites are
+oracles: they do not ask whether a document *seems* right, they recompute
+what it must contain from the ledgers and fail the org if it doesn't. This
+is why the airlock exists — the model never sees a value it is placing, so
+"the model transcribed the fee wrong" is not a bug class that can occur. It
+is structurally impossible rather than tested-for.
+
+**Proxies — weaker, cheap, and blind to different things than you are.**
+`orgsmith report` computes corpus metrics with no model: each document's
+length against the words its brief actually asked for, and same-genre n-gram
+overlap. A proxy catches what the generator cannot see about itself. Ours
+immediately found real literal reuse across two engagement letters that no
+human reader in the project had noticed.
+
+**Critics — weakest, and treated as such.** `/forge-review` dispatches a
+board of fresh-context reviewers across six dimensions. A critic shares
+blind spots with the generator that produced the text, so the board's scope
+is exactly what no proxy reaches — above all **cross-document voice**, the
+one dimension no author can ever self-check, because nothing in the pipeline
+holds two authored documents at once. Every document is written by a fresh
+worker that has never seen a sibling.
+
+Three consequences worth being explicit about:
+
+**Nothing that is not an oracle is allowed to gate.** No metric and no board
+finding is a validator rule. Thresholds are unknown, and "when a measure
+becomes a target, it stops being a good measure" — a similarity rule would
+just teach the generator to paraphrase. The metric measures, the board
+judges, the human decides.
+
+**Generation and evaluation are structurally separated, not politely
+separated.** Agents asked to grade their own work confidently praise it. So
+the board is read-only and never authored what it reviews; `bin/test` cannot
+reach the board at all (a static test proves no tier can); and no LLM grades
+an LLM anywhere in an automated path.
+
+**We publish what the critic said about us.** The board's findings against
+the flagship fixture are committed to this repo, unflattering ones included
+— the frozen roster, the too-clean finance, the batch-legible conventions
+quoted above. `docs/REVIEW-CALIBRATION.md` records the board being
+calibrated against two hand-labeled defects before its findings were relied
+on, including the case where it **overruled the metric** (judging a flagged
+similar pair to be realistic template reuse) and the case where it caught
+what the metric provably cannot see.
+
+### The evidence, concretely
+
+- **306 tests** across three tiers (`bin/test`), keyless and offline; the
+  `org` tier validates every committed fixture in ~1.7s.
+- **Determinism is enforced, not hoped for.** The same recipe regenerates
+  byte-identical structure. Committed fixtures are frozen and every
+  capability added since has had to keep them loading, validating, and
+  regenerating unchanged — which is why derived artifacts (`evals/`,
+  `acl.json`, PERMISSIONS.md, `GENERATION-REPORT.md`) are recomputed rather
+  than stored.
+- **Tamper evidence by construction.** Rules grandfather by *charter*, not
+  by artifact absence: a knob that is on with its ground truth missing is a
+  failure, so stripping the answer key out of a distributed org cannot pass
+  validation.
+- **The model choice is measured, not asserted.** See below.
+- **The whole project is built this way.** Spec-driven turns, adversarial
+  review with builder/verifier separation, and a pre-push gate that blocks
+  unreviewed code — via [zat.env](https://github.com/peterzat/zat.env).
+  `SPEC.md`, `CODEREVIEW.md`, and `SECURITY.md` are in the repo; read them
+  to see what the review actually caught.
+
+**What this does not prove.** The board has been calibrated on one org, one
+model, one run, with no negative control — so its false-positive rate is
+unmeasured. The metrics have no validated thresholds. Nothing here
+establishes that a system which scores well on OrgSmith scores well on a
+real corpus; the fidelity gaps above are the reason to doubt it. These
+limits are recorded in `docs/REVIEW-CALIBRATION.md` rather than smoothed
+over.
+
 ## Design principles
 
 Five rules have survived every milestone so far and govern new work:
@@ -127,11 +348,24 @@ Five rules have survived every milestone so far and govern new work:
 
 ## Quick start
 
+**Just want the data?** Clone the repo. The seven companies under
+`companies/` are ready to use, with their answer keys beside them. No venv,
+no model, no API key.
+
+To validate, score, or generate:
+
 ```bash
 git clone https://github.com/peterzat/OrgSmith.git && cd OrgSmith
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt   # WeasyPrint needs system Pango
 bin/test                                        # short + unit + org tiers, offline
+```
+
+```bash
+python -m orgsmith validate fernhollow-partners      # 29 rules against ground truth
+python -m orgsmith report fernhollow-partners        # corpus metrics -> GENERATION-REPORT.md
+python -m orgsmith score fernhollow-partners \
+    --suite extraction --answers my_system.json      # grade your system
 ```
 
 Generating orgs with legacy formats (`legacy_ratio` recipes producing
@@ -144,7 +378,8 @@ including legacy files, never needs it.
 Then open Claude Code in the repo and run:
 
 ```
-/forge dev-mini        # regenerate the tracer org
+/forge dev-mini          # regenerate the tracer org
+/forge-review dev-mini   # dispatch the adversarial board (optional)
 ```
 
 To make your own company, write a recipe (see
@@ -165,7 +400,8 @@ against byte-identical ledgers and briefs, produced one corpus a blind
 reviewer said would "take a deliberate effort to catch out" and one it
 rejected outright as too thin to survive first contact — at 60% of the
 words its briefs asked for. **Both passed all 29 validator rules with
-zero errors.** See [docs/MODEL-AB.md](docs/MODEL-AB.md).
+zero errors**, which is exactly why the quality instrument exists. See
+[docs/MODEL-AB.md](docs/MODEL-AB.md).
 
 Nothing downstream can detect a weak authoring pass from the artifacts, so
 OrgSmith surfaces the setting before tokens are spent rather than gating
@@ -266,7 +502,10 @@ See [docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
 
 Everything generated is fictional. Every rendered file carries a synthetic
 marker in its native metadata (docx/xlsx custom properties, PDF document
-info), and a validator rule fails the org if one is missing. See NOTICE.
+info), and a validator rule fails the org if one is missing. Generated names
+are screened against a real-firm list at generation time and by a validator
+rule, so a fixture cannot ship a company name that collides with a real one.
+See NOTICE.
 
 ## Built with
 

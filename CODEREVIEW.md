@@ -15,6 +15,19 @@ by the sandbox's data-exfiltration classifier (piping the repo diff to an
 external service). Not run; not silently skipped. To enable, add a Bash
 permission rule for `review-external.sh`.
 
+**Docs addendum (light review, same day):** a README rewrite for a
+researcher audience landed after the entry below. Docs-only, so light tier:
+no test run, no security chain, no fix loop. Checks performed — all three
+internal links resolve; no secrets (the `token` hits are context-window
+prose); factual accuracy verified against the artifacts rather than memory.
+That last check caught one real defect before it shipped: a quote attributed
+to the board's reading of `fernhollow-partners` ("two engagements, thirteen
+months, zero slipped dates") actually came from the model A/B's haiku arm —
+fernhollow has four engagements. Replaced with quotes grep-verified verbatim
+against `companies/fernhollow-partners-metadata/review/findings/`. The
+"306 tests" and fleet-scale figures were re-measured, and the `score`
+invocation was executed as written.
+
 ### Findings
 
 [WARN] orgsmith/review/report.py:49,122 — untrusted strings reach
