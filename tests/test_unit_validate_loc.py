@@ -17,7 +17,6 @@ from orgsmith.artifacts import (
     load_engagements,
     load_foundation,
     load_manifest,
-    load_work_order,
 )
 from orgsmith.assemble import run_assemble
 from orgsmith.authoring.contexts import run_next_batch
@@ -29,7 +28,6 @@ from orgsmith.render.docx import render_docx
 from orgsmith.render.pdf import render_pdf
 from orgsmith.render.styles import style_pack
 from orgsmith.schemas import Block, DocIR
-from orgsmith.state import load_state
 from orgsmith.validate import run_validate
 
 from conftest import (
@@ -37,6 +35,7 @@ from conftest import (
     run_authoring,
     run_enrichment,
     scripted_authoring,
+    sole_author_wo,
 )
 
 pytestmark = pytest.mark.unit
@@ -124,8 +123,7 @@ def hard_batch(tmp_path_factory):
     paths = build_hardcase_stages(tmp_path_factory.mktemp("hard-batch"))
     run_enrichment(paths)
     assert run_next_batch(paths) == 0
-    state = load_state(paths)
-    wo = load_work_order(paths.workorders_dir / state.outstanding["author"])
+    wo = sole_author_wo(paths)
     return paths, wo
 
 

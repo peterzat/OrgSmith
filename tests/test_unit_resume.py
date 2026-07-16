@@ -30,8 +30,10 @@ pytestmark = pytest.mark.unit
 
 
 def _ingest_outstanding(paths):
+    """Author and ingest the single outstanding author batch."""
     state = load_state(paths)
-    wo = load_work_order(paths.workorders_dir / state.outstanding["author"])
+    (_wo_id, ref), = state.author_batches.items()
+    wo = load_work_order(paths.workorders_dir / ref.workorder)
     reply = paths.workorders_dir / f"reply-{wo.id.replace(':', '-')}.json"
     reply.write_text(json.dumps(scripted_authoring(wo)))
     assert ingest_author(paths, reply) == 0
@@ -48,13 +50,21 @@ def test_resume_mid_authoring_no_dup_no_loss(tmp_path):
     first_wo = _ingest_outstanding(paths)
     assert run_render(paths) == 0  # browsable early
     assert run_next_batch(paths) == 0
-    orphan_wo = load_state(paths).outstanding["author"]
+    (orphan_id, orphan_ref), = load_state(paths).author_batches.items()
+    orphan_docs = set(orphan_ref.doc_ids)
+    assert orphan_docs  # the orphan batch claims real docs
 
-    # Session 2: fresh process, file-derived state only.
-    assert run_next_batch(paths) == 0  # re-emits the SAME order, no new file
+    # Session 2: fresh process, file-derived state only. The orphan stays
+    # outstanding across the kill; a fresh next-batch never re-covers its
+    # docs (it emits a disjoint batch, or nothing if the orphan holds the
+    # tail), so the orphan is not lost and no doc is claimed twice.
+    assert run_next_batch(paths) == 0
     state = load_state(paths)
-    assert state.outstanding["author"] == orphan_wo
-    run_authoring(paths)  # completes the org
+    assert orphan_id in state.author_batches
+    for wo_id, ref in state.author_batches.items():
+        if wo_id != orphan_id:
+            assert not (set(ref.doc_ids) & orphan_docs)
+    run_authoring(paths)  # re-dispatches the orphan and completes the org
     assert run_render(paths) == 0
     assert run_assemble(paths) == 0
 
@@ -82,6 +92,7 @@ def test_resume_mid_authoring_no_dup_no_loss(tmp_path):
     assert status["stages"]["author"] == "done"
     assert status["stages"]["render"] == "done"
     assert status["outstanding"] == {}
+    assert status["author_batches"] == {}
     assert run_validate(paths) == 0
 
 

@@ -36,6 +36,19 @@ class StageState(StrictModel):
     inputs_hash: str | None = None
 
 
+class BatchRef(StrictModel):
+    """One outstanding authoring work order (M10 parallel authoring).
+
+    The author stage dispatches concurrent batches; each is tracked here by
+    its work_order_id until its deliverable is ingested. `workorder` is the
+    file under workorders/; `doc_ids` are the batchable docs it covers, kept
+    so `--next-batch` can exclude in-flight docs without loading every order.
+    """
+
+    workorder: str
+    doc_ids: list[str] = Field(default_factory=list)
+
+
 class DocState(StrictModel):
     authored_hash: str | None = None
     rendered_hash: str | None = None
@@ -50,8 +63,14 @@ class OrgState(StrictModel):
     slug: str
     stages: dict[str, StageState] = {}
     docs: dict[str, DocState] = {}
-    # stage -> workorders/<file>; at most one outstanding per stage
+    # stage -> workorders/<file>; at most one outstanding per stage. Governs
+    # the single-outstanding stages (foundation enrichment). The author stage
+    # is concurrent and lives in `author_batches` instead.
     outstanding: dict[str, str] = {}
+    # Author stage supports concurrent outstanding batches (M10 parallel
+    # authoring): work_order_id -> BatchRef. Empty by default so every
+    # committed state.json still loads under the unchanged orgsmith/state@1 id.
+    author_batches: dict[str, BatchRef] = Field(default_factory=dict)
     probes: dict[str, str] = {}
     fallbacks: list[str] = Field(default_factory=list)
     # work_order_id -> the model/effort that answered it. Self-reported by
@@ -75,6 +94,11 @@ class OrgState(StrictModel):
 
     def doc(self, doc_id: str) -> DocState:
         return self.docs.setdefault(doc_id, DocState())
+
+    def covered_docs(self) -> set[str]:
+        """doc_ids currently claimed by an outstanding author batch, so a new
+        batch is chosen disjoint from every in-flight one."""
+        return {d for ref in self.author_batches.values() for d in ref.doc_ids}
 
 
 def sha256_bytes(data: bytes) -> str:

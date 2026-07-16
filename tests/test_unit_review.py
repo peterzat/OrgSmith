@@ -19,7 +19,7 @@ from orgsmith.review.report import render_report, run_report
 from orgsmith.review.sample import build_sample, run_sample
 from orgsmith.state import load_state
 
-from conftest import build_pure_stages, run_authoring, run_enrichment
+from conftest import build_pure_stages, run_authoring, run_enrichment, sole_author_wo
 
 pytestmark = pytest.mark.unit
 
@@ -242,7 +242,6 @@ def test_deliverable_without_generator_still_validates():
 
 
 def test_generator_is_recorded_per_batch_at_ingest(tmp_path):
-    from orgsmith.artifacts import load_work_order
     from orgsmith.authoring.contexts import run_next_batch
     from orgsmith.authoring.ingest import run_ingest as ingest_author
 
@@ -251,8 +250,7 @@ def test_generator_is_recorded_per_batch_at_ingest(tmp_path):
     paths = build_pure_stages(tmp_path / "prov")
     run_enrichment(paths)
     assert run_next_batch(paths) == 0
-    state = load_state(paths)
-    wo = load_work_order(paths.workorders_dir / state.outstanding["author"])
+    wo = sole_author_wo(paths)
     payload = scripted_authoring(wo)
     payload["generator"] = {"model": "test-model", "effort": "xhigh"}
     reply = paths.workorders_dir / "reply-prov.json"
@@ -270,7 +268,6 @@ def test_report_neutralizes_control_chars_in_provenance(tmp_path):
     ingest, and unlike a rejection printer the report PERSISTS: neither an
     escape sequence nor a forged row may reach the artifact whose whole
     purpose is recording what the instrument found."""
-    from orgsmith.artifacts import load_work_order
     from orgsmith.authoring.contexts import run_next_batch
     from orgsmith.authoring.ingest import run_ingest as ingest_author
 
@@ -279,9 +276,7 @@ def test_report_neutralizes_control_chars_in_provenance(tmp_path):
     paths = build_pure_stages(tmp_path / "evil-prov")
     run_enrichment(paths)
     assert run_next_batch(paths) == 0
-    wo = load_work_order(
-        paths.workorders_dir / load_state(paths).outstanding["author"]
-    )
+    wo = sole_author_wo(paths)
     payload = scripted_authoring(wo)
     payload["generator"] = {
         "model": "m\x1b[2J\x1b[31mPWNED",

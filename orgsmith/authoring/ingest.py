@@ -14,7 +14,7 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from ..airlock import clear_outstanding, match_outstanding
+from ..airlock import clear_author_batch, match_author_batch
 from ..artifacts import load_engagements, load_manifest
 from ..fabric.engagements import render_date
 from ..naming import strip_control
@@ -151,7 +151,7 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         )
         return 1
 
-    order = match_outstanding(paths, state, "author", deliverable.work_order_id)
+    order = match_author_batch(paths, state, deliverable.work_order_id)
     briefs = {b.doc_id: b for b in order.docs}
     got = [d.doc_id for d in deliverable.docs]
 
@@ -231,7 +231,10 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         doc_state.authored_hash = sha256_file(target)
         state.docs[doc.doc_id] = doc_state
 
-    clear_outstanding(state, "author")
+    clear_author_batch(state, deliverable.work_order_id)
+    # `remaining` counts docs with no authored_hash, which still includes any
+    # docs claimed by a sibling batch that has not ingested yet, so the stage
+    # is marked done only when the LAST outstanding batch lands.
     remaining = [
         e
         for e in manifest

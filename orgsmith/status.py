@@ -31,6 +31,16 @@ def collect_status(paths: OrgPaths) -> dict:
         "stages": stages,
         "docs": docs,
         "outstanding": dict(state.outstanding),
+        # Concurrent author batches dispatched but not yet ingested. A resumed
+        # /forge re-dispatches these (path + doc count) before emitting fresh
+        # ones, so no in-flight batch is stranded across a killed session.
+        "author_batches": {
+            wo_id: {
+                "workorder": str(paths.workorders_dir / ref.workorder),
+                "docs": len(ref.doc_ids),
+            }
+            for wo_id, ref in state.author_batches.items()
+        },
         "probes": dict(state.probes),
     }
 
@@ -50,4 +60,6 @@ def run_status(paths: OrgPaths, as_json: bool = False) -> int:
     )
     for stage, wo in status["outstanding"].items():
         print(f"  outstanding {stage}: {wo}")
+    for wo_id, ref in status["author_batches"].items():
+        print(f"  outstanding author batch {wo_id}: {ref['docs']} docs")
     return 0

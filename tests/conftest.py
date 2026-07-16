@@ -304,25 +304,45 @@ def run_enrichment(paths: OrgPaths) -> None:
     assert ingest_enrichment(paths, reply) == 0
 
 
-def run_authoring(paths: OrgPaths, max_batches: int = 10) -> int:
-    """Drive next-batch/ingest with the scripted author until done.
-    Returns the number of batches ingested."""
+def sole_author_wo(paths: OrgPaths):
+    """The single outstanding author work order, for tests that drive one
+    batch. Asserts exactly one batch is outstanding."""
+    from orgsmith.artifacts import load_work_order
+    from orgsmith.state import load_state
+
+    (_wo_id, ref), = load_state(paths).author_batches.items()
+    return load_work_order(paths.workorders_dir / ref.workorder)
+
+
+def ingest_author_batch(paths: OrgPaths, wo_id: str) -> None:
+    """Author and ingest one outstanding batch by work_order_id (scripted)."""
     import json
 
     from orgsmith.artifacts import load_work_order
-    from orgsmith.authoring.contexts import run_next_batch
     from orgsmith.authoring.ingest import run_ingest as ingest_author
+    from orgsmith.state import load_state
+
+    ref = load_state(paths).author_batches[wo_id]
+    wo = load_work_order(paths.workorders_dir / ref.workorder)
+    reply = paths.workorders_dir / f"reply-{wo.id.replace(':', '-')}.json"
+    reply.write_text(json.dumps(scripted_authoring(wo)))
+    assert ingest_author(paths, reply) == 0
+
+
+def run_authoring(paths: OrgPaths, max_batches: int = 20) -> int:
+    """Drive next-batch/ingest with the scripted author until done, ingesting
+    every outstanding batch each round (including any left over from a killed
+    session). Returns the number of batches ingested."""
+    from orgsmith.authoring.contexts import run_next_batch
     from orgsmith.state import load_state
 
     batches = 0
     for _ in range(max_batches):
         assert run_next_batch(paths) == 0
-        state = load_state(paths)
-        if "author" not in state.outstanding:
+        outstanding = list(load_state(paths).author_batches)
+        if not outstanding:
             return batches
-        wo = load_work_order(paths.workorders_dir / state.outstanding["author"])
-        reply = paths.workorders_dir / f"reply-{wo.id.replace(':', '-')}.json"
-        reply.write_text(json.dumps(scripted_authoring(wo)))
-        assert ingest_author(paths, reply) == 0
-        batches += 1
+        for wo_id in outstanding:
+            ingest_author_batch(paths, wo_id)
+            batches += 1
     raise AssertionError("authoring did not converge")

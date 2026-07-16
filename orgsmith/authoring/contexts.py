@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from datetime import date
 
-from ..airlock import emit_work_order
+from ..airlock import emit_author_batch
 from ..artifacts import load_charter, load_engagements, load_foundation, load_manifest
 from ..docplan.registry import REGISTRY
 from ..fabric.engagements import employer_at
@@ -236,12 +236,19 @@ def _brief_person(
     return PersonBrief(id=xp.id, name=xp.name, title=xp.title, dept=org.name)
 
 
-def pick_batch(manifest: list[ManifestEntry], state) -> list[ManifestEntry]:
-    """Unauthored batchable docs from the first pending engagement group."""
+def pick_batch(
+    manifest: list[ManifestEntry], state, exclude: frozenset[str] = frozenset()
+) -> list[ManifestEntry]:
+    """Unauthored, unclaimed batchable docs from the first pending engagement
+    group. `exclude` holds doc_ids already covered by an outstanding order, so
+    concurrent batches never overlap and draining the manifest partitions it
+    exactly once, in manifest order."""
     pending = [
         e
         for e in manifest
-        if e.authoring == "batchable" and state.doc(e.doc_id).authored_hash is None
+        if e.authoring == "batchable"
+        and state.doc(e.doc_id).authored_hash is None
+        and e.doc_id not in exclude
     ]
     if not pending:
         return []
@@ -262,13 +269,18 @@ def run_next_batch(paths: OrgPaths) -> int:
     }
     manifest = load_manifest(paths)
 
-    batch = pick_batch(manifest, state)
+    batch = pick_batch(manifest, state, exclude=frozenset(state.covered_docs()))
     if not batch:
-        if "author" in state.outstanding:
-            raise SystemExit(
-                "author: outstanding work order covers no pending docs; "
-                f"state is inconsistent, inspect {paths.state_json}"
+        if state.author_batches:
+            # Every remaining batchable doc is already claimed by an
+            # outstanding order; nothing fresh to emit until one ingests.
+            # Not an error: the orchestrator is mid-window and should ingest
+            # or re-dispatch the outstanding batches (see `status --json`).
+            print(
+                f"author: {len(state.author_batches)} batch(es) outstanding, "
+                f"awaiting ingest"
             )
+            return 0
         state.mark_done("author")
         save_state(paths, state)
         print("author: all batchable docs authored")
@@ -359,5 +371,5 @@ def run_next_batch(paths: OrgPaths) -> int:
             deliverable_schema=SCHEMA_IDS["authoring_deliverable"],
         )
 
-    emit_work_order(paths, state, "author", build)
+    emit_author_batch(paths, state, build, [e.doc_id for e in batch])
     return 0

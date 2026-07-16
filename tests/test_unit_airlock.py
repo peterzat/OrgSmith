@@ -32,6 +32,22 @@ def _outstanding_wo(paths, stage):
     return load_work_order(paths.workorders_dir / state.outstanding[stage])
 
 
+def _author_batches(paths):
+    """The outstanding author work orders, keyed by work_order_id."""
+    state = load_state(paths)
+    return {
+        wo_id: load_work_order(paths.workorders_dir / ref.workorder)
+        for wo_id, ref in state.author_batches.items()
+    }
+
+
+def _one_author_batch(paths):
+    """The single outstanding author work order (tests driving one batch)."""
+    batches = _author_batches(paths)
+    assert len(batches) == 1
+    return next(iter(batches.values()))
+
+
 def _write(paths, name, payload) -> str:
     p = paths.workorders_dir / name
     p.write_text(json.dumps(payload))
@@ -117,7 +133,7 @@ def test_authoring_requires_enrichment(org):
 def test_authoring_flow_and_rejections(org, capsys):
     run_enrichment(org)
     assert run_next_batch(org) == 0
-    wo = _outstanding_wo(org, "author")
+    wo = _one_author_batch(org)
     assert 0 < len(wo.docs) <= 6
     groups = {b.doc_id.split(":")[0] for b in wo.docs}
     assert groups == {"d"}
@@ -126,18 +142,13 @@ def test_authoring_flow_and_rejections(org, capsys):
     from orgsmith.artifacts import load_engagements
     from orgsmith.state import load_state as _ls
 
-    wo_text = (
-        org.workorders_dir / _ls(org).outstanding["author"]
-    ).read_text()
+    ref = next(iter(_ls(org).author_batches.values()))
+    wo_text = (org.workorders_dir / ref.workorder).read_text()
     for fact in load_engagements(org).fact_index().values():
         if fact.kind in ("money", "date"):
             assert fact.rendered not in wo_text, fact.id
 
     good = scripted_authoring(wo)
-
-    # re-emit without ingest returns the same order
-    assert run_next_batch(org) == 0
-    assert _outstanding_wo(org, "author").id == wo.id
 
     briefed_with_facts = next(b for b in wo.docs if b.facts)
 
@@ -176,7 +187,7 @@ def test_authoring_flow_and_rejections(org, capsys):
 
     assert ingest_author(org, _write(org, "ok.json", good)) == 0
     state = load_state(org)
-    assert "author" not in state.outstanding
+    assert not state.author_batches
     for brief in wo.docs:
         assert state.doc(brief.doc_id).authored_hash
         assert (org.docir_dir / f"{brief.doc_id.replace(':', '')}.json").exists()
@@ -195,4 +206,4 @@ def test_authoring_converges_over_all_batches(org):
     assert all(state.doc(e.doc_id).authored_hash is None for e in static)
     # next-batch after completion stays a no-op
     assert run_next_batch(org) == 0
-    assert "author" not in load_state(org).outstanding
+    assert not load_state(org).author_batches

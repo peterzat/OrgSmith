@@ -9,7 +9,6 @@ from orgsmith.artifacts import (
     load_foundation,
     load_manifest,
     load_mention_map,
-    load_work_order,
 )
 from orgsmith.authoring.contexts import run_next_batch
 from orgsmith.authoring.ingest import run_ingest as ingest_author
@@ -18,9 +17,14 @@ from orgsmith.docplan.planner import build_manifest
 from orgsmith.fabric.engagements import build_engagements
 from orgsmith.fabric.finance import build_finance
 from orgsmith.foundation.scaffold import build_foundation
-from orgsmith.state import load_state
 
-from conftest import REPO, build_pure_stages, run_enrichment, scripted_authoring
+from conftest import (
+    REPO,
+    build_pure_stages,
+    run_enrichment,
+    scripted_authoring,
+    sole_author_wo,
+)
 
 pytestmark = pytest.mark.unit
 
@@ -105,8 +109,7 @@ def test_ingest_rejects_missing_mention(tmp_path):
     paths = build_pure_stages(tmp_path)
     run_enrichment(paths)
     assert run_next_batch(paths) == 0
-    state = load_state(paths)
-    wo = load_work_order(paths.workorders_dir / state.outstanding["author"])
+    wo = sole_author_wo(paths)
     assert any(b.mentions for b in wo.docs), "briefs carry no mentions"
 
     good = scripted_authoring(wo)
