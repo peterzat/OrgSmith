@@ -88,6 +88,27 @@ def test_enrichment_rejections(org):
     assert "foundation" not in state.outstanding
 
 
+def test_enrichment_printer_neutralizes_control_chars(org, capsys):
+    """The rejection printer echoes deliverable-controlled person ids: an
+    escape sequence must not drive the terminal and a smuggled newline must
+    not forge a line of output (exit code unchanged)."""
+    run_emit_context(org)
+    wo = _outstanding_wo(org, "foundation")
+    tampered = scripted_enrichment(wo)
+    tampered["personas"][0]["person_id"] = (
+        "p:x\x1b[2J\x1b[31mPWNED\n  - ingest: merged 99 personas"
+    )
+    path = _write(org, "evil.json", tampered)
+    capsys.readouterr()  # drop the emit-context banner
+    assert ingest_enrichment(org, path) == 1
+    out = capsys.readouterr().out
+    assert "\x1b" not in out
+    assert "PWNED" in out  # content survives, the escape does not
+    # header + "unknown person ids" + "missing personas for": the smuggled
+    # newline made no fourth line
+    assert len([ln for ln in out.splitlines() if ln.strip()]) == 3
+
+
 def test_authoring_requires_enrichment(org):
     with pytest.raises(SystemExit):
         run_next_batch(org)

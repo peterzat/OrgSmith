@@ -1,169 +1,183 @@
 # Security
 
-## Security Review — 2026-07-15 (scope: paths)
+## Security Review — 2026-07-16 (scope: paths)
 
-**Summary:** M6-close scan of the pre-fleet hardening turn (range
-449dcdf..5a59288): the new name-screen module and its three enforcement
-points, the RNG-free affiliation planting pass and the AFF/NAME validator
-families, era-resolved employer surfaces in render and authoring briefs,
-the validator read hardening, and the two regenerated/new recipe charters.
-The prior entry's two printer NOTEs are remediated for the escape-sequence
-vector they described; one NOTE replaces them for the residual (the fix
-keeps `\n`, so forged-line injection still reaches the terminal, verified
-by probe at HEAD). The pdf letterhead NOTE carries forward unchanged. No
-BLOCKs, no WARNs.
+**Summary:** M7-close scan of the quality instrument (range 5a59288..37e061b):
+the new `review/` package (sample, corpus, metrics, report, findings ingest),
+the `orgsmith/review-finding@1` and `orgsmith/review-findings@1` contracts, the
+self-reported generator record and its two ingest recording points, the effort
+floor module and `doctor`'s reading of it, and the three committed fernhollow
+review artifacts. One WARN: the provenance table interpolates the model's own
+self-reported strings into GENERATION-REPORT.md with no escaping, verified by
+probe to forge a "Corpus reviewed clean" section in the artifact whose purpose
+is recording what the instrument found. One new NOTE: `foundation --ingest` is a
+third ingest printer that echoes deliverable-controlled strings raw, the vector
+the prior entry declared closed on a scope that never included the file. The pdf
+letterhead NOTE carries forward unchanged. No BLOCKs.
 
 ### Findings
 
-**[NOTE — REMEDIATED 2026-07-15 in the same review cycle, commit 5a59288+]
-orgsmith/naming.py:52-59, orgsmith/authoring/ingest.py:218,
-orgsmith/evals/score.py:274,317 — the control-character fix preserves
-newlines, so untrusted strings can still inject forged lines into failure
-output**
+**[WARN] orgsmith/review/report.py:47-49 — the self-reported generator record is
+interpolated into GENERATION-REPORT.md unescaped, so a model pass can forge
+report sections including a quality verdict**
 
-  Remediation applied: the per-problem printer (ingest.py:218) and the
-  per-failure printers (score.py:274,317) now pass `keep=""`, so an
-  embedded newline can no longer forge a standalone line; the two
-  schema-error paths (ingest.py:147, score.py:237) legitimately need
-  newlines and stay on the default. The concurrent code review found and
-  fixed a third, related path the scan did not reach: the graph class
-  printer (score.py:341-353) echoed `--evals-dir` ambiguity tags entirely
-  unsanitized, verified by probe (`ambiguity:<ESC>[2J<ESC>[31mPWNED`
-  reached stdout raw); it is now wrapped with `keep=""` as well. Both
-  probes re-run clean at the fix, and the retrieval probe now scores the
-  injected answer as wrong (16/17) rather than printing a forged 17/17.
-  The original finding text follows, unedited.
+  Attack vector: `Generator.model` and `Generator.effort` (schemas.py:574-575)
+  are `str` with `min_length=1` and no other constraint. They arrive in a model
+  pass's deliverable, which this project's own doctrine treats as untrusted
+  (review/ingest.py:3-5, "the board is a model pass, so its deliverable is
+  untrusted input"; the CLAUDE.md airlock rule). `author --ingest` copies the
+  field into state verbatim (authoring/ingest.py:223-224), as does
+  `foundation --ingest` (foundation/ingest.py:60-61); `save_state` persists it;
+  `_provenance_lines` then renders it into a markdown table with no escaping.
+  The adversary is an authoring pass that self-reports something other than what
+  the operator assumes (a misbehaving, misconfigured, or injected model), not a
+  remote attacker: the field is already documented as self-reported and
+  unverifiable, but the documented risk is a *wrong value in its own cell*, not
+  arbitrary control of the surrounding document.
+  Evidence: probe at HEAD (built dev-mini through authoring, first batch
+  reporting a hostile generator). `report.py:49` is
+  `lines.append(f"| {wo_id} | {gen.model} | {gen.effort} |")`. A `model` value
+  carrying `|`, newlines and a `<!--` opener produced, in the written
+  GENERATION-REPORT.md: a forged provenance row for `wo:author:9999`, a work
+  order that does not exist; a forged `## Review board` section reading "No board
+  findings ingested. Corpus reviewed clean."; and an HTML comment swallowing the
+  rest of the real line. `run_report` exited 0. The forged section renders above
+  the genuine one, which still reports the truth further down the page.
+  The same file already defends the adjacent table: `_findings_lines`
+  (report.py:122) runs `f.summary.replace("|", "\\|").replace("\n", " ")` for
+  exactly this reason, and every other field it prints is schema-constrained
+  (`ReviewFinding.id` pattern at schemas.py:744, dimension and severity Literals
+  at schemas.py:727-739, `docs` checked against the manifest at
+  review/ingest.py:92-96). The provenance table is the one path with neither
+  constraint nor escape.
+  Impact is bounded and does not reach a gate: the report gates nothing by
+  design, no validator rule may read the record (proved by
+  test_unit_review.py:247), exit codes are unchanged, and no ledger, manifest or
+  prose is touched. It is display deception in a persisted, committable
+  artifact rather than in a terminal line that scrolls away, which is why it is
+  rated above the printer class.
+  Remediation: escape the cells in `_provenance_lines`. Prefer one shared helper
+  used by both tables that escapes `|` and neutralizes CR and LF, and apply it in
+  `_findings_lines` too: that path escapes `|` and `\n` but leaves a bare `\r`,
+  which CommonMark also treats as a line ending (probed: CR survives, though with
+  pipes escaped no forged row is reachable through `summary` today). A
+  `max_length` on `Generator.model`/`effort` would additionally bound the field
+  at the airlock, where the untrusted value first arrives.
 
-  Attack vector: `strip_control(text, keep="\n\t")` replaces category-Cc
-  characters (ESC included) but deliberately keeps newline, and the
-  untrusted strings these printers echo can carry newlines. The deception
-  the remediated NOTE described (make the terminal show a passing result)
-  therefore survives in a different encoding: line injection instead of
-  cursor control. The true summary prints first in both tools, so padding
-  the injected string with newlines scrolls it off-screen and leaves the
-  forgery as the last thing on the operator's terminal.
-  - `score --answers <file>`: grading a third-party extractor's output is
-    the designed use (score.py:1-5), so the answers file is untrusted.
-    Doc strings pass only `.strip()` (leading/trailing, score.py:73,132)
-    and land in `missing`/`extra`/`docs_missing`/`docs_extra`, which the
-    failure printers join and print.
-  - `author --ingest <file>`: fact ids are extracted with charset `[^}]*`
-    (ingest.py:31), which matches newline in Python, and land in the
-    "unbriefed fact ids used" problem string; `DocIR.doc_id` is likewise
-    an unconstrained str.
-  Evidence: probes at HEAD. An answers file whose `docs` entry is
-  `"Real Doc.docx\n\n\n\nretrieval: 17/17 (100.0%)"`, scored against
-  `companies/dev-mini-metadata/evals`, prints the forged
-  `retrieval: 17/17 (100.0%)` on its own line while the real score is
-  0/17. A deliverable carrying
-  `{{fact:x\n\n\ningest: merged 4 docs; 0 batchable docs remaining}}`
-  prints that forged success line beneath the rejection listing.
-  Impact is display-only and unchanged from the prior entry: exit codes
-  stay 1 (ingest) and 0 (score, what a wrong answer earns), no DocIR is
-  written, and skill automation keys off exit codes, so only a human
-  reading the terminal can be misled. The schema-error paths
-  (ingest.py:148-151, score.py:237-240) legitimately need newlines and are
-  unaffected: pydantic escapes control characters inside its value reprs
-  (re-verified at HEAD).
-  Remediation: pass `keep=""` at the per-problem and per-failure printers,
-  whose lines are single-line by construction; leave the two schema-error
-  paths on the default. This closes the class rather than one encoding of
-  it.
+**[NOTE] orgsmith/foundation/ingest.py:52 — the enrichment rejection printer
+echoes deliverable-controlled strings raw; the third ingest printer, outside
+every prior scan's scope**
 
-**[NOTE] orgsmith/render/pdf.py:37,64 — letterhead lines rendered
-unescaped (residual from prior reviews; no current attack vector; file
-unchanged in this range, verified by empty diff; outside this run's path
-scope)**
+  Attack vector: `PersonaEnrichment.person_id` (schemas.py:579) is an
+  unconstrained `str`, so an id survives schema validation and lands in the
+  "unknown person ids" problem string (foundation/ingest.py:44-45), which line 52
+  prints with no `strip_control`. This is the same class the prior entry
+  remediated at `authoring/ingest.py:218` and `evals/score.py:274,317,341`, and
+  the same one `review/ingest.py:105` was built with from the start. It was
+  missed because it was never in scope: `orgsmith/foundation/ingest.py` appears
+  in no prior `scanned_files` list, so the class was declared closed on a path
+  scope that excluded this file. M7 touched the file (three lines, the generator
+  recording at 60-61), which is what brought it into this scan.
+  Evidence: probe at HEAD. An enrichment deliverable carrying
+  `person_id: "p:x\x1b[2J\x1b[31mPWNED"` printed
+  `  - unknown person ids: p:x^[[2J^[[31mPWNED` with the ESC bytes raw on stdout
+  (confirmed through `cat -v`), exit code 1. Unlike the remediated authoring twin,
+  where only newline injection survived, this path passes full escape sequences,
+  so earlier terminal output can be erased or rewritten. Impact is display-only
+  and matches the prior entry's rating of the class: the exit code stays 1, no
+  foundation is written, and skills key off exit codes.
+  No test covers it. The suite's three escape probes reach `ingest_author`
+  (test_unit_airlock.py:147-150), `review --ingest`
+  (test_unit_review.py:356-365) and `score` (test_unit_evals.py); none reaches
+  `ingest_enrichment`.
+  Remediation: `print(f"  - {strip_control(p, keep='')}")`, matching
+  authoring/ingest.py:220 and review/ingest.py:105. Line 31 needs no change: it
+  prints `str(err)` from pydantic, which escapes control characters inside its
+  value reprs (re-verified at HEAD).
+
+**[NOTE] orgsmith/render/pdf.py:37,64 — letterhead lines rendered unescaped
+(carried from prior reviews; no current attack vector; file unchanged in this
+range, verified by empty diff; outside this run's path scope)**
 
   Attack vector: none concrete. The letterhead is `charter.name` and
   `www.{charter.domain}`, interpolated raw into the HTML template under
-  `Environment(autoescape=False)` (pdf.py:73). Only the recipe author
-  controls the charter, and `no_remote_fetcher` blocks all non-`data:`
-  URLs, so injected markup cannot egress or read files.
+  `Environment(autoescape=False)` (pdf.py:73). Only the recipe author controls
+  the charter, and `no_remote_fetcher` blocks all non-`data:` URLs, so injected
+  markup cannot egress or read files.
   Remediation: `html.escape()` the letterhead lines (and CSS-escape the
-  `@top-left` string) when building the template context. One-line
-  change, no urgency.
+  `@top-left` string) when building the template context. One-line change, no
+  urgency.
 
 ### Reviewed Surface
 
-- Name screen (new, `orgsmith/namescreen.py`): pure stdlib, offline, no
-  network or subprocess. `load_firms` reads a package-relative constant
-  (namescreen.py:19) and no caller passes a user-controlled path.
-  Findings interpolate charter and foundation names through `!r`
-  (namescreen.py:121,127,141-151), so the validator printer cannot be
-  driven by them. Both generation gates fire before their artifact is
-  written (charter.py:51-59, scaffold.py:336-344), each tested for the
-  write-not-happening half. NAME-01 is a brand-collision screen, not a
-  security boundary; its "screen, not a guarantee" limit is documented at
-  namescreen.py:6-9 and real_firms.txt:12 and is the recipe author's risk
-  to carry.
-- `orgsmith/data/real_firms.txt`: ~220 public corporate brands, no
-  contact details, no private individuals. The eponymous entries (Morgan
-  Stanley, Edward Jones) are a deliberate, documented curation choice
-  (real_firms.txt:9-11) and person matching is exact-equality
-  (namescreen.py:100-102), so committed rosters do not over-fire. Not
-  PII.
-- Airlock intact and unchanged by this turn: `_brief_summary` still
-  withholds fee and dates (contexts.py:112-120). The new
-  `_brief_person(at=)` (contexts.py:123-137) and `people_index(at=)`
-  (render/__init__.py:28-48) only re-resolve WHICH external employer name
-  appears on a brief's dept line or a sigblock; the client name is
-  already a `text` fact by design, and ingest's literal-value rejection
-  deliberately covers money and date only (ingest.py:184-191) because the
-  mention contract requires verbatim names. No new value leaks into a
-  work order.
-- Path safety: `docir_path` joins a deliverable-controlled `doc_id`
-  (ingest.py:34-35), but ids absent from the work order force rejection
-  before the write loop (ingest.py:161-163, 213-219), so writes stay
-  inside work-order ids; `match_outstanding` still resolves the work
-  order from state, never from the deliverable's id string. Re-verified,
-  unchanged in this range.
-- Validator read hardening (the SPEC criterion): SCAN-02's page-count
-  read (rules.py:986-993) and LEG-01's `isOleFile`/`OleFileIO` reads
-  (rules.py:1042-1064) now convert reader failures into findings instead
-  of tracebacks. Both fail closed; a crafted artifact cannot pass
-  silently.
-- AFF-01/AFF-02 recompute the plan from charter plus foundation and catch
-  `affiliation_plan`'s SystemExit into a finding rather than aborting the
-  run (rules.py:766-774). Their inputs are repo-controlled ledgers: a
-  tamperer already needs repository write access, so no privilege
-  boundary is crossed. Both skip only on the charter knob
-  (rules.py:753-757), per the M4 grandfathering lesson; NAME-01 has no
-  grandfather.
-- `charter.py` parses recipes with `yaml.safe_load` (charter.py:26); no
-  arbitrary-object construction. Recipes are repo-controlled.
-- Grep over all 29 scoped files finds no network, subprocess, `eval`,
-  `exec`, `pickle`, or `yaml.load` sink; the LibreOffice call remains the
-  package's only subprocess and is untouched in this range.
-- `strip_control` neutralizes category Cc but not Cf, so bidi overrides
-  (U+202E and kin) survive. Left as scoped, not a finding: they can
-  reorder glyphs within a line but cannot erase or forge one, and
-  terminal bidi support is rare enough that no concrete deception is
-  demonstrable.
-- Secrets and PII: pattern grep over all 29 scoped files plus
-  `git log -p --follow` over the new files (namescreen.py,
-  real_firms.txt, the fernhollow charter): clean. The only "token" hits
-  are the words "model tokens" and "name tokens". Both charters are
-  fictional firms with no personal names or contact details; fixture
-  rosters remain Faker-synthetic. No scoped file handles credentials.
-- Dependencies: requirements.txt, requirements-dev.txt and .github/ are
-  unchanged in this range (verified by empty diff); pyproject.toml's only
-  change is the version reconcile to 1.5.0, now pinned to
-  `orgsmith.__version__` by a short-tier test (test_short.py:53-61).
-  Pinning is still enforced for every requirement (test_short.py:42-50).
-  Offline review, no live vulnerability database query.
+- Review findings ingest (`orgsmith/review/ingest.py`): the strongest of the
+  three ingest paths. `dimension` is a Literal (schemas.py:727-737), so
+  `findings_path`'s `f"{dimension}.json"` (ingest.py:24) cannot traverse: an
+  unknown dimension is rejected by the schema before it can name a file.
+  Verified that this is load-bearing and not incidental. Finding ids are
+  pattern-constrained, doc ids are checked against the manifest, cross-dimension
+  id collisions are caught (ingest.py:87-91), and both printers are wrapped with
+  the correct `keep`. All-or-nothing holds: the write at ingest.py:108-110 is
+  unreachable while `problems` is non-empty.
+- Sample and metrics: pure functions of committed files. `review/sample.py`
+  draws only from the new `review.sample` stream (sample.py:38,71), so no
+  existing stream moves. `corpus.py:44`'s `docir_path` joins a manifest doc_id
+  (pattern `^d:\d{4}$`, schemas.py:437), not a deliverable-controlled string.
+  `briefed_targets` (corpus.py:98-117) parses retained work orders defensively:
+  OSError and JSONDecodeError become skips, and non-int targets are ignored by
+  the isinstance guards, so a corrupt work order yields a smaller target map
+  rather than a traceback.
+- Provenance is a record, not an oracle, and the code holds that line.
+  `state.generators` has exactly one reader in the package (report.py:36,47,48,
+  confirmed by grep), and test_unit_review.py:247 asserts no validator module
+  mentions the generator or reads GENERATION-REPORT.md. This is what bounds the
+  WARN above to display impact.
+- Effort floor (`orgsmith/effort.py`, `orgsmith/doctor.py`): `session_effort`
+  reads `CLAUDE_EFFORT` from the environment and `doctor.py:75` prints it back
+  through `effort_report`. An unknown value is echoed unsanitized, but the
+  environment of a locally run CLI is the operator's own trust domain, so this
+  is self-injection, not a finding. `doctor` correctly declines to record effort
+  into `probes` (doctor.py:71-73), so re-probing a frozen fixture cannot rewrite
+  its state.json.
+- Airlock and offline posture intact: no network, subprocess, `eval`, `exec`,
+  `pickle`, or `yaml.load` sink in any of the 22 scoped files (the one grep hit,
+  `evals_dir` matching `eval(` at score.py:89, is a false positive).
+  `test_short.py:178-190` pins the quality verbs to offline imports and
+  `test_short.py:224-234` pins the suite keyless.
+- The prior entry's remediation holds at HEAD, re-verified rather than assumed:
+  score.py:276,320,348 all pass `keep=""`, and the graph class printer is
+  wrapped.
+- Secrets and PII: pattern grep over all 22 scoped files plus
+  `git log -p --follow` over the new modules (effort.py, review/report.py,
+  review/ingest.py, state.py): clean. The only hits are the word "tokens",
+  `credential` as fixture prose, and `test_no_tier_reads_a_model_api_key`, which
+  asserts the absence of provider keys. The three committed fernhollow review
+  artifacts contain synthetic org content only (Faker-derived rosters, fictional
+  client names); the findings' `generator` records name a model and effort, not a
+  person. No scoped file handles credentials. Not PII.
+- Dependencies: requirements.txt, requirements-dev.txt, pyproject.toml and
+  .github/ are unchanged in this range (verified by empty diff); every
+  requirement remains pinned. Offline review, no live vulnerability database
+  query.
+- Prompt injection into the board was considered and is not reported as a
+  finding. Reviewers read authored prose, which is model-written, so a document
+  could in principle address its reader. The authoring pass has no external input
+  to be injected from (work orders are built from repo-controlled ledgers), and
+  the board's output gates nothing: findings are a record a human reads, no rule
+  may reference them, and `bin/test` never invokes the board. No concrete vector,
+  so no finding.
 
 ### Accepted Risks
 
 None recorded.
 
 ---
-*Prior review (2026-07-15, scope paths, commit 449dcdf): M5-close scan of
-the document-formats surface (pptx/eml/scan/legacy render, the LibreOffice
-subprocess boundary, the new validator families parsing untrusted fixture
-bytes, authoring contexts and ingest); no BLOCKs or WARNs, one new NOTE
-(ingest rejection printer echoing deliverable-controlled strings raw to
-the terminal) and two carried; it fulfilled the M5-opening entry's
-deferred scan of the untrusted-parse surface.*
+*Prior review (2026-07-15, scope paths, commit 5a59288): M6-close scan of the
+pre-fleet hardening turn (name screen and its enforcement points, affiliation
+planting, era-resolved employer surfaces, validator read hardening); no BLOCKs or
+WARNs, two NOTEs, one of which (newline line-injection surviving the control-character
+fix) was remediated inside that same review cycle at the ingest and score
+printers. Its path scope did not include `orgsmith/foundation/ingest.py`, which
+is why the third printer of that class surfaces only now.*
 
-<!-- SECURITY_META: {"date":"2026-07-15","commit":"5a59288652af7aa4f6be6c286f63724c9b36361e","scope":"paths","scanned_files":["orgsmith/__init__.py","orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/charter.py","orgsmith/data/real_firms.txt","orgsmith/docplan/planner.py","orgsmith/evals/score.py","orgsmith/fabric/engagements.py","orgsmith/fabric/graph.py","orgsmith/foundation/scaffold.py","orgsmith/namescreen.py","orgsmith/naming.py","orgsmith/render/__init__.py","orgsmith/schemas.py","orgsmith/validate/rules.py","pyproject.toml","recipes/dev-mini/ORG-CHARTER.md","recipes/fernhollow-partners/ORG-CHARTER.md","tests/conftest.py","tests/test_org_fleet.py","tests/test_short.py","tests/test_unit_affiliation_docs.py","tests/test_unit_airlock.py","tests/test_unit_compat.py","tests/test_unit_evals.py","tests/test_unit_legacy.py","tests/test_unit_namescreen.py","tests/test_unit_scan_validate.py","tests/test_unit_validate_graph.py"],"block":0,"warn":0,"note":2,"remediated":1} -->
+<!-- SECURITY_META: {"date":"2026-07-16","commit":"37e061bf3c2005604acac6c70fdf2d13c4da3cb4","scope":"paths","scanned_files":["companies/fernhollow-partners-metadata/review/findings/cross_document_voice.json","companies/fernhollow-partners-metadata/review/metrics.json","companies/fernhollow-partners-metadata/review/sample.json","orgsmith/authoring/ingest.py","orgsmith/cli.py","orgsmith/doctor.py","orgsmith/effort.py","orgsmith/evals/score.py","orgsmith/foundation/ingest.py","orgsmith/paths.py","orgsmith/review/__init__.py","orgsmith/review/corpus.py","orgsmith/review/ingest.py","orgsmith/review/metrics.py","orgsmith/review/report.py","orgsmith/review/sample.py","orgsmith/schemas.py","orgsmith/state.py","tests/conftest.py","tests/test_short.py","tests/test_unit_doctor.py","tests/test_unit_review.py"],"block":0,"warn":1,"note":2} -->

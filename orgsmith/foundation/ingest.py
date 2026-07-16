@@ -14,6 +14,7 @@ from pydantic import ValidationError
 
 from ..airlock import clear_outstanding, match_outstanding
 from ..artifacts import load_foundation
+from ..naming import strip_control
 from ..paths import OrgPaths
 from ..schemas import EnrichmentDeliverable, write_model
 from ..state import load_state, save_state
@@ -49,7 +50,11 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     if problems:
         print("ingest: deliverable rejected:")
         for p in problems:
-            print(f"  - {p}")
+            # Problem strings embed deliverable-controlled text (person
+            # ids); never let them drive the terminal. One problem is one
+            # line: keep="" so an embedded newline cannot forge a second
+            # line of output.
+            print(f"  - {strip_control(p, keep='')}")
         return 1
 
     by_id = {e.person_id: e.persona.strip() for e in deliverable.personas}

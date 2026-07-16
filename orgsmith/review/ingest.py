@@ -24,6 +24,20 @@ def findings_path(paths: OrgPaths, dimension: str) -> Path:
     return paths.review_findings_dir / f"{dimension}.json"
 
 
+def _warn_unreadable(path: Path, err: Exception) -> None:
+    """A findings file that will not load is evidence, not a skip.
+
+    Dropping it silently would under-report the board a user just paid for
+    and would disable cross-dimension duplicate-id detection without a
+    word. Name the file so the count is never quietly wrong.
+    """
+    print(
+        f"review: WARNING: {strip_control(path.name, keep='')} did not load "
+        f"({type(err).__name__}); its findings are absent from the report and "
+        f"cannot be checked for duplicate ids."
+    )
+
+
 def load_findings(paths: OrgPaths) -> list:
     """Every finding ingested so far, across dimensions, in a stable order."""
     out = []
@@ -32,7 +46,8 @@ def load_findings(paths: OrgPaths) -> list:
     for path in sorted(paths.review_findings_dir.glob("*.json")):
         try:
             batch = ReviewFindings.model_validate_json(path.read_text("utf-8"))
-        except (OSError, ValidationError):
+        except (OSError, ValidationError) as err:
+            _warn_unreadable(path, err)
             continue
         out.extend(batch.findings)
     return out
@@ -50,7 +65,8 @@ def _other_dimension_ids(paths: OrgPaths, dimension: str) -> dict[str, str]:
             continue
         try:
             batch = ReviewFindings.model_validate_json(path.read_text("utf-8"))
-        except (OSError, ValidationError):
+        except (OSError, ValidationError) as err:
+            _warn_unreadable(path, err)
             continue
         for finding in batch.findings:
             seen.setdefault(finding.id, batch.dimension)

@@ -12,6 +12,7 @@ import pytest
 from orgsmith.naming import strip_control
 from orgsmith.paths import OrgPaths
 from orgsmith.review.corpus import load_authored, prose_text, word_count
+from orgsmith.review.ingest import load_findings
 from orgsmith.review.ingest import run_ingest as ingest_review
 from orgsmith.review.metrics import compute, flagged_pairs
 from orgsmith.review.report import render_report, run_report
@@ -244,6 +245,40 @@ def test_generator_is_recorded_per_batch_at_ingest(tmp_path):
     assert "test-model" in render_report(paths, compute(paths))
 
 
+def test_report_neutralizes_control_chars_in_provenance(tmp_path):
+    """The generator is self-reported model output copied verbatim at
+    ingest, and unlike a rejection printer the report PERSISTS: neither an
+    escape sequence nor a forged row may reach the artifact whose whole
+    purpose is recording what the instrument found."""
+    from orgsmith.artifacts import load_work_order
+    from orgsmith.authoring.contexts import run_next_batch
+    from orgsmith.authoring.ingest import run_ingest as ingest_author
+
+    from conftest import scripted_authoring
+
+    paths = build_pure_stages(tmp_path / "evil-prov")
+    run_enrichment(paths)
+    assert run_next_batch(paths) == 0
+    wo = load_work_order(
+        paths.workorders_dir / load_state(paths).outstanding["author"]
+    )
+    payload = scripted_authoring(wo)
+    payload["generator"] = {
+        "model": "m\x1b[2J\x1b[31mPWNED",
+        "effort": "x |\n| wo:forged | forged-model | high |",
+    }
+    reply = paths.workorders_dir / "reply-evil.json"
+    reply.write_text(json.dumps(payload))
+    assert ingest_author(paths, reply) == 0
+
+    text = render_report(paths, compute(paths))
+    assert "\x1b" not in text
+    assert "PWNED" in text  # content survives, the escape does not
+    # the smuggled pipes and newline forged no second provenance row
+    assert "| wo:forged | forged-model | high |" not in text
+    assert len([ln for ln in text.splitlines() if ln.startswith("| wo:")]) == 1
+
+
 def test_no_validator_rule_references_the_generator():
     """Provenance is self-reported and unverifiable from artifacts. A rule
     over it would fake a guarantee the system cannot make."""
@@ -376,3 +411,33 @@ def test_review_ingest_printer_cannot_forge_a_second_line(authored_org, capsys):
     assert "\n" not in strip_control(out.split("\n")[1], keep="")
     # header + exactly one problem line: the smuggled newline made no third
     assert len([ln for ln in out.splitlines() if ln.strip()]) == 2
+
+
+def test_report_neutralizes_control_chars_in_finding_summaries(tmp_path):
+    """A summary is untrusted model prose the schema does not constrain.
+    The report persists, so the escape must not survive into the file a
+    human later reads (ingest is clean: this is not a rejection)."""
+    paths = build_pure_stages(tmp_path / "evil-sum")
+    run_enrichment(paths)
+    run_authoring(paths)
+    payload = _findings(paths.slug)
+    payload["findings"][0]["summary"] = "benign\x1b[2J\x1b[31mINJECTED"
+    assert ingest_review(paths, _write(paths, "evil-sum.json", payload)) == 0
+    text = render_report(paths, compute(paths))
+    assert "\x1b" not in text
+    assert "INJECTED" in text  # content survives, the escape does not
+
+
+def test_unreadable_findings_file_warns_instead_of_vanishing(tmp_path, capsys):
+    """A findings file that will not load is evidence, not a skip. Dropping
+    it silently would tell the user a count that is wrong about the board
+    they just paid for."""
+    paths = build_pure_stages(tmp_path / "corrupt")
+    assert ingest_review(paths, _write(paths, "ok.json", _findings(paths.slug))) == 0
+    (paths.review_findings_dir / "org_realism.json").write_text("{not json")
+    capsys.readouterr()
+
+    findings = load_findings(paths)
+    out = capsys.readouterr().out
+    assert len(findings) == 1  # the readable dimension still loads
+    assert "org_realism.json" in out and "WARNING" in out

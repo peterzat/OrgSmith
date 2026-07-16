@@ -15,6 +15,7 @@ org rewrites identical bytes.
 from __future__ import annotations
 
 from ..artifacts import load_manifest
+from ..naming import strip_control
 from ..paths import OrgPaths
 from ..schemas import CorpusMetrics
 from ..state import load_state
@@ -29,6 +30,18 @@ from .metrics import (
 )
 
 _SEVERITY_ORDER = {"blocker": 0, "major": 1, "minor": 2, "note": 3}
+
+
+def _cell(text: str) -> str:
+    """One markdown table cell from a self-reported, untrusted string.
+
+    Generator fields and finding summaries are model output copied verbatim
+    at ingest, and this artifact PERSISTS: unlike a rejection printer that
+    scrolls past, a forged row here is what a human reads later. No control
+    character survives, and neither a newline nor a pipe can break the row
+    and forge one.
+    """
+    return strip_control(text, keep="\n").replace("\n", " ").replace("|", "\\|")
 
 
 def _provenance_lines(paths: OrgPaths) -> list[str]:
@@ -46,7 +59,7 @@ def _provenance_lines(paths: OrgPaths) -> list[str]:
     lines.append("| --- | --- | --- |")
     for wo_id in sorted(state.generators):
         gen = state.generators[wo_id]
-        lines.append(f"| {wo_id} | {gen.model} | {gen.effort} |")
+        lines.append(f"| {wo_id} | {_cell(gen.model)} | {_cell(gen.effort)} |")
     return lines
 
 
@@ -119,7 +132,7 @@ def _findings_lines(paths: OrgPaths) -> list[str]:
     )
     for f in ordered:
         docs = ", ".join(f.docs) if f.docs else "corpus"
-        summary = f.summary.replace("|", "\\|").replace("\n", " ")
+        summary = _cell(f.summary)
         lines.append(
             f"| {f.id} | {f.dimension} | {f.severity} | {docs} | {summary} |"
         )
