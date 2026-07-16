@@ -11,6 +11,9 @@ BLOCKs and no WARNs. One NOTE: `ingest.py`'s single model-output-to-filesystem
 sink (`docir_path`) derives a path from the model-controlled, schema-
 unconstrained `DocIR.doc_id`, made safe today only by an upstream membership
 check in the same function, not by a guard at the sink or a schema pattern.
+**That NOTE is fixed as of the M11a turn (2026-07-16); see its Resolution
+below. No re-scan was run: the fix is recorded against the finding rather
+than as a new review entry.**
 The airlock holds: model output is the only untrusted input in scope, and every
 value it carries into a sink (doc ids, work-order ids, facts, mentions,
 placeholders) is validated against the trusted work order / ledgers before any
@@ -18,9 +21,10 @@ write, and every terminal echo of model-controlled text is `strip_control`ed.
 
 ### Findings
 
-**[NOTE] orgsmith/authoring/ingest.py:34,228 (with orgsmith/schemas.py:590) —
-`docir_path` builds a filesystem path from the model-controlled, schema-
-unconstrained `DocIR.doc_id`; safe today only by non-local check ordering.**
+**[NOTE — FIXED 2026-07-16] orgsmith/authoring/ingest.py:34,228 (with
+orgsmith/schemas.py:590) — `docir_path` builds a filesystem path from the
+model-controlled, schema-unconstrained `DocIR.doc_id`; safe today only by
+non-local check ordering.**
 
   Attack vector: none reachable at HEAD. A malicious deliverable could set a
   `DocIR.doc_id` such as `../../evil` (the field has no schema pattern), and
@@ -51,6 +55,24 @@ unconstrained `DocIR.doc_id`; safe today only by non-local check ordering.**
   (mirrors `ManifestEntry.doc_id`), and/or have `docir_path` take the basename
   / run `check_relpath` on the derived name so the sink is self-guarding rather
   than caller-guarded. Either is a one-line change; no urgency.
+
+  **Resolution (2026-07-16, M11a):** both layers, since they fail
+  independently. `DocIR.doc_id` now carries `Field(pattern=r"^d:\d{4}$")`
+  (schemas.py), so a hostile deliverable is rejected by
+  `AuthoringDeliverable.model_validate_json` at ingest.py:154 — before
+  `match_author_batch` and before the `unknown` check that was previously the
+  only thing standing between the id and the write loop. `docir_path`
+  (ingest.py:34) additionally guards itself with `check_filename` on the
+  derived basename and raises `ValueError` on a problem, so the sink is safe
+  for any future caller regardless of the schema. One correction to the
+  remediation as written: `check_relpath` is the **wrong** guard here — it
+  splits on `/` before checking each component, so it accepts `"a/b"`;
+  `check_filename` is what forbids `/` and `\`. Pinned by
+  `tests/test_unit_airlock.py::test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink`,
+  which asserts rejection at both layers for `../../evil`,
+  `d:0001/../../evil`, `/etc/passwd`, and `..\..\evil`, that a legitimate id
+  still resolves inside `docir_dir`, and that no rejected attempt writes
+  anything. Full suite green: 12 short / 342 unit / 40 org.
 
 ### Reviewed Surface
 

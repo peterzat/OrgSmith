@@ -6,6 +6,7 @@ import pytest
 
 from orgsmith.artifacts import load_foundation, load_manifest, load_work_order
 from orgsmith.authoring.contexts import run_next_batch
+from orgsmith.authoring.ingest import docir_path
 from orgsmith.authoring.ingest import run_ingest as ingest_author
 from orgsmith.foundation.contexts import run_emit_context
 from orgsmith.foundation.ingest import run_ingest as ingest_enrichment
@@ -191,6 +192,40 @@ def test_authoring_flow_and_rejections(org, capsys):
     for brief in wo.docs:
         assert state.doc(brief.doc_id).authored_hash
         assert (org.docir_dir / f"{brief.doc_id.replace(':', '')}.json").exists()
+
+
+def test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink(org):
+    """SECURITY.md 2026-07-16 [NOTE]: `docir_path` derives a write target from
+    the model-controlled `DocIR.doc_id`, which carried no pattern. Nothing was
+    exploitable, but the safety was non-local: it held only because
+    run_ingest's `unknown` membership check happens to run before the write
+    loop. Both layers now guard themselves, so a refactor of that ordering
+    cannot reopen a traversal."""
+    run_enrichment(org)
+    assert run_next_batch(org) == 0
+    wo = _one_author_batch(org)
+    good = scripted_authoring(wo)
+
+    hostile_ids = ["../../evil", "d:0001/../../evil", "/etc/passwd", "..\\..\\evil"]
+
+    # Rejected at parse by DocIR.doc_id's pattern -- before match_author_batch
+    # and before the `unknown` check that used to be the only thing between a
+    # hostile id and the write loop.
+    for hostile in hostile_ids:
+        tampered = json.loads(json.dumps(good))
+        tampered["docs"][0]["doc_id"] = hostile
+        assert ingest_author(org, _write(org, "trav.json", tampered)) == 1
+
+    # And the sink guards itself, independent of the schema.
+    for hostile in hostile_ids:
+        with pytest.raises(ValueError, match="unsafe doc_id"):
+            docir_path(org, hostile)
+
+    # A legitimate id still resolves, and inside docir_dir.
+    assert docir_path(org, "d:0001").parent == org.docir_dir
+
+    assert not org.docir_dir.exists()  # nothing written by any rejected attempt
+    assert ingest_author(org, _write(org, "ok.json", good)) == 0
 
 
 def test_authoring_converges_over_all_batches(org):

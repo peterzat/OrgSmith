@@ -587,7 +587,13 @@ class Block(StrictModel):
 
 class DocIR(StrictModel):
     schema_id: Literal["orgsmith/docir@1"] = SCHEMA_IDS["docir"]
-    doc_id: str
+    # Model-controlled on the inbound path (`author --ingest`), and the only
+    # model-authored value that reaches a filesystem sink (`docir_path`).
+    # The pattern mirrors ManifestEntry.doc_id so a hostile id such as
+    # "../../evil" is rejected at parse. Without it the sink was safe only
+    # because run_ingest's work-order membership check happens to run before
+    # the write loop -- non-local, and a refactor away from a traversal.
+    doc_id: str = Field(pattern=r"^d:\d{4}$")
     blocks: list[Block]
 
 
