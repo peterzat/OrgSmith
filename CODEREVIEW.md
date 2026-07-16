@@ -1,41 +1,48 @@
 # CODEREVIEW
 
-## Review — 2026-07-16 (commit: 045151b)
+## Review — 2026-07-16 (commit: 7820fcf)
 
-**Summary:** Light review of the docs turn that closes M8's spec work, scope
-origin/main..HEAD plus working tree: `BACKLOG.md` (+8/-1) and `README.md`
-(+84/-21). Docs-only, so light tier: no test suite run, no security chain, no
-external reviewers, no fix loop. SPEC.md is excluded from the review diff by
-the skill's own exclusion list, so the M8 spec text itself is again not in
-scope. `bin/test` green at review time (12 short / 272 unit / 22 org = 306).
+**Summary:** Light review of the backlog update that closes the M8 spec turn,
+scope origin/main..HEAD: `BACKLOG.md` (+7/-1), two entries touched
+(`email-thread-spacing` added, `pdf-newline-flattening`'s revisit criteria
+extended). Docs-only, so light tier: no test suite run, no security chain, no
+external reviewers, no fix loop. SPEC.md remains excluded from the review diff
+by the skill's own exclusion list. `bin/test` green (12 short / 272 unit / 22
+org = 306).
 
 **External reviewers:** Skipped (light review).
 
 ### Findings
 
-No open findings. Every factual claim added this turn was verified against
-artifacts rather than memory, which is the check the prior two docs reviews
-established. That check earned its keep twice more this turn, both recorded
-under Fixes Applied below: it caught an overclaim about email capability
-before it shipped, and it caught six wrong date ranges that predate this diff.
+No open findings. Every claim in the diff was verified against artifacts
+before the entry was written, not after:
 
-Verified clean: all 21 relative README links resolve; all 16 `companies/`
-links point at paths actually present on `origin/main` (repo is PUBLIC, all
-seven orgs pushed with both share tree and answer key, 107 share files
-matching the README's own figure); the new fleet table matches ground truth
-row-for-row and its document counts total 95, consistent with the fleet table
-below it; no secret-shaped strings in either diff; both BACKLOG entries carry
-all three required fields.
+- `docplan/planner.py:296` reads
+  `ed = self._clamp_range(eng.start + timedelta(days=30 + 45 * k))`, which is
+  the 45-day thread cadence the entry describes.
+- `tests/test_unit_eml.py:26,55` do plan 4 mails over 3 engagements and assert
+  the round-robin lands a second mail on one engagement, so the k>0 path is
+  covered for correctness. The entry's distinction holds: the wrap is tested,
+  the plausibility of the spacing is not.
+- All 4 `.eml` files in the committed fleet are "Email 1" (k=0), confirmed
+  from the manifests, so no fixture exercises k>0.
+- `docs/SCALE.md:57` does say "room for one deliberate oddity per org".
+- README:162 does call email the "single largest" fidelity gap, so the entry
+  does not overstate its own premise.
+- The `pdf-newline-flattening` edit was tightened after checking: the eighth
+  fixture's recipe is unwritten, so asserting it renders PDFs would have been
+  an assumption. Verified instead that all seven committed fixtures carry 2-4
+  PDFs and every one has engagement letters rendered exclusively as PDF, and
+  the entry now states that evidence rather than the inference.
 
-`charter-redump-drift`'s claims were each verified at HEAD before the entry
-was written: `charter.py:59` writes unconditionally, `scaffold.py:327` guards,
-`forge/SKILL.md:44` invokes charter unconditionally, the README quote at
-README.md:235 is verbatim, and the drift measurement (5 of 7 fixtures) was
-taken by re-deriving each charter from its recipe read-only. The entry's
-causal claim ("the two regenerated most recently") was confirmed
-topologically: dev-mini and fernhollow-partners are the 67th and 68th commits
-touching a charter.json and the only two carrying `affiliations_in_docs`,
-which is exactly why they are the only two that do not drift.
+All nine file references in BACKLOG.md resolve. No secret-shaped strings in
+the added lines. All four entries carry the three required fields.
+
+Incidental confirmation of `charter-redump-drift` while checking format
+mixes: reading `format_mix['eml']` off the committed charters raises
+`KeyError` for bramblewood-legal, quillbrook-appraisal, and
+torchlake-engineering, because those three predate the key. That is the same
+drift the entry documents, observed from a different direction.
 
 [NOTE] tests/test_short.py:238 — carried from the prior review, unchanged and
 outside this diff's scope: `test_no_validator_rule_references_the_generator`
@@ -46,8 +53,7 @@ innocuous future prose.
 [NOTE] orgsmith/render/__init__.py:28-48 — carried from the prior review,
 unchanged and outside this diff's scope: `people_index`'s docstring claims an
 EML-01 contract narrower than stated. No drift today. M8 makes titles
-date-dependent, which is the condition under which the claim starts to matter;
-recorded in the M8 spec's Context for that reason.
+date-dependent, which is the condition under which the claim starts to matter.
 
 [NOTE] orgsmith/render/pdf.py:37,64 — carried from the prior review, unchanged
 and outside this diff's scope: letterhead lines rendered unescaped,
@@ -55,37 +61,17 @@ recipe-author controlled, no concrete vector.
 
 ### Fixes Applied
 
-- [NOTE→fixed] BACKLOG.md:15 — the prior review's only new finding. The
-  finance citation now reads `fabric/finance.py:12-18,48`; 12-18 fixes each
-  category's share of `expense_total`, and 48 is what ties that total to
-  revenue. Re-read at HEAD to confirm both lines say what the entry claims.
-
-- [overclaim, caught pre-push] README.md — the reframed "not modeled today"
-  section first claimed email volume was "a fixture that has not been written
-  rather than a capability that is missing." Checking the planner refuted it:
-  `docplan/planner.py:285` does drive email count straight from
-  `format_mix.eml`, but line 296 dates the k-th message of a thread at
-  `eng.start + 30 + 45*k` and clamps to the charter range, so successive
-  messages sit 45 days apart and pile up at the boundary at volume. Real
-  threads run hours apart. Corrected to say the knob exists but email-dominant
-  realism needs more than turning it up. This mattered because the section's
-  whole job is to be believed about limits.
-
-- [pre-existing defect] README.md — six of seven per-org date ranges in "What
-  is in the box today" were wrong, and would have contradicted the new
-  browsable fleet table. The prose used each recipe's *allowed window* rather
-  than the documents' actual dates (quillbrook advertised 2016-2020 against
-  real files spanning 2019-2020, a three-year overstatement), and dev-mini's
-  "2019-2022" matched neither window nor reality. All seven now match the
-  manifests, verified programmatically. Only cindergrove was already correct.
+None. No BLOCK or WARN findings; the three NOTEs are carried and are not
+auto-fixed.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-16, commit 1204cd2): light review of the M8 spec
-commit, scope BACKLOG.md only; 0 BLOCK / 0 WARN / 4 NOTEs, one new (an
-incomplete finance citation, fixed this turn) and three carried.*
+*Prior review (2026-07-16, commit 045151b): light review of the README and
+BACKLOG docs turn; 0 BLOCK / 0 WARN / 3 NOTEs, with two defects caught before
+push (an email-capability overclaim refuted by reading the planner, and six
+pre-existing wrong per-org date ranges in the README).*
 
-<!-- REVIEW_META: {"date":"2026-07-16","commit":"045151b","reviewed_up_to":"045151bfca970ed10a8cdf1e4d1921b3ba1b7b4a","base":"origin/main","tier":"light","block":0,"warn":0,"note":3} -->
+<!-- REVIEW_META: {"date":"2026-07-16","commit":"7820fcf","reviewed_up_to":"7820fcfa0ccca69af9597eb168df286e9c3ce5e4","base":"origin/main","tier":"light","block":0,"warn":0,"note":3} -->
