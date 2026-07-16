@@ -220,6 +220,88 @@ def test_churn_zero_freezes_the_roster():
     assert len(f.people) == 4
 
 
+def test_growth_hires_default_off_and_open_no_seats():
+    """`hires` is the one churn knob that defaults OFF. A default-on value
+    would move the roster of every committed fixture including the byte-pinned
+    tracer, and unlike departures/promotions there is no board finding saying
+    a firm that does not grow is unrealistic -- plenty do not."""
+    assert RosterChurn().hires == 0
+    frozen = build_foundation(_charter(roster_churn=RosterChurn(departures=0, promotions=0)))
+    grown = build_foundation(
+        _charter(roster_churn=RosterChurn(departures=0, promotions=0, hires=0))
+    )
+    assert [p.id for p in frozen.people] == [p.id for p in grown.people]
+
+
+def test_growth_hires_open_new_seats_rather_than_backfilling():
+    """BACKLOG recipe-growth-outruns-headcount: `headcount` counts the seats
+    the firm OPENS WITH and churn only ever refills them, so no recipe could
+    describe a firm that grows -- fees compounded at growth_rate while
+    compensation tracked a seat count that never moved.
+
+    A growth hire is not a backfill: nobody vacated anything, the seat count
+    rises, and the joiner starts mid-range rather than at founding.
+    """
+    base = build_foundation(_charter(roster_churn=RosterChurn(departures=0, promotions=0)))
+    grown = build_foundation(
+        _charter(roster_churn=RosterChurn(departures=0, promotions=0, hires=3))
+    )
+    assert len(grown.people) == len(base.people) + 3
+
+    range_start, range_end = date(2016, 1, 1), date(2023, 12, 31)
+    added = [p for p in grown.people if p.id not in {b.id for b in base.people}]
+    assert len(added) == 3
+    for p in added:
+        assert p.employment.end is None, "a growth hire has not left"
+        assert range_start < p.employment.start < range_end, p.name
+        # Delivery org, junior rung: where a professional-services firm adds
+        # heads, and what makes them engagement staff downstream.
+        assert p.dept == "Consulting"
+        assert p.title == "Analyst"
+    # Gradual, not a single step.
+    assert len({p.employment.start for p in added}) == 3
+
+
+def test_growth_hires_raise_average_headcount_year_over_year():
+    """The point of the knob, and the thing the finance engine reads. Nothing
+    in fabric/finance.py knows about growth: _avg_headcount prices employment
+    spans month by month, so opening seats is enough."""
+    from orgsmith.fabric.finance import _avg_headcount
+
+    grown = build_foundation(
+        _charter(roster_churn=RosterChurn(departures=0, promotions=0, hires=4))
+    )
+    heads = [_avg_headcount(grown, y) for y in range(2016, 2024)]
+    assert heads[-1] > heads[0], heads
+    assert heads == sorted(heads), f"headcount must not fall without departures: {heads}"
+
+
+def test_growth_hires_stay_in_one_acyclic_tree():
+    f = build_foundation(_charter(roster_churn=RosterChurn(hires=3)))
+    by_id = {p.id: p for p in f.people}
+    roots = [p for p in f.people if p.reports_to is None]
+    assert len(roots) == 1
+    for person in f.people:
+        seen, cur = set(), person
+        while cur.reports_to is not None:
+            assert cur.reports_to in by_id, f"{cur.name} reports into the void"
+            assert cur.id not in seen, f"cycle at {cur.name}"
+            seen.add(cur.id)
+            cur = by_id[cur.reports_to]
+
+
+def test_growth_draws_from_its_own_stream_and_leaves_the_base_roster_alone():
+    """Same discipline every other pass follows, and the reason it is not
+    optional: a shared stream would make every founding person's name move
+    when a recipe changed `hires`, which no test asserting the knob would
+    catch but the fixture byte pin would -- loudly and far from the cause."""
+    base = build_foundation(_charter(roster_churn=RosterChurn(hires=0)))
+    grown = build_foundation(_charter(roster_churn=RosterChurn(hires=2)))
+    base_ids = [p.id for p in base.people]
+    assert [p.id for p in grown.people][: len(base_ids)] == base_ids
+    assert [o.name for o in grown.external_orgs] == [o.name for o in base.external_orgs]
+
+
 def test_a_departing_seat_is_backfilled_by_a_successor():
     f = build_foundation(_charter())
     gone = next(p for p in f.people if p.employment.end is not None)

@@ -99,12 +99,20 @@ at different strengths:
 
 - `test_committed_charter_regenerates_byte_identical` (PINNED) puts
   `charter.json` in the byte diff beside the ledgers. `run_charter` now
-  guards its write on the recipe hash, so re-running the stage on an
-  unchanged recipe writes nothing and a `/forge` resume can no longer dirty
-  a frozen fixture. An edited recipe still propagates -- the guard keys on
-  the recipe hash, not on the file existing, which is the blunter thing
-  `run_scaffold` does (it can afford to, since re-scaffolding would wipe
-  merged enrichment prose; re-deriving a charter loses nothing).
+  compares rendered bytes and writes only when the derivation actually
+  moves, so a `/forge` resume can no longer dirty a frozen fixture. Compared
+  on bytes rather than on the recipe's hash because charter.json is a
+  function of the recipe AND the schema -- a recipe-hash guard would hide
+  exactly the drift this resolves. Compared rather than blocked outright
+  (what `run_scaffold` does): scaffold can afford the blunter guard because
+  re-scaffolding would wipe merged enrichment prose, while re-deriving a
+  charter loses nothing.
+
+  The two halves close a loop worth naming: the pin keeps every committed
+  charter equal to a fresh derive, so a committed charter is never stale, so
+  a resume never rewrites one. The cost is that adding a charter field means
+  re-dumping the pinned fixtures in the same commit -- one visible file per
+  fixture, which is the point. `hires` (M11a) is the first to exercise it.
 - `test_committed_charter_redump_stays_additive` (SLUGS) keeps the weaker
   never-drop-a-key, never-move-a-value invariant fleet-wide.
 

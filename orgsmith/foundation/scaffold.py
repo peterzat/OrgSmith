@@ -262,6 +262,94 @@ def _successor_seat(incumbent: Person, first: str, last: str, charter: Charter) 
     )
 
 
+def _apply_growth_hires(
+    charter: Charter, people: list[Person], fake: Faker, rand
+) -> None:
+    """New seats opened across the range: the firm grows.
+
+    Distinct from a churn backfill, which refills a vacated seat and leaves
+    the seat count flat. `headcount` counts the seats the firm opens with;
+    each growth hire opens another (BACKLOG: recipe-growth-outruns-headcount,
+    and RosterChurn.hires for why a frozen seat count makes every growing
+    recipe incoherent).
+
+    Nothing here has to teach the finance engine about growth:
+    `_avg_headcount` already prices a roster month by month from employment
+    spans, so a Q4 hire costs a quarter of a year and the compensation line
+    follows these seats for free.
+
+    Hires land in the delivery org (the largest department outside the
+    CEO's), at the junior end of its title ladder, which is both where a
+    professional-services firm actually adds heads and what makes them
+    engagement staff: `fabric.engagements` picks the same department by the
+    same rule, from `charter.headcount`, so growing it cannot move that
+    choice.
+    """
+    n = charter.roster_churn.hires
+    if not n:
+        return
+    range_start, range_end = charter.doc_culture.date_range
+    span = (range_end - range_start).days
+    era_first = _era_first_names(
+        charter.seed, "foundation.names.growth", charter.founded
+    )
+    used = {p.id for p in people}
+
+    ceo = next(p for p in people if p.reports_to is None)
+    staff_dept = max(
+        (d for d in charter.headcount if d != ceo.dept),
+        key=lambda d: charter.headcount[d],
+    )
+    # The delivery org's lead. Churn cannot retire a lead (it manages people,
+    # so it is never eligible), but prefer a current holder if one exists
+    # rather than assuming the list has exactly one.
+    leads = [p for p in people if p.dept == staff_dept and p.reports_to == ceo.id]
+    if not leads:
+        raise ValueError(f"no lead for delivery department {staff_dept!r}")
+    lead = next((p for p in leads if p.employment.end is None), leads[0])
+
+    titles = charter.titles.get(staff_dept, [])
+    title = titles[-1] if titles else f"{staff_dept} Associate"
+
+    for i in range(n):
+        while True:
+            first, last = era_first(), fake.last_name()
+            pid = _person_id(first, last)
+            if pid not in used and _slugify(first) and _slugify(last):
+                break
+        used.add(pid)
+
+        # Spread hires across the range so the firm grows gradually instead
+        # of stepping once, and hold every hire back from the final months:
+        # a joiner with no tenure left appears in no document, which would
+        # surface as min_mentions_per_person failing over at docplan rather
+        # than as anything visible from here.
+        frac = (i + 1) / (n + 1)
+        jitter = int(span * 0.05)
+        start = range_start + timedelta(
+            days=int(span * frac) + rand.randint(-jitter, jitter)
+        )
+        start = max(
+            range_start + timedelta(days=1),
+            min(start, range_end - timedelta(days=_MIN_TENURE_DAYS)),
+        )
+
+        area = rand.choice(_AREA_CODES)
+        email = f"{_slugify(first)}.{_slugify(last)}@{charter.domain}".replace("-", "")
+        people.append(
+            Person(
+                id=pid,
+                name=f"{first} {last}",
+                title=title,
+                dept=staff_dept,
+                reports_to=lead.id,
+                employment=EmploymentSpan(start=start),
+                email=email,
+                phone=f"+1 ({area}) 555-01{rand.randint(0, 99):02d}",
+            )
+        )
+
+
 def _apply_roster_churn(
     charter: Charter, people: list[Person], fake: Faker, rand
 ) -> None:
@@ -489,6 +577,16 @@ def build_foundation(charter: Charter) -> Foundation:
     churn_fake.seed_instance(derive_seed(charter.seed, "foundation.churn"))
     _apply_roster_churn(
         charter, people, churn_fake, rng(charter.seed, "foundation.churn")
+    )
+
+    # After churn, and on its own streams for the same reason churn has its
+    # own. Order matters: churn turns over the seats the firm OPENED with, so
+    # running it first keeps a growth hire from being sampled as a departure
+    # candidate the moment it exists.
+    growth_fake = Faker("en_US")
+    growth_fake.seed_instance(derive_seed(charter.seed, "foundation.growth"))
+    _apply_growth_hires(
+        charter, people, growth_fake, rng(charter.seed, "foundation.growth")
     )
 
     orgs, ext_people = _build_externals(charter, fake, rand)

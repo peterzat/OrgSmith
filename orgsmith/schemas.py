@@ -205,10 +205,30 @@ class RosterChurn(StrictModel):
     reports to.
     promotions: people who move up one rung of their department's `titles`
     list mid-range. Recorded in `Person.title_history`.
+    hires: NEW seats opened across the range, so the firm grows. Distinct
+    from a departure's backfill, which refills a vacated seat and leaves the
+    seat count flat -- `headcount` counts the seats the firm OPENS WITH, and
+    each growth hire opens another.
+
+    Why `hires` exists at all (BACKLOG: recipe-growth-outruns-headcount).
+    With a frozen seat count, compensation rises only by raises (~3%/yr)
+    while fees compound at `finance.growth_rate`, so any firm growing faster
+    than ~2.75%/yr posts a net margin that climbs forever -- the fleet was
+    measured at 45-55% terminal margins, which no professional-services firm
+    posts. A recipe's growth, headcount, and span have to describe one firm,
+    and without this knob the only coherent firm is a stagnant one. Roughly,
+    a stable margin wants `hires` such that seats grow at about
+    `growth_rate` minus the raise rate.
+
+    Unlike `departures`/`promotions` this defaults OFF, which is deliberate
+    rather than v2.0 caution: a default-on `hires` would move the roster of
+    every committed fixture, including the byte-pinned tracer. Recipes that
+    grow ask for it.
     """
 
     departures: int = Field(ge=0, default=1)
     promotions: int = Field(ge=0, default=1)
+    hires: int = Field(ge=0, default=0)
 
 
 class Charter(StrictModel):
