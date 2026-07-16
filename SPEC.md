@@ -1,275 +1,230 @@
 # SPEC
 
-## Spec — 2026-07-16 — M7: the quality instrument (review board, generation provenance, model/effort policy)
+## Spec — 2026-07-16 — M8: the firm gets a history (roster churn, behavioral finance, staffing rotation, date-scoped briefs, era naming)
 
-**Goal:** Build the first instrument that measures the one thing OrgSmith
-promises and does not check: whether the generated prose reads like a real firm
-wrote it. Pair a deterministic corpus-metrics proxy with a read-only adversarial
-board, record which model and effort authored each org, and settle the size
-targets in writing — so the fleet is minted against measured quality instead of
-an untracked session setting.
+**Goal:** M7 built an instrument to grade the model's prose, and it mostly
+indicted the deterministic side instead: nobody is ever hired or promoted, every
+expense line is a frozen percentage of revenue, the same three people staff every
+engagement, and the author sees the firm's whole history no matter what the
+document is dated. Give the fabric a time dimension and scope every brief to its
+document's date, as recipe knobs that default off so the seven committed fixtures
+stay byte-identical.
 
 ### Acceptance Criteria
 
-- [x] `orgsmith review --sample <slug>` emits a deterministic stratified sample
-  (all longform, all planted-fact docs, plus strata across genre × format ×
-  decade) drawn from a NEW `seeds.py` stream; two runs are byte-identical, and
-  every existing stream is untouched (all seven fixtures still regenerate
-  byte-identical pure-stage structure; determinism and compat tests stay green).
-  Degrades without crashing when a genre holds one doc, when the org has fewer
-  docs than the strata request, and when some docs are unauthored (sampling
-  authored docs only); an org with zero authored docs fails with an actionable
-  message naming the stage to run.
+- [ ] A roster-churn recipe knob (default off, randomness from a NEW `seeds.py`
+  stream) gives the roster a time dimension: across the charter's date range
+  people are hired, promoted, and depart, as backfills into the seats `headcount`
+  declares, so `headcount` keeps its current meaning (concurrent seats, not
+  people-ever) and that meaning is stated where the field is defined. With the
+  knob on, the org chart stays a single acyclic tree with no dangling
+  `reports_to` and no orphan, the CEO-equivalent never departs, and every
+  existing validator rule (authors employed on the date they wrote, org-chart
+  acyclicity, graph orphans and dangling edges) passes unchanged. A roster too
+  small for the knob fails with an actionable message naming the knob, matching
+  the existing pattern at `foundation/scaffold.py:219`.
 
-- [x] `orgsmith report <slug>` computes deterministic corpus metrics with **no
-  model**: per-doc word count against the `target_words` the brief asked for, and
-  same-genre cross-document n-gram similarity. Verified against a labeled
-  positive that exists today: the fernhollow-partners `d0001`/`d0008` engagement
-  letters (4-gram Jaccard 0.228, the highest same-genre pair in that fixture)
-  appear in the flagged set. Re-running rewrites identical bytes.
+- [ ] Promotions have somewhere to live: `Person` gains a title history that
+  defaults empty and inert on the existing schema id, `Person.title` keeps its
+  current meaning (the latest title), and a `title_at(person, date)` resolver
+  returns the title held on a given date. An empty history resolves to `title`
+  for every date, so all seven fixtures load and regenerate byte-identically.
 
-- [x] GENERATION-REPORT.md is a derived artifact under
-  `companies/<slug>-metadata/`, re-emittable for frozen fixtures, and **never
-  enters the share tree or the manifest** — a report written into the share would
-  break MAN-01's manifest↔files 1:1 check and the format-mix quota. It renders
-  with metrics alone when no board findings have been ingested.
+- [ ] Every person brief is scoped to its document's date: `_brief_person`
+  (`authoring/contexts.py:123`) resolves an internal person's title and
+  employment as of the document date, the way it already resolves an external
+  person's employer. A test with a synthetic charter where someone is promoted
+  mid-range proves the earlier document briefs the earlier title. This is a
+  precondition for the churn knob, not an independent nicety: `Person.title` is
+  scalar today and briefed regardless of date, so churn without this would brief
+  a 2024 title into a 2020 letter and manufacture the anachronism the knob was
+  added to remove.
 
-- [x] Generation provenance is recorded as a **record, not an oracle**:
-  deliverables carry an optional generator field (the model and effort `/forge`
-  dispatched with); ingest stores it per batch in `state.json`; the field
-  defaults inert on the existing schema ids so all seven committed fixtures load
-  and validate unchanged; an org with no record reports "unrecorded" and fails
-  nothing. **No validator rule references it** — it is self-reported and
-  unverifiable from artifacts, so a rule would fake a guarantee the system cannot
-  make.
+- [ ] A document can locate itself inside its engagement without being shown a
+  fact value: the brief carries the engagement's elapsed position as of that
+  document's date, computed in Python. `rf:narr-2`'s exact failure (a deck 51
+  days into a 204-day program calling itself "past its midpoint") stops being
+  expressible, because the author is told where it sits instead of guessing. The
+  airlock holds: the brief states position, never the start date, and ingest
+  still rejects a literal value written where a placeholder belongs.
 
-- [x] No authoring pass can complete silently: the model and effort are both
-  surfaced to the user **before any tokens are spent** and recorded in the org.
-  `/forge` Step 0 reports the session model and effort and warns when below the
-  documented authoring floor. The floor is stated in exactly one place and
-  referenced elsewhere. (Outcome, not mechanism: whether the floor is enforced by
-  a per-worker effort lever or by preflight warning plus provenance is an
-  implementation choice to be verified against the harness, not assumed.)
+- [ ] The firm overview has true material as of its date instead of inventing it.
+  `rf:narr-1` has two root causes and both are addressed: `contexts.py:249` hands
+  `charter.narrative` (timeless present-tense recipe prose describing the whole
+  arc) verbatim to every document, and a `company_overview` briefed with one
+  client fact plus a "representative client work" instruction has nothing true to
+  write. The brief carries a date-scoped digest of what exists as of the document
+  date, naming clients by fact id and never by value, and the instructions state
+  that nothing post-dating the document may be presented as established.
 
-- [x] `orgsmith review --ingest <file>` validates findings against a new
-  `orgsmith/review-finding@1` schema all-or-nothing, like the authoring ingest:
-  it rejects an unknown dimension, an unknown severity, a duplicate finding id,
-  and a target doc id absent from the manifest; it reports every problem across
-  the file and writes nothing unless the file is clean. Every untrusted string is
-  control-stripped with `keep=""` before terminal output (escape-sequence probe
-  test; exit codes unchanged).
+- [ ] An expense-model knob on `FinanceProfile` (default preserves today's math
+  byte-identically) adds a behavioral mode where categories stop moving in
+  lockstep. Verified against a synthetic charter: no two categories grow at the
+  same rate in a given year, at least one category is step-fixed across a
+  multi-year span (`rf:finance-2`: rent is a lease cost and cannot compound 11% a
+  year because fees went up), and compensation tracks headcount rather than
+  revenue. Existing ledger tie-out checks still pass. What `expense_ratio` means
+  in behavioral mode is documented, and a year of negative net income is recorded
+  rather than crashed.
 
-- [x] `/forge-review <slug>` spawns fresh-context reviewers across the five
-  planned dimensions (org realism, finance realism, narrative consistency /
-  anachronism, document plausibility, graph and ACL naturalness) **plus
-  cross-document voice** — the dimension no fresh-context worker can ever
-  self-check, because nothing in the pipeline holds two authored documents at
-  once. Reviewers receive validator output first and are instructed not to
-  re-litigate deterministic rules. The skill never edits ledgers, manifests,
-  prose, or rendered files.
+- [ ] A staffing-rotation knob (default off) varies engagement leads and teams:
+  with the knob on and a large enough roster, no two engagements carry an
+  identical internal participant set and no consultant appears on every
+  engagement. Today `lead = available[0]` (`fabric/engagements.py:225`) is the
+  same person for every engagement in the org's life. A roster too small to
+  rotate degrades to today's behavior visibly rather than crashing.
 
-- [x] The board is **calibrated before it is trusted**, against two labeled
-  positives measured during spec drafting: fernhollow `d0001`/`d0008` (literal
-  reuse, which the metric also catches) and `d0001`/`d0016` (same block structure
-  and rhetorical moves, different wording — which the n-gram metric provably
-  misses at 4-gram Jaccard 0.037). The outcome for each is recorded: surfaced, or
-  documented as a miss with rationale. A board that misses both is not calibrated
-  and must be tuned or its limits written down before its findings are relied on.
+- [ ] An era-naming knob (default off) draws roster and external first names from
+  an era table bundled under `orgsmith/data/`, offline, with no network. With the
+  knob off the `Faker` draw sequence is unchanged, which is what keeps the seven
+  fixtures byte-identical: `fake` is seeded once and consumed in order by
+  `_build_people` then `_build_externals`, so any added or reordered draw shifts
+  every later name in the org. The name screen still runs on era-drawn names. The
+  interaction with `_NICKNAMES` (an era-agnostic pool the collision and nickname
+  passes draw replacement first names from) is either made era-consistent or
+  documented as a limit.
 
-- [x] `bin/test` never invokes the board, and a test proves it: no tier reaches
-  the review or report model-facing entry points, and all tiers stay keyless and
-  offline.
+- [ ] One new committed fixture: a period firm generated with churn, rotation,
+  behavioral finance, and era naming all on, sized per `docs/SCALE.md` (fixtures
+  prove kinds, not volume). It is the regression oracle for every knob above and
+  the era-correct sibling `cindergrove-advisors` cannot become. Cindergrove is
+  frozen, so era naming does not retroactively fix its known anachronism, and the
+  README's note saying so stays accurate.
 
-- [x] All seven committed fixtures load, validate clean with an unchanged skip
-  set, and re-emit their evals byte-identically. No ledger, manifest, or authored
-  prose is edited or regenerated.
+- [ ] The new org is boarded and the board does not gate. The six majors this
+  turn targets (`rf:orgreal-1`, `rf:finance-1`, `rf:finance-2`, `rf:graph-1`,
+  `rf:narr-1`, `rf:narr-2`) are verified resolved at the **ledger** level by
+  deterministic tests, which is the oracle. The board's judgment of the prose is
+  run and its outcome recorded; findings that persist are recorded rather than
+  resolved by assertion. No metric and no board finding becomes a validator rule.
 
-- [x] `docs/SCALE.md` records the size targets and the reasoning behind them —
-  fixtures stay small (regression oracles), a reference fleet at table sizes
-  proves breadth, and a single later flagship org carries scale — grounded in the
-  measurements that settle it: ~16ms of org-tier cost per validated file, ~30KB
-  per modern-format doc, the strictly serial authoring wall, and the
-  context-window threshold below which a corpus is not a retrieval problem at
-  all. It states that M7 documents these targets and does not build the fleet.
+- [ ] All seven previously committed fixtures load, validate clean with an
+  unchanged skip set, regenerate byte-identical structure, and re-emit their
+  evals byte-identically. No ledger, manifest, or authored prose is edited or
+  regenerated.
 
-- [x] A documented model/effort A/B: one **non-committed** org authored twice
-  under different model and effort settings, both boarded, outcome recorded —
-  turning the README's "use the strongest model available" from folklore into a
-  default with evidence behind it. If the A/B is inconclusive, that is recorded
-  as the finding rather than resolved by assertion.
+- [ ] `docs/SCALE.md` and README stop attributing the `_TARGET_WORDS` raise to
+  M8. SCALE.md currently says "Until they are raised (M8)" and "Raising the
+  targets is what makes the flagship affordable, which is why M8 precedes M11";
+  the README's next-up list leads with era naming and realistic document lengths.
+  The length work moves out, and either the milestone references are corrected or
+  the renumbering is stated once and referenced.
 
-- [x] From a fresh checkout, `bin/test` passes all tiers offline and keyless,
-  with `unit` under ~20s and `org` under ~5s (baseline today: short 0.4s / unit
-  17.1s / org 1.7s). CI configuration unchanged: still no LibreOffice.
+- [ ] From a fresh checkout, `bin/test` passes all tiers offline and keyless,
+  with `unit` under ~20s and `org` under ~5s. The eighth fixture's org-tier cost
+  stays inside that budget (baseline: ~15ms per validated file, 107 files, 1.7s;
+  `docs/SCALE.md` puts the ceiling near 330 files). CI configuration unchanged:
+  still no LibreOffice.
 
 ### Context
 
-- Adopted from `~/.claude/plans/we-ve-done-several-turns-rippling-cosmos.md`;
-  read it for the full assessment, the size reasoning, and the sequencing
-  argument. Written today against HEAD (44114b4); no drift.
+- Adopted from the M7 proposal (2026-07-16), consumed by this entry. Scope was
+  settled by explicit user decision this turn: fabric history **and** date-scoped
+  briefs together (the proposal's recommended option), era naming folded in, and
+  the board's negative control deferred to `BACKLOG.md`.
 
-- **The gap this turn closes.** 29 validator rules and 250 tests verify that
-  documents agree with their ledgers. None looks at whether the prose is good.
-  `tests/conftest.py:203` ships the proof: a scripted author double emitting
-  `"Scripted body for status_report dated 2020-09-26..."` passes every ingest
-  check and all 29 rules. Its own comment says where realism is supposed to live
-  — *"realism comes from the real skills"* — and that layer has no test tier, no
-  rubric, and no observer. Of `forge-author`'s six quality bullets, four are
-  machine-enforced; the two that carry the product's value proposition ("the
-  reader must believe a person at this firm wrote it in that year"; "nothing may
-  sound like the same person wrote every document") are enforced by nothing.
+- **The reframe this turn acts on.** Of the board's 11 majors against
+  fernhollow-partners, only 3 are about the model's writing. Four indict the
+  brief and four indict the ledgers. The instrument was built to grade the model
+  and mostly found that our deterministic side is too clean. "Facts are
+  load-bearing" still holds; the facts are the unrealistic part. The findings are
+  committed under `companies/fernhollow-partners-metadata/review/findings/` and
+  each cites ledger-traceable evidence, so they can be re-checked without the
+  board.
 
-- **Proxy and critic find different things — this is measured, not assumed.**
-  zat.env's design posture is "more proxy, less critic": critics are cheap and
-  weak because they share blind spots with the generator, while proxies catch
-  what the generator cannot see. That posture is respected here and it also sets
-  the boundary. During spec drafting, a 4-gram shingle metric over
-  fernhollow-partners ranked `d0001`/`d0008` top at 0.228 — real literal reuse
-  that a human reader had not noticed. The same metric scores `d0001`/`d0016` at
-  0.037, yet those two are the pair a reader flags: identical block-kind
-  sequence, identical rhetorical moves ("Sandra Perez, Director, [leads/will run]
-  the engagement day to day and is your first call"), different wording. **The
-  proxy caught what the reader missed; the reader caught what the proxy misses.**
-  Neither subsumes the other, which is why this turn builds both and why the
-  board's scope is exactly what no proxy reaches. Note the ambiguity the board
-  must resolve rather than the metric: real firms genuinely do reuse engagement-
-  letter templates, so high same-genre similarity may be realistic. The metric
-  measures, the board judges, the human decides. Do not promote either into a
-  validator rule this turn — thresholds are unknown, and a rule would fail frozen
-  fixtures.
+- **Why churn and date-scoping are one unit and not two.** `EmploymentSpan` and
+  `_employed_at` already exist and are consumed in four modules
+  (`docplan/planner.py`, `validate/rules.py`, `fabric/engagements.py`), so
+  employment already has a time dimension. `Person.title` does not: it is a
+  scalar, and `_brief_person` briefs it regardless of the document's date (only
+  external people get `employer_at(xp, at)`). Ship churn alone and the knob
+  becomes a generator of anachronisms rather than a cure for them.
 
-- **Provenance is a record, not an oracle.** Stated as a criterion above and
-  repeated here because it is the load-bearing design call: the generator field
-  is self-reported and cannot be recomputed from artifacts, so it is categorically
-  unlike SCAN-01, LEG-01, or AFF-01, which recompute their claim as tamper
-  evidence. Making provenance a rule would both fake that guarantee and fail all
-  seven existing fixtures. Report it; never gate on it.
+- **Determinism landmines, both load-bearing.** (1) `foundation/scaffold.py:286`
+  seeds one `Faker` instance and consumes it in order across `_build_people` then
+  `_build_externals`; adding, removing, or reordering a single draw shifts every
+  subsequent name in the org. (2) `rng(charter.seed, "foundation.scaffold")` is
+  shared by the roster loop and the timeline events, so a new `rand` call in that
+  stream moves committed timeline dates. Both are why every new pass must draw
+  from its own stream, the way `foundation.collisions`, `foundation.nicknames`,
+  and `foundation.affiliations` already do, and why knob-off must take the exact
+  code path it takes today.
 
-- **The corpus is thin by specification, and nothing checks it.** Measured mean
-  across all 81 authored docs: 226 words. `_TARGET_WORDS` (`contexts.py:70`)
-  briefs engagement_letter=350, status_report=300, meeting_minutes=220; real
-  engagement letters run 800–1500. The model is roughly hitting its targets — the
-  targets are wrong. Separately, `target_words` is **never read back**: its only
-  two references are its schema default (`schemas.py:542`) and its assignment into
-  the brief (`contexts.py:239`). M7 measures this; **raising the targets is M8.**
-  Measure before fixing.
+- **Two semantics that must be settled in writing, not assumed.** `headcount`
+  currently means "people who exist"; under churn it has to mean concurrent
+  seats, or the field silently changes meaning for every existing recipe.
+  `expense_ratio` currently defines `expense_total` and the categories are split
+  out of it (`fabric/finance.py:48-52`); a behavioral model derives the total
+  from the categories instead, which inverts the relationship and leaves
+  `expense_ratio` needing a stated job.
 
-- **Scope discipline.** Deliberately out: the `forge-fix` loop (M8, designed
-  against real findings rather than imagined ones); raising `_TARGET_WORDS`, voice
-  variety, and era naming (M8 — era naming lands after the board precisely because
-  anachronism hunting is one of the board's dimensions, so the board is what
-  verifies it); parallel authoring and routine/bespoke doc classes (M9); the
-  reference fleet (M10); the flagship org (M11); eval difficulty beyond today's
-  single-hop lookups (any time — evals are derived, so it applies retroactively
-  and is never urgent).
+- **The airlock constrains the date-scoped digest.** Client names are facts
+  (`f:E-2020-001.client`), so a digest naming them by value would leak what a
+  placeholder resolves to. Note the airlock already held here: d:0007 wrote
+  `{{fact:f:E-2020-001.client}}` correctly, and its invention was the unbriefed
+  relationship claim ("valuation and readiness workstreams") around it. The
+  digest must carry structure and fact ids, never values.
 
-- **Airlock unchanged.** Python still never calls a model or touches the network.
-  The board is a skill; `review --ingest` is a validate-and-merge verb of the same
-  shape as `author --ingest`. `bin/test` must never reach it — hence the negative
-  test. "Never LLM-grades-LLM in automated test tiers" reads as a *permission* for
-  skills that nothing has taken up; this turn takes it up, on the skill side of
-  the line only.
+- **Low similarity is not health.** Measured twice independently in M7
+  (calibration and the A/B): the corpus that scored *lower* same-genre overlap
+  was the worse one. A metric can flag prose that repeats and is blind to prose
+  that fails to repeat where house style requires it. Nothing this turn may turn
+  a metric or a board finding into a bar.
 
-- **Frozen fixtures.** GENERATION-REPORT.md joins `evals/`, `acl.json`, and
-  PERMISSIONS.md as a derived artifact and may be emitted for committed orgs.
-  Ledgers, manifests, and authored prose stay frozen. The A/B org is deliberately
-  not committed, so it raises no frozen-fixture question.
+- **Interaction to decide: the new fixture is born rendering PDFs.**
+  `pdf-newline-flattening` (BACKLOG) says `render/pdf.py:90` silently flattens
+  `\n` inside a paragraph while the DOCX renderer honors it, and its revisit
+  criteria name "the first fixture regeneration that would re-render an affected
+  PDF." An eighth fixture with PDFs is arguably that trigger, and a frozen
+  fixture born with a known smear is worse than one that inherited it. Not scoped
+  in as a criterion; call it before generating.
 
-- **Additive evolution.** New schema fields default inert on existing schema ids;
-  new randomness comes only from the new `review.sample` stream. `state.json`
-  already varies with prose (it carries `authored_hash`), so recording the
-  generator does not disturb the byte-identical guarantee, which covers
-  pure-stage structure.
+- **Charter re-dump drift, now larger.** A committed fixture's `charter.json`
+  gains inert default fields when re-derived (harmless today only because frozen
+  fixtures are never re-written). This turn adds at least three more such fields
+  (churn, expense model, era). Carried forward from the M7 spec as still open and
+  uncarried; worth a `/spec backlog` entry if it should survive this turn.
 
-- **Answers three of the four M6 proposal questions.** Era naming → M8 (deferred
-  by this spec's sequencing, reversing the reserved-next-turn note in the M6
-  Context, by explicit user decision this turn). Fleet scoping → `docs/SCALE.md`,
-  where the plan's own contradiction (decision line "fleet ≈2,000 docs" vs recipe
-  table ≈360) is resolved by separating breadth from scale. Adversarial review
-  board → this turn; note that the proposal framed it as "still wanted, or is the
-  deterministic oracle carrying that weight?", and both options there are
-  structural — the oracle cannot carry prose weight by construction, so the
-  question as posed could not reach the answer. **Still open and uncarried:**
-  charter re-dump drift (a committed fixture's `charter.json` gains inert default
-  fields when re-derived; harmless today because frozen fixtures are never
-  re-written). Worth a `/spec backlog` entry if it should survive this turn.
+- **Scope discipline.** Deliberately out: raising `_TARGET_WORDS` together with
+  clause-rich and credential-aware briefs (M9, and they are one change, not two,
+  because a real engagement letter is 800-1500 words *because it has clauses*, so
+  raising the target without enriching the brief buys padding); parallel
+  authoring (M9, the only binding constraint per `docs/SCALE.md`); the reference
+  fleet (M10); the flagship org (M11); `forge-fix` (unscheduled, and the proposal
+  doubts it: a fix loop is where a critic quietly becomes a gate); the board's
+  negative control (`BACKLOG.md`, `board-negative-control`).
+
+- **Airlock unchanged.** Python still never calls a model and never touches the
+  network, including the era name table, which ships as bundled data. Everything
+  this turn adds is a pure stage or a brief field.
+
+- **Frozen fixtures.** The seven committed orgs are frozen: ledgers, manifests,
+  and authored prose are never edited or regenerated. Only `evals/`, `acl.json`,
+  PERMISSIONS.md, and GENERATION-REPORT.md are derived and re-emittable. The
+  eighth fixture is new, so it raises no frozen-fixture question; once committed,
+  it joins them.
 
 - **Open review items carried in.** CODEREVIEW.md at HEAD is 0 BLOCK / 0 WARN
   with two NOTEs: `render/__init__.py:28-48` (a `people_index` docstring claiming
-  an EML-01 contract that no longer holds — no drift today, but any title- or
-  org-derived eml header would make renderer and checker drift silently) and
-  `render/pdf.py:37,64` (letterhead lines unescaped under `autoescape=False`;
-  recipe-author controlled, no concrete vector).
+  an EML-01 contract that no longer holds; no drift today, but any title- or
+  org-derived eml header would make renderer and checker drift silently, and this
+  turn makes titles date-dependent) and `render/pdf.py:37,64` (letterhead lines
+  unescaped under `autoescape=False`; recipe-author controlled, no concrete
+  vector).
 
-- **House practices (zat.env).** Verification is the ceiling — but the ceiling it
-  sets is over facts; prose has no floor today, which is what this turn installs.
-  Small committable increments with tests in the same increment. Precision over
-  recall: an empty board report is a valid outcome, and the board must stay silent
-  rather than manufacture findings to fill a template. Two kinds of enforcement:
-  hard gates for irreversible actions, prompt instructions elsewhere — the board
-  is prompt-enforced by nature, which is exactly why it must never gate CI. No
-  push or remote mutation without explicit user instruction.
+- **House practices (zat.env).** Oracles beat proxies beat critics, and know
+  which one carries any given claim: the ledger-level tests are the oracle here
+  and the board is not. Small committable increments with tests in the same
+  increment. Verify the build and existing tests pass before starting. Precision
+  over recall. Hard gates only for irreversible actions; the board stays
+  prompt-enforced and never gates CI. No push or remote mutation without explicit
+  user instruction.
 
 - Environment: Python 3.10-compatible (the box runs 3.10 though `.python-version`
   says 3.12); always `.venv/bin/python`.
 
 ---
-*Prior spec (2026-07-15): M6 pre-fleet hardening (affiliation-aware docs, name
-screen, dev-mini regeneration); all 13 criteria met, shipped as v1.5.0.*
+*Prior spec (2026-07-16): M7 the quality instrument (review board, generation
+provenance, model/effort policy); all 13 criteria met, shipped as v1.6.0.*
 
-### Proposal (2026-07-16)
-
-**What happened.** M7 shipped 13/13 in 12 commits, released as v1.6.0. The
-instrument exists: `report` (no-model corpus metrics), `/forge-review` (a
-read-only board across six dimensions), `review --sample/--ingest`, an
-authoring floor surfaced before tokens are spent, and per-batch provenance.
-Review: 0 BLOCK / 3 WARN (all fixed, probe-verified) / 3 NOTE.
-
-Four results that should drive the next turn:
-
-1. **The board indicts the Python, not the prose.** Of its 11 major findings
-   against fernhollow, only **3 are about the model's writing**. Four indict
-   the *brief* (`contexts.py` asks engagement letters for "scope, approach,
-   team, fee, closing" and never for a termination or liability clause; no
-   brief is date-scoped, so the 2022 firm overview confidently describes
-   events that happen 12-28 days later). Four indict the *ledgers* (nobody is
-   ever hired, promoted, or leaves; every expense line is a frozen percentage
-   of revenue in all eight years; all four engagements are staffed by the same
-   three people). The instrument was built to grade the model and it mostly
-   found that our deterministic side is too clean. "Facts are load-bearing"
-   holds — and the facts are the unrealistic part.
-2. **This reframes the planned `_TARGET_WORDS` raise.** A real engagement
-   letter is 800-1500 words *because it has clauses*. Raising the target
-   without enriching the brief buys padding, not realism. Length and brief
-   richness are one change, not two.
-3. **Low similarity is not health; the signal is inverted.** Measured twice,
-   independently (calibration + the A/B): the corpus that scored *lower*
-   same-genre overlap was the worse one. A metric can only flag prose that
-   repeats and is blind to prose that fails to repeat where house style
-   requires it. Never make it a bar.
-4. **Scale needs longer documents, not just more.** A 2,000-doc org at today's
-   236-word mean is ~628K tokens and fits in a 1M context window, so it would
-   prove nothing about retrieval (`docs/SCALE.md`). That makes the length work
-   a precondition for the flagship, not a nicety.
-
-**Questions and directions.**
-
-- **Is M8 "fabric realism" or "document lengths"?** They are separable but
-  point the same way, and the board's evidence favors fabric: roster churn,
-  step-fixed vs revenue-tracking costs, staffing rotation — all as knobs that
-  default off, so the seven fixtures stay byte-identical. Doing lengths first
-  risks longer documents about an equally frozen firm.
-- **Date-scoped briefs look cheap and high-value.** Two majors (`rf:narr-1`,
-  `rf:narr-2`) share one root cause: the author sees the whole narrative
-  regardless of the document's date. Scoping the brief to what exists as of
-  that date is a small change to `contexts.py`.
-- **`forge-fix` can now be designed against real findings** rather than
-  imagined ones. Worth it, or is "the board reports, the human decides" the
-  right stopping point? A fix loop is where a critic quietly becomes a gate.
-- **Era naming** has been deferred twice (M6 -> M7 -> M8). Still wanted, or is
-  cindergrove's known anachronism acceptable indefinitely?
-- **The board has no negative control.** Its false-positive rate is unmeasured
-  (`docs/REVIEW-CALIBRATION.md`). Worth one turn's attention before its
-  findings drive expensive work?
-
-<!-- SPEC_META: {"date":"2026-07-16","title":"M7: the quality instrument (review board, generation provenance, model/effort policy)","criteria_total":13,"criteria_met":13} -->
+<!-- SPEC_META: {"date":"2026-07-16","title":"M8: the firm gets a history (roster churn, behavioral finance, staffing rotation, date-scoped briefs, era naming)","criteria_total":13,"criteria_met":0} -->
