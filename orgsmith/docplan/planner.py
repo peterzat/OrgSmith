@@ -5,6 +5,11 @@ a realistic filename, genre, format, date, authors (employed on that
 date), engagement link, and which ledger facts MUST appear in the text
 (facts_refs). The manifest is append-only ground truth; soft fixes bump
 `rev`, they never rewrite identity fields.
+
+Supply is driven by the genre registry (`registry.py`): the planner walks
+its rows, and a row's driver and cadence decide how many documents each
+genre spawns from the firm's engagements, fiscal years, and hires. There is
+no fixed skeleton and no per-genre count wired into this file.
 """
 
 from __future__ import annotations
@@ -22,6 +27,7 @@ from ..fabric.engagements import LETTER_LEAD_DAYS, minutes_date
 from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
 from ..seeds import rng
+from .registry import REGISTRY, GenreRule
 from ..schemas import (
     BASE_FORMAT,
     Charter,
@@ -165,144 +171,156 @@ class _Planner:
             )
         self.planned.append(kw)
 
-    # --- genre planners -------------------------------------------------
+    # --- registry-driven supply -----------------------------------------
 
-    def plan_engagement_docs(self) -> None:
-        engs = self.engagements.engagements
-        for idx, eng in enumerate(engs):
-            client = sanitize_component(self._client_name(eng))
-            folder = f"Engagements/{client}"
-            service = eng.title.split(" for ")[0]
-            duration = (eng.end - eng.start).days
-
-            letter_date = _clamp(
-                eng.start - timedelta(days=LETTER_LEAD_DAYS),
-                self.range_start,
-                eng.start,
-            )
-            fee_ref = f"f:{eng.id}.fee"
-            letter_params = {}
-            if self.policy.get(fee_ref) == "signature_page":
-                # Render injects the fee into the signature page; the model
-                # is never briefed for it (see authoring.contexts).
-                letter_params = {"sig_fact": fee_ref}
-            self._add(
-                path=f"{folder}/{letter_date:%Y.%m.%d} - Engagement Letter - "
-                f"{client} - EXECUTED.pdf",
-                title=f"Engagement Letter: {eng.title}",
-                genre="engagement_letter",
-                format="pdf",
-                date=letter_date,
-                authors=[self.ceo.id],
-                participants=eng.internal_participants + eng.external_participants,
-                engagement=eng.id,
-                facts_refs=[fee_ref, f"f:{eng.id}.start", f"f:{eng.id}.client"],
-                render_params=letter_params,
-            )
-
-            if idx < 2:  # kickoff memos for the first two engagements
-                kd = self._clamp_range(eng.start + timedelta(days=3))
-                self._add(
-                    path=f"{folder}/{kd:%Y.%m.%d} - Kickoff Memo - {service}.docx",
-                    title=f"Kickoff Memo: {eng.title}",
-                    genre="kickoff_memo",
-                    format="docx",
-                    date=kd,
-                    authors=[self._author_for(eng, kd, junior=False).id],
-                    participants=eng.internal_participants
-                    + eng.external_participants,
-                    engagement=eng.id,
-                    facts_refs=[f"f:{eng.id}.start", f"f:{eng.id}.client"],
+    def plan_from_registry(self) -> None:
+        """Build the manifest by walking the registry, dispatching each row
+        to its driver. Supply is whatever the drivers yield; there is no
+        target count and no fixed skeleton."""
+        for rule in REGISTRY:
+            if rule.genre == "engagement_email":
+                self._emit_email(rule)
+            elif rule.driver == "per_engagement":
+                self._emit_engagement(rule)
+            elif rule.driver == "per_fiscal_year":
+                self._emit_fiscal_year(rule)
+            elif rule.driver == "firm_periodic":
+                self._emit_firm_periodic(rule)
+            else:
+                raise SystemExit(
+                    f"docplan: registry row {rule.genre!r} names driver "
+                    f"{rule.driver!r}, which has no planner handler"
                 )
 
-            md = minutes_date(eng.start, eng.end, self.range_start, self.range_end)
+    def _author_id(self, rule: GenreRule, eng, when: date) -> str:
+        if rule.author_role == "ceo" or eng is None:
+            return self.ceo.id
+        return self._author_for(eng, when, junior=rule.author_role == "junior").id
+
+    def _participant_ids(self, rule: GenreRule, eng) -> list[str]:
+        if rule.participants == "ceo":
+            return [self.ceo.id]
+        if rule.participants == "none" or eng is None:
+            return []
+        ids = list(eng.internal_participants)
+        if rule.participants == "team_external":
+            ids = ids + list(eng.external_participants)
+        return ids
+
+    @staticmethod
+    def _dedupe(dates: list[date]) -> list[date]:
+        """Clamping can collapse two cadence instances onto one range-edge
+        date; keep one so the path-uniqueness check does not fail on a
+        legitimate short engagement."""
+        seen: set[date] = set()
+        out: list[date] = []
+        for d in dates:
+            if d not in seen:
+                seen.add(d)
+                out.append(d)
+        return out
+
+    def _engagement_dates(self, rule: GenreRule, eng) -> list[date]:
+        """The dates one per-engagement genre lands inside this engagement,
+        interpreting the row's cadence fields."""
+        start, end = eng.start, eng.end
+        duration = max(1, (end - start).days)
+        if rule.lead_days:
+            return [_clamp(
+                start - timedelta(days=rule.lead_days), self.range_start, start
+            )]
+        anchor_off = int(rule.anchor_frac * duration)
+        if rule.period_days:
+            # The hosting genre's first instance shares the exact minutes_date
+            # the fabric planted the filename fact on; recurrence follows.
+            if rule.hosts_filename:
+                first = minutes_date(start, end, self.range_start, self.range_end)
+            else:
+                first = self._clamp_range(start + timedelta(days=anchor_off))
+            dates = [first]
+            k = 1
+            while True:
+                d = start + timedelta(days=anchor_off + k * rule.period_days)
+                if d >= end:
+                    break
+                dates.append(self._clamp_range(d))
+                k += 1
+            return self._dedupe(dates)
+        return [self._clamp_range(
+            start + timedelta(days=anchor_off + rule.start_offset_days)
+        )]
+
+    def _facts_for(
+        self, rule: GenreRule, eng, is_first: bool
+    ) -> tuple[list[str], list[KeyFact], dict]:
+        """(facts_refs, extra_key_facts, render_params) for one instance.
+
+        A fact is briefed on the genre that hosts it: the letter carries its
+        signature-page fee (rendered onto the sig page, never briefed as
+        body); the first minutes carries the filename-only date. Any other
+        genre drops a non-body fact rather than leak the value into text."""
+        refs: list[str] = []
+        render_params: dict = {}
+        for suf in rule.fact_suffixes:
+            ref = f"f:{eng.id}.{suf}"
+            pol = self.policy.get(ref, "body")
+            if pol == "body":
+                refs.append(ref)
+            elif pol == "signature_page" and rule.hosts_signature:
+                refs.append(ref)
+                render_params["sig_fact"] = ref
+        extra: list[KeyFact] = []
+        if rule.hosts_filename and is_first:
             md_ref = f"f:{eng.id}.minutes-date"
-            extra_key_facts = []
             if self.policy.get(md_ref) == "filename":
-                # The filename (built below from the same shared helper the
-                # fabric fact used) is the only place this date may appear;
-                # it never enters facts_refs because FACT-01 demands body
-                # presence for those.
-                extra_key_facts = [KeyFact(fact_id=md_ref, location="filename")]
-            self._add(
-                path=f"{folder}/Meeting Minutes {md:%Y-%m-%d} - {client}.docx",
-                title=f"Meeting Minutes: {eng.title}",
-                genre="meeting_minutes",
-                format="docx",
-                date=md,
-                authors=[self._author_for(eng, md, junior=True).id],
-                participants=eng.internal_participants + eng.external_participants,
-                engagement=eng.id,
-                facts_refs=[f"f:{eng.id}.client"],
-                extra_key_facts=extra_key_facts,
-            )
+                # Filename-only: never a facts_ref, because FACT-01 demands
+                # body presence for those.
+                extra = [KeyFact(fact_id=md_ref, location="filename")]
+        return refs, extra, render_params
 
-            if idx in (0, len(engs) - 1):  # status reports: first and last
-                sd = self._clamp_range(
-                    eng.start + timedelta(days=int(duration * 0.75))
-                )
-                # A signature-page-only fee may surface nowhere but the
-                # letter's signature page, so it leaves other docs' refs.
-                report_refs = [
-                    ref
-                    for ref in (fee_ref, f"f:{eng.id}.client")
-                    if self.policy.get(ref, "body") == "body"
-                ]
-                self._add(
-                    path=f"{folder}/{sd:%Y.%m.%d} - Status Report - {client} "
-                    f"v2 FINAL.docx",
-                    title=f"Status Report: {eng.title}",
-                    genre="status_report",
-                    format="docx",
-                    date=sd,
-                    authors=[self._author_for(eng, sd, junior=False).id],
-                    participants=eng.internal_participants,
-                    engagement=eng.id,
-                    facts_refs=report_refs,
-                )
-
-    def plan_deck_docs(self) -> None:
-        """Briefing decks: one per engagement, first engagements first, when
-        the recipe's format_mix asks for pptx documents."""
-        want = self.charter.doc_culture.format_mix.pptx
-        if want == 0:
-            return
+    def _emit_engagement(self, rule: GenreRule) -> None:
         engs = self.engagements.engagements
-        if want > len(engs):
-            raise SystemExit(
-                f"docplan: format_mix.pptx wants {want} deck(s) but only "
-                f"{len(engs)} engagement(s) exist; lower the mix or raise "
-                f"engagements.count"
-            )
-        for eng in engs[:want]:
+        if rule.optional_count:
+            want = getattr(self.charter.doc_culture.format_mix, rule.optional_count)
+            if want == 0:
+                return
+            if want > len(engs):
+                raise SystemExit(
+                    f"docplan: format_mix.{rule.optional_count} wants {want} "
+                    f"{rule.genre}(s) but only {len(engs)} engagement(s) "
+                    f"exist; lower the mix or raise engagements.count"
+                )
+            engs = engs[:want]
+        for eng in engs:
             client = sanitize_component(self._client_name(eng))
-            dd = self._clamp_range(
-                eng.start + timedelta(days=int((eng.end - eng.start).days * 0.25))
-            )
-            deck_refs = [
-                ref
-                for ref in (f"f:{eng.id}.start", f"f:{eng.id}.client")
-                if self.policy.get(ref, "body") == "body"
-            ]
-            self._add(
-                path=f"Engagements/{client}/{dd:%Y.%m.%d} - Briefing Deck - "
-                f"{client}.pptx",
-                title=f"Briefing Deck: {eng.title}",
-                genre="briefing_deck",
-                format="pptx",
-                date=dd,
-                authors=[self._author_for(eng, dd, junior=False).id],
-                participants=eng.internal_participants
-                + eng.external_participants,
-                engagement=eng.id,
-                facts_refs=deck_refs,
-            )
+            folder = rule.folder.format(client=client)
+            service = eng.title.split(" for ")[0]
+            dates = self._engagement_dates(rule, eng)
+            for i, when in enumerate(dates):
+                refs, extra, render_params = self._facts_for(rule, eng, i == 0)
+                name = rule.filename.format(
+                    date=when, client=client, service=service, n=i + 1
+                )
+                self._add(
+                    path=f"{folder}/{name}",
+                    title=f"{rule.title_prefix}: {eng.title}",
+                    genre=rule.genre,
+                    format=rule.format,
+                    date=when,
+                    authors=[self._author_id(rule, eng, when)],
+                    participants=self._participant_ids(rule, eng),
+                    engagement=eng.id,
+                    facts_refs=refs,
+                    extra_key_facts=extra,
+                    render_params=render_params,
+                    authoring=rule.authoring,
+                )
 
-    def plan_email_docs(self) -> None:
-        """Engagement mail: format_mix.eml messages assigned round-robin
-        over engagements (wrapping is fine; a thread carries many mails),
-        dated deterministically inside each engagement's window."""
-        want = self.charter.doc_culture.format_mix.eml
+    def _emit_email(self, rule: GenreRule) -> None:
+        """Engagement mail: format_mix.eml messages assigned round-robin over
+        engagements (wrapping is fine; a thread carries many mails), dated
+        deterministically inside each engagement's window."""
+        want = getattr(self.charter.doc_culture.format_mix, rule.optional_count)
         if want == 0:
             return
         engs = self.engagements.engagements
@@ -314,71 +332,81 @@ class _Planner:
             client = sanitize_component(self._client_name(eng))
             service = eng.title.split(" for ")[0]
             ed = self._clamp_range(eng.start + timedelta(days=30 + 45 * k))
-            refs = [
-                ref
-                for ref in (f"f:{eng.id}.client",)
-                if self.policy.get(ref, "body") == "body"
-            ]
+            refs, _, _ = self._facts_for(rule, eng, False)
+            name = rule.filename.format(
+                date=ed, client=client, service=service, n=k + 1
+            )
             self._add(
-                path=f"Engagements/{client}/{ed:%Y.%m.%d} - Email {k + 1} - "
-                f"{service} - {client}.eml",
+                path=f"Engagements/{client}/{name}",
                 title=f"RE: {eng.title}",
-                genre="engagement_email",
-                format="eml",
+                genre=rule.genre,
+                format=rule.format,
                 date=ed,
-                authors=[self._author_for(eng, ed, junior=False).id],
-                participants=eng.internal_participants
-                + eng.external_participants,
+                authors=[self._author_id(rule, eng, ed)],
+                participants=self._participant_ids(rule, eng),
                 engagement=eng.id,
                 facts_refs=refs,
+                authoring=rule.authoring,
             )
 
-    def plan_firm_docs(self) -> None:
-        first_eng = self.engagements.engagements[0]
-        mid = self.range_start + (self.range_end - self.range_start) / 2
-        mid = self._clamp_range(max(mid, first_eng.start + timedelta(days=30)))
-        # Every client whose engagement has begun by the overview's date. The
-        # brief's firm digest names exactly these (by fact id), so briefing
-        # their client facts here is what keeps FACT-01 satisfied: the digest
-        # can reference only facts the document is briefed to carry. Dating
-        # the overview mid-range means it legitimately cites the early clients
-        # and cannot cite the later ones -- which is the anachronism rf:narr-1
-        # was about.
-        as_of = [e for e in self.engagements.engagements if e.start <= mid]
-        self._add(
-            path=f"Firm/Firm Overview {mid:%Y} v3.docx",
-            title="Firm Overview",
-            genre="company_overview",
-            format="docx",
-            date=mid,
-            authors=[self.ceo.id],
-            participants=[self.ceo.id],
-            engagement=None,
-            facts_refs=[f"f:{e.id}.client" for e in as_of],
-        )
-
+    def _emit_fiscal_year(self, rule: GenreRule) -> None:
+        """One financial summary per fiscal year whose January publish date
+        falls inside the charter range. The last-two-years cap is gone; the
+        lower bound keeps a firm founded before its document window from
+        back-publishing summaries that would clamp onto the range-start date."""
         fy_years = [
             fy.year
             for fy in self.finance.years
-            if date(fy.year + 1, 1, 15) <= self.range_end
-        ][-2:]
+            if self.range_start <= date(fy.year + 1, 1, 15) <= self.range_end
+        ]
         for year in fy_years:
             pub = date(year + 1, 1, 15)
             author = (
                 self.ops_lead if _employed_at(self.ops_lead, pub) else self.ceo
             )
             self._add(
-                path=f"Finance/FY{year} Financial Summary.xlsx",
+                path=f"{rule.folder}/{rule.filename.format(year=year)}",
                 title=f"FY{year} Financial Summary",
-                genre="financial_summary",
-                format="xlsx",
+                genre=rule.genre,
+                format=rule.format,
                 date=pub,
                 authors=[author.id],
                 participants=[],
                 engagement=None,
                 facts_refs=[],
-                authoring="static",
+                authoring=rule.authoring,
                 render_params={"year": year},
+            )
+
+    def _emit_firm_periodic(self, rule: GenreRule) -> None:
+        """Firm overviews across the range, one every period_years, anchored
+        just after the first engagement so the earliest one has a client to
+        cite. Each names exactly the clients whose engagement has begun by its
+        date (by fact id); the brief's date-scoped digest keeps it from
+        claiming anything later than itself."""
+        engs = self.engagements.engagements
+        if not engs:
+            return
+        anchor = engs[0].start + timedelta(days=30)
+        step_days = max(1, rule.period_years) * 365
+        dates: list[date] = []
+        offset = 0
+        while anchor + timedelta(days=step_days * offset) <= self.range_end:
+            dates.append(self._clamp_range(anchor + timedelta(days=step_days * offset)))
+            offset += 1
+        for when in self._dedupe(dates):
+            as_of = [e for e in engs if e.start <= when]
+            self._add(
+                path=f"{rule.folder}/{rule.filename.format(date=when)}",
+                title="Firm Overview",
+                genre=rule.genre,
+                format=rule.format,
+                date=when,
+                authors=[self.ceo.id],
+                participants=[self.ceo.id],
+                engagement=None,
+                facts_refs=[f"f:{e.id}.client" for e in as_of],
+                authoring=rule.authoring,
             )
 
     # --- mention planning -------------------------------------------------
@@ -515,25 +543,10 @@ class _Planner:
             doc["format"] = fmt
 
     def build(self) -> list[ManifestEntry]:
-        self.plan_engagement_docs()
-        self.plan_deck_docs()
-        self.plan_email_docs()
-        self.plan_firm_docs()
+        self.plan_from_registry()
         self.plan_mentions()
         self.plan_scans()
         self.plan_legacy()
-
-        mix = self.charter.doc_culture.format_mix
-        want = {
-            fmt: getattr(mix, fmt) for fmt in ("docx", "pdf", "xlsx", "pptx", "eml")
-        }
-        counts = dict.fromkeys(want, 0)
-        for doc in self.planned:
-            counts[BASE_FORMAT.get(doc["format"], doc["format"])] += 1
-        if counts != want:
-            raise SystemExit(
-                f"docplan: format mix {counts} does not match charter {want}"
-            )
 
         self.planned.sort(key=lambda d: (d["date"], d["path"]))
         entries = []

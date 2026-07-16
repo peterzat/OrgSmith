@@ -56,11 +56,15 @@ def test_rerun_is_noop_and_preserves_enrichment(tmp_path):
     assert paths.manifest_jsonl.read_bytes() == manifest_before
 
 
-def test_charter_rejects_mismatched_format_mix():
+def test_charter_accepts_advisory_format_mix_total():
+    """M9: target_docs and the docx/pdf/xlsx buckets are advisory. A recipe
+    whose format_mix no longer sums to target_docs still parses, because the
+    genre registry -- not this number -- decides how many documents exist."""
     text = (REPO / "recipes/dev-mini/ORG-CHARTER.md").read_text()
-    broken = text.replace("target_docs: 13", "target_docs: 12")
-    with pytest.raises(Exception):
-        parse_charter_md(broken, "dev-mini")
+    loosened = text.replace("target_docs: 13", "target_docs: 12")
+    charter = parse_charter_md(loosened, "dev-mini")
+    assert charter.doc_culture.target_docs == 12
+    assert charter.doc_culture.format_mix.total != charter.doc_culture.target_docs
 
 
 def test_charter_rejects_missing_narrative():
@@ -105,12 +109,12 @@ def test_manifest_contract(pure_org):
     manifest = load_manifest(pure_org)
     facts = load_engagements(pure_org).fact_index()
 
-    assert len(manifest) == charter.doc_culture.target_docs
-    counts = {"docx": 0, "pdf": 0, "xlsx": 0}
+    # Supply is driver-derived (test_supply_is_driver_derived owns the count);
+    # here every entry must be well-formed ground truth.
+    assert manifest, "empty manifest"
     seen_ids, seen_paths = set(), set()
     lo, hi = charter.doc_culture.date_range
     for entry in manifest:
-        counts[entry.format] += 1
         assert entry.doc_id not in seen_ids
         seen_ids.add(entry.doc_id)
         assert entry.path.lower() not in seen_paths
@@ -124,8 +128,6 @@ def test_manifest_contract(pure_org):
             assert ref in facts
         if entry.format == "xlsx":
             assert entry.authoring == "static"
-    mix = charter.doc_culture.format_mix
-    assert counts == {"docx": mix.docx, "pdf": mix.pdf, "xlsx": mix.xlsx}
     # Every planted fact appears in at least one document.
     referenced = {r for e in manifest for r in e.facts_refs}
     assert referenced == set(facts)

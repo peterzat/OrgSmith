@@ -651,16 +651,23 @@ def test_firm_digest_before_any_engagement_claims_no_client_work():
 
 def test_overview_briefs_only_the_clients_that_exist_as_of_its_date(tmp_path):
     """End to end: the planted facts_refs match the digest, so FACT-01 is
-    satisfiable -- the overview is briefed exactly the clients it may cite,
-    and more than the single one it used to carry."""
+    satisfiable -- each overview is briefed exactly the clients whose
+    engagement has begun as of its date, never a later one. M9 makes the
+    overview firm-periodic, so there can be several across the range."""
     paths = build_pure_stages(tmp_path)
-    from orgsmith.artifacts import load_manifest
+    from orgsmith.artifacts import load_engagements, load_manifest
 
     man = load_manifest(paths)
-    overview = next(e for e in man if e.genre == "company_overview")
-    # dev-mini's engagements that begin before the mid-range overview.
-    assert len(overview.facts_refs) >= 2, "overview should cite more than one client"
-    assert all(ref.endswith(".client") for ref in overview.facts_refs)
+    engs = load_engagements(paths).engagements
+    overviews = [e for e in man if e.genre == "company_overview"]
+    assert overviews, "no firm overview planned"
+    for ov in overviews:
+        began = {f"f:{e.id}.client" for e in engs if e.start <= ov.date}
+        assert set(ov.facts_refs) == began
+        assert all(ref.endswith(".client") for ref in ov.facts_refs)
+    # The latest overview has the whole client base built up by then to cite.
+    latest = max(overviews, key=lambda e: e.date)
+    assert len(latest.facts_refs) >= 2, "late overview should cite several clients"
 
 
 # --- staffing rotation -----------------------------------------------------

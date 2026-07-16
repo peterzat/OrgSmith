@@ -101,10 +101,18 @@ def _eval_formula(formula: str, cached) -> int:
 def test_xlsx_formulas_recompute_to_cached_ledger_values(org):
     from openpyxl import load_workbook
 
+    from datetime import date as _date
+
+    from orgsmith.artifacts import load_charter
+
     manifest = load_manifest(org)
     finance = load_finance(org)
     workbooks = [e for e in manifest if e.format == "xlsx"]
-    assert len(workbooks) == 2
+    # M9: one financial summary per fiscal year whose January publish date
+    # falls inside the charter range (the last-two-years cap is gone).
+    _, range_end = load_charter(org).doc_culture.date_range
+    expected = sum(1 for y in finance.years if _date(y.year + 1, 1, 15) <= range_end)
+    assert len(workbooks) == expected >= 1
     for entry in workbooks:
         path = org.share_dir / entry.path
         formulas = load_workbook(path, data_only=False)["Summary"]

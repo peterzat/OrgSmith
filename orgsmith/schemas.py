@@ -84,8 +84,18 @@ class FormatMix(StrictModel):
 
 
 class DocCulture(StrictModel):
+    # ADVISORY since M9. Document supply is derived by the genre registry from
+    # the firm's drivers (engagements, fiscal years, hires), so the manifest
+    # count is whatever the drivers yield, not this number. `target_docs` is a
+    # size hint the recipe author records; nothing asserts the manifest equals
+    # it. Kept required and positive so existing recipes keep parsing.
     target_docs: int = Field(gt=0)
     date_range: tuple[date, date]
+    # ADVISORY for docx/pdf/xlsx since M9: format follows genre, so those
+    # buckets no longer have to sum to target_docs and are not enforced. The
+    # pptx and eml buckets stay load-bearing: they are the count of the two
+    # optional genres (briefing decks, engagement mail), which a firm may
+    # produce none of. See docplan/registry.py.
     format_mix: FormatMix
     # M5+ transforms, all default off. scanned_ratio: fraction of pdf docs
     # rendered as degraded raster scans; ocr_layer_rate: fraction of those
@@ -100,11 +110,6 @@ class DocCulture(StrictModel):
         start, end = self.date_range
         if start >= end:
             raise ValueError("date_range start must precede end")
-        if self.format_mix.total != self.target_docs:
-            raise ValueError(
-                f"format_mix sums to {self.format_mix.total}, "
-                f"target_docs is {self.target_docs}"
-            )
         if self.ocr_layer_rate > 0 and self.scanned_ratio == 0:
             raise ValueError(
                 "ocr_layer_rate requires scanned_ratio > 0; an OCR layer "

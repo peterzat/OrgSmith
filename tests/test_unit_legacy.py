@@ -88,11 +88,14 @@ def test_legacy_assignment_oldest_office_docs(tmp_path):
         ),
         key=lambda e: (e.date, e.path),
     )
-    # 11 office docs, ratio 0.5 -> the 6 oldest are legacy (dates compare
-    # on the swapped path only within same-day ties, which stay office).
+    # ratio 0.5 -> the oldest round(0.5 * n) office docs are legacy (dates
+    # compare on the swapped path only within same-day ties, which stay
+    # office). n is driver-derived now, so compute the split rather than pin
+    # it to the old skeleton's count.
     legacy = [e for e in office if e.format in BASE_FORMAT]
-    assert len(legacy) == 6
-    assert legacy == office[:6]
+    expected = round(0.5 * len(office))
+    assert len(legacy) == expected
+    assert legacy == office[:expected]
     for e in legacy:
         assert e.path.endswith("." + e.format)
         assert not (paths.share_dir / e.path).suffix.endswith("x")

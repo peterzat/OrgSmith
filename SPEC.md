@@ -1,299 +1,232 @@
 # SPEC
 
-## Spec — 2026-07-16 — M8: the firm gets a history (roster churn, behavioral finance, staffing rotation, date-scoped briefs, era naming)
+## Spec — 2026-07-16 — M9: the document-supply model (genre registry, driver-derived supply, realistic lengths, folder taxonomy)
 
-**Goal:** M7 built an instrument to grade the model's prose, and it mostly
-indicted the deterministic side instead: nobody is ever hired or promoted, every
-expense line is a frozen percentage of revenue, the same three people staff every
-engagement, and the author sees the firm's whole history no matter what the
-document is dated. Give the fabric a time dimension and scope every brief to its
-document's date. The freeze on `companies/` is lifted this turn, so these arrive
-as the generator's only behavior rather than as knobs defaulting off.
+**Goal:** M8 gave the fabric a time dimension; the review board then said the
+firm's *paper* still does not look like a business. The planner emits a fixed
+`2E + 7 + pptx + eml` skeleton with three genres hard-capped (kickoffs for the
+first two engagements, status reports for the first and last, financial
+summaries for the last two years), `target_docs` merely checksums `format_mix`,
+every authored document is ~130-350 words against real-world 800-1500, and the
+whole share lives in three folders. Replace the skeleton with a declarative
+genre registry whose rows are driven by the firm's actual activity
+(engagements, fiscal years, hires, vendors), so document supply, folder
+taxonomy, and per-genre length follow from what the firm *does*. This is the
+keystone the rest of the v2.0 arc waits on: it is what makes `target_docs`
+honest and the M12 flagship affordable. The freeze on `companies/` stays lifted,
+so this arrives as the generator's only behavior; `dev-mini` is regenerated to
+exercise it and stays the sole byte-pinned fixture until M11.
 
 ### Acceptance Criteria
 
-- [x] The roster has a time dimension. Across the charter's date range people are
-  hired, promoted, and depart, as backfills into the seats `headcount` declares,
-  so `headcount` means concurrent seats rather than people-ever and that meaning
-  is stated where the field is defined. `Person` gains a title history and a
-  `title_at(person, date)` resolver returns the title held on a given date;
-  `Person.title` keeps its current meaning (the latest title). The org chart
-  stays a single acyclic tree with no dangling `reports_to` and no orphan, the
-  CEO-equivalent never departs, and every existing validator rule (authors
-  employed on the date they wrote, org-chart acyclicity, graph orphans and
-  dangling edges) passes unchanged. Randomness comes from a NEW `seeds.py`
-  stream.
+- [ ] **A declarative genre registry is the single source of document supply.**
+  Each genre is a registry row declaring its driver, cadence, folder, format,
+  and target length; the planner builds the manifest by walking the registry,
+  not by calling one hard-coded method per genre. The three caps are gone
+  (`idx < 2`, `idx in (0, len(engs)-1)`, `fy_years[-2:]` in
+  `docplan/planner.py`). The driver vocabulary includes at least one class the
+  fixed skeleton could not express (a per-hire or per-vendor cadence, keyed off
+  roster churn or the external orgs). Adding or removing a registry row changes
+  the planned manifest with no other planner edit, proven by a unit test that
+  drives the planner off a modified registry. Every new genre reuses an existing
+  renderer/format (docx/pdf/xlsx/pptx/eml); M9 adds no new renderer.
 
-- [x] **Churn degrades, it does not crash, at the smallest roster a recipe can
-  declare.** This is what the freeze lift changes: with the knob defaulting off,
-  a roster too small could fail with an actionable message and no committed
-  recipe would ever see it. On by default, that message becomes a crash on a
-  legitimate 5-person recipe — every recipe in the repo is 5-6 people. Verified
-  against a synthetic charter at the schema minimum (`headcount` total 2): the
-  pipeline completes and the degradation is visible in the ledger, not inferred.
+- [ ] **Document supply is a pure function of the firm's drivers, and it
+  scales.** For a synthetic charter, changing a driver moves the count in the
+  declared direction: more engagements → proportionally more per-engagement
+  docs; a longer `date_range` → more per-year docs; a hire or a vendor → the
+  per-hire / per-vendor genre appears where before it could not. The old
+  `2E + 7 + pptx + eml` identity no longer holds for any recipe. A synthetic
+  charter with many engagements over a long span derives several hundred
+  documents through the four pure stages alone (no model), byte-identically
+  run-to-run and in well under a second, which is the machinery that makes a
+  ~2,000-document flagship affordable at M12. Verified at the manifest level by
+  deterministic tests.
 
-- [x] Every brief is scoped to its document's date, and three separate
-  fabrications stop being expressible:
-  - `_brief_person` (`authoring/contexts.py:123`) resolves an internal person's
-    title and employment as of the document date, the way it already resolves an
-    external person's employer via `employer_at`. A synthetic charter where
-    someone is promoted mid-range proves the earlier document briefs the earlier
-    title.
-  - The brief carries the engagement's elapsed position as of the document's
-    date, computed in Python, so `rf:narr-2` (a deck 51 days into a 204-day
-    program calling itself "past its midpoint") cannot recur. The brief states
-    position, never the start date.
-  - The firm overview gets a date-scoped digest of what exists as of its date,
-    naming clients by fact id and never by value, with instructions stating that
-    nothing post-dating the document may be presented as established. This
-    replaces `contexts.py:249` handing `charter.narrative` (timeless
-    present-tense recipe prose describing the whole arc) verbatim to every
-    document, which is one of `rf:narr-1`'s two root causes; the other is a
-    `company_overview` briefed with one client fact and told to write
-    "representative client work" with nothing true to say.
+- [ ] **`target_docs` becomes honest and the `format_mix` exact-sum constraint
+  is replaced.** The open question is resolved in favor of the registry
+  *deriving* the count and format distribution from drivers: the planner no
+  longer asserts `len(manifest) == target_docs` or `counts == format_mix`, and
+  `DocCulture` no longer rejects a recipe because `format_mix.total !=
+  target_docs`. The manifest count equals the registry's computed supply,
+  independent of `format_mix`. Because committed recipes set `format_mix`,
+  `target_docs`, and friends and the schema is `extra="forbid"`, those fields
+  stay *accepted* (repurposed as advisory/size hints or derived outputs, not
+  dropped), so all seven committed recipes still parse and
+  `test_committed_charter_redump_stays_additive` stays green. A recipe that
+  wants to bound size does so through a driver/cadence knob, not a checksum,
+  and that knob is documented in `docs/RECIPE-FORMAT.md`.
 
-  The airlock holds throughout: ingest still rejects a literal value written
-  where a placeholder belongs.
+- [ ] **Per-genre target lengths are realistic and live in the registry.**
+  Target words move out of `_TARGET_WORDS` (`authoring/contexts.py`) into the
+  registry as a genre property and are raised to real-world bands: engagement
+  letters 800-1500, and every other authored genre raised commensurately (memos,
+  reports, minutes, overviews into the several-hundred-to-~1000 range) rather
+  than left at the old 130-350. The airlock is unchanged: the brief still
+  carries a single `target_words` per document, now sourced from the registry.
+  The regenerated `dev-mini` authors its engagement letter materially longer
+  than the old ~350-word target (measured by `orgsmith report` /
+  GENERATION-REPORT.md, recorded in the turn).
 
-- [x] Expenses stop moving in lockstep, and behavioral is the **only** mode —
-  no legacy path is carried alongside it. Verified against a synthetic charter:
-  no two categories grow at the same rate in a given year, at least one category
-  is step-fixed across a multi-year span (`rf:finance-2`: rent is a lease cost
-  and cannot compound 11% a year because fees went up), and compensation tracks
-  headcount rather than revenue. Existing ledger tie-out checks (FIN-01, FIN-02)
-  still pass. `expense_ratio` no longer defines `expense_total` (the categories
-  do), so its remaining job is stated in the schema where it is defined. A year
-  of negative net income is recorded rather than crashed.
+- [ ] **The folder taxonomy extends beyond `Engagements / Finance / Firm`.** At
+  least one new-driver genre lands in a new top-level share folder (e.g. a
+  per-hire onboarding record under `People/`, or a per-vendor document under a
+  vendor/admin folder), declared by the registry row rather than hard-coded in a
+  planner method. Filenames stay realistic and pass `check_relpath`. The
+  regenerated `dev-mini` share contains at least one folder beyond the original
+  three, and its manifest and TOC reflect it.
 
-- [x] Engagement leads and teams vary. With a roster large enough to rotate, no
-  two engagements carry an identical internal participant set and no consultant
-  appears on every engagement. Today `lead = available[0]`
-  (`fabric/engagements.py:225`) is the same person for every engagement in the
-  org's life. A roster too small to rotate degrades visibly rather than crashing.
+- [ ] **The two engagement-letter rendering findings are settled.**
+  `letterhead-duplicated-in-letters`: a rendered engagement letter shows the
+  firm name once (in the letterhead), not doubled by an author-written
+  firm-name heading, resolved either by the letter guidance in
+  `authoring/contexts.py` or by the renderer suppressing a leading heading that
+  duplicates the letterhead. `pdf-newline-flattening`: `render/pdf.py` honors an
+  intra-paragraph `\n` as a line break the way the docx renderer does, so a
+  multi-line addressee/address block no longer smears into one run-on line.
+  Both are covered by a unit test on the renderer output and are visible on the
+  regenerated `dev-mini` letter; both BACKLOG entries are closed at turn end.
 
-- [x] Roster and external first names are drawn era-appropriately from a table
-  bundled under `orgsmith/data/`, offline, with no network. The name screen
-  (NAME-01) still runs on era-drawn names. The interaction with `_NICKNAMES` (an
-  era-agnostic pool the collision and nickname passes draw replacement first
-  names from) is either made era-consistent or documented as a limit.
+- [ ] **Email-thread cadence is realistic.** Successive messages in the same
+  engagement thread are spaced hours to days, not the current fixed 45 days
+  (`docplan/planner.py:316`), so a thread reads as a thread. A synthetic recipe
+  with multiple emails in one engagement produces plausible in-thread spacing,
+  verified deterministically; the existing round-robin/wrap correctness tests
+  (`tests/test_unit_eml.py`) still pass. Any added randomness draws from a NEW
+  `seeds.py` stream. The `email-thread-spacing` BACKLOG entry is closed.
 
-- [x] **A single generation is still reproducible, and the seeds discipline that
-  makes it so is not weakened by the freeze lift.** Cross-version byte-identity
-  is gone; same-seed determinism is not. Every pass added this turn draws from
-  its own NEW named `seeds.py` stream rather than sharing
-  `rng(charter.seed, "foundation.scaffold")` with the roster loop and the
-  timeline events. Verified by deriving the same recipe twice into two
-  destinations and diffing: byte-identical charter, foundation, ledgers, and
-  manifest.
+- [ ] **Determinism holds and the committed fleet survives the rewrite.** Every
+  pass added this turn draws from its own NEW named `seeds.py` stream rather than
+  reusing an existing one. `dev-mini` is regenerated end-to-end with the M9
+  supply model and remains the sole byte-pinned fixture: its `foundation.json`,
+  pure-stage ledgers, and `manifest.jsonl` regenerate byte-identically
+  (`test_org_regen.py` pin tests green). The other six fixtures derive through
+  all four pure stages without crashing under the new planner
+  (`test_every_committed_recipe_still_derives`) and keep validating clean,
+  scoring extraction ground truth at 100%, and reporting complete
+  (`test_org_fleet.py`) — validation never re-runs the planner, so their frozen
+  manifests are unaffected.
 
-- [x] **The `org` tier survives the freeze lift with its fault-injection property
-  intact.** Behavioral finance moves `finance.json` and churn moves
-  `foundation.json`, so three of `test_org_regen.py`'s four assertions cannot
-  pass against the seven committed fixtures and must not be papered over.
-  `dev-mini` is regenerated with this turn's behavior and becomes the sole
-  byte-pinned fixture until the fleet resets in M11; the other six stay committed
-  and keep validating clean, scoring their eval ground truth at 100%, and
-  reporting complete, with the reason the pin is scoped recorded in TESTING.md.
-  `test_every_committed_fixture_has_a_recipe` still holds. The fault injection
-  TESTING.md documents (`+ 1` on every expense line in `fabric/finance.py`) still
-  fails `test_org_regen.py`; re-run it rather than assuming it.
-
-- [x] The six board majors this turn targets (`rf:orgreal-1`, `rf:finance-1`,
-  `rf:finance-2`, `rf:graph-1`, `rf:narr-1`, `rf:narr-2`) are verified resolved
-  at the **ledger** level by deterministic tests, which is the oracle. The board
-  is run against the regenerated `dev-mini` and its outcome recorded; findings
-  that persist are recorded rather than resolved by assertion. No metric and no
-  board finding becomes a validator rule or a gate.
-
-- [x] The roadmap renumbering is stated once in this file and referenced
-  everywhere else, and no document still attributes work to a milestone that no
-  longer owns it. `docs/SCALE.md` currently says "Until they are raised (M8)" and
-  "Raising the targets is what makes the flagship affordable, which is why M8
-  precedes M11"; the README's next-up list leads with era naming and realistic
-  document lengths and says the fleet is six. Document length moves to M9,
-  parallel authoring to M10, the fleet to M11, the flagship to M12. README and
-  SCALE.md stop describing knobs that default off and fixtures that stay
-  byte-identical, because neither is true after this turn.
-
-- [x] From a fresh checkout, `bin/test` passes all tiers offline and keyless,
-  with `unit` under ~20s and `org` under ~5s. CI configuration unchanged: still
-  no LibreOffice. Baseline at adoption: 335 passing (12 short / 272 unit / 51
-  org) in 21.9s.
+- [ ] **From a fresh checkout, `bin/test` passes all tiers offline and keyless**,
+  with `org` under ~5s and `unit` under ~20s, and every document `docs/SCALE.md`,
+  `README.md`, and `TESTING.md` states that M9 makes false is corrected: the
+  fixed-skeleton description, the 236-word length figure now that lengths are
+  raised, the "three folders" shape, and the fixture/count numbers. Baseline
+  test counts and timing are recorded at turn close.
 
 ### Context
 
-- **This is the M8 spec re-scoped in place, not a new milestone.** Same unit of
-  work; a user decision this turn lifted the freeze on `companies/` and made v2.0
-  a breaking window. Thirteen criteria became ten, and the three that vanished
-  were all ceremony the freeze demanded: knobs defaulting off, seven fixtures
-  regenerating byte-identically, and an eighth committed fixture that M11 would
-  have thrown away. Full arc:
-  `~/.claude/plans/we-ve-come-a-long-synchronous-llama.md`.
+- **This consumes the M8 proposal (v1.7.0 shipped).** M8 landed roster churn,
+  `title_history`/`title_at`, date-scoped person briefs, engagement elapsed
+  position, a date-scoped firm digest, behavioral finance, staffing rotation,
+  and era-appropriate names; `dev-mini` was regenerated as the sole byte-pinned
+  fixture and its board confirmed the six targeted majors gone. The board then
+  surfaced the paper-realism findings this turn acts on. Full history:
+  `git log` since 2026-07-16, and the M8 spec summary below.
 
-- **The roadmap renumbering, stated once.** M8 (this turn) the firm gets a
-  history → **M9** the corpus gets a business (the document supply model: a genre
-  registry with drivers and cadences, folder taxonomy beyond
-  `Engagements/Finance/Firm`, real email cadence, and realistic per-genre
-  document lengths, which land here because length is a property of the genre
-  table) → **M10** scale infrastructure (parallel authoring, the O(n²) fixes, the
-  review sampler, the org-tier split, run-log measurement) → **M11** the new
-  fleet (four recipes, the seven retire, the byte-pin is restored fleet-wide) →
-  **M12** the exemplar (~800 documents) and v2.0. Old M9 split: lengths into M9,
-  parallel authoring into M10. Old M10 → M11, old M11 → M12.
+- **What "driver-derived" means, concretely.** Today each genre's count is
+  wired into a planner method: engagement_letter once per engagement,
+  kickoff_memo for `engs[:2]`, meeting_minutes once per engagement, status_report
+  for `engs[0]` and `engs[-1]`, company_overview once mid-range,
+  financial_summary for the last two fiscal years, briefing_deck/engagement_email
+  off `format_mix`. M9 lifts these into registry rows: a driver names *what
+  spawns the genre* (each engagement, each fiscal year in range, the firm on a
+  period, each hire, each vendor) and a cadence names *how many per driver
+  window*. The count then falls out of the firm's real activity, which is the
+  whole point: a five-year firm with four engagements and two hires produces the
+  documents that firm would produce, not a constant skeleton.
 
-- **What lifting the freeze does and does not buy.** It removes: `default off` on
-  every knob, both code paths for expenses, the pinned `Faker` draw order, and
-  byte-identity against committed artifacts. It does **not** remove: the airlock,
-  same-seed determinism, the per-pass `seeds.py` stream discipline, or the
-  requirement that the seven fixtures keep validating clean. Determinism inside a
-  run is what makes a generation reproducible and is untouched; only agreement
-  with *previously committed bytes* is surrendered, and only until M11 re-pins it.
+- **The `target_docs` / `format_mix` tension is the crux (proposal open
+  question).** `DocCulture._check` requires `format_mix.total == target_docs`
+  and the planner re-asserts `counts == want`; `test_unit_pure_stages.py:108`
+  asserts `len(manifest) == target_docs`. Once format follows genre, an exact
+  input sum cannot survive. Resolution: the registry derives supply; those
+  fields become advisory (a size hint / derived report), not gates. They cannot
+  be *removed* — six committed recipes set them and the schema forbids unknown
+  fields, so removal would fail `test_every_committed_recipe_still_derives` and
+  the redump-additive test. Repurpose in place. Update the tests that encode the
+  old exact-sum contract (`test_unit_pure_stages.py`, `test_unit_compat.py`,
+  and the `conftest.py` recipe-mix fixtures) rather than papering over them.
 
-- **What the scoped pin costs, stated rather than hidden.** `cf9f02c` proved by
-  fault injection that `test_org_regen.py` is the only thing catching a change
-  that moves every fixture *consistently* — "exactly what a reordered `Faker`
-  draw or a re-used `rng` stream does" — and that deriving twice and comparing
-  cannot catch it, because it is green either way. Scoping the pin to `dev-mini`
-  keeps that property on one recipe and gives it up on six. That is the real
-  price of the freeze lift, it is temporary, and it is an argument for M11
-  landing promptly rather than for skipping this turn.
+- **The six committed fixtures are frozen and must not be regenerated this
+  turn.** Only `dev-mini` is byte-pinned (`test_org_regen.py::PINNED`). The
+  other six were authored under the old skeleton; their committed manifests and
+  rendered files are frozen and keep validating because validation reads
+  artifacts and never re-runs the planner. The new planner only has to derive
+  them without crashing (existence check). They regenerate wholesale at M11.
+  This means the new planner must run on all seven recipes as written, including
+  cindergrove's 1998 span and the ambiguity/scan/legacy knob clusters.
 
-- **The reframe this turn acts on.** Of the board's 11 majors against
-  fernhollow-partners, only 3 are about the model's writing. Four indict the
-  brief and four indict the ledgers. The instrument was built to grade the model
-  and mostly found that our deterministic side is too clean. "Facts are
-  load-bearing" still holds; the facts are the unrealistic part. The findings are
-  committed under `companies/fernhollow-partners-metadata/review/findings/` and
-  each cites ledger-traceable evidence, so they can be re-checked without the
-  board.
+- **New genres reuse existing renderers.** To bound the surface, every genre M9
+  adds maps to an existing format and renderer (docx/pdf/xlsx/pptx/eml). No new
+  renderer, no new binary format. A per-hire onboarding memo is a docx; a
+  per-vendor record is a docx or xlsx. This keeps the validator, evals, and
+  legacy/scan paths unchanged except for recognizing the new genre/folder.
 
-- **Why churn and date-scoping are one unit and not two.** `EmploymentSpan` and
-  `_employed_at` already exist and are consumed in `docplan/planner.py`,
-  `validate/rules.py`, and `fabric/engagements.py`, so employment already has a
-  time dimension. `Person.title` does not: it is a scalar, and `_brief_person`
-  briefs it regardless of the document's date (only external people get
-  `employer_at(xp, at)`). Ship churn alone and it becomes a generator of
-  anachronisms rather than a cure for them.
+- **Degrade, do not crash, at the smallest recipe.** Like M8's churn, a driver
+  the firm cannot host produces nothing rather than an error: a recipe with no
+  hires (churn off) plants no per-hire docs; a recipe whose external orgs are
+  all clients plants no per-vendor docs. The minimum recipe (headcount total 2,
+  one engagement, one year) must still derive a coherent, non-empty manifest.
 
-- **The determinism landmines are still live, for a different reason.**
-  `foundation/scaffold.py:286` seeds one `Faker` and consumes it in order across
-  `_build_people` then `_build_externals`; `rng(charter.seed,
-  "foundation.scaffold")` is shared by the roster loop and the timeline events.
-  The freeze lift means reordering those no longer breaks a committed fixture —
-  but a new pass drawing from a shared stream still couples two unrelated things,
-  so that the next change to one silently moves the other. Draw from a new named
-  stream because it is right, not because a test says so.
+- **The airlock is unchanged and absolute.** Python still never calls a model
+  and never touches the network. The registry is bundled data or code; lengths
+  and folders are pure planner/brief fields. Facts stay load-bearing: every
+  number, date, id, name, and relationship still comes from the ledgers, and the
+  model still writes only surface prose around `{{fact:...}}` placeholders.
+  Longer targets mean more prose *around* the same placeholders, never more
+  facts invented by the model.
 
-- **Two semantics settled in writing, not assumed.** `headcount` becomes
-  concurrent seats. `expense_ratio` stops defining `expense_total` (the
-  categories now derive it, inverting today's `fabric/finance.py:48-52`
-  relationship) and needs a stated job or an explicit removal.
+- **Length is load-bearing for scale, not just realism (`docs/SCALE.md`).** At
+  today's ~236-word mean a flagship needs ~8,500 documents to defeat a 1M-token
+  context; at realistic ~800-word lengths it needs ~2,000. Raising the targets
+  is what makes M12 affordable, which is why M9 precedes it. SCALE.md's token
+  table and the 236 figure need re-measuring/annotating once dev-mini is
+  regenerated at the new lengths.
 
-- **The airlock constrains the date-scoped digest.** Client names are facts
-  (`f:E-2020-001.client`), so a digest naming them by value would leak what a
-  placeholder resolves to. The airlock already held here: d:0007 wrote
-  `{{fact:f:E-2020-001.client}}` correctly, and its invention was the unbriefed
-  relationship claim ("valuation and readiness workstreams") around it. The
-  digest carries structure and fact ids, never values.
+- **Determinism landmines carried from M8.** `foundation/scaffold.py` and the
+  shared `rng(charter.seed, "foundation.scaffold")` stream still couple unrelated
+  passes; any new M9 pass (per-hire spawning, email cadence jitter, cadence
+  counts) draws from its own named stream so a later change to one does not
+  silently move another. The freeze lift removes the byte-identity obligation
+  against the six, but the per-stream discipline is explicitly NOT relaxed (it is
+  what keeps a single generation reproducible and the dev-mini pin valid).
 
-- **Low similarity is not health.** Measured twice independently in M7
-  (calibration and the A/B): the corpus that scored *lower* same-genre overlap
-  was the worse one. A metric can flag prose that repeats and is blind to prose
-  that fails to repeat where house style requires it. Nothing this turn may turn
-  a metric or a board finding into a bar.
+- **BACKLOG interactions.** Three entries are marked ACTIVE for this turn:
+  `letterhead-duplicated-in-letters` and `pdf-newline-flattening` (criterion 6,
+  both letter-rendering findings on the genre M9 re-renders) and
+  `email-thread-spacing` (criterion 7). `recipe-growth-outruns-headcount` and
+  `acl-blind-to-departure` stay deferred to M11 (the fleet reset), where the new
+  recipes are made internally coherent and the ACL model is revisited;
+  `charter-redump-drift` still wants its M11 decision and its additive test keeps
+  passing here because new recipe fields are gained keys, not moved values;
+  `board-negative-control` is M12; `org-tier-scaling-plan` is M10 and its
+  revisit trigger (org tier crossing ~10s) is worth watching as dev-mini grows.
 
-- **BACKLOG interactions.** `charter-redump-drift`: the freeze lift resolves the
-  urgency (a re-dump dirtying a frozen fixture stops mattering when the fixture
-  is not frozen), but the decision it names still wants making at M11 when the
-  pin is restored fleet-wide; `test_committed_charter_redump_stays_additive`
-  keeps passing this turn because new knobs are *gained* keys, not moved values.
-  `pdf-newline-flattening`: its "live as of the M8 spec" note is now stale —
-  M8 no longer commits an eighth fixture, so the trigger it named evaporates and
-  the fix moves to M9, which re-renders everything anyway. `board-negative-control`
-  stays deferred; its revisit criteria name a corpus whose ground truth the
-  reader has not read, which is M12. `email-thread-spacing` and
-  `org-tier-scaling-plan` are M9 and M10 respectively. None are in scope here.
+- **Where the board fits.** The paper-realism findings are the driver, but no
+  metric and no board finding becomes a validator rule or a gate this turn. The
+  deterministic manifest/brief/render tests are the oracle for every criterion
+  above; running `/forge-review` on the regenerated `dev-mini` is optional
+  enrichment, not a gate, and an empty or unchanged board report is a fine
+  outcome.
 
-- **Scope discipline.** Deliberately out: the genre registry and document lengths
-  (M9 — and lengths are not a separate change from clause-rich briefs, because a
-  real engagement letter is 800-1500 words *because it has clauses*, so raising
-  the target without enriching the brief buys padding); parallel authoring (M10);
-  the new fleet (M11); the exemplar (M12); `forge-fix` (unscheduled, and doubted:
-  a fix loop is where a critic quietly becomes a gate).
+- **House practices (zat.env).** Oracles beat proxies beat critics; the
+  manifest and renderer tests carry these claims, not the board. Verification
+  quality is the ceiling, so invest in the deterministic tests before the
+  prompts/lengths. Small committable increments with tests in the same
+  increment; verify the build and existing tests pass before starting, and fix
+  any pre-existing failure first. A prompt or a knob that cannot name the
+  failure mode it prevents is the first to delete. No push or remote mutation
+  without explicit user instruction.
 
-- **Airlock unchanged and absolute.** Python still never calls a model and never
-  touches the network, including the era name table, which ships as bundled data.
-  Everything this turn adds is a pure stage or a brief field.
-
-- **Open review items carried in.** CODEREVIEW.md at HEAD is 0 BLOCK / 0 WARN
-  with two NOTEs, one of which this turn makes live: `render/__init__.py:28-48`
-  is a `people_index` docstring claiming an EML-01 contract that no longer holds,
-  and this turn makes titles date-dependent, which is when renderer and checker
-  could drift silently. The other is `render/pdf.py:37,64` (letterhead lines
-  unescaped under `autoescape=False`; recipe-author controlled, no concrete
-  vector).
-
-- **House practices (zat.env).** Oracles beat proxies beat critics, and know
-  which one carries any given claim: the ledger-level tests are the oracle here
-  and the board is not. Verification quality is the ceiling on what gets built,
-  so invest there before prompts. Precision over recall — an empty board report
-  is a good outcome. Small committable increments with tests in the same
-  increment; verify the build and existing tests pass before starting. Hard gates
-  only for irreversible actions; the board stays prompt-enforced and never gates
-  CI. Prompts must earn their keep: an instruction that cannot name the failure
-  mode it prevents is the first to delete. No push or remote mutation without
-  explicit user instruction.
-
-- Environment: Python 3.10-compatible (the box runs 3.10 though `.python-version`
-  says 3.12); always `.venv/bin/python`.
+- Environment: Python 3.10-compatible (the box runs 3.10 though
+  `.python-version` says 3.12); always `.venv/bin/python`. LibreOffice is on the
+  generation box for legacy rendering but CI has none; validation stays pure
+  Python.
 
 ---
-*Prior spec (2026-07-16): M7 the quality instrument (review board, generation
-provenance, model/effort policy); all 13 criteria met, shipped as v1.6.0.*
+*Prior spec (2026-07-16): M8 the firm gets a history (roster churn, behavioral
+finance, staffing rotation, date-scoped briefs, era naming); all 11 criteria
+met, shipped as v1.7.0.*
 
-### Proposal (2026-07-16)
-
-**What happened.** M8 gave the fabric a time dimension and shipped as v1.7.0,
-the second step of the v2.0 arc. The freeze on `companies/` was lifted by user
-decision, which collapsed the spec from 13 criteria to 11 (the byte-identical
-and default-off ceremony went away) and made the realism knobs default on with
-one code path. Landed, each with tests in the same increment: roster churn
-(`RosterChurn`, hires/promotions/departures, `headcount` now means concurrent
-seats), `Person.title_history` + `title_at`, date-scoped person briefs,
-engagement elapsed position and a date-scoped firm digest in the brief,
-behavioral finance (categories drive the total, `expense_ratio` calibrates the
-first full year only, losses are recordable), staffing rotation, and
-era-appropriate names from a bundled offline table. `dev-mini` was regenerated
-end to end (Opus 4.8 at max effort) as the sole byte-pinned fixture; the other
-six stay committed and validate clean until the M11 fleet reset. The board read
-the regenerated `dev-mini` and confirmed all six targeted majors are gone,
-surfacing new findings instead. Suite: 367 passing, ~19s.
-
-**What we learned, that changes the next turns.** The document count is not a
-knob and never was: the planner emits a fixed `2E + 7 + pptx + eml` skeleton
-with three genres hard-capped at 2, so scaling documents is a planner rewrite,
-not a recipe number. Behavioral finance also exposed that every committed
-recipe's `growth_rate` is incoherent with its fixed `headcount` (a firm doubles
-fees without hiring), which the old lockstep model hid. Both are M9/M11
-substance and are in BACKLOG.
-
-**Questions and directions for M9 (the document-supply model).** This is the
-keystone the whole v2.0 arc waits on. A genre registry with per-genre drivers
-(per-engagement-recurring, per-hire, per-year, per-vendor, firm-periodic),
-cadences, folders beyond `Engagements/Finance/Firm`, and realistic per-genre
-lengths, so `target_docs` becomes honest and a firm's share looks like a
-business rather than a fixed skeleton. Open questions: does `target_docs` drive
-the registry or does the registry derive it; how does `format_mix`'s
-exact-sum constraint survive when format follows genre; and where do the two
-render/authoring findings this turn produced get settled, since M9 re-renders
-every letter. Both are in BACKLOG and both are on the engagement letter:
-`letterhead-duplicated-in-letters` (major, the firm name printed twice) and
-`pdf-newline-flattening` (the addressee smear).
-
-**Revisit candidates for M9.** `letterhead-duplicated-in-letters` and
-`pdf-newline-flattening` — both are letter-rendering findings on the genre M9
-rebuilds, and settling the letterhead convention is naturally part of the
-registry work. `email-thread-spacing` — real thread cadence is a per-genre
-cadence question, which is exactly what the registry models.
-
-<!-- SPEC_META: {"date":"2026-07-16","title":"M8: the firm gets a history (roster churn, behavioral finance, staffing rotation, date-scoped briefs, era naming)","criteria_total":11,"criteria_met":11} -->
+<!-- SPEC_META: {"date":"2026-07-16","title":"M9: the document-supply model (genre registry, driver-derived supply, realistic lengths, folder taxonomy)","criteria_total":9,"criteria_met":0} -->

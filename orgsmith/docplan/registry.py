@@ -1,0 +1,181 @@
+"""The genre registry: the single declarative source of document supply.
+
+Before M9 the planner spawned each genre from a hand-written method with a
+hard-coded count (kickoffs for the first two engagements, status reports for
+the first and last, financial summaries for the last two years), so document
+supply was a fixed `2E + 7` skeleton no recipe number could move. The registry
+replaces that: each genre is one row naming a DRIVER (what spawns it) and a
+CADENCE (how many per driver window), and the planner builds the manifest by
+walking these rows. Document count then falls out of the firm's real activity
+-- its engagements, fiscal years, and hires -- which is the whole point.
+
+Drivers:
+  per_engagement   one driver window per engagement; cadence dates instances
+                   inside [start, end] (or leading the start, for the letter).
+  per_fiscal_year  one instance per fiscal year whose summary publishes inside
+                   the charter range.
+  firm_periodic    the firm on a period: one instance every `period_years`
+                   across the range, first anchored after the first engagement.
+  per_hire         one instance per person hired after the range began (a
+                   roster-churn backfill), dated near their start. A class the
+                   fixed skeleton could not express: it is keyed off the
+                   roster's time dimension, which did not exist before M8.
+
+Adding or removing a row changes the plan with no other planner edit (a genre
+using an existing driver needs only its row); this is asserted in the tests.
+Length is a per-genre property and lands here in a later increment.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class GenreRule:
+    """One genre's supply declaration.
+
+    genre/format/authoring mirror the manifest fields. `folder` is a share
+    path template; `{client}` is filled per engagement, other folders are
+    literal. `fact_suffixes` names the engagement facts the genre references
+    (e.g. "fee" -> f:<eid>.fee); the planner keeps only body-policy facts
+    unless a host flag says otherwise. Cadence fields are interpreted by the
+    driver; unused ones stay at their zero default.
+    """
+
+    genre: str
+    driver: str
+    format: str
+    folder: str
+    fact_suffixes: tuple[str, ...] = ()
+    authoring: str = "batchable"
+    # Who signs the document and who it names. author_role: "ceo" (the
+    # CEO-equivalent), "lead" (the engagement's senior on that date), or
+    # "junior" (its most-junior member). participants: "team_external"
+    # (internal team + client contacts), "team" (internal only), "ceo", or
+    # "none". Both resolve against the roster AS OF the document's date, so
+    # churn never staffs a departed person.
+    author_role: str = "lead"
+    participants: str = "team_external"
+    # Realism surface. `title_prefix` builds the manifest title as
+    # "<prefix>: <engagement title>" for engagement genres. `filename` is a
+    # str.format template over {date}, {client}, {service}, {n} (instance
+    # number), {year}; unused fields are ignored, and the extension is the
+    # modern one (legacy conversion swaps it after quota accounting).
+    title_prefix: str = ""
+    filename: str = ""
+    # A genre that hosts a non-body engagement fact: the engagement letter
+    # carries a signature-page fee, the first minutes carries a filename-only
+    # date. Every other genre drops a non-body fact rather than leaking it.
+    hosts_signature: bool = False
+    hosts_filename: bool = False
+    # per_engagement cadence. Exactly one shapes the dates:
+    lead_days: int = 0          # single instance dated this far BEFORE start
+    start_offset_days: int = 0  # single instance dated start + this
+    anchor_frac: float = 0.0    # first recurring instance at this fraction
+    period_days: int = 0        # recurring: one per period_days after the anchor
+    # firm_periodic cadence:
+    period_years: int = 0
+    # per_hire cadence:
+    hire_offset_days: int = 0
+    # Optional genres whose instance count is the recipe's format_mix bucket
+    # of this name (pptx/eml); "" means always-on. Kept because a firm may
+    # legitimately produce no decks and no mail, and the least-invasive way
+    # to say so on an existing recipe is its format_mix, now that the bucket
+    # no longer has to sum to target_docs.
+    optional_count: str = ""
+
+
+# The registry. Order is presentation order only; the planner sorts the final
+# manifest by (date, path). Genres, formats, and folders match the pre-M9
+# skeleton so a regenerated org stays recognizable; what changed is that the
+# caps are gone and the counts now follow the drivers.
+REGISTRY: tuple[GenreRule, ...] = (
+    GenreRule(
+        genre="engagement_letter",
+        driver="per_engagement",
+        format="pdf",
+        folder="Engagements/{client}",
+        fact_suffixes=("fee", "start", "client"),
+        hosts_signature=True,
+        author_role="ceo",  # a countersigned contract, signed by the principal
+        lead_days=10,  # LETTER_LEAD_DAYS; the letter leads the engagement
+        title_prefix="Engagement Letter",
+        filename="{date:%Y.%m.%d} - Engagement Letter - {client} - EXECUTED.pdf",
+    ),
+    GenreRule(
+        genre="kickoff_memo",
+        driver="per_engagement",
+        format="docx",
+        folder="Engagements/{client}",
+        fact_suffixes=("start", "client"),
+        start_offset_days=3,  # a kickoff for EVERY engagement now (cap removed)
+        title_prefix="Kickoff Memo",
+        filename="{date:%Y.%m.%d} - Kickoff Memo - {service}.docx",
+    ),
+    GenreRule(
+        genre="meeting_minutes",
+        driver="per_engagement",
+        format="docx",
+        folder="Engagements/{client}",
+        fact_suffixes=("client",),
+        hosts_filename=True,
+        author_role="junior",  # the most-junior member takes the minutes
+        anchor_frac=0.4,  # first working session; shares minutes_date()
+        period_days=90,   # a session roughly every quarter of the engagement
+        title_prefix="Meeting Minutes",
+        filename="Meeting Minutes {date:%Y-%m-%d} - {client}.docx",
+    ),
+    GenreRule(
+        genre="status_report",
+        driver="per_engagement",
+        format="docx",
+        folder="Engagements/{client}",
+        fact_suffixes=("fee", "client"),
+        participants="team",  # a client-facing report names the internal team
+        anchor_frac=0.5,  # status reports for EVERY engagement now (cap removed)
+        period_days=120,
+        title_prefix="Status Report",
+        filename="{date:%Y.%m.%d} - Status Report - {client} v2 FINAL.docx",
+    ),
+    GenreRule(
+        genre="briefing_deck",
+        driver="per_engagement",
+        format="pptx",
+        folder="Engagements/{client}",
+        fact_suffixes=("start", "client"),
+        anchor_frac=0.25,  # dated a quarter of the way in
+        optional_count="pptx",
+        title_prefix="Briefing Deck",
+        filename="{date:%Y.%m.%d} - Briefing Deck - {client}.pptx",
+    ),
+    GenreRule(
+        genre="engagement_email",
+        driver="per_engagement",
+        format="eml",
+        folder="Engagements/{client}",
+        fact_suffixes=("client",),
+        optional_count="eml",
+        title_prefix="RE",
+        filename="{date:%Y.%m.%d} - Email {n} - {service} - {client}.eml",
+    ),
+    GenreRule(
+        genre="company_overview",
+        driver="firm_periodic",
+        format="docx",
+        folder="Firm",
+        author_role="ceo",
+        participants="ceo",
+        period_years=3,  # a fresh overview every few years (was one, mid-range)
+        filename="Firm Overview {date:%Y} v3.docx",
+    ),
+    GenreRule(
+        genre="financial_summary",
+        driver="per_fiscal_year",
+        format="xlsx",
+        folder="Finance",
+        authoring="static",
+        participants="none",
+        filename="FY{year} Financial Summary.xlsx",
+    ),
+)
