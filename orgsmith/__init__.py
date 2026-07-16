@@ -5,4 +5,4 @@ rename stays mechanical.
 """
 
 PRODUCT_NAME = "OrgSmith"
-__version__ = "1.6.0"  # semver: breaking schema/CLI changes bump major
+__version__ = "1.7.0"  # semver: breaking schema/CLI changes bump major
