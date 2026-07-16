@@ -60,20 +60,51 @@ Skip if status shows `foundation_enrich: done`.
 3. The worker ingests its own deliverable. Confirm with
    `PY -m orgsmith status <slug> --json`.
 
-## Step 3 — authoring loop (model passes, one worker per batch)
+## Step 3 — authoring loop (model passes, a parallel window of workers)
+
+Author in a bounded parallel window: up to **K = 4** batches in flight at
+once (lower it when the session is tight on budget; K = 1 reproduces the old
+serial loop exactly). Several batches are outstanding at the same time; each
+covers a disjoint set of documents, so the workers never collide. The
+deterministic merge stays serial and is YOURS, not the workers': you run
+every `--ingest`, one at a time, so concurrent batches can never race on
+`state.json`. The expensive part (the model authoring) is what parallelizes.
+
+**On entry and on resume, drain what is already outstanding first.**
+`PY -m orgsmith status <slug> --json` lists `author_batches`: work orders a
+prior session dispatched but never ingested. Re-dispatch a worker for each
+(Step 3b) before emitting anything new. Re-authoring an outstanding batch is
+safe: its deliverable ingests against the same still-outstanding order, so
+nothing is lost or duplicated. Resume truth is these files, never memory of
+an earlier run.
 
 Repeat until `author: done`:
 
-1. `PY -m orgsmith author <slug> --next-batch` — prints the work order
-   path (re-running returns the same order until it is ingested).
-2. Spawn a forked forge-author worker as in Step 2 (fresh context per
-   batch; that is the token discipline that lets large orgs span
-   sessions).
-3. After each successful ingest: `PY -m orgsmith render <slug>` so the
-   org is browsable early and errors surface near their cause.
+1. **Fill the window (a).** While fewer than K batches are outstanding and
+   work remains, run `PY -m orgsmith author <slug> --next-batch`. Each call
+   writes a fresh work order disjoint from every outstanding one and prints
+   its path. Instead of a path it prints `all batchable docs authored`
+   (the stage is done) or `N batch(es) outstanding, awaiting ingest` (the
+   window is full or nothing fresh remains) — either way, stop filling.
+2. **Dispatch the window concurrently (b).** Spawn one forge-author worker
+   per fresh work-order path, all in a SINGLE message (multiple Agent calls
+   in one turn) so they author in parallel, each in a fresh context. Tell
+   each worker to AUTHOR ONLY: write its reply file, stamp the generator,
+   and report the reply path; it must NOT ingest.
+3. **Ingest serially (c).** For each reply path a worker reports, run
+   `PY -m orgsmith author <slug> --ingest <reply>` yourself, one at a time.
+   If an ingest is rejected, hand the rejection output to a fresh worker to
+   fix that one batch (at most twice); if still rejected, stop and show it.
+4. **Render.** After a round of ingests, run `PY -m orgsmith render <slug>`
+   (idempotent; it skips docs whose content basis is unchanged) so the org
+   stays browsable early and errors surface near their cause.
+5. Refill the window and continue until `--next-batch` reports done.
 
-If a worker reports a rejected deliverable twice for the same batch, stop
-and show the rejection output; do not loop further.
+Why you ingest and the workers do not: `--ingest` is a read-modify-write of
+`state.json`. Run serially by one process (you) it is deterministic and
+race-free; run by concurrent workers it would clobber sibling updates. This
+is the airlock holding under parallelism — the CLI stays a lock-free
+single-writer state machine and all the concurrency lives here in the skill.
 
 ## Step 4 — finish
 
@@ -106,7 +137,9 @@ gates; skip it for a throwaway org.
 
 ## Budget awareness
 
-Before each authoring batch, if the session feels close to its context or
-usage limits, finish the current batch, run render, and tell the user to
-re-run `/forge <slug>` in a fresh session; Step 0 picks up exactly where
-this session stopped.
+Before opening a new authoring window, if the session feels close to its
+context or usage limits, let the outstanding batches ingest, run render, and
+tell the user to re-run `/forge <slug>` in a fresh session; Step 3's resume
+drain picks up exactly where this session stopped (`status --json` still
+lists any batch that was dispatched but not yet ingested). Shrinking K also
+lowers the per-window cost without losing resumability.

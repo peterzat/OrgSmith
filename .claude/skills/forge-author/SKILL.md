@@ -32,12 +32,18 @@ it, and report one line back.
    worker does not always inherit the session's model. This is a record for
    a human to read, never a check — nothing validates it and nothing fails
    without it.
-4. Ingest it:
-   - enrichment order: `PY -m orgsmith foundation <slug> --ingest <file>`
-   - authoring order:  `PY -m orgsmith author <slug> --ingest <file>`
-5. If ingest rejects, the output lists every problem. Fix the deliverable
-   and re-ingest, at most 2 retries. If still rejected, report the
-   rejection output verbatim and stop.
+4. Deliver. Which of these you do is set by your dispatch instructions:
+   - **Ingest yourself** (enrichment orders, and any order told to ingest):
+     - enrichment order: `PY -m orgsmith foundation <slug> --ingest <file>`
+     - authoring order:  `PY -m orgsmith author <slug> --ingest <file>`
+   - **Author only** (authoring batches in /forge's parallel window): do
+     NOT ingest. Write the reply, stamp the `generator`, and report the
+     reply path back. The orchestrator ingests every author deliverable
+     itself, serially, so concurrent batches cannot corrupt `state.json`.
+5. If you ingest and it rejects, the output lists every problem. Fix the
+   deliverable and re-ingest, at most 2 retries. If still rejected, report
+   the rejection output verbatim and stop. If you were told to author only,
+   a rejection is the orchestrator's to handle: report the reply path.
 
 ## Writing quality (authoring orders)
 
