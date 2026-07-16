@@ -40,6 +40,30 @@ def _ingest_outstanding(paths):
     return wo
 
 
+def test_rerunning_charter_on_an_unchanged_recipe_writes_nothing(tmp_path):
+    """`/forge` runs `charter` unconditionally, so the advertised resume must
+    not rewrite a committed fixture's charter.json (BACKLOG:
+    charter-redump-drift). The recipe is the stage's only input: unchanged
+    recipe, nothing to re-derive. But a recipe that DOES move must still
+    propagate, which is why the guard keys on the recipe hash rather than on
+    the file merely existing."""
+    from orgsmith.charter import run_charter
+
+    paths = build_pure_stages(tmp_path)
+    first = paths.charter_json.read_bytes()
+    mtime = paths.charter_json.stat().st_mtime_ns
+
+    assert run_charter(paths) == 0
+    assert paths.charter_json.read_bytes() == first
+    assert paths.charter_json.stat().st_mtime_ns == mtime, "charter.json rewritten"
+
+    # An edited recipe still propagates.
+    text = paths.charter_md.read_text("utf-8")
+    paths.charter_md.write_text(text.replace("base_revenue: 850000", "base_revenue: 860000"))
+    assert run_charter(paths) == 0
+    assert json.loads(paths.charter_json.read_text())["finance"]["base_revenue"] == 860000
+
+
 def test_resume_mid_authoring_no_dup_no_loss(tmp_path):
     paths = build_pure_stages(tmp_path)
     run_enrichment(paths)

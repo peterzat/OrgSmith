@@ -178,20 +178,40 @@ def test_committed_manifest_regenerates_byte_identical(slug, regenerated):
     )
 
 
+@pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
+@pytest.mark.parametrize("slug", PINNED or ["none"])
+def test_committed_charter_regenerates_byte_identical(slug, regenerated):
+    """charter-redump-drift, resolved (2026-07-16, M11a): charter.json is
+    frozen beside the ledgers for any fixture generated under the current
+    schema, and `run_charter` now guards its write on the recipe hash so a
+    `/forge` resume cannot dirty one.
+
+    Scoped to PINNED rather than SLUGS because the drift was never a code
+    defect: the six pre-v2.0 fixtures' committed charters were written by an
+    older schema, so a fresh derive legitimately gains fields they never
+    carried. They keep only the additive guarantee below until the fleet turn
+    retires them. Measured 2026-07-16: dev-mini byte-identical, the other six
+    drift (fernhollow included, which was still clean at M8 -- exactly the
+    widening the backlog entry predicted).
+    """
+    assert (
+        regenerated[slug].charter_json.read_bytes()
+        == OrgPaths(root=REPO, slug=slug).charter_json.read_bytes()
+    )
+
+
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
 @pytest.mark.parametrize("slug", SLUGS or ["none"])
 def test_committed_charter_redump_stays_additive(slug, regenerated):
-    """`run_charter` rewrites charter.json unconditionally, so re-deriving a
-    frozen fixture gains whatever fields the schema grew since it was
-    generated (BACKLOG: charter-redump-drift). That is tolerable only while
-    the drift stays additive: a re-dump may add a field that was already
-    implicitly its default, but must never drop a key or move a value.
+    """The weaker guarantee that still covers the not-yet-retired fixtures
+    whose charters predate the current schema (BACKLOG: charter-redump-drift).
+    A re-dump may add a field that was already implicitly its default, but
+    must never drop a key or move a value.
 
-    Asserted this way the test is neutral on how charter-redump-drift is
-    resolved. Guarding the write the way scaffold.py does leaves no diff at
-    all, which passes; accepting the re-dump also passes. It does not
-    ratify today's 23 gained keys by counting them, and it does not block
-    M8 from adding more.
+    Kept alongside the byte pin above rather than replaced by it: this is the
+    only thing standing under the six legacy fixtures until the fleet turn,
+    and it deliberately does not count today's gained keys, which would ratify
+    the drift instead of bounding it.
 
     Inertness of a gained field is enforced by the sibling tests, not here:
     a new charter field whose default were load-bearing would move the

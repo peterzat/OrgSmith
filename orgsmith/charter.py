@@ -46,6 +46,26 @@ def parse_charter_md(text: str, slug: str) -> Charter:
 def run_charter(paths: OrgPaths) -> int:
     if not paths.charter_md.exists():
         raise SystemExit(f"no recipe at {paths.charter_md}")
+
+    state = load_state(paths)
+    recipe_hash = sha256_file(paths.charter_md)
+    if paths.charter_json.exists() and state.stage("charter").inputs_hash == recipe_hash:
+        # Frozen unless the recipe moves (BACKLOG: charter-redump-drift).
+        # `/forge` runs this stage unconditionally, so the advertised resume
+        # ("kill the session, re-run /forge <slug>") used to rewrite a
+        # committed fixture's charter.json with every field the schema had
+        # gained since it was generated -- inert, but a dirty tree on an
+        # artifact the project calls frozen. The recipe is this stage's only
+        # input: an unchanged recipe means there is nothing to re-derive.
+        #
+        # Keyed on the recipe hash rather than on existence alone (which is
+        # what run_scaffold does) so that editing a recipe still propagates.
+        # Scaffold can afford the blunter guard because re-running it would
+        # wipe merged enrichment prose; re-deriving a charter is cheap and
+        # loses nothing, so the only thing worth suppressing is a no-op write.
+        print(f"charter: {paths.charter_json} is current, nothing to do")
+        return 0
+
     charter = parse_charter_md(paths.charter_md.read_text("utf-8"), paths.slug)
     # The screen fires here, before any model tokens are spent on the org.
     problems = screen_charter(charter)
@@ -58,8 +78,7 @@ def run_charter(paths: OrgPaths) -> int:
         )
     write_model(paths.charter_json, charter)
 
-    state = load_state(paths)
-    state.mark_done("charter", inputs_hash=sha256_file(paths.charter_md))
+    state.mark_done("charter", inputs_hash=recipe_hash)
     save_state(paths, state)
     print(f"charter: wrote {paths.charter_json}")
     return 0

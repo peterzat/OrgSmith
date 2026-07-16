@@ -93,18 +93,33 @@ pure stages on all seven recipes. A generator that crashes on
 cindergrove's 1998 recipe or on a knob cluster no other fixture carries
 is still caught; only "the bytes moved" is not.
 
-`charter.json` is the one artifact not pinned to committed bytes.
-Re-dumping gains inert default keys on five of seven (measured at leaf
-level: 23 gained, **0 lost, 0 changed**, every gained value a default:
-torchlake +8, quillbrook +7, bramblewood +6, cindergrove +1, gladepoint
-+1). The test asserts the *additive* invariant (never drop a key, never
-move a value) rather than byte-identity, which keeps it neutral on how
-`charter-redump-drift` is resolved: guarding the write leaves no diff and
-passes; accepting the re-dump also passes. It deliberately does not count
-today's 23, which would ratify the drift and block M8 from adding fields.
-Inertness is enforced by the sibling assertions, not by introspecting
-defaults: a charter field whose default were load-bearing would move the
-ledgers or the manifest.
+**`charter.json` is pinned for current-schema fixtures as of 2026-07-16**
+(M11a), which resolves `charter-redump-drift`. Two assertions, deliberately
+at different strengths:
+
+- `test_committed_charter_regenerates_byte_identical` (PINNED) puts
+  `charter.json` in the byte diff beside the ledgers. `run_charter` now
+  guards its write on the recipe hash, so re-running the stage on an
+  unchanged recipe writes nothing and a `/forge` resume can no longer dirty
+  a frozen fixture. An edited recipe still propagates -- the guard keys on
+  the recipe hash, not on the file existing, which is the blunter thing
+  `run_scaffold` does (it can afford to, since re-scaffolding would wipe
+  merged enrichment prose; re-deriving a charter loses nothing).
+- `test_committed_charter_redump_stays_additive` (SLUGS) keeps the weaker
+  never-drop-a-key, never-move-a-value invariant fleet-wide.
+
+The split is not hedging. The drift was never a code defect: the six
+pre-v2.0 fixtures' charters were written by an older schema, so a fresh
+derive legitimately gains fields they never carried, and no write guard can
+change that. Measured 2026-07-16: dev-mini byte-identical, the other six
+drift -- fernhollow included, which was still clean at M8, exactly the
+widening the backlog entry predicted. The six keep only the additive
+guarantee until the fleet turn retires them; every fixture generated from
+here forward is byte-pinned on its charter from birth. The additive test
+deliberately does not count today's gained keys, which would ratify the
+drift instead of bounding it. Inertness is enforced by the sibling
+assertions, not by introspecting defaults: a charter field whose default
+were load-bearing would move the ledgers or the manifest.
 
 **What this closed, measured by fault injection rather than argued.**
 Adding `+ 1` to every expense line in `fabric/finance.py` (a corruption of
