@@ -38,6 +38,10 @@ SCHEMA_IDS = {
     "docir": "orgsmith/docir@1",
     "state": "orgsmith/state@1",
     "scan_pages": "orgsmith/scan-pages@1",
+    "review_sample": "orgsmith/review-sample@1",
+    "review_finding": "orgsmith/review-finding@1",
+    "review_findings": "orgsmith/review-findings@1",
+    "corpus_metrics": "orgsmith/corpus-metrics@1",
 }
 
 
@@ -557,6 +561,20 @@ class WorkOrder(StrictModel):
     deliverable_schema: str  # name of the expected deliverable schema id
 
 
+class Generator(StrictModel):
+    """Which model, at which effort, authored one batch.
+
+    A RECORD, not an oracle. Self-reported by the skill that dispatched the
+    pass and not recomputable from artifacts, so no validator rule may ever
+    reference it: a rule would fake a guarantee the system cannot make.
+    Optional and inert by default, which is what keeps deliverables written
+    before it existed loading unchanged against the same schema ids.
+    """
+
+    model: str = Field(min_length=1)
+    effort: str = Field(min_length=1)
+
+
 class PersonaEnrichment(StrictModel):
     person_id: str
     persona: str = Field(min_length=40)
@@ -568,6 +586,7 @@ class EnrichmentDeliverable(StrictModel):
     ]
     work_order_id: str
     personas: list[PersonaEnrichment]
+    generator: Generator | None = None
 
 
 class AuthoringDeliverable(StrictModel):
@@ -576,6 +595,7 @@ class AuthoringDeliverable(StrictModel):
     ]
     work_order_id: str
     docs: list[DocIR]
+    generator: Generator | None = None
 
 
 # --------------------------------------------------------------------------
@@ -666,3 +686,112 @@ class ExtractionAnswerItem(StrictModel):
 class ExtractionAnswers(StrictModel):
     suite: Literal["extraction"]
     answers: list[ExtractionAnswerItem]
+
+
+# --------------------------------------------------------------------------
+# the quality instrument: sample, metrics, and the review board's findings
+#
+# Everything below observes authored prose and reports. None of it gates:
+# no validator rule may reference a review finding or a metric, because
+# thresholds are unknown and prose quality is not recomputable from ground
+# truth the way a planted fact is. The metric measures, the board judges,
+# the human decides.
+# --------------------------------------------------------------------------
+
+
+class SampledDoc(StrictModel):
+    doc_id: str
+    path: str  # share-relative
+    genre: Genre
+    format: DocFormat
+    date: date
+    stratum: str  # why this doc is in the sample
+    words: int
+
+
+class ReviewSample(StrictModel):
+    """A deterministic stratified reading list for the board.
+
+    Drawn from the `review.sample` seed stream so two runs over an unchanged
+    org select the same docs in the same order.
+    """
+
+    schema_id: Literal["orgsmith/review-sample@1"] = SCHEMA_IDS["review_sample"]
+    slug: str
+    docs: list[SampledDoc]
+    # Strata the org could not fill (e.g. a genre holding one doc). Recorded
+    # rather than raised: a thin corpus is a smaller sample, not an error.
+    thin_strata: list[str] = []
+
+
+ReviewDimension = Literal[
+    "org_realism",
+    "finance_realism",
+    "narrative_consistency",
+    "document_plausibility",
+    "graph_acl_naturalness",
+    # The dimension no fresh-context author can self-check: nothing in the
+    # pipeline holds two authored documents at once, so only a reader with
+    # the whole sample in view can see the same voice twice.
+    "cross_document_voice",
+]
+
+ReviewSeverity = Literal["blocker", "major", "minor", "note"]
+
+
+class ReviewFinding(StrictModel):
+    schema_id: Literal["orgsmith/review-finding@1"] = SCHEMA_IDS["review_finding"]
+    id: str = Field(pattern=r"^rf:[a-z0-9][a-z0-9._-]*$")
+    dimension: ReviewDimension
+    severity: ReviewSeverity
+    # Docs the finding is about. Empty is legal: a corpus-level finding
+    # ("every letter opens the same way") belongs to no single document.
+    docs: list[str] = []
+    summary: str = Field(min_length=1)
+    evidence: str = ""
+
+
+class ReviewFindings(StrictModel):
+    """The board's deliverable: one reviewer's findings for one org.
+
+    Same shape of contract as an authoring deliverable -- validated and
+    merged all-or-nothing by `review --ingest`, never trusted as written.
+    """
+
+    schema_id: Literal["orgsmith/review-findings@1"] = SCHEMA_IDS["review_findings"]
+    slug: str
+    dimension: ReviewDimension
+    findings: list[ReviewFinding] = []
+    generator: Generator | None = None
+
+
+class DocMetric(StrictModel):
+    doc_id: str
+    genre: Genre
+    words: int
+    target_words: int
+
+    @property
+    def ratio(self) -> float:
+        return self.words / self.target_words if self.target_words else 0.0
+
+
+class SimilarPair(StrictModel):
+    """Two same-genre docs and their n-gram overlap.
+
+    High overlap is a measurement, not a verdict: real firms genuinely reuse
+    engagement-letter templates. The board judges whether it reads as reuse
+    or as the generator running out of ideas.
+    """
+
+    doc_a: str
+    doc_b: str
+    genre: Genre
+    jaccard: float
+
+
+class CorpusMetrics(StrictModel):
+    schema_id: Literal["orgsmith/corpus-metrics@1"] = SCHEMA_IDS["corpus_metrics"]
+    slug: str
+    docs: list[DocMetric]
+    similar_pairs: list[SimilarPair] = []

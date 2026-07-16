@@ -1,0 +1,174 @@
+"""GENERATION-REPORT.md: what the instrument saw, in one page.
+
+A DERIVED artifact, like `evals/`, `acl.json` and PERMISSIONS.md: it is a
+pure function of committed files and may be re-emitted for a frozen fixture
+without touching a ledger, a manifest, or a word of authored prose.
+
+It is written under `-metadata/`, never into the share. A report in the
+share tree would be a file with no manifest entry, which MAN-01 reads as
+tamper evidence, and it would skew the format-mix quota besides.
+
+The report carries no timestamp and no run id, so re-emitting an unchanged
+org rewrites identical bytes.
+"""
+
+from __future__ import annotations
+
+from ..artifacts import load_manifest
+from ..paths import OrgPaths
+from ..schemas import CorpusMetrics
+from ..state import load_state
+from .ingest import load_findings
+from .metrics import (
+    LONG_RATIO,
+    SHORT_RATIO,
+    SIMILAR_JACCARD,
+    flagged_lengths,
+    flagged_pairs,
+    run_metrics,
+)
+
+_SEVERITY_ORDER = {"blocker": 0, "major": 1, "minor": 2, "note": 3}
+
+
+def _provenance_lines(paths: OrgPaths) -> list[str]:
+    state = load_state(paths)
+    if not state.generators:
+        # Every org authored before provenance existed lands here, and that
+        # is a reportable fact, not a failure. Nothing gates on this.
+        return [
+            "Generator: unrecorded. This org was authored before its model "
+            "and effort were recorded, or by a pass that did not report "
+            "them. Self-reported when present; never verified from artifacts."
+        ]
+    lines = ["Generator, per batch (self-reported at ingest; not verifiable):", ""]
+    lines.append("| work order | model | effort |")
+    lines.append("| --- | --- | --- |")
+    for wo_id in sorted(state.generators):
+        gen = state.generators[wo_id]
+        lines.append(f"| {wo_id} | {gen.model} | {gen.effort} |")
+    return lines
+
+
+def _length_lines(metrics: CorpusMetrics) -> list[str]:
+    if not metrics.docs:
+        return ["No authored documents."]
+    total_words = sum(d.words for d in metrics.docs)
+    mean = total_words / len(metrics.docs)
+    lines = [
+        f"{len(metrics.docs)} authored documents, {total_words} words, "
+        f"mean {mean:.0f}.",
+        "",
+    ]
+    flagged = flagged_lengths(metrics)
+    if not flagged:
+        lines.append(
+            f"Every document is within {SHORT_RATIO:.0%}-{LONG_RATIO:.0%} of "
+            f"the words its brief asked for."
+        )
+        return lines
+    lines.append(
+        f"Off brief (outside {SHORT_RATIO:.0%}-{LONG_RATIO:.0%} of target):"
+    )
+    lines.append("")
+    lines.append("| doc | genre | words | target | ratio |")
+    lines.append("| --- | --- | ---: | ---: | ---: |")
+    for d in sorted(flagged, key=lambda d: d.ratio):
+        lines.append(
+            f"| {d.doc_id} | {d.genre} | {d.words} | {d.target_words} | "
+            f"{d.ratio:.2f} |"
+        )
+    return lines
+
+
+def _similarity_lines(metrics: CorpusMetrics) -> list[str]:
+    flagged = flagged_pairs(metrics)
+    if not flagged:
+        top = metrics.similar_pairs[0].jaccard if metrics.similar_pairs else 0.0
+        return [
+            f"No same-genre pair reaches {SIMILAR_JACCARD} 4-gram Jaccard "
+            f"(highest: {top}).",
+        ]
+    lines = [
+        f"Same-genre pairs at or above {SIMILAR_JACCARD} 4-gram Jaccard. "
+        f"High overlap is a measurement, not a verdict: real firms reuse "
+        f"templates. The board judges which of these read as reuse.",
+        "",
+        "| doc a | doc b | genre | jaccard |",
+        "| --- | --- | --- | ---: |",
+    ]
+    for p in flagged:
+        lines.append(f"| {p.doc_a} | {p.doc_b} | {p.genre} | {p.jaccard} |")
+    return lines
+
+
+def _findings_lines(paths: OrgPaths) -> list[str]:
+    findings = load_findings(paths)
+    if not findings:
+        return [
+            "No board findings ingested. Run `/forge-review " + paths.slug + "` "
+            "to dispatch the review board; the metrics above stand on their "
+            "own without it."
+        ]
+    lines = [f"{len(findings)} findings from the review board.", ""]
+    lines.append("| id | dimension | severity | docs | summary |")
+    lines.append("| --- | --- | --- | --- | --- |")
+    ordered = sorted(
+        findings,
+        key=lambda f: (_SEVERITY_ORDER.get(f.severity, 9), f.dimension, f.id),
+    )
+    for f in ordered:
+        docs = ", ".join(f.docs) if f.docs else "corpus"
+        summary = f.summary.replace("|", "\\|").replace("\n", " ")
+        lines.append(
+            f"| {f.id} | {f.dimension} | {f.severity} | {docs} | {summary} |"
+        )
+    return lines
+
+
+def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
+    manifest = load_manifest(paths)
+    parts: list[str] = [
+        f"# Generation report: {paths.slug}",
+        "",
+        "Derived artifact: re-emit with `python -m orgsmith report "
+        f"{paths.slug}`. Never edit by hand. Nothing here gates anything; "
+        "it is what the quality instrument measured and what the review "
+        "board said, for a human to read.",
+        "",
+        f"{len(manifest)} documents planned; "
+        f"{len(metrics.docs)} carry authored prose.",
+        "",
+        "## Provenance",
+        "",
+        *_provenance_lines(paths),
+        "",
+        "## Length against brief",
+        "",
+        *_length_lines(metrics),
+        "",
+        "## Same-genre similarity",
+        "",
+        *_similarity_lines(metrics),
+        "",
+        "## Review board",
+        "",
+        *_findings_lines(paths),
+        "",
+    ]
+    return "\n".join(parts)
+
+
+def run_report(paths: OrgPaths) -> int:
+    metrics = run_metrics(paths)
+    text = render_report(paths, metrics)
+    paths.generation_report_md.parent.mkdir(parents=True, exist_ok=True)
+    paths.generation_report_md.write_text(text, encoding="utf-8")
+    print(f"report: {paths.generation_report_md}")
+    print(f"  metrics: {paths.corpus_metrics_json}")
+    lengths, pairs = flagged_lengths(metrics), flagged_pairs(metrics)
+    print(
+        f"  {len(metrics.docs)} authored docs; {len(lengths)} off brief; "
+        f"{len(pairs)} same-genre pairs flagged"
+    )
+    return 0

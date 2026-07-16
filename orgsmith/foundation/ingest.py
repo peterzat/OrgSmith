@@ -57,6 +57,9 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         person.persona = by_id[person.id]
     write_model(paths.foundation_json, foundation)
 
+    if deliverable.generator is not None:
+        state.generators[deliverable.work_order_id] = deliverable.generator
+
     state.mark_done("foundation_enrich")
     clear_outstanding(state, "foundation")
     save_state(paths, state)

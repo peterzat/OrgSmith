@@ -96,6 +96,30 @@ class OrgPaths:
     def workorders_dir(self) -> Path:
         return self.meta_dir / "workorders"
 
+    # --- output: the quality instrument (derived; never in the share) ---
+    # GENERATION-REPORT.md lives under -metadata/, not in the share tree: a
+    # report written into the share would break MAN-01's manifest<->files
+    # 1:1 check and skew the format-mix quota.
+    @property
+    def review_dir(self) -> Path:
+        return self.meta_dir / "review"
+
+    @property
+    def review_sample_json(self) -> Path:
+        return self.review_dir / "sample.json"
+
+    @property
+    def review_findings_dir(self) -> Path:
+        return self.review_dir / "findings"
+
+    @property
+    def corpus_metrics_json(self) -> Path:
+        return self.review_dir / "metrics.json"
+
+    @property
+    def generation_report_md(self) -> Path:
+        return self.meta_dir / "GENERATION-REPORT.md"
+
     @property
     def state_json(self) -> Path:
         return self.meta_dir / "state.json"

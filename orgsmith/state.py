@@ -17,7 +17,7 @@ from typing import Literal
 from pydantic import Field
 
 from .paths import OrgPaths
-from .schemas import SCHEMA_IDS, StrictModel, write_model
+from .schemas import SCHEMA_IDS, Generator, StrictModel, write_model
 
 STAGES = [
     "charter",
@@ -54,6 +54,11 @@ class OrgState(StrictModel):
     outstanding: dict[str, str] = {}
     probes: dict[str, str] = {}
     fallbacks: list[str] = Field(default_factory=list)
+    # work_order_id -> the model/effort that answered it. Self-reported by
+    # the dispatching skill: a record for `report` to surface, never an
+    # oracle for a validator to trust. Absent by default, which is why
+    # every org authored before it existed still loads.
+    generators: dict[str, Generator] = Field(default_factory=dict)
 
     def stage(self, name: str) -> StageState:
         if name not in STAGES:

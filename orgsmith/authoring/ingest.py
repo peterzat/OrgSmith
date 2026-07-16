@@ -220,6 +220,9 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
             print(f"  - {strip_control(p, keep='')}")
         return 1
 
+    if deliverable.generator is not None:
+        state.generators[deliverable.work_order_id] = deliverable.generator
+
     paths.docir_dir.mkdir(parents=True, exist_ok=True)
     for doc in deliverable.docs:
         target = docir_path(paths, doc.doc_id)

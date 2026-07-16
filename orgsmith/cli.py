@@ -86,6 +86,21 @@ def main(argv=None) -> int:
     )
     p_score.add_argument("--json", action="store_true", dest="as_json")
 
+    p_rev = sub.add_parser(
+        "review", help="quality instrument: sample for the board / ingest findings"
+    )
+    _add_slug(p_rev)
+    g = p_rev.add_mutually_exclusive_group(required=True)
+    g.add_argument(
+        "--sample", action="store_true", help="deterministic stratified reading list"
+    )
+    g.add_argument("--ingest", metavar="FILE", help="merge review findings")
+    p_rev.add_argument("--json", action="store_true", dest="as_json")
+
+    _add_slug(
+        sub.add_parser("report", help="corpus metrics -> GENERATION-REPORT.md")
+    )
+
     p_status = sub.add_parser("status", help="pipeline status from state.json")
     _add_slug(p_status)
     p_status.add_argument("--json", action="store_true", dest="as_json")
@@ -179,6 +194,18 @@ def main(argv=None) -> int:
         from .evals import run_emit_evals
 
         return run_emit_evals(paths)
+    if args.verb == "review":
+        if args.sample:
+            from .review import run_sample
+
+            return run_sample(paths, as_json=args.as_json)
+        from .review import run_review_ingest
+
+        return run_review_ingest(paths, Path(args.ingest))
+    if args.verb == "report":
+        from .review import run_report
+
+        return run_report(paths)
     if args.verb == "status":
         from .status import run_status
 
