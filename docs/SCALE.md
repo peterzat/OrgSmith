@@ -122,21 +122,45 @@ documents on the same recipe purely from the drivers.
 ## The authoring wall is the binding constraint
 
 Everything above is cheap except the writing. Authoring is a model pass
-per batch, `BATCH_SIZE = 6` documents (`contexts.py`), and `/forge`
-dispatches batches **strictly serially** — one worker at a time, each
-with a fresh context.
+per batch, `BATCH_SIZE = 6` documents (`contexts.py`). Before M10, `/forge`
+dispatched those batches strictly serially, one worker at a time. **M10
+lifted that to a bounded parallel window (K = 4 by default)**: several
+batches are outstanding at once over disjoint document sets, the model
+authoring runs concurrently, and the deterministic merge stays serial (the
+CLI is still a single writer of `state.json`), so resume is unchanged.
 
-That is deliberate and it is what makes long runs resumable: at most one
-outstanding work order per stage, state derived from files, kill the
-session and re-run. It is also a hard wall on wall-clock time:
+Serial or parallel, the wall is batch-count times per-batch time, divided
+by the parallel width. The batch counts:
 
-- a 360-doc reference fleet: ~60 batches, serial
-- a 2,000-doc flagship: ~334 batches, serial
+- a 360-doc reference fleet: ~60 batches
+- a 2,000-doc flagship: ~334 batches
 
-At a few minutes per batch (not measured here; the committed fleet was
-authored across sessions, so no clean per-batch timing exists) a flagship
-is a multi-day, multi-session generation. Resume is not a convenience at
-that size; it is the only reason it is possible at all.
+**Per-batch timing, first measured 2026-07-16** (dev-mini regenerated
+through the live `/forge` loop, Opus 4.8 at `max` effort, on the dev box;
+a single run, so read it as an order of magnitude, not a constant). One
+fresh-context worker authored a 3-to-5 document engagement-group batch in
+**9.3 to 16.9 minutes** (batches of 4/3/5/5 docs took 9.6/9.3/13.3/16.9
+min; mean ~12), roughly 2.5 to 3 minutes per document and rising with genre
+length. Foundation enrichment (six personas) was a shorter pass at ~1.7 min.
+
+The parallel window is real, not notional. Authoring the three remaining
+batches (13 docs) concurrently in one message took **17.5 minutes of
+wall-clock against 39.4 minutes of summed worker time (2.24x), within 4% of
+the single slowest worker**: the workers overlapped rather than queued.
+dev-mini's whole authoring pass ran in ~27 minutes this way versus ~49
+minutes fully serial, and a pure K = 4 window would collapse a same-size
+run to its slowest batch (~17 min, ~2.9x). The run also confirmed the M10
+airlock end to end with live workers: three work orders outstanding at
+once, disjoint, ingested out of emission order, and the org validated 23
+rules with 0 errors, byte-identical in structure to the committed fixture.
+
+Scaled at ~12 min/batch: a 360-doc fleet is ~60 batches (~12 hours serial);
+a 2,000-doc flagship is ~334 batches (~2.8 days serial). At the measured
+~2.2x window speedup those fall to roughly **5 hours** and **~1.3 days**; a
+wider or better-balanced K = 4 window does better. Both stay multi-session,
+so resume is not a convenience at that size; it is the only reason it is
+possible at all. K trades directly against session budget and concurrency
+limits, never against the airlock.
 
 This is why parallel authoring is **M10** and precedes the fleet: the wall
 is the schedule. Nothing else on this page is close to binding.
@@ -145,7 +169,11 @@ is the schedule. Nothing else on this page is close to binding.
 
 - **Raising `_TARGET_WORDS` (M9)** changes every row of the token table
   and lowers the flagship's document count by ~4x. Re-measure after.
-- **Parallel authoring (M10)** attacks the only binding constraint.
+- **Parallel authoring (M10, landed)** attacks the only binding
+  constraint: a bounded K-wide window over the serial wall, so the wall
+  now falls as ~(batch-count x per-batch time) / K. First live measurement
+  (2026-07-16, above): ~12 min/batch, a 3-wide window at 2.24x. Re-measure
+  at fleet scale (M11), where K = 4 runs against many more batches.
 - **A larger context window in the wild** raises the flagship's bar. The
   target is a moving one by nature; size the margin, not the number.
 - **Format mix.** The ~36 KB/doc mean hides a wide spread: scanned PDFs
