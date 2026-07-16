@@ -30,6 +30,7 @@ import shutil
 
 import pytest
 
+from orgsmith.artifacts import load_charter, load_finance
 from orgsmith.charter import run_charter
 from orgsmith.docplan import run_docplan
 from orgsmith.fabric import run_fabric
@@ -60,6 +61,41 @@ def _committed_slugs():
 COMMITTED = _committed_slugs()
 SLUGS = [s for s in COMMITTED if (REPO / "recipes" / s).is_dir()]
 
+# Every recipe in the repo, committed org or not. A recipe whose org has not
+# been generated yet is exactly the one worth checking: the org costs hours of
+# model authoring and the recipe costs ~60ms, so finding a broken one here is
+# the whole point of checking at all.
+RECIPES = sorted(p.name for p in (REPO / "recipes").iterdir() if p.is_dir())
+
+# Recipes exempt from the coherence check below, and why each is exempt.
+#
+# The six pre-v2.0 recipes retire when the fleet turn replaces them, and
+# BACKLOG recipe-growth-outruns-headcount is explicit that fixing them first
+# is work thrown away. dev-mini is exempt for a different and permanent-ish
+# reason: SCALE.md separates fixtures (regression oracles) from the reference
+# fleet (breadth), dev-mini is the former, and it is the byte-pinned tracer --
+# fixing its growth_rate means regenerating it, which this turn deliberately
+# does not do. Its recipe does post an incoherent ~43% terminal margin; that
+# is recorded rather than silently exempted.
+#
+# This set must shrink to {"dev-mini"} when the fleet turn lands.
+_COHERENCE_EXEMPT = {
+    "dev-mini",
+    "torchlake-engineering",
+    "quillbrook-appraisal",
+    "bramblewood-legal",
+    "gladepoint-strategies",
+    "cindergrove-advisors",
+    "fernhollow-partners",
+}
+FLEET = [s for s in RECIPES if s not in _COHERENCE_EXEMPT]
+
+# No professional-services firm posts this. Set well clear of both sides of
+# the measurement rather than tuned to it: the new fleet lands at 20.0-26.2%
+# and the same recipes with the growth knob off land at 42.4-51.4%, so this
+# separates coherent from incoherent by ~14pp in either direction.
+_NET_MARGIN_CEILING = 0.40
+
 # The fixtures whose committed bytes are pinned. Scoped to the tracer for
 # M8..M10 (see the module docstring); M11 restores it to the whole fleet by
 # setting this back to SLUGS once the new fleet is generated. Kept as a
@@ -70,16 +106,20 @@ PINNED = [s for s in SLUGS if s == "dev-mini"]
 
 @pytest.fixture(scope="module")
 def regenerated(tmp_path_factory):
-    """The whole fleet re-derived from recipes/ into tmp_path, once.
+    """Every recipe re-derived from recipes/ into tmp_path, once.
 
     Module-scoped because it is the tier's only expensive fixture and every
     test here reads it read-only. Each slug is copied from a pristine
     recipe, and the pure stages only ever write under their own slug.
+
+    Keyed over RECIPES rather than SLUGS so the not-yet-generated fleet
+    recipes are covered too; the pin tests below index into it by committed
+    slug, which is a subset.
     """
     root = tmp_path_factory.mktemp("regen")
     (root / "recipes").mkdir()
     fleet = {}
-    for slug in SLUGS:
+    for slug in RECIPES:
         shutil.copytree(REPO / "recipes" / slug, root / "recipes" / slug)
         paths = OrgPaths(root=root, slug=slug)
         assert run_charter(paths) == 0
@@ -123,13 +163,23 @@ def test_every_committed_fixture_has_a_recipe():
     assert SLUGS == COMMITTED
 
 
-@pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
-def test_every_committed_recipe_still_derives(slug, regenerated):
+@pytest.mark.skipif(not RECIPES, reason="no recipes")
+@pytest.mark.parametrize("slug", RECIPES or ["none"])
+def test_every_recipe_derives(slug, regenerated):
     """Fleet-wide, and the coverage that survives the scoped pin: all four
     pure stages run to completion on every recipe and write what the next
-    stage reads. Cheap (~60ms for the fleet) and catches a generator that
-    crashes on one era or knob cluster, which the pin no longer would."""
+    stage reads. Cheap (~60ms each) and catches a generator that crashes on
+    one era or knob cluster, which the pin no longer would.
+
+    Widened from COMMITTED ∩ recipes to every recipe (M11a). A recipe with no
+    committed org was previously untested until its org existed, which is
+    backwards: the org is hours of model authoring and the recipe is 60ms to
+    check. This is where a recipe asking for an impossible knob combination
+    fails -- affiliations_in_docs without the engagements to host both sides,
+    an OCR layer with no scans, a date_range starting before founding, a name
+    colliding with the real-firm screen -- rather than partway through a fleet
+    generation.
+    """
     paths = regenerated[slug]
     for artifact in (
         paths.charter_json,
@@ -140,6 +190,50 @@ def test_every_committed_recipe_still_derives(slug, regenerated):
     ):
         assert artifact.exists(), artifact.name
         assert artifact.stat().st_size > 0, artifact.name
+
+
+@pytest.mark.skipif(not FLEET, reason="no fleet recipes yet")
+@pytest.mark.parametrize("slug", FLEET or ["none"])
+def test_fleet_recipe_growth_headcount_and_span_describe_one_firm(slug, regenerated):
+    """BACKLOG recipe-growth-outruns-headcount, resolved 2026-07-16 (M11a).
+
+    Behavioral finance (M8) made every recipe's incoherence visible: when
+    expense_total was revenue * expense_ratio the realized ratio was the
+    recipe's ratio by definition, forever. Now compensation tracks the roster,
+    so a firm that compounds fees with a seat count that never moves posts a
+    margin that climbs to something no professional-services firm posts. The
+    model is right and the recipes were wrong.
+
+    This is a check on the RECIPE's internal coherence, computed from its own
+    finance ledger -- not a quality proxy, and TESTING.md's "never a metric
+    threshold as a bar" is not in tension with it. That rule governs `report`
+    numbers and board findings, which are proxies for prose quality with no
+    validated threshold and a Goodhart problem. A net margin is ground-truth
+    arithmetic over the ledger, closer to a tie-out than to an n-gram score,
+    and nothing downstream optimizes against it.
+
+    The founding year is excluded: it is a deliberate partial ramp (0.45x),
+    so its margin is an artifact of the calendar rather than of the recipe.
+    """
+    paths = regenerated[slug]
+    charter = load_charter(paths)
+    finance = load_finance(paths)
+    rows = [
+        (y.year, y.revenue, sum(y.expenses.values()))
+        for y in finance.years
+        if y.year != charter.founded
+    ]
+    assert rows, f"{slug}: no full fiscal year to judge"
+    margins = [(rev - exp) / rev for _, rev, exp in rows]
+    trail = ", ".join(f"FY{y}:{m*100:.1f}%" for (y, _, _), m in zip(rows, margins))
+    assert margins[-1] < _NET_MARGIN_CEILING, (
+        f"{slug} posts a {margins[-1]*100:.1f}% net margin in its last year "
+        f"(growth_rate={charter.finance.growth_rate}, "
+        f"seats={sum(charter.headcount.values())}, "
+        f"hires={charter.roster_churn.hires}). A recipe's growth, headcount, "
+        f"and span have to describe one firm: raise roster_churn.hires so the "
+        f"roster keeps up with the fees, or lower growth_rate. Trail: {trail}"
+    )
 
 
 @pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
