@@ -51,7 +51,7 @@ with signature blocks, meeting minutes that name every attendee, spreadsheets
 whose formulas recompute to the values the finance ledger says. The
 `-metadata` directory is the answer key.
 
-**Seven companies are already generated and committed here. Browse them
+**Eight companies are already generated and committed here. Browse them
 now: [`companies/`](companies/)** — real files and their answer keys, in the
 browser, nothing to clone or install. You can also write a recipe and
 generate your own.
@@ -117,7 +117,7 @@ from being one.
 
 ### What ships today
 
-**Browse the fleet in your browser: [`companies/`](companies/).** All seven
+**Browse the fleet in your browser: [`companies/`](companies/).** All eight
 are committed and public, so every `<slug>/` is a real file share you can
 click through and every `<slug>-metadata/` is its answer key, sitting right
 next to it. Nothing to clone, install, or authenticate.
@@ -134,34 +134,41 @@ recipe allowed:
 | 5-person strategy consultancy, 2022–2025 | 16 | [gladepoint-strategies](companies/gladepoint-strategies/) | [key](companies/gladepoint-strategies-metadata/) |
 | 5-person ops consultancy, 1998–2004, legacy binaries and scans | 14 | [cindergrove-advisors](companies/cindergrove-advisors/) | [key](companies/cindergrove-advisors-metadata/) |
 | 5-person financial advisory, 2020–2025 | 19 | [fernhollow-partners](companies/fernhollow-partners/) | [key](companies/fernhollow-partners-metadata/) |
+| 12-person actuarial consultancy, 2016–2024, a roster that grows | 49 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
 
-Seven companies, 1998–2025, ~3.9 MB of share plus ~1.3 MB of ground truth:
+Eight companies, 1998–2025, ~6.1 MB of share plus ~3.2 MB of ground truth:
 
 | | fleet |
 | --- | --- |
-| companies | 7 |
-| people (internal) | 36 |
-| planned documents | 104 (87 model-authored + 17 deterministic workbooks) |
-| engagements | 19 |
+| companies | 8 |
+| people (internal) | 49 |
+| planned documents | 153 (127 model-authored + 26 deterministic workbooks) |
+| engagements | 25 |
 | mean words per authored doc | transitional (see below) |
-| whole fleet as tokens | ~30K |
+| whole fleet as tokens | ~75K |
 
-The fleet is mid-rebuild (the v2.0 arc, M8-M11). `dev-mini` is regenerated
-under the M9 document-supply model and authors at **mean 717 words**; the
-six frozen fixtures retain their pre-M9 lengths (the old ~236-word era)
-until the M11 fleet reset, so the fleet mean is a transitional mix. Each
-org's current numbers live in its `GENERATION-REPORT.md`.
+The fleet is mid-rebuild (the v2.0 arc, M8-M11), and the table above is a
+snapshot of that. `meridian-actuarial` is the first org built on the full
+v2.0 stack and the shape the rest are headed for: it authors at **mean 675
+words**, its roster grows from 6 seats to 11 across nine years, and at 49
+documents it is the first to sit in the reference fleet's 30-60 band.
+`dev-mini` is regenerated under the M9 supply model (**mean 717 words**);
+the six pre-v2.0 fixtures retain their old ~236-word lengths and frozen
+rosters until the M11 fleet reset replaces them, so the fleet mean is a
+transitional mix. Each org's current numbers live in its
+`GENERATION-REPORT.md`.
 
-Per company: 5–6 people, 11–22 documents, 2–4 engagements, a 3–7 year span.
+Per company: 5–12 people, 11–49 documents, 2–6 engagements, a 3–9 year span.
 
-By format: 52 `.docx`, 19 `.pdf`, 15 `.xlsx`, 8 `.doc`, 3 `.pptx`, 2 `.xls`,
-4 `.eml`, 1 `.ppt`.
+By format: 81 `.docx`, 25 `.pdf`, 24 `.xlsx`, 8 `.doc`, 7 `.eml`, 5 `.pptx`,
+2 `.xls`, 1 `.ppt`.
 
-By genre: 19 engagement letters, 21 sets of meeting minutes, 15 kickoff
-memos, 15 status reports, 17 financial summaries, 8 firm overviews, 4
-briefing decks, 4 email threads, 1 onboarding record. (`dev-mini`'s share
-of these grew when M9 regenerated it; the six frozen fixtures are unchanged
-until M11.)
+By genre: 25 engagement letters, 29 sets of meeting minutes, 21 kickoff
+memos, 21 status reports, 26 financial summaries, 11 firm overviews, 7
+onboarding records, 7 email threads, 6 briefing decks. (Six more recipes
+are committed under `recipes/` with no generated org yet: they are the rest
+of the M11 reference fleet, and they derive and validate as recipes on
+every test run.)
 
 ### Where that sits against a real firm
 
@@ -175,7 +182,7 @@ produce 14 documents. It produces, very roughly:
   fidelity gap.
 - **Files in the thousands to hundreds of thousands**, most of them junk:
   drafts, near-duplicate versions, dead templates, misfiled scans, someone's
-  lunch menu. OrgSmith ships 11–22 documents per company, each one
+  lunch menu. OrgSmith ships 11–49 documents per company, each one
   deliberate and none of them junk.
 - **Documents 3–6× longer — now being fixed.** Real engagement letters run
   800–1,500 words; the fleet's old authored mean was **236 words** against
@@ -235,8 +242,23 @@ the generator that would produce it today. M9 has since landed the
 document-supply model: the generator now drives document volume from the
 firm's real activity (no fixed skeleton), authors at realistic per-genre
 lengths, and gives engagement letters the standard clauses a real one
-carries. [SPEC.md](SPEC.md) is the current unit of
-work and says exactly what it commits to. Each turn's board findings stay
+carries.
+
+**`meridian-actuarial` is the first org where you can check that claim
+rather than take it.** It is built on the whole v2.0 stack: its roster
+grows from 6 seats to 11 across nine years, one person leaves and is
+backfilled, two are promoted, and its expense lines are each computed from
+what drives them. That last part is where the fix bit hardest. Fixing the
+lockstep finance is what made every recipe's *own* incoherence visible:
+once compensation tracks a roster instead of tracking fees, a firm that
+compounds revenue with a headcount that never moves posts a net margin
+climbing toward 50%, which no professional-services firm does. The model
+was right and the recipes were wrong. The fleet's six new recipes are each
+tuned so their growth, headcount, and span describe one firm — measured,
+recorded in the recipe, and checked on every test run.
+
+[SPEC.md](SPEC.md) is the current unit of work and says exactly what it
+commits to. Each turn's board findings stay
 committed next to the org they judged. Cross-document voice is the genuinely
 hard one, and it has no scheduled fix.
 
@@ -360,8 +382,9 @@ what the metric provably cannot see.
 
 ### The evidence, concretely
 
-- **306 tests** across three tiers (`bin/test`), keyless and offline; the
-  `org` tier validates every committed fixture in ~1.7s.
+- **422 tests** across three tiers (`bin/test`), keyless and offline; the
+  `org` tier validates every committed fixture, derives every recipe, and
+  checks each fleet recipe's internal coherence in ~2.1s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
@@ -481,7 +504,11 @@ batch records what actually authored it.
 
 ## What is in the box today
 
-- The full pipeline, end to end, proven on seven committed fixtures:
+- The full pipeline, end to end, proven on eight committed fixtures:
+  `meridian-actuarial` (a 12-person actuarial consultancy, 49 documents,
+  six engagements, 2016-2024) — the first org built on the full v2.0 stack
+  and the largest here, with a roster that grows from 6 seats to 11, a
+  departmental ACL, both hard-case knobs, and a surname-collision pair;
   `dev-mini` (a 5-person consultancy, 22 documents, three engagements,
   2019-2023, with mention ground truth, the ACL overlay, and visibility
   evals); `torchlake-engineering` (a 6-person engineering firm, 11
@@ -572,10 +599,17 @@ date-scoped briefs, and era-appropriate naming; M9 landed the
 document-supply model: a genre registry that drives document volume from
 the firm's engagements, fiscal years, and hires (no fixed skeleton),
 realistic per-genre lengths, and a folder taxonomy beyond
-`Engagements/Finance/Firm`. `dev-mini` is regenerated to exercise both.
-Next, in rough order (see SPEC.md): parallel authoring and the scale fixes
-(M10), a committed reference fleet spanning sectors and eras (M11), and one
-flagship org large enough to defeat a context window (M12). See
+`Engagements/Finance/Firm`. M10 landed parallel authoring: a bounded K-wide
+window of concurrent authors over a serial, single-writer merge, which is
+what makes a fleet-sized generation a few hours instead of a few days.
+
+M11 is landing in two turns. The first (done) wrote the reference fleet's
+six new recipes — spanning civil engineering, environmental, actuarial, IP
+law, executive search, and healthcare, from 1999 to 2025 — gave the
+generator a roster that can grow, and proved the shape by generating
+`meridian-actuarial` end to end. The second retires the six pre-v2.0
+fixtures, generates the remaining five orgs, and re-freezes the fleet. Then
+one flagship org large enough to defeat a context window (M12). See
 [docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
 
 ## Provenance and safety

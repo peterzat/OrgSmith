@@ -13,7 +13,7 @@ re-freeze are the next turn's job, which this one de-risks.
 
 ### Acceptance Criteria
 
-- [ ] **Six to eight new reference-fleet recipes land, and every recipe in the
+- [x] **Six to eight new reference-fleet recipes land, and every recipe in the
   repo derives.** New `recipes/<slug>/ORG-CHARTER.md` files, designed for
   breadth rather than revised from the existing seven: across the set, spans
   covering a pre-2007 era and modern ones, both `acl_posture` values, and
@@ -27,7 +27,7 @@ re-freeze are the next turn's job, which this one de-risks.
   so a new recipe is untested until its org exists, which is exactly backwards
   ahead of a multi-hour fleet run.
 
-- [ ] **Every new recipe's growth, headcount, and span describe one firm**
+- [x] **Every new recipe's growth, headcount, and span describe one firm**
   (closes `recipe-growth-outruns-headcount`). No new recipe reproduces the
   45-55% terminal net margins the backlog measured across the old fleet; each
   recipe's realized expense ratio across its full span is computed from its
@@ -38,7 +38,7 @@ re-freeze are the next turn's job, which this one de-risks.
   to fixed seats), not a number tweak. Whichever way it resolves is stated once
   in the recipe documentation.
 
-- [ ] **One new recipe is generated end to end through the live `/forge` loop
+- [x] **One new recipe is generated end to end through the live `/forge` loop
   and committed as the fleet's tracer.** It authors 30-60 documents through the
   real airlock (not conftest stand-ins), `validate` passes with 0 errors and
   SKIP lines only for knobs its recipe leaves off, its structure re-derives
@@ -50,14 +50,14 @@ re-freeze are the next turn's job, which this one de-risks.
   the run exposes a defect, it is fixed in the smallest change that addresses
   it and pinned by a unit test.
 
-- [ ] **The M10 security NOTE is closed at the schema or the sink, not by check
+- [x] **The M10 security NOTE is closed at the schema or the sink, not by check
   ordering.** A deliverable carrying a traversal-shaped `DocIR.doc_id` (e.g.
   `../../evil`) is rejected before any filesystem write by a guard local to
   `schemas.py` or `docir_path`, rather than only by `run_ingest`'s upstream
   `unknown` membership check running first. A unit test asserts the rejection
   directly. SECURITY.md records the fix and the NOTE closes.
 
-- [ ] **`acl-blind-to-departure` is decided and implemented.** Either `open`
+- [x] **`acl-blind-to-departure` is decided and implemented.** Either `open`
   scopes grants to employment windows, with the question of whether a departed
   person keeps tenure-era access settled explicitly rather than left implicit,
   or `open` is documented to mean "current and former staff". Whichever:
@@ -66,7 +66,7 @@ re-freeze are the next turn's job, which this one de-risks.
   committed fleet's derived `acl.json` and PERMISSIONS.md re-emitted and
   validating clean.
 
-- [ ] **`charter-redump-drift` is decided and implemented.** Either
+- [x] **`charter-redump-drift` is decided and implemented.** Either
   `run_charter`'s write is guarded so re-deriving a committed fixture leaves
   `charter.json` byte-identical (matching `run_scaffold`'s
   immutable-once-written behavior), or the additive contract is made permanent
@@ -74,13 +74,13 @@ re-freeze are the next turn's job, which this one de-risks.
   tightens to whichever contract was chosen, and the CLAUDE.md / TESTING.md /
   README wording about frozen fixtures matches the decision.
 
-- [ ] **`org-tier-scaling-plan` is decided and documented.** The `org` tier is
+- [x] **`org-tier-scaling-plan` is decided and documented.** The `org` tier is
   re-measured with the tracer committed (wall-clock and per-file cost, via
   `bin/test org`), and TESTING.md carries the split policy plus the trigger
   that fires it. "No split is warranted yet, and here is the measured trigger"
   is a valid resolution; an undocumented one is not.
 
-- [ ] **`bin/test` passes all tiers offline and keyless at close** (short /
+- [x] **`bin/test` passes all tiers offline and keyless at close** (short /
   unit / org), with counts and timing recorded, and no tier gains a model,
   network, key, or wall-clock dependency. `dev-mini`'s byte pin and the
   fleet-wide re-derivation stay green.
@@ -179,5 +179,5 @@ dev-mini — live `/forge` loop, three concurrent work orders at 2.24x, first
 measured per-batch timing (~12 min) written to `docs/SCALE.md`; all 6 criteria
 met, M10 confirmed unchanged under live workers.*
 
-<!-- SPEC_META: {"date":"2026-07-16","title":"M11a: the reference fleet's recipes, proven on one tracer","criteria_total":8,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-16","title":"M11a: the reference fleet's recipes, proven on one tracer","criteria_total":8,"criteria_met":8} -->
 </content>
