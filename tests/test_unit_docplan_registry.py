@@ -120,6 +120,19 @@ def test_the_old_fixed_skeleton_identity_no_longer_holds():
     assert len(manifest) != 2 * len(engs) + 7
 
 
+def test_registry_lengths_are_realistic_and_the_brief_sources_them():
+    """M9: word targets live in the registry and were raised to real-world
+    lengths. The authoring brief reads that one table, not a second copy."""
+    from orgsmith.authoring.contexts import _TARGET_WORDS
+
+    letter = next(r for r in REGISTRY if r.genre == "engagement_letter")
+    assert 800 <= letter.target_words <= 1500
+    assert _TARGET_WORDS["engagement_letter"] == letter.target_words
+    # Every authored genre was raised off the old 130-350 band.
+    authored = [r for r in REGISTRY if r.authoring == "batchable"]
+    assert authored and all(r.target_words >= 250 for r in authored)
+
+
 def test_registry_is_declarative_removing_a_row_removes_its_docs(monkeypatch):
     charter = _charter()
     full, _, _ = _build(charter)

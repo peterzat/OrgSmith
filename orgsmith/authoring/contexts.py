@@ -12,6 +12,7 @@ from datetime import date
 
 from ..airlock import emit_work_order
 from ..artifacts import load_charter, load_engagements, load_foundation, load_manifest
+from ..docplan.registry import REGISTRY
 from ..fabric.engagements import employer_at
 from ..paths import OrgPaths
 from ..schemas import (
@@ -67,14 +68,11 @@ _GENRE_GUIDANCE = {
     ),
 }
 
+# The genre registry owns per-genre word targets (raised to real-world
+# lengths at M9). Kept as a name here because review/corpus.py imports it as
+# its fallback target table; both sides now read one source.
 _TARGET_WORDS = {
-    "engagement_letter": 350,
-    "kickoff_memo": 240,
-    "meeting_minutes": 220,
-    "status_report": 300,
-    "company_overview": 320,
-    "briefing_deck": 180,
-    "engagement_email": 130,
+    rule.genre: rule.target_words for rule in REGISTRY if rule.target_words
 }
 
 _INSTRUCTIONS = """\

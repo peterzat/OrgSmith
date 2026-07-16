@@ -49,6 +49,12 @@ class GenreRule:
     folder: str
     fact_suffixes: tuple[str, ...] = ()
     authoring: str = "batchable"
+    # The brief's word target for this genre, and the single source of truth
+    # for it (authoring/contexts.py and review/corpus.py both read it here).
+    # Raised to real-world lengths at M9: an engagement letter runs 800-1500
+    # because it has clauses, and every authored genre was raised with it. 0
+    # for static genres, which are never briefed.
+    target_words: int = 0
     # Who signs the document and who it names. author_role: "ceo" (the
     # CEO-equivalent), "lead" (the engagement's senior on that date), or
     # "junior" (its most-junior member). participants: "team_external"
@@ -102,6 +108,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         lead_days=10,  # LETTER_LEAD_DAYS; the letter leads the engagement
         title_prefix="Engagement Letter",
         filename="{date:%Y.%m.%d} - Engagement Letter - {client} - EXECUTED.pdf",
+        target_words=1100,  # a real engagement letter has clauses (800-1500)
     ),
     GenreRule(
         genre="kickoff_memo",
@@ -112,6 +119,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         start_offset_days=3,  # a kickoff for EVERY engagement now (cap removed)
         title_prefix="Kickoff Memo",
         filename="{date:%Y.%m.%d} - Kickoff Memo - {service}.docx",
+        target_words=650,
     ),
     GenreRule(
         genre="meeting_minutes",
@@ -125,6 +133,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         period_days=90,   # a session roughly every quarter of the engagement
         title_prefix="Meeting Minutes",
         filename="Meeting Minutes {date:%Y-%m-%d} - {client}.docx",
+        target_words=600,
     ),
     GenreRule(
         genre="status_report",
@@ -137,6 +146,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         period_days=120,
         title_prefix="Status Report",
         filename="{date:%Y.%m.%d} - Status Report - {client} v2 FINAL.docx",
+        target_words=850,
     ),
     GenreRule(
         genre="briefing_deck",
@@ -148,6 +158,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         optional_count="pptx",
         title_prefix="Briefing Deck",
         filename="{date:%Y.%m.%d} - Briefing Deck - {client}.pptx",
+        target_words=400,  # a deck is bulleted; raised but still terse
     ),
     GenreRule(
         genre="engagement_email",
@@ -158,6 +169,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         optional_count="eml",
         title_prefix="RE",
         filename="{date:%Y.%m.%d} - Email {n} - {service} - {client}.eml",
+        target_words=250,  # a real status email, raised from 130
     ),
     GenreRule(
         genre="company_overview",
@@ -168,6 +180,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         participants="ceo",
         period_years=3,  # a fresh overview every few years (was one, mid-range)
         filename="Firm Overview {date:%Y} v3.docx",
+        target_words=750,
     ),
     GenreRule(
         genre="financial_summary",
