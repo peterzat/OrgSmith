@@ -12,6 +12,7 @@ import importlib
 import shutil
 import sys
 
+from .effort import effort_report
 from .paths import OrgPaths
 from .state import load_state, save_state
 
@@ -65,10 +66,25 @@ def run_doctor(paths: OrgPaths | None = None) -> int:
     results, ok = probe()
     for name, value in results.items():
         print(f"  {name:<12} {value}")
+
+    # Effort is reported but never recorded in `probes`: probes describe
+    # what this machine can do, and re-probing a frozen fixture must not
+    # rewrite its state.json with the effort of whoever ran doctor. The
+    # authoritative record is the per-batch generator, written at ingest.
+    effort_line, effort_ok = effort_report()
+    print(f"  {'effort':<12} {effort_line}")
+
     if paths is not None and paths.meta_dir.exists():
         state = load_state(paths)
         state.probes = results
         save_state(paths, state)
         print(f"doctor: probes recorded in {paths.state_json}")
     print(f"doctor: {'ok' if ok else 'REQUIRED CAPABILITIES MISSING'}")
+    if not effort_ok:
+        # A warning, not a failure: the floor is advisory and authoring is
+        # still the user's call. Exit code stays keyed to capabilities.
+        print(
+            "doctor: WARNING effort is below the authoring floor; "
+            "generated prose will track it"
+        )
     return 0 if ok else 1

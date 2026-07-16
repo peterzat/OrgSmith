@@ -153,6 +153,37 @@ def test_review_and_report_verbs_are_pure_python():
             assert name.split(".")[0] not in _OFFLINE_BANNED
 
 
+def test_authoring_floor_is_stated_in_exactly_one_place():
+    """The floor value lives in orgsmith/effort.py. Everything else -- the
+    skills, the README, doctor's output -- must reference it, never restate
+    it, or the two drift and the docs start lying."""
+    from orgsmith.effort import AUTHORING_EFFORT_FLOOR
+
+    assignments = []
+    for path in sorted((REPO / "orgsmith").rglob("*.py")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if re.match(r"^AUTHORING_EFFORT_FLOOR\s*=", line):
+                assignments.append(str(path.relative_to(REPO)))
+    assert assignments == ["orgsmith/effort.py"], (
+        f"the authoring floor is assigned in {assignments}; it must be "
+        f"stated once, in orgsmith/effort.py"
+    )
+
+    # Prose must not hardcode the value either: the skills run `doctor`,
+    # which prints it, and the README points at the module. A doc saying
+    # "use high effort" would be a second source of truth that no test
+    # could keep honest, and it is exactly the folklore this replaces.
+    floor = AUTHORING_EFFORT_FLOOR
+    prose = list((REPO / ".claude" / "skills").rglob("SKILL.md"))
+    prose += [REPO / "README.md"]
+    for path in sorted(prose):
+        text = path.read_text(encoding="utf-8")
+        assert not re.search(rf"\beffort\W+{re.escape(floor)}\b", text, re.I), (
+            f"{path.relative_to(REPO)} hardcodes the effort floor {floor!r}; "
+            f"reference `doctor` or orgsmith/effort.py instead"
+        )
+
+
 def test_no_tier_reads_a_model_api_key():
     """Keyless by design: nothing in the package or the suite may look for
     a provider credential."""

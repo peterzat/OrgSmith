@@ -20,7 +20,21 @@ conversation (that is what workers and validators are for).
    any generation and tell the user to install LibreOffice (install
    command in CLAUDE.md, Environment section); render would otherwise
    fail mid-pipeline at the first legacy document.
-2. `PY -m orgsmith status <slug> --json` — this tells you exactly where a
+2. **Report the authoring pair before spending a token.** Doctor's
+   `effort` line prints the session effort against the documented
+   authoring floor and warns when you are below it. State to the user, in
+   one line: the exact model id you are running as (you know it from your
+   own context; doctor cannot see it) and the effort doctor printed.
+
+   If doctor warned that effort is below the floor, STOP and ask whether
+   to continue. Content quality tracks the model and effort, nothing
+   downstream can detect a weak authoring pass from the artifacts, and a
+   regenerated org is expensive. This is the only moment the choice is
+   free.
+
+   Both halves are self-reported and recorded per batch, never verified:
+   see `orgsmith/effort.py` for what the harness does and does not expose.
+3. `PY -m orgsmith status <slug> --json` — this tells you exactly where a
    previous session stopped. Resume state is file-derived; never rely on
    conversation memory of earlier runs.
 
@@ -68,12 +82,27 @@ PY -m orgsmith render <slug>
 PY -m orgsmith assemble <slug>
 PY -m orgsmith acl <slug>
 PY -m orgsmith validate <slug>
+PY -m orgsmith report <slug>
 ```
 
 Report the validate summary. If validate fails, show the failing rules and
 stop; never edit ledgers or rendered files by hand. A NAME-01 finding (a
 generated name collides with a real firm) blocks committing the org: fix
 the recipe name or bump the seed and regenerate, never the ledger.
+
+`report` writes GENERATION-REPORT.md (derived, under `-metadata/`): the
+per-batch generator record, each document's length against the words its
+brief asked for, and same-genre similarity. It gates nothing. Read the
+summary line; a corpus far off brief or a high same-genre pair is worth a
+look before the org is committed.
+
+## Step 5 — the board (optional, model passes)
+
+`validate` proves the documents agree with the ledgers. It says nothing
+about whether the prose reads like a real firm wrote it. For that, run
+`/forge-review <slug>`, which dispatches fresh-context reviewers and
+merges their findings into the same report. It is read-only and never
+gates; skip it for a throwaway org.
 
 ## Budget awareness
 

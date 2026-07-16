@@ -155,9 +155,14 @@ voice.
 
 **Which model writes the documents?** Whatever model your Claude Code
 session is running; OrgSmith pins nothing and needs no API keys, so
-generation bills to your existing plan. Content quality tracks the model:
-use the strongest one available to you with a high effort setting for
-authoring passes. Deterministic stages (scaffold, ledgers, rendering,
+generation bills to your existing plan. Content quality tracks the model
+and the effort it runs at, and nothing downstream can detect a weak
+authoring pass from the artifacts, so OrgSmith surfaces the pair before
+tokens are spent rather than gating on it: `python -m orgsmith doctor`
+prints the session effort against the authoring floor (stated once, in
+`orgsmith/effort.py`) and warns when you are below it, `/forge` reports
+the model and effort in Step 0, and each batch records what actually
+authored it. Deterministic stages (scaffold, ledgers, rendering,
 validation) run as plain Python and cost no tokens at all.
 
 ## What is in the box today
