@@ -182,6 +182,16 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     text = text.replace(anchor, anchor + KNOB_LINES)
     assert MENTIONS_FROM in text
     text = text.replace(MENTIONS_FROM, MENTIONS_TO)
+    # Widen the date range by two years. M8's staffing rotation shifted
+    # dev-mini's engagement dates, and its 2019-2023 window with 3
+    # engagements can no longer place the multi-affiliation person on both
+    # sides of the employer boundary (affiliations_in_docs). Two more years
+    # give the placement room without touching engagements.count, so the
+    # format_mix quota below is unchanged. This is a test copy, not the
+    # committed recipe.
+    old_range = "  date_range: [2019-01-01, 2023-12-31]\n"
+    assert old_range in text
+    text = text.replace(old_range, "  date_range: [2019-01-01, 2025-12-31]\n")
     old_mix = "  format_mix: {docx: 8, pdf: 3, xlsx: 2}\n"
     assert old_mix in text
     text = text.replace(

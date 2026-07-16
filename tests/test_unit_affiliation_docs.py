@@ -31,13 +31,25 @@ def _charter(slug, **graph_target_updates):
     if graph_target_updates:
         gt = charter.graph_targets.model_copy(update=graph_target_updates)
         charter = charter.model_copy(update={"graph_targets": gt})
-    return charter
+    # Every test in this file is about the affiliations_in_docs knob. Churn is
+    # on by default in M8, and a departure that narrows the delivery pool
+    # mid-history changes which engagements a multi-affiliation person can be
+    # placed on -- real behavior, but a different knob's, and it turns these
+    # into flaky seed-dependent placements. Pin it off so they test one thing.
+    return charter.model_copy(
+        update={"roster_churn": RosterChurn(departures=0, promotions=0)}
+    )
 
 
 AFF_KNOBS = dict(multi_affiliations=1, affiliations_in_docs=True)
 
 
-def _aff_org(slug="dev-mini"):
+def _aff_org(slug="fernhollow-partners"):
+    # fernhollow is the fixture that actually ships affiliations_in_docs, so
+    # it is the honest host. These tests used to bolt the knob onto dev-mini,
+    # which worked until M8's staffing rotation shifted engagement dates and
+    # dev-mini's seed could no longer place its multi-affiliation person on
+    # both sides. fernhollow is sized for exactly this and places cleanly.
     charter = _charter(slug, **AFF_KNOBS)
     foundation = build_foundation(charter)
     return charter, foundation, build_engagements(charter, foundation)
@@ -131,31 +143,36 @@ def test_plan_direct_failure_on_empty_windows():
         affiliation_plan(foundation, [], range_start)
 
 
-@pytest.mark.parametrize("slug", ["torchlake-engineering"])
-def test_knob_off_reproduces_committed_engagements_ledger(slug):
-    # The planting pass must not run, touch fields, or consume RNG when
-    # the knob is off: the committed ledgers are the oracles. torchlake
-    # is the load-bearing case: it is committed with multi_affiliations: 1,
-    # and a covering-affiliation pass would rewrite it.
-    #
-    # Churn is pinned off because this test is about the affiliations knob:
-    # a hire or a departure moves engagement staffing through _employed_at
-    # and would fail this for a reason it is not testing. dev-mini left the
-    # parametrization when M8 made it the byte-pinned fixture -- it is
-    # regenerated WITH churn, so its committed ledger stops being an oracle
-    # for a churn-off build. test_org_regen.py's byte pin covers dev-mini's
-    # engagements.json directly; torchlake is not regenerated, so its
-    # pre-M8 ledger stays the honest oracle here.
-    charter = _charter(slug)
+def test_knob_off_leaves_clients_on_their_simple_assignment():
+    """The affiliations_in_docs OFF path must not run the covering-affiliation
+    reassignment: clients stay on the plain `idx % external_orgs` mapping and
+    no external person is placed on two different clients.
+
+    This was a byte-pin against torchlake's committed engagements.json until
+    M8. Rotation is unconditional and staffing lives in that ledger, so the
+    committed bytes are no longer reproducible and the pin could not survive
+    -- the same reason test_org_regen.py narrowed to dev-mini. The property
+    the pin actually protected is behavioral and is asserted directly here,
+    against torchlake's real recipe (multi_affiliations: 1, knob off), churn
+    pinned off so only the affiliations pass is under test."""
+    charter = _charter("torchlake-engineering")
     assert charter.graph_targets.affiliations_in_docs is False
-    charter = charter.model_copy(
-        update={"roster_churn": RosterChurn(departures=0, promotions=0)}
-    )
-    rebuilt = build_engagements(charter, build_foundation(charter))
-    committed = (
-        REPO / "companies" / f"{slug}-metadata" / "ledger" / "engagements.json"
-    ).read_text("utf-8")
-    assert dump_json(rebuilt) == committed
+    foundation = build_foundation(charter)
+    ledger = build_engagements(charter, foundation)
+
+    orgs = foundation.external_orgs
+    for idx, eng in enumerate(ledger.engagements):
+        assert eng.client == orgs[idx % len(orgs)].id, (
+            "knob-off clients must follow the plain idx-mod assignment; "
+            "a reassignment ran"
+        )
+    # No external person spans two clients when the pass is off.
+    seen: dict[str, str] = {}
+    for eng in ledger.engagements:
+        for xp in eng.external_participants:
+            assert seen.setdefault(xp, eng.client) == eng.client, (
+                f"{xp} placed on two clients with the knob off"
+            )
 
 
 def _boundary_people(foundation):
@@ -230,16 +247,22 @@ def aff_render_org(tmp_path_factory):
 
     from conftest import run_authoring, run_enrichment
 
+    # fernhollow ships the affiliation knobs; dev-mini used to have them
+    # bolted on, but M8's staffing rotation shifted its dates past a working
+    # placement (see _aff_org). Churn is pinned off in the recipe text so this
+    # render test exercises only the affiliations path.
+    slug = "fernhollow-partners"
     root = tmp_path_factory.mktemp("affrender")
-    dest = root / "recipes" / "dev-mini"
+    dest = root / "recipes" / slug
     dest.mkdir(parents=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
-    anchor = "  external_people: 3\n"
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    anchor = "  affiliations_in_docs: true\n"
     assert anchor in text
-    (dest / "ORG-CHARTER.md").write_text(
-        text.replace(anchor, anchor + AFF_LINES)
+    text = text.replace(
+        anchor, anchor + "\nroster_churn:\n  departures: 0\n  promotions: 0\n"
     )
-    paths = OrgPaths(root=root, slug="dev-mini")
+    (dest / "ORG-CHARTER.md").write_text(text)
+    paths = OrgPaths(root=root, slug=slug)
     assert run_charter(paths) == 0
     assert run_scaffold(paths) == 0
     assert run_fabric(paths) == 0

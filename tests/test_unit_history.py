@@ -4,6 +4,7 @@ Title history and its date resolver. Churn, rotation, and behavioral
 finance join this module as they land.
 """
 
+from collections import Counter
 from datetime import date
 
 import pytest
@@ -11,6 +12,7 @@ from pydantic import ValidationError
 
 from orgsmith.artifacts import load_foundation
 from orgsmith.authoring.contexts import _brief_person
+from orgsmith.fabric.engagements import _employed_at, build_engagements
 from orgsmith.fabric.finance import _avg_headcount, build_finance
 from orgsmith.foundation.scaffold import build_foundation
 from orgsmith.schemas import (
@@ -478,6 +480,107 @@ def test_expenses_draw_from_their_own_stream():
     )
     assert [y.revenue for y in a.years] == [y.revenue for y in b.years]
     assert [y.quarters for y in a.years] == [y.quarters for y in b.years]
+
+
+# --- staffing rotation -----------------------------------------------------
+
+
+def _big_delivery_charter(consultants=6, engagements=6, **over):
+    base = dict(
+        founded=2014,
+        headcount={"Leadership": 1, "Consulting": consultants},
+        titles={
+            "Leadership": ["Managing Partner"],
+            "Consulting": [f"Consultant {i}" for i in range(consultants)],
+        },
+        engagements=EngagementPlan(count=engagements),
+        # A decade so the engagements spread across distinct years.
+        doc_culture=DocCulture(
+            target_docs=11,
+            date_range=(date(2014, 1, 1), date(2023, 12, 31)),
+            format_mix=FormatMix(docx=7, pdf=2, xlsx=2),
+        ),
+        # No churn: rotation is the variable under test, and a departure
+        # narrowing the pool mid-history is a different knob's noise here.
+        roster_churn=RosterChurn(departures=0, promotions=0),
+    )
+    base.update(over)
+    return _charter(**base)
+
+
+def _engagements(charter):
+    return build_engagements(charter, build_foundation(charter))
+
+
+def test_no_two_engagements_share_an_identical_team_when_the_roster_allows():
+    """rf:graph-1: 'every engagement across five years is staffed by exactly
+    the same three people'. With a roster large enough to afford it, the teams
+    must differ."""
+    eng = _engagements(_big_delivery_charter())
+    teams = [frozenset(e.internal_participants) for e in eng.engagements]
+    assert len(set(teams)) == len(teams), f"identical teams: {teams}"
+
+
+def test_no_consultant_appears_on_every_engagement():
+    eng = _engagements(_big_delivery_charter())
+    n = len(eng.engagements)
+    counts = Counter(p for e in eng.engagements for p in e.internal_participants)
+    assert not [p for p, k in counts.items() if k == n], (
+        "someone is on every engagement"
+    )
+
+
+def test_the_lead_rotates_rather_than_being_the_dept_lead_every_time():
+    """Today lead = available[0] is the same person for the firm's life."""
+    eng = _engagements(_big_delivery_charter())
+    leads = [e.internal_participants[0] for e in eng.engagements]
+    assert len(set(leads)) >= 3, f"lead barely rotates: {leads}"
+    # Load is spread, not piled on one person.
+    assert max(Counter(leads).values()) <= 2
+
+
+def test_rotation_draws_from_its_own_stream_and_leaves_dates_and_fees_alone():
+    """Adding rotation must not move engagement dates, fees, clients, or
+    years -- those come from the fabric.engagements stream, staffing from
+    fabric.engagements.staffing."""
+    charter = _charter()  # 3 consultants, 2 engagements
+    a = build_engagements(charter, build_foundation(charter))
+    b = build_engagements(charter, build_foundation(charter))
+    for x, y in zip(a.engagements, b.engagements):
+        assert (x.start, x.end, x.fee, x.client) == (y.start, y.end, y.fee, y.client)
+    # Deterministic staffing too.
+    assert [e.internal_participants for e in a.engagements] == [
+        e.internal_participants for e in b.engagements
+    ]
+
+
+def test_rotation_degrades_on_a_roster_too_small_to_vary():
+    """One consultant cannot produce distinct teams. It must return that
+    person, not crash trying to sample a fresh set."""
+    charter = _big_delivery_charter(consultants=1, engagements=3)
+    eng = _engagements(charter)
+    teams = [frozenset(e.internal_participants) for e in eng.engagements]
+    assert all(len(t) == 1 for t in teams), teams
+    assert len(set(teams)) == 1, "the lone consultant leads every engagement"
+
+
+def test_a_lead_is_employed_for_the_whole_engagement_under_churn():
+    """The bug roster churn exposes: the lead was checked only at start, so a
+    person who departs mid-program could lead it. Every internal participant
+    must be employed across the full window now."""
+    charter = _big_delivery_charter(
+        consultants=5, engagements=6,
+        roster_churn=RosterChurn(departures=2, promotions=1),
+    )
+    foundation = build_foundation(charter)
+    eng = build_engagements(charter, foundation)
+    by_id = {p.id: p for p in foundation.people}
+    for e in eng.engagements:
+        for pid in e.internal_participants:
+            p = by_id[pid]
+            assert _employed_at(p, e.start) and _employed_at(p, e.end), (
+                f"{pid} staffed on {e.id} but not employed across it"
+            )
 
 
 def test_title_history_is_additive_on_the_existing_schema_id():

@@ -90,6 +90,42 @@ def employer_at(xp, when: date) -> str:
     return xp.org
 
 
+def _staff(available, srand, led_count, seen_teams):
+    """Pick a lead and a team for one engagement, spreading the work.
+
+    `lead = available[0]` staffed the department lead on every engagement for
+    the firm's life (`rf:graph-1`: "every engagement across five years is
+    staffed by exactly the same three people"). Here the lead is drawn toward
+    whoever has led least (ties broken by id, so it stays deterministic), and
+    the team is resampled until it differs from every team seen so far when
+    the roster is large enough to afford it.
+
+    Degrades rather than crashes on a small roster: with one consultant the
+    lead is forced and no distinct team exists, so it returns what it can.
+    """
+    ordered = sorted(available, key=lambda p: (led_count.get(p.id, 0), p.id))
+    # A little jitter among the least-loaded so the lead is not a strict
+    # function of id order, without letting the busiest lead again.
+    floor = led_count.get(ordered[0].id, 0)
+    contenders = [p for p in ordered if led_count.get(p.id, 0) == floor]
+    lead = srand.choice(contenders)
+
+    pool = [p for p in available if p.id != lead.id]
+    if not pool:
+        return lead, [lead]
+
+    size = min(len(pool), srand.randint(1, 2))
+    team = [lead] + srand.sample(pool, size)
+    # Try for a team nobody has seen before; give up after a bounded number
+    # of tries so a roster that cannot produce a fresh set still returns.
+    for _ in range(8):
+        if frozenset(p.id for p in team) not in seen_teams:
+            break
+        size = min(len(pool), srand.randint(1, 2))
+        team = [lead] + srand.sample(pool, size)
+    return lead, team
+
+
 def padded_window(start: date, end: date, range_start: date) -> tuple[date, date]:
     """The affiliation-coverage window of an engagement's documents: the
     letter leads the start by LETTER_LEAD_DAYS, clamped to the charter
@@ -174,6 +210,15 @@ def affiliation_plan(
 
 def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLedger:
     rand = rng(charter.seed, "fabric.engagements")
+    # Staffing draws from its OWN stream, and this is load-bearing, not tidy.
+    # `_staff` resamples a team until it is fresh, so it consumes a VARIABLE
+    # number of draws. On the shared stream, engagement 1's start date would
+    # depend on how many times engagement 0's team was resampled -- dates
+    # coupled to staffing luck. A separate stream makes the two independent.
+    srand = rng(charter.seed, "fabric.engagements.staffing")
+    led_count: dict[str, int] = {}
+    appearances: dict[str, int] = {}
+    seen_teams: set[frozenset] = set()
     range_start, range_end = charter.doc_culture.date_range
 
     ceo = next(p for p in foundation.people if p.reports_to is None)
@@ -222,12 +267,23 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
         client_people = [p for p in foundation.external_people if p.org == client.id]
         externals = [client_people[0].id] if client_people else []
 
-        available = [p for p in consultants if _employed_at(p, start)]
+        # Employed for the WHOLE engagement, lead included. The lead used to
+        # be checked only at `start`, which was invisible while nobody ever
+        # left; under roster churn it would staff a departed person through a
+        # program they are not there for. Teams are stable for an engagement's
+        # life -- mid-engagement handovers are not modelled.
+        available = [
+            p
+            for p in consultants
+            if _employed_at(p, start) and _employed_at(p, end)
+        ]
         if not available:
             available = [ceo]
-        lead = available[0]
-        others = [p for p in available[1:] if _employed_at(p, end)]
-        team = [lead] + rand.sample(others, min(len(others), rand.randint(1, 2)))
+        lead, team = _staff(available, srand, led_count, seen_teams)
+        led_count[lead.id] = led_count.get(lead.id, 0) + 1
+        for p in team:
+            appearances[p.id] = appearances.get(p.id, 0) + 1
+        seen_teams.add(frozenset(p.id for p in team))
 
         services = charter.engagements.services or _SERVICES
         service = services[idx % len(services)]
