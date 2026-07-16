@@ -107,9 +107,6 @@ feedback loop is only as honest as the corpus it verifies against.
 
 ## Scale and representativeness
 
-The fastest way to lose a serious user is to let them discover the limits
-themselves. So, plainly:
-
 **OrgSmith generates specimens, not samples.** A committed org is a small,
 fully-labeled artifact chosen to contain the *shapes* your system has to
 handle. It is not a statistically faithful reproduction of a real company's
