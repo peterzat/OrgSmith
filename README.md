@@ -208,18 +208,21 @@ actual committed findings — all rated major, all in
   recipient" — the generator's context resets are more legible in the output
   than the firm's five employees are.
 
-**This is where the generator stands today, not a design position.** Four of
-those five findings are already scheduled, and the next milestone was scoped
-directly from this list: the board found these problems, and we wrote the
-roadmap from what it found. The frozen roster, the flat staffing graph, and
-the lockstep finance are that milestone's substance, arriving as recipe knobs
-that default off so the committed fixtures keep regenerating
-byte-identically; the missing contract clauses land with the document-length
-work behind it. [SPEC.md](SPEC.md) is the current unit of work and says
-exactly what it commits to. Each turn's board findings stay committed next to
-the org they judged, so you can watch the list shrink instead of taking our
-word for it. Cross-document voice is the genuinely hard one, and it has no
-scheduled fix.
+**This is where the generator stood when the board read it, and the roadmap
+was scoped directly from this list.** Four of those five findings drove the
+next milestone (M8), which has now landed: the frozen roster, the flat
+staffing graph, and the lockstep finance are fixed in the generator, as its
+default behavior rather than as opt-in knobs. A regenerated org now hires,
+promotes, and loses people, staffs engagements with varying teams, and
+computes each expense line from what drives it. The board read
+`fernhollow-partners`, and **fernhollow is not regenerated this turn** — the
+committed fleet is rebuilt wholesale at the v2.0 fleet reset (M11), so the
+findings above still describe the committed fernhollow you can browse, not
+the generator that would produce it today. The missing contract clauses land
+with the document-length work (M9). [SPEC.md](SPEC.md) is the current unit of
+work and says exactly what it commits to. Each turn's board findings stay
+committed next to the org they judged. Cross-document voice is the genuinely
+hard one, and it has no scheduled fix.
 
 Out of scope by choice rather than pending: multi-org document exchange,
 litigation-style volume, real duplicate/version chains, personal and
@@ -379,10 +382,14 @@ Five rules have survived every milestone so far and govern new work:
 - **Verification is the ceiling.** The validator and the eval suites are
   oracles computed from ground truth, never another model's opinion; no
   LLM grades an LLM anywhere in an automated path.
-- **Additive evolution.** New capabilities arrive as recipe knobs that
-  default off, schema fields that default inert, and randomness drawn
-  from new seed streams, so every previously committed fixture keeps
-  loading, validating, and regenerating byte-identical structure.
+- **Additive evolution, restored after a v2.0 breaking window.** The
+  standing rule: new capabilities arrive as schema fields that default
+  inert and randomness drawn from new seed streams, so every committed
+  fixture keeps loading, validating, and regenerating byte-identical
+  structure. That rule is deliberately suspended for the v2.0 arc (M8-M11):
+  the realism work defaults on rather than off, and the committed fleet is
+  regenerated wholesale rather than held byte-identical. It is restored,
+  and the fleet re-frozen, when the new fleet lands at M11.
 - **Derive, don't store.** Anything recomputable from the ledgers (eval
   suites, ACL grants, ambiguity tags, PERMISSIONS.md) is emitted at read
   time, which is how frozen fixtures gain new capabilities without
@@ -474,9 +481,10 @@ batch records what actually authored it.
   (a 5-person operations consultancy founded 1995, 14 documents,
   1998-2004) generated with the scan and legacy knobs on: every office
   doc a real pre-2007 binary, two engagement letters rasterized as
-  degraded scans (one with a synthetic OCR layer, one image-only). Known
-  anachronism, reserved for the era-naming turn: the retro roster keeps
-  modern seeded names. And `fernhollow-partners` (a 5-person financial
+  degraded scans (one with a synthetic OCR layer, one image-only). Its
+  roster still carries modern seeded names: era-appropriate naming now
+  exists (M8) but cindergrove predates it and is not regenerated until the
+  v2.0 fleet reset (M11). And `fernhollow-partners` (a 5-person financial
   advisory boutique, 19 documents, four engagements, 2020-2025)
   generated with `affiliations_in_docs` on: one client contact signs an
   early engagement letter under one employer and appears in late
@@ -539,9 +547,12 @@ batch records what actually authored it.
   a fresh context, which is what lets large orgs span sessions), and
   `/forge-review` + `forge-reviewer` (the board).
 
-Next, in rough order (see SPEC.md): era-appropriate naming for period
-orgs and realistic document lengths, parallel authoring, and a committed
-six-company fleet from a 1988 boutique law firm to a modern B2B SaaS.
+M8 landed roster churn, behavioral finance, staffing rotation,
+date-scoped briefs, and era-appropriate naming; `dev-mini` is regenerated
+to exercise them. Next, in rough order (see SPEC.md): the document-supply
+model with realistic per-genre lengths (M9), parallel authoring and the
+scale fixes (M10), a committed reference fleet spanning sectors and eras
+(M11), and one flagship org large enough to defeat a context window (M12).
 See [docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
 
 ## Provenance and safety

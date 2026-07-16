@@ -22,14 +22,23 @@ README.md for the product shape and SPEC.md for the current unit of work.
   inside skills.
 - `orgsmith/schemas.py` is the keystone: ALL inter-stage contracts live
   there as pydantic models with `orgsmith/<kind>@<ver>` schema ids.
-- **Additive evolution.** New capabilities are recipe knobs that default
-  off, schema fields that default inert on the existing schema ids, and
-  randomness drawn only from NEW `seeds.py` streams. Every committed
-  fixture must keep loading, validating clean, and regenerating
-  byte-identical structure, without regeneration or hand edits.
-- **Committed fixtures are frozen; derived artifacts are not.** Never
-  edit or regenerate a committed org's ledgers, manifest, or authored
-  prose. `evals/`, `acl.json`, and PERMISSIONS.md are derived and may be
+- **Additive evolution — SUSPENDED for the v2.0 window (M8-M11).** The
+  standing rule: new capabilities are recipe knobs that default off, schema
+  fields that default inert on the existing schema ids, and randomness
+  drawn only from NEW `seeds.py` streams, so every committed fixture keeps
+  loading, validating clean, and regenerating byte-identical structure
+  without regeneration or hand edits. For the v2.0 arc this is deliberately
+  relaxed by user decision: the realism knobs default ON with one code
+  path, and the fleet is regenerated rather than held byte-identical.
+  Restore this rule at M11 when the new fleet is frozen. The `seeds.py`
+  per-stream discipline is NOT relaxed — it is what keeps a single
+  generation reproducible, which still holds.
+- **Committed fixtures are frozen — EXCEPT during the v2.0 reset.** The
+  standing rule: never edit or regenerate a committed org's ledgers,
+  manifest, or authored prose. During M8-M11 the fleet is being rebuilt, so
+  regeneration is expected; `dev-mini` is the only byte-pinned fixture until
+  M11 restores the pin fleet-wide (see `tests/test_org_regen.py`, `PINNED`).
+  `evals/`, `acl.json`, and PERMISSIONS.md are derived and may always be
   re-emitted. Validator rules grandfather by CHARTER, not by artifact
   absence: skip visibly only when the recipe knob is off; a knob that is
   on with its artifact missing is a failure (tamper evidence), never a

@@ -3,7 +3,13 @@
 What size should a generated org be? Three different answers, because
 there are three different jobs. This document settles the targets and the
 reasoning; **M7 writes them down and builds none of them.** The reference
-fleet is M10 and the flagship is M11.
+fleet is M11 and the flagship is M12.
+
+**Milestone numbers here follow the M8 renumbering** (SPEC.md states it
+once): the roster/finance/brief work is M8, the document-supply model and
+realistic lengths are M9, parallel authoring and the scale fixes are M10,
+the reference fleet is M11, and the flagship is M12. Earlier drafts of this
+file numbered the fleet M10 and the flagship M11.
 
 All numbers below were measured against the committed fleet at v1.5.0
 (seven orgs, 107 share files, 81 authored documents) on the development
@@ -14,9 +20,9 @@ the constraints, not as constants.
 
 | tier | size | job | when |
 | --- | --- | --- | --- |
-| fixtures | 9-19 docs | regression oracles | now (seven committed) |
-| reference fleet | ~360 docs total, ~30-60 per org | prove breadth | M10 |
-| flagship | one org, large enough to defeat a context window | prove scale | M11 |
+| fixtures | 9-19 docs | regression oracles | now (committed) |
+| reference fleet | ~360 docs total, ~30-60 per org | prove breadth | M11 |
+| flagship | one org, large enough to defeat a context window | prove scale | M12 |
 
 These are three jobs, not three points on one line. Conflating them is
 what produced the contradiction this document exists to resolve: an
@@ -93,13 +99,22 @@ Only the fourth row does that, and it needs **both** more documents and
 longer ones.
 
 Which makes the corpus-length finding load-bearing for scale, not just for
-realism. Measured mean across all 81 authored documents: **236 words**,
-against briefs asking 130-350 (`_TARGET_WORDS`, `contexts.py`). Real
-engagement letters run 800-1500. The model is roughly hitting its targets;
-the targets are wrong. Until they are raised (M8), a flagship would need
-~8,500 documents to be a genuine retrieval problem, and at realistic
-lengths it needs ~2,000. **Raising the targets is what makes the flagship
-affordable**, which is why M8 precedes M11.
+realism. Measured mean across all 81 authored documents at v1.5.0: **236
+words**, against briefs asking 130-350 (`_TARGET_WORDS`, `contexts.py`).
+Real engagement letters run 800-1500. The model was roughly hitting its
+targets; the targets were wrong. Until they are raised (**M9**, the
+document-supply model, where length is a per-genre property of the genre
+table), a flagship would need ~8,500 documents to be a genuine retrieval
+problem, and at realistic lengths it needs ~2,000. **Raising the targets is
+what makes the flagship affordable**, which is why M9 precedes M12.
+
+Two cautions on the 236 figure now that M8 has landed. First, it predates
+the behavioral facts and date-scoped briefs, which give the model more true
+material to write from; the regenerated `dev-mini` authored at 331 words
+against the same targets, so the mean is not a fixed property of the
+generator. Second, and more important, a document count is not a knob today:
+the planner emits a fixed genre skeleton (`2E + 7 + pptx + eml`), so
+"~2,000 documents" is M9 work before it is M12 work. See the M9 spec.
 
 ## The authoring wall is the binding constraint
 
@@ -120,14 +135,14 @@ authored across sessions, so no clean per-batch timing exists) a flagship
 is a multi-day, multi-session generation. Resume is not a convenience at
 that size; it is the only reason it is possible at all.
 
-This is why parallel authoring is M9 and precedes the fleet: the wall is
-the schedule. Nothing else on this page is close to binding.
+This is why parallel authoring is **M10** and precedes the fleet: the wall
+is the schedule. Nothing else on this page is close to binding.
 
 ## What would change these targets
 
-- **Raising `_TARGET_WORDS` (M8)** changes every row of the token table
+- **Raising `_TARGET_WORDS` (M9)** changes every row of the token table
   and lowers the flagship's document count by ~4x. Re-measure after.
-- **Parallel authoring (M9)** attacks the only binding constraint.
+- **Parallel authoring (M10)** attacks the only binding constraint.
 - **A larger context window in the wild** raises the flagship's bar. The
   target is a moving one by nature; size the margin, not the number.
 - **Format mix.** The ~36 KB/doc mean hides a wide spread: scanned PDFs
