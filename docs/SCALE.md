@@ -154,6 +154,53 @@ airlock end to end with live workers: three work orders outstanding at
 once, disjoint, ingested out of emission order, and the org validated 23
 rules with 0 errors, byte-identical in structure to the committed fixture.
 
+### Re-measured at fleet scale, 2026-07-16 (M11a)
+
+The M10 bullet below asked for a K = 4 re-measurement against many batches.
+`meridian-actuarial` — the first fleet-sized org, 49 documents (40 authored
++ 9 static workbooks), 12 people, 6 engagements — supplies it. Same box,
+same model (Opus 4.8), **`xhigh` effort rather than `max`**, which is the
+single most important caveat on the comparison below.
+
+Nine batches over three windows, K = 4:
+
+| window | batches | docs | wall | summed worker | speedup | vs slowest |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 4 | 19 | 8m 03s | 17m 28s | 2.17x | +6% |
+| 2 | 4 | 17 | 12m 53s | 25m 35s | 1.99x | +4% |
+| 3 | 1 | 4 | 3m 52s | 3m 33s | 1.00x | — |
+| **total** | **9** | **40** | **25m 07s** | **46m 36s** | **1.86x** | |
+
+Foundation enrichment (12 personas) was a separate ~1.1 min pass.
+
+Three things this says that the dev-mini run could not.
+
+**Per-batch time is not a constant, and the spread is the story.** The nine
+batches ran **1.4 to 12.4 minutes** (mean 5.2), against dev-mini's 9.3-16.9
+(mean ~12). Per document: **~1.2 min/doc here versus ~2.9 there**, roughly
+2.5x apart. Do not read that as the generator getting faster — the efforts
+differ (`xhigh` vs `max`), and effort is exactly the dial that buys
+authoring quality. Two runs at different settings are two data points about
+different things. What is safe to carry: per-batch time varies by ~9x
+within a single run at one setting, so any single number is a fiction.
+
+**The window's payoff is capped by its slowest worker, not its width.**
+Both full windows landed within 4-6% of their single longest batch, which
+confirms the workers genuinely overlap. But window 2 ran 12m 53s because
+*one* batch took 12.4 min while its three siblings averaged 3.7 — so the
+window was ~65% idle at the end. Widening K does not fix that; balancing
+batches would. Worker time correlates only loosely with document count (a
+4-doc batch was the slowest in the run, a 6-doc batch took 3.8 min), so the
+imbalance is not something `--next-batch` can currently predict.
+
+**Scaled honestly.** At this run's ~5.2 min/batch and 1.86x, the remaining
+five-org fleet (~209 docs, ~40 batches) is roughly **3.5 hours** wall. At
+the dev-mini run's ~12 min/batch and 2.2x it would be ~3.6 hours. The two
+estimates agree to within 5% by coincidence — dev-mini's slower batches are
+offset by its better window efficiency — and the agreement should not be
+mistaken for precision. Treat 3-6 hours as the honest range for the fleet,
+and re-measure rather than trusting either row.
+
 Scaled at ~12 min/batch: a 360-doc fleet is ~60 batches (~12 hours serial);
 a 2,000-doc flagship is ~334 batches (~2.8 days serial). At the measured
 ~2.2x window speedup those fall to roughly **5 hours** and **~1.3 days**; a
@@ -165,6 +212,10 @@ limits, never against the airlock.
 This is why parallel authoring is **M10** and precedes the fleet: the wall
 is the schedule. Nothing else on this page is close to binding.
 
+None of these numbers gate anything. No test tier asserts a wall-clock
+(TESTING.md: "no wall-clock asserts"); they are here to size decisions, and
+every one of them is a single run on one box at one setting.
+
 ## What would change these targets
 
 - **Raising `_TARGET_WORDS` (M9)** changes every row of the token table
@@ -172,8 +223,11 @@ is the schedule. Nothing else on this page is close to binding.
 - **Parallel authoring (M10, landed)** attacks the only binding
   constraint: a bounded K-wide window over the serial wall, so the wall
   now falls as ~(batch-count x per-batch time) / K. First live measurement
-  (2026-07-16, above): ~12 min/batch, a 3-wide window at 2.24x. Re-measure
-  at fleet scale (M11), where K = 4 runs against many more batches.
+  (2026-07-16): ~12 min/batch, a 3-wide window at 2.24x. **Re-measured at
+  fleet scale the same day** (M11a, `meridian-actuarial`, 9 batches over
+  three K = 4 windows): 1.86x overall, and the finding that matters is that
+  a window is capped by its slowest worker, so batch *balance* now buys more
+  than K does. See the re-measurement section above.
 - **A larger context window in the wild** raises the flagship's bar. The
   target is a moving one by nature; size the margin, not the number.
 - **Format mix.** The ~36 KB/doc mean hides a wide spread: scanned PDFs

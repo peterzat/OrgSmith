@@ -15,13 +15,15 @@ python3 -m venv .venv
 bin/test                      # short + unit + org; exit 0
 ```
 
-Expect ~28s wall and 386 passing (12 short, 334 unit, 40 org) on a box
-with LibreOffice; ~16s and 380 passing + 6 skipped without it. Both are
+Expect ~30s wall and 422 passing (12 short, 349 unit, 61 org) on a box
+with LibreOffice; ~17s and 416 passing + 6 skipped without it. Both are
 green states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
 the tracer -- `dev-mini` grew from 13 to 22 documents -- so every
 dev-mini-based fixture, and the LibreOffice legacy fixture most of all,
-does proportionally more work than the pre-M9 numbers.)
+does proportionally more work than the pre-M9 numbers. M11a added the
+49-doc `meridian-actuarial` and six new fleet recipes, which is most of the
+org tier's growth from 40 tests to 61.)
 
 ## Entry point
 
@@ -46,14 +48,50 @@ pull request, and is the actual gate.
 
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
-| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants | 12 | < 1s | 0.11s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 334 (328 in CI) | ~20s | ~26s local / ~14.6s CI |
-| `org` | full validation of every committed fixture under `companies/`, plus re-deriving each from its recipe (byte-pinned on `dev-mini` only until M11) | 40 | ~5s | 1.45s |
+| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants | 12 | < 1s | 0.13s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 349 (343 in CI) | ~20s | ~27s local / ~15s CI |
+| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe** (byte-pinned on `dev-mini` and `meridian-actuarial` until M11) and checking fleet-recipe coherence | 61 | ~5s | 2.10s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
 assert on a shared runner is a flaky test, and this suite has none.
 Measure with `--durations` before and after a change that adds fixtures or
 knobs.
+
+### When the `org` tier splits, and what splits it
+
+Resolves BACKLOG `org-tier-scaling-plan` (2026-07-16, M11a). **Decision: no
+split now, and the trigger is measured rather than guessed.**
+
+Measured today, with the fleet's first 49-doc org committed: 153 share
+files, 61 tests, **2.10s** — up from 1.36s / 104 files before
+`meridian-actuarial`. That is **13.7 ms per share file** end to end for the
+whole tier (validation dominates; deriving all thirteen recipes is ~60ms
+each and scales with recipe count, not file count). It is still ~2.4x
+inside the ~5s budget, so a split today would save nothing measurable and
+cost a permanent seam. Ceremony.
+
+The projection is what makes this worth writing down rather than deferring
+again. When the fleet turn retires the six pre-v2.0 fixtures and commits
+the remaining five new orgs, the tier holds **280 share files ≈ 3.8s** —
+inside budget, but only just, and with nothing left for M12. So:
+
+- **Trigger:** the `org` tier crossing **5s** measured (`bin/test org`), or
+  any single committed org above ~150 files. The fleet turn will land near
+  the first and should re-measure rather than assume this projection.
+- **What splits it, when it fires: by job, not by size.** The `org` tier's
+  job is "every committed fixture still validates against its ground truth",
+  and that job wants the whole fleet — a subset tier that skips five of
+  seven orgs is not a cheaper version of it, it is a different and weaker
+  check, and the per-org spread (cindergrove validates at 2.3 ms/file
+  against bramblewood's 17.1, because rules skip in bulk on image-only
+  scans) means a "representative" subset is not representative of cost
+  either. What genuinely is a different job is the **flagship** (M12, ~2,000
+  docs): validating it is a scale test, not a fixture regression check, and
+  at 13.7 ms/file it alone is ~27s. It gets its own marker, excluded from
+  the default `bin/test`, and runs in CI on its own.
+- **Explicitly rejected:** trimming the fleet to keep the tier fast. The
+  fixtures are the oracles; deleting coverage to buy 2 seconds inverts the
+  point of having them.
 
 Two facts before trusting the unit number: one module-scoped fixture
 (`tests/test_unit_legacy.py::legacy_org`) owns ~14.5s of the ~26s local
