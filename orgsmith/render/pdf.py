@@ -4,6 +4,7 @@ letterhead and page numbers, then pikepdf metadata stamping."""
 from __future__ import annotations
 
 import html
+import re
 from pathlib import Path
 
 from jinja2 import Environment
@@ -72,22 +73,62 @@ td, th { border: 1px solid #999; padding: 4px 8px; font-size: 10pt;
 
 _ENV = Environment(autoescape=False)
 
+_LEGAL_SUFFIXES = {
+    "llc", "inc", "incorporated", "lp", "llp", "plc", "ltd", "limited",
+    "co", "company", "corp", "corporation",
+}
+
+
+def _norm_firm(name: str) -> str:
+    """Firm name normalized for comparison: lowercased, punctuation dropped,
+    a trailing legal suffix (LLC, Inc, ...) removed."""
+    words = re.sub(r"[^a-z0-9 ]", " ", name.casefold()).split()
+    while words and words[-1] in _LEGAL_SUFFIXES:
+        words.pop()
+    return " ".join(words)
+
+
+def _duplicates_letterhead(text: str, firm_name: str) -> bool:
+    """Whether a heading merely repeats the firm name the letterhead already
+    prints (rf:docplaus-letterhead-dup). Matches with or without the legal
+    suffix so 'Pinebrook Advisory Group' and '... LLC' both count."""
+    norm = _norm_firm(firm_name)
+    return bool(norm) and _norm_firm(text) == norm
+
+
+def _para_html(text: str) -> str:
+    """A paragraph's inner HTML. Intra-paragraph newlines become <br> so a
+    multi-line block (an inside address) renders on separate lines the way
+    the docx renderer's <w:br/> does, rather than smearing into one line
+    (pdf-newline-flattening)."""
+    return html.escape(text).replace("\n", "<br>")
+
 
 def _blocks_to_html(
     docir: DocIR,
     people: dict[str, dict],
     when_text: str,
     sig_fact_text: str | None = None,
+    firm_name: str | None = None,
 ) -> str:
     parts: list[str] = []
     esc = html.escape
     fee_emitted = False
-    for block in docir.blocks:
+    blocks = list(docir.blocks)
+    # Drop a leading heading that only repeats the letterhead firm name.
+    if (
+        firm_name
+        and blocks
+        and blocks[0].kind == "heading"
+        and _duplicates_letterhead(blocks[0].text, firm_name)
+    ):
+        blocks = blocks[1:]
+    for block in blocks:
         if block.kind == "heading":
             level = min(max(block.level, 1), 3)
             parts.append(f"<h{level}>{esc(block.text)}</h{level}>")
         elif block.kind == "paragraph":
-            parts.append(f"<p>{esc(block.text)}</p>")
+            parts.append(f"<p>{_para_html(block.text)}</p>")
         elif block.kind == "list":
             items = "".join(f"<li>{esc(i)}</li>" for i in block.items)
             parts.append(f"<ul>{items}</ul>")
@@ -141,7 +182,10 @@ def render_pdf(
         letterhead0=style.letterhead_lines[0],
         letterhead_rest=list(style.letterhead_lines[1:]),
         dateline=when_text,
-        body=_blocks_to_html(docir, people, when_text, sig_fact_text),
+        body=_blocks_to_html(
+            docir, people, when_text, sig_fact_text,
+            firm_name=style.letterhead_lines[0],
+        ),
     )
     target.parent.mkdir(parents=True, exist_ok=True)
     HTML(string=doc_html, url_fetcher=no_remote_fetcher).write_pdf(str(target))

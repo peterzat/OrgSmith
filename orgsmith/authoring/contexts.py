@@ -30,10 +30,16 @@ BATCH_SIZE = 6
 
 _GENRE_GUIDANCE = {
     "engagement_letter": (
-        "Formal letter on firm letterhead confirming the engagement: "
-        "scope, approach, team, fee and start date, closing. End with a "
-        "sigblock block signed by the letter's author and the client "
-        "contact. 3-6 paragraphs."
+        "Formal engagement letter on firm letterhead confirming the "
+        "engagement. Do NOT repeat the firm's name as a heading or title "
+        "line: the letterhead already carries it. Open with the client's "
+        "inside address and a salutation, then cover scope and approach, "
+        "the team, and the fee and start date, followed by the standard "
+        "terms a real engagement letter carries -- each as its own short "
+        "headed paragraph: fees and payment, term and termination, "
+        "confidentiality, limitation of liability, and governing law. Close "
+        "with a signature request and end with a sigblock block signed by "
+        "the letter's author and the client contact."
     ),
     "kickoff_memo": (
         "Internal memo to the engagement team. Open with a short paragraph "
