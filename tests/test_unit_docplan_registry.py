@@ -113,6 +113,31 @@ def test_a_longer_span_yields_more_periodic_documents():
     assert n_long > n_short
 
 
+def test_supply_scales_to_hundreds_of_documents_deterministically():
+    """The machinery that makes an M12 flagship affordable: a firm with many
+    engagements over a long span derives hundreds of documents through the
+    pure stages alone (no model), byte-identically run to run."""
+    charter = _charter(
+        founded=2000,
+        headcount={"Leadership": 1, "Consulting": 10},
+        titles={
+            "Leadership": ["Managing Partner"],
+            "Consulting": [f"Level {i}" for i in range(10)],
+        },
+        doc_culture=DocCulture(
+            target_docs=11,
+            date_range=(date(2001, 1, 1), date(2024, 12, 31)),
+            format_mix=FormatMix(docx=7, pdf=2, xlsx=2, pptx=6, eml=12),
+        ),
+        engagements=EngagementPlan(count=56),
+        graph_targets=GraphTargets(external_orgs=56, external_people=56),
+    )
+    a, _, _ = _build(charter)
+    assert len(a) >= 300, len(a)
+    b, _, _ = _build(charter)
+    assert [e.model_dump_json() for e in a] == [e.model_dump_json() for e in b]
+
+
 def test_the_old_fixed_skeleton_identity_no_longer_holds():
     """`2E + 7` was the pre-M9 count. It must not be the count now."""
     charter = _charter(engagements=EngagementPlan(count=3))
