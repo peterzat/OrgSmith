@@ -36,24 +36,39 @@ def _next_serial(workorders_dir: Path, stage: str) -> int:
     highest = 0
     for path in workorders_dir.glob(f"{prefix}*.json"):
         tail = path.name[len(prefix) : -len(".json")]
-        if tail.isdigit():
+        # isascii() before isdigit(): "²".isdigit() is True and int("²")
+        # raises, and "٣" parses as 3, so isdigit() alone both crashes on a
+        # stray and silently accepts one. This must tolerate strays, not
+        # interpret them.
+        if tail.isascii() and tail.isdigit():
             highest = max(highest, int(tail))
     return highest + 1
 
 
-def _fresh_work_order_path(workorders_dir: Path, stage: str, serial: int) -> Path:
-    """The path for a new order, refusing to land on an existing file.
+def _claim_work_order_path(workorders_dir: Path, stage: str, serial: int) -> Path:
+    """Create the file for a new order, or fail. Never returns a path that
+    something else already holds.
 
-    `_next_serial` makes this unreachable on its own; it is here because the
-    cost of being wrong is a destroyed work order rather than a failed run.
+    The claim is the creation: `O_CREAT | O_EXCL` via `touch(exist_ok=False)`,
+    not an `exists()` check followed by a write. The check-then-write version
+    of this function was a time-of-check/time-of-use hole -- two dispatchers
+    could both see the serial free, both proceed, and one would silently
+    destroy the other, which is the exact loss `_next_serial` exists to
+    prevent. The kernel decides who wins here, so the loser fails loudly.
+
+    `build()` runs before this is called, so a failed build leaves nothing
+    behind. A crash between the claim and the write leaves an empty file,
+    which costs one serial and is why gaps are blessed.
     """
     path = workorders_dir / f"{stage}-{serial:04d}.json"
-    if path.exists():
+    try:
+        path.touch(exist_ok=False)
+    except FileExistsError:
         raise SystemExit(
             f"{stage}: refusing to overwrite existing work order {path}; "
             f"serial {serial:04d} was computed as free but is not. Check for "
             f"a concurrent dispatcher or a hand-edited workorders directory."
-        )
+        ) from None
     return path
 
 
@@ -88,7 +103,7 @@ def emit_work_order(
     serial = _next_serial(paths.workorders_dir, stage)
     wo_id = f"wo:{stage}:{serial:04d}"
     order = build(wo_id)
-    path = _fresh_work_order_path(paths.workorders_dir, stage, serial)
+    path = _claim_work_order_path(paths.workorders_dir, stage, serial)
     write_model(path, order)
     state.outstanding[stage] = path.name
     save_state(paths, state)
@@ -138,14 +153,16 @@ def emit_author_batch(
     Serial numbering reads the work-order files on disk, so it stays
     deterministic as long as emission is sequential (the orchestrating skill
     calls this once per batch; only the model authoring runs concurrently).
-    Two concurrent dispatchers would still race, and `_fresh_work_order_path`
-    is what turns that race into a failed run rather than a lost order.
+    Two concurrent dispatchers would still race for a serial, and
+    `_claim_work_order_path` is what decides that race in the kernel: both may
+    compute the same number, only one creates the file, and the other exits
+    rather than overwriting it.
     """
     paths.workorders_dir.mkdir(parents=True, exist_ok=True)
     serial = _next_serial(paths.workorders_dir, "author")
     wo_id = f"wo:author:{serial:04d}"
     order = build(wo_id)
-    path = _fresh_work_order_path(paths.workorders_dir, "author", serial)
+    path = _claim_work_order_path(paths.workorders_dir, "author", serial)
     write_model(path, order)
     state.author_batches[wo_id] = BatchRef(
         workorder=path.name, doc_ids=list(doc_ids)

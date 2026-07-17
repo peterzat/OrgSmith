@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from orgsmith.airlock import _fresh_work_order_path, _next_serial
+from orgsmith.airlock import _claim_work_order_path, _next_serial
 from orgsmith.artifacts import load_foundation, load_manifest, load_work_order
 from orgsmith.authoring.contexts import run_next_batch
 from orgsmith.authoring.ingest import docir_path
@@ -265,13 +265,43 @@ def test_work_order_serial_never_reuses_a_deleted_number(org):
     assert len(claimed) == len(set(claimed))
 
 
-def test_fresh_work_order_path_refuses_to_clobber(org):
+def test_claim_work_order_path_refuses_to_clobber(org):
     """The belt to `_next_serial`'s braces: if a serial is ever computed as
     free and is not, the run fails instead of destroying an order."""
     org.workorders_dir.mkdir(parents=True, exist_ok=True)
     (org.workorders_dir / "author-0001.json").write_text("{}")
     with pytest.raises(SystemExit, match="refusing to overwrite"):
-        _fresh_work_order_path(org.workorders_dir, "author", 1)
+        _claim_work_order_path(org.workorders_dir, "author", 1)
+
+
+def test_claim_work_order_path_claims_by_creating(org):
+    """The claim must BE the creation, not a look-then-leap.
+
+    An exists() check that returns a path and lets the caller write later is a
+    TOCTOU: two dispatchers both see the serial free, both write, one order is
+    silently lost -- the exact failure _next_serial exists to prevent. So the
+    file must exist the moment the path is handed out, which is what makes the
+    second claimant lose.
+    """
+    org.workorders_dir.mkdir(parents=True, exist_ok=True)
+    path = _claim_work_order_path(org.workorders_dir, "author", 3)
+    assert path.exists(), "claim did not create the file; the race is still open"
+    with pytest.raises(SystemExit, match="refusing to overwrite"):
+        _claim_work_order_path(org.workorders_dir, "author", 3)
+
+
+def test_next_serial_tolerates_strays_rather_than_interpreting_them(org):
+    """The docstring promises unparseable names are ignored, so they must not
+    crash and must not be read as numbers.
+
+    `"²".isdigit()` is True while `int("²")` raises, and `"٣"` parses as 3, so
+    an isdigit()-only gate would do both of the things this promises not to.
+    """
+    org.workorders_dir.mkdir(parents=True, exist_ok=True)
+    (org.workorders_dir / "author-0002.json").write_text("{}")
+    for stray in ("author-\u00b2.json", "author-\u0663.json", "author-draft.json"):
+        (org.workorders_dir / stray).write_text("{}")
+    assert _next_serial(org.workorders_dir, "author") == 3
 
 
 def test_next_serial_reads_the_max_not_the_count(org):

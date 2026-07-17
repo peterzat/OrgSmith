@@ -15,8 +15,8 @@ python3 -m venv .venv
 bin/test                      # short + unit + org; exit 0
 ```
 
-Expect ~32s wall and 445 passing (14 short, 359 unit, 72 org) on a box
-with LibreOffice; 439 passing + 6 skipped without it (measured by hiding
+Expect ~32s wall and 447 passing (14 short, 361 unit, 72 org) on a box
+with LibreOffice; 441 passing + 6 skipped without it (measured by hiding
 soffice from `PATH`, which is what CI sees). Both are green states,
 see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
@@ -51,7 +51,7 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 14 | < 1s | 0.22s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 359 (353 in CI) | ~20s | ~28s local / ~15s CI |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 361 (355 in CI) | ~20s | ~28s local / ~15s CI |
 | `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence | 72 | ~8s | 4.79s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
@@ -268,7 +268,7 @@ control, so its false-positive rate is unmeasured (BACKLOG:
 Two targets running different suites, deliberately.
 
 - **CI (`ubuntu-latest`, no LibreOffice)** is the gate: all three tiers on
-  every push and PR. Six legacy tests skip (434 passing + 6 skipped).
+  every push and PR. Six legacy tests skip (441 passing + 6 skipped).
   Legacy *validation* is still covered here, by the org tier reading
   `brackenridge-civil`'s real `.doc`/`.xls`/`.ppt` binaries pure-Python
   (olefile, xlrd) with `soffice` absent -- a stronger check than the

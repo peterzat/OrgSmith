@@ -235,7 +235,10 @@ claimed the opposite.) The empty engagement book is the same shape:
 `roster_churn.hires` and `engagements.count` exist, but nothing places
 engagements against hire dates, so a recipe can make the gap likelier or
 rarer and cannot close it. What is missing in both cases is a coupling, not a
-number.
+number. (The voice collapse has soft levers nearby too — `narrative` sets firm
+tone, and every person carries a `persona`. Neither touches it: the board's
+whole point is that twelve sharply-different personas already converge on one
+figure, so the knob is being turned and the prose does not move.)
 
 When that stops being true — when a limit here becomes a recipe choice — this
 section has to say which, or it turns into a false claim about what OrgSmith
@@ -265,14 +268,15 @@ flagship as three separate jobs.)
   heading, then "Next Steps," then a closing epigram — six authors who never
   saw each other's work. The board also counts the "I would rather X now than
   Y later" antithesis at **34 occurrences across 26 of 44 documents**, every
-  author, every year. Treat that number as its judgment, not as arithmetic:
-  the figure is semantic, and what you count decides what you get. Measured
-  over the same 44 documents (2026-07-17), a strict temporal reading finds
-  **5**; the plain words `rather than` appear **146 times across 43 of 44
-  documents**, once per 200 words. The first is too tight and the last sweeps
-  up ordinary English, and no ledger adjudicates between them — which is the
-  finding underneath the finding. The defect is real at every reading; only
-  its size is a matter of opinion.
+  author, every year. Treat that number as its judgment, not as arithmetic —
+  the figure is semantic, and what you count decides what you get. Over the
+  same 44 documents: strict readings that require the temporal contrast land
+  in the **single digits** and disagree with each other depending on how the
+  contrast is drawn, while the plain words `rather than` appear **146 times
+  across 43 of 44 documents**, once per 200 words. Only that last one is
+  reproducible without being told the pattern, and it sweeps up ordinary
+  English. No ledger adjudicates between them, which is the finding underneath
+  the finding: the defect is real at every reading, and its size is opinion.
 - **The org grows staff it has no work for.** The engagement book is empty
   for 1,299 days while three people are hired into it, one onboarded with
   "She is walking into live work rather than a quiet stretch."
@@ -468,7 +472,7 @@ provably cannot see.
 
 ### The evidence, concretely
 
-- **445 tests** across three tiers (`bin/test`), keyless and offline; the
+- **447 tests** across three tiers (`bin/test`), keyless and offline; the
   `org` tier validates all seven committed fixtures, derives every recipe,
   re-derives every fixture's structure byte-identically, and checks each
   fleet recipe's internal coherence in ~4.8s.
