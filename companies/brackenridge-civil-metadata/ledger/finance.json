@@ -1,0 +1,392 @@
+{
+  "schema_id": "orgsmith/finance@1",
+  "slug": "brackenridge-civil",
+  "years": [
+    {
+      "year": 1996,
+      "revenue": 333000,
+      "quarters": [
+        84136,
+        92818,
+        78510,
+        77536
+      ],
+      "expenses": {
+        "Compensation": 218700,
+        "Office & Facilities": 35400,
+        "Travel": 23970,
+        "Professional Services": 20250,
+        "Other": 15800
+      }
+    },
+    {
+      "year": 1997,
+      "revenue": 740000,
+      "quarters": [
+        177987,
+        181356,
+        195380,
+        185277
+      ],
+      "expenses": {
+        "Compensation": 348700,
+        "Office & Facilities": 78700,
+        "Travel": 59270,
+        "Professional Services": 45290,
+        "Other": 50290
+      }
+    },
+    {
+      "year": 1998,
+      "revenue": 788000,
+      "quarters": [
+        200413,
+        185701,
+        210041,
+        191845
+      ],
+      "expenses": {
+        "Compensation": 368900,
+        "Office & Facilities": 78700,
+        "Travel": 56190,
+        "Professional Services": 45920,
+        "Other": 37930
+      }
+    },
+    {
+      "year": 1999,
+      "revenue": 826000,
+      "quarters": [
+        227946,
+        163447,
+        234739,
+        199868
+      ],
+      "expenses": {
+        "Compensation": 377300,
+        "Office & Facilities": 78700,
+        "Travel": 70620,
+        "Professional Services": 46490,
+        "Other": 44970
+      }
+    },
+    {
+      "year": 2000,
+      "revenue": 869000,
+      "quarters": [
+        196258,
+        230079,
+        227945,
+        214718
+      ],
+      "expenses": {
+        "Compensation": 392400,
+        "Office & Facilities": 78700,
+        "Travel": 73380,
+        "Professional Services": 46980,
+        "Other": 31620
+      }
+    },
+    {
+      "year": 2001,
+      "revenue": 920000,
+      "quarters": [
+        222573,
+        276395,
+        201105,
+        219927
+      ],
+      "expenses": {
+        "Compensation": 458600,
+        "Office & Facilities": 89100,
+        "Travel": 77890,
+        "Professional Services": 47440,
+        "Other": 40500
+      }
+    },
+    {
+      "year": 2002,
+      "revenue": 984000,
+      "quarters": [
+        238895,
+        211942,
+        280091,
+        253072
+      ],
+      "expenses": {
+        "Compensation": 496300,
+        "Office & Facilities": 89100,
+        "Travel": 58880,
+        "Professional Services": 47930,
+        "Other": 48150
+      }
+    },
+    {
+      "year": 2003,
+      "revenue": 1043000,
+      "quarters": [
+        251213,
+        251929,
+        226765,
+        313093
+      ],
+      "expenses": {
+        "Compensation": 557300,
+        "Office & Facilities": 89100,
+        "Travel": 66400,
+        "Professional Services": 48370,
+        "Other": 45150
+      }
+    },
+    {
+      "year": 2004,
+      "revenue": 1111000,
+      "quarters": [
+        267344,
+        228053,
+        311136,
+        304467
+      ],
+      "expenses": {
+        "Compensation": 634800,
+        "Office & Facilities": 89100,
+        "Travel": 62510,
+        "Professional Services": 48710,
+        "Other": 31790
+      }
+    },
+    {
+      "year": 2005,
+      "revenue": 1175000,
+      "quarters": [
+        339793,
+        255038,
+        307385,
+        272784
+      ],
+      "expenses": {
+        "Compensation": 706500,
+        "Office & Facilities": 98000,
+        "Travel": 80260,
+        "Professional Services": 49200,
+        "Other": 35770
+      }
+    },
+    {
+      "year": 2006,
+      "revenue": 1255000,
+      "quarters": [
+        333772,
+        370133,
+        295861,
+        255234
+      ],
+      "expenses": {
+        "Compensation": 770800,
+        "Office & Facilities": 98000,
+        "Travel": 79530,
+        "Professional Services": 49680,
+        "Other": 50120
+      }
+    },
+    {
+      "year": 2007,
+      "revenue": 1332000,
+      "quarters": [
+        368900,
+        282362,
+        297487,
+        383251
+      ],
+      "expenses": {
+        "Compensation": 794700,
+        "Office & Facilities": 98000,
+        "Travel": 76610,
+        "Professional Services": 50080,
+        "Other": 45610
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "FY1996.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=333000 revenue=333000"
+    },
+    {
+      "name": "FY1996.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=314120 total=314120"
+    },
+    {
+      "name": "FY1996.net-income",
+      "ok": true,
+      "detail": "revenue=333000 expenses=314120 net=18880"
+    },
+    {
+      "name": "FY1997.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=740000 revenue=740000"
+    },
+    {
+      "name": "FY1997.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=582250 total=582250"
+    },
+    {
+      "name": "FY1997.net-income",
+      "ok": true,
+      "detail": "revenue=740000 expenses=582250 net=157750"
+    },
+    {
+      "name": "FY1998.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=788000 revenue=788000"
+    },
+    {
+      "name": "FY1998.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=587640 total=587640"
+    },
+    {
+      "name": "FY1998.net-income",
+      "ok": true,
+      "detail": "revenue=788000 expenses=587640 net=200360"
+    },
+    {
+      "name": "FY1999.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=826000 revenue=826000"
+    },
+    {
+      "name": "FY1999.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=618080 total=618080"
+    },
+    {
+      "name": "FY1999.net-income",
+      "ok": true,
+      "detail": "revenue=826000 expenses=618080 net=207920"
+    },
+    {
+      "name": "FY2000.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=869000 revenue=869000"
+    },
+    {
+      "name": "FY2000.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=623080 total=623080"
+    },
+    {
+      "name": "FY2000.net-income",
+      "ok": true,
+      "detail": "revenue=869000 expenses=623080 net=245920"
+    },
+    {
+      "name": "FY2001.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=920000 revenue=920000"
+    },
+    {
+      "name": "FY2001.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=713530 total=713530"
+    },
+    {
+      "name": "FY2001.net-income",
+      "ok": true,
+      "detail": "revenue=920000 expenses=713530 net=206470"
+    },
+    {
+      "name": "FY2002.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=984000 revenue=984000"
+    },
+    {
+      "name": "FY2002.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=740360 total=740360"
+    },
+    {
+      "name": "FY2002.net-income",
+      "ok": true,
+      "detail": "revenue=984000 expenses=740360 net=243640"
+    },
+    {
+      "name": "FY2003.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1043000 revenue=1043000"
+    },
+    {
+      "name": "FY2003.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=806320 total=806320"
+    },
+    {
+      "name": "FY2003.net-income",
+      "ok": true,
+      "detail": "revenue=1043000 expenses=806320 net=236680"
+    },
+    {
+      "name": "FY2004.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1111000 revenue=1111000"
+    },
+    {
+      "name": "FY2004.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=866910 total=866910"
+    },
+    {
+      "name": "FY2004.net-income",
+      "ok": true,
+      "detail": "revenue=1111000 expenses=866910 net=244090"
+    },
+    {
+      "name": "FY2005.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1175000 revenue=1175000"
+    },
+    {
+      "name": "FY2005.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=969730 total=969730"
+    },
+    {
+      "name": "FY2005.net-income",
+      "ok": true,
+      "detail": "revenue=1175000 expenses=969730 net=205270"
+    },
+    {
+      "name": "FY2006.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1255000 revenue=1255000"
+    },
+    {
+      "name": "FY2006.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=1048130 total=1048130"
+    },
+    {
+      "name": "FY2006.net-income",
+      "ok": true,
+      "detail": "revenue=1255000 expenses=1048130 net=206870"
+    },
+    {
+      "name": "FY2007.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1332000 revenue=1332000"
+    },
+    {
+      "name": "FY2007.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=1065000 total=1065000"
+    },
+    {
+      "name": "FY2007.net-income",
+      "ok": true,
+      "detail": "revenue=1332000 expenses=1065000 net=267000"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0008",
+  "stage": "author",
+  "slug": "brackenridge-civil",
+  "org_name": "Brackenridge Civil Group Inc",
+  "org_type": "civil engineering",
+  "narrative": "Brackenridge Civil Group is a small civil engineering practice in a\ncounty seat, founded in 1996 and working for municipal public works\ndepartments, a regional water authority, and two private developers. Its\nwork is site grading, stormwater, roadway, and utility design: drawings\ngo out under a sealed cover sheet, and the paperwork that surrounds them\nis typed in Word and printed for the job file.\n\nIt is a firm of its era, and the file share shows it. Proposals and\ndesign memoranda are Word documents saved to a lettered project folder.\nExecuted agreements come back countersigned by fax, get scanned on the\nflatbed by the office administrator, and land in the share as crooked,\nspeckled images. Progress meetings with the county produce minutes that\nlist every attendee by full name and agency. The annual numbers live in\none spreadsheet the Principal Engineer keeps himself.\n\nWriting is late-1990s American professional-services prose: complete\nsentences, courteous but not warm, no buzzwords that would postdate the\ndocument. Engineers refer to clients by agency name and to each other by\nfull name in anything that leaves the office. The Principal Engineer\nsigns every agreement and every letter to a public body. Nobody writes\n\"reach out\"; they write \"we will contact\".",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0008\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0040",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2007-08-13",
+      "authors": [
+        {
+          "id": "p:mark.todd",
+          "name": "Mark Todd",
+          "title": "Principal Engineer",
+          "dept": "Leadership",
+          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mark.todd",
+          "name": "Mark Todd",
+          "title": "Principal Engineer",
+          "dept": "Leadership",
+          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2004-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2005-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2006-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2007-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mark.todd",
+          "surface": "Mark Todd",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 5 client engagement(s) across 2001-2007. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2001-001.client}}, {{fact:f:E-2004-001.client}}, {{fact:f:E-2005-001.client}}, {{fact:f:E-2006-001.client}}, {{fact:f:E-2007-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

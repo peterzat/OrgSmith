@@ -1,0 +1,77 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "brackenridge-civil",
+  "org_name": "Brackenridge Civil Group Inc",
+  "org_type": "civil engineering",
+  "narrative": "Brackenridge Civil Group is a small civil engineering practice in a\ncounty seat, founded in 1996 and working for municipal public works\ndepartments, a regional water authority, and two private developers. Its\nwork is site grading, stormwater, roadway, and utility design: drawings\ngo out under a sealed cover sheet, and the paperwork that surrounds them\nis typed in Word and printed for the job file.\n\nIt is a firm of its era, and the file share shows it. Proposals and\ndesign memoranda are Word documents saved to a lettered project folder.\nExecuted agreements come back countersigned by fax, get scanned on the\nflatbed by the office administrator, and land in the share as crooked,\nspeckled images. Progress meetings with the county produce minutes that\nlist every attendee by full name and agency. The annual numbers live in\none spreadsheet the Principal Engineer keeps himself.\n\nWriting is late-1990s American professional-services prose: complete\nsentences, courteous but not warm, no buzzwords that would postdate the\ndocument. Engineers refer to clients by agency name and to each other by\nfull name in anything that leaves the office. The Principal Engineer\nsigns every agreement and every letter to a public body. Nobody writes\n\"reach out\"; they write \"we will contact\".",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:mark.todd",
+      "name": "Mark Todd",
+      "title": "Principal Engineer",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:linda.george",
+      "name": "Linda George",
+      "title": "Project Engineer",
+      "dept": "Engineering",
+      "persona": ""
+    },
+    {
+      "id": "p:pamela.warren",
+      "name": "Pamela Warren",
+      "title": "Project Engineer",
+      "dept": "Engineering",
+      "persona": ""
+    },
+    {
+      "id": "p:linda.nguyen",
+      "name": "Linda Nguyen",
+      "title": "Design Technician",
+      "dept": "Engineering",
+      "persona": ""
+    },
+    {
+      "id": "p:mark.barrett",
+      "name": "Mark Barrett",
+      "title": "Office Administrator",
+      "dept": "Administration",
+      "persona": ""
+    },
+    {
+      "id": "p:jeffrey.perez",
+      "name": "Jeffrey Perez",
+      "title": "Design Technician",
+      "dept": "Engineering",
+      "persona": ""
+    },
+    {
+      "id": "p:jason.jordan",
+      "name": "Jason Jordan",
+      "title": "Design Technician",
+      "dept": "Engineering",
+      "persona": ""
+    },
+    {
+      "id": "p:charles.olson",
+      "name": "Charles Olson",
+      "title": "Design Technician",
+      "dept": "Engineering",
+      "persona": ""
+    },
+    {
+      "id": "p:kimberly.branch",
+      "name": "Kimberly Branch",
+      "title": "Design Technician",
+      "dept": "Engineering",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

@@ -1,0 +1,336 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "brackenridge-civil",
+  "entities": [
+    "x:brackenridge-civil",
+    "p:mark.todd",
+    "p:linda.george",
+    "p:pamela.warren",
+    "p:linda.nguyen",
+    "p:mark.barrett",
+    "p:jeffrey.perez",
+    "p:jason.jordan",
+    "p:charles.olson",
+    "p:kimberly.branch",
+    "x:esparza-lamb",
+    "x:johnson-plc",
+    "x:evans-lee",
+    "x:franklin-snyder",
+    "x:peck-jennings",
+    "xp:debra.vasquez",
+    "xp:david.dyer",
+    "xp:james.skinner",
+    "xp:mark.green",
+    "xp:carol.lewis"
+  ],
+  "edges": [
+    {
+      "src": "p:mark.todd",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-02-15",
+      "end": null
+    },
+    {
+      "src": "p:linda.george",
+      "dst": "p:mark.todd",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:linda.george",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-03-15",
+      "end": null
+    },
+    {
+      "src": "p:pamela.warren",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:pamela.warren",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1997-02-14",
+      "end": null
+    },
+    {
+      "src": "p:linda.nguyen",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:linda.nguyen",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-06-11",
+      "end": null
+    },
+    {
+      "src": "p:mark.barrett",
+      "dst": "p:mark.todd",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:mark.barrett",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-04-15",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.perez",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.perez",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2002-12-14",
+      "end": null
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2001-05-26",
+      "end": null
+    },
+    {
+      "src": "p:charles.olson",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:charles.olson",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2003-08-11",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.branch",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kimberly.branch",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2005-07-03",
+      "end": null
+    },
+    {
+      "src": "xp:debra.vasquez",
+      "dst": "x:esparza-lamb",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:david.dyer",
+      "dst": "x:johnson-plc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:james.skinner",
+      "dst": "x:evans-lee",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:mark.green",
+      "dst": "x:franklin-snyder",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:carol.lewis",
+      "dst": "x:peck-jennings",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:esparza-lamb",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2001-07-15",
+      "end": null
+    },
+    {
+      "src": "p:linda.nguyen",
+      "dst": "E-2001-001",
+      "kind": "participant",
+      "start": "2001-07-15",
+      "end": "2002-03-15"
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "E-2001-001",
+      "kind": "participant",
+      "start": "2001-07-15",
+      "end": "2002-03-15"
+    },
+    {
+      "src": "xp:debra.vasquez",
+      "dst": "E-2001-001",
+      "kind": "participant",
+      "start": "2001-07-15",
+      "end": "2002-03-15"
+    },
+    {
+      "src": "x:johnson-plc",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2004-07-05",
+      "end": null
+    },
+    {
+      "src": "p:charles.olson",
+      "dst": "E-2004-001",
+      "kind": "participant",
+      "start": "2004-07-05",
+      "end": "2004-11-20"
+    },
+    {
+      "src": "p:jeffrey.perez",
+      "dst": "E-2004-001",
+      "kind": "participant",
+      "start": "2004-07-05",
+      "end": "2004-11-20"
+    },
+    {
+      "src": "p:pamela.warren",
+      "dst": "E-2004-001",
+      "kind": "participant",
+      "start": "2004-07-05",
+      "end": "2004-11-20"
+    },
+    {
+      "src": "xp:david.dyer",
+      "dst": "E-2004-001",
+      "kind": "participant",
+      "start": "2004-07-05",
+      "end": "2004-11-20"
+    },
+    {
+      "src": "x:evans-lee",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2005-06-22",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.perez",
+      "dst": "E-2005-001",
+      "kind": "participant",
+      "start": "2005-06-22",
+      "end": "2005-10-31"
+    },
+    {
+      "src": "p:linda.george",
+      "dst": "E-2005-001",
+      "kind": "participant",
+      "start": "2005-06-22",
+      "end": "2005-10-31"
+    },
+    {
+      "src": "xp:james.skinner",
+      "dst": "E-2005-001",
+      "kind": "participant",
+      "start": "2005-06-22",
+      "end": "2005-10-31"
+    },
+    {
+      "src": "x:franklin-snyder",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2006-04-27",
+      "end": null
+    },
+    {
+      "src": "p:linda.george",
+      "dst": "E-2006-001",
+      "kind": "participant",
+      "start": "2006-04-27",
+      "end": "2006-08-06"
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "E-2006-001",
+      "kind": "participant",
+      "start": "2006-04-27",
+      "end": "2006-08-06"
+    },
+    {
+      "src": "xp:mark.green",
+      "dst": "E-2006-001",
+      "kind": "participant",
+      "start": "2006-04-27",
+      "end": "2006-08-06"
+    },
+    {
+      "src": "x:peck-jennings",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2007-05-10",
+      "end": null
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "E-2007-001",
+      "kind": "participant",
+      "start": "2007-05-10",
+      "end": "2007-09-16"
+    },
+    {
+      "src": "p:pamela.warren",
+      "dst": "E-2007-001",
+      "kind": "participant",
+      "start": "2007-05-10",
+      "end": "2007-09-16"
+    },
+    {
+      "src": "p:kimberly.branch",
+      "dst": "E-2007-001",
+      "kind": "participant",
+      "start": "2007-05-10",
+      "end": "2007-09-16"
+    },
+    {
+      "src": "xp:carol.lewis",
+      "dst": "E-2007-001",
+      "kind": "participant",
+      "start": "2007-05-10",
+      "end": "2007-09-16"
+    }
+  ]
+}

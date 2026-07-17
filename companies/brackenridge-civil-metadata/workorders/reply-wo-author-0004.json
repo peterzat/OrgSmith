@@ -1,0 +1,180 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0004",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0018",
+      "blocks": [
+        {"kind": "paragraph", "text": "David Dyer"},
+        {"kind": "paragraph", "text": "General Manager"},
+        {"kind": "paragraph", "text": "Johnson PLC"},
+        {"kind": "paragraph", "text": "Re: Stormwater Management Plan"},
+        {"kind": "paragraph", "text": "Dear Mr. Dyer:"},
+        {"kind": "paragraph", "text": "This letter sets out the terms on which our firm will prepare a stormwater management plan for {{fact:f:E-2004-001.client}}. It confirms the scope of the work, the fee, and the schedule as we discussed them at your office. If the terms stated below correctly express our understanding, please sign one copy in the space provided at the end of this letter and return it to this office. The signed copy will constitute the agreement between us, and we will commence the work on {{fact:f:E-2004-001.start}}."},
+        {"kind": "heading", "text": "Scope of Services", "level": 2},
+        {"kind": "paragraph", "text": "We will review the boundary and topographic survey and the geotechnical information furnished to us, and we will walk the property to confirm that the drainage patterns shown on the survey are the patterns that exist on the ground. We will delineate the drainage areas contributing to and leaving the site, and we will compute pre-development and post-development runoff rates for the design storms required by the applicable ordinance."},
+        {"kind": "paragraph", "text": "We will size the conveyance system, the detention facility, and the outlet structure, and we will prepare the grading required to route runoff to them. We will prepare a plan set consisting of a cover sheet, an existing conditions sheet, a grading and drainage plan, a detail sheet, and the erosion and sedimentation control sheets required to accompany the submittal. The plan set will be sealed."},
+        {"kind": "paragraph", "text": "We will prepare the stormwater management report that accompanies the plan set, transmit the package to the reviewing authority on your behalf, and respond in writing to one round of review comments. Should the authority issue comments that require redesign rather than clarification, we will notify your office before proceeding, and the additional work will be handled as described under Fees and Payment below. Construction staking, construction observation, record drawings, and wetland or environmental permitting are not included in this engagement."},
+        {"kind": "heading", "text": "Approach", "level": 2},
+        {"kind": "paragraph", "text": "We do not begin the analysis from the survey alone. One of our technicians will spend a day on the property before any computation is performed, because the outfall condition and the condition of the receiving ditch are the two items most frequently drawn differently from the way they exist. Where we find a difference between the drawing and the ground, we will report it to you in writing before it becomes a design assumption."},
+        {"kind": "paragraph", "text": "Our assumptions will be stated in the report where a reviewer can find them rather than carried in the back of the calculations. A reviewer who can see an assumption will argue with the assumption, which is a shorter conversation than the one that follows a review cycle spent looking for it."},
+        {"kind": "heading", "text": "Personnel", "level": 2},
+        {"kind": "paragraph", "text": "Pamela Warren, Project Engineer, will have charge of the design and will be your point of contact on technical matters. Charles Olson, Design Technician, will perform the site reconnaissance and prepare the grading and drainage sheets. Jeffrey Perez, Design Technician, will prepare the details and the quantity takeoff. I will review the plan set and the report before either leaves this office, and I will seal the drawings. We will not substitute the personnel named here without notice to you."},
+        {"kind": "heading", "text": "Fees and Payment", "level": 2},
+        {"kind": "paragraph", "text": "Our fee for the services described above is a lump sum of {{fact:f:E-2004-001.fee}}. The fee includes the reimbursable costs ordinarily incurred on work of this character, being printing, plotting, mileage, and delivery of the submittal package. It does not include the review and permit fees charged by the reviewing authority, which are payable by {{fact:f:E-2004-001.client}} directly to that authority."},
+        {"kind": "paragraph", "text": "We will invoice monthly on the basis of the percentage of the work completed. Invoices are payable thirty days from the date of invoice. Amounts remaining unpaid after forty-five days bear interest at one percent per month. Services beyond the scope described above will be undertaken only upon your written authorization, and will be billed at our standard hourly rates then in effect."},
+        {"kind": "heading", "text": "Term and Termination", "level": 2},
+        {"kind": "paragraph", "text": "This agreement remains in effect until the services described above are complete. We expect the work to require approximately five months from commencement, subject to the response time of the reviewing authority, which is not within our control. Either party may terminate this agreement upon ten days written notice to the other. Upon termination you will pay for services performed and costs incurred through the effective date of termination, and we will furnish the work product in the condition it has then reached. Drawings furnished upon termination will be unsealed and are not to be used for construction."},
+        {"kind": "heading", "text": "Confidentiality", "level": 2},
+        {"kind": "paragraph", "text": "Information you furnish to us and identify as confidential will be held in confidence and used only for the purposes of this engagement. This obligation does not extend to information that is already public, that we held before you furnished it, or that we are required to disclose by law. You will understand that documents filed with a public body in support of a permit application become public records upon filing, and that we cannot hold them otherwise."},
+        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
+        {"kind": "paragraph", "text": "Our services will be performed with the care and skill ordinarily exercised by civil engineers practicing in this locality under similar conditions. No other warranty, express or implied, is made. The liability of this firm and of its employees to {{fact:f:E-2004-001.client}} arising out of this engagement, from any cause, shall not exceed the amount of the fee stated above. Neither party shall be liable to the other for consequential, incidental, or indirect damages, including loss of profit or loss of use."},
+        {"kind": "heading", "text": "Governing Law", "level": 2},
+        {"kind": "paragraph", "text": "This agreement is governed by the laws of the state in which the property is situated. It contains the entire understanding between the parties on this subject, supersedes prior discussions and correspondence, and may be amended only by a writing signed by both parties."},
+        {"kind": "paragraph", "text": "If the foregoing correctly states our agreement, please sign both copies where indicated, retain one for your file, and return the other to this office. We appreciate the opportunity to be of service to Johnson PLC. We will contact your office to arrange the site visit once the signed copy is in hand."},
+        {"kind": "paragraph", "text": "Very truly yours,"},
+        {"kind": "sigblock", "signers": ["p:mark.todd", "xp:david.dyer"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0019",
+      "blocks": [
+        {"kind": "heading", "text": "Memorandum", "level": 1},
+        {"kind": "paragraph", "text": "To: Pamela Warren, Project Engineer; Jeffrey Perez, Design Technician"},
+        {"kind": "paragraph", "text": "From: Charles Olson, Design Technician"},
+        {"kind": "paragraph", "text": "Subject: Kickoff, Stormwater Management Plan for {{fact:f:E-2004-001.client}}"},
+        {"kind": "heading", "text": "Objective", "level": 2},
+        {"kind": "paragraph", "text": "The agreement is signed and we are under way as of {{fact:f:E-2004-001.start}}. What we owe is a sealed plan set with the stormwater report behind it, transmitted to the reviewing authority, plus written answers to the first round of comments. The engagement letter is in the job folder. Read the scope paragraph in it before you open a drawing. It is a lump sum, and the scope is the fence around it."},
+        {"kind": "paragraph", "text": "Nothing gets drawn this month. The first weeks are for finding out what is actually on the ground and what the ordinance is going to make us do about it. I would rather spend two weeks on that now than move a detention pond in the fall."},
+        {"kind": "heading", "text": "Workstreams", "level": 2},
+        {"kind": "list", "items": [
+          "Site reconnaissance. Mine. I will walk the property next week and photograph the outfall, the receiving ditch, and both culverts shown on the survey. The survey is clean, which is what bothers me about it. Anything that does not match, I will mark on a print and put in the folder.",
+          "Hydrology. Pamela Warren has the drainage area delineation and the pre-development and post-development runoff computations, for the design storms the ordinance names. Assumptions go in the report where a reviewer can find them, not on the back of a calc sheet.",
+          "Conveyance and detention. Pamela Warren sizes the pipe, the pond, and the outlet structure, and not until the reconnaissance is back. We are not sizing anything off the survey alone.",
+          "Grading and drainage sheets. Mine. I do not start the sheets until the pond has a volume on it.",
+          "Details and quantities. Jeffrey Perez takes the detail sheet and the takeoff. The details wait on the outlet structure and the takeoff waits on the grading, so his early time goes to the erosion and sedimentation control sheets.",
+          "Erosion and sedimentation control. Jeffrey Perez to start from our standard sheets and adjust once we know where the limits of disturbance sit.",
+          "Submittal and comments. Pamela Warren assembles the package and tracks the comment responses."
+        ]},
+        {"kind": "heading", "text": "Next Steps", "level": 2},
+        {"kind": "list", "items": [
+          "Site visit next week. Jeffrey Perez to come out for a half day and see the ground before he details anything on it.",
+          "Pamela Warren to telephone David Dyer and ask for the property file his office holds: the old grading permit, whatever exists on the culverts, and the geotechnical report if one was ever done. If Johnson PLC does not have it, we need to know that now and not in September.",
+          "David Dyer has asked for a briefing at his office next month. Pamela Warren and I will put a short deck together after the reconnaissance and the delineation are done. Nothing goes in it that we cannot show a source for.",
+          "Job meeting in this office Friday mornings, fifteen minutes, standing.",
+          "The lettered folder is set up. Everything goes in it. Nothing lives on anybody's desk."
+        ]},
+        {"kind": "paragraph", "text": "One more thing. The receiving ditch is downstream of a property we do not control. If it turns out to be silted in, that is not our design problem, but it is our schedule problem, and I want it written down the week we see it rather than the week the reviewer asks. Put the note in the file when you see the condition, not when somebody makes it an issue."},
+        {"kind": "paragraph", "text": "On the schedule generally: five months sounds like a long time and it is not. Two of those months belong to the reviewing authority and we do not get to spend them. What we actually have is the front end, and the front end is where a wrong assumption is cheap. Anything that looks off to either of you, say so in the Friday meeting while it still costs an hour to fix."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0020",
+      "blocks": [
+        {"kind": "heading", "text": "Stormwater Management Plan", "level": 1},
+        {"kind": "list", "items": [
+          "Prepared for {{fact:f:E-2004-001.client}}",
+          "Presented to David Dyer, General Manager, Johnson PLC",
+          "Prepared by Charles Olson, Design Technician",
+          "Design team: Pamela Warren, Project Engineer; Jeffrey Perez, Design Technician",
+          "Work commenced {{fact:f:E-2004-001.start}}"
+        ]},
+        {"kind": "heading", "text": "Where the Work Stands", "level": 1},
+        {"kind": "list", "items": [
+          "Site walked and photographed; field notes are in the job file",
+          "Drainage areas delineated for existing and proposed conditions",
+          "Pre-development runoff computed for the design storms the ordinance names",
+          "Post-development computations under way; detention concept not yet fixed",
+          "No sheets started. We are still establishing what the site does."
+        ]},
+        {"kind": "heading", "text": "What We Found on the Ground", "level": 1},
+        {"kind": "list", "items": [
+          "The survey shows the site draining to one point. It drains to two.",
+          "The culvert under the access drive is partly silted and does not sit at the invert the survey gives it",
+          "The receiving ditch below the outfall is shallower than plotted and is on ground you do not control",
+          "None of this stops the design. It changes where the detention has to sit.",
+          "Charles Olson to re-shoot the outfall with our own level rather than take the survey's word for it"
+        ]},
+        {"kind": "heading", "text": "How We Intend to Proceed", "level": 1},
+        {"kind": "list", "items": [
+          "Detention sized to the outfall as measured, not as plotted",
+          "Pamela Warren will state every assumption in the report where the reviewer can find it",
+          "Jeffrey Perez will build the details and the quantity takeoff off the fixed outlet structure",
+          "Grading and drainage sheets follow once the pond has a volume",
+          "One sealed package: plan set, report, and erosion control sheets together"
+        ]},
+        {"kind": "heading", "text": "What We Need From You", "level": 1},
+        {"kind": "list", "items": [
+          "The property file: the old grading permit and anything on the existing culverts",
+          "The geotechnical report, if one was performed",
+          "Confirmation of the limits of the proposed improvements before we fix the grading",
+          "Notice of any change to the building footprint, which moves the runoff and the pond with it"
+        ]},
+        {"kind": "heading", "text": "Next Steps", "level": 1},
+        {"kind": "paragraph", "text": "We will complete the post-development computations and fix the detention concept, then bring the layout back to Johnson PLC before we commit it to sheets. We will contact your office to arrange that session. Design continues in the meantime on the items that do not depend on it."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0022",
+      "blocks": [
+        {"kind": "heading", "text": "Working Session Minutes: Stormwater Management Plan", "level": 1},
+        {"kind": "paragraph", "text": "Prepared by Pamela Warren, Project Engineer. Session held at the client's office. These minutes will be taken as accurate unless corrections are received at this office within ten days."},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Pamela Warren, Project Engineer, Brackenridge Civil Group Inc",
+          "Charles Olson, Design Technician, Brackenridge Civil Group Inc",
+          "Jeffrey Perez, Design Technician, Brackenridge Civil Group Inc",
+          "David Dyer, General Manager, Johnson PLC"
+        ]},
+        {"kind": "heading", "text": "1. Purpose of the Session", "level": 2},
+        {"kind": "paragraph", "text": "The session was called to fix the detention concept for {{fact:f:E-2004-001.client}} before the grading and drainage sheets are begun, and to resolve the outstanding information requests. The plan set has not been started and will not be started until the items under item 3 below are settled."},
+        {"kind": "heading", "text": "2. Field Conditions", "level": 2},
+        {"kind": "paragraph", "text": "Charles Olson reported the results of the reconnaissance and of the re-shot outfall. The site divides between two discharge points rather than the single point shown on the survey, and the culvert beneath the access drive is silted and set lower than the survey gives it. Mr. Dyer asked whether the survey should be reordered. Charles Olson advised that it should not, on the ground that the differences are confined to the outfall and are now measured, and that a second survey would cost time we would not get back. This office concurs."},
+        {"kind": "heading", "text": "3. Detention Concept", "level": 2},
+        {"kind": "paragraph", "text": "Two arrangements were presented. The first places a single basin at the low corner and requires a length of pipe to bring the second drainage area across the site to it. The second places two smaller basins, one at each discharge point, and avoids the pipe run at the cost of a second outlet structure to maintain. Mr. Dyer indicated a preference for the single basin on the ground that his operations staff would rather maintain one structure than two. Pamela Warren stated the condition attaching to that preference: the single basin works only if the pipe crossing can be held above the water table indicated in the geotechnical report, which this office has not yet seen. The concept is therefore preferred but not fixed, and will be confirmed in writing once the report is in hand."},
+        {"kind": "heading", "text": "4. Erosion and Sedimentation Control", "level": 2},
+        {"kind": "paragraph", "text": "Jeffrey Perez reported that the control sheets are drafted from the firm's standard details and that the limits of disturbance are the open item. He asked whether the contractor's laydown area would fall inside or outside those limits, as it governs where the perimeter measures run. Mr. Dyer stated that no contractor has been selected and that the question cannot be answered at this time. It was agreed that the sheets will show the limits at the improvements themselves and that a note will direct any additional disturbance to be enclosed by the contractor at his own cost."},
+        {"kind": "heading", "text": "5. Information Requests", "level": 2},
+        {"kind": "paragraph", "text": "The geotechnical report and the old grading permit remain outstanding, both requested at kickoff. Mr. Dyer stated that the property file is held at another office of Johnson PLC and undertook to have it sent. Pamela Warren stated that the detention concept cannot be fixed without the geotechnical report and that the schedule to submittal runs from the date it is received."},
+        {"kind": "heading", "text": "Action Items", "level": 2},
+        {"kind": "table", "header": ["No.", "Item", "Owner", "Target"], "rows": [
+          ["1", "Forward the geotechnical report and the property file to this office", "David Dyer", "As soon as available"],
+          ["2", "Confirm the single-basin concept in writing on receipt of the geotechnical report", "Pamela Warren", "One week after receipt"],
+          ["3", "Re-shoot invert of the second discharge point and issue the field note to the file", "Charles Olson", "Before the next session"],
+          ["4", "Revise erosion control sheets to show limits at the improvements, with the contractor note added", "Jeffrey Perez", "Before the next session"],
+          ["5", "Confirm the limits of the proposed improvements and notify this office of any change to the building footprint", "David Dyer", "Before grading is committed to sheets"],
+          ["6", "Circulate these minutes to attendees", "Pamela Warren", "This week"]
+        ]},
+        {"kind": "paragraph", "text": "The next working session will be held at this office. Pamela Warren will contact Mr. Dyer to arrange the date once the geotechnical report has been received."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0023",
+      "blocks": [
+        {"kind": "heading", "text": "Progress Report: Stormwater Management Plan", "level": 1},
+        {"kind": "paragraph", "text": "Prepared for {{fact:f:E-2004-001.client}} by Charles Olson, Design Technician. This report covers the period since the last progress meeting."},
+        {"kind": "heading", "text": "Status Summary", "level": 2},
+        {"kind": "paragraph", "text": "The work is on schedule and roughly at its midpoint. The analysis is complete, the detention concept is fixed, and the plan set is in production. Nothing has occurred that changes the scope described in our engagement letter, and we do not presently foresee a request for additional services. The one item that could still move the schedule is the response time of the reviewing authority, which we do not control and never have."},
+        {"kind": "paragraph", "text": "Of the lump sum fee of {{fact:f:E-2004-001.fee}}, we have earned approximately fifty percent to date, which tracks the completion of the work. Our next invoice will reflect that figure. There are no additional services to report and no reimbursable costs outside the fee."},
+        {"kind": "heading", "text": "Accomplishments This Period", "level": 2},
+        {"kind": "paragraph", "text": "The geotechnical report reached this office and confirmed that the pipe crossing can be held above the water table. The single-basin arrangement your office preferred is therefore workable, and Pamela Warren confirmed it in writing as she said she would. The basin, the outlet structure, and the conveyance to it are sized. The outlet is a two-stage structure, which is what the ordinance drives us to when a site has to meet both a water quality volume and a peak rate."},
+        {"kind": "paragraph", "text": "The second discharge point is re-shot and the field note is in the file. It sits lower than the survey gave it, which is the third time on this site that the ground has been lower than the drawing, and it is the reason we walked the property before we computed anything. The number we designed to is our own."},
+        {"kind": "paragraph", "text": "Grading and drainage sheets are drafted to a first check. Jeffrey Perez has the details built off the fixed outlet structure and has begun the quantity takeoff. He checks a takeoff once and then checks it again from the other direction, which is slower than the alternative and cheaper than being wrong about it in a bid. The erosion and sedimentation control sheets are revised to show the limits at the improvements, with the note we discussed directing the contractor to enclose any disturbance he adds."},
+        {"kind": "heading", "text": "Upcoming Work", "level": 2},
+        {"kind": "paragraph", "text": "Pamela Warren will draft the stormwater management report with the computations behind it and the assumptions stated where the reviewer can find them. The plan set goes to internal check and then to the Principal Engineer, who reads every sheet before it is sealed. The sealed package, plan set and report together, goes to the reviewing authority, and we will transmit it on your behalf and confirm receipt. We will then answer the first round of comments in writing, in the order the authority issues them."},
+        {"kind": "paragraph", "text": "Between now and the seal the remaining items are the report narrative, the second check of the takeoff, the cover sheet, and the internal review. None of them depends on information we do not have. That is worth saying plainly, because it has not been true on this job until this period, and it is the reason we are reporting the work on schedule rather than reporting a date and hoping."},
+        {"kind": "heading", "text": "Risks", "level": 2},
+        {"kind": "paragraph", "text": "Review time. The authority's comments arrive when they arrive. We have built the schedule on the response time we have seen from that office in the past, and if it runs long the submittal date is unaffected but the approval date moves. We will tell you the day we know."},
+        {"kind": "paragraph", "text": "The receiving ditch. It is shallow, it is silted, and it is not on ground you control. Our design discharges to it at a rate the ordinance permits and our obligation ends at the property line. But a reviewer who drives out and looks at that ditch may ask a question about it, and the answer will take a letter and possibly a meeting. It is not a design problem. It is a schedule problem, and it has been in the file since we walked the site."},
+        {"kind": "paragraph", "text": "Late changes. The grading follows the building footprint. If the footprint moves, the runoff moves, and the pond moves with it. We asked that any change be sent to this office before it is final and we ask it again here. A change that arrives after the seal goes on is a resubmittal, and a resubmittal is additional services under the letter."},
+        {"kind": "paragraph", "text": "Questions on this report should be directed to Pamela Warren, who has charge of the design, or to me on the field items. We will contact your office when the package is ready to transmit. Johnson PLC will have a copy of everything that goes to the authority on the day it goes."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0002",
+  "stage": "author",
+  "slug": "brackenridge-civil",
+  "org_name": "Brackenridge Civil Group Inc",
+  "org_type": "civil engineering",
+  "narrative": "Brackenridge Civil Group is a small civil engineering practice in a\ncounty seat, founded in 1996 and working for municipal public works\ndepartments, a regional water authority, and two private developers. Its\nwork is site grading, stormwater, roadway, and utility design: drawings\ngo out under a sealed cover sheet, and the paperwork that surrounds them\nis typed in Word and printed for the job file.\n\nIt is a firm of its era, and the file share shows it. Proposals and\ndesign memoranda are Word documents saved to a lettered project folder.\nExecuted agreements come back countersigned by fax, get scanned on the\nflatbed by the office administrator, and land in the share as crooked,\nspeckled images. Progress meetings with the county produce minutes that\nlist every attendee by full name and agency. The annual numbers live in\none spreadsheet the Principal Engineer keeps himself.\n\nWriting is late-1990s American professional-services prose: complete\nsentences, courteous but not warm, no buzzwords that would postdate the\ndocument. Engineers refer to clients by agency name and to each other by\nfull name in anything that leaves the office. The Principal Engineer\nsigns every agreement and every letter to a public body. Nobody writes\n\"reach out\"; they write \"we will contact\".",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0005",
+      "title": "Engagement Letter: Site Grading Design for Esparza-Lamb",
+      "genre": "engagement_letter",
+      "date": "2001-07-05",
+      "authors": [
+        {
+          "id": "p:mark.todd",
+          "name": "Mark Todd",
+          "title": "Principal Engineer",
+          "dept": "Leadership",
+          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        },
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        },
+        {
+          "id": "xp:debra.vasquez",
+          "name": "Debra Vasquez",
+          "title": "VP Finance",
+          "dept": "Esparza-Lamb",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Site Grading Design for Esparza-Lamb, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2001-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2001-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mark.todd",
+          "surface": "Mark Todd",
+          "kind": "person"
+        },
+        {
+          "entity": "p:linda.nguyen",
+          "surface": "Linda Nguyen",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jason.jordan",
+          "surface": "Jason Jordan",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:debra.vasquez",
+          "surface": "Debra Vasquez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:esparza-lamb",
+          "surface": "Esparza-Lamb",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0006",
+      "title": "Kickoff Memo: Site Grading Design for Esparza-Lamb",
+      "genre": "kickoff_memo",
+      "date": "2001-07-18",
+      "authors": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        },
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        },
+        {
+          "id": "xp:debra.vasquez",
+          "name": "Debra Vasquez",
+          "title": "VP Finance",
+          "dept": "Esparza-Lamb",
+          "persona": ""
+        },
+        {
+          "id": "p:mark.barrett",
+          "name": "Mark Barrett",
+          "title": "Office Administrator",
+          "dept": "Administration",
+          "persona": "He is the reason the file share can be navigated at all: lettered project folders, agreements scanned off the flatbed the day the fax comes back countersigned, nothing left in a pile. He types what the engineers give him and quietly fixes the salutation when it is addressed to the wrong department. Chasing a countersignature is a matter of a call, then another call, and he is unfailingly pleasant about it while being entirely unwilling to let it go."
+        }
+      ],
+      "engagement_summary": "Site Grading Design for Esparza-Lamb, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2001-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:linda.nguyen",
+          "surface": "Linda Nguyen",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jason.jordan",
+          "surface": "Jason Jordan",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:debra.vasquez",
+          "surface": "Debra Vasquez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:esparza-lamb",
+          "surface": "Esparza-Lamb",
+          "kind": "org"
+        },
+        {
+          "entity": "p:mark.barrett",
+          "surface": "Mark Barrett",
+          "kind": "person"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 1% of the way through the engagement (in the early phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0008",
+      "title": "Briefing Deck: Site Grading Design for Esparza-Lamb",
+      "genre": "briefing_deck",
+      "date": "2001-09-13",
+      "authors": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        },
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        },
+        {
+          "id": "xp:debra.vasquez",
+          "name": "Debra Vasquez",
+          "title": "VP Finance",
+          "dept": "Esparza-Lamb",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Site Grading Design for Esparza-Lamb, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2001-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:linda.nguyen",
+          "surface": "Linda Nguyen",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jason.jordan",
+          "surface": "Jason Jordan",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:debra.vasquez",
+          "surface": "Debra Vasquez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:esparza-lamb",
+          "surface": "Esparza-Lamb",
+          "kind": "org"
+        }
+      ],
+      "target_words": 400,
+      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock.",
+      "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0009",
+      "title": "Meeting Minutes: Site Grading Design for Esparza-Lamb",
+      "genre": "meeting_minutes",
+      "date": "2001-10-20",
+      "authors": [
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        },
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        },
+        {
+          "id": "xp:debra.vasquez",
+          "name": "Debra Vasquez",
+          "title": "VP Finance",
+          "dept": "Esparza-Lamb",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Site Grading Design for Esparza-Lamb, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jason.jordan",
+          "surface": "Jason Jordan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:linda.nguyen",
+          "surface": "Linda Nguyen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:debra.vasquez",
+          "surface": "Debra Vasquez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:esparza-lamb",
+          "surface": "Esparza-Lamb",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0010",
+      "title": "Status Report: Site Grading Design for Esparza-Lamb",
+      "genre": "status_report",
+      "date": "2001-11-13",
+      "authors": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        },
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        }
+      ],
+      "engagement_summary": "Site Grading Design for Esparza-Lamb, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2001-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:linda.nguyen",
+          "surface": "Linda Nguyen",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jason.jordan",
+          "surface": "Jason Jordan",
+          "kind": "person"
+        },
+        {
+          "entity": "x:esparza-lamb",
+          "surface": "Esparza-Lamb",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0012",
+      "title": "Meeting Minutes: Site Grading Design for Esparza-Lamb",
+      "genre": "meeting_minutes",
+      "date": "2002-01-18",
+      "authors": [
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.nguyen",
+          "name": "Linda Nguyen",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "Utility and grading sheets, and an exacting sense of how a plan set ought to be assembled: sheet order, lettering, match lines, the cover right before it goes out sealed. She keeps redlines rather than throwing them out once the change is made. Little of what she writes leaves the office, and when it does it is a transmittal note of two lines that says exactly what is in the envelope."
+        },
+        {
+          "id": "p:jason.jordan",
+          "name": "Jason Jordan",
+          "title": "Design Technician",
+          "dept": "Engineering",
+          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+        },
+        {
+          "id": "xp:debra.vasquez",
+          "name": "Debra Vasquez",
+          "title": "VP Finance",
+          "dept": "Esparza-Lamb",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Site Grading Design for Esparza-Lamb, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2001-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jason.jordan",
+          "surface": "Jason Jordan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:linda.nguyen",
+          "surface": "Linda Nguyen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:debra.vasquez",
+          "surface": "Debra Vasquez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:esparza-lamb",
+          "surface": "Esparza-Lamb",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 77% of the way through the engagement (in the later phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

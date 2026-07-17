@@ -1,0 +1,58 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0003",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0013",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Site Grading Design for Esparza-Lamb", "level": 1},
+        {"kind": "table",
+         "header": ["Item", "Detail"],
+         "rows": [
+           ["Project", "Site Grading Design"],
+           ["Client", "{{fact:f:E-2001-001.client}}"],
+           ["Prepared by", "Linda Nguyen, Design Technician"],
+           ["Subject", "Progress to date, work remaining, and open items"]
+         ]},
+        {"kind": "heading", "text": "Status Summary", "level": 2},
+        {"kind": "paragraph", "text": "The design is substantially complete. Every sheet in the set is drafted, the second check set has been marked and the marks incorporated, and the work now in front of us is the assembly of the set, the final office check, and the sealed issue. Nothing presently open is expected to change the design intent. The set is being held as a unit until it is complete, and it will be plotted, sealed, and transmitted as a unit."},
+        {"kind": "heading", "text": "Work Completed This Period", "level": 2},
+        {"kind": "list", "items": [
+          "Grading plan: finish grades, spot elevations at the pavement corners and the door thresholds, and the ties to existing grade at the property line are drawn and checked against the boundary and topographic base.",
+          "Storm drainage plan and profiles: inlets, structures, and pipe runs are drawn, the profiles are cut, and the structure schedule agrees with what is shown on the plan. The match line between the two grading sheets was off by a sheet width in the earlier check set and has been corrected on both sheets.",
+          "Erosion and sediment control: the initial and final conditions are now on separate sheets rather than shown as one condition, which is what the review comments asked for and what the sequence actually requires.",
+          "Details and general notes: the standard details have been replaced with the current versions, and the general notes have been reconciled against them so that nothing is called for twice in two different sets of words.",
+          "Cover sheet: the sheet index, location map, and legend are laid out. The seal block is placed and left blank pending issue.",
+          "The redlines from each check are in the project folder. They stay there. If a question comes back on why something was changed, the answer is in the marks and not in anyone's memory."
+        ]},
+        {"kind": "paragraph", "text": "Jason Jordan has been through the assembled set for the office CAD standards and for plotting: layers, lineweights, text heights, and the plot configuration, so that a sheet plotted next month looks like a sheet plotted today. Jason Jordan is holding the cover sheet until the rest of the set is finished and checked, which is the correct order. A cover sheet that indexes sheets still in motion is a cover sheet that will be wrong."},
+        {"kind": "heading", "text": "Work Remaining", "level": 2},
+        {"kind": "list", "items": [
+          "Assemble the full set in sheet order and plot a check set at full size. Errors in lettering and match lines do not show on the screen the way they show on paper.",
+          "Verify the sheet index against the assembled set, sheet by sheet, and verify each match line against the sheet it calls out.",
+          "Check the utility sheets one last time against the final structure schedule.",
+          "Final office check of the complete set, and correction of whatever that check turns up.",
+          "Plot, seal, and deliver the set under a transmittal, with the half-size sets for field use."
+        ]},
+        {"kind": "paragraph", "text": "None of this is long work, but it is work that has to happen in that order, and the last item cannot start until the ones above it are finished."},
+        {"kind": "heading", "text": "Budget", "level": 2},
+        {"kind": "paragraph", "text": "The design has been carried against the fixed fee of {{fact:f:E-2001-001.fee}} for this engagement. The effort that remains is the assembly, the final check, and the issue of the set, and it is within that fee. No additional services have been performed on the Esparza-Lamb site and none are anticipated through issue. If a change is directed after the set is sealed, it becomes a revision and is handled separately, as described below."},
+        {"kind": "heading", "text": "Open Items and Risks", "level": 2},
+        {"kind": "table",
+         "header": ["Item", "Status", "Effect if not resolved before issue"],
+         "rows": [
+           ["Finished floor elevation", "Awaiting written confirmation", "The finish grades at the building perimeter and the door thresholds are set from it. A change here moves the grading plan and the storm structure rims along with it."],
+           ["Tie to existing grade at the drive entrance", "Drawn from the survey on hand", "If the field condition has changed since the survey, the tie and the entrance profile are redrawn."],
+           ["Utility crossings", "Coordinated as shown on the utility sheets", "Late information on a crossing changes the profiles and the structure schedule together, not one of them."],
+           ["Post-seal changes", "None outstanding", "Any change after the set is sealed carries a revision cloud, a revision block entry, and a reissue of the affected sheets. It is not a five-minute correction and should not be planned as one."]
+         ]},
+        {"kind": "paragraph", "text": "We will contact you if the confirmation on the finished floor elevation is not in hand in time to be reflected in the sealed set. That is the only item on the list above with the capacity to hold up the issue, and it is a matter of a written answer rather than a matter of design work."},
+        {"kind": "heading", "text": "Closing", "level": 2},
+        {"kind": "paragraph", "text": "The set is where it should be at this point in the work. Questions on any of the above may be directed to Linda Nguyen or to Jason Jordan at the office, and the marked check sets are available for review here if you would like to see what has been changed and why."},
+        {"kind": "sigblock", "signers": ["p:linda.nguyen"]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+# PERMISSIONS
+
+Read-access ground truth for Brackenridge Civil Group Inc (brackenridge-civil); posture: open.
+Derived from ledger/acl.json; regenerate with `python -m orgsmith acl brackenridge-civil`.
+
+## Mark Todd (Principal Engineer)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Linda George (Project Engineer)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Pamela Warren (Project Engineer)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Linda Nguyen (Design Technician)
+
+
+## Mark Barrett (Office Administrator)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Jeffrey Perez (Design Technician)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Jason Jordan (Design Technician)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Charles Olson (Design Technician)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
+
+## Kimberly Branch (Design Technician)
+
+- Engagements/Esparza-Lamb/2001.07.05 - Engagement Letter - Esparza-Lamb - EXECUTED.pdf
+- Engagements/Esparza-Lamb/2001.07.18 - Kickoff Memo - Site Grading Design.doc
+- Engagements/Esparza-Lamb/2001.09.13 - Briefing Deck - Esparza-Lamb.ppt
+- Engagements/Esparza-Lamb/2001.11.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/2002.03.13 - Status Report - Esparza-Lamb v2 FINAL.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2001-10-20 - Esparza-Lamb.doc
+- Engagements/Esparza-Lamb/Meeting Minutes 2002-01-18 - Esparza-Lamb.doc
+- Engagements/Evans-Lee/2005.06.12 - Engagement Letter - Evans-Lee - EXECUTED.pdf
+- Engagements/Evans-Lee/2005.06.25 - Kickoff Memo - Roadway Widening Study.doc
+- Engagements/Evans-Lee/2005.08.26 - Status Report - Evans-Lee v2 FINAL.doc
+- Engagements/Evans-Lee/Meeting Minutes 2005-08-13 - Evans-Lee.doc
+- Engagements/Franklin-Snyder/2006.04.17 - Engagement Letter - Franklin-Snyder - EXECUTED.pdf
+- Engagements/Franklin-Snyder/2006.04.30 - Kickoff Memo - Utility Relocation Design.doc
+- Engagements/Franklin-Snyder/2006.06.16 - Status Report - Franklin-Snyder v2 FINAL.doc
+- Engagements/Franklin-Snyder/Meeting Minutes 2006-06-06 - Franklin-Snyder.doc
+- Engagements/Johnson PLC/2004.06.25 - Engagement Letter - Johnson PLC - EXECUTED.pdf
+- Engagements/Johnson PLC/2004.07.08 - Kickoff Memo - Stormwater Management Plan.doc
+- Engagements/Johnson PLC/2004.08.08 - Briefing Deck - Johnson PLC.ppt
+- Engagements/Johnson PLC/2004.09.12 - Status Report - Johnson PLC v2 FINAL.doc
+- Engagements/Johnson PLC/Meeting Minutes 2004-08-29 - Johnson PLC.doc
+- Engagements/Peck-Jennings/2007.04.30 - Engagement Letter - Peck-Jennings - EXECUTED.pdf
+- Engagements/Peck-Jennings/2007.05.13 - Kickoff Memo - Bridge Deck Rehabilitation.doc
+- Engagements/Peck-Jennings/2007.07.13 - Status Report - Peck-Jennings v2 FINAL.doc
+- Engagements/Peck-Jennings/Meeting Minutes 2007-06-30 - Peck-Jennings.doc
+- Finance/FY1998 Financial Summary.xls
+- Finance/FY1999 Financial Summary.xls
+- Finance/FY2000 Financial Summary.xls
+- Finance/FY2001 Financial Summary.xls
+- Finance/FY2002 Financial Summary.xls
+- Finance/FY2003 Financial Summary.xls
+- Finance/FY2004 Financial Summary.xls
+- Finance/FY2005 Financial Summary.xls
+- Finance/FY2006 Financial Summary.xls
+- Firm/Firm Overview 2001 v3.doc
+- Firm/Firm Overview 2004 v3.doc
+- Firm/Firm Overview 2007 v3.doc
+- People/2001.06.02 - Onboarding - Jason Jordan.doc
+- People/2002.12.21 - Onboarding - Jeffrey Perez.doc
+- People/2003.08.18 - Onboarding - Charles Olson.doc
+- People/2005.07.10 - Onboarding - Kimberly Branch.doc
