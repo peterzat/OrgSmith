@@ -1,0 +1,358 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "hollowell-ip",
+  "entities": [
+    "x:hollowell-ip",
+    "p:mary.bradley",
+    "p:heather.munoz",
+    "p:amanda.schwartz",
+    "p:kelly.snyder",
+    "p:sharon.woods",
+    "p:joseph.walker",
+    "p:richard.henderson",
+    "p:ashley.williams",
+    "p:matthew.parrish",
+    "p:david.chang",
+    "x:odonnell-inc",
+    "x:middleton-sullivan-and-wiley",
+    "x:keith-duarte",
+    "x:jackson-inc",
+    "x:price-henson",
+    "xp:gary.smith",
+    "xp:barbara.blair",
+    "xp:joseph.palmer",
+    "xp:cynthia.hunter",
+    "xp:tiffany.munoz"
+  ],
+  "edges": [
+    {
+      "src": "p:mary.bradley",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-02-15",
+      "end": null
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "p:mary.bradley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-03-15",
+      "end": null
+    },
+    {
+      "src": "p:amanda.schwartz",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:amanda.schwartz",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-10-01",
+      "end": null
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-07-12",
+      "end": null
+    },
+    {
+      "src": "p:sharon.woods",
+      "dst": "p:mary.bradley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sharon.woods",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-04-15",
+      "end": null
+    },
+    {
+      "src": "p:joseph.walker",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.walker",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2021-01-18",
+      "end": null
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2019-10-17",
+      "end": null
+    },
+    {
+      "src": "p:ashley.williams",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:ashley.williams",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2021-02-03",
+      "end": null
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2023-01-07",
+      "end": null
+    },
+    {
+      "src": "p:david.chang",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.chang",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2024-02-24",
+      "end": null
+    },
+    {
+      "src": "xp:gary.smith",
+      "dst": "x:odonnell-inc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:barbara.blair",
+      "dst": "x:middleton-sullivan-and-wiley",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:joseph.palmer",
+      "dst": "x:keith-duarte",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:cynthia.hunter",
+      "dst": "x:jackson-inc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:tiffany.munoz",
+      "dst": "x:price-henson",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:odonnell-inc",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2019-05-13",
+      "end": null
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "p:amanda.schwartz",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "xp:gary.smith",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "x:middleton-sullivan-and-wiley",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2020-05-12",
+      "end": null
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "xp:barbara.blair",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "x:keith-duarte",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2021-08-11",
+      "end": null
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "p:joseph.walker",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "xp:joseph.palmer",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "x:jackson-inc",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2024-04-09",
+      "end": null
+    },
+    {
+      "src": "p:ashley.williams",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-04-09",
+      "end": "2024-08-03"
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-04-09",
+      "end": "2024-08-03"
+    },
+    {
+      "src": "xp:cynthia.hunter",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-04-09",
+      "end": "2024-08-03"
+    },
+    {
+      "src": "x:price-henson",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2025-03-14",
+      "end": null
+    },
+    {
+      "src": "p:david.chang",
+      "dst": "E-2025-001",
+      "kind": "participant",
+      "start": "2025-03-14",
+      "end": "2025-09-02"
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "E-2025-001",
+      "kind": "participant",
+      "start": "2025-03-14",
+      "end": "2025-09-02"
+    },
+    {
+      "src": "xp:tiffany.munoz",
+      "dst": "E-2025-001",
+      "kind": "participant",
+      "start": "2025-03-14",
+      "end": "2025-09-02"
+    }
+  ]
+}

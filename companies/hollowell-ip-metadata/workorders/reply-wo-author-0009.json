@@ -1,0 +1,162 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0009",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0040",
+      "blocks": [
+        {"kind": "paragraph", "text": "Tiffany Munoz\nChief Financial Officer\n{{fact:f:E-2025-001.client}}"},
+        {"kind": "paragraph", "text": "Dear Ms. Munoz:"},
+        {"kind": "paragraph", "text": "This letter sets out the terms on which this firm will act for {{fact:f:E-2025-001.client}} in the licensing diligence we discussed last month. It is the whole of our agreement on those terms. Please read it before you sign it. If any part of it differs from what you understood, say so now rather than later; a signed letter is what a court would read, and I would rather correct a sentence today than explain it under oath."},
+        {"kind": "heading", "level": 1, "text": "Scope of the Engagement"},
+        {"kind": "paragraph", "text": "The engagement covers diligence on the patent families identified in the proposed in-license, and nothing outside them. Within that scope we will do the following."},
+        {"kind": "list", "items": [
+          "Confirm the chain of title for each family in the proposed grant, from each named inventor's assignment through every recorded transfer, and identify any gap that would leave the licensor unable to grant what it has offered to grant.",
+          "Obtain and read the file wrapper for each issued patent and each pending application in the set, and record the prosecution history that constrains claim scope.",
+          "Identify encumbrances of record: prior grants, fields of use already carved out, security interests, rights arising from federal funding, and any standards or consortium commitment we find.",
+          "Map the independent claims against the product descriptions Price-Henson supplies to us, and tell you where the claims reach the planned product and where they do not.",
+          "Record the annuity and maintenance status of every family, with the next statutory window for each, so that you know what you are taking on and when it must be paid.",
+          "Deliver a written diligence report, marked privileged and confidential, stating our findings and the assumption on which each rests."
+        ]},
+        {"kind": "paragraph", "text": "The engagement does not include a freedom-to-operate opinion, an opinion on validity or enforceability beyond what the report states on its face, representation in any dispute arising from the portfolio, negotiation of the commercial terms of the license, or advice on the tax or accounting treatment of the transaction. If you want any of those, we will scope and price them separately and in writing. We act for you alone in this matter. We have run our conflicts check against the parties you identified; if that list changes, tell me the day it changes, because the check has to be run again and the answer is not always the same."},
+        {"kind": "heading", "level": 1, "text": "Our Approach"},
+        {"kind": "paragraph", "text": "We work by family rather than by document, because a defect in a chain of title is invisible until you have read every instrument in that family in order. Every date we find goes onto our docket the day we find it, whether or not it is a date we are engaged to keep. That is not a courtesy. It is how this firm avoids the one mistake it cannot absorb. You will have a written status report at the midpoint and the diligence report at the end. Between them, expect short emails against the matter number rather than long ones."},
+        {"kind": "heading", "level": 1, "text": "The Team"},
+        {"kind": "paragraph", "text": "I am the partner responsible for this engagement and I will sign the report. David Chang, Patent Agent, will take the hardware families and will run the inventor and engineer interviews; he is the one who will keep asking your people the same question until the disclosure is complete, and I would ask you to let him. Richard Henderson, Patent Agent, will take claim and specification analysis and will state the assumption behind every conclusion he reaches. Both work under my supervision. If the composition of the team changes, you will hear it from me in writing before it does."},
+        {"kind": "heading", "level": 1, "text": "Fees and Payment"},
+        {"kind": "paragraph", "text": "Our fee for the work described above is a fixed fee of {{fact:f:E-2025-001.fee}}, covering the scope stated in this letter and the report that concludes it. Work begins on {{fact:f:E-2025-001.start}}. We bill one third at the outset, one third at the midpoint status report, and the balance on delivery; invoices are due thirty days from issue. Costs we advance on your behalf, such as certified record copies and translation of foreign-family documents, are billed at what they cost us, without markup, and sit outside the fixed fee. If the family count in the proposed grant increases by more than two, or if a chain of title has to be reconstructed from sources outside the record, the fixed fee no longer covers the work; we will agree a supplement in writing before we do it, and not after. If an invoice is more than sixty days past due, we may stop work on notice to you, and we are not responsible for a date that passes while work is stopped."},
+        {"kind": "heading", "level": 1, "text": "Term and Termination"},
+        {"kind": "paragraph", "text": "The engagement begins on the date given above and ends when we deliver the report and you pay the final invoice. You may terminate at any time, with or without a reason, on written notice. We may terminate on written notice for non-payment, for a conflict that arises and cannot be waived, or if continuing would require us to act contrary to the rules of professional conduct. On termination from either side, you owe us for the work performed to that point, we return your files, and we tell you in writing every docket date then open in the matter. The date does not care why we stopped."},
+        {"kind": "heading", "level": 1, "text": "Confidentiality"},
+        {"kind": "paragraph", "text": "Everything you give us in this matter, and everything we produce for you in it, is confidential and, where the law allows, privileged. The report will be marked accordingly. Privilege is easier to lose than to establish. If our report or our advice is forwarded to the counterparty, to a prospective investor, or to anyone outside Price-Henson without a common-interest agreement in place, you may waive it, and neither of us can restore it afterward. Ask us before it goes anywhere. Our duty to keep your confidences survives this engagement without limit of time."},
+        {"kind": "heading", "level": 1, "text": "Limitation of Liability"},
+        {"kind": "paragraph", "text": "Our advice is limited to the documents and facts available to us within the scope and the period of this engagement, and to United States patent law; we do not opine on foreign counterparts except where the report says expressly that we do. Our aggregate liability arising out of this engagement is limited to the fees you have paid under it, and we are not liable for consequential or lost-profit damages. That limit does not apply where the law does not permit it. Nothing in this paragraph limits any liability that cannot be limited as a matter of law or under the rules of professional conduct, and nothing in it limits our obligation to tell you promptly when we have been wrong."},
+        {"kind": "heading", "level": 1, "text": "Governing Law"},
+        {"kind": "paragraph", "text": "This letter is governed by the law of the state in which this firm maintains its principal office, without regard to its conflict-of-laws rules, and by that state's rules of professional conduct, which control over any provision of this letter that conflicts with them. If a provision is held unenforceable, the rest stands."},
+        {"kind": "paragraph", "text": "If these terms are acceptable, please sign below and return one copy to me. We will not open the file or begin the diligence before the countersigned letter is in hand, so the start date above holds only if it reaches me by then. If you would rather discuss a term first, call me. I would sooner negotiate a clause now than rely on your patience with it later."},
+        {"kind": "sigblock", "signers": ["p:mary.bradley", "xp:tiffany.munoz"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0041",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Richard Henderson\nFrom: David Chang\nRe: Licensing diligence for Price-Henson, kickoff\nPrivileged and confidential. Attorney work product. Do not circulate outside the firm."},
+        {"kind": "paragraph", "text": "We are on the clock as of {{fact:f:E-2025-001.start}}, so here is how I want to run it. The object of this matter is narrow and I want us to hold it there: tell {{fact:f:E-2025-001.client}} whether the licensor can grant what the term sheet says it will grant, what comes attached to it, and what the claims actually reach. That is the whole engagement. The engagement letter draws that line deliberately and I have no interest in stepping over it. If someone asks us for freedom-to-operate in the middle of a call, the answer is that we will scope it separately, and then we will actually scope it separately."},
+        {"kind": "paragraph", "text": "Tiffany Munoz is our contact and the only person at Price-Henson who tasks us. If something that looks like a new instruction arrives from anyone else on their side, it comes to me before we act on it. That is not politics. It is that a diligence scope grows by accident more often than by decision. She is the CFO, she is going to ask what a given question is costing her, and I would like us to be able to answer that without checking first."},
+        {"kind": "heading", "level": 1, "text": "Workstreams"},
+        {"kind": "list", "items": [
+          "Chain of title. I have the recorded assignment list for the eleven families in the term sheet and it is not clean. There are two families where an inventor assignment appears to have been recorded after the first continuation was filed, or not recorded at all. Richard Henderson, start here. If title is broken the rest of the analysis is decoration.",
+          "File wrappers. Read from Patent Center for now, but order the certified copies early for anything we expect to be load-bearing. I do not want to be waiting on a certified set the week we are trying to finalize a report.",
+          "Encumbrances. Security interests of record, prior exclusive grants, fields of use already carved out, and government interest. At least two of these families read like they came out of federally funded work. If a Bayh-Dole obligation is attached, the client needs to know before it signs, not after.",
+          "Claim mapping. We need product descriptions from their engineers, not from their marketing. I will run those interviews and I will keep running them until the disclosure is complete. Expect me to be a nuisance about it.",
+          "Docket. Every annuity and every statutory date we find goes on the docket the day we find it, ours to keep or not, and we reconcile against the licensor's docket rather than trusting it."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Next steps"},
+        {"kind": "list", "items": [
+          "I send the document request to Tiffany Munoz this week: term sheet, the funding agreements if they exist, and the licensor's own docket for all eleven families.",
+          "Richard Henderson pulls the assignment records for the full set and gives me the title picture, gaps included, by our next working session.",
+          "I schedule the first round of inventor interviews and circulate the family list with an owner against each one.",
+          "We open the matter on the docket and mirror in every date we have so far, flagged as unverified until we have confirmed it against the record ourselves."
+        ]},
+        {"kind": "paragraph", "text": "One request, and it is the only thing in this memo I care about more than the schedule. Write down what you assumed, every time, in the same breath as the conclusion. Some board is going to read this report and somebody's counsel may go at it afterward, and the assumption is the part they go at first. I would rather the report be dull and checkable than smooth and indefensible. If you reach a conclusion you cannot state the assumption for, that is not a conclusion yet, and I would rather hear about it at the working session than read it in a draft."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0042",
+      "blocks": [
+        {"kind": "paragraph", "text": "Minutes of a working session on the licensing diligence for {{fact:f:E-2025-001.client}}. Prepared by Richard Henderson from contemporaneous notes. Privileged and confidential; attorney work product. Corrections to me."},
+        {"kind": "heading", "level": 1, "text": "Attendees"},
+        {"kind": "list", "items": [
+          "Richard Henderson, Patent Agent, Prosecution",
+          "David Chang, Patent Agent, Prosecution",
+          "Tiffany Munoz, Chief Financial Officer, Price-Henson"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Discussion"},
+        {"kind": "paragraph", "text": "Title. Of the eleven families in the proposed grant, nine now have a chain recorded from each named inventor through to the licensor with no gap that I can find. Two do not. In the first, the assignment from the second-named inventor was executed but appears never to have been recorded, and the continuation was filed before it. In the second, an assignment runs to an entity whose merger into the licensor is not of record. I have assumed that the licensor's counsel can produce the executed originals in both cases. On that assumption the defect is one of recording rather than of ownership, and it is curable. If the originals do not exist, the assumption fails, and so does the grant as to those two families. David Chang asked whether the report should say that in those terms. It should."},
+        {"kind": "paragraph", "text": "Encumbrances. Three families disclose federal funding on the face of the specification. I have not read the funding agreements themselves and have asked for them. If the disclosures are accurate, the government holds a nonexclusive paid-up license and march-in rights survive whatever the licensor grants, which means exclusivity in those three families is not exclusivity as against the United States. One further family is subject to a prior exclusive grant in a field of use that the recorded document describes in language I would not call precise. Whether that field overlaps what Price-Henson intends to build is a question of construction rather than of records, and I have moved it into the claim work."},
+        {"kind": "paragraph", "text": "Claim mapping. David Chang has finished the second round of inventor interviews and has product descriptions from the client's engineers rather than from its materials, which is the difference between a claim chart and a guess. I have begun reading the independent claims against those descriptions. Four read on the planned product on their face. Two turn on the construction of terms the prosecution history narrowed, and I will not have a view on those until I have read the office actions in full rather than in summary. I said in the session that I would rather report two claims as uncertain than report them as covered and be wrong about it, and nobody argued."},
+        {"kind": "paragraph", "text": "Client questions. Tiffany Munoz asked what could move faster if the board wanted to sign sooner. The answer given was that the title work cannot be compressed, because it waits on documents the licensor has to produce, and that the claim analysis is the piece where an early view is worth the least and costs the most. She accepted that and asked to be told the moment either title defect turns from curable into real. Agreed."},
+        {"kind": "heading", "level": 1, "text": "Action items"},
+        {"kind": "table",
+         "header": ["Action", "Owner", "Target"],
+         "rows": [
+           ["Request the executed originals of the two unrecorded assignments from licensor's counsel, in writing", "David Chang", "This week"],
+           ["Obtain and read the federal funding agreements for the three families disclosing government support", "Richard Henderson", "Before the next working session"],
+           ["Check the field-of-use language in the prior exclusive grant against the recorded document itself, not the summary", "Richard Henderson", "Before the next working session"],
+           ["Provide the licensor's docket for annuity dates on all eleven families so ours can be reconciled against it", "Tiffany Munoz", "On receipt from the licensor"],
+           ["Complete claim charts for the four independent claims that read on the planned product", "David Chang", "With the status report"],
+           ["Circulate the assumption list underlying the title conclusions for review", "Richard Henderson", "With the status report"]
+         ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0043",
+      "blocks": [
+        {"kind": "paragraph", "text": "Status report on the licensing diligence for {{fact:f:E-2025-001.client}}. Prepared by David Chang, Patent Agent. Privileged and confidential; prepared for the client in anticipation of a transaction."},
+        {"kind": "heading", "level": 1, "text": "Summary"},
+        {"kind": "paragraph", "text": "The engagement is at its midpoint and on schedule. Title work on the eleven families in the proposed grant is complete in substance: nine chains are clean of record, and two carry recording defects that we believe are curable but have not yet confirmed as cured. The encumbrance review is complete as to the record and open as to two categories of document the licensor has not yet produced. Claim analysis is underway. Nothing we have found to date would lead us to advise Price-Henson against the transaction. Two of the items under Risks below could change that, and we would rather name them plainly at the midpoint than qualify a conclusion at the end."},
+        {"kind": "heading", "level": 1, "text": "Completed this period"},
+        {"kind": "list", "items": [
+          "Chain of title reviewed for all eleven families in the proposed grant, from each named inventor's assignment through every recorded transfer.",
+          "Two title defects identified and characterized. In both, the executed assignment appears to exist but is not of record. We have asked the licensor's counsel to produce the executed originals in writing.",
+          "File wrappers obtained and read for every issued patent in the set, with certified copies ordered and on file for the families we expect to be load-bearing.",
+          "Encumbrance search of the record completed. Three families disclose federal funding, one is subject to a prior exclusive grant in a defined field of use, and no security interest of record encumbers any family in the set.",
+          "Two rounds of inventor and engineer interviews completed, producing the product descriptions that Richard Henderson is now reading the claims against.",
+          "Annuity and maintenance status recorded for every family, with each next statutory window on our docket and reconciled against the licensor's own."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Upcoming work"},
+        {"kind": "list", "items": [
+          "Claim charts for the independent claims that read on the planned product, and a written construction note for the two claims whose prosecution history narrowed the terms at issue.",
+          "Review of the federal funding agreements once produced, to confirm the scope of the license the government retained.",
+          "Confirmation from the licensor's counsel on the two unrecorded assignments, with recording to follow if the executed originals are produced.",
+          "A draft diligence report for internal review and then for yours, organized by family, with the assumption behind each conclusion stated alongside it.",
+          "A closing session to walk the report and take questions before it is issued in final form."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Budget"},
+        {"kind": "paragraph", "text": "The engagement is a fixed fee of {{fact:f:E-2025-001.fee}}, covering the scope set out in our engagement letter and the report that concludes it. At the midpoint we have consumed slightly under half of the effort budgeted against that fee, and we do not presently expect the work described above to exceed it. Two developments would. The first is an increase in the family count in the proposed grant beyond the tolerance the engagement letter allows. The second is reconstruction of a chain of title from sources outside the record, which would become necessary only if the licensor cannot produce the executed originals discussed below. If either arises, Price-Henson will hear it from us before the work is done rather than on an invoice afterward, and no supplement takes effect without your written agreement."},
+        {"kind": "heading", "level": 1, "text": "Risks"},
+        {"kind": "list", "items": [
+          "The two unrecorded assignments. If the executed originals exist, this is an administrative defect and the licensor cures it by recording. If they do not exist, the licensor cannot grant what the term sheet describes as to those two families, and the transaction would have to be repriced or rescoped. We have no reason today to believe the originals are missing. We also have no confirmation that they are not, and we are not willing to treat the absence of bad news as good news.",
+          "Federal funding on three families. If the disclosures on the face of those specifications are accurate, the government retains a nonexclusive, irrevocable, paid-up license, and march-in rights survive any grant the licensor makes. This does not defeat the transaction. It does mean exclusivity in those three families is narrower than the term sheet's language suggests, and it is better understood before signature than argued after it.",
+          "The prior exclusive grant. One family carries an earlier exclusive grant in a field of use described in imprecise terms. Whether that field overlaps the planned product is a question of construction. We will give you a view, and it will be a qualified one, because the recorded language will not support a flat answer in either direction and we will not manufacture one.",
+          "Claim construction on two independent claims. The prosecution history narrowed terms that matter to the planned product. Richard Henderson is reading the office actions in full before forming a view. We would rather carry these as uncertain at the midpoint than record them as covered now and correct the record in the final report."
+        ]},
+        {"kind": "paragraph", "text": "We will follow this report with the closing session described above. In the meantime, a short note against the matter number is the fastest way to reach us, and anything that changes the family list or the parties to the transaction should reach us the day it changes rather than at the next scheduled report."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0045",
+      "blocks": [
+        {"kind": "paragraph", "text": "Minutes of a working session on the licensing diligence for {{fact:f:E-2025-001.client}}. Prepared by Richard Henderson from contemporaneous notes. Privileged and confidential; attorney work product. Corrections to me."},
+        {"kind": "heading", "level": 1, "text": "Attendees"},
+        {"kind": "list", "items": [
+          "Richard Henderson, Patent Agent, Prosecution",
+          "David Chang, Patent Agent, Prosecution",
+          "Tiffany Munoz, Chief Financial Officer, Price-Henson"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Discussion"},
+        {"kind": "paragraph", "text": "Report status. The draft has been through internal review and is with the client for comment. It is organized by family. Each conclusion carries its assumption in the same paragraph rather than in a schedule at the back. David Chang argued for that arrangement and I agreed with it: a reader who skips the schedule should not thereby be able to skip the assumption."},
+        {"kind": "paragraph", "text": "Title. The licensor produced the executed original of the assignment for the first of the two defective families and it has been recorded. That chain is now clean of record and the report says so without qualification, which makes it the only unqualified sentence we have written in this matter. The second family remains open. The licensor's counsel states that the executed original exists and is being located. Until it is in hand, the report will say that the licensor's ability to grant that family is unconfirmed. David Chang asked whether that could be softened to expected to be confirmed. It should not be. What we have is a representation from the other side's counsel, not a document, and the report should say which of the two it is relying on."},
+        {"kind": "paragraph", "text": "Government interest. The funding agreements for the three families were produced and read in full. The disclosures on the face of the specifications are accurate. The retained license is the standard nonexclusive, irrevocable, paid-up license, and march-in survives. The report states the consequence plainly: exclusivity in those three families does not run against the United States or against a contractor acting for it. Tiffany Munoz confirmed that the Price-Henson board has been told and that it did not change the board's appetite for the transaction."},
+        {"kind": "paragraph", "text": "Field-of-use grant. The construction question on the prior exclusive grant resolved better than I expected, though not cleanly. On the ordinary meaning of the recorded language the earlier field does not reach the planned product. There is a reading on which it does, and I would not call that reading frivolous. The report gives both, says which we believe is correct, and says why. Tiffany Munoz asked for a one-line answer for the board. The answer given was that a one-line answer on this point is exactly the kind of thing that gets read back to us later, and that the board can have one sentence and the paragraph under it, but not the sentence alone."},
+        {"kind": "paragraph", "text": "Remaining work. The claim charts are complete. The two claims that turned on prosecution history have been worked through element by element. One reads on the planned product as construed and one does not; the report says which, and on what construction, and what would change the answer. What is left is the second executed original, the client's comments on the draft, and the closing session."},
+        {"kind": "heading", "level": 1, "text": "Action items"},
+        {"kind": "table",
+         "header": ["Action", "Owner", "Target"],
+         "rows": [
+           ["Press licensor's counsel in writing for the executed original of the remaining unrecorded assignment, and record it on receipt", "David Chang", "This week"],
+           ["Return client comments on the draft report", "Tiffany Munoz", "Within the review period agreed at the session"],
+           ["Finalize the construction paragraph on the field-of-use grant so the board has one sentence and one supporting paragraph", "Richard Henderson", "On receipt of comments"],
+           ["Reconcile the annuity docket against the licensor's a final time before delivery", "Richard Henderson", "Before delivery"],
+           ["Schedule the closing session to walk the report and take questions", "David Chang", "On finalization"]
+         ]}
+      ]
+    }
+  ]
+}

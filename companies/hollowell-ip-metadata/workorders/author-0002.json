@@ -1,0 +1,286 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0002",
+  "stage": "author",
+  "slug": "hollowell-ip",
+  "org_name": "Hollowell Patent Group PLLC",
+  "org_type": "intellectual property law",
+  "narrative": "Hollowell Patent Group is a patent boutique founded in 2016 by a partner\nwho left a general-practice firm and took two clients with her. It\nprosecutes and defends portfolios for a medical device manufacturer, a\nuniversity licensing office, and a pair of venture-backed hardware\nstartups. Docketing is the firm's religion: a missed date is the only\nmistake it cannot absorb.\n\nThe share reads like a practice that bills by the matter. Engagement\nletters are explicit about scope, conflicts, and what happens if a client\ndoes not pay. Portfolio reviews are long, structured, and organized by\nfamily. Freedom-to-operate memoranda are hedged with care and marked as\nprivileged. Client updates go out as short emails against a docket\nnumber, and the occasional deck is for a board that wants the portfolio\non one page.\n\nTone is precise, formal, and allergic to overstatement: counsel who\nwrites \"this does not infringe\" without qualification is writing a\nliability. Attorneys use full names and titles in anything a client\nreads. One partner goes by a shortened first name in internal minutes and\nher full legal name on every letter and signature block, which is exactly\nhow a real firm's documents behave and exactly what makes resolving her a\nproblem worth testing.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0006",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2019-06-12",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        },
+        {
+          "id": "p:sharon.woods",
+          "name": "Sharon Woods",
+          "title": "Docketing Manager",
+          "dept": "Operations",
+          "persona": "Owns the calendar the firm's religion is built on and is unsentimental about it: dates are entered, confirmed, and reconfirmed, and no attorney's assurance substitutes for a docket entry. Her internal messages are short, declarative, and structurally identical week to week, because the format is the point. Polite but immovable when asked to move a date, and she treats a request to reconstruct how a deadline was calculated as routine work. The only person who routinely tells partners no in writing."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sharon.woods",
+          "surface": "Sharon Woods",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2019. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    },
+    {
+      "doc_id": "d:0010",
+      "title": "Onboarding: Richard Henderson",
+      "genre": "onboarding_record",
+      "date": "2019-10-24",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.henderson",
+          "surface": "Richard Henderson",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0021",
+      "title": "Onboarding: Joseph Walker",
+      "genre": "onboarding_record",
+      "date": "2021-01-25",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:joseph.walker",
+          "name": "Joseph Walker",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Handles the startup portfolios and has learned to translate founder enthusiasm into something a file can survive, mostly by asking what was actually disclosed and to whom. Writes client updates that are shorter than his colleagues', on the theory that a busy engineer reads the first two sentences or none. His analytical work is more cautious than his correspondence suggests, with the qualifications loaded into the memorandum rather than the email. Reliably the one who notices a scope question hiding inside a scheduling question."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joseph.walker",
+          "surface": "Joseph Walker",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0022",
+      "title": "Onboarding: Ashley Williams",
+      "genre": "onboarding_record",
+      "date": "2021-02-10",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:ashley.williams",
+          "name": "Ashley Williams",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "Drafts with an ear for how a claim term will look to a hostile reader years later, and argues about word choice longer than anyone else in the group thinks is warranted. Organizes her work by family and expects everyone else's to be organized the same way, which occasionally makes her the loudest voice in a portfolio review. Writes in complete, formal sentences even in internal notes, a habit she describes as not wanting two registers to maintain. Uncomfortable with any sentence containing the word clearly."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:ashley.williams",
+          "surface": "Ashley Williams",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0030",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2022-06-11",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 3 client engagement(s) across 2019-2021. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, {{fact:f:E-2021-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    },
+    {
+      "doc_id": "d:0031",
+      "title": "Onboarding: Matthew Parrish",
+      "genre": "onboarding_record",
+      "date": "2023-01-14",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:matthew.parrish",
+          "name": "Matthew Parrish",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The group's search specialist by temperament, happiest in prior art and visibly reluctant to state a conclusion the record does not force. His contributions to freedom-to-operate work are the parts that define what was and was not looked at, phrased so that nobody can later mistake a boundary for an opinion. Quiet in meetings and thorough on paper, with a habit of sending a follow-up note correcting a detail nobody else caught. Treats an unqualified infringement statement as a drafting error."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:matthew.parrish",
+          "surface": "Matthew Parrish",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

@@ -1,0 +1,529 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0001",
+  "stage": "author",
+  "slug": "hollowell-ip",
+  "org_name": "Hollowell Patent Group PLLC",
+  "org_type": "intellectual property law",
+  "narrative": "Hollowell Patent Group is a patent boutique founded in 2016 by a partner\nwho left a general-practice firm and took two clients with her. It\nprosecutes and defends portfolios for a medical device manufacturer, a\nuniversity licensing office, and a pair of venture-backed hardware\nstartups. Docketing is the firm's religion: a missed date is the only\nmistake it cannot absorb.\n\nThe share reads like a practice that bills by the matter. Engagement\nletters are explicit about scope, conflicts, and what happens if a client\ndoes not pay. Portfolio reviews are long, structured, and organized by\nfamily. Freedom-to-operate memoranda are hedged with care and marked as\nprivileged. Client updates go out as short emails against a docket\nnumber, and the occasional deck is for a board that wants the portfolio\non one page.\n\nTone is precise, formal, and allergic to overstatement: counsel who\nwrites \"this does not infringe\" without qualification is writing a\nliability. Attorneys use full names and titles in anything a client\nreads. One partner goes by a shortened first name in internal minutes and\nher full legal name on every letter and signature block, which is exactly\nhow a real firm's documents behave and exactly what makes resolving her a\nproblem worth testing.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0003",
+      "title": "Engagement Letter: Patent Portfolio Review for Odonnell Inc",
+      "genre": "engagement_letter",
+      "date": "2019-05-03",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        },
+        {
+          "id": "p:amanda.schwartz",
+          "name": "Amanda Schwartz",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+        },
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        },
+        {
+          "id": "xp:gary.smith",
+          "name": "Gary Smith",
+          "title": "General Manager",
+          "dept": "Odonnell Inc",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Patent Portfolio Review for Odonnell Inc, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.schwartz",
+          "surface": "Amanda Schwartz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.munoz",
+          "surface": "Heather Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gary.smith",
+          "surface": "Gary Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:odonnell-inc",
+          "surface": "Odonnell Inc",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Commercial fee terms are executed on the signature page by counsel; do not state, estimate, or reference the fee amount anywhere in the text.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0004",
+      "title": "Kickoff Memo: Patent Portfolio Review for Odonnell Inc",
+      "genre": "kickoff_memo",
+      "date": "2019-05-16",
+      "authors": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        },
+        {
+          "id": "p:amanda.schwartz",
+          "name": "Amanda Schwartz",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+        },
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        },
+        {
+          "id": "xp:gary.smith",
+          "name": "Gary Smith",
+          "title": "General Manager",
+          "dept": "Odonnell Inc",
+          "persona": ""
+        },
+        {
+          "id": "p:sharon.woods",
+          "name": "Sharon Woods",
+          "title": "Docketing Manager",
+          "dept": "Operations",
+          "persona": "Owns the calendar the firm's religion is built on and is unsentimental about it: dates are entered, confirmed, and reconfirmed, and no attorney's assurance substitutes for a docket entry. Her internal messages are short, declarative, and structurally identical week to week, because the format is the point. Polite but immovable when asked to move a date, and she treats a request to reconstruct how a deadline was calculated as routine work. The only person who routinely tells partners no in writing."
+        }
+      ],
+      "engagement_summary": "Patent Portfolio Review for Odonnell Inc, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.schwartz",
+          "surface": "Amanda Schwartz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.munoz",
+          "surface": "Heather Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gary.smith",
+          "surface": "Gary Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:odonnell-inc",
+          "surface": "Odonnell Inc",
+          "kind": "org"
+        },
+        {
+          "entity": "p:sharon.woods",
+          "surface": "Sharon Woods",
+          "kind": "person"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 1% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0005",
+      "title": "RE: Patent Portfolio Review for Odonnell Inc",
+      "genre": "engagement_email",
+      "date": "2019-06-10",
+      "authors": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        },
+        {
+          "id": "p:amanda.schwartz",
+          "name": "Amanda Schwartz",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+        },
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        },
+        {
+          "id": "xp:gary.smith",
+          "name": "Gary Smith",
+          "title": "General Manager",
+          "dept": "Odonnell Inc",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Patent Portfolio Review for Odonnell Inc, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.schwartz",
+          "surface": "Amanda Schwartz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.munoz",
+          "surface": "Heather Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gary.smith",
+          "surface": "Gary Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:odonnell-inc",
+          "surface": "Odonnell Inc",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock.",
+      "engagement_position": "This document is dated about 13% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0007",
+      "title": "Briefing Deck: Patent Portfolio Review for Odonnell Inc",
+      "genre": "briefing_deck",
+      "date": "2019-07-05",
+      "authors": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        },
+        {
+          "id": "p:amanda.schwartz",
+          "name": "Amanda Schwartz",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+        },
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        },
+        {
+          "id": "xp:gary.smith",
+          "name": "Gary Smith",
+          "title": "General Manager",
+          "dept": "Odonnell Inc",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Patent Portfolio Review for Odonnell Inc, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.schwartz",
+          "surface": "Amanda Schwartz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.munoz",
+          "surface": "Heather Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gary.smith",
+          "surface": "Gary Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:odonnell-inc",
+          "surface": "Odonnell Inc",
+          "kind": "org"
+        }
+      ],
+      "target_words": 400,
+      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock.",
+      "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0008",
+      "title": "Meeting Minutes: Patent Portfolio Review for Odonnell Inc",
+      "genre": "meeting_minutes",
+      "date": "2019-08-06",
+      "authors": [
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        },
+        {
+          "id": "p:amanda.schwartz",
+          "name": "Amanda Schwartz",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+        },
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        },
+        {
+          "id": "xp:gary.smith",
+          "name": "Gary Smith",
+          "title": "General Manager",
+          "dept": "Odonnell Inc",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Patent Portfolio Review for Odonnell Inc, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.munoz",
+          "surface": "Heather Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.schwartz",
+          "surface": "Amanda Schwartz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:gary.smith",
+          "surface": "Gary Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:odonnell-inc",
+          "surface": "Odonnell Inc",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0009",
+      "title": "Status Report: Patent Portfolio Review for Odonnell Inc",
+      "genre": "status_report",
+      "date": "2019-08-27",
+      "authors": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+        },
+        {
+          "id": "p:amanda.schwartz",
+          "name": "Amanda Schwartz",
+          "title": "Associate",
+          "dept": "Prosecution",
+          "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+        },
+        {
+          "id": "p:heather.munoz",
+          "name": "Heather Munoz",
+          "title": "Partner",
+          "dept": "Prosecution",
+          "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+        }
+      ],
+      "engagement_summary": "Patent Portfolio Review for Odonnell Inc, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.schwartz",
+          "surface": "Amanda Schwartz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.munoz",
+          "surface": "Heather Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:odonnell-inc",
+          "surface": "Odonnell Inc",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

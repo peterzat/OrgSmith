@@ -1,0 +1,187 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0004",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0013",
+      "blocks": [
+        {"kind": "paragraph", "text": "{{fact:f:E-2020-001.client}}"},
+        {"kind": "paragraph", "text": "Attention: Barbara Blair, Director of Operations"},
+        {"kind": "paragraph", "text": "Dear Ms. Blair:"},
+        {"kind": "paragraph", "text": "This letter sets out the terms on which we will represent Middleton, Sullivan and Wiley in the freedom-to-operate analysis we discussed last month. Please read all of it. If it states our understanding correctly, sign the enclosed copy and return it to me. If any part of it does not, say so before you sign rather than after. Every term below is one I would rather negotiate now than explain later."},
+        {"kind": "heading", "level": 2, "text": "Scope of the Engagement"},
+        {"kind": "paragraph", "text": "You have asked us to advise whether the device described in the materials your engineering group furnished can be made, used, offered for sale, sold, or imported in the United States without infringing an unexpired claim held by another party. We will search United States patents and published United States applications, identify the claims we consider material, construe those claims for the purpose of this analysis, and give you our view, in writing, of whether the device as described falls within them."},
+        {"kind": "paragraph", "text": "The engagement does not include the following, and I want that stated in the letter rather than discovered in a meeting: an opinion on the validity or enforceability of any patent, except where we say so expressly and in writing; clearance in any jurisdiction outside the United States; monitoring of applications that publish after the search cutoff we set; the preparation or prosecution of any application; and any representation in litigation or in a proceeding before the Patent Trial and Appeal Board. Each of those is work we can do, and each requires its own engagement letter."},
+        {"kind": "paragraph", "text": "Our analysis is bounded by the device description you give us. If the design changes in any respect that bears on a claim element we chart, the analysis may no longer describe your product. The obligation to tell us of such a change is yours, and we have no way to detect one on our own."},
+        {"kind": "heading", "level": 2, "text": "Approach"},
+        {"kind": "paragraph", "text": "We will work in three phases. First, intake: we will characterize the device element by element and agree with you in writing on the description we are clearing, so that the thing we analyze and the thing you intend to ship are the same thing. Second, search and charting: we will develop the search, set a cutoff, review the results, and chart the material claims against the agreed description. Third, analysis and report: we will deliver a written memorandum stating our conclusions, the assumptions on which they rest, and what was searched to reach them."},
+        {"kind": "paragraph", "text": "We do not give oral clearance opinions, and we do not write that a product does not infringe without saying what was searched and what was assumed. A conclusion without its limits is not advice you can rely on, and it is not advice this firm gives. Expect the memorandum to be qualified where the question is genuinely unsettled and plain where it is not. If a qualification in it troubles you, the remedy is to ask what would have to be true to remove it, not to ask us to remove it."},
+        {"kind": "heading", "level": 2, "text": "The Team"},
+        {"kind": "paragraph", "text": "Heather Munoz, Partner, will carry the substantive analysis and will sign the memorandum. Richard Henderson, Patent Agent, will perform the claim charting and the element-by-element comparison against the agreed device description. Kelly Snyder, Patent Agent, will work the file histories and the prior art record. I will supervise the engagement and remain your point of contact on any question of scope, staffing, or terms. If you are ever dissatisfied with any of the three, the conversation is with me and I would rather have it early."},
+        {"kind": "paragraph", "text": "We have run our conflicts check against the parties you identified at intake and are clear to proceed. If you become aware of an adverse party we have not been told about, tell us at once. A conflict found at the outset is an inconvenience. A conflict found in the middle of an opinion costs you the work you have paid for."},
+        {"kind": "heading", "level": 2, "text": "Fees and Payment"},
+        {"kind": "paragraph", "text": "Our fee for the work described above is {{fact:f:E-2020-001.fee}}, fixed for that scope, and we will begin work on {{fact:f:E-2020-001.start}}. Work outside the scope will be billed at our standard hourly rates, but only after we have told you in writing that the work is outside scope and you have instructed us in writing to do it. We invoice monthly against progress. Invoices are due thirty days from the date of the invoice. Out-of-pocket costs, including search vendor charges and official fees, are billed at cost and are not covered by the fixed fee."},
+        {"kind": "paragraph", "text": "If an invoice goes sixty days unpaid we may suspend work on written notice, and we will. I state that plainly because the consequence is not merely commercial: a suspension does not stop a date from running, and a suspended matter is the one circumstance in which a date can be missed through no fault of this firm. I would far rather have an awkward conversation about an invoice than write you the other letter."},
+        {"kind": "heading", "level": 2, "text": "Term and Termination"},
+        {"kind": "paragraph", "text": "The engagement begins on the date stated above and ends when we deliver the memorandum and you have paid for it. Either of us may terminate on written notice. You remain responsible for fees earned and costs incurred through the effective date of termination. We may withdraw where the rules of professional conduct require or permit it, including for nonpayment, for a conflict that develops after we begin, or if you ask us to state a conclusion the analysis does not support. On termination we will return your materials and give you a written accounting of where the work stood when it stopped."},
+        {"kind": "heading", "level": 2, "text": "Confidentiality"},
+        {"kind": "paragraph", "text": "We will hold your confidential information in confidence and use it only for this engagement. Our communications with you and the memorandum itself are intended to be protected by the attorney-client privilege and the work product doctrine, and we will mark them accordingly. The privilege is yours, not ours, and it is easier to waive than to assert. Circulating the memorandum beyond the people who need it to make the decision can waive it; forwarding it to a customer, a distributor, or an investor very likely will. Route distribution questions to Heather Munoz before the fact rather than after."},
+        {"kind": "heading", "level": 2, "text": "Limitation of Liability"},
+        {"kind": "paragraph", "text": "Our aggregate liability arising out of or relating to this engagement is limited to the fees actually paid to us under it, and we are not liable for indirect, incidental, or consequential damages, including lost profits. This paragraph is not boilerplate about an unlikely event, and I will not let you sign it as though it were. A freedom-to-operate analysis is an opinion formed on a public record at a point in time. It cannot exclude a claim in an application that had not published when we searched, a claim the search did not surface, or a construction a court adopts that we did not predict. You are buying our judgment, exercised with care and stated with its limits. You are not buying a guarantee, and no competent firm will sell you one."},
+        {"kind": "heading", "level": 2, "text": "Governing Law"},
+        {"kind": "paragraph", "text": "This letter and the engagement it describes are governed by the laws of the state in which the firm maintains its principal office, without regard to its conflict of laws rules. If a dispute arises between us over fees, we will each participate in the fee dispute resolution program of that state's bar before either of us files anything anywhere."},
+        {"kind": "paragraph", "text": "If this letter states our agreement, please sign below and return one executed copy to me; the second is yours to keep. On receipt, Heather Munoz will contact Barbara Blair to schedule the intake session, and Richard Henderson will send the document request that precedes it. We are glad to be doing this work for Middleton, Sullivan and Wiley, and we intend to earn the next matter with it."},
+        {"kind": "sigblock", "signers": ["p:mary.bradley", "xp:barbara.blair"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0014",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Heather Munoz, Partner; Kelly Snyder, Patent Agent"},
+        {"kind": "paragraph", "text": "From: Richard Henderson, Patent Agent"},
+        {"kind": "paragraph", "text": "Re: Freedom-to-operate analysis for {{fact:f:E-2020-001.client}}; matter opened {{fact:f:E-2020-001.start}}"},
+        {"kind": "paragraph", "text": "Privileged and confidential. Attorney work product. Prepared at the direction of counsel."},
+        {"kind": "heading", "level": 2, "text": "Objective"},
+        {"kind": "paragraph", "text": "The object of this matter is a written opinion on whether the device described in the client's intake materials falls within an unexpired United States claim held by another party. Everything below is organized to that end. I am writing it down at the front of the file so that when we disagree six months from now about what we were asked to do, there is a document to disagree with."},
+        {"kind": "paragraph", "text": "Two things are unsettled and I want them settled before any searching starts. First, the device description. We have three documents from the client and they do not describe the same product; the drawings appear to show a fourth. Second, the boundary between the housing and the disposable element, which the marketing sheet treats as one product and the specification treats as two. I have asked Barbara Blair for the released engineering drawings and the bill of materials. I would rather wait a week for them than chart claims against the wrong description, and I do not consider that a schedule risk. Charting the wrong part is the schedule risk."},
+        {"kind": "heading", "level": 2, "text": "Workstreams"},
+        {"kind": "list", "items": [
+          "Device characterization. Owner: Richard Henderson. Reduce the client's materials to one element-by-element description of what is to be cleared, and get Middleton, Sullivan and Wiley to confirm it in writing. Nothing downstream starts until that confirmation is in the file.",
+          "Search strategy and execution. Owner: Richard Henderson, with Heather Munoz approving the strategy and fixing the cutoff. Classification and text searching against United States patents and published United States applications. Search parameters recorded as we go, so the memorandum can state them rather than reconstruct them.",
+          "File histories and prior art record. Owner: Kelly Snyder. Pull and read the prosecution history of anything we chart. Her standing instruction applies: the history gets read before the claims.",
+          "Claim charting. Owner: Richard Henderson. One chart per material claim, element against element. Each assumption written on the face of the chart that depends on it, not carried in my head.",
+          "Analysis and drafting. Owner: Heather Munoz. She takes the charts and writes the opinion. She does not take my conclusions, and I am not going to offer any.",
+          "Docketing. Owner: Kelly Snyder. Every checkpoint and client deliverable on the docket at the moment it is agreed, not at the moment it comes due."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Next Steps"},
+        {"kind": "list", "items": [
+          "I will circulate the consolidated device description for internal comment before it goes to the client.",
+          "Kelly Snyder to open docket entries for the checkpoints named in the engagement letter and confirm them back to Heather Munoz.",
+          "Heather Munoz to fix the search cutoff and the classification scope. I will not start searching until she has, because a cutoff set after the fact is not a cutoff.",
+          "Barbara Blair to send the released drawings and the bill of materials. I will follow up at the end of next week if they have not arrived.",
+          "Working sessions by telephone for the present, since none of us are in the office. Kelly Snyder has asked that we hold them in a fixed slot so the docket calendar stays legible, which is a reasonable ask and costs nothing."
+        ]},
+        {"kind": "paragraph", "text": "Two assumptions underlie all of the above, and neither is safe. I am assuming that the drawings, when they arrive, are the released version rather than a working revision. I am assuming that the disposable element is within scope. If either is wrong, the workstreams change and the schedule changes with them. I will say so in writing the moment I know."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0015",
+      "blocks": [
+        {"kind": "paragraph", "text": "Barbara Blair, Heather Munoz, Kelly Snyder,"},
+        {"kind": "paragraph", "text": "Status on the {{fact:f:E-2020-001.client}} freedom-to-operate work as of today. The consolidated device description went across last week and I have written confirmation on the housing but not on the disposable element. Until the second piece is confirmed I am charting the housing only. That is not a delay, it is the order the work has to happen in."},
+        {"kind": "paragraph", "text": "The search strategy is approved and the first pass is run. The material set came back thinner than the technology warrants and I do not entirely trust it, so I am running a second pass against a classification the first did not reach before I hand anything to Kelly Snyder for the file histories. Assumption on the record: the cutoff is the one Heather Munoz set, and anything published after it is outside this analysis unless we are told otherwise in writing. Nothing in the set so far has changed my view of what needs charting, but I have not finished reading it and would not want that read as a conclusion."},
+        {"kind": "paragraph", "text": "Two asks, both for Barbara Blair. The released engineering drawings, please, not the marketing renderings; what we hold does not reconcile with the bill of materials, and I would rather ask twice than chart against a part Middleton, Sullivan and Wiley does not make. And send them electronically. We are all still working from home and nothing couriered to the office will reach me this month."},
+        {"kind": "paragraph", "text": "Richard Henderson"},
+        {"kind": "paragraph", "text": "Patent Agent"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0016",
+      "blocks": [
+        {"kind": "paragraph", "text": "Privileged and confidential. Attorney work product. Prepared at the direction of counsel for the purpose of providing legal advice."},
+        {"kind": "paragraph", "text": "Working session on the freedom-to-operate analysis for {{fact:f:E-2020-001.client}}. Minutes taken by Heather Munoz."},
+        {"kind": "heading", "level": 2, "text": "Attendees"},
+        {"kind": "list", "items": [
+          "Heather Munoz, Partner, Prosecution (chair)",
+          "Richard Henderson, Patent Agent, Prosecution",
+          "Kelly Snyder, Associate, Prosecution",
+          "Barbara Blair, Director of Operations, Middleton, Sullivan and Wiley"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Discussion"},
+        {"kind": "paragraph", "text": "Richard Henderson walked the claim charts for the references he considers material, element by element, and stopped at each element where the agreed description neither plainly meets nor plainly avoids the language. That is the right place to stop and I said so. I asked him the question I always ask, which is what the claim would have to say for his answer to change. On most of the charts he had an answer. On one he did not, and that one is where the remaining work is."},
+        {"kind": "paragraph", "text": "Kelly Snyder had read the prosecution history of the reference giving us trouble and found the amendment nobody had mentioned: the applicant narrowed the element during prosecution and stated a reason for doing it. That is the most useful document in the file. It does not resolve the question, and I am being careful not to write in these minutes that it does. What it does is move the analysis off claim scope and onto what the estoppel reaches, which is a different argument with a different answer."},
+        {"kind": "paragraph", "text": "Barbara Blair asked the question a client is entitled to ask, which is whether we can tell them now that the device is clear. The answer is no, and I told her why rather than simply telling her no. We have charted against a description confirmed for the housing and not for the disposable element. Our cutoff means anything published since is outside this analysis. One construction question is open. Any one of those on its own is enough to keep a conclusion out of my mouth, and we have all three. She took that better than most clients do, and asked instead what would have to happen to close each one, which is the useful version of the question."},
+        {"kind": "paragraph", "text": "On position: we are at about the middle of this matter and the charting is where I expected it to be. The open construction question is the one thing capable of consuming time we have not planned for. It will be Richard Henderson's assumption log rather than the charts that tells us how much, which is the argument for keeping the log current rather than reconstructing it at the end."},
+        {"kind": "paragraph", "text": "Kelly Snyder asked for the docket dates before she asked anything else, as she does, and she was right to. The checkpoints for the remaining phases are now on the docket and confirmed back to me. Nothing in this matter gets agreed in a meeting and docketed afterward."},
+        {"kind": "heading", "level": 2, "text": "Action Items"},
+        {"kind": "table",
+         "header": ["Item", "Owner", "Status"],
+         "rows": [
+           ["Confirm in writing that the disposable element is within the agreed device description", "Barbara Blair", "Open; blocking the second half of the charting"],
+           ["Complete claim charts for the remaining material references", "Richard Henderson", "In progress"],
+           ["Brief the prosecution history estoppel question on the narrowed element", "Kelly Snyder", "Opened at this meeting"],
+           ["Fix a construction position for the disputed element, or record why it stays open", "Heather Munoz", "Open"],
+           ["Docket the checkpoints for the analysis and drafting phases and confirm back", "Kelly Snyder", "Done at this meeting"],
+           ["Circulate the assumption log with the next set of charts", "Richard Henderson", "Open"]
+         ]},
+        {"kind": "paragraph", "text": "Nothing in these minutes is a conclusion on infringement. The conclusions will be in the memorandum, stated after what was searched and what was assumed, and not before."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0017",
+      "blocks": [
+        {"kind": "paragraph", "text": "Privileged and confidential. Attorney work product. Prepared for {{fact:f:E-2020-001.client}} at the direction of counsel."},
+        {"kind": "paragraph", "text": "Prepared by: Richard Henderson, Patent Agent, Prosecution. Reviewed by Heather Munoz, Partner, before issue."},
+        {"kind": "heading", "level": 2, "text": "Status Summary"},
+        {"kind": "paragraph", "text": "The freedom-to-operate analysis for Middleton, Sullivan and Wiley is at roughly its midpoint and is on schedule. The matter is running against its fixed fee of {{fact:f:E-2020-001.fee}}, and the effort recorded to date is approximately half of what that fee contemplates, which is where it should be at this point. No conclusion on infringement is stated in this report and none should be read into it. This report describes work performed, not results reached."},
+        {"kind": "paragraph", "text": "One item is behind, and it is not ours. The device description we are clearing is confirmed for the housing and is not confirmed for the disposable element. We have charted the housing. We have not charted the disposable element and will not, because charting against an unconfirmed description produces an opinion about a product nobody ships. Written confirmation of the disposable element is the single item on the critical path."},
+        {"kind": "paragraph", "text": "The scope of this engagement is unchanged from the engagement letter. We are clearing the device as described to us against unexpired United States claims. We are not opining on validity, we are not clearing any jurisdiction outside the United States, and we are not monitoring applications that publish after the cutoff. Each of those has come up in conversation during this period, and in each instance the answer has been that it is separate work requiring its own letter. I record that here so the boundary is documented rather than remembered."},
+        {"kind": "heading", "level": 2, "text": "Accomplishments This Period"},
+        {"kind": "list", "items": [
+          "Consolidated the intake materials, which described the product inconsistently, into one element-by-element description, and obtained written confirmation of the housing portion.",
+          "Developed and executed the search. The strategy and the cutoff were set by Heather Munoz and are recorded. A second pass was run against a classification the first did not reach, on my judgment that the first result set was thinner than the technology warranted.",
+          "Charted the material references against the confirmed portion of the description. One chart per claim, element against element, with the assumption each conclusion depends on written on the face of the chart and logged separately.",
+          "Kelly Snyder completed the prosecution histories for the charted references and identified an amendment narrowing the element at issue, together with the applicant's stated reason for it. This bears directly on the construction and was not apparent from the claims alone.",
+          "Held a working session with the client at which the open construction question was described plainly and the remaining work scoped against it.",
+          "Docketed the checkpoints for the remaining phases at the point they were agreed, and confirmed them back to the file. No date in this matter is carried in anyone's calendar alone."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Upcoming Work"},
+        {"kind": "list", "items": [
+          "Chart the disposable element on receipt of written confirmation of its description. The charting itself is not long; waiting for the confirmation is.",
+          "Kelly Snyder to complete the prosecution history estoppel analysis on the narrowed element.",
+          "Heather Munoz to fix a construction position for the disputed element or record why it remains open. She writes and signs the memorandum; I do not.",
+          "Draft the memorandum, stating the search performed, the cutoff, and the assumptions ahead of any conclusion.",
+          "A client review session on the draft before it issues, so that any factual error about the device is corrected while it is still cheap to correct."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Risks"},
+        {"kind": "list", "items": [
+          "Unconfirmed device description. If confirmation of the disposable element keeps slipping, the charting slips with it and the drafting slips behind that. This is the risk most likely to consume the remaining schedule, and we cannot retire it ourselves.",
+          "Open construction question. If the estoppel analysis does not resolve the disputed element, the memorandum will carry a qualified conclusion on that element rather than a clean one. That is an outcome and not a failure. Where the record supports a qualified conclusion, the qualified conclusion is the accurate one.",
+          "Design change. This analysis describes the device as confirmed to us. Any change to a charted element makes the corresponding chart obsolete. We have asked to be told of changes; we have no means of detecting one.",
+          "Fee. The fixed fee of {{fact:f:E-2020-001.fee}} covers the scope stated in the engagement letter. Charting a second or revised device description falls outside that scope, and we would say so in writing before doing the work rather than after."
+        ]},
+        {"kind": "paragraph", "text": "Three assumptions underlie this report. That the confirmed housing description is the released design. That the cutoff set at the outset still applies. That the disposable element, when confirmed, is the one described in the bill of materials we hold. If any of the three is wrong, the status stated above is wrong with it, and I would rather you read the assumptions than the summary."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0018",
+      "blocks": [
+        {"kind": "paragraph", "text": "Privileged and confidential. Attorney work product. Prepared at the direction of counsel for the purpose of providing legal advice."},
+        {"kind": "paragraph", "text": "Working session on the freedom-to-operate analysis for {{fact:f:E-2020-001.client}}. Minutes taken by Heather Munoz."},
+        {"kind": "heading", "level": 2, "text": "Attendees"},
+        {"kind": "list", "items": [
+          "Heather Munoz, Partner, Prosecution (chair)",
+          "Richard Henderson, Patent Agent, Prosecution",
+          "Kelly Snyder, Associate, Prosecution",
+          "Barbara Blair, Director of Operations, Middleton, Sullivan and Wiley"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Discussion"},
+        {"kind": "paragraph", "text": "The disposable element description was confirmed in writing and Richard Henderson has charted it. The charts are complete. I am recording that plainly because it is the first sentence in this matter I have been able to write without a condition attached to it."},
+        {"kind": "paragraph", "text": "Kelly Snyder's estoppel brief resolves less than we hoped and more than I expected. The narrowing amendment reaches the element as the applicant argued it, which disposes of one construction we had been worried about. It does not reach the construction the client's device would need in order to avoid the claim. We know that because she read the argument in the file rather than the amendment alone, and I have adopted her reading. What it means for the memorandum is that one element carries a qualified conclusion and the others do not."},
+        {"kind": "paragraph", "text": "I asked Richard Henderson what the claim would have to say for the qualified element to come back clean. He answered without hedging, which is what I wanted: the claim would have to recite the coupling as fixed rather than as removable, and it does not. The qualification stands, and it stands for a reason we can state to a board in one sentence."},
+        {"kind": "paragraph", "text": "Barbara Blair asked whether the qualification could be softened for the audience that will read the memorandum. It cannot, and I told her why. A conclusion written without its limits is a conclusion the client cannot rely on and this firm cannot defend. The qualified sentence is the most valuable one in the document, not the weakest one. She accepted that and asked instead for a one-page summary that carries the qualification intact. That we will do, and I will draft it myself rather than delegate the compression, because compression is where qualifications go to die."},
+        {"kind": "paragraph", "text": "Drafting is under way. The memorandum will state the search performed, the cutoff, the assumptions, and the limits before it states any conclusion, in that order. Anything published after the cutoff is outside this analysis, and the document will say so on its face rather than in a footnote. Distribution remains the client's decision and the client's privilege to waive; the point was made again and Barbara Blair will come back to us with the list."},
+        {"kind": "paragraph", "text": "Docket: the remaining checkpoints, including the client review of the draft, are entered and confirmed. Kelly Snyder confirmed them back to me before the meeting closed, which is the only reason this paragraph is short."},
+        {"kind": "heading", "level": 2, "text": "Action Items"},
+        {"kind": "table",
+         "header": ["Item", "Owner", "Status"],
+         "rows": [
+           ["Complete the draft memorandum, with limits and assumptions stated ahead of conclusions", "Heather Munoz", "In progress"],
+           ["Finalize the assumption log and reconcile it against the completed charts", "Richard Henderson", "In progress"],
+           ["Cite-check the estoppel section against the file history", "Kelly Snyder", "Open"],
+           ["Draft the one-page summary carrying the qualification intact", "Heather Munoz", "Opened at this meeting"],
+           ["Confirm the distribution list for the memorandum and the privilege consequences of it", "Barbara Blair", "Open"],
+           ["Confirm the remaining docket checkpoints back to the file", "Kelly Snyder", "Done at this meeting"]
+         ]},
+        {"kind": "paragraph", "text": "These minutes are not the opinion. The opinion is the memorandum, and it has not issued."}
+      ]
+    }
+  ]
+}

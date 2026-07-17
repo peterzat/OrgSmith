@@ -1,0 +1,84 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "hollowell-ip",
+  "org_name": "Hollowell Patent Group PLLC",
+  "org_type": "intellectual property law",
+  "narrative": "Hollowell Patent Group is a patent boutique founded in 2016 by a partner\nwho left a general-practice firm and took two clients with her. It\nprosecutes and defends portfolios for a medical device manufacturer, a\nuniversity licensing office, and a pair of venture-backed hardware\nstartups. Docketing is the firm's religion: a missed date is the only\nmistake it cannot absorb.\n\nThe share reads like a practice that bills by the matter. Engagement\nletters are explicit about scope, conflicts, and what happens if a client\ndoes not pay. Portfolio reviews are long, structured, and organized by\nfamily. Freedom-to-operate memoranda are hedged with care and marked as\nprivileged. Client updates go out as short emails against a docket\nnumber, and the occasional deck is for a board that wants the portfolio\non one page.\n\nTone is precise, formal, and allergic to overstatement: counsel who\nwrites \"this does not infringe\" without qualification is writing a\nliability. Attorneys use full names and titles in anything a client\nreads. One partner goes by a shortened first name in internal minutes and\nher full legal name on every letter and signature block, which is exactly\nhow a real firm's documents behave and exactly what makes resolving her a\nproblem worth testing.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:mary.bradley",
+      "name": "Mary Bradley",
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:heather.munoz",
+      "name": "Heather Munoz",
+      "title": "Partner",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:amanda.schwartz",
+      "name": "Amanda Schwartz",
+      "title": "Associate",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:kelly.snyder",
+      "name": "Kelly Snyder",
+      "title": "Associate",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:sharon.woods",
+      "name": "Sharon Woods",
+      "title": "Docketing Manager",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:joseph.walker",
+      "name": "Joseph Walker",
+      "title": "Associate",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:richard.henderson",
+      "name": "Richard Henderson",
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:ashley.williams",
+      "name": "Ashley Williams",
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:matthew.parrish",
+      "name": "Matthew Parrish",
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "persona": ""
+    },
+    {
+      "id": "p:david.chang",
+      "name": "David Chang",
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

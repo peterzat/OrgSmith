@@ -1,0 +1,264 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "hollowell-ip",
+  "people": [
+    {
+      "id": "p:mary.bradley",
+      "name": "Mary Bradley",
+      "aliases": [],
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2016-02-15",
+        "end": null
+      },
+      "email": "mary.bradley@hollowellpatent.com",
+      "phone": "+1 (312) 555-0198",
+      "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition.",
+      "title_history": []
+    },
+    {
+      "id": "p:heather.munoz",
+      "name": "Heather Munoz",
+      "aliases": [],
+      "title": "Partner",
+      "dept": "Prosecution",
+      "reports_to": "p:mary.bradley",
+      "employment": {
+        "start": "2016-03-15",
+        "end": null
+      },
+      "email": "heather.munoz@hollowellpatent.com",
+      "phone": "+1 (312) 555-0117",
+      "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change.",
+      "title_history": []
+    },
+    {
+      "id": "p:amanda.schwartz",
+      "name": "Amanda Schwartz",
+      "aliases": [],
+      "title": "Associate",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2016-10-01",
+        "end": "2020-12-27"
+      },
+      "email": "amanda.schwartz@hollowellpatent.com",
+      "phone": "+1 (206) 555-0140",
+      "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later.",
+      "title_history": []
+    },
+    {
+      "id": "p:kelly.snyder",
+      "name": "Kelly Snyder",
+      "aliases": [],
+      "title": "Associate",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2016-07-12",
+        "end": null
+      },
+      "email": "kelly.snyder@hollowellpatent.com",
+      "phone": "+1 (617) 555-0198",
+      "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else.",
+      "title_history": [
+        {
+          "title": "Patent Agent",
+          "start": "2016-07-12",
+          "end": "2020-06-20"
+        },
+        {
+          "title": "Associate",
+          "start": "2020-06-21",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:sharon.woods",
+      "name": "Sharon Woods",
+      "aliases": [],
+      "title": "Docketing Manager",
+      "dept": "Operations",
+      "reports_to": "p:mary.bradley",
+      "employment": {
+        "start": "2016-04-15",
+        "end": null
+      },
+      "email": "sharon.woods@hollowellpatent.com",
+      "phone": "+1 (415) 555-0184",
+      "persona": "Owns the calendar the firm's religion is built on and is unsentimental about it: dates are entered, confirmed, and reconfirmed, and no attorney's assurance substitutes for a docket entry. Her internal messages are short, declarative, and structurally identical week to week, because the format is the point. Polite but immovable when asked to move a date, and she treats a request to reconstruct how a deadline was calculated as routine work. The only person who routinely tells partners no in writing.",
+      "title_history": []
+    },
+    {
+      "id": "p:joseph.walker",
+      "name": "Joseph Walker",
+      "aliases": [
+        "Joe"
+      ],
+      "title": "Associate",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2021-01-18",
+        "end": null
+      },
+      "email": "joseph.walker@hollowellpatent.com",
+      "phone": "+1 (617) 555-0133",
+      "persona": "Handles the startup portfolios and has learned to translate founder enthusiasm into something a file can survive, mostly by asking what was actually disclosed and to whom. Writes client updates that are shorter than his colleagues', on the theory that a busy engineer reads the first two sentences or none. His analytical work is more cautious than his correspondence suggests, with the qualifications loaded into the memorandum rather than the email. Reliably the one who notices a scope question hiding inside a scheduling question.",
+      "title_history": []
+    },
+    {
+      "id": "p:richard.henderson",
+      "name": "Richard Henderson",
+      "aliases": [],
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2019-10-17",
+        "end": null
+      },
+      "email": "richard.henderson@hollowellpatent.com",
+      "phone": "+1 (212) 555-0168",
+      "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it.",
+      "title_history": []
+    },
+    {
+      "id": "p:ashley.williams",
+      "name": "Ashley Williams",
+      "aliases": [],
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2021-02-03",
+        "end": null
+      },
+      "email": "ashley.williams@hollowellpatent.com",
+      "phone": "+1 (617) 555-0114",
+      "persona": "Drafts with an ear for how a claim term will look to a hostile reader years later, and argues about word choice longer than anyone else in the group thinks is warranted. Organizes her work by family and expects everyone else's to be organized the same way, which occasionally makes her the loudest voice in a portfolio review. Writes in complete, formal sentences even in internal notes, a habit she describes as not wanting two registers to maintain. Uncomfortable with any sentence containing the word clearly.",
+      "title_history": []
+    },
+    {
+      "id": "p:matthew.parrish",
+      "name": "Matthew Parrish",
+      "aliases": [],
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2023-01-07",
+        "end": null
+      },
+      "email": "matthew.parrish@hollowellpatent.com",
+      "phone": "+1 (206) 555-0107",
+      "persona": "The group's search specialist by temperament, happiest in prior art and visibly reluctant to state a conclusion the record does not force. His contributions to freedom-to-operate work are the parts that define what was and was not looked at, phrased so that nobody can later mistake a boundary for an opinion. Quiet in meetings and thorough on paper, with a habit of sending a follow-up note correcting a detail nobody else caught. Treats an unqualified infringement statement as a drafting error.",
+      "title_history": []
+    },
+    {
+      "id": "p:david.chang",
+      "name": "David Chang",
+      "aliases": [],
+      "title": "Patent Agent",
+      "dept": "Prosecution",
+      "reports_to": "p:heather.munoz",
+      "employment": {
+        "start": "2024-02-24",
+        "end": null
+      },
+      "email": "david.chang@hollowellpatent.com",
+      "phone": "+1 (206) 555-0102",
+      "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly.",
+      "title_history": []
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:odonnell-inc",
+      "name": "Odonnell Inc",
+      "org_type": "client"
+    },
+    {
+      "id": "x:middleton-sullivan-and-wiley",
+      "name": "Middleton, Sullivan and Wiley",
+      "org_type": "client"
+    },
+    {
+      "id": "x:keith-duarte",
+      "name": "Keith-Duarte",
+      "org_type": "client"
+    },
+    {
+      "id": "x:jackson-inc",
+      "name": "Jackson Inc",
+      "org_type": "client"
+    },
+    {
+      "id": "x:price-henson",
+      "name": "Price-Henson",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:gary.smith",
+      "name": "Gary Smith",
+      "org": "x:odonnell-inc",
+      "title": "General Manager",
+      "email": "gary.smith@odonnellinc.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:barbara.blair",
+      "name": "Barbara Blair",
+      "org": "x:middleton-sullivan-and-wiley",
+      "title": "Director of Operations",
+      "email": "barbara.blair@middletonsullivanandwiley.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:joseph.palmer",
+      "name": "Joseph Palmer",
+      "org": "x:keith-duarte",
+      "title": "General Manager",
+      "email": "joseph.palmer@keithduarte.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:cynthia.hunter",
+      "name": "Cynthia Hunter",
+      "org": "x:jackson-inc",
+      "title": "Chief Operating Officer",
+      "email": "cynthia.hunter@jacksoninc.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:tiffany.munoz",
+      "name": "Tiffany Munoz",
+      "org": "x:price-henson",
+      "title": "Chief Financial Officer",
+      "email": "tiffany.munoz@pricehenson.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2016-01-15",
+      "summary": "Hollowell Patent Group PLLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2017-04-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

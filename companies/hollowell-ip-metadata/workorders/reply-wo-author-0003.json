@@ -1,0 +1,86 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0003",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0011",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Meeting Minutes: Patent Portfolio Review for Odonnell Inc"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Privileged and confidential. Attorney work product. These minutes are an internal working record of the portfolio review conducted for {{fact:f:E-2019-001.client}}. They are not an opinion and should not be read as one."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Attendees"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Heather Munoz, Partner, Prosecution (chair)",
+            "Kelly Snyder, Patent Agent, Prosecution",
+            "Amanda Schwartz, Associate, Prosecution",
+            "Gary Smith, General Manager, Odonnell Inc"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Discussion"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz opened by setting the scope of the session. The family-level analysis is substantially complete and was not reopened. What remains is the written summary, the recommendations that follow from it, and a short list of files where the record does not yet support a conclusion we are willing to put in writing. The purpose today was to fix the shape of that summary, not to re-argue the claims."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly Snyder reported on the two families she carries. She asked for the docketed response dates before summarizing, and confirmed each against the file. Her position is that the earlier family reads cleanly on the current product line and that the continuation is the one worth the money, because it is where the claim scope can still move. She noted one prior art reference in the file history that was cited but never distinguished on the record, and recommended that it be addressed in the next response rather than left for an examiner to find twice."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Amanda Schwartz walked through the remaining files. She flagged that her reading of the independent claim in the third family depends on a construction of one term that the specification supports but does not define, and said plainly that she is not confident in it. Heather Munoz asked what the claim would have to say for the answer to change. Amanda Schwartz undertook to write that out and circulate it internally before anything reaches the summary."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Gary Smith described what the board needs. He asked for the portfolio on one page, with the families grouped by product rather than by filing order, and a plain statement of which filings are carrying weight and which are not. He was clear that he does not want the reasoning in the deck; he wants to be able to point at it if asked. Heather Munoz agreed to that structure, on the condition that the one-page view travel with the memorandum and not on its own, and that the deck carry the same privilege marking as the underlying work."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz closed on the limits of the review. The searching done here was directed at the portfolio as filed and prosecuted. It was not a freedom-to-operate exercise, no clearance search was run, and the summary will say so in terms that cannot be misread. Nothing in the deliverable will state that a product does not infringe. Gary Smith acknowledged the distinction and confirmed that no clearance opinion has been requested."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Action Items"
+        },
+        {
+          "kind": "table",
+          "header": ["Item", "Owner", "Status"],
+          "rows": [
+            ["Draft the portfolio summary memorandum, organized by family, with the scope limitation stated at the front", "Heather Munoz", "In progress"],
+            ["Confirm docketed response dates for both prosecution families against the file and report any discrepancy same day", "Kelly Snyder", "Open"],
+            ["Draft the response section distinguishing the uncited reference in the file history", "Kelly Snyder", "Open"],
+            ["Circulate the claim construction question internally, with the conditions under which the reading fails", "Amanda Schwartz", "Open"],
+            ["Prepare the one-page board view, grouped by product, to travel with the memorandum", "Amanda Schwartz", "Not started"],
+            ["Confirm board meeting timing and the date by which the deck must be in hand", "Gary Smith", "Open"]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next working session will be docketed once Gary Smith confirms the board timing. Draft circulation to the client will follow internal review and not precede it."
+        },
+        {
+          "kind": "sigblock",
+          "signers": ["p:heather.munoz"]
+        }
+      ]
+    }
+  ]
+}

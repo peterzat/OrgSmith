@@ -1,0 +1,203 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0003",
+      "blocks": [
+        {"kind": "paragraph", "text": "Gary Smith, General Manager"},
+        {"kind": "paragraph", "text": "Odonnell Inc"},
+        {"kind": "paragraph", "text": "Re: Engagement for Patent Portfolio Review"},
+        {"kind": "paragraph", "text": "Dear Mr. Smith:"},
+        {"kind": "paragraph", "text": "This letter sets out the terms on which this firm will represent {{fact:f:E-2019-001.client}} in the patent portfolio review we discussed at your offices. It is written to be complete rather than short. If any part of it does not match your understanding of what we agreed, say so before you sign it. An engagement letter is worth having only if both sides read it the same way on the day it is signed, and not for the first time on the day something has gone wrong."},
+
+        {"kind": "heading", "text": "Scope of the Representation", "level": 2},
+        {"kind": "paragraph", "text": "We will review the patent portfolio you have identified to us, family by family. For each family we will reconstruct the prosecution history from the official file, confirm the chain of title and the recorded assignments, compare the issued and pending claims against the product designations you provide us, identify the families in which continuation or divisional practice remains available and the dates by which it must be exercised, and verify every deadline we find against our own docket. We will deliver written findings organized by family, each with the record that supports it and a recommendation you can act on or decline."},
+        {"kind": "paragraph", "text": "The scope stated above is the whole of it. This engagement does not include the preparation or prosecution of new applications, opinion work on the validity, infringement, or enforceability of any patent held by a third party, freedom-to-operate analysis, or the representation of {{fact:f:E-2019-001.client}} in any contested proceeding, appeal, or litigation. Any of those can be added. None of them is added by conversation. They are added by a written amendment to this letter, signed by both of us, stating the new work and its terms."},
+
+        {"kind": "heading", "text": "Conflicts", "level": 2},
+        {"kind": "paragraph", "text": "We have run this matter against our conflicts records and identified no conflict that bars the representation. That check is only as good as the parties we knew to check. If the review reaches a family in which another client of this firm has an interest, or if you acquire, license, or assert rights that bring a new party into the matter, tell us and we will run the check again. Should a conflict arise that cannot be waived, we will withdraw from the matter under the terms below rather than continue and hope."},
+
+        {"kind": "heading", "text": "Approach", "level": 2},
+        {"kind": "paragraph", "text": "Two things about how we work are worth stating in the letter rather than leaving you to discover them. First, we do not report a conclusion until the file supports it, which means our early reports will read as inventory and not as advice. Second, every date we find in your portfolio goes onto our docket, is confirmed by a second person, and is reported to you whether or not you asked about it. The rest of this engagement is judgment, and reasonable people can differ about judgment. A missed date is not judgment. It is the one error this firm does not absorb, and the procedure that prevents it is not negotiable, including by you."},
+
+        {"kind": "heading", "text": "Your Team", "level": 2},
+        {"kind": "paragraph", "text": "Heather Munoz, Partner, will have charge of the review and will sign the written findings. Kelly Snyder, Patent Agent, will reconstruct the file histories and the docket, and will send you the periodic reports on the matter. Amanda Schwartz, Associate, will carry the claim-by-claim comparison against the products you designate. I will supervise the engagement and I am your point of escalation; if the work or the reporting is not what this letter describes, the call comes to me and not to the team. The matter folder will be readable by these attorneys, our docketing staff, and me, and by no one else at the firm."},
+
+        {"kind": "heading", "text": "Commencement and Duration", "level": 2},
+        {"kind": "paragraph", "text": "Work will commence on {{fact:f:E-2019-001.start}}, subject to our receipt of a countersigned copy of this letter. We expect the review to run approximately seven months from commencement, on the assumption that the portfolio is substantially as you have described it and that the file materials in your possession reach us as they are requested. If either assumption fails, the schedule moves, and we will tell you in writing when it does and by how much."},
+
+        {"kind": "heading", "text": "Fees and Payment", "level": 2},
+        {"kind": "paragraph", "text": "The fee arrangement for this engagement is stated on the signature page of this letter and is executed together with it. Official fees, search vendor charges, translations, courier, and similar third-party costs are not included in the fee and are billed as incurred, with the supporting documentation attached to the invoice. We invoice monthly. Invoices are payable within thirty days of receipt. If you dispute a charge, tell us within that period and we will not treat the disputed portion as past due while we work it out. If an invoice remains unpaid sixty days after receipt, we may suspend work on the matter on written notice to you, and that notice will list every docketed date then pending so that you know precisely what a suspension puts at risk. Suspension does not extend a statutory or Office deadline. Nothing in this letter, and nothing either of us intends, extends one of those."},
+
+        {"kind": "heading", "text": "Term and Termination", "level": 2},
+        {"kind": "paragraph", "text": "This engagement continues until we deliver the written findings and you accept them, or until it is terminated. You may terminate at any time, with or without cause, on written notice to me. We may withdraw where the applicable rules of professional conduct permit it, including for non-payment, on written notice and subject to any approval a tribunal requires. On termination you remain responsible for fees earned and costs incurred through the effective date. We will return the file promptly and at our expense, and we will deliver with it a written statement of every docketed date then pending in the portfolio. The deadline is indifferent to the state of our relationship, and you should not have to reconstruct it from our invoices."},
+
+        {"kind": "heading", "text": "Confidentiality", "level": 2},
+        {"kind": "paragraph", "text": "Information you provide us in the course of the representation is confidential and, where the law so provides, privileged. We will not disclose it except as you direct, as the representation requires, or as we are compelled by law or by an order we cannot properly resist, in which case we will tell you first if we are permitted to. Our written analyses will be marked privileged and prepared for you rather than for circulation; the protection is not improved by our marking it, but it is not helped by your forwarding it either, and we will flag the documents where that matters."},
+
+        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
+        {"kind": "paragraph", "text": "Our liability arising out of this engagement is limited to the fees paid to us under it, and neither of us is liable to the other for indirect, incidental, or consequential damages, including lost profits or lost licensing revenue. Any claim under this letter must be brought within one year after you know, or reasonably should know, of the facts giving rise to it. This paragraph does not limit our responsibilities under the rules of professional conduct that govern this firm, and it cannot; we state it here so that you do not read it as attempting to. You may wish to have this paragraph reviewed by counsel other than us before you sign."},
+
+        {"kind": "heading", "text": "Governing Law", "level": 2},
+        {"kind": "paragraph", "text": "This letter is governed by the laws of the state in which the firm maintains its principal office, without regard to its conflict-of-laws rules. Matters of patent practice before the Office are governed by federal law and the Office's rules, which no agreement between us alters."},
+
+        {"kind": "paragraph", "text": "If the foregoing is acceptable, please sign both copies where indicated, execute the fee terms on the signature page, and return one fully executed copy to my attention. We will not open the docket for this matter until it is back. Questions before signing are welcome and are cheaper than questions after."},
+        {"kind": "sigblock", "signers": ["p:mary.bradley", "xp:gary.smith"]}
+      ]
+    },
+
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0004",
+      "blocks": [
+        {"kind": "heading", "text": "Memorandum", "level": 1},
+        {"kind": "paragraph", "text": "To: Heather Munoz, Amanda Schwartz"},
+        {"kind": "paragraph", "text": "Cc: Sharon Woods"},
+        {"kind": "paragraph", "text": "From: Kelly Snyder"},
+        {"kind": "paragraph", "text": "Re: Kickoff, Patent Portfolio Review for Odonnell Inc"},
+        {"kind": "paragraph", "text": "Privileged and confidential. Attorney work product."},
+        {"kind": "paragraph", "text": "The letter is countersigned. Our client is {{fact:f:E-2019-001.client}} and our contact is Gary Smith, General Manager. Work commences {{fact:f:E-2019-001.start}} and the review runs roughly seven months. The objective is narrow and I would like it to stay that way: for every family in the portfolio, establish what is actually on file, what the claims actually cover against the products the client designates, what options remain open, and by what date each option closes. Nothing goes out as a conclusion until the record carries it. Below is how the work divides and what happens first."},
+        {"kind": "paragraph", "text": "One framing note before the workstreams. This is a review, not a rescue. We were not brought in because something has gone wrong, and the temptation in a portfolio review is to find something in order to justify the exercise. Resist it. The deliverable is an accurate account of the portfolio, family by family, and an accurate account is allowed to conclude that a family is in good order. The scope is fixed by the letter: no new applications, no third-party validity or infringement work, no freedom-to-operate. If the record pulls you toward any of those, stop and bring it to Heather Munoz. It gets added by an amendment or it does not get done."},
+        {"kind": "list", "items": [
+          "File histories. Pull the official file for every family, reconstruct the prosecution record, and confirm the chain of title and recorded assignments. Gaps get listed, not filled by inference. I own this.",
+          "Docket reconstruction. Every date in the portfolio, entered, confirmed, and cross-checked against what the client believes is docketed. Where the two disagree, ours governs until the file says otherwise. Sharon Woods owns this and it is the workstream that gates everything else.",
+          "Claim mapping. Claim-by-claim comparison against the product designations, family by family, with the failure modes called out rather than smoothed over. Amanda Schwartz owns this.",
+          "Family-level position. Where continuation and divisional practice remains available, whether the family reads as one argument or a stack of unrelated files, and what a reasonable next filing would be. Heather Munoz owns this and signs the findings.",
+          "Client reporting. Short written updates against the matter docket, plus the periodic report to Gary Smith. I own this."
+        ]},
+        {"kind": "paragraph", "text": "Next steps. I send the document request to the client this week and I want it answered in writing, not on a call. Sharon Woods opens the docket the day work commences and circulates the first date list; if anything in it surprises you, say so that week and not in September. Amanda Schwartz does not start the claim mapping until the file histories for a family are complete, because mapping against a record we have not finished reading is how a review produces a confident wrong answer. Heather Munoz reads everything before it reaches Gary Smith."},
+        {"kind": "paragraph", "text": "On the client side, expect the document request to come back incomplete the first time. It usually does, and it is not evidence of anything except that the materials sit with several people. We ask twice, in writing, and we do not treat an absent document as a missing document until we have looked in the official file ourselves. What we cannot find in either place gets listed as a gap in the findings, with the search we ran, so the reader knows the limits of what we looked at."},
+        {"kind": "paragraph", "text": "Two standing rules for this matter. Flag your own uncertainty in the internal file rather than waiting for it to resolve, and put every client instruction that touches a date in writing back to them. The matter folder is restricted to the four of us and the Managing Partner. Keep it that way."}
+      ]
+    },
+
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0005",
+      "blocks": [
+        {"kind": "paragraph", "text": "Gary Smith, copying Heather Munoz and Amanda Schwartz on our side."},
+        {"kind": "paragraph", "text": "Reporting against the matter docket. The file histories for the first group of families are in and reconstructed, and the chain of title checks out on each of them so far. Amanda Schwartz has begun the claim mapping on the two families where the record is complete. Nothing in what we have read to date changes the plan we set out at kickoff, and nothing in it is a conclusion yet; we are still assembling."},
+        {"kind": "paragraph", "text": "Two asks. First, we are still missing the assignment records held by Odonnell Inc for the earliest family, and we would rather have your copies than rely on what was recorded. Second, we need the product designations confirmed in writing, family by family, before the mapping goes any further. Amanda Schwartz can work from a list; she cannot work from an assumption about which products you consider in scope."},
+        {"kind": "paragraph", "text": "One date note. Our docket and the schedule your prior counsel kept do not agree on one entry in the second family. It is not near-term and it is not a problem today. Heather Munoz has it, we are working from the earlier of the two dates until the file settles it, and I will write to you when it is settled. If anything else we have asked {{fact:f:E-2019-001.client}} for has already been sent, tell me and I will find it on our end rather than ask you twice."},
+        {"kind": "paragraph", "text": "Kelly Snyder"},
+        {"kind": "paragraph", "text": "Patent Agent"}
+      ]
+    },
+
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0007",
+      "blocks": [
+        {"kind": "heading", "text": "Patent Portfolio Review: Odonnell Inc", "level": 1},
+        {"kind": "list", "items": [
+          "Prepared for Gary Smith, General Manager",
+          "Prepared by Kelly Snyder, Patent Agent",
+          "Reviewed by Heather Munoz, Partner",
+          "Engagement commenced {{fact:f:E-2019-001.start}}; approximately seven months end to end",
+          "Privileged and confidential. Prepared for the board of {{fact:f:E-2019-001.client}} and not for circulation"
+        ]},
+
+        {"kind": "heading", "text": "What We Were Asked To Do", "level": 1},
+        {"kind": "list", "items": [
+          "Establish, family by family, what is actually on file and who owns it",
+          "Compare issued and pending claims against the products you designate",
+          "Identify where continuation and divisional practice remains open, and when it closes",
+          "Verify every deadline in the portfolio against our own docket",
+          "Deliver written findings organized by family, each carrying the record behind it"
+        ]},
+
+        {"kind": "heading", "text": "Where the Work Stands", "level": 1},
+        {"kind": "list", "items": [
+          "Portfolio inventory complete; every family identified and opened on our docket",
+          "File histories reconstructed for roughly half the families; the remainder are ordered",
+          "Chain of title confirmed on the families reviewed to date, with one recording gap listed and being chased",
+          "Claim mapping under way on the families where the record is complete",
+          "Early phase: what follows is inventory and observation, not advice"
+        ]},
+
+        {"kind": "heading", "text": "Observations To Date", "level": 1},
+        {"kind": "list", "items": [
+          "The portfolio reads as families, not as a stack of independent files, which is a better starting position than most reviews find",
+          "Continuation practice appears to remain open in more than one family; whether it is worth exercising is a question for the findings, not for this deck",
+          "One family's claims and the product designations do not line up as cleanly as the file suggests; Amanda Schwartz is working it",
+          "Our docket and the schedule kept before this engagement disagree on a small number of entries; we are working from the earlier date in each case until the file resolves it"
+        ]},
+
+        {"kind": "heading", "text": "What We Need From You", "level": 1},
+        {"kind": "list", "items": [
+          "Product designations confirmed in writing, family by family",
+          "Your copies of the assignment records for the earliest family",
+          "A named person on your side for questions of commercial intent, where the answer is a business judgment and not a legal one",
+          "Notice of anything filed, licensed, or asserted that we would not find in the official file"
+        ]},
+
+        {"kind": "heading", "text": "Next Steps", "level": 1},
+        {"kind": "list", "items": [
+          "Complete the remaining file histories and close the recording gap",
+          "Finish claim mapping across all families; Amanda Schwartz owns the comparison",
+          "Heather Munoz to draft the family-level positions once the mapping is complete",
+          "Reconcile every disputed docket entry against the official record and report the result in writing",
+          "Periodic written reports continue against the matter docket; Kelly Snyder is your point of contact between them"
+        ]}
+      ]
+    },
+
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0008",
+      "blocks": [
+        {"kind": "heading", "text": "Working Session Minutes: Patent Portfolio Review for Odonnell Inc", "level": 1},
+        {"kind": "paragraph", "text": "Privileged and confidential. Attorney work product. Prepared by Heather Munoz, Partner, and circulated to the attendees the day of the session. These minutes record what was discussed and what was assigned. They are not findings, and nothing recorded here should be read as our conclusion on any family."},
+        {"kind": "list", "items": [
+          "Heather Munoz, Partner, Hollowell Patent Group PLLC (chair, minutes)",
+          "Kelly Snyder, Patent Agent, Hollowell Patent Group PLLC",
+          "Amanda Schwartz, Associate, Hollowell Patent Group PLLC",
+          "Gary Smith, General Manager, Odonnell Inc"
+        ]},
+        {"kind": "paragraph", "text": "Kelly Snyder opened with the state of the record. The file histories are now reconstructed for the substantial majority of the families, and the chain of title is confirmed on all of them but one, where a recorded instrument is missing from the earliest family. She was clear that the gap is a gap and not yet a defect: the recording may be absent, the copy may simply be elsewhere, and until we have looked in both places we are not entitled to say which. The item is assigned below and it stays open until the file, not the calendar, closes it."},
+        {"kind": "paragraph", "text": "Amanda Schwartz presented the claim mapping in its current state. Two families map against the designated products without difficulty. A third does not, and she said so plainly rather than deferring it: the claims read on a configuration the file assumes and the product designation does not describe, and she flagged that she is not yet certain which side of that mismatch is stale. I asked her the question I always ask, which is what the claim would have to say for her answer to change. She could state it, which is the useful signal here; the analysis is not finished, but it is not confused."},
+        {"kind": "paragraph", "text": "Gary Smith asked whether the review is on track and what the firm considers at risk. Kelly Snyder answered that the work is where it should be at this point and that the one item she would not characterize as routine is the docket disagreement, where the schedule kept before this engagement and our own docket do not agree on a small number of entries. We are working from the earlier date in every disputed case. Gary Smith asked what happens if the earlier date proves to be the wrong one; the answer is that we will have been early, which costs money, whereas the reverse costs the family. He accepted that and asked that the reconciliation be reported to him in writing when it is complete rather than summarized on a call."},
+        {"kind": "paragraph", "text": "The last item was the shape of the findings. Gary Smith asked for something a board can read. I said the findings will be organized by family and will carry the reasoning rather than bury it, and that a one-page summary can sit in front of them, but that the summary will not be the deliverable and should not be forwarded as though it were. The written analysis for {{fact:f:E-2019-001.client}} will be marked privileged. He agreed to keep circulation inside the company."},
+        {"kind": "table", "header": ["Action item", "Owner"], "rows": [
+          ["Locate the missing assignment record for the earliest family, in our files and in the client's, and close the recording gap or document it as a defect", "Kelly Snyder"],
+          ["Resolve the claim-to-product mismatch in the third family; state which side is stale and on what record", "Amanda Schwartz"],
+          ["Confirm the remaining product designations in writing", "Gary Smith"],
+          ["Complete the reconciliation of disputed docket entries against the official record and report the result in writing", "Kelly Snyder"],
+          ["Draft the family-level positions once the claim mapping is complete", "Heather Munoz"],
+          ["Set the agenda and date for the next working session", "Heather Munoz"]
+        ]}
+      ]
+    },
+
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0009",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Patent Portfolio Review", "level": 1},
+        {"kind": "paragraph", "text": "Prepared for Odonnell Inc by Kelly Snyder, Patent Agent. Reviewed by Heather Munoz, Partner. Privileged and confidential; prepared for the client and not for circulation outside the company."},
+
+        {"kind": "heading", "text": "Summary", "level": 2},
+        {"kind": "paragraph", "text": "The review is at its midpoint and is where it should be. The portfolio is fully inventoried and docketed, the file histories are reconstructed for all but two families, and the claim mapping is complete or substantially complete for the families whose records are closed. Two items are open that we would not describe as routine: one recording gap in the earliest family, and a small number of docket entries on which our record and the schedule kept before this engagement disagree. Both are being worked, neither is near-term, and both are described below rather than folded into a general assurance. Nothing in this report is a finding. The findings are written at the end of the review, organized by family, and they will carry the record behind them."},
+
+        {"kind": "heading", "text": "Accomplishments This Period", "level": 2},
+        {"kind": "paragraph", "text": "The remaining file histories arrived and were reconstructed, which closes the phase in which we were reading rather than analyzing. Chain of title is now confirmed on every family except the earliest, where one recorded instrument is still missing from both our copy of the file and the materials {{fact:f:E-2019-001.client}} has been able to locate."},
+        {"kind": "paragraph", "text": "Amanda Schwartz completed the claim-by-claim comparison for the families with closed records and resolved the mismatch flagged at the last working session. The mismatch was in the product designation and not in the claims: the designation described a configuration the company no longer ships. That is worth stating precisely, because a review that assumed the claims were stale would have recommended work you do not need."},
+        {"kind": "paragraph", "text": "Docketing completed a second pass over every date in the portfolio. Every entry has now been entered, confirmed by a second person, and cross-checked against the official record. The disputed entries are enumerated in our working file and will be reported to you in writing, individually, as each is resolved."},
+        {"kind": "paragraph", "text": "Heather Munoz has begun drafting the family-level positions for the families whose mapping is complete. Those drafts are internal until she is satisfied that each one holds together across the family rather than file by file. Her standing objection to a portfolio review is that it can produce a stack of individually defensible files that do not amount to an argument, and the drafts are structured to make that failure visible if it is there."},
+        {"kind": "paragraph", "text": "Also this period: the working session was held and its minutes circulated the same day, and the interim briefing was delivered to your office in the form requested. Both are marked privileged. The action items from the session are carried in our working file with owners and are reported against here rather than tracked separately, so that there is one record of this matter and not two."},
+
+        {"kind": "heading", "text": "Upcoming Work", "level": 2},
+        {"kind": "paragraph", "text": "The next period is analysis rather than assembly. We will complete the last two file histories and the mapping that depends on them; finish the reconciliation of disputed docket entries against the official record; and complete the family-level positions, including where continuation or divisional practice remains available and the date by which each option closes. We will also prepare the one-page summary you asked for, on the understanding stated at the session: it sits in front of the findings and is not a substitute for them."},
+        {"kind": "paragraph", "text": "We continue to need the remaining product designations confirmed in writing. The mapping we have done rests on the designations we have; where a designation is unconfirmed, the analysis for that family carries an assumption, and we will mark it rather than let it disappear into a conclusion."},
+
+        {"kind": "heading", "text": "Risks", "level": 2},
+        {"kind": "paragraph", "text": "The recording gap in the earliest family is the item we watch. If the instrument was never recorded, the position is fixable and the fix is procedural, but the fix has a cost and it belongs to you to authorize. We are not yet in a position to say which case we are in, and we will not say so until the record supports it."},
+        {"kind": "paragraph", "text": "The docket disagreement is contained but not closed. We are working from the earlier date in every disputed case, which is conservative by design; being early costs effort, and the alternative error is not one this firm accepts. We do not expect the reconciliation to move anything into the near term, and we will tell you in writing if it does, that week."},
+        {"kind": "paragraph", "text": "The schedule assumes the remaining file materials reach us as requested and the outstanding designations are confirmed in the next period. If either slips, the analysis phase compresses against the same end, and we would rather move the date than thin the review. Amanda Schwartz and Heather Munoz are both carrying other matters, and Heather Munoz reads every family-level position before it leaves the firm, which is a deliberate constraint on how fast the last stage can run. Questions on any of the above can come to me directly; a written question against the matter docket is answered faster than a call, and both of us have the answer afterward."}
+      ]
+    }
+  ]
+}

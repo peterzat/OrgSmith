@@ -1,0 +1,47 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:mary.bradley",
+      "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+    },
+    {
+      "person_id": "p:heather.munoz",
+      "persona": "Carries the prosecution side of the practice and treats a portfolio as an argument that has to hold together across a family, not a stack of independent files. Her memoranda are long because she refuses to bury the reasoning, and she hedges deliberately, marking privilege and stating the limits of what was searched before she states any conclusion. Warmer than the firm's house voice in email, but the warmth stops at the analysis, which stays cold. Known for asking associates what the claim would have to say for their answer to change."
+    },
+    {
+      "person_id": "p:amanda.schwartz",
+      "persona": "Came in from the medical device side and still thinks in tolerances and failure modes, which shows in how she reads claims. Drafts fast and over-writes, then cuts, so what leaves her desk is denser than what left it the first time. Deferential in client correspondence and blunt in internal notes, where she flags her own uncertainty rather than quietly hoping it resolves. Prefers a short email against a docket number to a phone call she cannot cite later."
+    },
+    {
+      "person_id": "p:kelly.snyder",
+      "persona": "The associate who reads the file history before the claims and usually finds the sentence everyone else skipped. Writes in tight, clipped paragraphs with an aversion to throat-clearing, which reads as brusque until you notice nothing is missing. Handles the university licensing work with a patience for committee processes that the rest of the prosecution group does not pretend to have. Asks for the docket date before she asks anything else."
+    },
+    {
+      "person_id": "p:sharon.woods",
+      "persona": "Owns the calendar the firm's religion is built on and is unsentimental about it: dates are entered, confirmed, and reconfirmed, and no attorney's assurance substitutes for a docket entry. Her internal messages are short, declarative, and structurally identical week to week, because the format is the point. Polite but immovable when asked to move a date, and she treats a request to reconstruct how a deadline was calculated as routine work. The only person who routinely tells partners no in writing."
+    },
+    {
+      "person_id": "p:joseph.walker",
+      "persona": "Handles the startup portfolios and has learned to translate founder enthusiasm into something a file can survive, mostly by asking what was actually disclosed and to whom. Writes client updates that are shorter than his colleagues', on the theory that a busy engineer reads the first two sentences or none. His analytical work is more cautious than his correspondence suggests, with the qualifications loaded into the memorandum rather than the email. Reliably the one who notices a scope question hiding inside a scheduling question."
+    },
+    {
+      "person_id": "p:richard.henderson",
+      "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
+    },
+    {
+      "person_id": "p:ashley.williams",
+      "persona": "Drafts with an ear for how a claim term will look to a hostile reader years later, and argues about word choice longer than anyone else in the group thinks is warranted. Organizes her work by family and expects everyone else's to be organized the same way, which occasionally makes her the loudest voice in a portfolio review. Writes in complete, formal sentences even in internal notes, a habit she describes as not wanting two registers to maintain. Uncomfortable with any sentence containing the word clearly."
+    },
+    {
+      "person_id": "p:matthew.parrish",
+      "persona": "The group's search specialist by temperament, happiest in prior art and visibly reluctant to state a conclusion the record does not force. His contributions to freedom-to-operate work are the parts that define what was and was not looked at, phrased so that nobody can later mistake a boundary for an opinion. Quiet in meetings and thorough on paper, with a habit of sending a follow-up note correcting a detail nobody else caught. Treats an unqualified infringement statement as a drafting error."
+    },
+    {
+      "person_id": "p:david.chang",
+      "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
+    }
+  ]
+}
