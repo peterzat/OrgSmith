@@ -78,3 +78,21 @@ PERMISSIONS.md in the share root). Answers file:
 A question is correct when your doc set exactly matches `expected_docs`.
 Score: `python -m orgsmith score --suite visibility --answers answers.json
 --evals-dir <this directory>`.
+
+## splits.json
+
+Four nested corpus splits for a retrieval degradation curve. A split is the
+set of documents your system searches; the answer key never changes, so
+recall stays perfect while precision falls as the corpus grows.
+
+- `core`: only the documents that answer some question.
+- `distractors`: core plus real authored documents that are not answers.
+- `noise`: core plus derived noise (duplicates and drafts of authored docs).
+- `full`: the whole corpus (distractors and noise together).
+
+Run your system against each split's document list, then grade with
+`python -m orgsmith score --suite retrieval --split <name> --answers
+answers.json --evals-dir <this directory>`. Ground-truth answers score 100%
+on every split by construction, because every expected answer is in `core`,
+which every split contains. That is the sanity check that the split machinery
+did not drop an answer, not a claim about any system.

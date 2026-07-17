@@ -131,6 +131,26 @@ Score: `python -m orgsmith score --suite visibility --answers answers.json
 --evals-dir <this directory>`.
 """
 
+_README_SPLITS = """
+## splits.json
+
+Four nested corpus splits for a retrieval degradation curve. A split is the
+set of documents your system searches; the answer key never changes, so
+recall stays perfect while precision falls as the corpus grows.
+
+- `core`: only the documents that answer some question.
+- `distractors`: core plus real authored documents that are not answers.
+- `noise`: core plus derived noise (duplicates and drafts of authored docs).
+- `full`: the whole corpus (distractors and noise together).
+
+Run your system against each split's document list, then grade with
+`python -m orgsmith score --suite retrieval --split <name> --answers
+answers.json --evals-dir <this directory>`. Ground-truth answers score 100%
+on every split by construction, because every expected answer is in `core`,
+which every split contains. That is the sanity check that the split machinery
+did not drop an answer, not a claim about any system.
+"""
+
 
 def build_retrieval(
     charter, foundation, engagements, manifest, mention_map
@@ -384,6 +404,40 @@ def build_graph_expected(charter, foundation, graph) -> GraphExpected:
     return GraphExpected(slug=charter.slug, entities=entities, edges=scorable)
 
 
+def build_splits(manifest, questions, extraction, visibility) -> dict:
+    """Nested corpus splits for a retrieval degradation curve (M12,
+    external-validity-program). A split is the set of documents a system
+    searches; the answer key is unchanged, so a system's recall stays perfect
+    while precision falls as the corpus grows. Ground truth scores 100% on
+    every split because every expected answer lives in `core`, which every
+    split contains.
+
+    Four distinct corpora, not one cumulative chain, so a consumer can
+    attribute degradation to real distractors versus derived noise:
+      core         answer-bearing documents only
+      distractors  core + real authored documents that are not answers
+      noise        core + derived noise (duplicates and drafts)
+      full         the whole corpus (distractors and noise together)
+
+    Derived, never stored: a pure function of the manifest and the suites."""
+    answer_paths: set[str] = set()
+    for q in questions:
+        answer_paths.update(q.expected_docs)
+    for q in extraction:
+        answer_paths.update(q.expected_docs)
+    for q in visibility:
+        answer_paths.update(q.expected_docs)
+    authored = {e.path for e in manifest if e.authoring != "derived"}
+    derived = {e.path for e in manifest if e.authoring == "derived"}
+    all_paths = {e.path for e in manifest}
+    return {
+        "core": sorted(answer_paths),
+        "distractors": sorted(answer_paths | authored),
+        "noise": sorted(answer_paths | derived),
+        "full": sorted(all_paths),
+    }
+
+
 def run_emit_evals(paths: OrgPaths) -> int:
     state = load_state(paths)
     require_stages(state, "charter", "foundation", "fabric", "docplan")
@@ -428,6 +482,7 @@ def run_emit_evals(paths: OrgPaths) -> int:
     if any(t in q.tags for q in extraction for t in new_tags):
         readme += _README_FORMAT_TAGS
     visibility_note = ""
+    visibility = []
     if acl is not None:
         visibility = build_visibility(foundation, acl)
         write_jsonl("visibility.jsonl", visibility)
@@ -438,6 +493,16 @@ def run_emit_evals(paths: OrgPaths) -> int:
             "emit-evals: visibility suite skipped (no ledger/acl.json; "
             f"run `python -m orgsmith acl {charter.slug}`)"
         )
+
+    splits = build_splits(manifest, questions, extraction, visibility)
+    (paths.evals_dir / "splits.json").write_text(
+        json.dumps(
+            {"slug": charter.slug, "splits": splits}, indent=2, ensure_ascii=False
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    readme += _README_SPLITS
     (paths.evals_dir / "README.md").write_text(readme, encoding="utf-8")
     print(
         f"emit-evals: {len(questions)} retrieval questions, "

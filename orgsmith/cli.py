@@ -84,6 +84,12 @@ def main(argv=None) -> int:
         default=None,
         help="score from a bare evals directory (no org needed)",
     )
+    p_score.add_argument(
+        "--split",
+        default=None,
+        choices=["core", "distractors", "noise", "full"],
+        help="grade against one corpus split (see splits.json)",
+    )
     p_score.add_argument("--json", action="store_true", dest="as_json")
 
     p_rev = sub.add_parser(
@@ -156,7 +162,11 @@ def main(argv=None) -> int:
         else:
             parser.error("score needs a slug or --evals-dir")
         return run_score(
-            evals_dir, args.suite, Path(args.answers), as_json=args.as_json
+            evals_dir,
+            args.suite,
+            Path(args.answers),
+            as_json=args.as_json,
+            split=args.split,
         )
 
     paths = org_paths(args.slug, args.root)

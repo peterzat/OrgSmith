@@ -61,14 +61,39 @@ def load_questions(evals_dir: Path) -> list[RetrievalQuestion]:
     ]
 
 
+def load_split_corpus(evals_dir: Path, split: str) -> set[str]:
+    """The document set of one corpus split (M12), from splits.json. A split
+    restricts which documents a system searched; grading a split ignores
+    questions whose answers are not in that corpus, so ground-truth answers
+    score 100% on every split by construction."""
+    path = evals_dir / "splits.json"
+    if not path.exists():
+        raise SystemExit(
+            f"score: no splits at {path} (run emit-evals to derive them)"
+        )
+    splits = json.loads(path.read_text("utf-8")).get("splits", {})
+    if split not in splits:
+        raise SystemExit(
+            f"score: unknown split {split!r}; choose from {sorted(splits)}"
+        )
+    return set(splits[split])
+
+
 def _score_docset(
-    questions: list[RetrievalQuestion], answers
+    questions: list[RetrievalQuestion], answers, corpus: set[str] | None = None
 ) -> RetrievalResult:
     """Exact doc-set matching, shared by the retrieval and visibility
-    suites (identical answers contract)."""
+    suites (identical answers contract). When `corpus` is given (a split), a
+    question whose expected answers are not all in the split is not gradable
+    there and is skipped, so ground truth scores 100% on every split."""
     given = {a.id: a.docs for a in answers.answers}
-    result = RetrievalResult(total=len(questions), correct=0)
-    for q in questions:
+    gradable = [
+        q
+        for q in questions
+        if corpus is None or set(q.expected_docs) <= corpus
+    ]
+    result = RetrievalResult(total=len(gradable), correct=0)
+    for q in gradable:
         expected = set(q.expected_docs)
         got = {d.strip() for d in given.get(q.id, [])}
         if got == expected:
@@ -86,8 +111,10 @@ def _score_docset(
     return result
 
 
-def score_retrieval(evals_dir: Path, answers: RetrievalAnswers) -> RetrievalResult:
-    return _score_docset(load_questions(evals_dir), answers)
+def score_retrieval(
+    evals_dir: Path, answers: RetrievalAnswers, corpus: set[str] | None = None
+) -> RetrievalResult:
+    return _score_docset(load_questions(evals_dir), answers, corpus)
 
 
 def load_visibility_questions(evals_dir: Path) -> list[RetrievalQuestion]:
@@ -105,9 +132,9 @@ def load_visibility_questions(evals_dir: Path) -> list[RetrievalQuestion]:
 
 
 def score_visibility(
-    evals_dir: Path, answers: VisibilityAnswers
+    evals_dir: Path, answers: VisibilityAnswers, corpus: set[str] | None = None
 ) -> RetrievalResult:
-    return _score_docset(load_visibility_questions(evals_dir), answers)
+    return _score_docset(load_visibility_questions(evals_dir), answers, corpus)
 
 
 def load_extraction_questions(evals_dir: Path) -> list[ExtractionQuestion]:
@@ -122,12 +149,17 @@ def load_extraction_questions(evals_dir: Path) -> list[ExtractionQuestion]:
 
 
 def score_extraction(
-    evals_dir: Path, answers: ExtractionAnswers
+    evals_dir: Path, answers: ExtractionAnswers, corpus: set[str] | None = None
 ) -> ExtractionResult:
     questions = load_extraction_questions(evals_dir)
     given = {a.id: a for a in answers.answers}
-    result = ExtractionResult(total=len(questions), correct=0)
-    for q in questions:
+    gradable = [
+        q
+        for q in questions
+        if corpus is None or set(q.expected_docs) <= corpus
+    ]
+    result = ExtractionResult(total=len(gradable), correct=0)
+    for q in gradable:
         answer = given.get(q.id)
         got_docs = {d.strip() for d in answer.docs} if answer else set()
         value_ok = answer is not None and answer.value.strip() == q.expected_value
@@ -214,10 +246,22 @@ def score_graph(evals_dir: Path, answers: GraphAnswers) -> GraphResult:
 
 
 def run_score(
-    evals_dir: Path, suite: str, answers_path: Path, as_json: bool = False
+    evals_dir: Path,
+    suite: str,
+    answers_path: Path,
+    as_json: bool = False,
+    split: str | None = None,
 ) -> int:
     if not answers_path.exists():
         raise SystemExit(f"score: no answers file at {answers_path}")
+    corpus = None
+    if split is not None:
+        if suite == "graph":
+            raise SystemExit(
+                "score: --split does not apply to the graph suite "
+                "(it grades entities and edges, not a document corpus)"
+            )
+        corpus = load_split_corpus(evals_dir, split)
     raw = answers_path.read_text("utf-8")
     try:
         if suite == "retrieval":
@@ -242,7 +286,7 @@ def run_score(
 
     if suite in ("retrieval", "visibility"):
         scorer = score_retrieval if suite == "retrieval" else score_visibility
-        result = scorer(evals_dir, answers)
+        result = scorer(evals_dir, answers, corpus)
         if as_json:
             print(
                 json.dumps(
@@ -281,7 +325,7 @@ def run_score(
         return 0
 
     if suite == "extraction":
-        result = score_extraction(evals_dir, answers)
+        result = score_extraction(evals_dir, answers, corpus)
         if as_json:
             print(
                 json.dumps(
