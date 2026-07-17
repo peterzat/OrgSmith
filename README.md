@@ -127,9 +127,11 @@ from being one.
 
 ### What ships today
 
-All seven are committed and public in [`companies/`](companies/): every
-`<slug>/` is a real file share you can click through and every
-`<slug>-metadata/` is its answer key, sitting right next to it. **If you are
+All seven fleet orgs are committed and public in [`companies/`](companies/):
+every `<slug>/` is a real file share you can click through and every
+`<slug>-metadata/` is its answer key, sitting right next to it. An eighth
+committed org, the M12 pilot [`calderwood-partners`](companies/calderwood-partners/),
+sits beside them and is described [below](#the-m12-pilot). **If you are
 here to eyeball the output, read
 [`northgate-staffing`](companies/northgate-staffing/) and stop** — the rest of
 the table is here to show the axes the generator moves along (era, sector, ACL
@@ -177,6 +179,22 @@ By genre: 55 financial summaries, 51 sets of meeting minutes, 37 status
 reports, 34 engagement letters, 34 kickoff memos, 29 onboarding records, 19
 firm overviews, 11 email threads, 10 briefing decks.
 
+#### The M12 pilot
+
+[`calderwood-partners`](companies/calderwood-partners/) is not part of the
+frozen v2.0 fleet; it is the M12 pilot, generated to prove the capability
+layer end to end and committed beside the fleet. It is the largest committed
+org: **218 documents** (168 model-authored, 15 static workbooks, 35 derived
+noise) for a 22-person management consulting firm across 2008–2022, generated
+through the same live airlock on `claude-opus-4-8[1m]` at effort `xhigh`. It
+turns on every M12 knob at once, so it is the org to read for what the
+capability layer does rather than what the fleet demonstrates: a business-day
+calendar, an engagement book declared a sample, deterministic duplicates and
+drafts, and the voice mitigation. Its measurements are in its
+[`GENERATION-REPORT.md`](companies/calderwood-partners-metadata/GENERATION-REPORT.md),
+and it validates clean (28 rules run, 0 errors). The full window-defeating
+flagship is M12b; the pilot is the same capability at a tenth the scale.
+
 ### Where that sits against a real firm
 
 A real ten-person professional-services firm over eight years does not
@@ -218,35 +236,40 @@ Our own adversarial review board read the exemplar above,
 `northgate-staffing`, and said it better than we could. These are its actual
 committed findings — **16 major across six dimensions**, all in
 `companies/northgate-staffing-metadata/review/findings/`, against a corpus
-that validates clean: 24 rules run, 5 skipped for knobs it leaves off, 0
-errors.
+that validates clean: 24 rules run, 7 skipped for knobs it leaves off (the two
+M12 additions, CAL-01 and NOISE-01, among them), 0 errors.
 
-**Read these as findings about one org, because that is what they are.** Every
-one below is a limit of the generator today rather than a knob
-`northgate-staffing` declined to turn on — there is no recipe setting that
-fixes any of them. Two are worth being precise about, because the recipe does
-have knobs in the neighbourhood. The fee/revenue gap is not a bad value of
-`base_revenue` or `engagements.count`; it is that the two are *independent*,
-and the settings that would close the gap describe a twelve-person firm
-turning over less than one salary a year. (Our recipe coherence test would
-*not* catch that — it checks a 40% net-margin ceiling and has no floor, so an
-absurdly poor firm passes it. Checked while writing this sentence, which had
-claimed the opposite.) The empty engagement book is the same shape:
-`roster_churn.hires` and `engagements.count` exist, but nothing places
-engagements against hire dates, so a recipe can make the gap likelier or
-rarer and cannot close it. What is missing in both cases is a coupling, not a
-number. (The voice collapse has soft levers nearby too — `narrative` sets firm
-tone, and every person carries a `persona`. Neither touches it: the board's
-whole point is that twelve sharply-different personas already converge on one
-figure, so the knob is being turned and the prose does not move.)
+**Read these as findings about one org, `northgate-staffing`, which is frozen
+and ships every knob off.** As of M12 (see [What is in the
+box](#what-is-in-the-box-today)), three of the findings below are no longer
+generator limits: they are recipe choices `northgate-staffing` declines to
+turn on, and the M12 pilot `calderwood-partners` turns them on. This section
+promised, before M12, that when a limit here became a recipe choice it would
+say which. It does now:
 
-When that stops being true — when a limit here becomes a recipe choice — this
-section has to say which, or it turns into a false claim about what OrgSmith
-can do. M12 is the turn that makes it stop being true, and
-`BACKLOG.md`'s `fleet-regenerates-under-the-new-knobs` is where that debt is
-written down. (The word "flagship" is reserved for the M12 org and is not this
-one; see [docs/SCALE.md](docs/SCALE.md), which keeps fixtures, fleet, and
-flagship as three separate jobs.)
+- **The weekend meetings are a recipe choice now** (`doc_culture.business_calendar`).
+  A recipe that declares a calendar dates minutes and engagement mail on
+  business days; validator rule CAL-01 enforces it. `northgate` declares none,
+  so its Saturday session stands.
+- **The fee/revenue gap is a recipe choice now** (`engagements.book_is_sample`).
+  A recipe that declares its engagement ledger a sample writes the overview as
+  representative rather than as the whole business, so the paperwork and the
+  financials describe one firm. It does not derive revenue from the book (the
+  two are still independent by design); it stops the prose claiming completeness.
+- **The reporting-line drift is fixed in the generator for every org, not as a
+  knob.** Onboarding prose that names a supervisor the ledger's `reports_to`
+  edge contradicts is now rejected at ingest. `northgate` keeps its committed
+  drift because its prose is frozen, but no org authored after M12 can carry it.
+
+Two remain limits rather than choices. The **empty engagement book** (the firm
+grows staff it has no work for) is a missing coupling between `roster_churn.hires`
+and `engagements.count`, not a number, and M12 did not add it. The **voice
+collapse** has a cheap M12 mitigation (`doc_culture.voice_diversify`, a
+per-author register plus a banned-construction list) that measurably moved the
+named tics on the pilot, but no single number is its size and it stays the
+genuinely hard one. (Our recipe coherence test still checks only a 40%
+net-margin ceiling with no floor, so an absurdly poor firm passes it; that is
+recorded in `BACKLOG.md`, `recipe-coherence-test-has-no-floor`.)
 
 - **The firm's own paperwork says it has five clients. Its books say
   otherwise.** "The firm has been retained for five engagements to date...
@@ -379,7 +402,7 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 29-rule validator ties every document back to the
+- After rendering, a 31-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
@@ -421,7 +444,7 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 relying on for any given claim.
 
 **Oracles — strongest, and where all the facts live.** An oracle recomputes
-the answer from ground truth. The 29-rule validator and the eval suites are
+the answer from ground truth. The 31-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
 is why the airlock exists — the model never sees a value it is placing, so
@@ -472,10 +495,12 @@ provably cannot see.
 
 ### The evidence, concretely
 
-- **447 tests** across three tiers (`bin/test`), keyless and offline; the
-  `org` tier validates all seven committed fixtures, derives every recipe,
-  re-derives every fixture's structure byte-identically, and checks each
-  fleet recipe's internal coherence in ~4.8s.
+- **483 tests** across the default three tiers (`bin/test`), keyless and
+  offline, plus a fourth `flagship` tier (10 tests) for the large M12 pilot,
+  run on its own so the everyday loop stays fast; the `org` tier validates the
+  seven fleet fixtures, derives every recipe, re-derives every fixture's
+  structure byte-identically, and checks each fleet recipe's internal
+  coherence in ~3.6s, while `bin/test flagship` validates the pilot in ~2.3s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
@@ -778,7 +803,7 @@ on, so it stays small and cheap rather than proving breadth.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 29-rule validator, capability
+- The airlock, checkpoint/resume, the 31-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - The quality instrument, which measures the one thing the validator
@@ -808,19 +833,30 @@ board said about the retired exemplar, and it ran four milestones:
 | **M10** | Parallel authoring: a bounded K-wide window of concurrent authors over a serial, single-writer merge. This is what makes a fleet-sized run a few hours instead of a few days. |
 | **M11** | The fleet reset: six new recipes (civil engineering, environmental, actuarial, IP law, executive search, healthcare; 1999–2025), all generated through the live airlock, the six pre-v2.0 fixtures retired, and the byte pin restored fleet-wide — which re-freezes the fixtures and restores additive evolution. |
 
-**Next: M12, one flagship org large enough to defeat a context window.**
-Today's whole fleet is ~280 documents; you can fit that in a 1M-token
-context and answer questions about it without retrieving anything, which
-means it cannot prove a retrieval system works. See
-[docs/SCALE.md](docs/SCALE.md) for how big that has to be, what it costs at
-measured per-batch rates, and why resume stops being a convenience and
-becomes the only reason it is possible.
+**M12a landed the capability layer.** The findings the board raised against the
+fleet became recipe knobs, each defaulting off so the frozen fleet stays
+byte-pinned: a business-day calendar (CAL-01), an engagement book declared a
+sample, a deterministic noise model (duplicates and drafts derived from
+authored documents with no model pass, NOISE-01), nested eval splits
+(core / distractors / noise / full for a retrieval degradation curve), a
+cheap cross-document-voice mitigation measured as a range, and a
+generator-wide fix so prose can no longer contradict a ledger reporting line.
+The pilot org **`calderwood-partners`** (218 documents, every knob on)
+proves the stack end to end and is committed and browsable beside the fleet.
 
-Known and logged rather than hidden: `BACKLOG.md` carries the two fleet-wide
-board findings above (the engagement book read as the whole business; dates
-drawn with no business-day calendar), the board's unmeasured false-positive
-rate, and three more. Cross-document voice is the genuinely hard one and has
-no scheduled fix.
+**Next: M12b, one flagship org large enough to defeat a context window.**
+The whole committed fleet is ~280 documents; you can fit that in a 1M-token
+context and answer questions about it without retrieving anything, which
+means it cannot prove a retrieval system works. The pilot is the right
+capability at a tenth the scale; the flagship spends the ~1.3 days of
+authoring the full size costs. See [docs/SCALE.md](docs/SCALE.md) for how big
+that has to be and why resume becomes the only reason it is possible.
+
+Known and logged rather than hidden: `BACKLOG.md` carries the board's
+unmeasured false-positive rate and the remaining fleet-wide findings M12a did
+not close (the empty engagement book most of all). Cross-document voice now
+has a measured mitigation but no single number for its size, and stays the
+genuinely hard one.
 
 ## Provenance and safety
 
