@@ -88,6 +88,11 @@
     "EngagementPlan": {
       "additionalProperties": false,
       "properties": {
+        "book_is_sample": {
+          "default": false,
+          "title": "Book Is Sample",
+          "type": "boolean"
+        },
         "count": {
           "exclusiveMinimum": 0,
           "title": "Count",

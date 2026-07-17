@@ -169,6 +169,18 @@ class EngagementPlan(StrictModel):
     # generic defaults. Additive: recipes written before this field exist
     # unchanged.
     services: list[str] = []
+    # M12 (engagement-ledger-reads-as-whole-book). The engagement ledger is a
+    # deliberate sample: fees come to 1.6-5.1% of the firm's own revenue in
+    # every fleet org, yet firm_digest hands the model only these engagements,
+    # so the overview writes them up as the complete book ("that is the whole
+    # business") while the financial summary one folder away posts 20-60x the
+    # fee total. When True, firm_digest tells the author these engagements are
+    # a representative sample of a larger book, not the whole client list, so
+    # the paperwork and the financials describe one firm. Default False keeps
+    # every existing brief byte-identical. This is a coherence choice, not a
+    # finance change: revenue stays independent, and a firm presenting sample
+    # engagements alongside larger revenue is coherent.
+    book_is_sample: bool = False
 
 
 class GraphTargets(StrictModel):

@@ -14,7 +14,7 @@ org rewrites identical bytes.
 
 from __future__ import annotations
 
-from ..artifacts import load_manifest
+from ..artifacts import load_charter, load_engagements, load_finance, load_manifest
 from ..naming import strip_control
 from ..paths import OrgPaths
 from ..schemas import CorpusMetrics
@@ -115,6 +115,52 @@ def _similarity_lines(metrics: CorpusMetrics) -> list[str]:
     return lines
 
 
+def _fee_coverage_lines(paths: OrgPaths) -> list[str]:
+    """Lifetime engagement fees against lifetime revenue, computed with no
+    model (engagement-ledger-reads-as-whole-book). The board found the firm
+    overview presenting the sampled engagement ledger as the whole book while
+    the financial summary posts 20-60x the fee total; this records the ratio so
+    a human reads it before trusting the org. A measurement, never a gate: no
+    threshold enters any test tier. Reports whether the recipe declares the
+    book a sample (engagements.book_is_sample), which is the coherence knob."""
+    engagements = load_engagements(paths).engagements
+    finance = load_finance(paths)
+    charter = load_charter(paths)
+    fees = sum(
+        int(f.value)
+        for e in engagements
+        for f in e.facts
+        if f.id.endswith(".fee")
+    )
+    revenue = sum(y.revenue for y in finance.years)
+    declared = charter.engagements.book_is_sample
+    lines = [
+        f"{len(engagements)} documented engagement(s), fees totalling "
+        f"${fees:,}, against ${revenue:,} of lifetime revenue.",
+        "",
+    ]
+    if revenue > 0:
+        lines.append(
+            f"Documented fees are {fees / revenue:.1%} of lifetime revenue."
+        )
+    lines.append("")
+    if declared:
+        lines.append(
+            "The recipe declares the engagement book a sample "
+            "(engagements.book_is_sample), so the firm overview presents these "
+            "engagements as representative rather than complete. The gap "
+            "between fees and revenue is expected and coherent."
+        )
+    else:
+        lines.append(
+            "The recipe does not declare the engagement book a sample, so the "
+            "overview may present it as the firm's whole client list. A large "
+            "fee/revenue gap here reads as the contradiction the board found "
+            "(engagement-ledger-reads-as-whole-book)."
+        )
+    return lines
+
+
 def _findings_lines(paths: OrgPaths) -> list[str]:
     findings = load_findings(paths)
     if not findings:
@@ -163,6 +209,10 @@ def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
         "## Same-genre similarity",
         "",
         *_similarity_lines(metrics),
+        "",
+        "## Fee coverage",
+        "",
+        *_fee_coverage_lines(paths),
         "",
         "## Review board",
         "",

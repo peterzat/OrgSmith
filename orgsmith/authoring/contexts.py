@@ -172,7 +172,7 @@ def _engagement_position(eng, when: date) -> str:
     )
 
 
-def _firm_digest(all_engagements, when: date) -> str:
+def _firm_digest(all_engagements, when: date, book_is_sample: bool = False) -> str:
     """What the firm can truthfully say about itself AS OF `when`: how many
     engagements have begun, over how many years, and their clients BY FACT ID
     (never by value -- a client name is `f:E-....client` and would leak). This
@@ -181,7 +181,13 @@ def _firm_digest(all_engagements, when: date) -> str:
     a whole-arc brief.
 
     An overview dated early in the firm's life gets a short digest, which is
-    the point: it cannot claim client work that has not happened yet."""
+    the point: it cannot claim client work that has not happened yet.
+
+    When `book_is_sample` (M12, engagement-ledger-reads-as-whole-book), the
+    digest tells the author these engagements are a representative SAMPLE of a
+    larger book, not the complete client list, so the overview stops claiming
+    "the whole business" while the financial summary posts 20-60x the fee
+    total. Default off keeps every existing brief byte-identical."""
     started = sorted(
         (e for e in all_engagements if e.start <= when), key=lambda e: e.start
     )
@@ -194,6 +200,18 @@ def _firm_digest(all_engagements, when: date) -> str:
     years = sorted({e.start.year for e in started})
     span = f"{years[0]}" if len(years) == 1 else f"{years[0]}-{years[-1]}"
     client_refs = ", ".join(f"{{{{fact:f:{e.id}.client}}}}" for e in started)
+    if book_is_sample:
+        return (
+            f"As of this document's date, the engagements you may cite are a "
+            f"representative SAMPLE of the firm's client work across {span}, "
+            f"not its complete book of business. Reference clients ONLY "
+            f"through these placeholders, never by inventing a name: "
+            f"{client_refs}. Present them as illustrative examples. Make NO "
+            f"claim about the firm's total number of clients or engagements, "
+            f"do not call this the whole business or a complete list, and do "
+            f"not imply the firm's revenue is limited to these engagements. "
+            f"Present nothing that post-dates this document as established."
+        )
     return (
         f"As of this document's date the firm has begun {len(started)} "
         f"client engagement(s) across {span}. Reference clients ONLY through "
@@ -375,7 +393,11 @@ def run_next_batch(paths: OrgPaths) -> int:
                         _engagement_position(eng, entry.date) if eng else ""
                     ),
                     firm_digest=(
-                        _firm_digest(engagements.values(), entry.date)
+                        _firm_digest(
+                            engagements.values(),
+                            entry.date,
+                            charter.engagements.book_is_sample,
+                        )
                         if entry.genre == "company_overview"
                         else ""
                     ),

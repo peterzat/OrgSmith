@@ -76,6 +76,12 @@ engagements:
   count: 3                    # client engagements the fabric stage creates
   # services: [Facility Condition Assessment, Commissioning Support]
   #   optional service-line names for engagement titles
+  # book_is_sample: true      # M12, default false. The engagement ledger is
+  #   a deliberate sample (fees run 1.6-5.1% of revenue). When true, the firm
+  #   overview presents these engagements as representative rather than as the
+  #   whole client list, so the paperwork and the financial summaries describe
+  #   one firm. A coherence choice, not a finance change; report records the
+  #   fee/revenue ratio either way.
 
 graph_targets:
   external_orgs: 3
