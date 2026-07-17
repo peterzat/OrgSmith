@@ -35,7 +35,7 @@ _PLACEHOLDER = re.compile(r"\{\{fact:([^}]*)\}\}")
 # capturing the clause target up to the next sentence break. Used to reject
 # prose naming a supervisor the ledger's reports_to edge does not (rf:graph-1).
 _REPORTS_TO = re.compile(
-    r"report(?:s|ing|ed)?\s+(?:directly\s+)?to\s+([^.;:\n]{2,60})",
+    r"report(?:s|ing|ed)?\s+(?:directly\s+)?to\s+([^.;:,\n]{2,60})",
     re.IGNORECASE,
 )
 
