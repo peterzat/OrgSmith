@@ -201,6 +201,37 @@ offset by its better window efficiency — and the agreement should not be
 mistaken for precision. Treat 3-6 hours as the honest range for the fleet,
 and re-measure rather than trusting either row.
 
+### The fleet run, measured (2026-07-17, M11b)
+
+The prediction above was **~209 docs in ~40 batches**. The actual run:
+**209 planned documents (168 authored) across 38 authoring batches plus 5
+enrichment passes**, five orgs, every batch ingested with zero rejections.
+The document and batch counts landed within 5% of the projection, which is
+the part of this worth trusting.
+
+The wall-clock is **not** comparable to the projection and should not be
+read as confirming it. This run dispatched a whole org's window at once
+rather than the K = 4 the projection assumed (8 and 9 batches wide for
+brackenridge and hollowell), and the session idled ~80 minutes mid-run by
+operator request, so the elapsed time measures a different dispatch shape
+than the one modelled. What it does establish, on the deterministic side:
+per-batch behavior held across 38 batches with no drift, and the widest
+observed windows (9 concurrent) completed without a single collision or
+rejection, so K = 4 is a budget choice rather than a correctness ceiling.
+
+**What the run confirmed that the projections could not.** The ~80-minute
+idle with 9 batches outstanding and none ingested was an unplanned live test
+of resume at fleet scale: on return, `status --json` reported all nine still
+outstanding with unchanged doc sets, the drain re-dispatched every one, and
+all nine ingested with zero duplicated or lost documents. Resume at this
+size is not a convenience; this run would have cost hours without it.
+
+**Deterministic cost, for the record.** Rendering 209 documents is seconds,
+not minutes: brackenridge's 40 docs took 27.8s including LibreOffice
+conversion of 35 files to real OLE binaries. Validation of the whole
+seven-org fleet runs in ~3.9s. The model is the entire cost of a fleet run;
+the deterministic stages round to zero.
+
 Scaled at ~12 min/batch: a 360-doc fleet is ~60 batches (~12 hours serial);
 a 2,000-doc flagship is ~334 batches (~2.8 days serial). At the measured
 ~2.2x window speedup those fall to roughly **5 hours** and **~1.3 days**; a

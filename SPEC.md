@@ -11,7 +11,7 @@ one tracer; this turn spends the 3-6 hours that proof was meant to de-risk.
 
 ### Acceptance Criteria
 
-- [ ] **Resume survives the interrupt shape this run actually has: several
+- [x] **Resume survives the interrupt shape this run actually has: several
   concurrent outstanding batches.** `test_resume_mid_authoring_no_dup_no_loss`
   proves the single-orphan case, but M10 authors K=4 wide, so a killed session
   strands up to K outstanding orders at once, and that case has no test. A unit
@@ -22,7 +22,7 @@ one tracer; this turn spends the 3-6 hours that proof was meant to de-risk.
   file, no fleet-level ledger, no conversation memory. `/forge`'s Step 3 drain
   is what recovers it, and the test names that path.
 
-- [ ] **The five remaining fleet orgs are generated end to end through live
+- [x] **The five remaining fleet orgs are generated end to end through live
   `/forge` and committed.** `brackenridge-civil`, `saltmarsh-environmental`,
   `hollowell-ip`, `northgate-staffing`, `verdant-health`. For each: authoring
   runs through the real airlock, `validate` passes with 0 errors and SKIP lines
@@ -33,7 +33,7 @@ one tracer; this turn spends the 3-6 hours that proof was meant to de-risk.
   tracer. If a run exposes a defect, it is fixed in the smallest change that
   addresses it and pinned by a unit test.
 
-- [ ] **Every org's authored length is checked against its briefs before the
+- [x] **Every org's authored length is checked against its briefs before the
   fleet is believed, and the number is recorded.** `report`'s mean-ratio-to-brief
   is the cheapest instrument in the system and the one that separated the
   MODEL-AB arms decisively for free (1.16 vs 0.60). Each new org's mean words
@@ -41,7 +41,7 @@ one tracer; this turn spends the 3-6 hours that proof was meant to de-risk.
   before the org is committed. Recorded as a measurement, never a gate: no
   ratio, length, or similarity threshold enters any test tier.
 
-- [ ] **The six pre-v2.0 fixtures retire, and every commit on the way stays
+- [x] **The six pre-v2.0 fixtures retire, and every commit on the way stays
   shippable.** `torchlake-engineering`, `quillbrook-appraisal`,
   `bramblewood-legal`, `gladepoint-strategies`, `cindergrove-advisors`, and
   `fernhollow-partners` are removed along with their recipes and metadata, and
@@ -50,7 +50,7 @@ one tracer; this turn spends the 3-6 hours that proof was meant to de-risk.
   counts, format/genre breakdowns, and "what is in the box" prose match what is
   committed at every step, not only at the end.
 
-- [ ] **One flagship is boarded, and its findings replace fernhollow's in the
+- [x] **One flagship is boarded, and its findings replace fernhollow's in the
   README** (engages `board-negative-control`). `/forge-review` runs read-only
   against one new org; its findings commit next to the org they judged. The
   README's "What is not modeled today" section quotes the new board against the
@@ -59,19 +59,19 @@ one tracer; this turn spends the 3-6 hours that proof was meant to de-risk.
   ledger, and any that is not is reported as the board's opinion rather than as
   a fact about the generator.
 
-- [ ] **The fleet re-freezes and the two suspended rules are restored.** `PINNED`
+- [x] **The fleet re-freezes and the two suspended rules are restored.** `PINNED`
   covers every committed org; CLAUDE.md's "Additive evolution — SUSPENDED" and
   "Committed fixtures are frozen — EXCEPT" carve-outs are removed and the
   standing rules restated, and the README's design principles match. The v2.0
   window is closed in the same commit that closes it in code.
 
-- [ ] **`_COHERENCE_EXEMPT` cannot go stale** (closes the M11a review NOTE).
+- [x] **`_COHERENCE_EXEMPT` cannot go stale** (closes the M11a review NOTE).
   `tests/test_org_regen.py` asserts `_COHERENCE_EXEMPT <= set(RECIPES)`, so a
   deleted recipe forces the set to be pruned in the same commit rather than
   silently exempting a future slug that reuses the name. The set shrinks to
   `{"dev-mini"}` as this turn's retirement makes the other six entries dead.
 
-- [ ] **`bin/test` passes all tiers offline and keyless at close** (short / unit
+- [x] **`bin/test` passes all tiers offline and keyless at close** (short / unit
   / org), with counts and timing recorded in TESTING.md, and no tier gains a
   model, network, key, or wall-clock dependency. `dev-mini`'s byte pin stays
   green and the fleet-wide re-derivation covers the new orgs.
@@ -166,5 +166,5 @@ growth, employment-scoped ACL, the guarded charter write, the M10 security fix,
 and `meridian-actuarial` generated live as the fleet's byte-pinned tracer; all 8
 criteria met, reviewed 0 BLOCK / 0 WARN / 1 NOTE.*
 
-<!-- SPEC_META: {"date":"2026-07-17","title":"M11b: the fleet turn, the retirement, and the re-freeze","criteria_total":8,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-17","title":"M11b: the fleet turn, the retirement, and the re-freeze","criteria_total":8,"criteria_met":8} -->
 </content>
