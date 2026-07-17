@@ -1,0 +1,365 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "brackenridge-civil",
+  "entities": [
+    {
+      "id": "x:brackenridge-civil",
+      "canonical": "Brackenridge Civil Group Inc",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:mark.todd",
+      "canonical": "Mark Todd",
+      "aliases": [
+        "mark.todd@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:linda.george",
+      "canonical": "Linda George",
+      "aliases": [
+        "linda.george@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:pamela.warren",
+      "canonical": "Pamela Warren",
+      "aliases": [
+        "pamela.warren@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:linda.nguyen",
+      "canonical": "Linda Nguyen",
+      "aliases": [
+        "linda.nguyen@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:mark.barrett",
+      "canonical": "Mark Barrett",
+      "aliases": [
+        "mark.barrett@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jeffrey.perez",
+      "canonical": "Jeffrey Perez",
+      "aliases": [
+        "jeffrey.perez@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jason.jordan",
+      "canonical": "Jason Jordan",
+      "aliases": [
+        "jason.jordan@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:charles.olson",
+      "canonical": "Charles Olson",
+      "aliases": [
+        "charles.olson@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:kimberly.branch",
+      "canonical": "Kimberly Branch",
+      "aliases": [
+        "kimberly.branch@brackenridgecivil.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:esparza-lamb",
+      "canonical": "Esparza-Lamb",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:johnson-plc",
+      "canonical": "Johnson PLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:evans-lee",
+      "canonical": "Evans-Lee",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:franklin-snyder",
+      "canonical": "Franklin-Snyder",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:peck-jennings",
+      "canonical": "Peck-Jennings",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:debra.vasquez",
+      "canonical": "Debra Vasquez",
+      "aliases": [
+        "debra.vasquez@esparzalamb.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:david.dyer",
+      "canonical": "David Dyer",
+      "aliases": [
+        "david.dyer@johnsonplc.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:james.skinner",
+      "canonical": "James Skinner",
+      "aliases": [
+        "james.skinner@evanslee.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:mark.green",
+      "canonical": "Mark Green",
+      "aliases": [
+        "mark.green@franklinsnyder.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:carol.lewis",
+      "canonical": "Carol Lewis",
+      "aliases": [
+        "carol.lewis@peckjennings.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:mark.todd",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-02-15",
+      "end": null
+    },
+    {
+      "src": "p:linda.george",
+      "dst": "p:mark.todd",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:linda.george",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-03-15",
+      "end": null
+    },
+    {
+      "src": "p:pamela.warren",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:pamela.warren",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1997-02-14",
+      "end": null
+    },
+    {
+      "src": "p:linda.nguyen",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:linda.nguyen",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-06-11",
+      "end": null
+    },
+    {
+      "src": "p:mark.barrett",
+      "dst": "p:mark.todd",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:mark.barrett",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "1996-04-15",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.perez",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.perez",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2002-12-14",
+      "end": null
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jason.jordan",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2001-05-26",
+      "end": null
+    },
+    {
+      "src": "p:charles.olson",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:charles.olson",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2003-08-11",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.branch",
+      "dst": "p:linda.george",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kimberly.branch",
+      "dst": "x:brackenridge-civil",
+      "kind": "works_at",
+      "start": "2005-07-03",
+      "end": null
+    },
+    {
+      "src": "xp:debra.vasquez",
+      "dst": "x:esparza-lamb",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:david.dyer",
+      "dst": "x:johnson-plc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:james.skinner",
+      "dst": "x:evans-lee",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:mark.green",
+      "dst": "x:franklin-snyder",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:carol.lewis",
+      "dst": "x:peck-jennings",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:esparza-lamb",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2001-07-15",
+      "end": null
+    },
+    {
+      "src": "x:johnson-plc",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2004-07-05",
+      "end": null
+    },
+    {
+      "src": "x:evans-lee",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2005-06-22",
+      "end": null
+    },
+    {
+      "src": "x:franklin-snyder",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2006-04-27",
+      "end": null
+    },
+    {
+      "src": "x:peck-jennings",
+      "dst": "x:brackenridge-civil",
+      "kind": "client_of",
+      "start": "2007-05-10",
+      "end": null
+    }
+  ]
+}

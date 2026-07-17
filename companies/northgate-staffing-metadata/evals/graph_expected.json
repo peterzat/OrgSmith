@@ -1,0 +1,471 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "northgate-staffing",
+  "entities": [
+    {
+      "id": "x:northgate-staffing",
+      "canonical": "Northgate Talent Partners LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:kelly.chavez",
+      "canonical": "Kelly Chavez",
+      "aliases": [
+        "kelly.chavez@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:sandra.fuentes",
+      "canonical": "Sandra Fuentes",
+      "aliases": [
+        "sandra.fuentes@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:james.grant",
+      "canonical": "James Grant",
+      "aliases": [
+        "Jim",
+        "james.grant@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:nickname-alias"
+      ]
+    },
+    {
+      "id": "p:jeffrey.patterson",
+      "canonical": "Jeffrey Patterson",
+      "aliases": [
+        "jeffrey.patterson@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:john.chang",
+      "canonical": "John Chang",
+      "aliases": [
+        "john.chang@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:james.weiss",
+      "canonical": "James Weiss",
+      "aliases": [
+        "james.weiss@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
+    },
+    {
+      "id": "p:david.weiss",
+      "canonical": "David Weiss",
+      "aliases": [
+        "david.weiss@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
+    },
+    {
+      "id": "p:jason.bell",
+      "canonical": "Jason Bell",
+      "aliases": [
+        "jason.bell@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:nicole.donovan",
+      "canonical": "Nicole Donovan",
+      "aliases": [
+        "nicole.donovan@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:larry.russell",
+      "canonical": "Larry Russell",
+      "aliases": [
+        "larry.russell@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:mary.parker",
+      "canonical": "Mary Parker",
+      "aliases": [
+        "mary.parker@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:heather.meyer",
+      "canonical": "Heather Meyer",
+      "aliases": [
+        "heather.meyer@northgatetalent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:roach-moss-and-hall",
+      "canonical": "Roach, Moss and Hall",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:coleman-ltd",
+      "canonical": "Coleman Ltd",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:sanchez-baker",
+      "canonical": "Sanchez-Baker",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:davis-and-sons",
+      "canonical": "Davis and Sons",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:howard-carlson-and-tran",
+      "canonical": "Howard, Carlson and Tran",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:hicks-castillo",
+      "canonical": "Hicks-Castillo",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:jason.myers",
+      "canonical": "Jason Myers",
+      "aliases": [
+        "jason.myers@roachmossandhall.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:michael.martin",
+      "canonical": "Michael Martin",
+      "aliases": [
+        "michael.martin@colemanltd.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:jennifer.frazier",
+      "canonical": "Jennifer Frazier",
+      "aliases": [
+        "jennifer.frazier@sanchezbaker.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:jason.vasquez",
+      "canonical": "Jason Vasquez",
+      "aliases": [
+        "jason.vasquez@davisandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:amy.alvarez",
+      "canonical": "Amy Alvarez",
+      "aliases": [
+        "amy.alvarez@howardcarlsonandtran.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:david.mcgee",
+      "canonical": "David Mcgee",
+      "aliases": [
+        "david.mcgee@hickscastillo.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:kelly.chavez",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-02-15",
+      "end": null
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "p:kelly.chavez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-03-15",
+      "end": null
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2014-04-22",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-11-13",
+      "end": null
+    },
+    {
+      "src": "p:john.chang",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.chang",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2014-10-13",
+      "end": null
+    },
+    {
+      "src": "p:james.weiss",
+      "dst": "p:kelly.chavez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:james.weiss",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-04-15",
+      "end": null
+    },
+    {
+      "src": "p:david.weiss",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.weiss",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2017-07-25",
+      "end": null
+    },
+    {
+      "src": "p:jason.bell",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jason.bell",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2016-07-17",
+      "end": null
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2017-12-24",
+      "end": null
+    },
+    {
+      "src": "p:larry.russell",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:larry.russell",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2019-11-12",
+      "end": null
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2020-11-20",
+      "end": null
+    },
+    {
+      "src": "p:heather.meyer",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:heather.meyer",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2022-08-26",
+      "end": null
+    },
+    {
+      "src": "xp:jason.myers",
+      "dst": "x:roach-moss-and-hall",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:michael.martin",
+      "dst": "x:coleman-ltd",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:jennifer.frazier",
+      "dst": "x:sanchez-baker",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:jason.vasquez",
+      "dst": "x:davis-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:amy.alvarez",
+      "dst": "x:howard-carlson-and-tran",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:david.mcgee",
+      "dst": "x:hicks-castillo",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:roach-moss-and-hall",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2015-08-27",
+      "end": null
+    },
+    {
+      "src": "x:coleman-ltd",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2016-03-06",
+      "end": null
+    },
+    {
+      "src": "x:sanchez-baker",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2017-05-13",
+      "end": null
+    },
+    {
+      "src": "x:davis-and-sons",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2018-07-05",
+      "end": null
+    },
+    {
+      "src": "x:howard-carlson-and-tran",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2019-05-09",
+      "end": null
+    },
+    {
+      "src": "x:hicks-castillo",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2023-03-25",
+      "end": null
+    }
+  ]
+}

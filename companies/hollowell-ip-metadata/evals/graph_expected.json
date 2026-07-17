@@ -1,0 +1,391 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "hollowell-ip",
+  "entities": [
+    {
+      "id": "x:hollowell-ip",
+      "canonical": "Hollowell Patent Group PLLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:mary.bradley",
+      "canonical": "Mary Bradley",
+      "aliases": [
+        "mary.bradley@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:heather.munoz",
+      "canonical": "Heather Munoz",
+      "aliases": [
+        "heather.munoz@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:amanda.schwartz",
+      "canonical": "Amanda Schwartz",
+      "aliases": [
+        "amanda.schwartz@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:kelly.snyder",
+      "canonical": "Kelly Snyder",
+      "aliases": [
+        "kelly.snyder@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:sharon.woods",
+      "canonical": "Sharon Woods",
+      "aliases": [
+        "sharon.woods@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:joseph.walker",
+      "canonical": "Joseph Walker",
+      "aliases": [
+        "Joe",
+        "joseph.walker@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:nickname-alias"
+      ]
+    },
+    {
+      "id": "p:richard.henderson",
+      "canonical": "Richard Henderson",
+      "aliases": [
+        "richard.henderson@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:ashley.williams",
+      "canonical": "Ashley Williams",
+      "aliases": [
+        "ashley.williams@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:matthew.parrish",
+      "canonical": "Matthew Parrish",
+      "aliases": [
+        "matthew.parrish@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:david.chang",
+      "canonical": "David Chang",
+      "aliases": [
+        "david.chang@hollowellpatent.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:odonnell-inc",
+      "canonical": "Odonnell Inc",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:middleton-sullivan-and-wiley",
+      "canonical": "Middleton, Sullivan and Wiley",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:keith-duarte",
+      "canonical": "Keith-Duarte",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:jackson-inc",
+      "canonical": "Jackson Inc",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:price-henson",
+      "canonical": "Price-Henson",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:gary.smith",
+      "canonical": "Gary Smith",
+      "aliases": [
+        "gary.smith@odonnellinc.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:barbara.blair",
+      "canonical": "Barbara Blair",
+      "aliases": [
+        "barbara.blair@middletonsullivanandwiley.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:joseph.palmer",
+      "canonical": "Joseph Palmer",
+      "aliases": [
+        "joseph.palmer@keithduarte.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:cynthia.hunter",
+      "canonical": "Cynthia Hunter",
+      "aliases": [
+        "cynthia.hunter@jacksoninc.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:tiffany.munoz",
+      "canonical": "Tiffany Munoz",
+      "aliases": [
+        "tiffany.munoz@pricehenson.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:mary.bradley",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-02-15",
+      "end": null
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "p:mary.bradley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-03-15",
+      "end": null
+    },
+    {
+      "src": "p:amanda.schwartz",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:amanda.schwartz",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-10-01",
+      "end": null
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-07-12",
+      "end": null
+    },
+    {
+      "src": "p:sharon.woods",
+      "dst": "p:mary.bradley",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sharon.woods",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2016-04-15",
+      "end": null
+    },
+    {
+      "src": "p:joseph.walker",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.walker",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2021-01-18",
+      "end": null
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2019-10-17",
+      "end": null
+    },
+    {
+      "src": "p:ashley.williams",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:ashley.williams",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2021-02-03",
+      "end": null
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2023-01-07",
+      "end": null
+    },
+    {
+      "src": "p:david.chang",
+      "dst": "p:heather.munoz",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.chang",
+      "dst": "x:hollowell-ip",
+      "kind": "works_at",
+      "start": "2024-02-24",
+      "end": null
+    },
+    {
+      "src": "xp:gary.smith",
+      "dst": "x:odonnell-inc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:barbara.blair",
+      "dst": "x:middleton-sullivan-and-wiley",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:joseph.palmer",
+      "dst": "x:keith-duarte",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:cynthia.hunter",
+      "dst": "x:jackson-inc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:tiffany.munoz",
+      "dst": "x:price-henson",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:odonnell-inc",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2019-05-13",
+      "end": null
+    },
+    {
+      "src": "x:middleton-sullivan-and-wiley",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2020-05-12",
+      "end": null
+    },
+    {
+      "src": "x:keith-duarte",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2021-08-11",
+      "end": null
+    },
+    {
+      "src": "x:jackson-inc",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2024-04-09",
+      "end": null
+    },
+    {
+      "src": "x:price-henson",
+      "dst": "x:hollowell-ip",
+      "kind": "client_of",
+      "start": "2025-03-14",
+      "end": null
+    }
+  ]
+}

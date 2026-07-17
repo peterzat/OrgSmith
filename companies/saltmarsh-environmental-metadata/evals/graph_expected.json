@@ -1,0 +1,390 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "saltmarsh-environmental",
+  "entities": [
+    {
+      "id": "x:saltmarsh-environmental",
+      "canonical": "Saltmarsh Environmental Partners LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:angela.flynn",
+      "canonical": "Angela Flynn",
+      "aliases": [
+        "angela.flynn@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:john.sanchez",
+      "canonical": "John Sanchez",
+      "aliases": [
+        "john.sanchez@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:pamela.brown",
+      "canonical": "Pamela Brown",
+      "aliases": [
+        "pamela.brown@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:angela.williams",
+      "canonical": "Angela Williams",
+      "aliases": [
+        "angela.williams@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:tammy.parks",
+      "canonical": "Tammy Parks",
+      "aliases": [
+        "tammy.parks@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:james.henderson",
+      "canonical": "James Henderson",
+      "aliases": [
+        "james.henderson@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:mary.foster",
+      "canonical": "Mary Foster",
+      "aliases": [
+        "mary.foster@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:heather.morton",
+      "canonical": "Heather Morton",
+      "aliases": [
+        "heather.morton@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:william.schwartz",
+      "canonical": "William Schwartz",
+      "aliases": [
+        "william.schwartz@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:joseph.nichols",
+      "canonical": "Joseph Nichols",
+      "aliases": [
+        "joseph.nichols@saltmarshenv.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:salazar-mendoza",
+      "canonical": "Salazar-Mendoza",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:dyer-and-sons",
+      "canonical": "Dyer and Sons",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:crawford-plc",
+      "canonical": "Crawford PLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:carter-and-sons",
+      "canonical": "Carter and Sons",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:solis-allen-and-oconnell",
+      "canonical": "Solis, Allen and Oconnell",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:sandra.little",
+      "canonical": "Sandra Little",
+      "aliases": [
+        "sandra.little@salazarmendoza.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:multi-affiliation"
+      ]
+    },
+    {
+      "id": "xp:michelle.roberts",
+      "canonical": "Michelle Roberts",
+      "aliases": [
+        "michelle.roberts@dyerandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:brian.lopez",
+      "canonical": "Brian Lopez",
+      "aliases": [
+        "brian.lopez@crawfordplc.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:heather.smith",
+      "canonical": "Heather Smith",
+      "aliases": [
+        "heather.smith@carterandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:robert.lopez",
+      "canonical": "Robert Lopez",
+      "aliases": [
+        "robert.lopez@solisallenandoconnell.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:angela.flynn",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2011-02-15",
+      "end": null
+    },
+    {
+      "src": "p:john.sanchez",
+      "dst": "p:angela.flynn",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.sanchez",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2011-03-15",
+      "end": null
+    },
+    {
+      "src": "p:pamela.brown",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:pamela.brown",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2011-12-01",
+      "end": null
+    },
+    {
+      "src": "p:angela.williams",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:angela.williams",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2011-06-08",
+      "end": null
+    },
+    {
+      "src": "p:tammy.parks",
+      "dst": "p:angela.flynn",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:tammy.parks",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2011-04-15",
+      "end": null
+    },
+    {
+      "src": "p:james.henderson",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:james.henderson",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2015-07-31",
+      "end": null
+    },
+    {
+      "src": "p:mary.foster",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:mary.foster",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2014-11-27",
+      "end": null
+    },
+    {
+      "src": "p:heather.morton",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:heather.morton",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2016-07-10",
+      "end": null
+    },
+    {
+      "src": "p:william.schwartz",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:william.schwartz",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2018-10-02",
+      "end": null
+    },
+    {
+      "src": "p:joseph.nichols",
+      "dst": "p:john.sanchez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.nichols",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "works_at",
+      "start": "2019-10-01",
+      "end": null
+    },
+    {
+      "src": "xp:sandra.little",
+      "dst": "x:dyer-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": "2016-09-24"
+    },
+    {
+      "src": "xp:sandra.little",
+      "dst": "x:salazar-mendoza",
+      "kind": "works_at",
+      "start": "2016-09-25",
+      "end": null
+    },
+    {
+      "src": "xp:michelle.roberts",
+      "dst": "x:dyer-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:brian.lopez",
+      "dst": "x:crawford-plc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:heather.smith",
+      "dst": "x:carter-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:robert.lopez",
+      "dst": "x:solis-allen-and-oconnell",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:dyer-and-sons",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "client_of",
+      "start": "2015-05-25",
+      "end": null
+    },
+    {
+      "src": "x:salazar-mendoza",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "client_of",
+      "start": "2018-07-26",
+      "end": null
+    },
+    {
+      "src": "x:carter-and-sons",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "client_of",
+      "start": "2019-02-01",
+      "end": null
+    },
+    {
+      "src": "x:solis-allen-and-oconnell",
+      "dst": "x:saltmarsh-environmental",
+      "kind": "client_of",
+      "start": "2021-03-20",
+      "end": null
+    }
+  ]
+}
