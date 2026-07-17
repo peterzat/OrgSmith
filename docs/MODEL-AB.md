@@ -276,9 +276,12 @@ Measured over the same 22 documents and one enrichment pass:
 tool calls, re-read more, and self-checked more.
 
 Sonnet 5 is priced at exactly 0.6x Opus 4.8 on **both** halves ($3/$15 per
-MTok against $5/$25), and cache reads scale ~0.1x for both, so the cost
-ratio is `token_ratio * 0.6` and is robust to whatever the input/output/cache
-mix turns out to be:
+MTok against $5/$25), and cache reads scale ~0.1x for both, so converting
+Sonnet's bill to Opus rates is a flat 0.6x whatever the input/output/cache
+mix. Comparing the two arms then gives `token_ratio * 0.6` **provided the
+two arms' token mixes match** — the mix cancels when it is the same on both
+sides, and the totals here are undifferentiated, so this is an assumption,
+not a measurement (see Limits):
 
 | pricing | arithmetic | result |
 | --- | --- | --- |
@@ -373,6 +376,15 @@ document genres the same way. Logged to BACKLOG as
   part of what is being measured.
 - **The board's false-positive rate is still unmeasured.** Finding 1 is one
   instance, not a rate.
+- **The cost ratio assumes the two arms' token mixes match.** Subagent
+  tokens are recorded as one undifferentiated total, so the input/output/
+  cache split per arm is not recoverable. `1.891 x 0.6` holds exactly only
+  if the blended per-token price is the same on both sides. The evidence
+  points the other way: Sonnet re-read more (proportionally more input and
+  cache-read tokens) while producing 0.86x the words (fewer output tokens,
+  the expensive component), so its blended price is plausibly lower and
+  1.135x may be an over-estimate. How much is not resolvable from what was
+  recorded.
 
 ## Conclusion
 

@@ -111,6 +111,7 @@ def test_old_charter_loads_with_knob_defaults():
     culture = charter.doc_culture
     assert culture.format_mix.pptx == 0 and culture.format_mix.eml == 0
     assert culture.scanned_ratio == 0.0 and culture.legacy_ratio == 0.0
+    assert culture.ocr_layer_rate == 0.0
 
 
 def test_old_external_person_loads_with_empty_affiliations():

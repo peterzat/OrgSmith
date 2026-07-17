@@ -283,9 +283,10 @@ def test_extraction_covers_committed_fixtures():
                 expected.add("signature_page")
             if hard.filename_dates:
                 expected.add("filename")
-            assert locations <= expected, (
-                f"{slug} produced a location its charter does not enable: "
-                f"{sorted(locations - expected)}"
+            assert locations == expected, (
+                f"{slug} location set does not match its charter's knobs: "
+                f"unexpected {sorted(locations - expected)}, "
+                f"missing {sorted(expected - locations)}"
             )
 
 
@@ -396,7 +397,7 @@ def test_committed_fixtures_gain_ambiguity_tags_without_regeneration(slug, tag):
     has surname-collision and nickname-alias, hollowell nickname-alias,
     meridian surname-collision, saltmarsh and verdant multi-affiliation -- so
     the contract is asserted per (org, tag) instead. Worth stating plainly:
-    the fleet spreads the three ambiguity classes across four orgs rather
+    the fleet spreads the three ambiguity classes across five orgs rather
     than concentrating them, so no single org exercises a
     surname-collision-and-multi-affiliation interaction the way torchlake
     did. The tags themselves stay covered; a cross-class interaction is not.

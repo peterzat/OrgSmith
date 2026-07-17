@@ -8,21 +8,21 @@ the suite. That is exactly what a reordered `Faker` draw or a re-used
 it, which is why `+ 1` on every expense line in `fabric/finance.py` passed
 the entire suite before this module existed.
 
-**The byte-pin is scoped to `dev-mini` until the fleet resets in M11.**
-M8 lifts the freeze on `companies/`: churn moves `foundation.json`,
-behavioral finance moves `finance.json`, and rotation moves the manifest,
-so no pin against the other six fixtures' committed bytes can pass, and
-they retire in M11 rather than being regenerated twice. Scoping the pin to
-one recipe keeps the fault-injection property alive and gives it up on
-six; that is the priced cost of the lift, recorded in SPEC.md, and it is
-an argument for M11 landing promptly. The six stay committed and keep
-validating clean (`test_org_fleet.py`) -- their artifacts are internally
-consistent, and validation never re-runs the generator.
+**The byte-pin covers the whole committed fleet again (M11b).** It was
+scoped to `dev-mini` for M8..M10 and to `{dev-mini, meridian-actuarial}` at
+M11a, because M8 lifted the freeze on `companies/`: churn moved
+`foundation.json`, behavioral finance moved `finance.json`, and rotation
+moved the manifest, so no pin against the six pre-v2.0 fixtures' committed
+bytes could pass. That was the priced cost of the lift, recorded in SPEC.md
+as temporary and as an argument for M11 landing promptly. M11b retired those
+six, generated their replacements on the v2.0 stack, and set `PINNED` back
+to `SLUGS` -- see the comment there for why it is `SLUGS` itself rather than
+a literal.
 
-What survives the unpin fleet-wide, because it costs ~60ms and still
-catches a real class of break: every recipe must keep *deriving* through
-all four pure stages. A generator that crashes on cindergrove's 1998
-recipe is caught here even though its bytes are no longer pinned.
+Independent of the pin, and worth keeping because it costs ~60ms and catches
+a different class of break: every recipe must keep *deriving* through all
+four pure stages. A generator that crashes on brackenridge's 1999 recipe is
+caught by that test even for a recipe with no committed org.
 """
 
 import json

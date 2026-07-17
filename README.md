@@ -204,16 +204,18 @@ Our own adversarial review board read the flagship org, `northgate-staffing`,
 and said it better than we could. These are its actual committed findings —
 **16 major across six dimensions**, all in
 `companies/northgate-staffing-metadata/review/findings/`, against a corpus
-that passes all 29 validator rules with zero errors:
+that validates clean: 24 rules run, 5 skipped for knobs it leaves off, 0
+errors:
 
 - **The firm's own paperwork says it has five clients. Its books say
   otherwise.** "The firm has been retained for five engagements to date...
   That is a deliberately short list," says the 2021 firm overview — five
-  fees totalling $500,500 — while the FY2021 financial summary shipping in
+  fees totalling $425,500 — while the FY2021 financial summary shipping in
   the same corpus posts **$2,469,000 for that one year**, and lifetime
-  revenue reaches $20.7M. Four of the six reviewers found this
-  independently. It is real: fees are **1.6% to 5.1% of revenue in every
-  org in this fleet**.
+  revenue reaches $20.7M. Two of the six reviewers drew this contradiction
+  independently, on different dimensions, and a third independently reached
+  the premise under it. It is real: fees are **1.6% to 5.1% of revenue in
+  every org in this fleet**.
 - **Meetings that could not have happened.** Minutes record a client working
   session on **Saturday 2016-05-28**, and another on **2023-07-04, US
   Independence Day**, with the client's General Manager attending. Neither
@@ -520,8 +522,8 @@ batch records what actually authored it.
 - The full pipeline, end to end, proven on seven committed fixtures, all
   generated on the v2.0 stack and all byte-pinned:
   `northgate-staffing` (a 12-person executive search firm, 53 documents,
-  six engagements, 2015-2023) — the largest here, growing from 7 seats to
-  12, with both ambiguity knobs on: a nickname alias (Jim/James Grant,
+  six engagements, 2015-2023) — the largest here, growing from 6 seats to
+  11, with both ambiguity knobs on: a nickname alias (Jim/James Grant,
   internal-only) and a surname-collision pair;
   `meridian-actuarial` (a 12-person actuarial consultancy, 49 documents,
   2016-2024) — the first org on the v2.0 stack, growing 6 seats to 11, with
