@@ -49,6 +49,38 @@ def people_index(foundation, at: date | None = None) -> dict[str, dict]:
     return people
 
 
+def _render_derived(entry, resolved, style, people, charter, target) -> None:
+    """Render a derived noise draft. Noise is planned only in modern,
+    non-scan, non-sig formats, so this is the plain DocIR path with none of
+    the hard-case machinery (no legacy conversion, scan, or signature fact)."""
+    author_name = people[entry.authors[0]]["name"]
+    if entry.format == "docx":
+        from .docx import render_docx
+
+        target.write_bytes(render_docx(resolved, entry, style, author_name, people))
+    elif entry.format == "pptx":
+        from .pptx import render_pptx
+
+        target.write_bytes(render_pptx(resolved, entry, style, author_name))
+    elif entry.format == "eml":
+        from .eml import render_eml
+
+        target.write_bytes(
+            render_eml(resolved, entry, people, charter.slug, charter.domain)
+        )
+    elif entry.format == "pdf":
+        from .pdf import render_pdf
+
+        render_pdf(
+            resolved, entry, style, author_name, people, target, sig_fact_text=None
+        )
+    else:
+        raise SystemExit(
+            f"render: derived noise doc {entry.doc_id} has unrenderable "
+            f"format {entry.format!r}"
+        )
+
+
 def run_render(paths: OrgPaths) -> int:
     state = load_state(paths)
     require_stages(state, "docplan", "fabric")
@@ -65,6 +97,8 @@ def run_render(paths: OrgPaths) -> int:
     rendered = skipped = pending = 0
     todo = []
     for entry in manifest:
+        if entry.authoring == "derived":
+            continue  # noise docs render in a second pass, after their sources
         doc_state = state.doc(entry.doc_id)
         if entry.authoring == "static":
             basis = f"static:{finance_hash}"
@@ -186,6 +220,46 @@ def run_render(paths: OrgPaths) -> int:
                     f"render: no renderer for format {entry.format!r}"
                 )
 
+        doc_state.rendered_hash = sha256_file(target)
+        doc_state.rendered_from = basis
+        state.docs[entry.doc_id] = doc_state
+        rendered += 1
+
+    # --- derived noise pass (M12): sources are now rendered ---
+    by_id = {e.doc_id: e for e in manifest}
+    for entry in manifest:
+        if entry.authoring != "derived":
+            continue
+        doc_state = state.doc(entry.doc_id)
+        src_state = state.doc(entry.noise_of)
+        if src_state.authored_hash is None:
+            pending += 1
+            continue
+        if entry.noise_kind == "exact_duplicate":
+            basis = f"exact:{src_state.rendered_hash}"
+        else:
+            basis = f"draft:{src_state.authored_hash}"
+        target = paths.share_dir / entry.path
+        if doc_state.rendered_from == basis and target.exists():
+            skipped += 1
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if entry.noise_kind == "exact_duplicate":
+            import shutil
+
+            src_target = paths.share_dir / by_id[entry.noise_of].path
+            shutil.copyfile(src_target, target)
+        else:
+            from ..authoring.ingest import docir_path
+            from .noise import derive_draft_docir
+
+            src_docir = DocIR.model_validate_json(
+                docir_path(paths, entry.noise_of).read_text("utf-8")
+            )
+            draft = resolve_docir(
+                derive_draft_docir(src_docir, entry.doc_id), facts
+            )
+            _render_derived(entry, draft, style, people, charter, target)
         doc_state.rendered_hash = sha256_file(target)
         doc_state.rendered_from = basis
         state.docs[entry.doc_id] = doc_state

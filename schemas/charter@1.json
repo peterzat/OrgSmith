@@ -57,6 +57,17 @@
           "title": "Legacy Ratio",
           "type": "number"
         },
+        "noise": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NoiseModel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "ocr_layer_rate": {
           "default": 0.0,
           "maximum": 1.0,
@@ -243,6 +254,26 @@
         }
       },
       "title": "HardCases",
+      "type": "object"
+    },
+    "NoiseModel": {
+      "additionalProperties": false,
+      "description": "M12: deterministic corpus noise, derived from already-authored documents\nwith no model pass. A real share is mostly junk (drafts, copies, superseded\nversions); today every committed document is deliberate. When declared, the\ndocplan plans `duplicates` exact byte-duplicates and `drafts` near-duplicate\ndraft versions of eligible authored documents, each labeled in the manifest\nwith its source (noise_of) so authored and derived words stay separable and\na scorer can exclude them.\n\nExact byte-duplicates alone are not enough: an agent collapses those on a\nhash without reading them (docs/SCALE.md), so `drafts` carry a near-copy\nthat does not. Counts, not rates, matching the hard_cases idiom: a recipe\nasks for a shape and docplan plants exactly it, failing actionably if the\ncorpus has too few eligible sources.",
+      "properties": {
+        "drafts": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Drafts",
+          "type": "integer"
+        },
+        "duplicates": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Duplicates",
+          "type": "integer"
+        }
+      },
+      "title": "NoiseModel",
       "type": "object"
     },
     "RosterChurn": {

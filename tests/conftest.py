@@ -199,10 +199,12 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
         "  format_mix: {docx: 14, pdf: 3, xlsx: 5, pptx: 1, eml: 2}\n"
         "  scanned_ratio: 0.4\n"
         "  ocr_layer_rate: 1.0\n"
-        # M12: turn the business-day calendar on so CAL-01 finds its knob
-        # here too (the zero-skip test keys off this org). Weekends only, no
-        # declared holidays, which is enough to run the rule.
-        "  business_calendar:\n    holidays: []\n",
+        # M12: turn the business-day calendar and the noise model on so CAL-01
+        # and NOISE-01 find their knobs here too (the zero-skip test keys off
+        # this org). Weekends only, no declared holidays; one duplicate and one
+        # draft, which is enough to run both rules.
+        "  business_calendar:\n    holidays: []\n"
+        "  noise:\n    duplicates: 1\n    drafts: 1\n",
     )
     text = text.replace("target_docs: 22", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)

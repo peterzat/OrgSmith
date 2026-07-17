@@ -66,6 +66,16 @@ doc_culture:
   # excluded; the holiday list may be empty. Validated by CAL-01.
   # business_calendar:
   #   holidays: [2021-07-05, 2021-12-24]   # declared, inside date_range
+  # Corpus noise (M12), optional, default off (absent). Plants derived
+  # documents from authored sources with no model pass: exact byte-duplicates
+  # and near-duplicate drafts. Each is labeled in the manifest with its source
+  # (authoring: derived, render_params.noise_of/noise_kind), so authored and
+  # derived words stay separable and evals exclude it. Fails at docplan if the
+  # corpus has too few eligible sources (batchable, modern-format, no scan,
+  # legacy, or non-body fact). Validated by NOISE-01.
+  # noise:
+  #   duplicates: 3     # exact byte-duplicates
+  #   drafts: 5         # near-duplicate draft versions
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD

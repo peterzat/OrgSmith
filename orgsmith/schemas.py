@@ -99,6 +99,34 @@ class BusinessCalendar(StrictModel):
     holidays: list[date] = []
 
 
+class NoiseModel(StrictModel):
+    """M12: deterministic corpus noise, derived from already-authored documents
+    with no model pass. A real share is mostly junk (drafts, copies, superseded
+    versions); today every committed document is deliberate. When declared, the
+    docplan plans `duplicates` exact byte-duplicates and `drafts` near-duplicate
+    draft versions of eligible authored documents, each labeled in the manifest
+    with its source (noise_of) so authored and derived words stay separable and
+    a scorer can exclude them.
+
+    Exact byte-duplicates alone are not enough: an agent collapses those on a
+    hash without reading them (docs/SCALE.md), so `drafts` carry a near-copy
+    that does not. Counts, not rates, matching the hard_cases idiom: a recipe
+    asks for a shape and docplan plants exactly it, failing actionably if the
+    corpus has too few eligible sources."""
+
+    duplicates: int = Field(ge=0, default=0)
+    drafts: int = Field(ge=0, default=0)
+
+    @model_validator(mode="after")
+    def _check(self) -> "NoiseModel":
+        if self.duplicates == 0 and self.drafts == 0:
+            raise ValueError(
+                "a declared noise model must plan at least one duplicate or "
+                "draft; omit the block entirely to leave noise off"
+            )
+        return self
+
+
 class DocCulture(StrictModel):
     # ADVISORY since M9. Document supply is derived by the genre registry from
     # the firm's drivers (engagements, fiscal years, hires), so the manifest
@@ -124,6 +152,10 @@ class DocCulture(StrictModel):
     # turns it on; committed recipes without it stay byte-identical because the
     # date shift is a no-op when this is None.
     business_calendar: BusinessCalendar | None = None
+    # M12: recipe-declared corpus noise (duplicates and drafts), default OFF
+    # (None). Planted at docplan from a new seed stream, so committed recipes
+    # without it plan the same manifest byte-for-byte.
+    noise: NoiseModel | None = None
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":
@@ -587,9 +619,48 @@ class ManifestEntry(StrictModel):
     # Additive since M2 (defaults keep pre-M2 manifests readable):
     mentions: list[PlannedMention] = []
     key_facts: list[KeyFact] = []
-    authoring: Literal["batchable", "static"] = "batchable"
+    # M12: "derived" is a noise document (a duplicate or a draft) produced from
+    # an already-authored source with no model pass, carrying no facts or
+    # mentions of its own. Expanding this Literal is byte-safe for existing
+    # manifests (they still serialize "batchable"/"static"); the source doc_id
+    # and kind ride in render_params ("noise_of", "noise_kind") rather than in
+    # new top-level fields, because a new field would serialize a null into
+    # every committed entry and break the frozen manifest.
+    authoring: Literal["batchable", "static", "derived"] = "batchable"
     render_params: dict[str, Union[int, str]] = {}
     rev: int = 0
+
+    @property
+    def noise_of(self) -> str | None:
+        v = self.render_params.get("noise_of")
+        return str(v) if v is not None else None
+
+    @property
+    def noise_kind(self) -> str | None:
+        v = self.render_params.get("noise_kind")
+        return str(v) if v is not None else None
+
+    @model_validator(mode="after")
+    def _check_noise(self) -> "ManifestEntry":
+        derived = self.authoring == "derived"
+        has_labels = "noise_of" in self.render_params and (
+            "noise_kind" in self.render_params
+        )
+        if derived != has_labels:
+            raise ValueError(
+                "render_params carries noise_of and noise_kind exactly for "
+                "authoring == 'derived'"
+            )
+        if derived and (self.facts_refs or self.key_facts or self.mentions):
+            raise ValueError(
+                "a derived noise doc carries no facts or mentions of its own"
+            )
+        if derived and self.noise_kind not in ("exact_duplicate", "draft"):
+            raise ValueError(
+                f"noise_kind must be exact_duplicate or draft, got "
+                f"{self.noise_kind!r}"
+            )
+        return self
 
 
 class MentionRecord(StrictModel):

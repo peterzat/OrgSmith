@@ -261,6 +261,12 @@ def _needs_calendar(ctx: Context) -> str | None:
     return None
 
 
+def _needs_noise(ctx: Context) -> str | None:
+    if ctx.charter.doc_culture.noise is None:
+        return "noise model is not declared for this recipe"
+    return None
+
+
 @dataclass(frozen=True)
 class Rule:
     id: str
@@ -367,6 +373,37 @@ def cal_01(ctx: Context):
             yield (
                 f"{e.genre} dated {e.date}, a declared holiday; an attendance "
                 f"genre must land on a business day",
+                e.path,
+            )
+
+
+def noise_01(ctx: Context):
+    """M12: every derived noise document names a real authored source, so
+    authored and derived words stay separable and a scorer can exclude noise.
+    Grandfathers by charter: skips when noise is off (available=_needs_noise);
+    a knob on with the noise stripped or a label broken is a failure, not a
+    skip. File existence is MAN-01/FILE-01's job; this checks the labels."""
+    by_id = {e.doc_id: e for e in ctx.manifest}
+    derived = [e for e in ctx.manifest if e.authoring == "derived"]
+    if not derived:
+        yield (
+            "noise model is declared but no derived documents were planted; "
+            "the noise ground truth is missing",
+            "docplan/manifest.jsonl",
+        )
+        return
+    for e in derived:
+        src = by_id.get(e.noise_of)
+        if src is None:
+            yield (
+                f"derived doc {e.doc_id} names source {e.noise_of!r}, which is "
+                f"not in the manifest",
+                e.path,
+            )
+        elif src.authoring == "derived":
+            yield (
+                f"derived doc {e.doc_id} derives from another derived doc "
+                f"{e.noise_of}; noise must derive from an authored source",
                 e.path,
             )
 
@@ -943,11 +980,14 @@ def scan_01(ctx: Context):
                 ),
             )
             for e in ctx.manifest
-            if e.format == "pdf"
+            if e.format == "pdf" and e.authoring != "derived"
         ],
     )
     for e in ctx.manifest:
-        if e.format != "pdf":
+        if e.format != "pdf" or e.authoring == "derived":
+            # Derived noise docs (M12) are never scanned: they are excluded
+            # from the recompute, so a clean copy or draft of a pdf does not
+            # perturb the scan-set ordering.
             continue
         want_layer = expected.get(e.path)  # None=plain, False=image, True=ocr
         got_scan = e.render_params.get("scan") == 1
@@ -1056,10 +1096,16 @@ def leg_01(ctx: Context):
         [
             (e.date, modern_path(e))
             for e in ctx.manifest
-            if e.format in BASE_FORMAT or e.format in set(BASE_FORMAT.values())
+            if (e.format in BASE_FORMAT or e.format in set(BASE_FORMAT.values()))
+            and e.authoring != "derived"
         ],
     )
     for e in ctx.manifest:
+        if e.authoring == "derived":
+            # Derived noise docs (M12) are never legacy binaries: excluded
+            # from the recompute so a modern-format copy does not shift the
+            # oldest-N legacy ordering.
+            continue
         is_legacy = e.format in BASE_FORMAT
         if not is_legacy and e.format not in set(BASE_FORMAT.values()):
             continue
@@ -1135,6 +1181,8 @@ RULES = [
     Rule("DATE-02", "ERROR", "authors employed at doc date", date_02),
     Rule("CAL-01", "ERROR", "attendance genres land on business days", cal_01,
          available=_needs_calendar),
+    Rule("NOISE-01", "ERROR", "derived noise docs name a real source",
+         noise_01, available=_needs_noise),
     Rule("FIN-01", "ERROR", "finance ledger ties out", fin_01),
     Rule("FIN-02", "ERROR", "workbooks tie to the finance ledger", fin_02),
     Rule("FACT-01", "ERROR", "planted facts appear verbatim in doc text", fact_01),

@@ -395,10 +395,16 @@ def run_emit_evals(paths: OrgPaths) -> int:
     manifest = load_manifest(paths)
     mention_map = load_mention_map(paths)
 
+    # Derived noise documents (M12) are never ground-truth answers: they carry
+    # no facts or mentions of their own and a retrieval system should not be
+    # rewarded for returning a draft. The suites answer over authored docs
+    # only; the noise files are the corpus the +noise split adds around them.
+    answer_manifest = [e for e in manifest if e.authoring != "derived"]
+
     questions = build_retrieval(
-        charter, foundation, engagements, manifest, mention_map
+        charter, foundation, engagements, answer_manifest, mention_map
     )
-    extraction = build_extraction(engagements, manifest)
+    extraction = build_extraction(engagements, answer_manifest)
     expected = build_graph_expected(charter, foundation, graph)
     acl = load_acl(paths)
 

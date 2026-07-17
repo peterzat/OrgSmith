@@ -63,7 +63,8 @@
       "default": "batchable",
       "enum": [
         "batchable",
-        "static"
+        "static",
+        "derived"
       ],
       "title": "Authoring",
       "type": "string"

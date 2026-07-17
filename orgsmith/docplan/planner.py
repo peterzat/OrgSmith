@@ -631,7 +631,79 @@ class _Planner:
             ] + doc.pop("extra_key_facts", [])
             entries.append(ManifestEntry(doc_id=f"d:{i:04d}", **doc))
         self._check_hard_cases(entries)
-        return entries
+        return self._plan_noise(entries)
+
+    @staticmethod
+    def _noise_path(src_path: str, kind: str, suffix: str = "") -> str:
+        dot = src_path.rfind(".")
+        stem, ext = src_path[:dot], src_path[dot:]
+        tag = " (copy)" if kind == "exact_duplicate" else " - DRAFT"
+        extra = f" {suffix}" if suffix else ""
+        return f"{stem}{tag}{extra}{ext}"
+
+    def _plan_noise(self, entries: list[ManifestEntry]) -> list[ManifestEntry]:
+        """Append derived noise documents (M12): exact duplicates and draft
+        near-duplicates of eligible authored sources, from a NEW seed stream so
+        a knob-off recipe plans the same manifest byte-for-byte. Eligible
+        sources are batchable prose in a modern format with no scan, legacy, or
+        non-body fact, so a copy renders cleanly and cannot break a location
+        rule. Fails actionably when the corpus has too few sources."""
+        noise = self.charter.doc_culture.noise
+        if noise is None:
+            return entries
+        eligible = [
+            e
+            for e in entries
+            if e.authoring == "batchable"
+            and e.format in ("docx", "pdf", "pptx", "eml")
+            and not e.render_params.get("scan")
+            and "sig_fact" not in e.render_params
+            and all(kf.location == "body" for kf in e.key_facts)
+        ]
+        total = noise.duplicates + noise.drafts
+        if total > len(eligible):
+            raise SystemExit(
+                f"docplan: noise wants {total} derived doc(s) but only "
+                f"{len(eligible)} eligible source(s) exist; lower "
+                f"duplicates/drafts or grow the corpus"
+            )
+        picks = rng(self.charter.seed, "docplan.noise").sample(
+            range(len(eligible)), total
+        )
+        plan = [("exact_duplicate", noise.duplicates), ("draft", noise.drafts)]
+        seen = {e.path.lower() for e in entries}
+        derived: list[ManifestEntry] = []
+        next_id = len(entries) + 1
+        cursor = 0
+        for kind, count in plan:
+            for _ in range(count):
+                src = eligible[picks[cursor]]
+                cursor += 1
+                path = self._noise_path(src.path, kind)
+                if path.lower() in seen:
+                    path = self._noise_path(src.path, kind, suffix=str(next_id))
+                seen.add(path.lower())
+                label = "copy" if kind == "exact_duplicate" else "draft"
+                derived.append(
+                    ManifestEntry(
+                        doc_id=f"d:{next_id:04d}",
+                        path=path,
+                        title=f"{src.title} ({label})",
+                        genre=src.genre,
+                        format=src.format,
+                        date=src.date,
+                        authors=list(src.authors),
+                        participants=[],
+                        engagement=src.engagement,
+                        authoring="derived",
+                        render_params={
+                            "noise_of": src.doc_id,
+                            "noise_kind": kind,
+                        },
+                    )
+                )
+                next_id += 1
+        return entries + derived
 
     def _check_hard_cases(self, entries: list[ManifestEntry]) -> None:
         """The knob contract gate: placement demand meets document supply
