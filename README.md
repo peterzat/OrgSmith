@@ -440,7 +440,7 @@ provably cannot see.
 
 ### The evidence, concretely
 
-- **440 tests** across three tiers (`bin/test`), keyless and offline; the
+- **445 tests** across three tiers (`bin/test`), keyless and offline; the
   `org` tier validates all seven committed fixtures, derives every recipe,
   re-derives every fixture's structure byte-identically, and checks each
   fleet recipe's internal coherence in ~4.8s.

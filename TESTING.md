@@ -15,9 +15,9 @@ python3 -m venv .venv
 bin/test                      # short + unit + org; exit 0
 ```
 
-Expect ~32s wall and 440 passing (12 short, 356 unit, 72 org) on a box
-with LibreOffice; 434 passing + 6 skipped without it (measured by hiding
-soffice from `shutil.which`, which is what CI sees). Both are green states,
+Expect ~32s wall and 445 passing (14 short, 359 unit, 72 org) on a box
+with LibreOffice; 439 passing + 6 skipped without it (measured by hiding
+soffice from `PATH`, which is what CI sees). Both are green states,
 see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
 the tracer -- `dev-mini` grew from 13 to 22 documents -- so every
@@ -50,8 +50,8 @@ pull request, and is the actual gate.
 
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
-| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants | 12 | < 1s | 0.13s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 356 (350 in CI) | ~20s | ~28s local / ~15s CI |
+| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 14 | < 1s | 0.22s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 359 (353 in CI) | ~20s | ~28s local / ~15s CI |
 | `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence | 72 | ~8s | 4.79s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
