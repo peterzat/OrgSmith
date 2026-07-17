@@ -1,0 +1,84 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "saltmarsh-environmental",
+  "org_name": "Saltmarsh Environmental Partners LLC",
+  "org_type": "environmental consulting",
+  "narrative": "Saltmarsh Environmental Partners is a five-person environmental\nconsultancy on a tidal estuary, founded in 2011. Its clients are a port\nauthority, a county conservation district, and private landowners who\nneed a wetland line drawn before they can build. The work is field-heavy:\ndelineations, Phase I assessments, sediment sampling, and the long tail\nof monitoring that a restoration permit requires.\n\nThe documents reflect a firm that lives between a field notebook and a\nregulator. Scopes of work go out as letters and come back countersigned\nand scanned. Sampling programs produce data workbooks whose totals the\nManaging Principal checks before anything is submitted. Monitoring\nreports are written for an agency reviewer who will read them years\nlater, so they say what was measured, where, and on what date, and they\ndo not editorialize.\n\nTone is plain, technical, and careful. Scientists write in the passive\nwhere the method matters and the actor does not. Nobody oversells a\nfinding; a hedge is a professional obligation here, not a weakness. Staff\nuse first names internally and full names with an agency on the page. One\nlong-standing client contact moved from the conservation district to the\nport authority mid-history, and the documents should show it: the same\nperson, the correct employer for the date on the page.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:angela.flynn",
+      "name": "Angela Flynn",
+      "title": "Managing Principal",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:john.sanchez",
+      "name": "John Sanchez",
+      "title": "Senior Scientist",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:pamela.brown",
+      "name": "Pamela Brown",
+      "title": "Environmental Scientist",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:angela.williams",
+      "name": "Angela Williams",
+      "title": "Environmental Scientist",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:tammy.parks",
+      "name": "Tammy Parks",
+      "title": "Office Manager",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:james.henderson",
+      "name": "James Henderson",
+      "title": "Environmental Scientist",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:mary.foster",
+      "name": "Mary Foster",
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:heather.morton",
+      "name": "Heather Morton",
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:william.schwartz",
+      "name": "William Schwartz",
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:joseph.nichols",
+      "name": "Joseph Nichols",
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

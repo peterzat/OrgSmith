@@ -1,0 +1,294 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0001",
+  "stage": "author",
+  "slug": "saltmarsh-environmental",
+  "org_name": "Saltmarsh Environmental Partners LLC",
+  "org_type": "environmental consulting",
+  "narrative": "Saltmarsh Environmental Partners is a five-person environmental\nconsultancy on a tidal estuary, founded in 2011. Its clients are a port\nauthority, a county conservation district, and private landowners who\nneed a wetland line drawn before they can build. The work is field-heavy:\ndelineations, Phase I assessments, sediment sampling, and the long tail\nof monitoring that a restoration permit requires.\n\nThe documents reflect a firm that lives between a field notebook and a\nregulator. Scopes of work go out as letters and come back countersigned\nand scanned. Sampling programs produce data workbooks whose totals the\nManaging Principal checks before anything is submitted. Monitoring\nreports are written for an agency reviewer who will read them years\nlater, so they say what was measured, where, and on what date, and they\ndo not editorialize.\n\nTone is plain, technical, and careful. Scientists write in the passive\nwhere the method matters and the actor does not. Nobody oversells a\nfinding; a hedge is a professional obligation here, not a weakness. Staff\nuse first names internally and full names with an agency on the page. One\nlong-standing client contact moved from the conservation district to the\nport authority mid-history, and the documents should show it: the same\nperson, the correct employer for the date on the page.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0003",
+      "title": "Onboarding: Mary Foster",
+      "genre": "onboarding_record",
+      "date": "2014-12-04",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mary.foster",
+          "surface": "Mary Foster",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0007",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2015-06-24",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        },
+        {
+          "id": "p:pamela.brown",
+          "name": "Pamela Brown",
+          "title": "Environmental Scientist",
+          "dept": "Consulting",
+          "persona": "Pamela handles the records-heavy end of the work, the assessments where the answer lives in old files, aerials, and interviews rather than in the field. She is methodical to the point of stubbornness, prefers a documented gap to a plausible inference, and writes findings that lead with the source and follow with the limitation. Her prose is orderly and unadorned, close to a checklist in structure but readable, and she is comfortable concluding that the available record does not support a determination."
+        },
+        {
+          "id": "p:tammy.parks",
+          "name": "Tammy Parks",
+          "title": "Office Manager",
+          "dept": "Operations",
+          "persona": "Tammy is the reason the countersigned scopes come back, get scanned, and can be found again. She tracks what is out for signature, what a client still owes, and which submittal has a deadline nobody else has noticed yet, and she is cheerfully relentless about all three. Internally she is warm and uses first names and shorthand; on anything that leaves the office she is formal, correct, and careful about how a client contact is addressed. Her notes and cover messages are brisk, practical, and free of ceremony."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2015-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:pamela.brown",
+          "surface": "Pamela Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:tammy.parks",
+          "surface": "Tammy Parks",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2015. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2015-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    },
+    {
+      "doc_id": "d:0010",
+      "title": "Onboarding: James Henderson",
+      "genre": "onboarding_record",
+      "date": "2015-08-07",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:james.henderson",
+          "name": "James Henderson",
+          "title": "Environmental Scientist",
+          "dept": "Consulting",
+          "persona": "James runs the sampling programs and treats chain of custody as the part of the job most likely to sink a project. He is skeptical by temperament, especially of data that arrives too clean, and he would rather flag a suspect result and explain it than let it pass into a table unremarked. He writes tersely, in method-first order, and his reports read like someone accounting for every step because a reviewer might ask about any of them. He does not editorialize, but he will say plainly when a result is not usable."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.henderson",
+          "surface": "James Henderson",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0018",
+      "title": "Onboarding: Heather Morton",
+      "genre": "onboarding_record",
+      "date": "2016-07-17",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.morton",
+          "surface": "Heather Morton",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0021",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2018-06-23",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2015-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 2 client engagement(s) across 2015-2016. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2015-001.client}}, {{fact:f:E-2016-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    },
+    {
+      "doc_id": "d:0024",
+      "title": "Onboarding: William Schwartz",
+      "genre": "onboarding_record",
+      "date": "2018-10-09",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:william.schwartz",
+          "name": "William Schwartz",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "William handles the equipment and the water: what floats, what runs, what has to be calibrated before anyone leaves the office. He reads tides and weather closely and will move a field day rather than collect something he will not trust. He is laconic in person and briefer still in writing, giving what happened, what it was measured with, and nothing beyond that. Colleagues rely on him to say, without softening it, when a plan will not work in the field."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:william.schwartz",
+          "surface": "William Schwartz",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

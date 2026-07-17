@@ -1,0 +1,355 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0003",
+  "stage": "author",
+  "slug": "saltmarsh-environmental",
+  "org_name": "Saltmarsh Environmental Partners LLC",
+  "org_type": "environmental consulting",
+  "narrative": "Saltmarsh Environmental Partners is a five-person environmental\nconsultancy on a tidal estuary, founded in 2011. Its clients are a port\nauthority, a county conservation district, and private landowners who\nneed a wetland line drawn before they can build. The work is field-heavy:\ndelineations, Phase I assessments, sediment sampling, and the long tail\nof monitoring that a restoration permit requires.\n\nThe documents reflect a firm that lives between a field notebook and a\nregulator. Scopes of work go out as letters and come back countersigned\nand scanned. Sampling programs produce data workbooks whose totals the\nManaging Principal checks before anything is submitted. Monitoring\nreports are written for an agency reviewer who will read them years\nlater, so they say what was measured, where, and on what date, and they\ndo not editorialize.\n\nTone is plain, technical, and careful. Scientists write in the passive\nwhere the method matters and the actor does not. Nobody oversells a\nfinding; a hedge is a professional obligation here, not a weakness. Staff\nuse first names internally and full names with an agency on the page. One\nlong-standing client contact moved from the conservation district to the\nport authority mid-history, and the documents should show it: the same\nperson, the correct employer for the date on the page.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0014",
+      "title": "Engagement Letter: Phase I Site Assessment for Dyer and Sons",
+      "genre": "engagement_letter",
+      "date": "2016-04-30",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        },
+        {
+          "id": "p:james.henderson",
+          "name": "James Henderson",
+          "title": "Environmental Scientist",
+          "dept": "Consulting",
+          "persona": "James runs the sampling programs and treats chain of custody as the part of the job most likely to sink a project. He is skeptical by temperament, especially of data that arrives too clean, and he would rather flag a suspect result and explain it than let it pass into a table unremarked. He writes tersely, in method-first order, and his reports read like someone accounting for every step because a reviewer might ask about any of them. He does not editorialize, but he will say plainly when a result is not usable."
+        },
+        {
+          "id": "p:john.sanchez",
+          "name": "John Sanchez",
+          "title": "Senior Scientist",
+          "dept": "Consulting",
+          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+        },
+        {
+          "id": "xp:michelle.roberts",
+          "name": "Michelle Roberts",
+          "title": "Chief Financial Officer",
+          "dept": "Dyer and Sons",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Phase I Site Assessment for Dyer and Sons, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2016-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mary.foster",
+          "surface": "Mary Foster",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.henderson",
+          "surface": "James Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.sanchez",
+          "surface": "John Sanchez",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:michelle.roberts",
+          "surface": "Michelle Roberts",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dyer-and-sons",
+          "surface": "Dyer and Sons",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0015",
+      "title": "Kickoff Memo: Phase I Site Assessment for Dyer and Sons",
+      "genre": "kickoff_memo",
+      "date": "2016-05-13",
+      "authors": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        },
+        {
+          "id": "p:james.henderson",
+          "name": "James Henderson",
+          "title": "Environmental Scientist",
+          "dept": "Consulting",
+          "persona": "James runs the sampling programs and treats chain of custody as the part of the job most likely to sink a project. He is skeptical by temperament, especially of data that arrives too clean, and he would rather flag a suspect result and explain it than let it pass into a table unremarked. He writes tersely, in method-first order, and his reports read like someone accounting for every step because a reviewer might ask about any of them. He does not editorialize, but he will say plainly when a result is not usable."
+        },
+        {
+          "id": "p:john.sanchez",
+          "name": "John Sanchez",
+          "title": "Senior Scientist",
+          "dept": "Consulting",
+          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+        },
+        {
+          "id": "xp:michelle.roberts",
+          "name": "Michelle Roberts",
+          "title": "Chief Financial Officer",
+          "dept": "Dyer and Sons",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Phase I Site Assessment for Dyer and Sons, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mary.foster",
+          "surface": "Mary Foster",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.henderson",
+          "surface": "James Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.sanchez",
+          "surface": "John Sanchez",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:michelle.roberts",
+          "surface": "Michelle Roberts",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dyer-and-sons",
+          "surface": "Dyer and Sons",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 3% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0016",
+      "title": "Meeting Minutes: Phase I Site Assessment for Dyer and Sons",
+      "genre": "meeting_minutes",
+      "date": "2016-06-24",
+      "authors": [
+        {
+          "id": "p:john.sanchez",
+          "name": "John Sanchez",
+          "title": "Senior Scientist",
+          "dept": "Consulting",
+          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        },
+        {
+          "id": "p:james.henderson",
+          "name": "James Henderson",
+          "title": "Environmental Scientist",
+          "dept": "Consulting",
+          "persona": "James runs the sampling programs and treats chain of custody as the part of the job most likely to sink a project. He is skeptical by temperament, especially of data that arrives too clean, and he would rather flag a suspect result and explain it than let it pass into a table unremarked. He writes tersely, in method-first order, and his reports read like someone accounting for every step because a reviewer might ask about any of them. He does not editorialize, but he will say plainly when a result is not usable."
+        },
+        {
+          "id": "p:john.sanchez",
+          "name": "John Sanchez",
+          "title": "Senior Scientist",
+          "dept": "Consulting",
+          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+        },
+        {
+          "id": "xp:michelle.roberts",
+          "name": "Michelle Roberts",
+          "title": "Chief Financial Officer",
+          "dept": "Dyer and Sons",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Phase I Site Assessment for Dyer and Sons, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.sanchez",
+          "surface": "John Sanchez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mary.foster",
+          "surface": "Mary Foster",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.henderson",
+          "surface": "James Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:michelle.roberts",
+          "surface": "Michelle Roberts",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dyer-and-sons",
+          "surface": "Dyer and Sons",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0017",
+      "title": "Status Report: Phase I Site Assessment for Dyer and Sons",
+      "genre": "status_report",
+      "date": "2016-07-06",
+      "authors": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.foster",
+          "name": "Mary Foster",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told."
+        },
+        {
+          "id": "p:james.henderson",
+          "name": "James Henderson",
+          "title": "Environmental Scientist",
+          "dept": "Consulting",
+          "persona": "James runs the sampling programs and treats chain of custody as the part of the job most likely to sink a project. He is skeptical by temperament, especially of data that arrives too clean, and he would rather flag a suspect result and explain it than let it pass into a table unremarked. He writes tersely, in method-first order, and his reports read like someone accounting for every step because a reviewer might ask about any of them. He does not editorialize, but he will say plainly when a result is not usable."
+        },
+        {
+          "id": "p:john.sanchez",
+          "name": "John Sanchez",
+          "title": "Senior Scientist",
+          "dept": "Consulting",
+          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+        }
+      ],
+      "engagement_summary": "Phase I Site Assessment for Dyer and Sons, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mary.foster",
+          "surface": "Mary Foster",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.henderson",
+          "surface": "James Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.sanchez",
+          "surface": "John Sanchez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:dyer-and-sons",
+          "surface": "Dyer and Sons",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

@@ -1,0 +1,307 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0007",
+  "stage": "author",
+  "slug": "saltmarsh-environmental",
+  "org_name": "Saltmarsh Environmental Partners LLC",
+  "org_type": "environmental consulting",
+  "narrative": "Saltmarsh Environmental Partners is a five-person environmental\nconsultancy on a tidal estuary, founded in 2011. Its clients are a port\nauthority, a county conservation district, and private landowners who\nneed a wetland line drawn before they can build. The work is field-heavy:\ndelineations, Phase I assessments, sediment sampling, and the long tail\nof monitoring that a restoration permit requires.\n\nThe documents reflect a firm that lives between a field notebook and a\nregulator. Scopes of work go out as letters and come back countersigned\nand scanned. Sampling programs produce data workbooks whose totals the\nManaging Principal checks before anything is submitted. Monitoring\nreports are written for an agency reviewer who will read them years\nlater, so they say what was measured, where, and on what date, and they\ndo not editorialize.\n\nTone is plain, technical, and careful. Scientists write in the passive\nwhere the method matters and the actor does not. Nobody oversells a\nfinding; a hedge is a professional obligation here, not a weakness. Staff\nuse first names internally and full names with an agency on the page. One\nlong-standing client contact moved from the conservation district to the\nport authority mid-history, and the documents should show it: the same\nperson, the correct employer for the date on the page.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0007\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0036",
+      "title": "Engagement Letter: Stormwater Permit Support for Solis, Allen and Oconnell",
+      "genre": "engagement_letter",
+      "date": "2021-03-10",
+      "authors": [
+        {
+          "id": "p:angela.flynn",
+          "name": "Angela Flynn",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        },
+        {
+          "id": "p:joseph.nichols",
+          "name": "Joseph Nichols",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Joseph documents more than anyone asks him to, which reviewers tend to appreciate and editors tend to trim. He asks a lot of questions on site, writes down the answers, and turns in notes that are thorough and occasionally overwritten before someone senior cuts them back to the technical spine. He is earnest and careful, quick to say when he is unsure of a call, and getting steadily better at telling the load-bearing detail from the interesting one."
+        },
+        {
+          "id": "xp:robert.lopez",
+          "name": "Robert Lopez",
+          "title": "Director of Operations",
+          "dept": "Solis, Allen and Oconnell",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Stormwater Permit Support for Solis, Allen and Oconnell, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2021-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.flynn",
+          "surface": "Angela Flynn",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.morton",
+          "surface": "Heather Morton",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joseph.nichols",
+          "surface": "Joseph Nichols",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.lopez",
+          "surface": "Robert Lopez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:solis-allen-and-oconnell",
+          "surface": "Solis, Allen and Oconnell",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0037",
+      "title": "Kickoff Memo: Stormwater Permit Support for Solis, Allen and Oconnell",
+      "genre": "kickoff_memo",
+      "date": "2021-03-23",
+      "authors": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        },
+        {
+          "id": "p:joseph.nichols",
+          "name": "Joseph Nichols",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Joseph documents more than anyone asks him to, which reviewers tend to appreciate and editors tend to trim. He asks a lot of questions on site, writes down the answers, and turns in notes that are thorough and occasionally overwritten before someone senior cuts them back to the technical spine. He is earnest and careful, quick to say when he is unsure of a call, and getting steadily better at telling the load-bearing detail from the interesting one."
+        },
+        {
+          "id": "xp:robert.lopez",
+          "name": "Robert Lopez",
+          "title": "Director of Operations",
+          "dept": "Solis, Allen and Oconnell",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Stormwater Permit Support for Solis, Allen and Oconnell, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.morton",
+          "surface": "Heather Morton",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joseph.nichols",
+          "surface": "Joseph Nichols",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.lopez",
+          "surface": "Robert Lopez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:solis-allen-and-oconnell",
+          "surface": "Solis, Allen and Oconnell",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0038",
+      "title": "Meeting Minutes: Stormwater Permit Support for Solis, Allen and Oconnell",
+      "genre": "meeting_minutes",
+      "date": "2021-05-09",
+      "authors": [
+        {
+          "id": "p:joseph.nichols",
+          "name": "Joseph Nichols",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Joseph documents more than anyone asks him to, which reviewers tend to appreciate and editors tend to trim. He asks a lot of questions on site, writes down the answers, and turns in notes that are thorough and occasionally overwritten before someone senior cuts them back to the technical spine. He is earnest and careful, quick to say when he is unsure of a call, and getting steadily better at telling the load-bearing detail from the interesting one."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        },
+        {
+          "id": "p:joseph.nichols",
+          "name": "Joseph Nichols",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Joseph documents more than anyone asks him to, which reviewers tend to appreciate and editors tend to trim. He asks a lot of questions on site, writes down the answers, and turns in notes that are thorough and occasionally overwritten before someone senior cuts them back to the technical spine. He is earnest and careful, quick to say when he is unsure of a call, and getting steadily better at telling the load-bearing detail from the interesting one."
+        },
+        {
+          "id": "xp:robert.lopez",
+          "name": "Robert Lopez",
+          "title": "Director of Operations",
+          "dept": "Solis, Allen and Oconnell",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Stormwater Permit Support for Solis, Allen and Oconnell, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:joseph.nichols",
+          "surface": "Joseph Nichols",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.morton",
+          "surface": "Heather Morton",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.lopez",
+          "surface": "Robert Lopez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:solis-allen-and-oconnell",
+          "surface": "Solis, Allen and Oconnell",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0039",
+      "title": "Status Report: Stormwater Permit Support for Solis, Allen and Oconnell",
+      "genre": "status_report",
+      "date": "2021-05-22",
+      "authors": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:heather.morton",
+          "name": "Heather Morton",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+        },
+        {
+          "id": "p:joseph.nichols",
+          "name": "Joseph Nichols",
+          "title": "Field Technician",
+          "dept": "Consulting",
+          "persona": "Joseph documents more than anyone asks him to, which reviewers tend to appreciate and editors tend to trim. He asks a lot of questions on site, writes down the answers, and turns in notes that are thorough and occasionally overwritten before someone senior cuts them back to the technical spine. He is earnest and careful, quick to say when he is unsure of a call, and getting steadily better at telling the load-bearing detail from the interesting one."
+        }
+      ],
+      "engagement_summary": "Stormwater Permit Support for Solis, Allen and Oconnell, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.morton",
+          "surface": "Heather Morton",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joseph.nichols",
+          "surface": "Joseph Nichols",
+          "kind": "person"
+        },
+        {
+          "entity": "x:solis-allen-and-oconnell",
+          "surface": "Solis, Allen and Oconnell",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

@@ -1,0 +1,273 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "saltmarsh-environmental",
+  "people": [
+    {
+      "id": "p:angela.flynn",
+      "name": "Angela Flynn",
+      "aliases": [],
+      "title": "Managing Principal",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2011-02-15",
+        "end": null
+      },
+      "email": "angela.flynn@saltmarshenv.com",
+      "phone": "+1 (415) 555-0197",
+      "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read.",
+      "title_history": []
+    },
+    {
+      "id": "p:john.sanchez",
+      "name": "John Sanchez",
+      "aliases": [],
+      "title": "Senior Scientist",
+      "dept": "Consulting",
+      "reports_to": "p:angela.flynn",
+      "employment": {
+        "start": "2011-03-15",
+        "end": null
+      },
+      "email": "john.sanchez@saltmarshenv.com",
+      "phone": "+1 (303) 555-0151",
+      "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was.",
+      "title_history": []
+    },
+    {
+      "id": "p:pamela.brown",
+      "name": "Pamela Brown",
+      "aliases": [],
+      "title": "Environmental Scientist",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2011-12-01",
+        "end": "2015-06-29"
+      },
+      "email": "pamela.brown@saltmarshenv.com",
+      "phone": "+1 (312) 555-0108",
+      "persona": "Pamela handles the records-heavy end of the work, the assessments where the answer lives in old files, aerials, and interviews rather than in the field. She is methodical to the point of stubbornness, prefers a documented gap to a plausible inference, and writes findings that lead with the source and follow with the limitation. Her prose is orderly and unadorned, close to a checklist in structure but readable, and she is comfortable concluding that the available record does not support a determination.",
+      "title_history": []
+    },
+    {
+      "id": "p:angela.williams",
+      "name": "Angela Williams",
+      "aliases": [],
+      "title": "Environmental Scientist",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2011-06-08",
+        "end": null
+      },
+      "email": "angela.williams@saltmarshenv.com",
+      "phone": "+1 (206) 555-0198",
+      "persona": "Angela writes most of the monitoring work, and she writes it for a reviewer who will open it long after everyone involved has moved on. That shapes everything: what was measured, where, on what date, by whom, with the conditions stated and the deviations flagged rather than smoothed. She is disciplined about full names and formal titles on anything leaving the office, even for people she calls by first name across the room. Her voice is even and unemphatic, and she resists any sentence that argues rather than reports.",
+      "title_history": [
+        {
+          "title": "Field Technician",
+          "start": "2011-06-08",
+          "end": "2016-04-24"
+        },
+        {
+          "title": "Environmental Scientist",
+          "start": "2016-04-25",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:tammy.parks",
+      "name": "Tammy Parks",
+      "aliases": [],
+      "title": "Office Manager",
+      "dept": "Operations",
+      "reports_to": "p:angela.flynn",
+      "employment": {
+        "start": "2011-04-15",
+        "end": null
+      },
+      "email": "tammy.parks@saltmarshenv.com",
+      "phone": "+1 (303) 555-0150",
+      "persona": "Tammy is the reason the countersigned scopes come back, get scanned, and can be found again. She tracks what is out for signature, what a client still owes, and which submittal has a deadline nobody else has noticed yet, and she is cheerfully relentless about all three. Internally she is warm and uses first names and shorthand; on anything that leaves the office she is formal, correct, and careful about how a client contact is addressed. Her notes and cover messages are brisk, practical, and free of ceremony.",
+      "title_history": []
+    },
+    {
+      "id": "p:james.henderson",
+      "name": "James Henderson",
+      "aliases": [],
+      "title": "Environmental Scientist",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2015-07-31",
+        "end": null
+      },
+      "email": "james.henderson@saltmarshenv.com",
+      "phone": "+1 (212) 555-0158",
+      "persona": "James runs the sampling programs and treats chain of custody as the part of the job most likely to sink a project. He is skeptical by temperament, especially of data that arrives too clean, and he would rather flag a suspect result and explain it than let it pass into a table unremarked. He writes tersely, in method-first order, and his reports read like someone accounting for every step because a reviewer might ask about any of them. He does not editorialize, but he will say plainly when a result is not usable.",
+      "title_history": []
+    },
+    {
+      "id": "p:mary.foster",
+      "name": "Mary Foster",
+      "aliases": [],
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2014-11-27",
+        "end": null
+      },
+      "email": "mary.foster@saltmarshenv.com",
+      "phone": "+1 (312) 555-0117",
+      "persona": "Mary keeps a field notebook that other people can actually read, which is rarer than it should be and makes her the one asked to reconstruct what happened on a site months later. She records conditions, weather, tide state, and anything that went wrong, on the theory that the odd detail is the one someone eventually needs. Her writing is plainspoken and concrete, closer to a log than a narrative, and she is careful to separate what she observed from what she was told.",
+      "title_history": []
+    },
+    {
+      "id": "p:heather.morton",
+      "name": "Heather Morton",
+      "aliases": [],
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2016-07-10",
+        "end": null
+      },
+      "email": "heather.morton@saltmarshenv.com",
+      "phone": "+1 (206) 555-0143",
+      "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it.",
+      "title_history": []
+    },
+    {
+      "id": "p:william.schwartz",
+      "name": "William Schwartz",
+      "aliases": [],
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2018-10-02",
+        "end": null
+      },
+      "email": "william.schwartz@saltmarshenv.com",
+      "phone": "+1 (212) 555-0101",
+      "persona": "William handles the equipment and the water: what floats, what runs, what has to be calibrated before anyone leaves the office. He reads tides and weather closely and will move a field day rather than collect something he will not trust. He is laconic in person and briefer still in writing, giving what happened, what it was measured with, and nothing beyond that. Colleagues rely on him to say, without softening it, when a plan will not work in the field.",
+      "title_history": []
+    },
+    {
+      "id": "p:joseph.nichols",
+      "name": "Joseph Nichols",
+      "aliases": [],
+      "title": "Field Technician",
+      "dept": "Consulting",
+      "reports_to": "p:john.sanchez",
+      "employment": {
+        "start": "2019-10-01",
+        "end": null
+      },
+      "email": "joseph.nichols@saltmarshenv.com",
+      "phone": "+1 (415) 555-0150",
+      "persona": "Joseph documents more than anyone asks him to, which reviewers tend to appreciate and editors tend to trim. He asks a lot of questions on site, writes down the answers, and turns in notes that are thorough and occasionally overwritten before someone senior cuts them back to the technical spine. He is earnest and careful, quick to say when he is unsure of a call, and getting steadily better at telling the load-bearing detail from the interesting one.",
+      "title_history": []
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:salazar-mendoza",
+      "name": "Salazar-Mendoza",
+      "org_type": "client"
+    },
+    {
+      "id": "x:dyer-and-sons",
+      "name": "Dyer and Sons",
+      "org_type": "client"
+    },
+    {
+      "id": "x:crawford-plc",
+      "name": "Crawford PLC",
+      "org_type": "client"
+    },
+    {
+      "id": "x:carter-and-sons",
+      "name": "Carter and Sons",
+      "org_type": "client"
+    },
+    {
+      "id": "x:solis-allen-and-oconnell",
+      "name": "Solis, Allen and Oconnell",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:sandra.little",
+      "name": "Sandra Little",
+      "org": "x:salazar-mendoza",
+      "title": "Director of Operations",
+      "email": "sandra.little@salazarmendoza.com",
+      "affiliations": [
+        {
+          "org": "x:dyer-and-sons",
+          "start": null,
+          "end": "2016-09-24"
+        },
+        {
+          "org": "x:salazar-mendoza",
+          "start": "2016-09-25",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "xp:michelle.roberts",
+      "name": "Michelle Roberts",
+      "org": "x:dyer-and-sons",
+      "title": "Chief Financial Officer",
+      "email": "michelle.roberts@dyerandsons.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:brian.lopez",
+      "name": "Brian Lopez",
+      "org": "x:crawford-plc",
+      "title": "General Manager",
+      "email": "brian.lopez@crawfordplc.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:heather.smith",
+      "name": "Heather Smith",
+      "org": "x:carter-and-sons",
+      "title": "Chief Financial Officer",
+      "email": "heather.smith@carterandsons.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:robert.lopez",
+      "name": "Robert Lopez",
+      "org": "x:solis-allen-and-oconnell",
+      "title": "Director of Operations",
+      "email": "robert.lopez@solisallenandoconnell.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2011-01-15",
+      "summary": "Saltmarsh Environmental Partners LLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2012-07-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

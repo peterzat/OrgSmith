@@ -1,0 +1,355 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0007",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0036",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Robert Lopez\nDirector of Operations\nSolis, Allen and Oconnell"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Stormwater permit support"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Mr. Lopez:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter sets out the terms on which Saltmarsh Environmental Partners LLC will provide stormwater permitting support to {{fact:f:E-2021-001.client}}. It follows our walk of the yard with your maintenance lead and the drainage sheets your office sent afterward. If the terms below match your understanding, please countersign where indicated and return one copy for our file."
+        },
+        {
+          "kind": "heading",
+          "text": "Scope and Approach",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement covers the permit work needed to bring the site under coverage of the general permit for stormwater discharges associated with industrial activity, and to keep it there through the first monitoring cycle. We will begin with a site characterization: a walkover of the drainage area in wet conditions if we can get them, identification of each outfall, and a description of the industrial activities and the materials exposed to precipitation upstream of each one. Your existing site plans and any prior sampling records will be reviewed against what we find in the field. Where the two disagree, the field observation governs and the discrepancy gets written down rather than reconciled quietly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "From that characterization we will prepare a Stormwater Pollution Prevention Plan for the site: the site map, the pollutant source assessment, the control measures assigned to each source, the inspection schedule, and the monitoring schedule the permit requires. We will draft the Notice of Intent and its attachments for your signature and respond to the agency's completeness review if one is issued."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will also stand up the sampling program. That means sample locations tied to the identified outfalls, containers and hold times appropriate to each analyte, chain of custody from the point of collection to the bench, and a laboratory subcontract for the analytical work. Our field staff will collect the first round themselves. They will then train your personnel to perform the routine visual assessments, because the permit assigns those to the operator and they will be your obligation long after we are off the site."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The deliverables are:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Site characterization memorandum with the outfall inventory and a marked-up drainage map.",
+            "Stormwater Pollution Prevention Plan, in draft for your review and then final.",
+            "Notice of Intent and supporting attachments, prepared for signature by your authorized representative.",
+            "First round of stormwater sampling, with laboratory reports and a short data summary.",
+            "A half-day training session for your staff on visual assessments, inspections, and recordkeeping."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two limits are worth stating plainly at the outset. We are not retained to design or construct structural controls. Where the assessment indicates one is warranted we will say so and describe what it has to accomplish, and the design is a separate matter on separate terms. Second, we cannot warrant the agency's schedule. Our estimate assumes a complete submittal and an ordinary review. A request for additional information will move the end of this work by whatever the response requires, and it is not unusual for one to be issued."
+        },
+        {
+          "kind": "heading",
+          "text": "Project Team",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will serve as principal in charge and will review every deliverable before it leaves this office. Heather Morton will lead the field work and the sampling program and will be your day-to-day contact for site access and scheduling. Joseph Nichols will support the characterization, the outfall inventory, and the documentation that travels with the plan. The three of us are the entire team. We do not subcontract field work, and the people who collect the data are the people who write about it."
+        },
+        {
+          "kind": "heading",
+          "text": "Client Responsibilities",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will need site access on reasonable notice, including during and shortly after qualifying rain events, which are not always convenient. We will also need your existing drainage and utility plans, material inventories and safety data sheets for what is stored outdoors, records of past spills or releases, and any prior correspondence with the agency about this site. Our schedule and our fee assume this material is available in the first weeks and that a person on your staff can answer questions about site operations. If the records are thin, tell us now rather than later; we can work from field observation, but it costs more time and the plan is weaker for it."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and Schedule",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the scope described above is a fixed sum of {{fact:f:E-2021-001.fee}}, covering field labor, plan and permit preparation, one round of sampling, the training session, and one round of agency correspondence. Work will begin on {{fact:f:E-2021-001.start}}, subject to site access, and we have reserved field time accordingly. We expect roughly four months from that point to a complete submittal and a first monitoring round in hand, subject to the qualification about agency review above."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We invoice monthly against progress, with the fixed fee allocated across the deliverables listed above. Invoices are due thirty days from the date of issue. Laboratory charges are passed through at cost and appear as separate line items with the laboratory's invoice attached, so you can see what you are paying for. Work outside the scope above will not be performed without your written authorization and will be billed at our hourly rates then in effect."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement begins on the start date given above and continues until the deliverables are complete or either of us ends it. Either party may terminate on fourteen days' written notice. On termination you will owe us for work performed and commitments made through the effective date, including laboratory analyses already underway, and we will deliver the field data and draft materials in whatever state they are in. We do not hold work product hostage to an unpaid balance when a compliance deadline is running. If you are in arrears we will tell you so, and we will still hand you your data."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will treat site information, analytical results, and business information you provide as confidential, and will not disclose them except to our own staff and the laboratory performing the analysis. Two exceptions apply and neither is negotiable. Where a permit condition, a regulation, or a lawful order requires disclosure, we will disclose, and we will notify you beforehand if we are permitted to. Information already public, or known to us independently before this engagement, is not covered. You should also assume that what is submitted to the agency under a permit becomes a public record in due course."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our total liability arising out of this engagement, whether in contract, in tort, or otherwise, is limited to the fee stated above, and we are not liable for consequential, incidental, or indirect damages, including lost profits, fines, or delay costs. This limit survives termination. Our conclusions rest on conditions observed at the sample locations on the dates sampled and on the information you and your records supply. We do not warrant that conditions are uniform across the site or constant over time, and we do not warrant the outcome of the agency's review. A professional opinion here is an opinion, and we will not represent it as more than that."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter is governed by the law of the state in which the site is located, without regard to its conflict of laws provisions. This letter and its attachments are the entire agreement between us on this subject and supersede prior discussions and proposals. It may be amended only in writing signed by both parties."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the foregoing reflects your understanding, please sign below and return one copy to this office. We will schedule the first walkover on receipt. Questions about the scope should come to me directly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": ["p:angela.flynn", "xp:robert.lopez"]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0037",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Memorandum",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Joseph Nichols\nFrom: Heather Morton\nRe: Stormwater permit support, kickoff notes"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The letter is countersigned and we start on {{fact:f:E-2021-001.start}}, so here is what I have written down before we go out there. The objective for {{fact:f:E-2021-001.client}} is a complete permit submittal and a sampling program that keeps running after we leave the site. Everything on this job serves one of those two. I am putting this on paper now rather than after the first visit because I would rather we agree on what we are collecting before we collect it. Once the notebooks start filling up it is harder to change our minds without losing something."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Workstreams, in the order I expect them to start:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Site characterization and outfall inventory. We walk the whole drainage area and find every outfall, including the ones that are not on the plan, and there are usually some. Mark the working copy of the drainage sheet in the field, not back at the truck. Photograph each outfall from the same position we will use every time after this.",
+            "Pollutant source assessment. For each material and activity exposed to weather, the path from it to the nearest inlet. If we cannot trace the path we say we could not trace it.",
+            "SWPPP drafting. The plan follows the characterization, not the other way around. Joseph Nichols is assembling the site map and the source tables; I will take the control measures and the monitoring schedule.",
+            "Notice of Intent and attachments. Drafted for their signature. We do not sign it and we do not fill in blanks we cannot support from the record.",
+            "Sampling program. Locations tied to the outfall inventory, one lab, containers and hold times confirmed with the lab in writing before the first storm, chain of custody from collection to the bench.",
+            "Operator training and handoff. Half a day with their staff on visual assessments, inspection forms, and recordkeeping. This is the part that decides whether the file looks like anything in two years."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things I want to be careful about. First, the site has been operating for a long time and the drainage sheets are older than the operation, so expect the plan and the ground to disagree. When they do, write down both and note which one you saw with your own eyes. Do not correct the sheet from memory back at the office. Second, we are sampling on rain, which means the schedule is not ours. Keep a bag packed and the bottles staged. If a storm lines up we go, and if we miss a qualifying event because the containers were not ready that is on us, not on the weather."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Next steps:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Robert Lopez at Solis, Allen and Oconnell is arranging site access and an escort. I will confirm the notice they need for an off-hours entry, since a wet-weather sample will not be during business hours.",
+            "Confirm containers, preservatives, and hold times with the lab and get the confirmation in writing. Stage the coolers this week.",
+            "Request the material inventories, safety data sheets, spill records, and any prior agency correspondence. Angela's letter asked for these; if they do not arrive in the first two weeks, tell me and I will raise it rather than let it slide.",
+            "Set the field notebook conventions before day one: one notebook for this job, entries in ink, outfall designations fixed at the first visit and never renumbered afterward.",
+            "Joseph Nichols to bring the drainage sheets, the camera, and a spare set of forms. Assume nothing is printed at the site."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Angela reviews everything before it leaves the office, so build a day into your own estimate for that. Questions to me first. If it is a call about what the permit requires rather than what we saw, it goes to her."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0038",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Minutes: Working Session, Stormwater Permit Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Minutes recorded by Joseph Nichols. Session held at the site office of {{fact:f:E-2021-001.client}} following the morning's field work, to review the draft plan against what has been observed to date."
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Heather Morton, Field Technician, Saltmarsh Environmental Partners LLC",
+            "Joseph Nichols, Field Technician, Saltmarsh Environmental Partners LLC",
+            "Robert Lopez, Director of Operations, Solis, Allen and Oconnell"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Outfall inventory. Heather Morton walked through the marked drainage sheet. The inventory now stands at one more outfall than the sheets show. The additional discharge point is at the northeast corner of the yard, downgradient of the equipment wash area, and it does not appear on any drawing provided to us. Robert Lopez said he had not known it was there and would check with maintenance whether it was cut in during the paving work. It was agreed that the outfall stays in the inventory regardless of what the records say, and that the numbering assigned at the first visit will not be changed now that photographs and field notes reference it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Draft plan status. The site map and the source tables are drafted. The control measures section is drafted but not reviewed. Heather Morton noted that the wash area is the source that will drive the plan, since it is the only activity we have observed that puts material in contact with runoff on a routine basis. Discussion of whether the wash area could simply be relocated under cover. Robert Lopez asked what that would do to the permit obligations. Heather Morton declined to answer that in the room and said the question belongs to the Managing Principal, who will address it in writing. Noted here so that the question is not lost: the answer affects the source assessment and possibly the monitoring."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sampling. The first round has not been collected. Two rain events since the last visit did not meet the qualifying criteria, one on duration and one because the antecedent dry period was short. Containers are staged and the lab has confirmed hold times. Heather Morton was clear that we will not collect from a non-qualifying event to make the schedule look better, and Robert Lopez did not object. The consequence is that the sampling date remains weather-dependent and cannot be committed in advance."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Records. Material inventories and safety data sheets have been received. Spill records have not. Robert Lopez believes there is a binder in the maintenance office and will look. Prior agency correspondence for this site was described as limited to routine annual filings; nothing on file suggests an enforcement history, though we have not seen the file ourselves and are recording that as reported to us, not as verified."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Training. Discussed scheduling the operator training after the first sampling round rather than before, so that the staff who will do the visual assessments have seen one done. No objection."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": ["Item", "Owner", "Due"],
+          "rows": [
+            ["Confirm origin of the unmapped northeast outfall with maintenance; report whether any as-built exists", "Robert Lopez", "Before next site visit"],
+            ["Locate and provide the spill records binder, or confirm in writing that no records exist", "Robert Lopez", "Before next site visit"],
+            ["Put the wash-area relocation question to the Managing Principal and return a written answer", "Heather Morton", "Within two weeks"],
+            ["Revise the site map and source tables to add the northeast outfall and its drainage area", "Joseph Nichols", "With draft SWPPP"],
+            ["Re-check staged containers and preservative expiry; keep the wet-weather call list current", "Joseph Nichols", "Weekly until first round collected"],
+            ["Collect first sampling round on the next qualifying event", "Heather Morton", "Weather-dependent"],
+            ["Circulate draft SWPPP for client review after principal review", "Heather Morton", "On completion of source tables"],
+            ["Schedule operator training session", "Joseph Nichols", "On receipt of first lab report"]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "These minutes were circulated to attendees. Corrections should come to me and will be issued as a marked revision rather than a quiet edit."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0039",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Status Report: Stormwater Permit Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for: Solis, Allen and Oconnell\nPrepared by: Heather Morton, Field Technician\nReviewed by: Managing Principal, prior to issue"
+        },
+        {
+          "kind": "heading",
+          "text": "Status Summary",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work for {{fact:f:E-2021-001.client}} is at roughly its midpoint and is on scope. The site characterization is complete, the outfall inventory is fixed, and the Stormwater Pollution Prevention Plan is in draft and in review. One item is behind: the first sampling round has not been collected, because the qualifying rain event it requires has not occurred. That is not a delay we can work around by effort, and it is described under Risks below rather than buried here."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Against the fixed fee of {{fact:f:E-2021-001.fee}}, invoiced and committed costs stand at slightly under half, which tracks the work completed. The uncollected sampling round carries laboratory charges that have not yet been incurred. We do not expect to exceed the fee on the scope as written."
+        },
+        {
+          "kind": "heading",
+          "text": "Accomplishments This Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The drainage area was walked in full, twice, once in dry conditions and once during runoff. Every discharge point was located, photographed from a fixed position, and tied to the drainage sheet. The inventory came out one outfall larger than the drawings show: an unmapped discharge point at the northeast corner of the yard, downgradient of the equipment wash area. Your operations staff are checking its origin. It is in the inventory and in the plan either way, since what governs is what is on the ground."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The pollutant source assessment is complete. Each material and activity exposed to precipitation has been traced to the inlet that receives its runoff, and where a path could not be traced with confidence, the assessment says so rather than assuming one. Joseph Nichols assembled the site map and the source tables and has revised both to carry the additional outfall and its drainage area."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The plan itself is drafted: site map, source assessment, control measures assigned to each source, inspection schedule, monitoring schedule. It is with the Managing Principal for review. Material inventories and safety data sheets have been received from your staff and are reflected in the source tables. Sampling containers are staged on site with preservatives current, the laboratory subcontract is in place, and hold times are confirmed in writing. The Notice of Intent and its attachments are drafted to the point where they can be completed once the plan is final."
+        },
+        {
+          "kind": "heading",
+          "text": "Upcoming Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Principal review of the draft plan will be returned to us and the plan will then come to you for review. We ask for comments consolidated through a single point on your side. The first sampling round will be collected on the next qualifying event, and we will call ahead rather than arrive unannounced, though the notice will be short by the nature of the trigger. Laboratory turnaround follows collection; the data summary follows the reports. Operator training is scheduled after the first round so that the staff who will perform the routine visual assessments have watched one done properly. The Notice of Intent goes in after the plan is final and the first round is in hand."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Weather is the schedule. Two events this period did not qualify, one on duration and one on antecedent dry period. We will not sample a non-qualifying event to make a schedule, because the result would not be usable and would sit in the file for years being wrong. If the dry stretch continues, the submittal moves, and we would rather tell you that now than explain it later."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The northeast outfall is a live question. If it was cut in during the paving work without a record, the plan will need to account for a discharge point that has been operating undocumented, and that is a conversation worth having before the submittal rather than after. Spill records for the site have been requested and not yet received. If none exist, we need that in writing so the plan can say so plainly. An absence of records is a defensible thing to state; an unexplained gap is not."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two smaller items. Laboratory turnaround is outside our control and sits between collection and the data summary, so a late-breaking storm compresses everything downstream of it. And the agency's completeness review, if one is issued, will ask for whatever it asks for on its own timetable. Our engagement letter said we cannot warrant that schedule and we still cannot. Neither item is a problem today. Both are reasons the back half of this work has less slack in it than the front half did."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Finally, a scope note. The wash area is the source that drives this plan. If your operations decide to relocate it under cover, that is a sensible thing to consider, and it changes the source assessment and possibly the monitoring. It is not within the scope of this engagement to design that, and a decision to do it partway through would mean revisiting work already drafted. We are not recommending against it. We are saying it should be decided deliberately and soon, or not during this engagement at all."
+        }
+      ]
+    }
+  ]
+}
