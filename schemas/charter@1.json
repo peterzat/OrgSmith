@@ -86,6 +86,11 @@
           "exclusiveMinimum": 0,
           "title": "Target Docs",
           "type": "integer"
+        },
+        "voice_diversify": {
+          "default": false,
+          "title": "Voice Diversify",
+          "type": "boolean"
         }
       },
       "required": [

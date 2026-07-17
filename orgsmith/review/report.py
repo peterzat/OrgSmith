@@ -161,6 +161,35 @@ def _fee_coverage_lines(paths: OrgPaths) -> list[str]:
     return lines
 
 
+def _voice_lines(paths: OrgPaths) -> list[str]:
+    """Cross-document voice tics as a RANGE, not a number (M12,
+    cross-document-voice). Prints each pre-registered pattern and its count so
+    the reader sees exactly what was measured; the strict readings land low and
+    the plain words sweep up ordinary English, and no ledger adjudicates
+    between them. A measurement, never a gate."""
+    from .corpus import load_authored
+    from .voice import measure_voice
+
+    tics, total = measure_voice(load_authored(paths))
+    if total == 0:
+        return ["No authored documents to measure."]
+    lines = [
+        f"Pre-registered voice patterns over {total} authored documents. This "
+        f"is a RANGE across strict and loose readings, not a single count: no "
+        f"ledger owns whether two sentences are the same figure, so the strict "
+        f"rows disagree and the plain words sweep up ordinary English. Nothing "
+        f"here gates.",
+        "",
+        "| pattern | reading | occurrences | docs |",
+        "| --- | --- | ---: | ---: |",
+    ]
+    for t in tics:
+        lines.append(
+            f"| `{t.name}` | {_cell(t.description)} | {t.occurrences} | {t.docs} |"
+        )
+    return lines
+
+
 def _findings_lines(paths: OrgPaths) -> list[str]:
     findings = load_findings(paths)
     if not findings:
@@ -213,6 +242,10 @@ def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
         "## Fee coverage",
         "",
         *_fee_coverage_lines(paths),
+        "",
+        "## Cross-document voice",
+        "",
+        *_voice_lines(paths),
         "",
         "## Review board",
         "",

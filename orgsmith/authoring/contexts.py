@@ -15,6 +15,7 @@ from ..artifacts import load_charter, load_engagements, load_foundation, load_ma
 from ..docplan.registry import REGISTRY
 from ..fabric.engagements import employer_at
 from ..paths import OrgPaths
+from ..seeds import rng
 from ..schemas import (
     SCHEMA_IDS,
     DocBrief,
@@ -221,6 +222,36 @@ def _firm_digest(all_engagements, when: date, book_is_sample: bool = False) -> s
     )
 
 
+_VOICE_REGISTERS = (
+    "Write in a terse, factual register: short declarative sentences, few "
+    "adjectives, no rhetorical flourishes.",
+    "Write in a warm, narrative register: connective prose and some "
+    "first-person-plural framing, without slogans.",
+    "Write in a formal, precise register: careful qualifications and a "
+    "measured tone, sparing with metaphor.",
+    "Write in a plainspoken, direct register: concrete nouns and verbs, no "
+    "epigrams or aphorisms.",
+    "Write in a structured, enumerative register: name things in order with "
+    "minimal figurative language.",
+)
+
+_VOICE_BANNED = (
+    " Vary your openings, section names, and closings from what a template "
+    "would produce. Do not open with 'Two asks. First... Second...'; do not "
+    "structure the document as 'Workstreams' then 'Next Steps' then a closing "
+    "aphorism; and avoid the 'rather X now than Y later' antithesis and "
+    "formulaic epigrams."
+)
+
+
+def _author_voice(seed: int, person_id: str) -> str:
+    """A per-author voice register drawn from a NEW seed stream keyed on the
+    person (M12, cross-document-voice). Deterministic, so a re-authored brief
+    reproduces; drawn only under the voice_diversify knob, so knob-off briefs
+    are byte-identical."""
+    return rng(seed, "author.voice", person_id).choice(_VOICE_REGISTERS)
+
+
 def _reporting_line(foundation: Foundation, subject_id: str, when: date) -> str:
     """The new hire's reporting line as of `when`, from foundation's
     `reports_to` edge (M12, rf:graph-1). A reporting line is a relationship the
@@ -356,6 +387,11 @@ def run_next_batch(paths: OrgPaths) -> int:
                     " Do not state the meeting date anywhere in the text, "
                     "in any format, and do not include a sigblock; this "
                     "record is dated by its filename only."
+                )
+            if charter.doc_culture.voice_diversify and entry.authors:
+                guidance += (
+                    " " + _author_voice(charter.seed, entry.authors[0])
+                    + _VOICE_BANNED
                 )
             briefs.append(
                 DocBrief(

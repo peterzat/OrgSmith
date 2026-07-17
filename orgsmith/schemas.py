@@ -156,6 +156,13 @@ class DocCulture(StrictModel):
     # (None). Planted at docplan from a new seed stream, so committed recipes
     # without it plan the same manifest byte-for-byte.
     noise: NoiseModel | None = None
+    # M12 (cross-document-voice): a cheap authoring-brief mitigation for the
+    # template collapse the board found. When on, each author gets a per-author
+    # voice register (from a new seed stream) and the brief bans the specific
+    # constructions the board named. Default off keeps briefs byte-identical.
+    # A brief-only nudge, unproven and unmeasurable to a single number: report
+    # measures the tics as a range, and nothing gates.
+    voice_diversify: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":
