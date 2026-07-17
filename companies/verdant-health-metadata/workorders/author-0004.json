@@ -1,0 +1,438 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0004",
+  "stage": "author",
+  "slug": "verdant-health",
+  "org_name": "Verdant Health Advisory LLC",
+  "org_type": "healthcare consulting",
+  "narrative": "Verdant Health Advisory is a five-person healthcare consultancy founded\nin 2018, working for a regional health system, an independent physician\ngroup, and an ambulatory surgery joint venture. Its engagements are the\nunglamorous middle of healthcare operations: which service lines earn\ntheir keep, whether physician compensation survives a fair-market-value\nreview, and where the revenue cycle leaks.\n\nThe share is modern and mostly clean, with one deliberate exception. The\nhealth system's contracting office prints, signs, and scans everything,\nand its scanner produces images with no text layer whatsoever. Those\nconsents and executed statements of work are in the share as pictures of\ndocuments, which is precisely the case an extraction pipeline cannot\nbluff its way through.\n\nTone is measured and compliance-aware. Consultants write for an audience\nthat includes a general counsel, so nothing asserts a conclusion the\nanalysis does not support, and fair-market-value language is used\ncarefully rather than decoratively. Findings lead; recommendations\nfollow and are labeled as such. Staff use first names internally and full\nnames and titles with the client. One client-side contact moved from the\nphysician group to the health system partway through the relationship,\nand documents should place her at the right employer for their date.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0019",
+      "title": "Engagement Letter: Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "genre": "engagement_letter",
+      "date": "2023-02-03",
+      "authors": [
+        {
+          "id": "p:laura.brown",
+          "name": "Laura Brown",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Laura founded the practice and still reads every deliverable before it leaves the office, mostly hunting for sentences that claim more than the analysis earned. She writes cover letters herself in a measured register, assuming general counsel is in the room even when counsel is not on the distribution, and she is unsentimental about telling a client that the work does not support the conclusion they wanted. Her habit is to lead with what the firm found, then set recommendations apart and label them plainly so nobody can quote a suggestion as a finding. Internally she is warm and first-name; with clients she uses full names and titles without exception, and expects the same of everyone."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        },
+        {
+          "id": "p:joshua.dougherty",
+          "name": "Joshua Dougherty",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Joshua builds most of the models the advisory work rests on and is happiest in a workbook, reconciling one source against another until they agree or he can say exactly why they do not. He writes spare, functional prose, strongest in table captions and methodology notes, and he tends to let an exhibit carry the argument instead of narrating it. He will not release a figure he cannot reproduce from raw inputs, and he says so when asked to move faster than that allows. In review he catches the arithmetic and the definitional mismatch that everyone else read past."
+        },
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        },
+        {
+          "id": "xp:angela.mahoney",
+          "name": "Angela Mahoney",
+          "title": "General Manager",
+          "dept": "Lopez, Mcbride and Evans",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Ambulatory Network Study for Lopez, Mcbride and Evans, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:laura.brown",
+          "surface": "Laura Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:barbara.freeman",
+          "surface": "Barbara Freeman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joshua.dougherty",
+          "surface": "Joshua Dougherty",
+          "kind": "person"
+        },
+        {
+          "entity": "p:daniel.alvarado",
+          "surface": "Daniel Alvarado",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:angela.mahoney",
+          "surface": "Angela Mahoney",
+          "kind": "person"
+        },
+        {
+          "entity": "x:lopez-mcbride-and-evans",
+          "surface": "Lopez, Mcbride and Evans",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0020",
+      "title": "Kickoff Memo: Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "genre": "kickoff_memo",
+      "date": "2023-02-16",
+      "authors": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        },
+        {
+          "id": "p:joshua.dougherty",
+          "name": "Joshua Dougherty",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Joshua builds most of the models the advisory work rests on and is happiest in a workbook, reconciling one source against another until they agree or he can say exactly why they do not. He writes spare, functional prose, strongest in table captions and methodology notes, and he tends to let an exhibit carry the argument instead of narrating it. He will not release a figure he cannot reproduce from raw inputs, and he says so when asked to move faster than that allows. In review he catches the arithmetic and the definitional mismatch that everyone else read past."
+        },
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        },
+        {
+          "id": "xp:angela.mahoney",
+          "name": "Angela Mahoney",
+          "title": "General Manager",
+          "dept": "Lopez, Mcbride and Evans",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Ambulatory Network Study for Lopez, Mcbride and Evans, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:barbara.freeman",
+          "surface": "Barbara Freeman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joshua.dougherty",
+          "surface": "Joshua Dougherty",
+          "kind": "person"
+        },
+        {
+          "entity": "p:daniel.alvarado",
+          "surface": "Daniel Alvarado",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:angela.mahoney",
+          "surface": "Angela Mahoney",
+          "kind": "person"
+        },
+        {
+          "entity": "x:lopez-mcbride-and-evans",
+          "surface": "Lopez, Mcbride and Evans",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 1% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0021",
+      "title": "Meeting Minutes: Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "genre": "meeting_minutes",
+      "date": "2023-05-06",
+      "authors": [
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        },
+        {
+          "id": "p:joshua.dougherty",
+          "name": "Joshua Dougherty",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Joshua builds most of the models the advisory work rests on and is happiest in a workbook, reconciling one source against another until they agree or he can say exactly why they do not. He writes spare, functional prose, strongest in table captions and methodology notes, and he tends to let an exhibit carry the argument instead of narrating it. He will not release a figure he cannot reproduce from raw inputs, and he says so when asked to move faster than that allows. In review he catches the arithmetic and the definitional mismatch that everyone else read past."
+        },
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        },
+        {
+          "id": "xp:angela.mahoney",
+          "name": "Angela Mahoney",
+          "title": "General Manager",
+          "dept": "Lopez, Mcbride and Evans",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Ambulatory Network Study for Lopez, Mcbride and Evans, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:daniel.alvarado",
+          "surface": "Daniel Alvarado",
+          "kind": "person"
+        },
+        {
+          "entity": "p:barbara.freeman",
+          "surface": "Barbara Freeman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joshua.dougherty",
+          "surface": "Joshua Dougherty",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:angela.mahoney",
+          "surface": "Angela Mahoney",
+          "kind": "person"
+        },
+        {
+          "entity": "x:lopez-mcbride-and-evans",
+          "surface": "Lopez, Mcbride and Evans",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0022",
+      "title": "Status Report: Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "genre": "status_report",
+      "date": "2023-05-26",
+      "authors": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        },
+        {
+          "id": "p:joshua.dougherty",
+          "name": "Joshua Dougherty",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Joshua builds most of the models the advisory work rests on and is happiest in a workbook, reconciling one source against another until they agree or he can say exactly why they do not. He writes spare, functional prose, strongest in table captions and methodology notes, and he tends to let an exhibit carry the argument instead of narrating it. He will not release a figure he cannot reproduce from raw inputs, and he says so when asked to move faster than that allows. In review he catches the arithmetic and the definitional mismatch that everyone else read past."
+        },
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        }
+      ],
+      "engagement_summary": "Ambulatory Network Study for Lopez, Mcbride and Evans, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:barbara.freeman",
+          "surface": "Barbara Freeman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joshua.dougherty",
+          "surface": "Joshua Dougherty",
+          "kind": "person"
+        },
+        {
+          "entity": "p:daniel.alvarado",
+          "surface": "Daniel Alvarado",
+          "kind": "person"
+        },
+        {
+          "entity": "x:lopez-mcbride-and-evans",
+          "surface": "Lopez, Mcbride and Evans",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0023",
+      "title": "Meeting Minutes: Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "genre": "meeting_minutes",
+      "date": "2023-08-04",
+      "authors": [
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:barbara.freeman",
+          "name": "Barbara Freeman",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+        },
+        {
+          "id": "p:joshua.dougherty",
+          "name": "Joshua Dougherty",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Joshua builds most of the models the advisory work rests on and is happiest in a workbook, reconciling one source against another until they agree or he can say exactly why they do not. He writes spare, functional prose, strongest in table captions and methodology notes, and he tends to let an exhibit carry the argument instead of narrating it. He will not release a figure he cannot reproduce from raw inputs, and he says so when asked to move faster than that allows. In review he catches the arithmetic and the definitional mismatch that everyone else read past."
+        },
+        {
+          "id": "p:daniel.alvarado",
+          "name": "Daniel Alvarado",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+        },
+        {
+          "id": "xp:angela.mahoney",
+          "name": "Angela Mahoney",
+          "title": "General Manager",
+          "dept": "Lopez, Mcbride and Evans",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Ambulatory Network Study for Lopez, Mcbride and Evans, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:daniel.alvarado",
+          "surface": "Daniel Alvarado",
+          "kind": "person"
+        },
+        {
+          "entity": "p:barbara.freeman",
+          "surface": "Barbara Freeman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:joshua.dougherty",
+          "surface": "Joshua Dougherty",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:angela.mahoney",
+          "surface": "Angela Mahoney",
+          "kind": "person"
+        },
+        {
+          "entity": "x:lopez-mcbride-and-evans",
+          "surface": "Lopez, Mcbride and Evans",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 84% of the way through the engagement (in the later phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

@@ -1,0 +1,78 @@
+{
+  "schema_id": "orgsmith/charter@1",
+  "slug": "verdant-health",
+  "name": "Verdant Health Advisory LLC",
+  "seed": 20200714,
+  "org_type": "healthcare consulting",
+  "founded": 2018,
+  "domain": "verdanthealthadvisory.com",
+  "headcount": {
+    "Leadership": 1,
+    "Advisory": 3,
+    "Operations": 1
+  },
+  "titles": {
+    "Leadership": [
+      "Managing Partner"
+    ],
+    "Advisory": [
+      "Principal",
+      "Senior Consultant",
+      "Analyst"
+    ],
+    "Operations": [
+      "Engagement Manager"
+    ]
+  },
+  "doc_culture": {
+    "target_docs": 31,
+    "date_range": [
+      "2020-01-01",
+      "2025-12-31"
+    ],
+    "format_mix": {
+      "docx": 17,
+      "pdf": 7,
+      "xlsx": 6,
+      "pptx": 2,
+      "eml": 0
+    },
+    "scanned_ratio": 0.5,
+    "legacy_ratio": 0.0,
+    "ocr_layer_rate": 0.0
+  },
+  "finance": {
+    "base_revenue": 1080000,
+    "growth_rate": 0.06,
+    "expense_ratio": 0.75
+  },
+  "engagements": {
+    "count": 4,
+    "services": [
+      "Service Line Assessment",
+      "Physician Compensation Review",
+      "Ambulatory Network Study",
+      "Revenue Cycle Diagnostic"
+    ]
+  },
+  "graph_targets": {
+    "external_orgs": 4,
+    "external_people": 4,
+    "min_mentions_per_person": 2,
+    "surname_collisions": 0,
+    "nickname_aliases": 0,
+    "multi_affiliations": 1,
+    "affiliations_in_docs": true
+  },
+  "hard_cases": {
+    "signature_page_facts": 0,
+    "filename_dates": 0
+  },
+  "roster_churn": {
+    "departures": 1,
+    "promotions": 1,
+    "hires": 1
+  },
+  "acl_posture": "open",
+  "narrative": "Verdant Health Advisory is a five-person healthcare consultancy founded\nin 2018, working for a regional health system, an independent physician\ngroup, and an ambulatory surgery joint venture. Its engagements are the\nunglamorous middle of healthcare operations: which service lines earn\ntheir keep, whether physician compensation survives a fair-market-value\nreview, and where the revenue cycle leaks.\n\nThe share is modern and mostly clean, with one deliberate exception. The\nhealth system's contracting office prints, signs, and scans everything,\nand its scanner produces images with no text layer whatsoever. Those\nconsents and executed statements of work are in the share as pictures of\ndocuments, which is precisely the case an extraction pipeline cannot\nbluff its way through.\n\nTone is measured and compliance-aware. Consultants write for an audience\nthat includes a general counsel, so nothing asserts a conclusion the\nanalysis does not support, and fair-market-value language is used\ncarefully rather than decoratively. Findings lead; recommendations\nfollow and are labeled as such. Staff use first names internally and full\nnames and titles with the client. One client-side contact moved from the\nphysician group to the health system partway through the relationship,\nand documents should place her at the right employer for their date."
+}

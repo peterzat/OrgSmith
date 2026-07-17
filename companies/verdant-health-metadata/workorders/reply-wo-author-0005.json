@@ -1,0 +1,169 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0005",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0026",
+      "blocks": [
+        {"kind": "paragraph", "text": "Ms. Megan Wells\nDirector of Operations\nSullivan, Hall and Kelly"},
+        {"kind": "paragraph", "text": "Dear Ms. Wells:"},
+        {"kind": "paragraph", "text": "Thank you for the opportunity to assist {{fact:f:E-2024-001.client}} with a diagnostic review of its revenue cycle. This letter sets out what we have agreed to do, who will do it, what it will cost, and the terms under which we will work. It supersedes our earlier discussions and correspondence on scope. If it reflects your understanding, please sign and return a copy at your convenience."},
+        {"kind": "heading", "text": "Scope of Services", "level": 2},
+        {"kind": "paragraph", "text": "We will conduct a diagnostic assessment of the revenue cycle from patient access through final account resolution. The review covers registration and eligibility verification, charge capture, coding and documentation as they affect billing, claim edits and submission, denial management, payment posting, and follow-up on aged accounts. We will assess current performance against internal history and against generally observed benchmarks for organizations of comparable size and payer mix, identify where cash is being lost or delayed, and quantify the recoverable portion where the data permits a defensible estimate."},
+        {"kind": "paragraph", "text": "Two points on the boundaries of the work. First, this is a diagnostic engagement and not an audit. We will not express an opinion on financial statements, and nothing in our deliverables should be read as an attestation or as a compliance opinion. Second, we will describe coding and documentation practices only insofar as they bear on billing performance. We are not engaged to perform a coding audit, and where our findings suggest one is warranted we will say so and stop there rather than substitute our own review for it."},
+        {"kind": "paragraph", "text": "The deliverables will be a findings report supported by the underlying analysis, an opportunity summary that sizes each identified item and ranks it by expected value and difficulty, and a closing presentation to the leadership group you designate. Where we recommend a course of action, the recommendation will be labeled as such and kept separate from the findings, so that a reader can tell without effort which statements the data supports and which reflect our judgment."},
+        {"kind": "heading", "text": "Approach", "level": 2},
+        {"kind": "paragraph", "text": "We work from your data rather than from interviews alone. We will ask for extracts covering a trailing period sufficient to make the analysis stable: transaction-level detail on charges, adjustments, payments, and denials, together with the account-level records needed to trace an encounter from registration to resolution. We will supplement the extracts with structured interviews of the staff who do the work, and with observation where a process step cannot be understood from the record alone."},
+        {"kind": "paragraph", "text": "Our assumptions will be stated in the open. If we have to estimate a value the data does not carry, the estimate will be identified as one, and the basis for it will be given in the body of the report rather than in an appendix. We would rather present a smaller number we can defend than a larger one we cannot."},
+        {"kind": "paragraph", "text": "We will ask for a single point of contact on your side to coordinate data requests and schedule access, and we understand that role will be yours. The pace of the work depends materially on how quickly data requests are filled; we will flag any delay that threatens the schedule as soon as we see it rather than at the end."},
+        {"kind": "heading", "text": "Engagement Team", "level": 2},
+        {"kind": "paragraph", "text": "Susan Clark, Principal, will lead the engagement day to day and will be your primary contact for the substance of the work. Susan owns our service-line and margin analytics and will be responsible for the findings and the analysis behind them. Daniel Alvarado, Principal, will support the portions of the review that touch physician arrangements and compensation, and will be involved if any question of fair market value arises in the course of the work. That term has a specific meaning and we use it carefully; if the diagnostic surfaces a question in that area, Daniel will scope it separately rather than fold an opinion into this report."},
+        {"kind": "paragraph", "text": "I will serve as engagement partner. I read every deliverable before it leaves this office, and you may raise any concern about the conduct or the content of the work with me directly."},
+        {"kind": "heading", "text": "Fees and Payment", "level": 2},
+        {"kind": "paragraph", "text": "Our fee for the services described above is a fixed fee of {{fact:f:E-2024-001.fee}}, inclusive of professional time and ordinary working expenses. We will begin on {{fact:f:E-2024-001.start}} and expect the work to run approximately seven months from that point, subject to the availability of data and of your staff."},
+        {"kind": "paragraph", "text": "We will invoice monthly in arrears in proportion to the work completed. Invoices are payable within thirty days of receipt. The fixed fee assumes the scope described in this letter. If you ask us to expand the scope, or if conditions we could not reasonably have anticipated require materially more effort, we will tell you before doing the work and agree a change in writing. We will not perform out-of-scope work and invoice for it after the fact."},
+        {"kind": "heading", "text": "Term and Termination", "level": 2},
+        {"kind": "paragraph", "text": "This engagement begins on the start date stated above and continues until the deliverables are accepted or the engagement is terminated. Either party may terminate on thirty days written notice, with or without cause. On termination you will be responsible for fees for work performed through the effective date of termination, and we will deliver our work product in its then-current state, clearly identified as incomplete. We may also terminate if a conflict arises that we cannot resolve consistent with our professional obligations, in which case we will tell you as much as we properly can about the reason."},
+        {"kind": "heading", "text": "Confidentiality", "level": 2},
+        {"kind": "paragraph", "text": "We will treat all information you provide as confidential and will use it only for the purposes of this engagement. Access will be limited to the personnel named above and to any staff we add with your knowledge. We understand that some of the material we will handle is protected health information. We will limit our requests to the minimum necessary, work from de-identified or limited data sets where the analysis permits, and execute a business associate agreement in the form your counsel prefers before any protected information changes hands. Nothing in this letter is intended to modify that agreement, and if the two conflict, the business associate agreement governs."},
+        {"kind": "paragraph", "text": "Our deliverables are prepared for your internal use. Please do not distribute them outside your organization, or quote from them in a document intended for a third party, without our prior written consent. We will not unreasonably withhold it; we ask because a finding removed from its stated assumptions is easily misread."},
+        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
+        {"kind": "paragraph", "text": "Our aggregate liability to you for any claim arising out of this engagement, whether in contract, tort, or otherwise, is limited to the fees actually paid to us under this letter. Neither party is liable to the other for indirect, incidental, or consequential damages, including lost profits, however caused. Our findings depend on the accuracy and completeness of the data and representations you provide, and we are not responsible for conclusions affected by information that was inaccurate or withheld. This paragraph does not limit liability for fraud or for any liability that cannot lawfully be limited."},
+        {"kind": "heading", "text": "Governing Law", "level": 2},
+        {"kind": "paragraph", "text": "This letter is governed by the laws of the state in which your principal office is located, without regard to its conflict of laws provisions. Any dispute arising under it will be brought in the courts of that state, and both parties consent to that jurisdiction. Before either party files, we ask that the matter first be raised with me and with your Director of Operations, in the expectation that most disagreements can be resolved without counsel."},
+        {"kind": "heading", "text": "Acceptance", "level": 2},
+        {"kind": "paragraph", "text": "If the foregoing is consistent with your understanding, please sign below and return one copy to my attention. We are glad to be doing this work, and we appreciate the confidence Sullivan, Hall and Kelly has placed in us."},
+        {"kind": "paragraph", "text": "Very truly yours,"},
+        {"kind": "sigblock", "signers": ["p:laura.brown", "xp:megan.wells"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0027",
+      "blocks": [
+        {"kind": "heading", "text": "Kickoff Memo: Revenue Cycle Diagnostic", "level": 1},
+        {"kind": "list", "items": [
+          "To: Daniel Alvarado; engagement file",
+          "From: Susan Clark",
+          "Re: Revenue cycle diagnostic, Sullivan, Hall and Kelly, kickoff and workstreams"
+        ]},
+        {"kind": "heading", "text": "Objectives", "level": 2},
+        {"kind": "paragraph", "text": "We start on {{fact:f:E-2024-001.start}}. The objective is narrow and worth stating plainly: find where cash leaves the revenue cycle at {{fact:f:E-2024-001.client}}, size each leak, and rank the fixes. Everything else is a means to that. The client has a view already, which is that denials are the problem. That may be right. We are not going to assume it, and we are not going to spend the engagement proving a hypothesis somebody handed us. Registration and eligibility failures produce denials downstream, and a denial count tells you where an error surfaced, not where it started."},
+        {"kind": "paragraph", "text": "Two constraints shape the plan. We work from transaction data, not from what people tell us happens. And we separate findings from recommendations in every deliverable, including the interim ones. Megan Wells is our single point of contact and is coordinating the data requests. Nothing moves without her, so keep the requests consolidated and give her lead time rather than dribbling them out."},
+        {"kind": "heading", "text": "Workstreams", "level": 2},
+        {"kind": "list", "items": [
+          "Data acquisition and baseline. Get the extracts, reconcile them to the general ledger, and establish a trailing baseline we can defend. Nothing downstream is worth anything until the totals tie. Susan Clark owns this and it is the critical path.",
+          "Patient access. Registration accuracy, eligibility verification, authorization capture. Sample accounts back from denial to origin and measure how many trace to the front end.",
+          "Charge capture. Compare charges to activity by department and look for the gaps. Where documentation practice is implicated we note it and stop; we are not doing a coding audit and will not pretend otherwise.",
+          "Claims and denials. Edit performance, first-pass rate, denial categories with dollars attached rather than counts. Categories without dollars have wasted a lot of people's time before us.",
+          "Cash application and follow-up. Posting lag, unapplied cash, aged account inventory, and what the follow-up staff actually work versus what the worklist assigns them.",
+          "Physician arrangements. Daniel Alvarado covers anything touching compensation or the surgery joint venture. If a fair-market-value question appears, it goes to him and comes out as a separate scope conversation, not as a paragraph in our report."
+        ]},
+        {"kind": "heading", "text": "Assumptions", "level": 2},
+        {"kind": "paragraph", "text": "We assume the extracts arrive in the first three weeks and reconcile without a rebuild. If either fails, the schedule moves and we tell the client the week we know, not the month after. We assume the trailing period we requested is long enough for seasonality; if it is not, we will say so in the baseline memo rather than quietly widen the window."},
+        {"kind": "heading", "text": "Next Steps", "level": 2},
+        {"kind": "list", "items": [
+          "Susan Clark: send the consolidated data request to Megan Wells this week, in one document, with a field-level specification and a named owner for each item.",
+          "Susan Clark: schedule the client kickoff session with Megan Wells and the department leads she designates. One hour, agenda circulated in advance, no deck.",
+          "Daniel Alvarado: review the executed engagement letter and flag anything in the physician-arrangement area that our scope does not cover.",
+          "Both: no interim findings go to the client, verbally or otherwise, until the baseline reconciles. If asked in a meeting what we are seeing, the answer is that we are still building the baseline."
+        ]},
+        {"kind": "paragraph", "text": "One process note. Every number that leaves this office in a client-facing document gets checked against the source by someone who did not produce it. That is not a comment on anyone's work. It is what makes the findings hold up when Sullivan, Hall and Kelly asks where a figure came from, and they will ask."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0028",
+      "blocks": [
+        {"kind": "heading", "text": "Meeting Minutes: Revenue Cycle Diagnostic Working Session", "level": 1},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Susan Clark, Principal, Verdant Health Advisory",
+          "Daniel Alvarado, Principal, Verdant Health Advisory",
+          "Megan Wells, Director of Operations, Sullivan, Hall and Kelly"
+        ]},
+        {"kind": "paragraph", "text": "Minutes prepared by Daniel Alvarado. Purpose of the session was to review the reconciled baseline and the first pass of the denial analysis, and to resolve two open data items."},
+        {"kind": "heading", "text": "Baseline", "level": 2},
+        {"kind": "paragraph", "text": "Susan Clark reported that the transaction extracts for the trailing period now reconcile to the general ledger within tolerance, and that the two variances remaining are understood and documented. One is a timing difference at period close. The other is a set of accounts transferred between systems during a conversion, which are identifiable and have been excluded from the baseline with the exclusion disclosed. Megan Wells confirmed that the conversion population is known to her team and that the exclusion is appropriate for this purpose."},
+        {"kind": "paragraph", "text": "The baseline is therefore fixed for the balance of the engagement. Susan Clark noted that any subsequent restatement would be disclosed rather than absorbed, and that no figure presented from this point forward will move without a note explaining why."},
+        {"kind": "heading", "text": "Denial Analysis, First Pass", "level": 2},
+        {"kind": "paragraph", "text": "Susan Clark walked the group through denials recategorized by dollars rather than by count, which reorders the picture materially against the client's existing reporting. Two categories that are minor by volume carry a disproportionate share of the dollars. Susan Clark was explicit that this is a description of where dollars are denied, not yet a statement of root cause, and that the traceback sampling to determine where each denial originates is in progress and not complete. She declined to characterize the front end as the source until that sampling supports it. Megan Wells asked whether the early pattern was consistent with what her staff believed; Susan Clark said it was consistent with part of it and inconsistent with another part, and that she would rather present the full traceback in three weeks than a half-supported conclusion now."},
+        {"kind": "paragraph", "text": "Megan Wells raised a question about a physician arrangement affecting how certain professional charges are routed at {{fact:f:E-2024-001.client}}. Daniel Alvarado restated the scope: the diagnostic examines how the arrangement affects billing mechanics and cash, and does not assess whether the arrangement's terms are supportable. Any question of that kind would require a separate scope and a separate methodology, and he would not offer a view on it in passing or in this report. Megan Wells accepted the distinction and will raise the question with her general counsel to determine whether the organization wants to pursue it."},
+        {"kind": "heading", "text": "Open Data Items", "level": 2},
+        {"kind": "paragraph", "text": "Two items from the original request remain outstanding: the authorization detail for one department, and the worklist assignment history for the follow-up staff. Megan Wells reported that the first is held by a vendor and that she has escalated. The second exists but has not been extracted before and requires a report build. Susan Clark noted that the follow-up analysis cannot proceed without the second item and asked that its status be reported weekly rather than at the next session."},
+        {"kind": "heading", "text": "Action Items", "level": 2},
+        {"kind": "table", "header": ["Item", "Owner", "Due"], "rows": [
+          ["Complete denial traceback sampling and document the origin categories", "Susan Clark", "Three weeks"],
+          ["Circulate the fixed baseline memo, including the documented exclusion", "Susan Clark", "One week"],
+          ["Escalate the vendor authorization extract; report status weekly", "Megan Wells", "Weekly until delivered"],
+          ["Commission the worklist assignment report build and confirm a delivery date", "Megan Wells", "Two weeks"],
+          ["Prepare a short scope note on the physician arrangement question for the client's counsel", "Daniel Alvarado", "Two weeks"],
+          ["Confirm distribution list for the interim status report", "Megan Wells", "One week"]
+        ]},
+        {"kind": "paragraph", "text": "No interim findings were released at this session and none are to be circulated before the traceback is complete. Next working session to be scheduled by Megan Wells."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0029",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Revenue Cycle Diagnostic", "level": 1},
+        {"kind": "heading", "text": "Status Summary", "level": 2},
+        {"kind": "paragraph", "text": "Prepared for the leadership group at Sullivan, Hall and Kelly. The engagement is at roughly its midpoint and is on schedule. The baseline is fixed and reconciled, the denial analysis is complete through traceback, and the follow-up and cash application workstreams are underway. One dependency is late and is the only item that could move the closing date. Fees to date are in line with the fixed fee of {{fact:f:E-2024-001.fee}} and we do not anticipate a change in scope."},
+        {"kind": "paragraph", "text": "The headline is that the initial hypothesis was partly right and partly misdirected. Denials are large. They are not primarily a denials-department problem. That distinction is worth absorbing now, because it determines where {{fact:f:E-2024-001.client}} would have to spend to fix it, and the answer is not where the current reporting points."},
+        {"kind": "heading", "text": "Accomplishments This Period", "level": 2},
+        {"kind": "paragraph", "text": "The baseline is closed. Transaction detail for the trailing period reconciles to the general ledger within tolerance, with two variances documented and one population excluded and disclosed. Every figure in this report and in the deliverables to follow ties to that baseline. If it moves, we will tell you it moved and why."},
+        {"kind": "paragraph", "text": "The denial analysis is complete. Recategorizing denials by dollars rather than by count reorders the picture against your existing reporting: two categories that are minor by volume carry a disproportionate share of the dollars, and the categories your reports surface most prominently are not the expensive ones. The traceback sampling is finished and supports a statement we were not willing to make three weeks ago. A substantial share of denied dollars originates at the front end, in eligibility verification and authorization capture, and surfaces later as a denial. The denial is where the error is discovered, not where it is made."},
+        {"kind": "paragraph", "text": "The charge capture comparison is complete for all but one department, the one awaiting the vendor extract. Where we found gaps, we have quantified them. In two areas the pattern suggests a documentation practice question. We have noted those and gone no further, consistent with the scope: this engagement is not a coding audit and we will not present one."},
+        {"kind": "heading", "text": "Upcoming Work", "level": 2},
+        {"kind": "paragraph", "text": "The next period covers follow-up and cash application. We will measure posting lag and unapplied cash, and compare what the follow-up staff actually work against what the worklist assigns them. That comparison is the single most useful thing left to do, because the value of an account inventory depends entirely on whether anyone is touching the accounts that matter, and no report you currently have answers that."},
+        {"kind": "paragraph", "text": "We will also begin sizing the opportunity set. Each identified item gets an estimated recoverable value and a difficulty rating, and both get stated assumptions in the body rather than in an appendix. Where the data does not support a defensible estimate, the item will be described qualitatively and marked as unsized. We would rather hand you a smaller number that holds than a larger one that does not survive the first question from your finance office."},
+        {"kind": "paragraph", "text": "Daniel Alvarado has prepared the scope note on the physician arrangement question raised at the last working session. To restate the position: our diagnostic addresses how that arrangement affects billing mechanics and cash, and does not address whether its terms are supportable. That is a separate question with a separate methodology, and we are not answering it inside this engagement, in this report, or in a meeting. If your counsel wants it answered, we can scope it, and it will be scoped in writing before any work begins."},
+        {"kind": "heading", "text": "Risks", "level": 2},
+        {"kind": "list", "items": [
+          "The vendor authorization extract remains outstanding and has been escalated on your side for several weeks. It gates the charge capture work for one department and part of the front-end quantification. If it does not arrive within the next three weeks, the affected findings will be presented as partial and clearly labeled as such, and we will not extrapolate across the gap.",
+          "The worklist assignment report has been built and delivered. That risk is closed.",
+          "Staff availability in patient access has been thinner than planned, which has slowed the observation work rather than stopped it. No schedule impact so far.",
+          "The findings will not match the internal narrative about where the problem lives. Susan Clark and Daniel Alvarado will walk the analysis in full before the closing presentation, so that anyone inclined to dispute the conclusion can examine the method first. We would rather have that argument over the data than over the summary."
+        ]},
+        {"kind": "heading", "text": "Budget", "level": 2},
+        {"kind": "paragraph", "text": "Effort through this period is consistent with the fixed fee of {{fact:f:E-2024-001.fee}} and with the proportion of the work completed. No change order is contemplated. Should the vendor extract arrive late enough to require rework rather than simple sequencing, we will raise it in writing before performing the work, not after."},
+        {"kind": "paragraph", "text": "Prepared by Susan Clark, Principal."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0030",
+      "blocks": [
+        {"kind": "heading", "text": "Meeting Minutes: Revenue Cycle Diagnostic Working Session", "level": 1},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Daniel Alvarado, Principal, Verdant Health Advisory",
+          "Susan Clark, Principal, Verdant Health Advisory",
+          "Megan Wells, Director of Operations, Sullivan, Hall and Kelly"
+        ]},
+        {"kind": "paragraph", "text": "Minutes prepared by Daniel Alvarado. Purpose of the session was to review the draft findings report and the sized opportunity summary ahead of the closing presentation, and to settle the remaining open items."},
+        {"kind": "heading", "text": "Draft Findings", "level": 2},
+        {"kind": "paragraph", "text": "Susan Clark walked the draft in the order the report presents it: findings first, with the analysis behind each, and recommendations set apart and labeled. Megan Wells asked whether the two could be combined for readability, since the executive audience would prefer a single list. Susan Clark declined and explained the reason without softening it. A recommendation quoted as a finding is a liability for both firms, and the separation is not a stylistic preference. Megan Wells accepted this and suggested a summary page carrying both, clearly marked, which Susan Clark agreed to as long as the labels travel with the text. That will be added."},
+        {"kind": "paragraph", "text": "The central finding stands as reported at the midpoint and is now fully supported: a substantial share of denied dollars originates in eligibility verification and authorization capture at the front end and is discovered downstream as a denial. The traceback sampling supports this within stated bounds, and the bounds are in the body of the report rather than in a footnote. Megan Wells noted that this will be unwelcome to at least one department leader at {{fact:f:E-2024-001.client}}. Susan Clark said the analysis will be walked in full before the conclusion is presented, so that the method is available to anyone who wishes to dispute it."},
+        {"kind": "heading", "text": "Opportunity Summary", "level": 2},
+        {"kind": "paragraph", "text": "Each item in the summary carries an estimated recoverable value, a difficulty rating, and its assumptions stated in the open. Three items are marked unsized and described qualitatively, because the data does not support a defensible estimate. Megan Wells asked whether a range could be offered for those. Susan Clark said no, on the grounds that a range implies a distribution we have not established, and that an unsized item honestly labeled is more useful to the organization than a number that cannot survive a question from finance. The three remain unsized."},
+        {"kind": "paragraph", "text": "The vendor authorization extract arrived, late but in time. The affected charge capture work for that department is complete, and the findings for it are presented in full rather than partial. That risk is closed and the report says so."},
+        {"kind": "heading", "text": "Scope Boundaries", "level": 2},
+        {"kind": "paragraph", "text": "Daniel Alvarado confirmed that the documentation practice observations remain noted and not developed. The report recommends a coding audit as a separate exercise and does not attempt one. Separately, the physician arrangement question raised earlier remains outside this engagement. Daniel Alvarado's scope note is with the client's counsel. He restated that no view on the supportability of those terms appears anywhere in the draft, and that if counsel wishes the question answered it will be scoped and engaged in writing before any work is done."},
+        {"kind": "heading", "text": "Action Items", "level": 2},
+        {"kind": "table", "header": ["Item", "Owner", "Due"], "rows": [
+          ["Add the marked summary page carrying findings and recommendations with labels intact", "Susan Clark", "One week"],
+          ["Complete the source check on every client-facing figure in the draft, performed by someone other than the preparer", "Daniel Alvarado", "One week"],
+          ["Confirm the closing presentation date, audience, and room", "Megan Wells", "One week"],
+          ["Circulate the near-final draft to the distribution list Megan Wells confirms", "Susan Clark", "Two weeks"],
+          ["Advise counsel of the status of the scope note on the physician arrangement question", "Megan Wells", "At her discretion"],
+          ["Route the draft for partner review before any copy leaves the office", "Susan Clark", "Before circulation"]
+        ]},
+        {"kind": "paragraph", "text": "No copy of the draft is to be distributed outside this group until the partner review is complete. Next session will be the closing presentation dry run, to be scheduled by Megan Wells."}
+      ]
+    }
+  ]
+}

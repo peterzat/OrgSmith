@@ -1,0 +1,212 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0002",
+      "blocks": [
+        {"kind": "paragraph", "text": "Angela Mahoney"},
+        {"kind": "paragraph", "text": "General Manager"},
+        {"kind": "paragraph", "text": "Johnson, Cross and Gibbs"},
+        {"kind": "paragraph", "text": "Re: Service Line Assessment"},
+        {"kind": "paragraph", "text": "Dear Ms. Mahoney:"},
+        {"kind": "paragraph", "text": "This letter confirms the terms on which we will perform a service line assessment for {{fact:f:E-2020-001.client}}. It sets out what we will do, who will do it, what it will cost, and the terms we work under. If anything in it departs from your understanding of our conversations, please telephone me before you sign. A countersigned letter is an expensive place to discover a disagreement."},
+        {"kind": "heading", "level": 2, "text": "Scope of Work"},
+        {"kind": "paragraph", "text": "The assessment covers the service lines identified with your finance staff during our preliminary discussions. For each line we will construct a contribution margin view from the output of your existing cost accounting, examine volume and payer mix across the trailing periods your systems can support, and identify the operational drivers that account for the result. We will document our sources as we go. Every figure in a deliverable will tie back to a workpaper we can produce on request, and we would rather you ask."},
+        {"kind": "paragraph", "text": "Several things sit outside this scope, and I would rather name them here than in a later conversation. We will not rebuild or correct your cost accounting system. We will not audit the data you give us; this engagement is not an audit, a review, or a compilation, and it produces no opinion on your financial statements. We will not value any physician arrangement or opine on the fair market value of compensation unless you engage us separately for that purpose. Where a line's economics turn on a compensation arrangement, we will identify the dependency in writing and stop there. And where your data will not support a conclusion, we will report that the data will not support a conclusion. That is a finding of its own, and clients are generally better served by hearing it than by receiving a number we cannot defend."},
+        {"kind": "heading", "level": 2, "text": "Approach"},
+        {"kind": "paragraph", "text": "We work findings first. Each phase closes with a written record of what we examined and what it showed, and we will put interim results in front of you as they firm up rather than holding everything for a single presentation at the end. Where we make recommendations, they will be labeled as recommendations and set apart from the findings that support them. We are firm about that separation. A suggestion later quoted back as a conclusion has caused this industry more difficulty than any arithmetic error I have seen."},
+        {"kind": "paragraph", "text": "This year's volume disruption complicates any trailing-period view, and we intend to handle the affected months explicitly rather than smoothing them into an average that describes nothing. Expect us to present the affected and unaffected periods separately, and to be plain about which of the two we think should inform a decision. Where we cannot separate them cleanly, we will say that as well."},
+        {"kind": "heading", "level": 2, "text": "The Engagement Team"},
+        {"kind": "paragraph", "text": "Susan Clark, Principal, will lead the assessment. Service line economics is her work, and the contribution margin model and its assumption log are hers to own. Daniel Alvarado, Senior Consultant, will take the compensation-related questions that arise where a line depends on a physician arrangement; he treats that vocabulary as a term of art, which is precisely why we send him into rooms where counsel is reading. Patricia Moore, Analyst, will work the revenue cycle. She will be the person asking your billing staff direct operational questions and writing the answers down as given. I will read every deliverable before it leaves this office."},
+        {"kind": "paragraph", "text": "Our point of contact for scheduling, data requests, and any matter requiring a decision on your side will be Angela Mahoney, General Manager. We will route requests through your office unless you direct otherwise, and we will not go around it to save ourselves a day."},
+        {"kind": "heading", "level": 2, "text": "Fee and Commencement"},
+        {"kind": "paragraph", "text": "Our fee for the assessment is {{fact:f:E-2020-001.fee}}, fixed for the scope described above. Work commences {{fact:f:E-2020-001.start}}, and we plan on approximately seven months from commencement to final deliverable. If you ask us to expand the scope, we will price the addition in writing and will not begin it until you have agreed to the price."},
+        {"kind": "heading", "level": 2, "text": "Fees and Payment"},
+        {"kind": "paragraph", "text": "The fixed fee will be invoiced in equal monthly installments across the term of the assessment, payable within thirty days of the invoice date. Reasonable out-of-pocket expenses, principally travel and any extract charges levied by your systems vendors, are billed at cost and itemized on the invoice. We do not mark up expenses."},
+        {"kind": "heading", "level": 2, "text": "Term and Termination"},
+        {"kind": "paragraph", "text": "This engagement begins on commencement and continues until we deliver the final assessment or either of us terminates it. Either party may terminate on fifteen days' written notice, for any reason or none. On termination you will owe fees for work performed through the effective date, prorated against the fixed fee, together with expenses incurred, and we will deliver our work product in whatever state it has then reached."},
+        {"kind": "heading", "level": 2, "text": "Confidentiality"},
+        {"kind": "paragraph", "text": "We will treat the information you give us as confidential, will use it only for this engagement, and will not disclose it outside this firm except as you direct in writing or as law or professional standards require. Members of the engagement team who handle patient-identifiable information will do so under your policies, and we ask that identifiers be removed before transmission wherever the analysis does not require them. We ask the same confidentiality from you as to our methods, our workpapers, and our fee arrangements."},
+        {"kind": "heading", "level": 2, "text": "Limitation of Liability"},
+        {"kind": "paragraph", "text": "Our aggregate liability arising out of this engagement, whether framed in contract, in tort, or on any other theory, is limited to the fees actually paid to us under it. Neither party is liable to the other for indirect, incidental, or consequential damages, including lost profits, however characterized. This limitation does not extend to our own fraud or willful misconduct. Our deliverables are prepared for your internal use; if you intend to furnish one to a third party who may rely on it, please raise it with us first so we can address the reliance in writing rather than by silence."},
+        {"kind": "heading", "level": 2, "text": "Governing Law"},
+        {"kind": "paragraph", "text": "This letter is governed by the laws of the state in which our principal office is located, without regard to its conflict of laws rules. Any dispute between us that we cannot resolve directly will be submitted to mediation before either party commences litigation."},
+        {"kind": "paragraph", "text": "If these terms are acceptable, please sign below and return one executed copy to us. We are glad to be doing this work for Johnson, Cross and Gibbs. I will tell you now that a competent assessment usually surfaces at least one result the client would rather not have heard, and in my experience that is the part of it that earns the fee."},
+        {"kind": "paragraph", "text": "Very truly yours,"},
+        {"kind": "sigblock", "signers": ["p:laura.brown", "xp:angela.mahoney"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0003",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Susan Clark, Patricia Moore, Richard Marsh"},
+        {"kind": "paragraph", "text": "From: Daniel Alvarado"},
+        {"kind": "paragraph", "text": "Subject: Kickoff, service line assessment for Johnson, Cross and Gibbs"},
+        {"kind": "paragraph", "text": "The engagement letter is signed and back, and our work for {{fact:f:E-2020-001.client}} commences {{fact:f:E-2020-001.start}}. The objective is narrow, and I want it stated the same way in every document we put out: determine, for each service line in scope, what it contributes after direct costs, and identify the operational drivers behind that result. We are not auditing their data. We are not rebuilding their cost accounting. We are not opining on the fair market value of any compensation arrangement, and where a line's economics depend on a physician arrangement we flag the dependency and stop. Laura drew those boundaries in the letter. I would rather we repeat them until they are tedious than walk one of them back in front of their counsel."},
+        {"kind": "heading", "level": 2, "text": "Workstreams"},
+        {"kind": "list", "items": [
+          "Service line economics. Susan Clark owns the contribution margin build for every line in scope, working from their existing cost accounting output. Susan, the assumption log is part of the deliverable, not a cleanup task: assumptions go in as they are made, not reconstructed from memory in month six.",
+          "Revenue cycle. Patricia Moore traces the cycle end to end, starting with two lines rather than all of them, and reports the sequence before naming a failure point. Patricia, if a figure cannot be tied to a workpaper you can hand over on request, it does not go in a draft.",
+          "Compensation dependencies. I will inventory the arrangements that touch the in-scope lines and document what was reviewed and, equally, what was not. The output of this workstream is a list of dependencies and their status, not a conclusion about any of them.",
+          "Volume and payer mix. Susan and Patricia jointly. This year's periods are not comparable to prior ones and we are not going to average our way past that; affected and unaffected periods get presented separately from the first draft onward.",
+          "Engagement administration. Richard Marsh holds the schedule, the data request log, and the executed paperwork."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Working Arrangements"},
+        {"kind": "paragraph", "text": "Data requests route through Angela Mahoney, General Manager, per the letter. Richard maintains the log and does the following up. Please do not call her staff directly for an extract without telling him first. We will end up asking for the same file twice, which wastes their time and makes us look disorganized, and Richard is the only one of us who reliably knows which request is already outstanding."},
+        {"kind": "paragraph", "text": "Sessions are by phone and video unless their office asks us on site, and if we are on site we go by their protocols and not our preferences. Richard, please build realistic lead time into the schedule for anything requiring a countersignature; you know better than I do how long executed paperwork takes to come back."},
+        {"kind": "heading", "level": 2, "text": "Next Steps"},
+        {"kind": "list", "items": [
+          "Richard Marsh circulates the consolidated data request this week and opens the log.",
+          "Susan Clark defines the in-scope line list in writing and sends it to Angela Mahoney for confirmation, so that we and the client are working from the same list on the record.",
+          "Patricia Moore schedules the first two revenue cycle walkthroughs with their billing staff.",
+          "I will draft the dependency inventory template and circulate it before the first working session.",
+          "First internal working session at the end of the month. Bring what you have, including what you do not have yet."
+        ]},
+        {"kind": "paragraph", "text": "Nothing goes to the client in this phase that characterizes a result. We do not have results. We have a scope, a team, and a data request, and that is what a client should hear from us this early."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0005",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Service Line Assessment: Client Briefing"},
+        {"kind": "list", "items": [
+          "Prepared for Johnson, Cross and Gibbs",
+          "Client of record: {{fact:f:E-2020-001.client}}",
+          "Engagement commenced {{fact:f:E-2020-001.start}}",
+          "Presented by Daniel Alvarado, Senior Consultant",
+          "For discussion with Angela Mahoney, General Manager, and finance staff"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Scope and Team"},
+        {"kind": "list", "items": [
+          "In scope: contribution margin by service line, volume and payer mix, revenue cycle drivers",
+          "Out of scope: audit of source data, rebuild of cost accounting, valuation of any compensation arrangement",
+          "Susan Clark, Principal, leads service line economics and owns the assumption log",
+          "Patricia Moore, Analyst, leads revenue cycle tracing",
+          "Daniel Alvarado documents compensation dependencies where a line's economics turn on one"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Where the Work Stands"},
+        {"kind": "list", "items": [
+          "Line list confirmed in writing with your office; we and you are working from the same list",
+          "Extracts received for most lines in scope; two remain outstanding and are logged",
+          "Contribution margin model built and populated for the first group of lines",
+          "Revenue cycle walkthroughs completed for two lines, in progress for the rest",
+          "Assumption log is open and available to you on request, not held to the end"
+        ]},
+        {"kind": "heading", "level": 1, "text": "How We Are Treating This Year"},
+        {"kind": "list", "items": [
+          "The disrupted months are not comparable to prior periods and will not be averaged in with them",
+          "Each line is presented twice: on the full trailing period, and on the unaffected periods alone",
+          "Where the two views disagree in direction, we say so rather than choosing the tidier one",
+          "The allocation basis behind both views is stated on the face of the model, not in an appendix",
+          "Where the data will not support a conclusion, that is what we will report"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Observations to Date"},
+        {"kind": "list", "items": [
+          "This year's trailing periods are not comparable; affected and unaffected months are shown separately throughout",
+          "At least one line's reported margin depends on a cost allocation we have not yet traced to source",
+          "Denials in one line appear to cluster at a single step; Patricia Moore is tracing it end to end before we characterize it",
+          "One line's cost structure depends on a physician arrangement outside our scope; the dependency is flagged, not evaluated",
+          "These are observations. They are not findings, and nothing here is a recommendation"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Next Steps"},
+        {"kind": "list", "items": [
+          "Close the two outstanding extracts",
+          "Complete revenue cycle tracing across the remaining lines in scope",
+          "Bring the first findings, labeled as findings, to the next working session",
+          "Continue routing all requests through Angela Mahoney's office",
+          "Susan Clark will present the margin build and its assumptions when the model covers every line"
+        ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0006",
+      "blocks": [
+        {"kind": "paragraph", "text": "Working session on the service line assessment for Johnson, Cross and Gibbs. Minutes taken by Susan Clark."},
+        {"kind": "heading", "level": 2, "text": "Attendees"},
+        {"kind": "list", "items": [
+          "Susan Clark, Principal",
+          "Daniel Alvarado, Senior Consultant",
+          "Patricia Moore, Analyst",
+          "Angela Mahoney, General Manager, {{fact:f:E-2020-001.client}}"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Discussion"},
+        {"kind": "paragraph", "text": "The contribution margin build now covers four of the lines in scope. Two of the four are negative after direct costs. That is the result. What should be done about it is not in these minutes and was not discussed as though it were settled."},
+        {"kind": "paragraph", "text": "Angela Mahoney asked whether the two negative results are an artifact of this year. Partly. We ran both lines against the unaffected periods and both remain negative there, by less. I want the assumption in the open: the unaffected-period view uses the same allocation basis as the current one, and if that basis is wrong the direction of the answer could change for one of the two. It would not change for the other."},
+        {"kind": "paragraph", "text": "The allocation question from the last session is not resolved. One line's reported margin turns on an overhead allocation we have not traced to source. Until we trace it, that line's number carries an asterisk in everything we produce, and I asked that nobody quote it internally without the asterisk attached."},
+        {"kind": "paragraph", "text": "Patricia Moore walked the group through the denial pattern in one line. The denials cluster at a single step in the cycle. She has traced the sequence but not yet to the point where she is willing to name the failure, and she declined to characterize it further when asked to. That was the right answer and I said so in the room."},
+        {"kind": "paragraph", "text": "Daniel Alvarado noted that one line's cost structure depends on a physician arrangement that we have not reviewed and are not engaged to review. He has logged the dependency and its status. He was explicit that logging a dependency is not a view on it, and that nothing in our workpapers should be read as one. Angela Mahoney will raise internally whether her counsel wants that arrangement looked at separately, on a separate engagement."},
+        {"kind": "paragraph", "text": "Two extracts remain outstanding. Angela Mahoney will chase them from her side. We agreed that the model will not be presented as complete until those are in, even if the remaining lines are finished first."},
+        {"kind": "paragraph", "text": "Daniel Alvarado raised the volume question in the other direction, which was useful. If a line is negative in the unaffected periods and less negative in the affected ones, the affected months are not the explanation and we should stop treating this year as the answer to everything. I agree. The write-up will treat the disruption as a limitation on comparability and not as a cause of any result it does not actually cause."},
+        {"kind": "paragraph", "text": "Angela Mahoney asked when she will see something in writing. Findings will come to her in working session as they firm up, not as a finished report she reads for the first time at the end. Patricia Moore's revenue cycle section will be the first piece to circulate, because it is the closest to defensible. Nothing goes over labeled as a recommendation until the finding under it is settled, and today none of them are."},
+        {"kind": "heading", "level": 2, "text": "Action Items"},
+        {"kind": "table", "header": ["Item", "Owner", "Due"], "rows": [
+          ["Trace the overhead allocation for the flagged line to source", "Susan Clark", "Before the next working session"],
+          ["Complete end-to-end trace of the denial cluster; report sequence before naming the failure point", "Patricia Moore", "Before the next working session"],
+          ["Circulate the dependency inventory with current status", "Daniel Alvarado", "Within one week"],
+          ["Chase the two outstanding extracts", "Angela Mahoney", "Within one week"],
+          ["Confirm internally whether counsel wants the physician arrangement reviewed separately", "Angela Mahoney", "Before the next status report"],
+          ["Add the unaffected-period comparison and its stated assumption to the model", "Susan Clark", "Before the next working session"]
+        ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0007",
+      "blocks": [
+        {"kind": "paragraph", "text": "Status report on the service line assessment. Prepared for the executive sponsor at Johnson, Cross and Gibbs by Daniel Alvarado, Senior Consultant."},
+        {"kind": "heading", "level": 2, "text": "Status Summary"},
+        {"kind": "paragraph", "text": "The assessment for {{fact:f:E-2020-001.client}} is on schedule against the plan we set at kickoff. The contribution margin model now covers the majority of the lines in scope, revenue cycle tracing is under way across the remainder, and the dependency inventory is current. Two data extracts remain outstanding and are the only item that could move the schedule; both are logged and being chased from your side. We have no change to the scope, the plan, or the fee to report, and no request to make of you beyond those extracts."},
+        {"kind": "paragraph", "text": "One point of method, since this report will be read by people who did not attend the working sessions. Nothing in this document is a finding. Findings will be delivered as findings, labeled, with the workpapers behind them available on request. What follows is a description of work performed and of matters we are examining. Where a matter is unresolved, we have said that it is unresolved rather than gesturing at the answer we expect to reach."},
+        {"kind": "heading", "level": 2, "text": "Accomplishments This Period"},
+        {"kind": "paragraph", "text": "Susan Clark completed the contribution margin build for the majority of the in-scope lines, working from your existing cost accounting output. Each line's build carries its assumptions in an open log rather than an appendix compiled at the end, and the log is available to your finance staff on request. She has also added a comparison against the periods not affected by this year's volume disruption. That comparison rests on a stated assumption about the allocation basis, and the assumption is on the face of the model rather than buried in it."},
+        {"kind": "paragraph", "text": "Patricia Moore completed end-to-end tracing of the revenue cycle for the initial lines and is working through the remainder. Her method is to establish the full sequence before naming any failure point, which is slower than the alternative and produces claims we can defend. Where she has identified a pattern, she has traced it to the step at which it occurs and no further than the evidence carries."},
+        {"kind": "paragraph", "text": "I completed the inventory of compensation arrangements touching the in-scope lines. The inventory records, for each arrangement, what we reviewed and what we did not. It is a status list. It is not, and should not be read as, an evaluation of any arrangement. Where a line's economics depend on such an arrangement, we have flagged the dependency and stopped, consistent with the scope in the engagement letter."},
+        {"kind": "heading", "level": 2, "text": "Upcoming Work"},
+        {"kind": "paragraph", "text": "The immediate work is to close the remaining lines in the margin model once the outstanding extracts arrive, complete revenue cycle tracing across those lines, and resolve the allocation question on the one line whose reported margin depends on an overhead allocation we have not yet traced to source. That line's figure carries a qualification in everything we produce until the trace is complete, and it will keep the qualification if the trace does not resolve it."},
+        {"kind": "paragraph", "text": "After that, the work moves from building to writing. Findings will be drafted line by line, reviewed internally, and brought to you in working session rather than arriving as a finished report you see for the first time at the end. Recommendations, where the findings support them, will be drafted separately and labeled as recommendations. Susan Clark will present the completed margin build and its assumption log when the model covers every line in scope."},
+        {"kind": "heading", "level": 2, "text": "Budget"},
+        {"kind": "paragraph", "text": "The engagement is fixed-fee at {{fact:f:E-2020-001.fee}}, invoiced in equal monthly installments. Effort expended to date is consistent with that fee and with the plan. We do not anticipate a request to amend it, and we would tell you now if we did. Should you ask us to expand the scope, the addition would be priced in writing before any work on it began."},
+        {"kind": "heading", "level": 2, "text": "Risks"},
+        {"kind": "paragraph", "text": "The two outstanding extracts are the principal scheduling risk. If they arrive within the next two weeks, the schedule absorbs the delay. Beyond that, the margin model cannot be represented as covering the full scope, and we will not represent it as such."},
+        {"kind": "paragraph", "text": "The unresolved allocation is the principal analytical risk. If the trace shows the allocation basis is sound, the affected line's result stands as built. If it does not, that line's result changes and possibly its direction. We are not going to predict which, and we would ask that nobody plan around the current figure for that line until the trace closes."},
+        {"kind": "paragraph", "text": "The comparability of this year's periods remains a limitation on the whole assessment rather than a risk we can retire. We are presenting affected and unaffected periods separately and stating which we believe should inform a decision. That is the most the data supports, and no amount of additional analysis will make this year's months into an ordinary trailing period."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0009",
+      "blocks": [
+        {"kind": "paragraph", "text": "Working session on the service line assessment for Johnson, Cross and Gibbs. Minutes taken by Susan Clark."},
+        {"kind": "heading", "level": 2, "text": "Attendees"},
+        {"kind": "list", "items": [
+          "Susan Clark, Principal",
+          "Daniel Alvarado, Senior Consultant",
+          "Patricia Moore, Analyst",
+          "Angela Mahoney, General Manager, {{fact:f:E-2020-001.client}}"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Discussion"},
+        {"kind": "paragraph", "text": "The margin model covers every line in scope. The draft findings are circulating internally and Laura has them. Angela Mahoney has the draft findings section as well, ahead of the recommendations, which is deliberate: we would rather the findings be argued with on their own before anyone reads what we suggest doing about them."},
+        {"kind": "paragraph", "text": "The allocation trace is closed. The basis holds. The affected line's result stands as built and the qualification comes off it. I said at the time that the trace could have gone the other way and changed that line's direction; it did not, and the workpaper shows why."},
+        {"kind": "paragraph", "text": "Three lines are negative after direct costs. Two of the three remain negative in the unaffected periods. The third is negative only in the affected periods and I am not willing to call it a structurally negative line on this evidence. The draft says exactly that. Angela Mahoney asked whether we could firm it up. Not with this data. Another year of it would settle the question and we do not have another year of it."},
+        {"kind": "paragraph", "text": "Patricia Moore closed the denial trace. The failure point is named in the draft, the sequence leading to it is documented, and every figure she has quoted ties to a workpaper. She walked the group through the sequence before naming the step, as she has done throughout, and nobody had a question she could not answer from the papers in front of her."},
+        {"kind": "paragraph", "text": "Daniel Alvarado confirmed the dependency inventory is final for our purposes. Two lines depend on physician arrangements we have not reviewed and were not engaged to review. The draft records the dependency and its effect on what we can conclude for those lines, and records nothing else about the arrangements. He was clear that the wording is not a hedge but a boundary, and that it should not be softened in editing. Angela Mahoney reported that counsel is considering a separate review of one arrangement; that would be a separate engagement and is not in front of us today."},
+        {"kind": "paragraph", "text": "We discussed the shape of the recommendations. Recommendations will be a separate section, labeled, and each will name the findings it rests on. Where I would do something the findings do not compel, that is going in as an opinion and marked as one. Angela Mahoney asked for the recommendations to be actionable. They will be specific. Whether her board finds them palatable is a different question and not one the analysis answers."},
+        {"kind": "heading", "level": 2, "text": "Action Items"},
+        {"kind": "table", "header": ["Item", "Owner", "Due"], "rows": [
+          ["Return comments on the draft findings section", "Angela Mahoney", "Within two weeks"],
+          ["Draft the recommendations section, each tied to the findings it rests on", "Susan Clark", "Before the next working session"],
+          ["Finalize the revenue cycle section, including the denial sequence and named failure point", "Patricia Moore", "Within two weeks"],
+          ["Hold the dependency wording as drafted through internal review", "Daniel Alvarado", "Ongoing"],
+          ["Confirm the distribution list for the final report, including whether counsel is on it", "Angela Mahoney", "Before the next working session"],
+          ["Assemble the workpaper index to accompany the final report", "Patricia Moore", "Before the next working session"]
+        ]}
+      ]
+    }
+  ]
+}

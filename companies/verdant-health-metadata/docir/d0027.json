@@ -1,0 +1,130 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0027",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "Kickoff Memo: Revenue Cycle Diagnostic",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "To: Daniel Alvarado; engagement file",
+        "From: Susan Clark",
+        "Re: Revenue cycle diagnostic, Sullivan, Hall and Kelly, kickoff and workstreams"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Objectives",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We start on {{fact:f:E-2024-001.start}}. The objective is narrow and worth stating plainly: find where cash leaves the revenue cycle at {{fact:f:E-2024-001.client}}, size each leak, and rank the fixes. Everything else is a means to that. The client has a view already, which is that denials are the problem. That may be right. We are not going to assume it, and we are not going to spend the engagement proving a hypothesis somebody handed us. Registration and eligibility failures produce denials downstream, and a denial count tells you where an error surfaced, not where it started.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Two constraints shape the plan. We work from transaction data, not from what people tell us happens. And we separate findings from recommendations in every deliverable, including the interim ones. Megan Wells is our single point of contact and is coordinating the data requests. Nothing moves without her, so keep the requests consolidated and give her lead time rather than dribbling them out.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Workstreams",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Data acquisition and baseline. Get the extracts, reconcile them to the general ledger, and establish a trailing baseline we can defend. Nothing downstream is worth anything until the totals tie. Susan Clark owns this and it is the critical path.",
+        "Patient access. Registration accuracy, eligibility verification, authorization capture. Sample accounts back from denial to origin and measure how many trace to the front end.",
+        "Charge capture. Compare charges to activity by department and look for the gaps. Where documentation practice is implicated we note it and stop; we are not doing a coding audit and will not pretend otherwise.",
+        "Claims and denials. Edit performance, first-pass rate, denial categories with dollars attached rather than counts. Categories without dollars have wasted a lot of people's time before us.",
+        "Cash application and follow-up. Posting lag, unapplied cash, aged account inventory, and what the follow-up staff actually work versus what the worklist assigns them.",
+        "Physician arrangements. Daniel Alvarado covers anything touching compensation or the surgery joint venture. If a fair-market-value question appears, it goes to him and comes out as a separate scope conversation, not as a paragraph in our report."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Assumptions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We assume the extracts arrive in the first three weeks and reconcile without a rebuild. If either fails, the schedule moves and we tell the client the week we know, not the month after. We assume the trailing period we requested is long enough for seasonality; if it is not, we will say so in the baseline memo rather than quietly widen the window.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Next Steps",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Susan Clark: send the consolidated data request to Megan Wells this week, in one document, with a field-level specification and a named owner for each item.",
+        "Susan Clark: schedule the client kickoff session with Megan Wells and the department leads she designates. One hour, agenda circulated in advance, no deck.",
+        "Daniel Alvarado: review the executed engagement letter and flag anything in the physician-arrangement area that our scope does not cover.",
+        "Both: no interim findings go to the client, verbally or otherwise, until the baseline reconciles. If asked in a meeting what we are seeing, the answer is that we are still building the baseline."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "One process note. Every number that leaves this office in a client-facing document gets checked against the source by someone who did not produce it. That is not a comment on anyone's work. It is what makes the findings hold up when Sullivan, Hall and Kelly asks where a figure came from, and they will ask.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "verdant-health",
+  "entities": [
+    "x:verdant-health",
+    "p:laura.brown",
+    "p:susan.clark",
+    "p:daniel.alvarado",
+    "p:patricia.moore",
+    "p:richard.marsh",
+    "p:barbara.freeman",
+    "p:joshua.dougherty",
+    "x:lopez-mcbride-and-evans",
+    "x:johnson-cross-and-gibbs",
+    "x:harrison-llc",
+    "x:sullivan-hall-and-kelly",
+    "xp:angela.mahoney",
+    "xp:laura.phillips",
+    "xp:joseph.nichols",
+    "xp:megan.wells"
+  ],
+  "edges": [
+    {
+      "src": "p:laura.brown",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-02-15",
+      "end": null
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "p:laura.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-03-15",
+      "end": null
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2019-05-29",
+      "end": null
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-08-04",
+      "end": null
+    },
+    {
+      "src": "p:richard.marsh",
+      "dst": "p:laura.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:richard.marsh",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-04-15",
+      "end": null
+    },
+    {
+      "src": "p:barbara.freeman",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:barbara.freeman",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2022-08-16",
+      "end": null
+    },
+    {
+      "src": "p:joshua.dougherty",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joshua.dougherty",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2022-10-28",
+      "end": null
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "x:johnson-cross-and-gibbs",
+      "kind": "works_at",
+      "start": null,
+      "end": "2022-12-22"
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "x:lopez-mcbride-and-evans",
+      "kind": "works_at",
+      "start": "2022-12-23",
+      "end": null
+    },
+    {
+      "src": "xp:laura.phillips",
+      "dst": "x:johnson-cross-and-gibbs",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:joseph.nichols",
+      "dst": "x:harrison-llc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:megan.wells",
+      "dst": "x:sullivan-hall-and-kelly",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:johnson-cross-and-gibbs",
+      "dst": "x:verdant-health",
+      "kind": "client_of",
+      "start": "2020-08-04",
+      "end": null
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-06-10",
+      "end": "2021-09-12"
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-06-10",
+      "end": "2021-09-12"
+    },
+    {
+      "src": "xp:laura.phillips",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-06-10",
+      "end": "2021-09-12"
+    },
+    {
+      "src": "x:lopez-mcbride-and-evans",
+      "dst": "x:verdant-health",
+      "kind": "client_of",
+      "start": "2023-02-13",
+      "end": null
+    },
+    {
+      "src": "p:barbara.freeman",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "p:joshua.dougherty",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "x:sullivan-hall-and-kelly",
+      "dst": "x:verdant-health",
+      "kind": "client_of",
+      "start": "2024-03-01",
+      "end": null
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-03-01",
+      "end": "2024-09-13"
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-03-01",
+      "end": "2024-09-13"
+    },
+    {
+      "src": "xp:megan.wells",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-03-01",
+      "end": "2024-09-13"
+    }
+  ]
+}

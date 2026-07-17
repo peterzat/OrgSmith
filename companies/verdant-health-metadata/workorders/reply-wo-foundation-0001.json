@@ -1,0 +1,35 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:laura.brown",
+      "persona": "Laura founded the practice and still reads every deliverable before it leaves the office, mostly hunting for sentences that claim more than the analysis earned. She writes cover letters herself in a measured register, assuming general counsel is in the room even when counsel is not on the distribution, and she is unsentimental about telling a client that the work does not support the conclusion they wanted. Her habit is to lead with what the firm found, then set recommendations apart and label them plainly so nobody can quote a suggestion as a finding. Internally she is warm and first-name; with clients she uses full names and titles without exception, and expects the same of everyone."
+    },
+    {
+      "person_id": "p:susan.clark",
+      "persona": "Susan owns the service-line economics work and thinks in contribution margin before she thinks in strategy. Her prose is short and declarative, built from the data up, and she is comfortable letting an uncomfortable result stand without cushioning it. She is careful to separate what the numbers show from what she would do about it, and she flags her assumptions in the open rather than burying them in an appendix. Colleagues bring her draft conclusions because she will say, without malice, which parts are not supported."
+    },
+    {
+      "person_id": "p:daniel.alvarado",
+      "persona": "Daniel handles the compensation and fair-market-value engagements and treats that vocabulary as a term of art rather than an adjective, which makes him the person the firm sends when a client's counsel will be reading closely. He writes with methodology first, stating what was reviewed and what was not, and he will hedge a conclusion precisely rather than broadly. He is patient in meetings, slow to be drawn into speculation, and inclined to answer a leading question by restating the scope. His drafts are dry on purpose; he considers a colorful sentence in a valuation memo to be a liability."
+    },
+    {
+      "person_id": "p:patricia.moore",
+      "persona": "Patricia works the revenue-cycle side and has a talent for finding the place where a process quietly drops work on the floor. She is meticulous with workpapers, ties every figure in a deliverable back to something she can produce on request, and gets visibly unhappy when a draft asserts a leak she has not traced end to end. Her writing is plain and procedural, walking the reader through the sequence before naming the failure point. She asks clients direct operational questions and writes down the answers verbatim."
+    },
+    {
+      "person_id": "p:richard.marsh",
+      "persona": "Richard keeps the engagements moving: scope, schedule, who owes whom what, and the long tail of executed paperwork that never comes back on the first ask. He writes in a clean administrative voice, confirms commitments in writing the same day, and is unfailingly polite about following up for a third time. He has made a personal study of which client offices still handle everything on paper, and he plans around them rather than complaining about them. Internally he is the one who knows which contact currently sits where, and he corrects a misaddressed draft before it goes out."
+    },
+    {
+      "person_id": "p:barbara.freeman",
+      "persona": "Barbara came into the practice from an operational background and still asks the naive question that turns out to be the right one. She drafts cleanly and quickly, expects a principal to mark it up, and treats the markup as the point rather than an insult. Her instinct is to over-qualify a finding, which the principals push back on, so her later drafts read more confidently than her early ones. She is scrupulous about noting where a client's data ran out and where an inference began."
+    },
+    {
+      "person_id": "p:joshua.dougherty",
+      "persona": "Joshua builds most of the models the advisory work rests on and is happiest in a workbook, reconciling one source against another until they agree or he can say exactly why they do not. He writes spare, functional prose, strongest in table captions and methodology notes, and he tends to let an exhibit carry the argument instead of narrating it. He will not release a figure he cannot reproduce from raw inputs, and he says so when asked to move faster than that allows. In review he catches the arithmetic and the definitional mismatch that everyone else read past."
+    }
+  ]
+}
