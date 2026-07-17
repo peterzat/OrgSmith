@@ -120,6 +120,93 @@ def test_resume_mid_authoring_no_dup_no_loss(tmp_path):
     assert run_validate(paths) == 0
 
 
+def test_resume_with_several_batches_outstanding(tmp_path):
+    """M10 authors K wide, so a killed session strands up to K orphans.
+
+    `test_resume_mid_authoring_no_dup_no_loss` only ever holds ONE orphan at
+    its kill point. This holds three, which is the documented real shape:
+    /forge fills a K=4 window, and a session that dies mid-window strands
+    every batch in it.
+
+    Both tests fail if `covered_docs()` stops unioning across outstanding
+    orders (verified by injecting exactly that fault), so this is not
+    coverage the suite lacked outright. What it adds is where and how it
+    fails. Under the fault the single-orphan test survives to the end of a
+    full authoring-and-render pass and then reports `a doc appeared in two
+    work orders` (20 vs 17) -- true, but it names neither the invariant nor
+    the orders involved, and it only gets there because `run_authoring`
+    happens to open a second batch. This test fails at the moment the window
+    is opened, before any authoring, and names which order re-covered which.
+
+    The kill is modeled the way the airlock defines it: work orders emitted
+    and never ingested. `load_state` re-reads state.json from disk, so every
+    assertion below is against file-derived truth exactly as a fresh process
+    would see it (CLAUDE.md: resume state is never conversation memory).
+    """
+    paths = build_pure_stages(tmp_path)
+    run_enrichment(paths)
+
+    # Session 1: fill a 3-wide window and die before ingesting any of it.
+    for _ in range(3):
+        assert run_next_batch(paths) == 0
+    orphans = {
+        wo_id: set(ref.doc_ids)
+        for wo_id, ref in load_state(paths).author_batches.items()
+    }
+    assert len(orphans) == 3, "the window did not open three batches"
+    for doc_ids in orphans.values():
+        assert doc_ids
+
+    # The orphans were disjoint when emitted; that is the M10 invariant.
+    claimed = [d for ids in orphans.values() for d in ids]
+    assert len(claimed) == len(set(claimed)), "two outstanding orders overlap"
+
+    # Session 2: a fresh process sees only the files. A new batch must be
+    # disjoint from every orphan, not just the last one.
+    assert run_next_batch(paths) == 0
+    state = load_state(paths)
+    for wo_id, doc_ids in orphans.items():
+        assert wo_id in state.author_batches, f"orphan {wo_id} was dropped"
+        assert set(state.author_batches[wo_id].doc_ids) == doc_ids
+    fresh = {
+        wo_id: set(ref.doc_ids)
+        for wo_id, ref in state.author_batches.items()
+        if wo_id not in orphans
+    }
+    for wo_id, doc_ids in fresh.items():
+        for orphan_id, orphan_docs in orphans.items():
+            overlap = doc_ids & orphan_docs
+            assert not overlap, f"{wo_id} re-covers {orphan_id}: {overlap}"
+
+    # Draining the window completes the org with no duplicate and no loss.
+    run_authoring(paths)
+    assert run_render(paths) == 0
+    assert run_assemble(paths) == 0
+
+    orders = [
+        load_work_order(p) for p in sorted(paths.workorders_dir.glob("author-*.json"))
+    ]
+    briefed = [b.doc_id for wo in orders for b in wo.docs]
+    assert len(briefed) == len(set(briefed)), "a doc appeared in two work orders"
+    for orphan_docs in orphans.values():
+        assert orphan_docs <= set(briefed), "an orphan's docs were never authored"
+
+    manifest = load_manifest(paths)
+    batchable = [e for e in manifest if e.authoring == "batchable"]
+    assert len(list(paths.docir_dir.glob("d*.json"))) == len(batchable)
+    state = load_state(paths)
+    for entry in manifest:
+        assert (paths.share_dir / entry.path).exists()
+        doc = state.doc(entry.doc_id)
+        assert doc.rendered_hash and doc.rendered_from
+
+    status = collect_status(paths)
+    assert status["stages"]["author"] == "done"
+    assert status["outstanding"] == {}
+    assert status["author_batches"] == {}
+    assert run_validate(paths) == 0
+
+
 def test_partial_render_survives_resume(tmp_path):
     paths = build_pure_stages(tmp_path)
     run_enrichment(paths)
