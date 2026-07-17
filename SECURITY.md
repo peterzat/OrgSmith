@@ -1,5 +1,63 @@
 # Security
 
+## Security Review — 2026-07-17b (scope: paths)
+
+**Summary:** Scan of the 29 files changed in the pre-M12 turn
+(`62a5665..HEAD`, 11 commits). Product code changed this time, unlike the
+previous scan: `orgsmith/airlock.py` (work-order serial), a new CLI verb, and
+a new `orgsmith/schemas_export.py`. Also 19 generated JSON Schema files, a
+verbatim external critique published into a public repo, and doc/backlog
+edits. No BLOCK, no WARN, no NOTE.
+
+### Findings
+
+No security issues identified in the reviewed scope.
+
+### Reviewed Surface
+
+- **Swept per-commit, not against the net diff**, for the same reason as last
+  time: `git diff 62a5665..HEAD` would hide a credential added and edited out
+  within the range. `git log -p` over all added lines returns zero hits for
+  private-key blocks, JWTs, AWS/GitHub/Slack/Google/Anthropic key shapes,
+  bearer tokens, quoted `api_key|password|secret|token=` assignments, and
+  postgres/mysql/mongodb/amqp connection strings.
+
+- **The airlock still cannot reach a model or the network**, and the new code
+  does not change that. `orgsmith/schemas_export.py` contains one `https://`
+  string — `JSON_SCHEMA_DIALECT`, the JSON Schema 2020-12 dialect identifier
+  that the spec requires be emitted in `$schema`. It is an identifier written
+  into a file, not a URL that is fetched: no client, no `requests`/`urllib`/
+  `socket` import anywhere in the module. Called out because a bare `https://`
+  in this package is exactly the shape that should attract a second look.
+
+- **`emit-schemas` writes files, so its path handling was read directly.**
+  Output filenames are not attacker-influenced: `schema_filename()` derives
+  them from `schema_id`, which is a `Literal` default on our own pydantic
+  models (`schemas.py:25-45`), not from input. The `--out` directory is
+  operator-chosen on the operator's own box and crosses no privilege boundary;
+  `python -m orgsmith emit-schemas --out /etc` overwriting something is the
+  operator instructing their own shell, which is not a vulnerability in this
+  tool. No traversal reachable from either half.
+
+- **Outbound disclosure, which is the real surface here.**
+  `docs/EXTERNAL-CRITIQUE-2026-07-17.md` publishes a third party's verbatim
+  text into a public repo. Read for that rather than for prose: it contains no
+  credentials, no private URLs, no personal data, and no non-public
+  information about this project — its content is an outside model's reading of
+  the already-public snapshot, and every repo fact it cites is already
+  published. The 19 emitted schemas were read for the same question: they are
+  mechanical renderings of pydantic models whose source is already public, and
+  they disclose field names and shapes that `schemas.py` already discloses.
+
+- **No dependency manifest changed.** `requirements.txt` and
+  `requirements-dev.txt` are untouched in the range; `test_requirements_are_pinned`
+  still passes.
+
+### Accepted Risks
+
+None.
+
+---
 ## Security Review — 2026-07-17 (scope: paths)
 
 **Summary:** Re-scan of the eight files changed since the M11b scan
@@ -110,4 +168,4 @@ generation-box identity in document metadata, and no leftover `{{fact:}}`
 placeholders or injection-shaped text in the rendered tree. It carried forward
 the M9 `render/pdf.py` letterhead NOTE.*
 
-<!-- SECURITY_META: {"date":"2026-07-17","commit":"f7f945cf64ea7d9e1266e63fa2a0a09c483a9593","scope":"paths","scanned_files":["CODEREVIEW.md","README.md","docs/MODEL-AB.md","docs/REVIEW-CALIBRATION.md","docs/SCALE.md","tests/test_org_regen.py","tests/test_unit_compat.py","tests/test_unit_evals.py"],"block":0,"warn":0,"note":0} -->
+<!-- SECURITY_META: {"date":"2026-07-17","commit":"f897c63c0546cf7f350adab7178fa7ebb2a59fcd","scope":"paths","scanned_files":["BACKLOG.md","README.md","TESTING.md","docs/EXTERNAL-CRITIQUE-2026-07-17.md","docs/SCALE.md","orgsmith/airlock.py","orgsmith/cli.py","orgsmith/schemas_export.py","schemas/acl@1.json","schemas/authoring-deliverable@1.json","schemas/charter@1.json","schemas/corpus-metrics@1.json","schemas/docir@1.json","schemas/engagements@1.json","schemas/enrichment-deliverable@1.json","schemas/finance@1.json","schemas/foundation@1.json","schemas/graph-expected@1.json","schemas/graph@1.json","schemas/manifest-entry@1.json","schemas/mention-map@1.json","schemas/review-finding@1.json","schemas/review-findings@1.json","schemas/review-sample@1.json","schemas/scan-pages@1.json","schemas/state@1.json","schemas/work-order@1.json","tests/test_short.py","tests/test_unit_airlock.py"],"block":0,"warn":0,"note":0} -->

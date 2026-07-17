@@ -1,113 +1,187 @@
 # CODEREVIEW
 
-## Review — 2026-07-17 (commit: f7f945c)
+## Review — 2026-07-17b (commit: 59870b5)
 
-**Summary:** Full-tier review of the documentation pass (`f7f945c`) plus the
-three test files carried in `4c4f9b9`. Scope resolved as full rather than
-light because test files changed, but the executable delta is three lines,
-all of them the prior review's own recorded fix-loop output: an added
-`ocr_layer_rate` default assertion, `locations <= expected` tightened to
-`==`, and a docstring count. Everything else in those files is prose. The
-substance of this review is therefore the docs. `bin/test` green and unmoved:
-440 passing (12 short / 356 unit / 72 org). No product code has changed since
-`de60065`.
+**Summary:** The pre-M12 turn: `62a5665..HEAD`, 13 commits, 29 files. Absorbs an
+external critique (`docs/EXTERNAL-CRITIQUE-2026-07-17.md`), fixes the three
+defects in it that verified, restructures the README around the exemplar, and
+logs ten BACKLOG entries scoping M12. `bin/test` **447** passing (14 short /
+361 unit / 72 org), up from 440; 441 + 6 skipped without LibreOffice. Byte pin
+green fleet-wide; no committed ledger moved.
 
-**Reviewer separation:** the author wrote the docs, so the review was
-delegated to a fresh-context adversary instructed to check every number
-against the repo rather than read for plausibility. Its findings were then
-re-verified independently before being acted on — which mattered: one was
-wrong.
+**Reviewer separation:** the author wrote everything here, so the review was
+delegated to a fresh-context adversary instructed to recompute every number
+against the repo rather than read for plausibility. It reported 1 BLOCK, 2
+WARN, 2 NOTE; all are fixed, and it also independently confirmed a false
+positive the author had already caught. The author caught four more before it
+reported. **Every finding in this review, from either side, died on a command
+rather than on a careful reading** — which is the whole lesson of the range:
+each false claim looked right, and several had already survived a board pass,
+a prior review, and a docs pass.
 
 ### Findings
 
-**[BLOCK] docs/MODEL-AB.md:9 — "Both validated clean under all 29 rules" was
-false; 20 rules ran.** *(fixed)*
+**[BLOCK] TESTING.md:271 — "434 passing + 6 skipped" after the count-update
+pass.** *(fixed; found by the adversary)*
 
-  Evidence: the doc's own table 35 lines below reads "20 rules, **0 errors**"
-  for both arms. `ab-probe` leaves 9 knobs off, so 9 rules skipped. The
-  reviewer checked out the Round 1 commit and confirmed `a9ec852` already
-  carried the same 29 rule ids, so this was an overstatement rather than an
-  anachronism.
-  Why it matters more than the arithmetic: the same pass had already deleted
-  the identical sentence from the README (a prior review caught it there) and
-  left it standing in the document the README cites as the authoritative
-  write-up. Fixing a claim in the summary and not in the source is worse than
-  not fixing it, because the source is what a sceptical reader opens.
-  Fix: "Both validated clean, with zero errors, on every rule that ran." The
-  README's `validate` example comment was corrected the same way (it implied
-  all 29 run for an org where 24 do).
+  Commit `3c0a1d0` is titled "Record the new counts: 440 -> 445", updated lines
+  18-19 and 53-55, and missed the third site. The adversary measured rather
+  than inferred it: `soffice` hidden from `PATH`, `pytest -m "short or unit or
+  org"`, counted progress characters because `addopts = "-q"` suppresses the
+  summary — exactly 439 `.` and 6 `s` at the time.
+  Why it matters: this is the same failure mode as the two README BLOCKs from
+  the prior review — a stale number surviving the very pass that updated its
+  siblings — and it landed inside the document whose job is to be the source of
+  truth for the gate. Three occurrences, one updated pass, one missed.
+  Fix: all four sites now agree at 447 / 441 + 6, both re-measured.
 
-**[WARN] README.md — the Round 2 cost conclusion was stated harder than
-MODEL-AB's own limits support.** *(fixed)*
+**[BLOCK] README — claimed our recipe coherence test would reject a tuning it
+accepts.** *(fixed before the commit landed; author)*
 
-  Evidence: the README asserted "at standard rates the cheaper-per-token
-  model is the more expensive choice" with the caveat that the ratio "assumes
-  both arms share a token mix". MODEL-AB is more forthright: the mix is not
-  merely unproven, it is *known* to differ, and in the direction that
-  undermines the conclusion — Sonnet re-read more (cheap input/cache tokens)
-  while producing fewer words (expensive output tokens), so 1.135x is
-  plausibly an over-estimate and a ~12% blended-price shift would drop it
-  under 1.0.
-  Why it matters: this repo's whole claim is that it publishes numbers you
-  can check, and the section in question argues for spending more money. A
-  summary that is less honest than the document it summarizes inverts the
-  point.
-  Fix: the README now makes the narrower claim it can defend — a 0.6x rate
-  card does not buy a 0.6x bill, the gap is most of the way to erasing the
-  discount, and the direction should not be assumed without measuring.
+  A sentence arguing no recipe setting closes the fee/revenue gap said the
+  absurd-low-revenue tuning "this repo's own recipe coherence test would
+  reject". It would not:
+  `test_fleet_recipe_growth_headcount_and_span_describe_one_firm` asserts
+  `margins[-1] < _NET_MARGIN_CEILING` (0.40) — a ceiling with no floor
+  (`tests/test_org_regen.py:112,252`). A twelve-person firm turning over less
+  than one salary posts a deeply negative margin and passes.
+  Why it matters: the false claim was invoked as evidence *for* another claim,
+  propping up the divergence argument with a fiction. Found by opening the test
+  instead of trusting the memory of it. The adversary independently confirmed
+  both the ceiling-only reading and the correction.
+  Fix: the README says the true thing and names the gap. Logged as
+  `recipe-coherence-test-has-no-floor`.
+
+**[BLOCK] README — the board's "34 occurrences" published as a ledger fact,
+under a sentence promising every quoted finding was ledger-verified.** *(fixed;
+author)*
+
+  The count is semantic, not arithmetic: the board's own evidence includes
+  "This is easy to do from the start and impossible to retrofit" (`d:0011`) —
+  the rhetorical move without the construction. No ledger owns "is this the
+  same figure".
+  Why it matters more than the number: the README's credibility rests on the
+  rule that a finding which cannot be confirmed against a ledger is reported as
+  opinion. This was the one finding that had escaped the rule, and it survived
+  the M11b board pass, the review that BLOCKed two other false README numbers,
+  and a full docs pass — because it looks like a measurement.
+
+**[WARN] airlock — the docstring promised a guarantee the code did not
+deliver.** *(fixed; found by the adversary)*
+
+  `emit_author_batch` claimed `_fresh_work_order_path` "turns that race into a
+  failed run rather than a lost order". It did not: `exists()` returned a path
+  and `write_model` ran in the caller, so two dispatchers could both see the
+  serial free, both write, and one order would be silently lost — precisely the
+  loss `_next_serial` exists to prevent. The check narrowed the window without
+  closing it.
+  Why it matters: an overstated safety claim is worse than none, because it
+  stops the next reader from looking. Note the neighbouring `_next_serial`
+  docstring was honest about the same risk; the guarantee crept in one function
+  over.
+  Fix: the code now delivers the sentence rather than the sentence being
+  softened. Renamed `_claim_work_order_path`, and the claim *is* the creation —
+  `touch(exist_ok=False)`, `O_CREAT | O_EXCL` — so the kernel picks the winner
+  and the loser exits. Pinned by `test_claim_work_order_path_claims_by_creating`.
+
+**[WARN] The voice-tic number was published wrong three times.** *(fixed)*
+
+  First as the board's 34 presented as fact (above). The correction published
+  "20 across 17, the reproducible floor" — one arbitrary regex dressed as a
+  bound, using a pattern never printed; caught by the author trying to
+  reproduce it. The next correction published "a strict temporal reading finds
+  5", which the adversary could not reproduce either, getting 3 and 11 from two
+  equally natural strict patterns.
+  Why it matters: that is the finding, not a slip. Measured over the 44
+  authored documents, the count runs from single digits (strict, and mutually
+  disagreeing) to 146 across 43 of 44 (the plain words `rather than`, once per
+  200 words). Any single number is taste wearing a decimal point.
+  Fix: the README cites the spread and the one count reproducible without being
+  told the pattern.
+
+**[WARN] docs/SCALE.md — "the flagship row is measured rather than projected".**
+*(fixed; author)*
+
+  No 2,000-document org exists; 2,000 x 694 is arithmetic. What M11b bought is
+  that the multiplicand is measured fleet-wide. The old wording said the same of
+  a "fourth row" and was wrong for the same reason — prose left behind by a
+  change to the thing it describes, which is the defect this same commit range
+  was fixing elsewhere in the same file.
 
 ### Notes
 
-- **[NOTE] README.md — "~16 MB of share plus its ground truth"** was
-  ambiguous and 40% off on the natural reading (share 16.36 MB, metadata
-  5.29 MB, total 21.64 MB). Now states both, measured by bytes. *(fixed)*
-- **[NOTE] README.md — the fleet table mixed aggregations.** Mean words was
-  doc-weighted (694.3) beside a ratio that only reproduced org-weighted
-  (0.995). Both cells were individually true, but a reader recomputing the
-  second the way they recomputed the first would not reproduce it. Now both
-  doc-weighted (0.998). *(fixed)*
-- **[NOTE] README.md — the board false-positive anecdote was told twice** in
-  near-identical terms, ~40 lines apart, after the restructure moved a
-  section. The first telling is now a pointer; the full account lives once,
-  under a promoted `### What this does not prove` heading (which also fixed
-  what would have been a dead anchor). *(fixed)*
-- **[NOTE] Reviewer false positive, recorded deliberately.** The adversary
-  reported that CLAUDE.md still declares additive evolution "SUSPENDED" and
-  contradicts the README. It does not: it grepped the word and matched the
-  clause that records the suspension *ending* ("This rule was SUSPENDED for
-  the v2.0 window (M8-M11) ... and is **restored as of M11b**"). Verified
-  before acting rather than after. This is the third reviewer/board false
-  positive logged this turn, alongside the MODEL-AB byte-identical-prose
-  claim and the "four of six reviewers" miscount — a useful running tally
-  given `board-negative-control` is open and the README now tells readers to
-  treat critics as the weakest instrument. Reviewers deserve the same
-  scepticism the board gets.
+- **[NOTE] `_next_serial` crashed on exactly what its docstring promised to
+  tolerate.** *(fixed; adversary)* It said unparseable names are ignored, then
+  gated on `tail.isdigit()` and called `int(tail)`. `"²".isdigit()` is `True`
+  and `int("²")` raises; `"٣"` would have parsed as 3. So the gate both crashed
+  on a stray and silently interpreted one. `isascii()` before `isdigit()`,
+  pinned by `test_next_serial_tolerates_strays_rather_than_interpreting_them`.
+  Pathological, but a function that fails the promise in its own docstring is a
+  docstring nobody should trust.
+- **[NOTE] Soft levers named next to the voice finding.** *(fixed; adversary)*
+  `Charter.narrative` and `Person.persona` sit adjacent to the voice collapse.
+  Neither fixes it — the board's point is that twelve sharply-different personas
+  already converge on one figure — but the section's own standard is to name the
+  knobs in the neighbourhood, so it now does.
+- **[NOTE] Reviewer false positive, the fifth, and confirmed as such by the
+  adversary.** An exploration reported `BACKLOG.md`'s `$500,500` as a miscount a
+  prior review had already BLOCKed. It is correct: `$500,500` is lifetime fees
+  against `$20,712,000` lifetime revenue (2.42%). The README's `$425,500` is a
+  different quantity — the five engagements the 2021 overview calls the whole
+  business. The same report's *other* half was right (the "four of six
+  reviewers" miscount), which is the most expensive kind of wrong. Verified
+  before acting, per the standing rule.
+- **[NOTE] Advertised an unbuilt feature for one edit.** A README line said
+  duplicate/version chains "left this list at M12", which reads as shipped.
+  M11b criterion 4's rule is that no commit leaves the repo advertising what it
+  does not have. Rephrased before the commit.
+- **[NOTE] Three pre-existing defects fixed, all the same species.**
+  `docs/SCALE.md` contradicted itself about M12's own sizing (ordinals left
+  dangling when the rows they pointed at were deleted); the README advertised a
+  45-day email spacing M9 removed; `BACKLOG.md` miscounted the board's
+  reviewers. Each is prose that outlived the thing it described. The email one
+  has a measured cost: the external critique read that line and reported a fixed
+  defect as live.
+- **[NOTE] What the adversary verified clean** is most of the value and does not
+  fit here: 445-at-the-time exact, northgate 53, 19/19 contracts with no miss or
+  double-count, emit-schemas byte-stable and matching the commit, the pin failing
+  on drift, all 11 `.eml` "Email 1", every recipe's `format_mix.eml` <= its
+  engagement count, `$500,500`/`$425,500`, 1.6-5.1% (min 1.59 meridian, max 5.05
+  dev-mini), 36% weekend (19/53), 1,299-day gap, the whole fleet table, the SCALE
+  token table at 1.33 tok/word, ~334 and 38 batches, every link and anchor. It
+  also proved the new serial tests fail against the old code, and enumerated the
+  full `Charter` surface to confirm the README's divergence claim holds against
+  all five findings.
 
 ### Fixes Applied
 
-All BLOCK and WARN findings fixed, plus three of the four NOTEs; the fourth
-was the reviewer's own error and needed no change. Tests unmoved at 440.
+All BLOCK and WARN findings fixed, both NOTEs actioned. Tests 440 -> 447: 5
+unit (work-order serial, the claim-by-creation race, stray tolerance), 2 short
+(schema export pin).
 
 ### Security
 
-0 BLOCK / 0 WARN / 0 NOTE (`SECURITY.md`, commit `f7f945c`, scope `paths`,
-8 files). Swept per-commit with `git log -p` rather than on the net diff,
-because a net diff would hide a credential added and edited out within the
-range — the plausible failure mode for a docs pass. No secrets, keys, or PII
-in the added lines; the only URL is the author's own public repo and it
-predates the range. The three test changes tighten rather than weaken, and
-the `<=` -> `==` one closes a grandfather-by-absence hole. Carried forward
-open: the M9 `render/pdf.py` letterhead NOTE (unchanged code, out of scope).
+0 BLOCK / 0 WARN / 0 NOTE (`SECURITY.md`, `62a5665..HEAD`, scope `paths`, 29
+files). Swept per-commit with `git log -p` rather than the net diff. Product
+code changed this time, so the sweep read `schemas_export.py`'s path handling
+(filenames derive from `Literal` schema ids, not input; `--out` crosses no
+privilege boundary) and its one `https://` string (the JSON Schema dialect
+identifier, written into a file, never fetched — no client, no network import).
+Outbound disclosure was the real surface: the verbatim external critique
+publishes into a public repo and contains nothing non-public.
 
 ### Accepted Risks
 
-None.
+- **The adversary reviewed a moving tree.** HEAD advanced four commits while it
+  worked and it said so, re-pinning its findings to the then-current commit.
+  Three of those commits were self-corrections of things it was mid-way through
+  flagging, so its independence on those is partial: it confirmed fixes rather
+  than finding the defects cold.
 
 ---
-*Prior review (2026-07-17, `de60065`): the M11b arc — 2 BLOCK / 4 WARN / 7
-NOTE, all fixed. Both BLOCKs were false published claims in the README
-(a $500,500 fee total that was really $425,500, and "four of the six
-reviewers" that was really two), caught only because the author delegated the
-review to fresh-context adversaries rather than self-grading.*
+*Prior review (2026-07-17, `f7f945c`): the docs pass — 1 BLOCK / 1 WARN / 4
+NOTE, all fixed. The BLOCK was a false "all 29 rules" claim left standing in
+the document the README cites as authoritative, after the same sentence had
+already been fixed in the README.*
 
-<!-- REVIEW_META: {"date":"2026-07-17","commit":"f7f945c","reviewed_up_to":"f7f945cf64ea7d9e1266e63fa2a0a09c483a9593","base":"origin/main","tier":"full","block":0,"warn":0,"note":1} -->
+<!-- REVIEW_META: {"date":"2026-07-17","commit":"59870b5","reviewed_up_to":"59870b59b8dca0d86612a47352922da7979bad34","base":"62a5665","tier":"full","block":3,"warn":3,"note":6} -->
