@@ -95,43 +95,47 @@ words/doc. The pre-v2.0 rows this table used to carry — 81 docs at ~25K, and
 a 2,000-doc org at the old 236-word mean reaching only ~628K — are what
 motivated M9; they are gone because the lengths they described are.)
 
-Read that third row. **A 2,000-document org, at the lengths this
-generator currently produces, fits inside a 1M-token context window.** An
-agent could ingest the entire company and answer every question without
-retrieving anything. As a test of a retrieval system it would prove
-nothing, no matter how many files it contained.
+Read the flagship row. **A 2,000-document org, at the lengths this generator
+produces today, reaches ~1.85M tokens and clears a 1M-token context window
+with margin.** That margin is the entire point. Below that line an agent
+could ingest the whole company and answer every question without retrieving
+anything, and as a test of a retrieval system the corpus would prove nothing,
+no matter how many files it contained.
 
-The threshold is not a document count. It is total tokens against the
-largest context window a caller might bring, and the honest target is to
-exceed it by enough that the margin survives the next model generation.
-Only the fourth row does that, and it needs **both** more documents and
-longer ones.
+The threshold is not a document count. It is total tokens against the largest
+context window a caller might bring, and the honest target is to exceed it by
+enough that the margin survives the next model generation.
 
-Which makes the corpus-length finding load-bearing for scale, not just for
-realism. Measured mean across all 81 authored documents at v1.5.0: **236
-words**, against briefs asking 130-350. Real engagement letters run 800-1500.
-The model was roughly hitting its targets; the targets were wrong. **M9
-raised them**: length is now a per-genre property of the genre registry
-(`docplan/registry.py`), with engagement letters targeting 1100 (800-1500)
-and every authored genre raised off the old band. At the old lengths a
-flagship would need ~8,500 documents to be a genuine retrieval problem; at
-realistic lengths it needs ~2,000. **Raising the targets is what makes the
-flagship affordable**, which is why M9 preceded M12.
+**That margin is what M9 bought, and it is why M9 preceded M12.** Measured
+mean across all 81 authored documents at v1.5.0: **236 words**, against briefs
+asking 130-350. Real engagement letters run 800-1500. The model was roughly
+hitting its targets; the targets were wrong. At those lengths a 2,000-document
+org reached only ~628K tokens (the row this table used to carry): it fits
+inside a 1M window and settles nothing, and a flagship would have needed
+~8,500 documents to become a genuine retrieval problem. **M9 raised them**:
+length is now a per-genre property of the genre registry
+(`docplan/registry.py`), with engagement letters targeting 1100 (800-1500) and
+every authored genre raised off the old band. **Raising the targets is what
+makes the flagship affordable** — ~2,000 documents rather than ~8,500.
 
-**M11b closed this.** The whole fleet is regenerated under the raised
-targets and authors at **mean 694 words**, with every one of its 225
-authored documents inside 75-150% of its brief — so the mixed-fleet caveat
-this paragraph used to carry is gone, and the fourth row above is measured
-rather than projected. The fixed genre skeleton is gone too: document supply
-is driver-derived (the registry walks the firm's engagements, fiscal years,
-and hires), so "~2,000 documents" is a recipe of the right shape rather than
-a planner rewrite. `dev-mini` grew from 13 to 22 documents on the same
-recipe purely from the drivers.
+**M11b closed the projection.** The whole fleet is regenerated under the
+raised targets and authors at **mean 694 words**, with every one of its 225
+authored documents inside 75-150% of its brief — so the flagship row above is
+measured rather than projected, and the mixed-fleet caveat this section used
+to carry is gone. The fixed genre skeleton is gone too: document supply is
+driver-derived (the registry walks the firm's engagements, fiscal years, and
+hires), so "~2,000 documents" is a recipe of the right shape rather than a
+planner rewrite. `dev-mini` grew from 13 to 22 documents on the same recipe
+purely from the drivers.
 
-The flagship arithmetic now resolves: at 694 words/doc a 2,000-document org
-is **~1.85M tokens**, which clears a 1M-token context window with margin.
-That was the whole point of raising the targets, and it is why M9 preceded
-M12.
+One caveat M12 must respect. The 1.85M figure counts **authored** tokens. If a
+flagship reaches its file count partly through derived noise (duplicates,
+near-duplicates, draft/final chains), those files carry words but not
+independent ones, and an agent that collapses them cheaply gets back under the
+line. Exact byte-duplicates are the cheap case: they collapse on a hash without
+reading. Near-duplicates and version chains do not. So noise is sized for the
+denominator and for realism, and **the authored corpus is sized to clear the
+window on its own**.
 
 ## The authoring wall is the binding constraint
 
