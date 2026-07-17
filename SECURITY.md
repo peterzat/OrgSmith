@@ -1,171 +1,123 @@
 # Security
 
-## Security Review — 2026-07-17b (scope: paths)
+## Security Review — 2026-07-17c (scope: paths)
 
-**Summary:** Scan of the 29 files changed in the pre-M12 turn
-(`62a5665..HEAD`, 11 commits). Product code changed this time, unlike the
-previous scan: `orgsmith/airlock.py` (work-order serial), a new CLI verb, and
-a new `orgsmith/schemas_export.py`. Also 19 generated JSON Schema files, a
-verbatim external critique published into a public repo, and doc/backlog
-edits. No BLOCK, no WARN, no NOTE.
+**Summary:** Focused re-read of the airlock module and its unit tier
+(`orgsmith/airlock.py`, `tests/test_unit_airlock.py`), the two files that own
+the model boundary. Both were in the previous scan's file list, but that scan
+read them as part of a 29-file sweep; this one reads the module as a whole,
+against its own stated invariants. No BLOCK, no WARN, one NOTE: the module
+asserts that work orders live under `-metadata/workorders/` but does not
+enforce it on the read path, so a name out of a tampered `state.json` reaches
+a file read outside that directory. Not exploitable in any current flow; filed
+because it is the same shape as the `docir_path` NOTE the project chose to
+close in July.
 
 ### Findings
 
-No security issues identified in the reviewed scope.
+**[NOTE] orgsmith/airlock.py:79 — `state.json`-derived names reach a file read
+outside `workorders_dir`; the module's stated containment invariant is not
+enforced at the sink.**
+
+- **Attack vector:** Requires an attacker-supplied org tree (data, not code).
+  `state.json` is committed with every org (7 under `companies/`) and the repo
+  publishes publicly, so an org that arrives by fork, PR, or hand-off carries
+  its own `state.outstanding` / `author_batches[].workorder` values. Neither
+  field carries a pattern (`state.py:48`, `state.py:69`), so both survive
+  validation as free strings. `outstanding_work_order` then builds
+  `paths.workorders_dir / name` (`airlock.py:79`), and pathlib's `/` **discards
+  the base when the right operand is absolute**, so `"/etc/passwd"` resolves to
+  itself rather than under `workorders_dir`; `../` traversal reaches out the
+  same way. `emit_work_order` hands the escaped path back to its caller
+  (`airlock.py:97-100`), and `/forge` passes it to `forge-author`, whose first
+  instruction is to read the work-order file it was given
+  (`.claude/skills/forge-author/SKILL.md:16`). The read lands in model context.
+  `match_outstanding` reaches the same sink and would surface file content
+  through an uncaught `ValidationError`.
+- **Evidence:** Confirmed by execution, not by reading. A `state.json` with
+  `outstanding: {"foundation": "<abs path outside the org>"}` loads clean and
+  `outstanding_work_order` returns that exact path, `startswith(workorders_dir)`
+  False, contents readable by the caller. Secondary, same precondition: the
+  un-repr'd interpolations at `airlock.py:84` (`{path}`), `:99` (`{existing}`)
+  and `:197` (`{ref.workorder}`) would pass control characters from a tampered
+  `state.json` straight to the terminal. Every *deliverable*-controlled
+  interpolation in the module is already `!r`-quoted, which fully escapes
+  ESC and newline (verified). The gap is state-derived strings only.
+- **Why NOTE and not WARN:** an attacker who can write `state.json` in your
+  tree can usually write `orgsmith/*.py` too, and win more directly. The gap
+  only matters at a data-vs-code boundary that exists on paper (orgs are
+  publishable artifacts) but that no real flow crosses today: operators
+  generate their own orgs, downstream consumers use the fixtures for RAG rather
+  than regeneration, and CI never reaches the airlock (only the model
+  touchpoints call it: `foundation/contexts.py`, `foundation/ingest.py`,
+  `authoring/ingest.py`). This is the *same* non-local safety the 2026-07-16
+  `docir_path` NOTE described: not exploitable, but holding only by the good
+  behavior of whoever wrote the state file.
+- **Remediation:** Guard the sink the way `docir_path` now guards itself
+  (`authoring/ingest.py:34-45`): resolve the candidate and require it under
+  `workorders_dir`, or run the name through `check_filename` (which forbids
+  `/`, `\`, and control characters) before joining. A pattern on
+  `OrgState.outstanding` values and `BatchRef.workorder` would close it at the
+  schema as well, matching the two-layer fix `DocIR.doc_id` received and the
+  test at `test_unit_airlock.py:198`.
 
 ### Reviewed Surface
 
-- **Swept per-commit, not against the net diff**, for the same reason as last
-  time: `git diff 62a5665..HEAD` would hide a credential added and edited out
-  within the range. `git log -p` over all added lines returns zero hits for
-  private-key blocks, JWTs, AWS/GitHub/Slack/Google/Anthropic key shapes,
-  bearer tokens, quoted `api_key|password|secret|token=` assignments, and
-  postgres/mysql/mongodb/amqp connection strings.
-
-- **The airlock still cannot reach a model or the network**, and the new code
-  does not change that. `orgsmith/schemas_export.py` contains one `https://`
-  string — `JSON_SCHEMA_DIALECT`, the JSON Schema 2020-12 dialect identifier
-  that the spec requires be emitted in `$schema`. It is an identifier written
-  into a file, not a URL that is fetched: no client, no `requests`/`urllib`/
-  `socket` import anywhere in the module. Called out because a bare `https://`
-  in this package is exactly the shape that should attract a second look.
-
-- **`emit-schemas` writes files, so its path handling was read directly.**
-  Output filenames are not attacker-influenced: `schema_filename()` derives
-  them from `schema_id`, which is a `Literal` default on our own pydantic
-  models (`schemas.py:25-45`), not from input. The `--out` directory is
-  operator-chosen on the operator's own box and crosses no privilege boundary;
-  `python -m orgsmith emit-schemas --out /etc` overwriting something is the
-  operator instructing their own shell, which is not a vulnerability in this
-  tool. No traversal reachable from either half.
-
-- **Outbound disclosure, which is the real surface here.**
-  `docs/EXTERNAL-CRITIQUE-2026-07-17.md` publishes a third party's verbatim
-  text into a public repo. Read for that rather than for prose: it contains no
-  credentials, no private URLs, no personal data, and no non-public
-  information about this project — its content is an outside model's reading of
-  the already-public snapshot, and every repo fact it cites is already
-  published. The 19 emitted schemas were read for the same question: they are
-  mechanical renderings of pydantic models whose source is already public, and
-  they disclose field names and shapes that `schemas.py` already discloses.
-
-- **No dependency manifest changed.** `requirements.txt` and
-  `requirements-dev.txt` are untouched in the range; `test_requirements_are_pinned`
-  still passes.
+- **The airlock still cannot reach a model or the network.** `airlock.py`
+  imports only `pathlib`, `typing`, and three local modules; neither file
+  contains `subprocess`, `eval`, `exec`, `pickle`, `yaml.load`, `os.system`, a
+  socket, or an HTTP client.
+- **Nothing secret-shaped or PII-shaped has ever been in either file.** Swept
+  `git log -p --follow --all` over both (4 commits on `airlock.py`), across all
+  added lines rather than the net diff: zero hits for private-key blocks, JWTs,
+  AWS/GitHub/Slack/Google/Anthropic key shapes, bearer tokens, quoted
+  `api_key|password|secret|token=` assignments, connection strings, email
+  addresses, IPs, and `/home/`, `/Users/` paths.
+- **The concurrency guard is real, and it is the right primitive.**
+  `_claim_work_order_path` claims by `touch(exist_ok=False)` (`O_CREAT|O_EXCL`),
+  not check-then-write, so the kernel decides the race and the loser exits
+  rather than destroying an order; `O_EXCL` also refuses to follow a planted
+  symlink. `_next_serial` takes the max, not the count, and gates on
+  `isascii() and isdigit()`, which is correct rather than paranoid:
+  `"²".isdigit()` is True while `int("²")` raises, and `"٣"` parses as 3.
+- **One candidate DoS was chased and disproved rather than filed.** `int(tail)`
+  (`airlock.py:44`) is uncaught, and Python caps integer parsing at 4300 digits
+  (CVE-2020-10735 backport, live on this 3.10.12), so a long enough serial would
+  raise `ValueError` and break the docstring's promise that strays are "ignored
+  rather than fatal". It is unreachable: the filesystem refuses any filename
+  past 255 bytes, verified by attempting the write, so a 4301-digit serial
+  cannot exist on disk. No finding.
+- **Work orders carry no ledger values, and the model is not trusted as an
+  oracle.** `test_unit_airlock.py:149-151` asserts no money/date surface form
+  appears anywhere in a serialized order, and `match_outstanding` /
+  `match_author_batch` check the deliverable's `work_order_id` against the
+  order that is actually outstanding rather than believing it.
+- **The tests write only under `tmp_path`.** `build_pure_stages`
+  (`conftest.py:17-29`) roots every path at the fixture's `tmp_path` and touches
+  the repo only to `copytree` the recipe out of it. No archive extraction, so
+  no zip-slip surface.
+- **Not re-verified, and named rather than implied:** the M9 `render/pdf.py`
+  letterhead NOTE (recipe-author-controlled interpolation under
+  `autoescape=False`) is against unchanged code outside this path scope and
+  **carries forward open**. Dimensions with no surface in these two files:
+  authentication/authorization, dependency and supply chain (no manifest in
+  scope; `airlock.py` adds no third-party import), and infrastructure (no config
+  in scope). That is a scope statement, not a clean bill. Sanity check:
+  `tests/test_unit_airlock.py` passes 13/13.
 
 ### Accepted Risks
 
 None.
 
 ---
-## Security Review — 2026-07-17 (scope: paths)
+*Prior review (2026-07-17b, scope paths, commit f897c63): swept the 29 files of
+the pre-M12 turn (`62a5665..HEAD`, 11 commits) per-commit rather than against
+the net diff; 0 BLOCK / 0 WARN / 0 NOTE. It cleared the new `emit-schemas` verb
+(output filenames derive from `Literal` schema ids, not from input), read the
+one `https://` in `schemas_export.py` as the JSON Schema dialect identifier
+rather than a fetch, and read the 19 emitted schemas plus the verbatim external
+critique as outbound disclosure into a public repo, finding only facts
+`schemas.py` already publishes. It carried forward the M9 `render/pdf.py`
+letterhead NOTE, which remains open.*
 
-**Summary:** Re-scan of the eight files changed since the M11b scan
-(de60065..HEAD, two commits): a documentation pass over README.md and three
-`docs/` files, three test modules touched by a prior review's fix loop, and
-the CODEREVIEW.md record. No product code changed and no dependency manifest
-changed. No BLOCK, no WARN, no NOTE. The docs pass was the reason for the
-re-scan: it quotes board findings, model ids, vendor pricing, and repo paths
-into a README that publishes to a public GitHub repo, so it was read as
-outbound disclosure rather than as prose.
-
-### Findings
-
-No security issues identified in the reviewed scope.
-
-### Reviewed Surface
-
-- **Nothing secret-shaped entered the range, and the sweep was run per-commit
-  rather than against the net diff.** `git diff de60065..HEAD` would hide a
-  credential added in `4c4f9b9` and removed in `f7f945c`, so `git log -p` over
-  the range was swept instead, across all eight files including CODEREVIEW.md
-  and SECURITY.md themselves: Anthropic/OpenAI/AWS/GitHub/Slack/Google key
-  shapes, JWTs, private-key blocks, bearer tokens, quoted
-  `api_key|password|secret|token=` assignments, and
-  postgres/mysql/mongodb/amqp connection strings all return zero hits. The
-  distinction is the point here, because a docs pass is exactly the kind of
-  change where a value gets pasted in for illustration and edited out a commit
-  later.
-- **The docs pass discloses nothing but public facts.** Every added line was
-  swept for URLs, emails, IPs, phone numbers, and local paths. The complete
-  set of hits is one URL, `https://github.com/peterzat/zat.env`, which is the
-  author's own public repo, is deliberate self-attribution in a public
-  README's provenance section, and **predates this diff** (added in `e516334`,
-  present at de60065:README.md:639); the line is reflowed prose, not new
-  disclosure. No email address, IP, phone number, `/home/` or `/Users/` path,
-  hostname, tailnet name, or `localhost` appears in any added line. The
-  generation box stays unnamed, which is the exposure a docs pass would most
-  plausibly create and did not.
-- **The quoted board findings, model ids, and pricing are not sensitive.**
-  `claude-opus-4-8[1m]`, the effort levels (`xhigh`, `max`), and the $3/$15 and
-  $5/$25 per-MTok rate cards are published vendor facts, not entitlements: they
-  name no account, no key, no org id, and no endpoint, and the README states
-  affirmatively that OrgSmith needs no API keys. The quoted findings
-  (README.md:209-247) describe synthetic orgs, and the personas the removed
-  text named ("Jim/James Grant", the two-Joseph collision) are fixture
-  personas, not people. No real-world person, client, or firm is named in any
-  added line.
-- **The README is published for downstream indexing and carries no injection
-  payload.** It now quotes model-authored review-board prose at length, which
-  makes it model output republished as documentation, and the repo's own
-  fixtures are explicitly intended for downstream RAG. The added lines were
-  swept for `ignore previous instructions`, `disregard`, `system prompt`, role
-  tags (`<|im_start|>`, `[INST]`), and `as an AI language model`: zero hits.
-  Worth stating why this was checked rather than waved through: the M11b scan
-  applied the same screen to the fixture corpus, and a README quoting the same
-  models' output is the same class of surface with a wider audience.
-- **The three test changes are exactly three executable lines, and all move
-  toward strictness.** Isolating non-comment changes from the diff confirms
-  the executable delta is: `test_unit_compat.py:114` adds
-  `assert culture.ocr_layer_rate == 0.0` (one more knob asserted inert on an
-  old charter); `test_unit_evals.py:286` tightens `locations <= expected` to
-  `locations == expected` with a message that now also reports the missing
-  set; and `test_unit_evals.py:400` changes "four orgs" to "five" inside a
-  docstring. Everything else in the diff is module-docstring and comment prose.
-  The `<=` to `==` tightening is the security-relevant one and it closes rather
-  than opens: a subset assertion let an org silently fail to produce a location
-  its charter enables, which is grandfather-by-absence, the exact pattern
-  CLAUDE.md forbids and the M11b diff was already closing elsewhere.
-- **No test reads or writes outside `tmp_path` or the repo, verified at the
-  changed call sites rather than inferred.** `test_unit_compat.py` performs no
-  I/O at all and imports only pydantic and `orgsmith.schemas`. The tightened
-  assertion in `test_extraction_covers_committed_fixtures`
-  (test_unit_evals.py:257-290) is read-only: it iterates `REPO / "companies"`
-  and loads charters, writing nothing. `test_org_regen.py`'s `regenerated`
-  fixture (test_org_regen.py:142-153) roots every write at
-  `tmp_path_factory.mktemp("regen")` and touches the repo only to
-  `copytree` recipes out of it. No `subprocess`, `eval`, `exec`, `pickle`,
-  `yaml.load`, `os.system`, socket, or HTTP client is imported by any of the
-  three, and no archive is extracted, so there is no zip-slip surface and the
-  airlock holds in test.
-- **Not re-verified, and named rather than implied:** the M9 `render/pdf.py`
-  letterhead NOTE (recipe-author-controlled interpolation under
-  `autoescape=False`) is against unchanged code outside this path scope and
-  **carries forward open**. It is distinct from the intra-paragraph newline
-  bug that `docs/MODEL-AB.md` records as fixed at M9; that diff line closes a
-  rendering defect, not this one. Dimensions with no surface in this scope:
-  authentication/authorization, dependency and supply chain (no manifest
-  changed), and infrastructure (no config changed) were not examined because
-  no file in scope touches them, which is a scope statement rather than a
-  clean bill. The M11b fixture-corpus conclusions and the M11a airlock
-  conclusions stand unre-examined by design: no file under `companies/` or
-  `orgsmith/` changed. Sanity check: the three changed modules pass (86
-  tests), and `git status` is clean.
-
-### Accepted Risks
-
-None recorded.
-
----
-*Prior review (2026-07-17, scope paths, commit de60065): M11b scan of ~850
-newly committed model-generated fixture files across five new synthetic orgs,
-eight test modules, and two skill files; 0 BLOCK / 0 WARN / 0 NOTE. It treated
-the fixture corpus as untrusted output because it publishes to a public repo,
-verified the NAME-01 and PROV-01 screens by execution rather than by reading,
-and established by decode-and-scan that the corpus carries no secrets, no real
-PII, no macro/DDE/JavaScript payloads in its OOXML/OLE/PDF binaries, no
-generation-box identity in document metadata, and no leftover `{{fact:}}`
-placeholders or injection-shaped text in the rendered tree. It carried forward
-the M9 `render/pdf.py` letterhead NOTE.*
-
-<!-- SECURITY_META: {"date":"2026-07-17","commit":"f897c63c0546cf7f350adab7178fa7ebb2a59fcd","scope":"paths","scanned_files":["BACKLOG.md","README.md","TESTING.md","docs/EXTERNAL-CRITIQUE-2026-07-17.md","docs/SCALE.md","orgsmith/airlock.py","orgsmith/cli.py","orgsmith/schemas_export.py","schemas/acl@1.json","schemas/authoring-deliverable@1.json","schemas/charter@1.json","schemas/corpus-metrics@1.json","schemas/docir@1.json","schemas/engagements@1.json","schemas/enrichment-deliverable@1.json","schemas/finance@1.json","schemas/foundation@1.json","schemas/graph-expected@1.json","schemas/graph@1.json","schemas/manifest-entry@1.json","schemas/mention-map@1.json","schemas/review-finding@1.json","schemas/review-findings@1.json","schemas/review-sample@1.json","schemas/scan-pages@1.json","schemas/state@1.json","schemas/work-order@1.json","tests/test_short.py","tests/test_unit_airlock.py"],"block":0,"warn":0,"note":0} -->
+<!-- SECURITY_META: {"date":"2026-07-17","commit":"f538f0dc29a6eb2ae0929158b00ce9b614f36c62","scope":"paths","scanned_files":["orgsmith/airlock.py","tests/test_unit_airlock.py"],"block":0,"warn":0,"note":1} -->

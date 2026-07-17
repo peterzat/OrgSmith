@@ -87,7 +87,10 @@ def test_committed_schemas_match_the_models():
     expected = {schema_filename(sid) for sid in models}
     assert committed == expected, (
         f"schemas/ is stale: missing {sorted(expected - committed)}, "
-        f"extra {sorted(committed - expected)}; run emit-schemas"
+        f"extra {sorted(committed - expected)}. For missing, run: "
+        f"python -m orgsmith emit-schemas. For extra, delete the files by "
+        f"hand: emit-schemas writes but never prunes, so a retired "
+        f"contract's file survives re-emitting."
     )
     for schema_id, model in models.items():
         path = out / schema_filename(schema_id)

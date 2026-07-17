@@ -2,7 +2,7 @@
 
 ## Review — 2026-07-17b (commit: 59870b5)
 
-**Summary:** The pre-M12 turn: `62a5665..HEAD`, 13 commits, 29 files. Absorbs an
+**Summary:** The pre-M12 turn: `62a5665..HEAD`, 15 commits, 29 files. Absorbs an
 external critique (`docs/EXTERNAL-CRITIQUE-2026-07-17.md`), fixes the three
 defects in it that verified, restructures the README around the exemplar, and
 logs ten BACKLOG entries scoping M12. `bin/test` **447** passing (14 short /
@@ -12,7 +12,8 @@ green fleet-wide; no committed ledger moved.
 **Reviewer separation:** the author wrote everything here, so the review was
 delegated to a fresh-context adversary instructed to recompute every number
 against the repo rather than read for plausibility. It reported 1 BLOCK, 2
-WARN, 2 NOTE; all are fixed, and it also independently confirmed a false
+WARN, 2 NOTE; all are fixed (the metadata footer records what remains,
+which is nothing), and it also independently confirmed a false
 positive the author had already caught. The author caught four more before it
 reported. **Every finding in this review, from either side, died on a command
 rather than on a careful reading** — which is the whole lesson of the range:
@@ -153,11 +154,54 @@ deliver.** *(fixed; found by the adversary)*
   full `Charter` surface to confirm the README's divergence claim holds against
   all five findings.
 
+**[WARN] tests/test_short.py:88-91 — the remediation advice loops when a schema
+is retired.** *(fixed by /codefix)*
+
+  Evidence: `test_committed_schemas_match_the_models` asserts
+  `committed == expected` and fails with "missing {...}, extra {...}; run
+  emit-schemas". But `run_emit_schemas` only writes; it never prunes
+  (`schemas_export.py:80-84`). Reproduced: plant `retired@1.json` in the output
+  directory, re-run `emit-schemas`, and the stray survives. So for the `extra`
+  half of that assertion, the instruction the test prints does not fix the
+  failure it prints it for, and the reader loops.
+  Reachable only when a schema id is removed or renamed — which has never
+  happened (all 19 ids are still `@1` after eleven milestones) but is exactly
+  what a version bump does, and M12 is the first turn likely to need one.
+  Why not fix by pruning: `--out` is an arbitrary operator-chosen directory, and
+  a command that silently deletes unrecognized files out of a path you handed it
+  is worse than a stale file.
+  Fix: the message now routes each half of the assertion to the action that
+  clears it — re-emit for `missing`, delete by hand for `extra`, with the reason
+  stated inline. Verified through the real assertion path (planted stray) rather
+  than by reading the f-string.
+  **The finding cited the wrong line and /codefix caught it.** Line 94 is the
+  *second* assertion (content drift), whose "run emit-schemas" advice is correct
+  — a stale-content failure genuinely is fixed by re-emitting. The looping
+  assertion is the set comparison at 88-91. Recorded because a reviewer citing
+  the wrong line is the same defect class as everything else in this review:
+  a plausible reference that nobody re-derived.
+
+- **[NOTE] `orgsmith/airlock.py:79` — the work-order read path does not enforce
+  the directory the module docstring promises.** *(from `/security`; not fixed —
+  NOTEs are not auto-fixed)* `state.outstanding` and `BatchRef.workorder` carry
+  no pattern (`state.py:48,69`), so they validate as free strings and reach
+  `paths.workorders_dir / name`. Pathlib discards the base when the right operand
+  is absolute, so a `state.json` naming `/etc/passwd` resolves to itself, and
+  `/forge` hands that path to a worker whose first instruction is to read it.
+  Confirmed by execution, not by reading. NOTE because anyone who can write
+  `state.json` can usually write `orgsmith/*.py` and win more directly — but the
+  boundary is real on paper (every org commits its `state.json` and orgs are
+  publishable artifacts), and `docir_path` already took exactly this guard after
+  an identical NOTE. Left for a human decision rather than fixed inside a review
+  of unrelated work.
+
 ### Fixes Applied
 
-All BLOCK and WARN findings fixed, both NOTEs actioned. Tests 440 -> 447: 5
-unit (work-order serial, the claim-by-creation race, stray tolerance), 2 short
-(schema export pin).
+All BLOCK and WARN findings fixed. Tests 440 -> 447: 5 unit (work-order serial,
+the claim-by-creation race, stray tolerance), 2 short (schema export pin). The
+final WARN was fixed by `/codefix` in a forked context rather than by the
+reviewer, per builder/verifier separation — and it repaid that separation
+immediately by catching the reviewer's own wrong line citation.
 
 ### Security
 
@@ -184,4 +228,4 @@ NOTE, all fixed. The BLOCK was a false "all 29 rules" claim left standing in
 the document the README cites as authoritative, after the same sentence had
 already been fixed in the README.*
 
-<!-- REVIEW_META: {"date":"2026-07-17","commit":"59870b5","reviewed_up_to":"59870b59b8dca0d86612a47352922da7979bad34","base":"62a5665","tier":"full","block":3,"warn":3,"note":6} -->
+<!-- REVIEW_META: {"date":"2026-07-17","commit":"59870b5","reviewed_up_to":"f538f0dc29a6eb2ae0929158b00ce9b614f36c62","base":"origin/main","tier":"full","block":0,"warn":0,"note":6} -->
