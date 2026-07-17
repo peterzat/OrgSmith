@@ -1,0 +1,290 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0002",
+  "stage": "author",
+  "slug": "northgate-staffing",
+  "org_name": "Northgate Talent Partners LLC",
+  "org_type": "executive search",
+  "narrative": "Northgate Talent Partners is a retained executive search firm founded in\n2013, placing senior operators and board directors at mid-market\ncompanies and one regional health system. Search is a correspondence\nbusiness: the firm's real work product is a long thread of candidate\nconversations, and the formal documents are the scaffolding around it.\n\nThat shape is the point of this recipe. More of the share is email than\nanywhere else in the fleet: engagement confirmations, candidate slate\nupdates, scheduling, and the careful note that goes out when a finalist\nwithdraws. The formal artifacts are there too, and they matter: a\nretained search agreement with its fee schedule, a position specification\nper search, a candidate slate summary, and the quarterly numbers.\n\nTone is warm but professional, and more conversational than the rest of\nthis fleet, because a search consultant is managing two anxious parties\nat once. Consultants use first names with clients they have known for\nyears and full names when writing about a candidate. Discretion is\nconstant: candidates are described by their current role rather than\nnamed in anything that circulates widely. Two people on the roster share\na surname, and one goes by a nickname in internal notes.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0006",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2015-09-26",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        },
+        {
+          "id": "p:james.weiss",
+          "name": "James Weiss",
+          "title": "Office Manager",
+          "dept": "Operations",
+          "persona": "James keeps the firm's operations running and treats scheduling as the load-bearing work it actually is in a correspondence business. He always signs with his full name and expects others to do the same, because a second Weiss on the roster makes a first-name reply genuinely ambiguous. His notes are brisk, faintly dry, and never longer than they need to be, and he is the person who notices that an engagement has gone quiet without a client update."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2015-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.weiss",
+          "surface": "James Weiss",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2015. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2015-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    },
+    {
+      "doc_id": "d:0016",
+      "title": "Onboarding: Jason Bell",
+      "genre": "onboarding_record",
+      "date": "2016-07-24",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jason.bell",
+          "name": "Jason Bell",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Jason works the phone harder than the keyboard and measures his week in conversations rather than lists. He is competitive about sourcing, mildly proud of finding the candidate nobody else surfaced, and his written summaries are terse because the interesting part already happened out loud. Consultants who want detail from him have to ask a second time."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jason.bell",
+          "surface": "Jason Bell",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0024",
+      "title": "Onboarding: David Weiss",
+      "genre": "onboarding_record",
+      "date": "2017-08-01",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.weiss",
+          "name": "David Weiss",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "David is fast on the research bench and eager to be useful, the associate who returns a market map sooner than anyone expected and then wants to talk through it. He writes conversationally, sometimes more casually than the consultants would in front of a client, and he is still learning where the firm's discretion line sits. He is careful to distinguish himself from the other Weiss in writing, usually by leading with his first name and letting the context do the rest."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:david.weiss",
+          "surface": "David Weiss",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0025",
+      "title": "Onboarding: Nicole Donovan",
+      "genre": "onboarding_record",
+      "date": "2017-12-31",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nicole.donovan",
+          "surface": "Nicole Donovan",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0032",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2018-09-25",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2015-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2017-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date the firm has begun 4 client engagement(s) across 2015-2018. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2015-001.client}}, {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, {{fact:f:E-2018-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+    },
+    {
+      "doc_id": "d:0040",
+      "title": "Onboarding: Larry Russell",
+      "genre": "onboarding_record",
+      "date": "2019-11-19",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:larry.russell",
+          "name": "Larry Russell",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Larry is blunt in a way that reads as refreshing internally and gets softened before it reaches a client. His research notes are short bullets and a verdict, and he would rather flag a weak slate early than pad it out. He respects the discretion rules but treats the surrounding ceremony as overhead."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:larry.russell",
+          "surface": "Larry Russell",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

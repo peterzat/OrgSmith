@@ -1,0 +1,438 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0007",
+  "stage": "author",
+  "slug": "northgate-staffing",
+  "org_name": "Northgate Talent Partners LLC",
+  "org_type": "executive search",
+  "narrative": "Northgate Talent Partners is a retained executive search firm founded in\n2013, placing senior operators and board directors at mid-market\ncompanies and one regional health system. Search is a correspondence\nbusiness: the firm's real work product is a long thread of candidate\nconversations, and the formal documents are the scaffolding around it.\n\nThat shape is the point of this recipe. More of the share is email than\nanywhere else in the fleet: engagement confirmations, candidate slate\nupdates, scheduling, and the careful note that goes out when a finalist\nwithdraws. The formal artifacts are there too, and they matter: a\nretained search agreement with its fee schedule, a position specification\nper search, a candidate slate summary, and the quarterly numbers.\n\nTone is warm but professional, and more conversational than the rest of\nthis fleet, because a search consultant is managing two anxious parties\nat once. Consultants use first names with clients they have known for\nyears and full names when writing about a candidate. Discretion is\nconstant: candidates are described by their current role rather than\nnamed in anything that circulates widely. Two people on the roster share\na surname, and one goes by a nickname in internal notes.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0007\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0035",
+      "title": "Engagement Letter: General Counsel Search for Howard, Carlson and Tran",
+      "genre": "engagement_letter",
+      "date": "2019-04-29",
+      "authors": [
+        {
+          "id": "p:kelly.chavez",
+          "name": "Kelly Chavez",
+          "title": "Managing Director",
+          "dept": "Leadership",
+          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        },
+        {
+          "id": "p:james.grant",
+          "name": "James Grant",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+        },
+        {
+          "id": "p:sandra.fuentes",
+          "name": "Sandra Fuentes",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+        },
+        {
+          "id": "xp:amy.alvarez",
+          "name": "Amy Alvarez",
+          "title": "General Manager",
+          "dept": "Howard, Carlson and Tran",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "General Counsel Search for Howard, Carlson and Tran, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.chavez",
+          "surface": "Kelly Chavez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nicole.donovan",
+          "surface": "Nicole Donovan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.grant",
+          "surface": "James Grant",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.fuentes",
+          "surface": "Sandra Fuentes",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:amy.alvarez",
+          "surface": "Amy Alvarez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-carlson-and-tran",
+          "surface": "Howard, Carlson and Tran",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0036",
+      "title": "Kickoff Memo: General Counsel Search for Howard, Carlson and Tran",
+      "genre": "kickoff_memo",
+      "date": "2019-05-12",
+      "authors": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        },
+        {
+          "id": "p:james.grant",
+          "name": "James Grant",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+        },
+        {
+          "id": "p:sandra.fuentes",
+          "name": "Sandra Fuentes",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+        },
+        {
+          "id": "xp:amy.alvarez",
+          "name": "Amy Alvarez",
+          "title": "General Manager",
+          "dept": "Howard, Carlson and Tran",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "General Counsel Search for Howard, Carlson and Tran, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:nicole.donovan",
+          "surface": "Nicole Donovan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.grant",
+          "surface": "James Grant",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.fuentes",
+          "surface": "Sandra Fuentes",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:amy.alvarez",
+          "surface": "Amy Alvarez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-carlson-and-tran",
+          "surface": "Howard, Carlson and Tran",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 3% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0037",
+      "title": "RE: General Counsel Search for Howard, Carlson and Tran",
+      "genre": "engagement_email",
+      "date": "2019-06-06",
+      "authors": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        },
+        {
+          "id": "p:james.grant",
+          "name": "James Grant",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+        },
+        {
+          "id": "p:sandra.fuentes",
+          "name": "Sandra Fuentes",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+        },
+        {
+          "id": "xp:amy.alvarez",
+          "name": "Amy Alvarez",
+          "title": "General Manager",
+          "dept": "Howard, Carlson and Tran",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "General Counsel Search for Howard, Carlson and Tran, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:nicole.donovan",
+          "surface": "Nicole Donovan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.grant",
+          "surface": "James Grant",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.fuentes",
+          "surface": "Sandra Fuentes",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:amy.alvarez",
+          "surface": "Amy Alvarez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-carlson-and-tran",
+          "surface": "Howard, Carlson and Tran",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock.",
+      "engagement_position": "This document is dated about 24% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0038",
+      "title": "Meeting Minutes: General Counsel Search for Howard, Carlson and Tran",
+      "genre": "meeting_minutes",
+      "date": "2019-06-24",
+      "authors": [
+        {
+          "id": "p:sandra.fuentes",
+          "name": "Sandra Fuentes",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        },
+        {
+          "id": "p:james.grant",
+          "name": "James Grant",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+        },
+        {
+          "id": "p:sandra.fuentes",
+          "name": "Sandra Fuentes",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+        },
+        {
+          "id": "xp:amy.alvarez",
+          "name": "Amy Alvarez",
+          "title": "General Manager",
+          "dept": "Howard, Carlson and Tran",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "General Counsel Search for Howard, Carlson and Tran, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:sandra.fuentes",
+          "surface": "Sandra Fuentes",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nicole.donovan",
+          "surface": "Nicole Donovan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.grant",
+          "surface": "James Grant",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:amy.alvarez",
+          "surface": "Amy Alvarez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-carlson-and-tran",
+          "surface": "Howard, Carlson and Tran",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    },
+    {
+      "doc_id": "d:0039",
+      "title": "Status Report: General Counsel Search for Howard, Carlson and Tran",
+      "genre": "status_report",
+      "date": "2019-07-06",
+      "authors": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+        },
+        {
+          "id": "p:james.grant",
+          "name": "James Grant",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+        },
+        {
+          "id": "p:sandra.fuentes",
+          "name": "Sandra Fuentes",
+          "title": "Principal",
+          "dept": "Search",
+          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+        }
+      ],
+      "engagement_summary": "General Counsel Search for Howard, Carlson and Tran, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:nicole.donovan",
+          "surface": "Nicole Donovan",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.grant",
+          "surface": "James Grant",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.fuentes",
+          "surface": "Sandra Fuentes",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-carlson-and-tran",
+          "surface": "Howard, Carlson and Tran",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

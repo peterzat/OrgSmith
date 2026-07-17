@@ -1,0 +1,83 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0004",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0017",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "VP Engineering Search: Working Session Minutes"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Working session by conference call to review the state of the VP Engineering search for {{fact:f:E-2016-001.client}} and to fix the sequence for the final round. Minutes recorded by John Chang and circulated to the attendees only."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Present"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jeffrey Patterson, Research Consultant, Northgate Talent Partners",
+            "James Grant, Senior Consultant, Northgate Talent Partners",
+            "John Chang, Research Associate, Northgate Talent Partners",
+            "Michael Martin, Chief Operating Officer, Coleman Ltd"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Discussion"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jeffrey Patterson opened with the position of the search. The market map is worked through and the slate is closed; nothing raised in this session should be read as reopening sourcing. Two finalists remain in play, both interviewed twice on the client side, and the remaining work is closing work. He restated the specification against what the panel has actually responded to, and noted that the panel has consistently rewarded platform rebuild experience over headcount scale, which is the reverse of the emphasis the specification carried at the outset. He asked that the panel guide for the final round be rewritten to reflect that rather than leaving interviewers to reconcile it themselves."
+        },
+        {
+          "kind": "paragraph",
+          "text": "John Chang walked the reference position. Both finalists have supplied referees; on the first finalist, the referees are current-employer adjacent and cannot be approached until an offer is live, which constrains the order of operations. On the second, references can be taken now. Chang recommended taking the available references before the panel meets rather than after, so the panel is not asked to hold a decision open on information that could have been in hand. Patterson agreed and asked that the write-ups follow the standard structure so the panel can read them cold."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michael Martin raised the internal candidate question. Coleman Ltd has a director-level engineering leader who has made it known he expects to be considered, and Martin's concern is retention rather than candidacy: he does not believe the internal is ready, but a loss there would be expensive. James Grant took the view that the internal should be told before the final round, not after, and by Martin rather than by the firm, and that the message should be about a defined path rather than a verdict. Martin accepted that and asked Grant for the shape of the conversation in writing."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On the close itself, Grant gave his read that the first finalist is the stronger operator and the harder close. That candidate's current employer is mid-way through a reorganization the candidate is leading, and the pull to stay through it is real. Jim's judgement is that the firm is competing with unfinished business rather than with another offer, which is a different conversation and one that has to be had before compensation, not through it. He will keep contact weekly and flag the moment it turns. Martin asked what would happen if the first finalist withdrew late; Patterson said plainly that the second finalist is appointable, that the panel would not be asked to settle, and that the firm would say so at the time rather than manage the client toward it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Discretion was restated for the record. Neither finalist is named in these minutes or in any document that circulates beyond the panel, and both are to be referred to by current role. Martin will keep distribution of the panel guide to the interviewers themselves."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Action items"
+        },
+        {
+          "kind": "table",
+          "header": ["Item", "Owner", "By"],
+          "rows": [
+            ["Rewrite the panel guide against the emphasis the panel has actually applied", "Jeffrey Patterson", "Ahead of the final round"],
+            ["Take and write up available references on the second finalist", "John Chang", "This week"],
+            ["Reference plan for the first finalist, contingent on a live offer", "John Chang", "Held to offer stage"],
+            ["Draft the shape of the internal conversation for the client", "James Grant", "Within two working days"],
+            ["Hold the internal conversation", "Michael Martin", "Before the final round"],
+            ["Weekly contact with both finalists through to close", "James Grant", "Ongoing"],
+            ["Confirm panel date and interviewer availability", "Michael Martin", "This week"]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Next working session to be held once the panel date is confirmed. Corrections to these minutes to John Chang."
+        }
+      ]
+    }
+  ]
+}

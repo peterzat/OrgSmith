@@ -1,0 +1,432 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "northgate-staffing",
+  "entities": [
+    "x:northgate-staffing",
+    "p:kelly.chavez",
+    "p:sandra.fuentes",
+    "p:james.grant",
+    "p:jeffrey.patterson",
+    "p:john.chang",
+    "p:james.weiss",
+    "p:david.weiss",
+    "p:jason.bell",
+    "p:nicole.donovan",
+    "p:larry.russell",
+    "p:mary.parker",
+    "p:heather.meyer",
+    "x:roach-moss-and-hall",
+    "x:coleman-ltd",
+    "x:sanchez-baker",
+    "x:davis-and-sons",
+    "x:howard-carlson-and-tran",
+    "x:hicks-castillo",
+    "xp:jason.myers",
+    "xp:michael.martin",
+    "xp:jennifer.frazier",
+    "xp:jason.vasquez",
+    "xp:amy.alvarez",
+    "xp:david.mcgee"
+  ],
+  "edges": [
+    {
+      "src": "p:kelly.chavez",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-02-15",
+      "end": null
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "p:kelly.chavez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-03-15",
+      "end": null
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2014-04-22",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-11-13",
+      "end": null
+    },
+    {
+      "src": "p:john.chang",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.chang",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2014-10-13",
+      "end": null
+    },
+    {
+      "src": "p:james.weiss",
+      "dst": "p:kelly.chavez",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:james.weiss",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2013-04-15",
+      "end": null
+    },
+    {
+      "src": "p:david.weiss",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.weiss",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2017-07-25",
+      "end": null
+    },
+    {
+      "src": "p:jason.bell",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jason.bell",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2016-07-17",
+      "end": null
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2017-12-24",
+      "end": null
+    },
+    {
+      "src": "p:larry.russell",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:larry.russell",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2019-11-12",
+      "end": null
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2020-11-20",
+      "end": null
+    },
+    {
+      "src": "p:heather.meyer",
+      "dst": "p:sandra.fuentes",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:heather.meyer",
+      "dst": "x:northgate-staffing",
+      "kind": "works_at",
+      "start": "2022-08-26",
+      "end": null
+    },
+    {
+      "src": "xp:jason.myers",
+      "dst": "x:roach-moss-and-hall",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:michael.martin",
+      "dst": "x:coleman-ltd",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:jennifer.frazier",
+      "dst": "x:sanchez-baker",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:jason.vasquez",
+      "dst": "x:davis-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:amy.alvarez",
+      "dst": "x:howard-carlson-and-tran",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:david.mcgee",
+      "dst": "x:hicks-castillo",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:roach-moss-and-hall",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2015-08-27",
+      "end": null
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "xp:jason.myers",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "x:coleman-ltd",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2016-03-06",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "p:john.chang",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "xp:michael.martin",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "x:sanchez-baker",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2017-05-13",
+      "end": null
+    },
+    {
+      "src": "p:jason.bell",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "xp:jennifer.frazier",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "x:davis-and-sons",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2018-07-05",
+      "end": null
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-05",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-05",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "xp:jason.vasquez",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-05",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "x:howard-carlson-and-tran",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2019-05-09",
+      "end": null
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "xp:amy.alvarez",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "x:hicks-castillo",
+      "dst": "x:northgate-staffing",
+      "kind": "client_of",
+      "start": "2023-03-25",
+      "end": null
+    },
+    {
+      "src": "p:david.weiss",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-03-25",
+      "end": "2023-12-03"
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-03-25",
+      "end": "2023-12-03"
+    },
+    {
+      "src": "xp:david.mcgee",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-03-25",
+      "end": "2023-12-03"
+    }
+  ]
+}

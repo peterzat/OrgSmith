@@ -1,0 +1,81 @@
+{
+  "schema_id": "orgsmith/charter@1",
+  "slug": "northgate-staffing",
+  "name": "Northgate Talent Partners LLC",
+  "seed": 20150210,
+  "org_type": "executive search",
+  "founded": 2013,
+  "domain": "northgatetalent.com",
+  "headcount": {
+    "Leadership": 1,
+    "Search": 4,
+    "Operations": 1
+  },
+  "titles": {
+    "Leadership": [
+      "Managing Director"
+    ],
+    "Search": [
+      "Principal",
+      "Senior Consultant",
+      "Research Consultant",
+      "Research Associate"
+    ],
+    "Operations": [
+      "Office Manager"
+    ]
+  },
+  "doc_culture": {
+    "target_docs": 53,
+    "date_range": [
+      "2015-01-01",
+      "2023-12-31"
+    ],
+    "format_mix": {
+      "docx": 24,
+      "pdf": 10,
+      "xlsx": 8,
+      "pptx": 2,
+      "eml": 5
+    },
+    "scanned_ratio": 0.0,
+    "legacy_ratio": 0.0,
+    "ocr_layer_rate": 0.0
+  },
+  "finance": {
+    "base_revenue": 1250000,
+    "growth_rate": 0.1,
+    "expense_ratio": 0.77
+  },
+  "engagements": {
+    "count": 6,
+    "services": [
+      "CFO Search",
+      "VP Engineering Search",
+      "Board Director Search",
+      "Head of Operations Search",
+      "General Counsel Search",
+      "Compensation Benchmarking"
+    ]
+  },
+  "graph_targets": {
+    "external_orgs": 6,
+    "external_people": 6,
+    "min_mentions_per_person": 2,
+    "surname_collisions": 1,
+    "nickname_aliases": 1,
+    "multi_affiliations": 0,
+    "affiliations_in_docs": false
+  },
+  "hard_cases": {
+    "signature_page_facts": 0,
+    "filename_dates": 0
+  },
+  "roster_churn": {
+    "departures": 1,
+    "promotions": 2,
+    "hires": 5
+  },
+  "acl_posture": "open",
+  "narrative": "Northgate Talent Partners is a retained executive search firm founded in\n2013, placing senior operators and board directors at mid-market\ncompanies and one regional health system. Search is a correspondence\nbusiness: the firm's real work product is a long thread of candidate\nconversations, and the formal documents are the scaffolding around it.\n\nThat shape is the point of this recipe. More of the share is email than\nanywhere else in the fleet: engagement confirmations, candidate slate\nupdates, scheduling, and the careful note that goes out when a finalist\nwithdraws. The formal artifacts are there too, and they matter: a\nretained search agreement with its fee schedule, a position specification\nper search, a candidate slate summary, and the quarterly numbers.\n\nTone is warm but professional, and more conversational than the rest of\nthis fleet, because a search consultant is managing two anxious parties\nat once. Consultants use first names with clients they have known for\nyears and full names when writing about a candidate. Discretion is\nconstant: candidates are described by their current role rather than\nnamed in anything that circulates widely. Two people on the roster share\na surname, and one goes by a nickname in internal notes."
+}
