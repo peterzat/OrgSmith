@@ -166,5 +166,61 @@ growth, employment-scoped ACL, the guarded charter write, the M10 security fix,
 and `meridian-actuarial` generated live as the fleet's byte-pinned tracer; all 8
 criteria met, reviewed 0 BLOCK / 0 WARN / 1 NOTE.*
 
+### Proposal (2026-07-17)
+
+**What happened.** M11b closed 8/8. An unspecced pre-M12 turn (`62a5665..71ffaf6`,
+14 commits) then absorbed an outside frontier-model critique of the public repo,
+kept verbatim with verdicts in `docs/EXTERNAL-CRITIQUE-2026-07-17.md`.
+
+About 70% of it was this repo's own published self-criticism read back, cited as
+ours. Three findings were new and verified: **generator fingerprinting** (logged;
+the reframe is the value -- the voice collapse we file under realism is also a
+benchmark-validity threat), **no JSON Schema export** (fixed: `emit-schemas`, 19
+contracts pinned), and the **`len(glob)+1` work-order serial** (fixed: max+1, plus
+an `O_EXCL` claim closing a TOCTOU the review found). Two were wrong: deps are
+pinned, and the airlock already *is* the provider-neutral seam it asked us to build.
+
+Docs were the weakest surface. `SCALE.md` contradicted itself about M12's own
+sizing, and the README advertised a 45-day email spacing M9 removed -- the critique
+believed that line and reported a fixed defect as live. Six more false claims
+surfaced this turn, several of them our own corrections to the earlier ones. Every
+one died on a command, not a re-reading.
+
+**Decisions taken (in BACKLOG).** M12 is a **capability showpiece**, not a
+benchmark, so the critique's validity program is logged, not scheduled
+(`external-validity-program`). The fleet and `dev-mini` are **not regenerated**
+(`fleet-regenerates-under-the-new-knobs`): capabilities land as knobs defaulting
+off, `seeds.py` hashes stream names, the byte pin holds, the flagship turns them
+on. A deterministic **noise model is in scope**. 447 tests; byte pin green.
+
+**Questions for M12.**
+
+- **Sizing: one caveat is open.** ~2,000 authored docs -> ~1.85M tokens clears a 1M
+  window (~334 batches, ~1.3 days). But that counts *authored* tokens, and derived
+  noise carries words an agent collapses on a hash. Does the flagship commit to an
+  authored floor that clears the window alone, with noise strictly on top?
+- **Voice is the largest risk and has no fix.** It tracks authoring batch
+  boundaries; M12 is ~334 batches against the fleet's 38, and `review/metrics.py` is
+  blind to it. The spec must take a position, even "accepted, measured, published."
+- **Which knobs does the flagship turn on?** Business-day calendar and
+  engagement/revenue coherence, both default-off. Revenue is a design choice (derive
+  `base_revenue` from the engagement book, or brief `firm_digest` that its ledger is
+  a sample) and may partly self-resolve at scale -- measure before designing.
+- **Nested splits, or one corpus?** Core / +distractors / +noise / full against one
+  eval suite gives a degradation curve rather than a headline; `emit-evals` derives
+  suites from ledgers for free.
+- **What is accepted rather than fixed?** `concurrent-workers-share-one-scratchpad`
+  is prompt-level at ~9x its original exposure. The flagship needs its own test
+  marker (`TESTING.md`, ~27s).
+
+**Revisit candidates.**
+- `cross-document-voice` -- its revisit criterion is literally "M12 is specced."
+- `engagement-ledger-reads-as-whole-book` -- its criterion names "a future org whose
+  overview is meant to carry the firm's scale honestly." That is the flagship.
+- `docplan-has-no-business-day-calendar` -- criterion already fired; cheap as a knob
+  inside an org being generated anyway.
+- 4 more in BACKLOG.md: `reporting-line-drift`,
+  `email-threads-unproven-in-fixtures`, `concurrent-workers-share-one-scratchpad`,
+  `board-negative-control`.
+
 <!-- SPEC_META: {"date":"2026-07-17","title":"M11b: the fleet turn, the retirement, and the re-freeze","criteria_total":8,"criteria_met":8} -->
-</content>
