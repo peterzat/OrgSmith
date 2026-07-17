@@ -222,13 +222,28 @@ that validates clean: 24 rules run, 5 skipped for knobs it leaves off, 0
 errors.
 
 **Read these as findings about one org, because that is what they are.** Every
-one below is a limit of the generator today, not a knob `northgate-staffing`
-declined to turn on: nothing in `recipes/` would fix any of them. When that
-stops being true — when a limit here becomes a recipe choice — this section has
-to say which, or it turns into a false claim about what OrgSmith can do. (The
-word "flagship" is reserved for the M12 org and is not this one; see
-[docs/SCALE.md](docs/SCALE.md), which keeps fixtures, fleet, and flagship as
-three separate jobs.)
+one below is a limit of the generator today rather than a knob
+`northgate-staffing` declined to turn on — there is no recipe setting that
+fixes any of them. Two are worth being precise about, because the recipe does
+have knobs in the neighbourhood. The fee/revenue gap is not a bad value of
+`base_revenue` or `engagements.count`; it is that the two are *independent*,
+and the settings that would close the gap describe a twelve-person firm
+turning over less than one salary a year. (Our recipe coherence test would
+*not* catch that — it checks a 40% net-margin ceiling and has no floor, so an
+absurdly poor firm passes it. Checked while writing this sentence, which had
+claimed the opposite.) The empty engagement book is the same shape:
+`roster_churn.hires` and `engagements.count` exist, but nothing places
+engagements against hire dates, so a recipe can make the gap likelier or
+rarer and cannot close it. What is missing in both cases is a coupling, not a
+number.
+
+When that stops being true — when a limit here becomes a recipe choice — this
+section has to say which, or it turns into a false claim about what OrgSmith
+can do. M12 is the turn that makes it stop being true, and
+`BACKLOG.md`'s `fleet-regenerates-under-the-new-knobs` is where that debt is
+written down. (The word "flagship" is reserved for the M12 org and is not this
+one; see [docs/SCALE.md](docs/SCALE.md), which keeps fixtures, fleet, and
+flagship as three separate jobs.)
 
 - **The firm's own paperwork says it has five clients. Its books say
   otherwise.** "The firm has been retained for five engagements to date...
