@@ -91,6 +91,22 @@ Repeat until `author: done`:
    in one turn) so they author in parallel, each in a fresh context. Tell
    each worker to AUTHOR ONLY: write its reply file, stamp the generator,
    and report the reply path; it must NOT ingest.
+
+   **Tell every worker to namespace its scratch files.** Concurrent workers
+   share one session scratchpad, so a fixed-name scratch file (`check.py`,
+   `corpus.txt`) gets clobbered by a sibling mid-run. Observed live in the
+   M11b fleet run: two workers overwrote each other's validation scripts,
+   and one then reported the *other* batch's failures as its own. No bad
+   deliverable resulted (the airlock accepted every batch), but a worker
+   that distrusts its own checks wastes a turn re-running them. Add to each
+   dispatch prompt:
+
+   > Other workers run concurrently and share your scratchpad. Give any
+   > scratch file a name unique to this work order (suffix it
+   > `author-000N`), and never trust a scratch file you did not just write.
+
+   Their deliverables never collide — `reply-<work-order-id>.json` is
+   already per-order — so this is only about scratch.
 3. **Ingest serially (c).** For each reply path a worker reports, run
    `PY -m orgsmith author <slug> --ingest <reply>` yourself, one at a time.
    If an ingest is rejected, hand the rejection output to a fresh worker to
