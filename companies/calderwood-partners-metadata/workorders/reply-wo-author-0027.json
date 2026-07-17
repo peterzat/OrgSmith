@@ -1,0 +1,186 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0027",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0120",
+      "blocks": [
+        {"kind": "paragraph", "text": "Sandra Frazier"},
+        {"kind": "paragraph", "text": "VP Finance"},
+        {"kind": "paragraph", "text": "Brown and Sons"},
+        {"kind": "paragraph", "text": "Re: Engagement to rationalize your operating footprint"},
+        {"kind": "paragraph", "text": "Dear Ms. Frazier:"},
+        {"kind": "paragraph", "text": "This letter confirms that we will work with Brown and Sons on the shape of its operating footprint, and it records the terms of that work: what we will do, who will do it, what it costs, and the obligations each side takes on. I have kept the language plain. If a term here does not match what we discussed, telephone me before you sign and we will correct it."},
+        {"kind": "heading", "level": 2, "text": "What We Will Do"},
+        {"kind": "paragraph", "text": "The question is a practical one. You operate a set of plants, distribution points, and offices that grew up with the business, and you want to know whether that set is still the right one: the right number of sites, in the right places, at the right size for the volume you run today. Our work builds toward a recommended footprint and a route to it, and it proceeds along four lines."},
+        {"kind": "list", "items": [
+          "A baseline of the footprint as it stands: every site, what it costs to operate, the capacity it holds, and how much of that capacity is actually used.",
+          "A map of how product and service flow across those sites, so that the cost to serve each customer is measured from your own data rather than assumed.",
+          "A set of modeled alternatives: which sites anchor the network, where two locations do the work of one, and what a consolidated or relocated footprint would cost and return.",
+          "A recommended target footprint and a sequence for reaching it, ordered so that the surest and least disruptive moves come first."
+        ]},
+        {"kind": "paragraph", "text": "I should also mark the boundaries of the work, so that nothing you expect is left unspoken. We are not your real estate broker and will not negotiate leases or sales. We do not give legal or tax advice; where a question turns on either, we flag it and point you to your counsel. We plan the closures, relocations, and staffing changes a new footprint implies, but we do not carry them out; execution stays with your managers. And we do not select or install systems; where the analysis reaches a software question, we frame it and leave the decision to you."},
+        {"kind": "heading", "level": 2, "text": "How We Will Work"},
+        {"kind": "paragraph", "text": "We work from your own operating and financial records, not from industry averages, and every figure in a deliverable ties back to a workpaper we can produce on request. We keep findings separate from recommendations, and label each, because the two do not carry the same weight. And we bring you interim results as they firm up, so that nothing in the final material reaches you as a surprise."},
+        {"kind": "heading", "level": 2, "text": "The Team"},
+        {"kind": "paragraph", "text": "Brenda Clayton, Consultant, leads the operating-model and footprint analysis on which the recommendations rest, and she is your contact on anything of substance in the work. Deborah Gordon, Senior Associate, turns that analysis into the findings and the written material you receive. Cynthia Hart, Research Associate, assembles the underlying site and cost data and keeps the record of what we were given and by whom. I read everything before it leaves this office. On your side, we will treat you, Sandra Frazier, as our point of contact for scheduling, data, and any decision the work requires, unless you name someone else."},
+        {"kind": "heading", "level": 2, "text": "Fee and Start"},
+        {"kind": "paragraph", "text": "Our fee to {{fact:f:E-2017-001.client}} is {{fact:f:E-2017-001.fee}}, fixed for the scope set out above. We expect to begin on {{fact:f:E-2017-001.start}} and to reach final recommendations about seven months from that date. If you ask us to widen the scope, we price the addition in writing and do not begin it until you have agreed that price. We prefer a fixed fee here so that your people can work with us without watching a clock."},
+        {"kind": "heading", "level": 2, "text": "Fees and Payment"},
+        {"kind": "paragraph", "text": "We invoice the fixed fee in equal monthly installments over the term, each payable within thirty days of the invoice date. Out-of-pocket costs, chiefly travel to your sites, are billed at cost and itemized on the invoice. We do not mark them up."},
+        {"kind": "heading", "level": 2, "text": "Term and Termination"},
+        {"kind": "paragraph", "text": "The engagement runs from the start date above until we deliver the final recommendations, unless one of us ends it sooner. Either party may terminate on fifteen days' written notice, for any reason or none. On termination you owe the fee for the work performed to the effective date, prorated against the fixed fee, together with expenses already incurred, and we hand over our work in whatever state it has then reached."},
+        {"kind": "heading", "level": 2, "text": "Confidentiality"},
+        {"kind": "paragraph", "text": "The operating and cost data behind a footprint decision is among the most sensitive information a company holds, and we treat it accordingly. We will use what you give us only for this engagement, and disclose it outside our firm only as you direct in writing or as the law requires. We ask the same of you regarding our methods, our workpapers, and the fee recorded in this letter."},
+        {"kind": "heading", "level": 2, "text": "Limitation of Liability"},
+        {"kind": "paragraph", "text": "Our total liability arising out of this engagement, whether framed in contract, in tort, or on any other basis, is limited to the fees actually paid to us under it. Neither party will be liable to the other for indirect or consequential loss, including lost profits, however it arises. This limit does not reach our own fraud or willful misconduct. Our deliverables are prepared for your internal use; if you intend to place one before a third party who may rely on it, raise it with me first so that we can address the reliance in writing."},
+        {"kind": "heading", "level": 2, "text": "Governing Law"},
+        {"kind": "paragraph", "text": "This letter is governed by the law of the state in which our principal office sits, without regard to its conflict-of-laws rules. Any dispute we cannot resolve between us will go to mediation before either party turns to the courts."},
+        {"kind": "paragraph", "text": "If these terms are acceptable, please sign both copies of this letter and return one to me; the second is yours to keep. We are glad to take on this work for Brown and Sons, and Brenda Clayton will be ready to start on the date set out above."},
+        {"kind": "paragraph", "text": "Sincerely,"},
+        {"kind": "sigblock", "signers": ["p:julie.ramsey", "xp:sandra.frazier"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0121",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Deborah Gordon, Brenda Clayton"},
+        {"kind": "paragraph", "text": "From: Cynthia Hart"},
+        {"kind": "paragraph", "text": "Subject: Kickoff, footprint rationalization for Brown and Sons"},
+        {"kind": "paragraph", "text": "We start the footprint work for Brown and Sons on {{fact:f:E-2017-001.start}}, and I want the three of us reading from the same page before we do. What {{fact:f:E-2017-001.client}} has asked is straightforward to state: they want to know whether the sites they run today are the right number, in the right places, at the right size, and if not, what to change and in what order. Everything below serves that one question. Sandra Frazier, their VP Finance, is our sponsor and point of contact, and she has offered her operations and finance staff for the data we will need."},
+        {"kind": "paragraph", "text": "One thing on the client relationship. Sandra Frazier told me plainly that her team is stretched, so our standing rule is to consolidate every request, send it once, and keep the log tight enough that no one is asked for the same file twice. Much of the site-level cost and headcount data is sensitive; it stays inside the four of us and does not travel."},
+        {"kind": "heading", "level": 2, "text": "The lines of work"},
+        {"kind": "list", "items": [
+          "Baseline. I pull together the site register, the cost to run each location, and the capacity figures, and I keep a record of where every file came from. When the client questions a number, I want to show the source rather than rebuild it.",
+          "Cost to serve. Brenda Clayton builds the view of how volume flows across the sites and what it costs to serve each customer from where we serve them now. This is where overlap and slack become visible.",
+          "Options. Brenda Clayton models the alternatives: which sites anchor the network and which do work another site could absorb. Deborah Gordon and I hold the site and cost definitions steady, because an option is worthless if two of us are counting a site differently.",
+          "Recommendation. Last, and resting on the first three. Deborah Gordon drafts the target footprint and the order of moves; Brenda Clayton tests the numbers underneath before anything goes to the client."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Before the first client session"},
+        {"kind": "list", "items": [
+          "I send one consolidated data request this week and open a log of what we have asked for and what has come back, so that no one on Sandra Frazier's staff is asked twice for the same file.",
+          "Brenda Clayton fixes the definitions for a site, a cost, and utilization before any figure is calculated, so we are not renegotiating what a number means in month three.",
+          "Deborah Gordon schedules walkthroughs of the two largest sites and drafts the questions for us to review together beforehand.",
+          "The three of us meet at the end of next week to compare what the data shows so far, gaps included."
+        ]},
+        {"kind": "paragraph", "text": "One scheduling note. Sandra Frazier travels through the back half of next month, so I have front-loaded the data request and the two walkthroughs to land while she is available to unblock access. If the smaller sites slip, they will not hold up the baseline; the two largest carry most of the cost, and those are the ones I am protecting the schedule for."},
+        {"kind": "paragraph", "text": "At this stage there is nothing the client would read as a finding, because we have none: we have a scope, a plan, and a data request going out the door. I will keep the log current so that we always know where each request stands for Brown and Sons. If anything here looks wrong to either of you, say so now, while it costs nothing to change."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0122",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Sandra Frazier\nCc: Deborah Gordon, Brenda Clayton"},
+        {"kind": "paragraph", "text": "Sandra,"},
+        {"kind": "paragraph", "text": "Thank you for getting the first round of site data to us so quickly. Brenda Clayton has begun assembling the footprint baseline from it, and the operating-cost figures for the two largest locations are already reconciled against the records you sent. We are not drawing conclusions yet; there is a good deal more to fold in before the picture holds still for {{fact:f:E-2017-001.client}}."},
+        {"kind": "paragraph", "text": "Two things would help us keep pace. We are still short the lease terms and square-footage detail for the smaller distribution points, which we need before any comparison across sites means much. And Deborah Gordon would like to walk the two main facilities over the next couple of weeks; could you point us to the right person at each to arrange access? A morning at each site is enough to start, and if it is easier to see both in a single visit we will work around your people's calendars rather than the reverse."},
+        {"kind": "paragraph", "text": "Everything the Brown and Sons team has sent so far has come in clean and well labeled, which makes the work faster. I have the request log set up and will copy you as items close; nothing on it needs a decision from you this week beyond the two asks above."},
+        {"kind": "paragraph", "text": "Thanks,"},
+        {"kind": "paragraph", "text": "Cynthia Hart"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0123",
+      "blocks": [
+        {"kind": "paragraph", "text": "Working session on the footprint rationalization for Brown and Sons, held at the client's offices. Minutes taken by Brenda Clayton."},
+        {"kind": "heading", "level": 2, "text": "Present"},
+        {"kind": "list", "items": [
+          "Brenda Clayton, Consultant",
+          "Cynthia Hart, Research Associate",
+          "Deborah Gordon, Senior Associate",
+          "Sandra Frazier, VP Finance, {{fact:f:E-2017-001.client}}"
+        ]},
+        {"kind": "heading", "level": 2, "text": "What we covered"},
+        {"kind": "paragraph", "text": "The session walked through the footprint baseline and the first read on cost to serve. We are far enough in to put real numbers against each site; the picture is not yet a set of recommendations, and I said so at the start."},
+        {"kind": "paragraph", "text": "Cynthia Hart opened with the state of the data. The site register, operating costs, and capacity figures are in and reconciled for every location except the two smallest distribution points, where the lease and square-footage detail arrived late and is still being normalized. She was careful to keep what is confirmed apart from what is still being cleaned, and nothing discussed today rests on the two sites that remain open."},
+        {"kind": "paragraph", "text": "I presented the baseline. Two of the sites carry capacity well above what current volume uses, and a third sits close to the demand it serves but far from the others, so freight in and out of it runs high. The cost to serve a customer varies more by which site ships to them than by what they buy, which is the sort of result that points a footprint decision toward the network rather than the product line. I would put weight on the utilization figures; they reconcile to the capacity data Cynthia Hart holds."},
+        {"kind": "paragraph", "text": "One number still carries a qualification. The freight cost on the outlying site depends on a lane-level breakdown we hold only in part, so the figure is stated within a range until the rest arrives. Sandra Frazier agreed to have her logistics group pull the missing lanes."},
+        {"kind": "paragraph", "text": "Deborah Gordon reported on the site walkthroughs. She has now seen four of the six locations and can describe how work moves through each. Two points are already clear: the two high-capacity sites duplicate a good deal of each other's function, and the outlying site was built for a customer base that has since shifted. She will finish the last two walkthroughs before we commit any of this to an options memo."},
+        {"kind": "paragraph", "text": "Sandra Frazier's main question was whether a decision on the outlying site could be reached without waiting on the full lane-level freight data. My answer was that the direction is already visible but the size of the gap is not, and that a recommendation on that site should not go forward until the range is closed. She accepted that and committed the logistics group to the missing lanes. We also agreed that the two smallest distribution points, whatever the baseline finally shows, are unlikely to change the shape of the recommendation, so they will not hold up the options work."},
+        {"kind": "heading", "level": 2, "text": "Action items"},
+        {"kind": "table", "header": ["Action", "Owner", "By"], "rows": [
+          ["Pull the missing freight lanes for the outlying site and close the cost-to-serve range", "Sandra Frazier", "Within two weeks"],
+          ["Normalize the lease and square-footage data for the two smallest sites", "Cynthia Hart", "Before the next session"],
+          ["Finish the remaining two site walkthroughs", "Deborah Gordon", "Before the next session"],
+          ["Draft the first cut of consolidation options from the baseline", "Brenda Clayton", "Before the next session"],
+          ["Set the next working session once the items above are in hand", "Brenda Clayton", "On completion of the above"]
+        ]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0124",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Status Report: Footprint Rationalization"},
+        {"kind": "list", "items": [
+          "Client of record: {{fact:f:E-2017-001.client}}",
+          "Prepared for the finance sponsor at Brown and Sons",
+          "Prepared by Cynthia Hart, with Deborah Gordon and Brenda Clayton",
+          "Reporting period: the four weeks ending with this report",
+          "Engagement roughly at its midpoint"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Where things stand"},
+        {"kind": "paragraph", "text": "The engagement passed its midpoint this period and remains on plan. The footprint baseline is complete for all six locations, the cost-to-serve analysis is substantially finished, and we have started turning both into a first set of consolidation options. Measured against the engagement budget of {{fact:f:E-2017-001.fee}}, we are a little under half spent, which tracks the work performed rather than the calendar; the heavier analytical hours fall in the next two periods, and we planned the budget around that. Nothing we have found points to a change in the fee or the timeline."},
+        {"kind": "paragraph", "text": "The short version, for anyone reading only this paragraph: the diagnostic phase is essentially done, the picture is consistent with what we expected at the outset, and the work now shifts from measuring the current footprint to modeling better ones. We are not recommending anything yet, and will not until the options are built and tested."},
+        {"kind": "heading", "level": 2, "text": "Completed this period"},
+        {"kind": "list", "items": [
+          "Closed out the site baseline for all six locations, including the two smallest, whose lease and square-footage data is now normalized and reconciled.",
+          "Finished the cost-to-serve view and confirmed that service cost varies more by which site ships than by what the customer buys.",
+          "Completed the site walkthroughs; Deborah Gordon has now seen every location and documented how work moves through each.",
+          "Reconciled the site-level operating costs to the general ledger with your finance team, so that the baseline numbers match the figures your own reporting produces.",
+          "Closed the freight range on the outlying site once the missing lane detail came in, so there are no open data items on our side."
+        ]},
+        {"kind": "paragraph", "text": "None of these results has left the team as a recommendation. They are inputs to the options work, and we have labeled them that way on every internal exhibit so that no one mistakes a measurement for a conclusion."},
+        {"kind": "heading", "level": 2, "text": "What comes next"},
+        {"kind": "list", "items": [
+          "Brenda Clayton develops the consolidation options into two or three comparable scenarios, each with its cost to execute, its annual saving, and its effect on service.",
+          "Deborah Gordon drafts the options memo and the supporting exhibits for review inside the team before anything reaches you.",
+          "We test each scenario against a normal year of volume, so that a single unusual quarter does not tilt the recommendation.",
+          "We prepare the exhibits so that each scenario reads on a single page: cost to execute, annual saving, service effect, and the sites it touches, side by side.",
+          "We bring a first, clearly labeled set of options to the next working session, rather than a single answer."
+        ]},
+        {"kind": "paragraph", "text": "That last point is deliberate. A footprint decision moves people and sites, and you should see the trade-offs behind a recommendation before it narrows to one. We would rather spend a working session weighing the scenarios together than present a finished answer you have not had a hand in shaping."},
+        {"kind": "heading", "level": 2, "text": "Risks and things we are watching"},
+        {"kind": "list", "items": [
+          "Volume seasonality. The last year included one quarter of unusually low volume. We are restating the utilization figures with and without that quarter so that no scenario leans on an unrepresentative period; if the ranking shifts when it is removed, you will hear it from us first.",
+          "The outlying site. The lane-level freight detail arrived late and is now in hand, but any further gaps there would move the cost-to-serve figure for that location, and with it the case for keeping the site.",
+          "Scope discipline. Two of your managers have raised questions about headcount planning that sit just outside the footprint scope. We have noted them and will flag any that would change the fee before doing the work, not after."
+        ]},
+        {"kind": "paragraph", "text": "In short, the work is where it should be at the halfway mark, and the coming period turns analysis into options you can weigh. If the next period runs as planned, you will have the options in hand well before the final month, which leaves room to consider them without pressure. I will keep this report on the same monthly cadence, and the request log stays current for anyone on the Brown and Sons side who wants to see what is outstanding."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0125",
+      "blocks": [
+        {"kind": "paragraph", "text": "Notes from the working session on the footprint rationalization for Brown and Sons, at the client's offices. Recorded by Brenda Clayton."},
+        {"kind": "heading", "level": 2, "text": "In attendance"},
+        {"kind": "list", "items": [
+          "Brenda Clayton, Consultant",
+          "Cynthia Hart, Research Associate",
+          "Deborah Gordon, Senior Associate",
+          "Sandra Frazier, VP Finance, {{fact:f:E-2017-001.client}}"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Discussion"},
+        {"kind": "paragraph", "text": "This session was about choosing among the consolidation options, not building them. The three scenarios have held up through testing, and the purpose today was to put them in front of Sandra Frazier and walk the trade-offs before we commit to a recommendation."},
+        {"kind": "paragraph", "text": "Deborah Gordon presented the three. The first leaves the network as it is and takes cost out inside each site; it is the safest and saves the least. The second consolidates the two high-capacity sites into one and keeps the outlying location; it saves materially and concentrates risk in a single building. The third closes the outlying site and moves its volume to a better-placed location, which carries the largest saving and the most disruption. Each scenario is stated with its cost to execute, its annual saving, and its effect on service."},
+        {"kind": "paragraph", "text": "I walked through how each scenario performs once we normalize for the one weak quarter in last year's volume. The ranking does not change when that quarter is set aside, which gives us some confidence that the recommendation will not rest on an unusual period. The second and third scenarios separate clearly from the first on saving; they separate from each other mainly on how much operational risk the company is willing to carry at one site. On cost to execute, the third is the heavier of the two by a clear margin, most of it one-time, and its payback runs longer than the second's even though the annual saving is larger."},
+        {"kind": "paragraph", "text": "Cynthia Hart confirmed that every figure behind the three scenarios traces to a workpaper, and that the freight and utilization numbers are now complete for all six sites, including the lanes that were outstanding at the last session. There are no open data items on our side."},
+        {"kind": "paragraph", "text": "Sandra Frazier's read is that the board will not accept the disruption of the third scenario without a clearer picture of the service risk during the move, and she asked us to develop that before we recommend. She was comfortable ruling out the first scenario as too modest for the effort. We agreed to bring a single recommendation to the final session, built around the second scenario, with the third kept as a costed alternative."},
+        {"kind": "paragraph", "text": "Before we closed, Cynthia Hart raised the reporting question for the final deliverable: whether the board wants the full three-scenario comparison or only the recommendation with the alternative behind it. Sandra Frazier preferred the shorter form for the board and the full comparison as an appendix, so that the reasoning is on hand without crowding the decision. We will build the final pack to that shape."},
+        {"kind": "heading", "level": 2, "text": "Actions"},
+        {"kind": "list", "items": [
+          "Deborah Gordon: draft the transition and service-risk plan for the consolidation move, covering the weeks when volume shifts. Before the final session.",
+          "Brenda Clayton: firm up the recommendation around the second scenario and cost the third as a documented alternative. Before the final session.",
+          "Cynthia Hart: assemble the final exhibit pack and confirm every figure ties to a workpaper. Before the final session.",
+          "Sandra Frazier: confirm the board's appetite for single-site risk so the recommendation can be pitched at the right level. Within two weeks."
+        ]}
+      ]
+    }
+  ]
+}

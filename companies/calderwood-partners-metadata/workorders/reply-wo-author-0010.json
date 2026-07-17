@@ -1,0 +1,230 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0010",
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0043",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Status Report: Cost Transformation for Brown and Sons"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This is the midpoint update on our cost work for {{fact:f:E-2009-001.client}}, written for you ahead of the read-out we have coming up. I have kept it plain and laid it out in the order you will want it: where we stand overall, what we have finished since my last report, what the team is turning to next, how the work sits against the budget, and the few items I am keeping an eye on. If any of it reads differently from your own sense of where the engagement is, telephone me and we will square it before we meet."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Where we stand"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are about halfway through, and I am glad to be able to tell you the work is where it should be. The cost baseline is closed and agreed, which was the piece everything else leans on, and with that behind us the team has moved from measuring the cost to working out how to bring it down. The early savings picture is forming across the two areas we pointed to at the start, procurement and back-office overhead, and neither has held any unwelcome surprises so far. I want to be clear that there are no recommendations in this note yet. What follows is progress and a few early reads, and I have kept the two apart on purpose, so that nothing here gets taken as settled before it is."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Finished since my last report"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "James Green has closed the baseline. It reconciles to your general ledger and to your headcount records, and every figure in it traces back to a source on your side, so there are no outside benchmark numbers carried in.",
+            "We have mapped where third-party spend is split across too many vendors, which is where the single largest opportunity looks to sit. Deborah Gordon sorted the spend into categories that match how your buyers actually work, not how the ledger happens to code it, and that made the pattern much easier to see.",
+            "The overhead review is done in first pass. The support functions cost more per unit of work than we would expect, and the cost is concentrated in a few places instead of spread thin, which is good news, since a fix aimed at a few spots is far easier to land than one spread across everything.",
+            "We held a working session with your team at Brown and Sons last month and walked them through the baseline line by line. Your people pushed on the numbers, which is exactly what we wanted, and the handful of points they raised have all been run down and closed."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "What the team is turning to"
+        },
+        {
+          "kind": "paragraph",
+          "text": "With the baseline settled, the team is now sizing the savings properly and putting them in an order you can act on. James Green is pressure-testing the vendor-consolidation figure against the actual contract terms, because that estimate rests on spend data today, and the terms can move it either way once we read them. Deborah Gordon is drafting the phased case, setting out which moves come first and what each one will ask of your organization. My aim is to bring you, at the read-out, a savings target we can stand behind and a sequence for capturing it, with the low-risk procurement steps kept separate from the deeper structural changes, so the pace stays your decision and not ours."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Against the budget"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work so far has been done inside the fixed fee of {{fact:f:E-2009-001.fee}} set in our engagement letter, and the scope that remains, the savings sizing and the phased plan, is covered by that same fee. I do not see a change to it. If something you ask for later takes us past what the letter describes, I will put the price of that addition to you in writing before we start on it, the way the letter provides, so there is never a surprise waiting on the invoice."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "What I am keeping an eye on"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The two smaller sites carry thinner cost data than the main operation. Closing that gap needs a few hours from the site controllers, not a fresh collection effort, and until it is closed the savings we attribute to those sites stay provisional.",
+            "The consolidation figure is our single largest line and still rests on spend rather than on contract terms. I would not want you to bank it until James Green has tested it against the contracts, which is in hand now.",
+            "We will need a little standing time with your finance staff as the phased case comes together. A short slot each week would keep the design moving; if that access slips, the schedule slips with it."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "That is the whole of it as I see it today. I am pleased with the pace and with what the team has put together, and I think the read-out will hand you a clear decision to make rather than a stack of analysis to wade through. I will keep the data-request log current between now and then, and I will send the materials across in good time so you are not reading them cold in the room. If any figure or statement here does not match your own read of things, tell me and I will correct it against the source before we meet. Thank you, as ever, for the time your people have put in with us; it has made a real difference to the pace of the work."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michael Walker"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Engagement Manager, Calderwood Partners"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0047",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Meeting Minutes: Cost Transformation for Brown and Sons"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Deborah Gordon, Associate, Calderwood Partners. The working session was held at the client's offices. These minutes are the record of that session. Corrections are due to this office within five business days. Absent corrections, they stand."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Present"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Michael Walker, Engagement Manager, Calderwood Partners",
+            "James Green, Senior Associate, Calderwood Partners",
+            "Deborah Gordon, Associate, Calderwood Partners",
+            "Sandra Frazier, VP Finance, Brown and Sons"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The savings case is now firm enough to take to leadership. The session for {{fact:f:E-2009-001.client}} reviewed the validated numbers, fixed the shape of the phased plan, and set the tasks that close out the analysis. The client raised one point on phase-two staffing that the plan will now address before the read-out. This note records the discussion, the decisions, and the follow-up owners."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Discussion"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The action items from the last session are closed. The contract review, the site-data gaps, and the draft business case are all done. The session opened on the substance."
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Green presented the vendor-consolidation figure. It was tested against the top vendor contracts since the last session. The tested number held within a narrow band of the earlier estimate. It is firm enough to carry into the business case."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The cost-data gaps at the two smaller sites are closed. The site controllers supplied the missing detail. The savings attributed to those sites are no longer provisional."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The overhead analysis is complete. The excess sits in duplicated support roles across the sites, not in pay levels. The phase-two design consolidates those roles into shared support functions. The headcount effect was reviewed. It falls inside the range set at kickoff."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Deborah Gordon presented the phased plan. Phase one takes the procurement moves. Phase two takes the structural overhead changes. Each phase carries a savings figure and a stated demand on client staff. Sandra Frazier confirmed the lower-risk sequence is acceptable to leadership."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sandra Frazier raised the phase-two staffing. The consolidation of support roles touches people at the two smaller sites. She asked that the plan name the affected roles before it goes to leadership, not after. The team agreed. The role-level detail is handled under the confidentiality convention set at kickoff and stays out of the deck."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One item is open. The phase-two start depends on a client decision on shared services that sits above this engagement. Sandra Frazier will carry that decision to leadership alongside the read-out. Until it is made, the phase-two start is indicative only."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michael Walker set the remaining schedule. The read-out materials were outlined. They will present the baseline, the validated savings by pool, the phased plan, and the effort each phase requires. The deck stays short. Supporting detail goes to an appendix the client keeps. No open item blocks the read-out itself."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Decisions"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The vendor-consolidation figure is accepted as firm.",
+            "The phased plan proceeds on the lower-risk sequence, procurement first.",
+            "The two-site savings are treated as final."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Follow-up"
+        },
+        {
+          "kind": "table",
+          "header": [
+            "No.",
+            "Action",
+            "Owner",
+            "Due"
+          ],
+          "rows": [
+            [
+              "1",
+              "Finalize the phased business case for the read-out",
+              "Deborah Gordon",
+              "Before read-out"
+            ],
+            [
+              "2",
+              "Prepare the phase-one implementation roadmap",
+              "James Green",
+              "One week"
+            ],
+            [
+              "3",
+              "Confirm read-out date and attendees with Brown and Sons",
+              "Michael Walker",
+              "This week"
+            ],
+            [
+              "4",
+              "Provide phase-one procurement contacts on the client side",
+              "Sandra Frazier",
+              "One week"
+            ],
+            [
+              "5",
+              "Take the shared-services decision to leadership",
+              "Sandra Frazier",
+              "Before read-out"
+            ],
+            [
+              "6",
+              "Name the phase-two roles affected in the plan",
+              "Deborah Gordon",
+              "Before read-out"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Next session is the final read-out to leadership. The business case and roadmap circulate beforehand. Corrections to these minutes are due within five business days."
+        }
+      ]
+    }
+  ]
+}

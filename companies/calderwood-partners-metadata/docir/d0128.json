@@ -1,0 +1,115 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0128",
+  "blocks": [
+    {
+      "kind": "paragraph",
+      "text": "To: Jason Torres",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "From: Daniel Cisneros",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Subject: Kickoff, shared services design for Key Group",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We begin the shared services design for Key Group on {{fact:f:E-2018-001.start}}. This memo sets the objective and the division of work so the two of us start from the same definitions. The question {{fact:f:E-2018-001.client}} has put to us is narrow: whether finance, human resources, information technology, and procurement support are better run from one shared organization than from inside each unit, and if so, how that organization should be built and stood up. Everything below serves that question. Steven Lowe, their VP Finance, is our sponsor and the source of the data and the access we will need.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Two standing rules on the client side, so we do not have to relitigate them later. Requests to Steven Lowe's staff go out consolidated and logged, so that no one is asked twice for the same file. Unit-level cost and headcount data is confidential; it stays inside the team and does not travel.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "How the work divides",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Baseline. I assemble current spend, headcount, and service levels for the four functions across every unit, and I record where each figure came from. When the client questions a number, I want to show its source rather than rebuild it.",
+        "Service design. Jason Torres defines which processes a shared organization would take on, the service catalogue, and the service levels attached to each. This is where the scope of the shared organization is actually set.",
+        "Organization and cost model. I build the cost model beneath each design option; Jason Torres fixes the reporting lines, the spans, and the location. We hold the process and cost definitions steady, so two of us are never counting a function differently.",
+        "Business case and roadmap. Last, and resting on the first three. Jason Torres drafts the staged plan and the case for it; I test the numbers underneath before anything reaches the client."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The dependency worth naming now is that the design cannot outrun the baseline. Service levels and chargeback rules mean nothing until the current cost and headcount are measured per function per unit, so the early weeks weigh toward data, and the design firms up only as those figures close.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "The first two weeks",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "I send one consolidated data request this week and open the request log, so nothing is asked of Steven Lowe's staff twice.",
+        "Jason Torres fixes the definitions for a process, a full-time equivalent, and a service level before any figure is calculated, so we are not renegotiating what a number means in month four.",
+        "We schedule interviews with the function leads in each unit and draft the question set for review beforehand.",
+        "The two of us meet at the end of next week to compare what the data shows so far, gaps included."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "There is nothing here the client would read as a finding, because we have none: we have a scope, a plan, and a data request about to go out the door. I will keep the log current so we always know where each request stands for Key Group. If anything above looks wrong to you, tell me before the request goes out and I will adjust it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    }
+  ]
+}

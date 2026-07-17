@@ -1,0 +1,189 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "calderwood-partners",
+  "org_name": "Calderwood Partners LLC",
+  "org_type": "management consulting",
+  "narrative": "Calderwood Partners is a general management consulting firm founded in\n2007, advising mid-market industrial and services companies on operating\nmodel, cost, and growth. It is the largest organization OrgSmith ships and\nthe one built to exercise the full M12 stack at once: a business-day\ncalendar, an engagement book presented as a sample rather than the whole\nfirm, machine-derived noise, and an authoring brief that pushes against the\nhouse voice.\n\nIts documents are the ordinary paper trail of a consulting engagement.\nEngagement letters set scope, fees, and terms. Kickoff memos frame the\nfirst weeks of work. Working sessions produce minutes; the client executive\ngets periodic status reports; a briefing deck lands partway through. Between\nformal deliverables the team and the client exchange short emails about data\nrequests and scheduling, and a live thread runs a day or two between\nreplies.\n\nThe firm's own writing is plain and businesslike, and deliberately varied:\ndifferent hands write differently, engagements are described as\nrepresentative examples of a broader book rather than as the firm's entire\nclient list, and no two memos are built from the same template. Two staff\nmembers share a surname and the writing treats it as unremarkable. The\noverview is careful never to claim the documented engagements are the whole\nbusiness, because they are a sample of it.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:julie.ramsey",
+      "name": "Julie Ramsey",
+      "title": "Managing Principal",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:jason.torres",
+      "name": "Jason Torres",
+      "title": "Principal",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:julie.parks",
+      "name": "Julie Parks",
+      "title": "Senior Engagement Manager",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:michael.walker",
+      "name": "Michael Walker",
+      "title": "Engagement Manager",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:brenda.rodriguez",
+      "name": "Brenda Rodriguez",
+      "title": "Senior Consultant",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:deborah.allen",
+      "name": "Deborah Allen",
+      "title": "Consultant",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:james.green",
+      "name": "James Green",
+      "title": "Senior Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:deborah.gordon",
+      "name": "Deborah Gordon",
+      "title": "Senior Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:daniel.leach",
+      "name": "Daniel Leach",
+      "title": "Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:jeffrey.jackson",
+      "name": "Jeffrey Jackson",
+      "title": "Director of Operations",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:david.wilson",
+      "name": "David Wilson",
+      "title": "Director of Operations",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:deborah.jimenez",
+      "name": "Deborah Jimenez",
+      "title": "Engagement Manager",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:brenda.clayton",
+      "name": "Brenda Clayton",
+      "title": "Consultant",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:mary.parker",
+      "name": "Mary Parker",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:matthew.parrish",
+      "name": "Matthew Parrish",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:john.vasquez",
+      "name": "John Vasquez",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:cynthia.hart",
+      "name": "Cynthia Hart",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:melissa.casey",
+      "name": "Melissa Casey",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:nicole.griffin",
+      "name": "Nicole Griffin",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:joseph.reed",
+      "name": "Joseph Reed",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:daniel.cisneros",
+      "name": "Daniel Cisneros",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:steven.hunt",
+      "name": "Steven Hunt",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:julie.vasquez",
+      "name": "Julie Vasquez",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:pamela.miller",
+      "name": "Pamela Miller",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:steven.sanchez",
+      "name": "Steven Sanchez",
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

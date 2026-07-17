@@ -1,0 +1,148 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0131",
+  "blocks": [
+    {
+      "kind": "paragraph",
+      "text": "Working session on the shared services design for Key Group, held at the client's offices. Minutes taken by Jason Torres.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Attendees",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Jason Torres, Principal",
+        "Daniel Cisneros, Research Associate",
+        "Steven Lowe, VP Finance, {{fact:f:E-2018-001.client}}"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Discussion",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We are far enough into the baseline to put real numbers against the four functions, and the session was about what those numbers show and where the design goes from here. Nothing today is a recommendation, and I said so at the start.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Daniel Cisneros walked the baseline. Spend and headcount are in and reconciled for finance, procurement, and human resources across every unit; IT is complete but for one unit's help-desk figures, which are still being normalized. He kept what is confirmed apart from what is still being cleaned, and nothing we discussed today rests on the one open item.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The pattern is plain. Three of the four functions run at a scale inside each unit that a shared organization would not need: the same roles repeat unit by unit, and the cost per transaction sits well above what a consolidated team would carry. Procurement is the clearest case, finance close behind. Human resources is more mixed, because a share of its work is local by nature and does not move to a shared team. My read is that the design should consolidate transactional finance and procurement in the first wave and treat HR as a partial move, and I want the option memo built that way.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "A few numbers are worth recording. Finance and procurement together carry more supervisory layers than their volume warrants; the span of control in those teams is narrow, and a good deal of the cost sits in the second and third layers rather than in the people doing the work. Daniel Cisneros also flagged one figure that still carries a qualification. The procurement spend for the two units that share a vendor master is stated within a range until their records reconcile against a single source, and the range affects the size of the read, not its direction.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Steven Lowe's main question was whether the units keep enough control over their service once the work moves. That is a governance question rather than a cost one, and it belongs in the design. We agreed the service catalogue and the chargeback rules have to answer it before any number goes to his leadership. He also asked us to hold the smallest unit out of the first wave, on the ground that its volumes are too low to move the case; I agreed, and we will document it that way.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We closed on what the next session has to show. The option memo will set the first-wave scope, the service catalogue, and a first cut of the chargeback rules, and it will keep the smallest unit visibly outside the first wave so that no one has to ask. Steven Lowe asked that the memo state, for each function that moves, what a unit keeps and what it hands over, because that distinction is what his own managers will read first.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Action items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [
+        "Action",
+        "Owner",
+        "By"
+      ],
+      "rows": [
+        [
+          "Close the open IT help-desk figures and finish the baseline",
+          "Daniel Cisneros",
+          "Within two weeks"
+        ],
+        [
+          "Draft the service catalogue and chargeback rules that answer the units' control concern",
+          "Jason Torres",
+          "Before the next session"
+        ],
+        [
+          "Build the first design option: transactional finance and procurement in the first wave, HR partial",
+          "Jason Torres",
+          "Before the next session"
+        ],
+        [
+          "Confirm which units fall in the first wave and which are held back",
+          "Steven Lowe",
+          "Within two weeks"
+        ],
+        [
+          "Set the next working session once the option memo is drafted",
+          "Jason Torres",
+          "On completion of the above"
+        ]
+      ],
+      "signers": []
+    }
+  ]
+}

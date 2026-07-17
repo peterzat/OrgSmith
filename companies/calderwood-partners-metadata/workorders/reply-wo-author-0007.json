@@ -1,0 +1,43 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0007",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0025",
+      "blocks": [
+        {"kind": "heading", "level": 1, "text": "Status Report: Post-Merger Integration"},
+        {"kind": "paragraph", "text": "Client of record: {{fact:f:E-2009-003.client}}. Prepared by Daniel Leach, Research Associate, with Jason Torres, Principal, and Mary Parker, Research Associate. This report is written for your review ahead of the next working session. It records where the engagement stands, what has been completed since our last update, the work now in hand, how the work is tracking against the budget, and the items that still carry risk. Where I set out a result, I have marked it as a finding; where I set out something we have seen but not yet concluded, I have marked it as an observation, so that the two are not read as carrying the same weight."},
+        {"kind": "heading", "level": 2, "text": "Where the engagement stands"},
+        {"kind": "paragraph", "text": "We are approximately halfway through the planned four months of work. The reconciled current-state view of the combined company is complete. The cost baseline is now closed on a single agreed basis, which resolves the one qualification that stood over it at the last working session. With those two pieces settled, the team has moved into the design of the target operating model for the functions named in the engagement letter. The fourth deliverable, the prioritized plan for the opening period after integration, has not yet begun; it follows the operating-model work and is scheduled for the second half of the engagement. The pace to date is in line with the plan, and I report no slippage in this period. There are no final recommendations in this report. The material below is progress and early observation only."},
+        {"kind": "heading", "level": 2, "text": "Completed since the last report"},
+        {"kind": "list", "items": [
+          "The reconciled headcount and reporting view is final. Mary Parker has closed the two positions where the acquired company's records and yours disagreed, and every figure in the view now carries a reference back to the record it came from.",
+          "The combined cost baseline is closed. Your finance staff have confirmed the single overhead definition that was open at the last session, and the Carroll, Merritt and Williams figures and the acquired-company figures are now built on the same basis. The combined figure no longer carries the qualification I noted before.",
+          "Jason Torres and I have completed the map of the functions that now sit in duplicate across the combined company. The duplication is concentrated in finance and operations, which matches what the headcount view showed at the supervisor level. I record this as an observation; it has not yet been costed, and I would not have you plan against it until it has."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Work now in hand"},
+        {"kind": "paragraph", "text": "The team has turned to the target operating model. Jason Torres is leading the design, and it covers the functions named in the letter and no others. Two of those functions were organized differently in each legacy company; for those we are mapping both structures and marking where they diverge, so that the combined design accounts for both starting points and does not assume one company's shape. Mary Parker is assembling the supporting material for each function as the design proceeds and keeping the source register current. I am maintaining the consolidated data request log and will note its open items under risks below."},
+        {"kind": "heading", "level": 2, "text": "The engagement budget"},
+        {"kind": "paragraph", "text": "The work to date has been performed within the fixed fee of {{fact:f:E-2009-003.fee}} set out in our engagement letter. The remaining scope, the operating-model design and the plan for the opening period, is covered by that same fee, and I do not foresee a change to it. Should a request from your side extend the scope beyond the letter, Jason Torres will price the addition in writing before any work on it begins, as the letter provides."},
+        {"kind": "heading", "level": 2, "text": "Open items and risks"},
+        {"kind": "list", "items": [
+          "Access to your finance staff. The operating-model design needs occasional time with the people who own the acquired-company accounts. If that access slips, the design slips with it. A short standing slot each week would close the exposure.",
+          "Personnel-sensitive material. Some of the functional detail touches roles not yet settled since the merger. We are handling it under the convention agreed at kickoff, and I flag it here only to keep that handling on the record.",
+          "Confirmation of the in-scope function list. The written list has been circulated for your confirmation and is not yet returned. Until it is, the design proceeds on the letter's general terms and may need adjustment if the confirmed list differs from it.",
+          "Timing of the next working session. We have held the date open until the operating-model design has a reviewable first cut. I will propose a date as soon as it does."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Planned for the coming weeks"},
+        {"kind": "list", "items": [
+          "Complete a first cut of the target operating model for the in-scope functions.",
+          "Cost the duplicate-role observation once the design settles where each function sits, and bring it forward as a finding when it is defensible.",
+          "Begin the prioritized plan for the opening period after integration.",
+          "Present the first findings, labeled as such, at the next working session."
+        ]},
+        {"kind": "paragraph", "text": "I will keep the data request log current and circulate the next status report before the following working session. If any figure or statement in this report needs correcting, please tell me and I will amend it against the source."},
+        {"kind": "paragraph", "text": "Daniel Leach, Research Associate"}
+      ]
+    }
+  ]
+}

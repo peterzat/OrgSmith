@@ -1,0 +1,146 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0003",
+  "stage": "author",
+  "slug": "calderwood-partners",
+  "org_name": "Calderwood Partners LLC",
+  "org_type": "management consulting",
+  "narrative": "Calderwood Partners is a general management consulting firm founded in\n2007, advising mid-market industrial and services companies on operating\nmodel, cost, and growth. It is the largest organization OrgSmith ships and\nthe one built to exercise the full M12 stack at once: a business-day\ncalendar, an engagement book presented as a sample rather than the whole\nfirm, machine-derived noise, and an authoring brief that pushes against the\nhouse voice.\n\nIts documents are the ordinary paper trail of a consulting engagement.\nEngagement letters set scope, fees, and terms. Kickoff memos frame the\nfirst weeks of work. Working sessions produce minutes; the client executive\ngets periodic status reports; a briefing deck lands partway through. Between\nformal deliverables the team and the client exchange short emails about data\nrequests and scheduling, and a live thread runs a day or two between\nreplies.\n\nThe firm's own writing is plain and businesslike, and deliberately varied:\ndifferent hands write differently, engagements are described as\nrepresentative examples of a broader book rather than as the firm's entire\nclient list, and no two memos are built from the same template. Two staff\nmembers share a surname and the writing treats it as unremarkable. The\noverview is careful never to claim the documented engagements are the whole\nbusiness, because they are a sample of it.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0013",
+      "title": "Status Report: Operating Model Redesign for Hughes Group",
+      "genre": "status_report",
+      "date": "2008-09-08",
+      "authors": [
+        {
+          "id": "p:jason.torres",
+          "name": "Jason Torres",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Leads the growth-oriented engagements and writes the way he reasons, building from the client's own figures toward a recommendation he states up front. He will let a blunt sentence stand where others would cushion it, and he closes most memos by naming the decision he wants made. His drafts read as one clear idea per line, with little ornament."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jason.torres",
+          "name": "Jason Torres",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Leads the growth-oriented engagements and writes the way he reasons, building from the client's own figures toward a recommendation he states up front. He will let a blunt sentence stand where others would cushion it, and he closes most memos by naming the decision he wants made. His drafts read as one clear idea per line, with little ornament."
+        },
+        {
+          "id": "p:brenda.rodriguez",
+          "name": "Brenda Rodriguez",
+          "title": "Senior Consultant",
+          "dept": "Advisory",
+          "persona": "Carries the analytical spine of the cost work and writes tight, evidence-first paragraphs that lead with the finding. She is skeptical by temperament and will flag an assumption before she will accept a conclusion, which shows up as careful qualifiers in her drafts. Her voice is dry and precise, more at home with a table than a flourish."
+        }
+      ],
+      "engagement_summary": "Operating Model Redesign for Hughes Group, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2008-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:jason.torres",
+          "surface": "Jason Torres",
+          "kind": "person"
+        },
+        {
+          "entity": "p:brenda.rodriguez",
+          "surface": "Brenda Rodriguez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:hughes-group",
+          "surface": "Hughes Group",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0014",
+      "title": "Meeting Minutes: Operating Model Redesign for Hughes Group",
+      "genre": "meeting_minutes",
+      "date": "2008-11-14",
+      "authors": [
+        {
+          "id": "p:brenda.rodriguez",
+          "name": "Brenda Rodriguez",
+          "title": "Senior Consultant",
+          "dept": "Advisory",
+          "persona": "Carries the analytical spine of the cost work and writes tight, evidence-first paragraphs that lead with the finding. She is skeptical by temperament and will flag an assumption before she will accept a conclusion, which shows up as careful qualifiers in her drafts. Her voice is dry and precise, more at home with a table than a flourish."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jason.torres",
+          "name": "Jason Torres",
+          "title": "Principal",
+          "dept": "Advisory",
+          "persona": "Leads the growth-oriented engagements and writes the way he reasons, building from the client's own figures toward a recommendation he states up front. He will let a blunt sentence stand where others would cushion it, and he closes most memos by naming the decision he wants made. His drafts read as one clear idea per line, with little ornament."
+        },
+        {
+          "id": "p:brenda.rodriguez",
+          "name": "Brenda Rodriguez",
+          "title": "Senior Consultant",
+          "dept": "Advisory",
+          "persona": "Carries the analytical spine of the cost work and writes tight, evidence-first paragraphs that lead with the finding. She is skeptical by temperament and will flag an assumption before she will accept a conclusion, which shows up as careful qualifiers in her drafts. Her voice is dry and precise, more at home with a table than a flourish."
+        },
+        {
+          "id": "xp:linda.gallegos",
+          "name": "Linda Gallegos",
+          "title": "Chief Financial Officer",
+          "dept": "Hughes Group",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Operating Model Redesign for Hughes Group, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2008-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:brenda.rodriguez",
+          "surface": "Brenda Rodriguez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jason.torres",
+          "surface": "Jason Torres",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:linda.gallegos",
+          "surface": "Linda Gallegos",
+          "kind": "person"
+        },
+        {
+          "entity": "x:hughes-group",
+          "surface": "Hughes Group",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "This document is dated about 80% of the way through the engagement (in the later phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

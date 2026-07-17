@@ -1,0 +1,882 @@
+{
+  "schema_id": "orgsmith/engagements@1",
+  "slug": "calderwood-partners",
+  "engagements": [
+    {
+      "id": "E-2008-001",
+      "title": "Operating Model Redesign for Hughes Group",
+      "client": "x:hughes-group",
+      "start": "2008-05-18",
+      "end": "2008-12-30",
+      "fee": 40500,
+      "internal_participants": [
+        "p:jason.torres",
+        "p:brenda.rodriguez"
+      ],
+      "external_participants": [
+        "xp:linda.gallegos"
+      ],
+      "summary": "Operating Model Redesign engagement for Hughes Group, running May 2008 through December 2008 at a fixed fee of $40,500.",
+      "facts": [
+        {
+          "id": "f:E-2008-001.fee",
+          "kind": "money",
+          "value": 40500,
+          "rendered": "$40,500",
+          "location_policy": "signature_page"
+        },
+        {
+          "id": "f:E-2008-001.start",
+          "kind": "date",
+          "value": "2008-05-18",
+          "rendered": "May 18, 2008",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2008-001.client",
+          "kind": "text",
+          "value": "Hughes Group",
+          "rendered": "Hughes Group",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2008-001.minutes-date",
+          "kind": "date",
+          "value": "2008-08-15",
+          "rendered": "2008-08-15",
+          "location_policy": "filename"
+        }
+      ]
+    },
+    {
+      "id": "E-2009-001",
+      "title": "Cost Transformation for Brown and Sons",
+      "client": "x:brown-and-sons",
+      "start": "2009-06-25",
+      "end": "2010-01-29",
+      "fee": 48500,
+      "internal_participants": [
+        "p:michael.walker",
+        "p:james.green",
+        "p:deborah.gordon"
+      ],
+      "external_participants": [
+        "xp:sandra.frazier"
+      ],
+      "summary": "Cost Transformation engagement for Brown and Sons, running June 2009 through January 2010 at a fixed fee of $48,500.",
+      "facts": [
+        {
+          "id": "f:E-2009-001.fee",
+          "kind": "money",
+          "value": 48500,
+          "rendered": "$48,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-001.start",
+          "kind": "date",
+          "value": "2009-06-25",
+          "rendered": "June 25, 2009",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-001.client",
+          "kind": "text",
+          "value": "Brown and Sons",
+          "rendered": "Brown and Sons",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2009-002",
+      "title": "Growth Strategy for Key Group",
+      "client": "x:key-group",
+      "start": "2009-07-04",
+      "end": "2010-01-25",
+      "fee": 113000,
+      "internal_participants": [
+        "p:brenda.rodriguez",
+        "p:daniel.leach"
+      ],
+      "external_participants": [
+        "xp:steven.lowe"
+      ],
+      "summary": "Growth Strategy engagement for Key Group, running July 2009 through January 2010 at a fixed fee of $113,000.",
+      "facts": [
+        {
+          "id": "f:E-2009-002.fee",
+          "kind": "money",
+          "value": 113000,
+          "rendered": "$113,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-002.start",
+          "kind": "date",
+          "value": "2009-07-04",
+          "rendered": "July 4, 2009",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-002.client",
+          "kind": "text",
+          "value": "Key Group",
+          "rendered": "Key Group",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2009-003",
+      "title": "Post-Merger Integration for Carroll, Merritt and Williams",
+      "client": "x:carroll-merritt-and-williams",
+      "start": "2009-04-22",
+      "end": "2009-08-22",
+      "fee": 54500,
+      "internal_participants": [
+        "p:daniel.leach",
+        "p:mary.parker",
+        "p:jason.torres"
+      ],
+      "external_participants": [
+        "xp:joseph.wallace"
+      ],
+      "summary": "Post-Merger Integration engagement for Carroll, Merritt and Williams, running April 2009 through August 2009 at a fixed fee of $54,500.",
+      "facts": [
+        {
+          "id": "f:E-2009-003.fee",
+          "kind": "money",
+          "value": 54500,
+          "rendered": "$54,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-003.start",
+          "kind": "date",
+          "value": "2009-04-22",
+          "rendered": "April 22, 2009",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-003.client",
+          "kind": "text",
+          "value": "Carroll, Merritt and Williams",
+          "rendered": "Carroll, Merritt and Williams",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2009-004",
+      "title": "Pricing Strategy for Garza, Leblanc and Porter",
+      "client": "x:garza-leblanc-and-porter",
+      "start": "2009-06-22",
+      "end": "2010-01-26",
+      "fee": 107000,
+      "internal_participants": [
+        "p:mary.parker",
+        "p:deborah.gordon",
+        "p:brenda.rodriguez"
+      ],
+      "external_participants": [
+        "xp:barbara.ward"
+      ],
+      "summary": "Pricing Strategy engagement for Garza, Leblanc and Porter, running June 2009 through January 2010 at a fixed fee of $107,000.",
+      "facts": [
+        {
+          "id": "f:E-2009-004.fee",
+          "kind": "money",
+          "value": 107000,
+          "rendered": "$107,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-004.start",
+          "kind": "date",
+          "value": "2009-06-22",
+          "rendered": "June 22, 2009",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2009-004.client",
+          "kind": "text",
+          "value": "Garza, Leblanc and Porter",
+          "rendered": "Garza, Leblanc and Porter",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2010-001",
+      "title": "Supply Chain Review for Poole, Mcknight and Rush",
+      "client": "x:poole-mcknight-and-rush",
+      "start": "2010-05-18",
+      "end": "2010-09-03",
+      "fee": 62000,
+      "internal_participants": [
+        "p:deborah.gordon",
+        "p:daniel.leach",
+        "p:michael.walker"
+      ],
+      "external_participants": [
+        "xp:sandra.flores"
+      ],
+      "summary": "Supply Chain Review engagement for Poole, Mcknight and Rush, running May 2010 through September 2010 at a fixed fee of $62,000.",
+      "facts": [
+        {
+          "id": "f:E-2010-001.fee",
+          "kind": "money",
+          "value": 62000,
+          "rendered": "$62,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2010-001.start",
+          "kind": "date",
+          "value": "2010-05-18",
+          "rendered": "May 18, 2010",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2010-001.client",
+          "kind": "text",
+          "value": "Poole, Mcknight and Rush",
+          "rendered": "Poole, Mcknight and Rush",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2011-001",
+      "title": "Digital Operating Model for Scott, Smith and Edwards",
+      "client": "x:scott-smith-and-edwards",
+      "start": "2011-02-16",
+      "end": "2011-05-20",
+      "fee": 106000,
+      "internal_participants": [
+        "p:deborah.allen",
+        "p:jason.torres"
+      ],
+      "external_participants": [
+        "xp:melissa.johnson"
+      ],
+      "summary": "Digital Operating Model engagement for Scott, Smith and Edwards, running February 2011 through May 2011 at a fixed fee of $106,000.",
+      "facts": [
+        {
+          "id": "f:E-2011-001.fee",
+          "kind": "money",
+          "value": 106000,
+          "rendered": "$106,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2011-001.start",
+          "kind": "date",
+          "value": "2011-02-16",
+          "rendered": "February 16, 2011",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2011-001.client",
+          "kind": "text",
+          "value": "Scott, Smith and Edwards",
+          "rendered": "Scott, Smith and Edwards",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2011-002",
+      "title": "Organization Design for Stark-Wilson",
+      "client": "x:stark-wilson",
+      "start": "2011-05-10",
+      "end": "2011-09-23",
+      "fee": 90500,
+      "internal_participants": [
+        "p:julie.parks",
+        "p:deborah.gordon"
+      ],
+      "external_participants": [
+        "xp:julie.gonzalez"
+      ],
+      "summary": "Organization Design engagement for Stark-Wilson, running May 2011 through September 2011 at a fixed fee of $90,500.",
+      "facts": [
+        {
+          "id": "f:E-2011-002.fee",
+          "kind": "money",
+          "value": 90500,
+          "rendered": "$90,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2011-002.start",
+          "kind": "date",
+          "value": "2011-05-10",
+          "rendered": "May 10, 2011",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2011-002.client",
+          "kind": "text",
+          "value": "Stark-Wilson",
+          "rendered": "Stark-Wilson",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2012-001",
+      "title": "Market Entry Assessment for Garcia-Werner",
+      "client": "x:garcia-werner",
+      "start": "2012-05-21",
+      "end": "2012-08-31",
+      "fee": 69500,
+      "internal_participants": [
+        "p:james.green",
+        "p:jason.torres",
+        "p:deborah.gordon"
+      ],
+      "external_participants": [
+        "xp:mark.villegas"
+      ],
+      "summary": "Market Entry Assessment engagement for Garcia-Werner, running May 2012 through August 2012 at a fixed fee of $69,500.",
+      "facts": [
+        {
+          "id": "f:E-2012-001.fee",
+          "kind": "money",
+          "value": 69500,
+          "rendered": "$69,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2012-001.start",
+          "kind": "date",
+          "value": "2012-05-21",
+          "rendered": "May 21, 2012",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2012-001.client",
+          "kind": "text",
+          "value": "Garcia-Werner",
+          "rendered": "Garcia-Werner",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2013-001",
+      "title": "Working Capital Program for Walker-Murray",
+      "client": "x:walker-murray",
+      "start": "2013-08-09",
+      "end": "2014-03-03",
+      "fee": 30000,
+      "internal_participants": [
+        "p:john.vasquez",
+        "p:jason.torres",
+        "p:brenda.rodriguez"
+      ],
+      "external_participants": [
+        "xp:james.keller"
+      ],
+      "summary": "Working Capital Program engagement for Walker-Murray, running August 2013 through March 2014 at a fixed fee of $30,000.",
+      "facts": [
+        {
+          "id": "f:E-2013-001.fee",
+          "kind": "money",
+          "value": 30000,
+          "rendered": "$30,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2013-001.start",
+          "kind": "date",
+          "value": "2013-08-09",
+          "rendered": "August 9, 2013",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2013-001.client",
+          "kind": "text",
+          "value": "Walker-Murray",
+          "rendered": "Walker-Murray",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2014-001",
+      "title": "Procurement Transformation for Pacheco-Casey",
+      "client": "x:pacheco-casey",
+      "start": "2014-03-01",
+      "end": "2014-11-05",
+      "fee": 110500,
+      "internal_participants": [
+        "p:matthew.parrish",
+        "p:daniel.leach",
+        "p:brenda.rodriguez"
+      ],
+      "external_participants": [
+        "xp:david.carter"
+      ],
+      "summary": "Procurement Transformation engagement for Pacheco-Casey, running March 2014 through November 2014 at a fixed fee of $110,500.",
+      "facts": [
+        {
+          "id": "f:E-2014-001.fee",
+          "kind": "money",
+          "value": 110500,
+          "rendered": "$110,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2014-001.start",
+          "kind": "date",
+          "value": "2014-03-01",
+          "rendered": "March 1, 2014",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2014-001.client",
+          "kind": "text",
+          "value": "Pacheco-Casey",
+          "rendered": "Pacheco-Casey",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2015-001",
+      "title": "Commercial Due Diligence for Johnson, Lopez and Brooks",
+      "client": "x:johnson-lopez-and-brooks",
+      "start": "2015-06-16",
+      "end": "2016-01-26",
+      "fee": 112500,
+      "internal_participants": [
+        "p:melissa.casey",
+        "p:cynthia.hart",
+        "p:nicole.griffin"
+      ],
+      "external_participants": [
+        "xp:barbara.banks"
+      ],
+      "summary": "Commercial Due Diligence engagement for Johnson, Lopez and Brooks, running June 2015 through January 2016 at a fixed fee of $112,500.",
+      "facts": [
+        {
+          "id": "f:E-2015-001.fee",
+          "kind": "money",
+          "value": 112500,
+          "rendered": "$112,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2015-001.start",
+          "kind": "date",
+          "value": "2015-06-16",
+          "rendered": "June 16, 2015",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2015-001.client",
+          "kind": "text",
+          "value": "Johnson, Lopez and Brooks",
+          "rendered": "Johnson, Lopez and Brooks",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2016-001",
+      "title": "Sales Effectiveness for Hughes Group",
+      "client": "x:hughes-group",
+      "start": "2016-02-27",
+      "end": "2016-07-29",
+      "fee": 30000,
+      "internal_participants": [
+        "p:nicole.griffin",
+        "p:jason.torres",
+        "p:matthew.parrish"
+      ],
+      "external_participants": [
+        "xp:linda.gallegos"
+      ],
+      "summary": "Sales Effectiveness engagement for Hughes Group, running February 2016 through July 2016 at a fixed fee of $30,000.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.fee",
+          "kind": "money",
+          "value": 30000,
+          "rendered": "$30,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2016-001.start",
+          "kind": "date",
+          "value": "2016-02-27",
+          "rendered": "February 27, 2016",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "kind": "text",
+          "value": "Hughes Group",
+          "rendered": "Hughes Group",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2017-001",
+      "title": "Footprint Rationalization for Brown and Sons",
+      "client": "x:brown-and-sons",
+      "start": "2017-07-02",
+      "end": "2018-01-21",
+      "fee": 34500,
+      "internal_participants": [
+        "p:cynthia.hart",
+        "p:deborah.gordon",
+        "p:brenda.clayton"
+      ],
+      "external_participants": [
+        "xp:sandra.frazier"
+      ],
+      "summary": "Footprint Rationalization engagement for Brown and Sons, running July 2017 through January 2018 at a fixed fee of $34,500.",
+      "facts": [
+        {
+          "id": "f:E-2017-001.fee",
+          "kind": "money",
+          "value": 34500,
+          "rendered": "$34,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2017-001.start",
+          "kind": "date",
+          "value": "2017-07-02",
+          "rendered": "July 2, 2017",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2017-001.client",
+          "kind": "text",
+          "value": "Brown and Sons",
+          "rendered": "Brown and Sons",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2018-001",
+      "title": "Shared Services Design for Key Group",
+      "client": "x:key-group",
+      "start": "2018-02-07",
+      "end": "2018-10-03",
+      "fee": 105500,
+      "internal_participants": [
+        "p:daniel.cisneros",
+        "p:jason.torres"
+      ],
+      "external_participants": [
+        "xp:steven.lowe"
+      ],
+      "summary": "Shared Services Design engagement for Key Group, running February 2018 through October 2018 at a fixed fee of $105,500.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.fee",
+          "kind": "money",
+          "value": 105500,
+          "rendered": "$105,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2018-001.start",
+          "kind": "date",
+          "value": "2018-02-07",
+          "rendered": "February 7, 2018",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "kind": "text",
+          "value": "Key Group",
+          "rendered": "Key Group",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2019-001",
+      "title": "Customer Retention Program for Carroll, Merritt and Williams",
+      "client": "x:carroll-merritt-and-williams",
+      "start": "2019-05-19",
+      "end": "2020-02-13",
+      "fee": 112500,
+      "internal_participants": [
+        "p:deborah.jimenez",
+        "p:mary.parker"
+      ],
+      "external_participants": [
+        "xp:joseph.wallace"
+      ],
+      "summary": "Customer Retention Program engagement for Carroll, Merritt and Williams, running May 2019 through February 2020 at a fixed fee of $112,500.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "kind": "money",
+          "value": 112500,
+          "rendered": "$112,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "kind": "date",
+          "value": "2019-05-19",
+          "rendered": "May 19, 2019",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "kind": "text",
+          "value": "Carroll, Merritt and Williams",
+          "rendered": "Carroll, Merritt and Williams",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2019-002",
+      "title": "Portfolio Strategy for Garza, Leblanc and Porter",
+      "client": "x:garza-leblanc-and-porter",
+      "start": "2019-03-22",
+      "end": "2019-12-04",
+      "fee": 39000,
+      "internal_participants": [
+        "p:steven.hunt",
+        "p:melissa.casey"
+      ],
+      "external_participants": [
+        "xp:barbara.ward"
+      ],
+      "summary": "Portfolio Strategy engagement for Garza, Leblanc and Porter, running March 2019 through December 2019 at a fixed fee of $39,000.",
+      "facts": [
+        {
+          "id": "f:E-2019-002.fee",
+          "kind": "money",
+          "value": 39000,
+          "rendered": "$39,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-002.start",
+          "kind": "date",
+          "value": "2019-03-22",
+          "rendered": "March 22, 2019",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-002.client",
+          "kind": "text",
+          "value": "Garza, Leblanc and Porter",
+          "rendered": "Garza, Leblanc and Porter",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2019-003",
+      "title": "Capital Allocation Review for Poole, Mcknight and Rush",
+      "client": "x:poole-mcknight-and-rush",
+      "start": "2019-02-22",
+      "end": "2019-09-05",
+      "fee": 80500,
+      "internal_participants": [
+        "p:brenda.clayton",
+        "p:deborah.jimenez"
+      ],
+      "external_participants": [
+        "xp:sandra.flores"
+      ],
+      "summary": "Capital Allocation Review engagement for Poole, Mcknight and Rush, running February 2019 through September 2019 at a fixed fee of $80,500.",
+      "facts": [
+        {
+          "id": "f:E-2019-003.fee",
+          "kind": "money",
+          "value": 80500,
+          "rendered": "$80,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-003.start",
+          "kind": "date",
+          "value": "2019-02-22",
+          "rendered": "February 22, 2019",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2019-003.client",
+          "kind": "text",
+          "value": "Poole, Mcknight and Rush",
+          "rendered": "Poole, Mcknight and Rush",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2020-001",
+      "title": "Service Delivery Redesign for Scott, Smith and Edwards",
+      "client": "x:scott-smith-and-edwards",
+      "start": "2020-03-16",
+      "end": "2020-10-17",
+      "fee": 42000,
+      "internal_participants": [
+        "p:julie.vasquez",
+        "p:jason.torres"
+      ],
+      "external_participants": [
+        "xp:melissa.johnson"
+      ],
+      "summary": "Service Delivery Redesign engagement for Scott, Smith and Edwards, running March 2020 through October 2020 at a fixed fee of $42,000.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.fee",
+          "kind": "money",
+          "value": 42000,
+          "rendered": "$42,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.start",
+          "kind": "date",
+          "value": "2020-03-16",
+          "rendered": "March 16, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "kind": "text",
+          "value": "Scott, Smith and Edwards",
+          "rendered": "Scott, Smith and Edwards",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2020-002",
+      "title": "Channel Strategy for Stark-Wilson",
+      "client": "x:stark-wilson",
+      "start": "2020-04-01",
+      "end": "2020-08-22",
+      "fee": 71000,
+      "internal_participants": [
+        "p:joseph.reed",
+        "p:deborah.jimenez"
+      ],
+      "external_participants": [
+        "xp:julie.gonzalez"
+      ],
+      "summary": "Channel Strategy engagement for Stark-Wilson, running April 2020 through August 2020 at a fixed fee of $71,000.",
+      "facts": [
+        {
+          "id": "f:E-2020-002.fee",
+          "kind": "money",
+          "value": 71000,
+          "rendered": "$71,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-002.start",
+          "kind": "date",
+          "value": "2020-04-01",
+          "rendered": "April 1, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-002.client",
+          "kind": "text",
+          "value": "Stark-Wilson",
+          "rendered": "Stark-Wilson",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2021-001",
+      "title": "Back-Office Automation for Garcia-Werner",
+      "client": "x:garcia-werner",
+      "start": "2021-04-01",
+      "end": "2021-07-19",
+      "fee": 33500,
+      "internal_participants": [
+        "p:pamela.miller",
+        "p:matthew.parrish"
+      ],
+      "external_participants": [
+        "xp:mark.villegas"
+      ],
+      "summary": "Back-Office Automation engagement for Garcia-Werner, running April 2021 through July 2021 at a fixed fee of $33,500.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "kind": "money",
+          "value": 33500,
+          "rendered": "$33,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2021-001.start",
+          "kind": "date",
+          "value": "2021-04-01",
+          "rendered": "April 1, 2021",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "kind": "text",
+          "value": "Garcia-Werner",
+          "rendered": "Garcia-Werner",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2022-001",
+      "title": "Margin Recovery Program for Walker-Murray",
+      "client": "x:walker-murray",
+      "start": "2022-05-14",
+      "end": "2022-12-17",
+      "fee": 52000,
+      "internal_participants": [
+        "p:melissa.casey",
+        "p:james.green",
+        "p:jason.torres"
+      ],
+      "external_participants": [
+        "xp:james.keller"
+      ],
+      "summary": "Margin Recovery Program engagement for Walker-Murray, running May 2022 through December 2022 at a fixed fee of $52,000.",
+      "facts": [
+        {
+          "id": "f:E-2022-001.fee",
+          "kind": "money",
+          "value": 52000,
+          "rendered": "$52,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2022-001.start",
+          "kind": "date",
+          "value": "2022-05-14",
+          "rendered": "May 14, 2022",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2022-001.client",
+          "kind": "text",
+          "value": "Walker-Murray",
+          "rendered": "Walker-Murray",
+          "location_policy": "body"
+        }
+      ]
+    }
+  ]
+}

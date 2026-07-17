@@ -1,0 +1,107 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:julie.ramsey",
+      "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+    },
+    {
+      "person_id": "p:jason.torres",
+      "persona": "Leads the growth-oriented engagements and writes the way he reasons, building from the client's own figures toward a recommendation he states up front. He will let a blunt sentence stand where others would cushion it, and he closes most memos by naming the decision he wants made. His drafts read as one clear idea per line, with little ornament."
+    },
+    {
+      "person_id": "p:julie.parks",
+      "persona": "Runs engagements day to day and writes to keep everyone oriented, opening status notes with where things stand before what changed. Her prose is organized and slightly formal, fond of numbered points and clear ownership of next steps. She is the one who makes sure a working session actually produces minutes someone can act on."
+    },
+    {
+      "person_id": "p:michael.walker",
+      "persona": "Manages the mechanics of an engagement and writes in a warm, conversational register that softens a hard message without losing it. He tends toward longer sentences and a friendly close, and he is quick to put a scheduling or data question in a short email rather than let it wait. Clients find his updates easy to read even when the news is mixed."
+    },
+    {
+      "person_id": "p:brenda.rodriguez",
+      "persona": "Carries the analytical spine of the cost work and writes tight, evidence-first paragraphs that lead with the finding. She is skeptical by temperament and will flag an assumption before she will accept a conclusion, which shows up as careful qualifiers in her drafts. Her voice is dry and precise, more at home with a table than a flourish."
+    },
+    {
+      "person_id": "p:deborah.allen",
+      "persona": "Handles modeling and structured analysis and writes cleanly, in a measured, matter-of-fact tone that rarely raises its voice. She organizes a memo around the question being answered and keeps her own view to a short closing note. Colleagues rely on her to make a messy problem legible."
+    },
+    {
+      "person_id": "p:james.green",
+      "persona": "Does much of the heavy lifting on data and drafts, and writes quickly in a plain, unfussy style that gets the facts down before it worries about polish. He is comfortable with bullet points and short declaratives, and he leaves the framing to the managers above him. His working notes are dense but easy to follow."
+    },
+    {
+      "person_id": "p:deborah.gordon",
+      "persona": "Strong on synthesis and writes with a bit more color than the house norm, reaching for the vivid phrase that makes a finding stick. She likes to open with the takeaway and is willing to argue a point in prose rather than defer to a table. Her drafts sometimes need trimming, but they are rarely dull."
+    },
+    {
+      "person_id": "p:daniel.leach",
+      "persona": "Newer to the work and writes carefully, almost cautiously, checking each claim against the source before it goes in. His prose is correct and a little stiff, leaning on the structures he has been taught rather than a voice of his own yet. He asks good clarifying questions and captures the detail others skip."
+    },
+    {
+      "person_id": "p:jeffrey.jackson",
+      "persona": "Keeps the firm's engagements staffed and running and writes in a crisp, administrative register aimed at getting a decision or a date confirmed. His notes are brief and logistics-first, with little patience for narrative. He is the person who turns a vague plan into a scheduled commitment."
+    },
+    {
+      "person_id": "p:david.wilson",
+      "persona": "Runs the back-office side of the practice and writes in a steady, procedural tone that documents what was agreed and who owns it. He favors complete sentences and a clear paper trail, and he tends to restate commitments so nothing is left implicit. His emails are polite, thorough, and hard to misread."
+    },
+    {
+      "person_id": "p:deborah.jimenez",
+      "persona": "Manages client-facing delivery and writes with an even, diplomatic touch, careful to keep the client's perspective in the frame. She structures updates around risks and the paths to address them, and prefers to name a problem alongside a proposed response. Her register stays professional and calm under pressure."
+    },
+    {
+      "person_id": "p:brenda.clayton",
+      "persona": "Focuses on operating-model analysis and writes in a lean, functional style that trusts the reader to follow a tight argument. She is economical with words and reluctant to overstate, so her conclusions land with quiet confidence. She would rather show the logic than sell it."
+    },
+    {
+      "person_id": "p:mary.parker",
+      "persona": "Gathers and organizes the background material an engagement rests on, and writes clear, well-sourced summaries that stay close to the evidence. Her notes are orderly and neutral, careful to separate what is known from what is inferred. She is meticulous about attribution and rarely overreaches."
+    },
+    {
+      "person_id": "p:matthew.parrish",
+      "persona": "Supports the analytical teams with desk research and writes in a brisk, businesslike shorthand meant for internal readers. He is fast and comprehensive, and he flags gaps in the data rather than paper over them. His summaries are functional and to the point."
+    },
+    {
+      "person_id": "p:john.vasquez",
+      "persona": "Digs into industry and market background and writes with a curious, slightly discursive voice that likes to explain why a finding matters. He tends to add the context others leave out, which makes his notes longer but richer. He is comfortable saying plainly when the evidence is thin."
+    },
+    {
+      "person_id": "p:cynthia.hart",
+      "persona": "Assembles data and prepares exhibits, writing spare, well-labeled notes built to be reused in a deck or memo. Her style is quiet and precise, with a preference for structure over prose. She checks her work twice before she circulates anything."
+    },
+    {
+      "person_id": "p:melissa.casey",
+      "persona": "Handles comparables and reference research and writes in a clean, readable style that makes dense material approachable. She organizes findings into tidy themes and is good at the one-line summary that captures the point. Her tone is neutral and unhurried."
+    },
+    {
+      "person_id": "p:nicole.griffin",
+      "persona": "Runs down data requests and source material and writes concise, list-oriented notes designed to be scanned quickly. She is direct and unadorned, more interested in accuracy than style. She keeps a careful record of what was asked and what is still outstanding."
+    },
+    {
+      "person_id": "p:joseph.reed",
+      "persona": "Supports the cost and operations research and writes in a plain, dependable voice that states what he found without embellishment. He is thorough and methodical, and he tends to number his points so nothing gets lost. He is reliable on the tedious detail that others rush past."
+    },
+    {
+      "person_id": "p:daniel.cisneros",
+      "persona": "Focuses on the quantitative background work and writes terse, structured notes that lead with the data and stop there. He is sparing with commentary and trusts the exhibit to speak for itself. His register is flat and efficient, well suited to an internal handoff."
+    },
+    {
+      "person_id": "p:steven.hunt",
+      "persona": "Gathers market and competitor material and writes in an engaged, slightly informal voice that reads like he is talking a colleague through it. He is quick to offer a tentative conclusion and equally quick to caveat it. His notes are lively but occasionally need tightening."
+    },
+    {
+      "person_id": "p:julie.vasquez",
+      "persona": "Prepares research and supporting analysis and writes carefully, in a measured tone that keeps every claim tethered to a source. She is organized and detail-minded, and she prefers a clean structure to a clever phrase. She is dependable on the groundwork that makes later drafting easier."
+    },
+    {
+      "person_id": "p:pamela.miller",
+      "persona": "Handles background research and exhibit preparation and writes in a warm, plain style that the rest of the team can pick up easily. She annotates generously so a reader always knows where a point came from. Her notes are thorough and unpretentious."
+    },
+    {
+      "person_id": "p:steven.sanchez",
+      "persona": "Supports the analytical work with data pulls and summaries, writing in a crisp, no-frills style aimed at speed and clarity. He is comfortable leaving the polish to others and focuses on getting the facts organized first. His register is efficient and quietly confident."
+    }
+  ]
+}

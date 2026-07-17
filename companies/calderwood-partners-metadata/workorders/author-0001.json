@@ -1,0 +1,284 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0001",
+  "stage": "author",
+  "slug": "calderwood-partners",
+  "org_name": "Calderwood Partners LLC",
+  "org_type": "management consulting",
+  "narrative": "Calderwood Partners is a general management consulting firm founded in\n2007, advising mid-market industrial and services companies on operating\nmodel, cost, and growth. It is the largest organization OrgSmith ships and\nthe one built to exercise the full M12 stack at once: a business-day\ncalendar, an engagement book presented as a sample rather than the whole\nfirm, machine-derived noise, and an authoring brief that pushes against the\nhouse voice.\n\nIts documents are the ordinary paper trail of a consulting engagement.\nEngagement letters set scope, fees, and terms. Kickoff memos frame the\nfirst weeks of work. Working sessions produce minutes; the client executive\ngets periodic status reports; a briefing deck lands partway through. Between\nformal deliverables the team and the client exchange short emails about data\nrequests and scheduling, and a live thread runs a day or two between\nreplies.\n\nThe firm's own writing is plain and businesslike, and deliberately varied:\ndifferent hands write differently, engagements are described as\nrepresentative examples of a broader book rather than as the firm's entire\nclient list, and no two memos are built from the same template. Two staff\nmembers share a surname and the writing treats it as unremarkable. The\noverview is careful never to claim the documented engagements are the whole\nbusiness, because they are a sample of it.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0002",
+      "title": "Onboarding: Julie Parks",
+      "genre": "onboarding_record",
+      "date": "2008-01-25",
+      "authors": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:julie.parks",
+          "name": "Julie Parks",
+          "title": "Senior Engagement Manager",
+          "dept": "Advisory",
+          "persona": "Runs engagements day to day and writes to keep everyone oriented, opening status notes with where things stand before what changed. Her prose is organized and slightly formal, fond of numbered points and clear ownership of next steps. She is the one who makes sure a working session actually produces minutes someone can act on."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.ramsey",
+          "surface": "Julie Ramsey",
+          "kind": "person"
+        },
+        {
+          "entity": "p:julie.parks",
+          "surface": "Julie Parks",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jason Torres, Principal. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0003",
+      "title": "Onboarding: Deborah Allen",
+      "genre": "onboarding_record",
+      "date": "2008-03-08",
+      "authors": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:deborah.allen",
+          "name": "Deborah Allen",
+          "title": "Consultant",
+          "dept": "Advisory",
+          "persona": "Handles modeling and structured analysis and writes cleanly, in a measured, matter-of-fact tone that rarely raises its voice. She organizes a memo around the question being answered and keeps her own view to a short closing note. Colleagues rely on her to make a messy problem legible."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.ramsey",
+          "surface": "Julie Ramsey",
+          "kind": "person"
+        },
+        {
+          "entity": "p:deborah.allen",
+          "surface": "Deborah Allen",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jason Torres, Principal. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0004",
+      "title": "Onboarding: James Green",
+      "genre": "onboarding_record",
+      "date": "2008-03-08",
+      "authors": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:james.green",
+          "name": "James Green",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "Does much of the heavy lifting on data and drafts, and writes quickly in a plain, unfussy style that gets the facts down before it worries about polish. He is comfortable with bullet points and short declaratives, and he leaves the framing to the managers above him. His working notes are dense but easy to follow."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.ramsey",
+          "surface": "Julie Ramsey",
+          "kind": "person"
+        },
+        {
+          "entity": "p:james.green",
+          "surface": "James Green",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jason Torres, Principal. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0005",
+      "title": "Onboarding: Michael Walker",
+      "genre": "onboarding_record",
+      "date": "2008-03-08",
+      "authors": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.walker",
+          "name": "Michael Walker",
+          "title": "Engagement Manager",
+          "dept": "Advisory",
+          "persona": "Manages the mechanics of an engagement and writes in a warm, conversational register that softens a hard message without losing it. He tends toward longer sentences and a friendly close, and he is quick to put a scheduling or data question in a short email rather than let it wait. Clients find his updates easy to read even when the news is mixed."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.ramsey",
+          "surface": "Julie Ramsey",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michael.walker",
+          "surface": "Michael Walker",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jason Torres, Principal. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0010",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2008-06-17",
+      "authors": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        },
+        {
+          "id": "p:jeffrey.jackson",
+          "name": "Jeffrey Jackson",
+          "title": "Director of Operations",
+          "dept": "Operations",
+          "persona": "Keeps the firm's engagements staffed and running and writes in a crisp, administrative register aimed at getting a decision or a date confirmed. His notes are brief and logistics-first, with little patience for narrative. He is the person who turns a vague plan into a scheduled commitment."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2008-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:julie.ramsey",
+          "surface": "Julie Ramsey",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jeffrey.jackson",
+          "surface": "Jeffrey Jackson",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2008, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2008-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0017",
+      "title": "Onboarding: Mary Parker",
+      "genre": "onboarding_record",
+      "date": "2009-04-15",
+      "authors": [
+        {
+          "id": "p:julie.ramsey",
+          "name": "Julie Ramsey",
+          "title": "Managing Principal",
+          "dept": "Leadership",
+          "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:mary.parker",
+          "name": "Mary Parker",
+          "title": "Research Associate",
+          "dept": "Advisory",
+          "persona": "Gathers and organizes the background material an engagement rests on, and writes clear, well-sourced summaries that stay close to the evidence. Her notes are orderly and neutral, careful to separate what is known from what is inferred. She is meticulous about attribution and rarely overreaches."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.ramsey",
+          "surface": "Julie Ramsey",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mary.parker",
+          "surface": "Mary Parker",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jason Torres, Principal. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

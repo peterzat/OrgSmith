@@ -1,0 +1,1525 @@
+{
+  "schema_id": "orgsmith/state@1",
+  "slug": "calderwood-partners",
+  "stages": {
+    "charter": {
+      "status": "done",
+      "inputs_hash": "aa180dcf61fb618a"
+    },
+    "foundation": {
+      "status": "done",
+      "inputs_hash": "8f539263dc3e3af5"
+    },
+    "fabric": {
+      "status": "done",
+      "inputs_hash": "b926b7d270fa71c3"
+    },
+    "docplan": {
+      "status": "done",
+      "inputs_hash": "0cddb7101487050f"
+    },
+    "foundation_enrich": {
+      "status": "done",
+      "inputs_hash": null
+    },
+    "author": {
+      "status": "done",
+      "inputs_hash": null
+    },
+    "render": {
+      "status": "done",
+      "inputs_hash": "cc529d451baf016d"
+    },
+    "assemble": {
+      "status": "done",
+      "inputs_hash": null
+    }
+  },
+  "docs": {
+    "d:0002": {
+      "authored_hash": "f7125519b41f9097",
+      "rendered_hash": "85c921bed9aae7b5",
+      "rendered_from": "f7125519b41f9097",
+      "rev": 0
+    },
+    "d:0003": {
+      "authored_hash": "52160aa7d24e2d46",
+      "rendered_hash": "3f52f04dce804d69",
+      "rendered_from": "52160aa7d24e2d46",
+      "rev": 0
+    },
+    "d:0004": {
+      "authored_hash": "b9ec9cf8c658ca48",
+      "rendered_hash": "4e133bd0c5320588",
+      "rendered_from": "b9ec9cf8c658ca48",
+      "rev": 0
+    },
+    "d:0005": {
+      "authored_hash": "7f803b6a6c0623c6",
+      "rendered_hash": "a49d66d1278b471d",
+      "rendered_from": "7f803b6a6c0623c6",
+      "rev": 0
+    },
+    "d:0006": {
+      "authored_hash": "95f020c5307f0988",
+      "rendered_hash": "c20747a79034856f",
+      "rendered_from": "95f020c5307f0988",
+      "rev": 0
+    },
+    "d:0007": {
+      "authored_hash": "0970ed9253c1f003",
+      "rendered_hash": "1d6384f31d3c8a6b",
+      "rendered_from": "0970ed9253c1f003",
+      "rev": 0
+    },
+    "d:0008": {
+      "authored_hash": "6fb493593e5772a7",
+      "rendered_hash": "148570b5d7711d65",
+      "rendered_from": "6fb493593e5772a7",
+      "rev": 0
+    },
+    "d:0009": {
+      "authored_hash": "240b8ce6082aa03e",
+      "rendered_hash": "0156b3d560bab687",
+      "rendered_from": "240b8ce6082aa03e",
+      "rev": 0
+    },
+    "d:0010": {
+      "authored_hash": "32f5e01f4974d6a2",
+      "rendered_hash": "800574a3313b12f0",
+      "rendered_from": "32f5e01f4974d6a2",
+      "rev": 0
+    },
+    "d:0011": {
+      "authored_hash": "bdef833c433f917d",
+      "rendered_hash": "a5e9c1b1c6784d80",
+      "rendered_from": "bdef833c433f917d",
+      "rev": 0
+    },
+    "d:0012": {
+      "authored_hash": "9a7d4dca3e40bb8b",
+      "rendered_hash": "c17322367d188e19",
+      "rendered_from": "9a7d4dca3e40bb8b",
+      "rev": 0
+    },
+    "d:0013": {
+      "authored_hash": "1ced0b9fecb325ac",
+      "rendered_hash": "58a11efd99874c29",
+      "rendered_from": "1ced0b9fecb325ac",
+      "rev": 0
+    },
+    "d:0014": {
+      "authored_hash": "f585794c98a25bb7",
+      "rendered_hash": "f0c6c3002978374d",
+      "rendered_from": "f585794c98a25bb7",
+      "rev": 0
+    },
+    "d:0016": {
+      "authored_hash": "aaac786763c68093",
+      "rendered_hash": "f60ef904bdf25c1b",
+      "rendered_from": "aaac786763c68093",
+      "rev": 0
+    },
+    "d:0017": {
+      "authored_hash": "a19dd40e17cc7ba3",
+      "rendered_hash": "eb82962f8fd0b4f7",
+      "rendered_from": "a19dd40e17cc7ba3",
+      "rev": 0
+    },
+    "d:0018": {
+      "authored_hash": "be7b6add9799cdd3",
+      "rendered_hash": "5516d94872d299a0",
+      "rendered_from": "be7b6add9799cdd3",
+      "rev": 0
+    },
+    "d:0019": {
+      "authored_hash": "02510b232b2842b8",
+      "rendered_hash": "fd43d82d428c35ba",
+      "rendered_from": "02510b232b2842b8",
+      "rev": 0
+    },
+    "d:0020": {
+      "authored_hash": "e403d8c7478a46f1",
+      "rendered_hash": "7b9bb0393508e5bf",
+      "rendered_from": "e403d8c7478a46f1",
+      "rev": 0
+    },
+    "d:0021": {
+      "authored_hash": "5f0276a4962d5ee1",
+      "rendered_hash": "0f09a39aeb18bdee",
+      "rendered_from": "5f0276a4962d5ee1",
+      "rev": 0
+    },
+    "d:0022": {
+      "authored_hash": "6b4939cae34eb64a",
+      "rendered_hash": "eb1154fa9ffb700d",
+      "rendered_from": "6b4939cae34eb64a",
+      "rev": 0
+    },
+    "d:0023": {
+      "authored_hash": "2113ae5b1bc6a53b",
+      "rendered_hash": "e0533a396bb49222",
+      "rendered_from": "2113ae5b1bc6a53b",
+      "rev": 0
+    },
+    "d:0024": {
+      "authored_hash": "a229dc136fe5ace9",
+      "rendered_hash": "03abc7693637ae5b",
+      "rendered_from": "a229dc136fe5ace9",
+      "rev": 0
+    },
+    "d:0025": {
+      "authored_hash": "adb7270e8fadcf8b",
+      "rendered_hash": "bbe4cc1b0f96b93d",
+      "rendered_from": "adb7270e8fadcf8b",
+      "rev": 0
+    },
+    "d:0026": {
+      "authored_hash": "3a4a613726166186",
+      "rendered_hash": "4fb243f9873fd725",
+      "rendered_from": "3a4a613726166186",
+      "rev": 0
+    },
+    "d:0027": {
+      "authored_hash": "fb3562895833a128",
+      "rendered_hash": "9e3a70332c1b1f3d",
+      "rendered_from": "fb3562895833a128",
+      "rev": 0
+    },
+    "d:0028": {
+      "authored_hash": "087bd2c6151f31ab",
+      "rendered_hash": "9d662d635c4abca2",
+      "rendered_from": "087bd2c6151f31ab",
+      "rev": 0
+    },
+    "d:0029": {
+      "authored_hash": "bed2b8232b174243",
+      "rendered_hash": "d833a3d39201f8d9",
+      "rendered_from": "bed2b8232b174243",
+      "rev": 0
+    },
+    "d:0030": {
+      "authored_hash": "21918906254c5d4a",
+      "rendered_hash": "c14cfd0a35e51071",
+      "rendered_from": "21918906254c5d4a",
+      "rev": 0
+    },
+    "d:0031": {
+      "authored_hash": "331a9b3376711aae",
+      "rendered_hash": "3451d50c3c3da8bb",
+      "rendered_from": "331a9b3376711aae",
+      "rev": 0
+    },
+    "d:0032": {
+      "authored_hash": "eb1f35f0b8b39d1c",
+      "rendered_hash": "150b34d90ef80499",
+      "rendered_from": "eb1f35f0b8b39d1c",
+      "rev": 0
+    },
+    "d:0033": {
+      "authored_hash": "5d62935edeea661d",
+      "rendered_hash": "7e62966bec5b086f",
+      "rendered_from": "5d62935edeea661d",
+      "rev": 0
+    },
+    "d:0034": {
+      "authored_hash": "63d8610ab5567f15",
+      "rendered_hash": "2f01f6992719b4de",
+      "rendered_from": "63d8610ab5567f15",
+      "rev": 0
+    },
+    "d:0035": {
+      "authored_hash": "7ca90ef7f3050ae0",
+      "rendered_hash": "cea162b5da23824d",
+      "rendered_from": "7ca90ef7f3050ae0",
+      "rev": 0
+    },
+    "d:0036": {
+      "authored_hash": "836b7b0ec658c092",
+      "rendered_hash": "6543bfc1a791bdb3",
+      "rendered_from": "836b7b0ec658c092",
+      "rev": 0
+    },
+    "d:0037": {
+      "authored_hash": "74278b9311d66923",
+      "rendered_hash": "dc25b67e6fc0da64",
+      "rendered_from": "74278b9311d66923",
+      "rev": 0
+    },
+    "d:0038": {
+      "authored_hash": "5837a9498bff06c9",
+      "rendered_hash": "c622d208594dc2e9",
+      "rendered_from": "5837a9498bff06c9",
+      "rev": 0
+    },
+    "d:0039": {
+      "authored_hash": "d32fe1f36c37253b",
+      "rendered_hash": "1d7869b3ccd1c1c9",
+      "rendered_from": "d32fe1f36c37253b",
+      "rev": 0
+    },
+    "d:0040": {
+      "authored_hash": "9a23f03e2aa4cc7d",
+      "rendered_hash": "92536e8285b9402f",
+      "rendered_from": "9a23f03e2aa4cc7d",
+      "rev": 0
+    },
+    "d:0041": {
+      "authored_hash": "96c597b457a706c5",
+      "rendered_hash": "25389a2787a4fe1d",
+      "rendered_from": "96c597b457a706c5",
+      "rev": 0
+    },
+    "d:0042": {
+      "authored_hash": "d85175e0cdb934c1",
+      "rendered_hash": "9bbc6e042f166943",
+      "rendered_from": "d85175e0cdb934c1",
+      "rev": 0
+    },
+    "d:0043": {
+      "authored_hash": "e351d2ffc668a25d",
+      "rendered_hash": "07a58e8a8513fec1",
+      "rendered_from": "e351d2ffc668a25d",
+      "rev": 0
+    },
+    "d:0044": {
+      "authored_hash": "274fd4cc2ce93f4e",
+      "rendered_hash": "17f7b1b1e2c25cea",
+      "rendered_from": "274fd4cc2ce93f4e",
+      "rev": 0
+    },
+    "d:0045": {
+      "authored_hash": "7d2d8134c109a4cf",
+      "rendered_hash": "d7e7680c201dd5e9",
+      "rendered_from": "7d2d8134c109a4cf",
+      "rev": 0
+    },
+    "d:0046": {
+      "authored_hash": "bb2db7ef5568fa7a",
+      "rendered_hash": "396affb4bd07b13b",
+      "rendered_from": "bb2db7ef5568fa7a",
+      "rev": 0
+    },
+    "d:0047": {
+      "authored_hash": "968a524fa9e87f16",
+      "rendered_hash": "46150f76ab5d8398",
+      "rendered_from": "968a524fa9e87f16",
+      "rev": 0
+    },
+    "d:0048": {
+      "authored_hash": "193439fd275c9175",
+      "rendered_hash": "31869d62be9b919b",
+      "rendered_from": "193439fd275c9175",
+      "rev": 0
+    },
+    "d:0050": {
+      "authored_hash": "3a782cf9b64e26b1",
+      "rendered_hash": "f2f9f3541e42ce4e",
+      "rendered_from": "3a782cf9b64e26b1",
+      "rev": 0
+    },
+    "d:0051": {
+      "authored_hash": "f08e7bdf931421c2",
+      "rendered_hash": "657d350c6ecd8e40",
+      "rendered_from": "f08e7bdf931421c2",
+      "rev": 0
+    },
+    "d:0052": {
+      "authored_hash": "576cdb07a47c7057",
+      "rendered_hash": "afa0877b830446b1",
+      "rendered_from": "576cdb07a47c7057",
+      "rev": 0
+    },
+    "d:0053": {
+      "authored_hash": "ea17923e9cf3f336",
+      "rendered_hash": "6480984feaa92dac",
+      "rendered_from": "ea17923e9cf3f336",
+      "rev": 0
+    },
+    "d:0054": {
+      "authored_hash": "2528d0c8252998f2",
+      "rendered_hash": "01a63a134e0bc6f4",
+      "rendered_from": "2528d0c8252998f2",
+      "rev": 0
+    },
+    "d:0055": {
+      "authored_hash": "8b5f0e071f2009e2",
+      "rendered_hash": "4a4ad6168cfb1c0c",
+      "rendered_from": "8b5f0e071f2009e2",
+      "rev": 0
+    },
+    "d:0056": {
+      "authored_hash": "aaa1aa7d28d1dc01",
+      "rendered_hash": "5fb8a9623528e577",
+      "rendered_from": "aaa1aa7d28d1dc01",
+      "rev": 0
+    },
+    "d:0058": {
+      "authored_hash": "2af0b90fae50b685",
+      "rendered_hash": "4041e5d8df52a025",
+      "rendered_from": "2af0b90fae50b685",
+      "rev": 0
+    },
+    "d:0059": {
+      "authored_hash": "f71f8ba1a9219eca",
+      "rendered_hash": "a4e370e993f653a9",
+      "rendered_from": "f71f8ba1a9219eca",
+      "rev": 0
+    },
+    "d:0060": {
+      "authored_hash": "e5c25077dc63e81f",
+      "rendered_hash": "f8d6219224c37b47",
+      "rendered_from": "e5c25077dc63e81f",
+      "rev": 0
+    },
+    "d:0061": {
+      "authored_hash": "14b7a980a82b0502",
+      "rendered_hash": "a094ea51b18d1fbf",
+      "rendered_from": "14b7a980a82b0502",
+      "rev": 0
+    },
+    "d:0062": {
+      "authored_hash": "20e4ca9ad3b0ae90",
+      "rendered_hash": "5a46bf0fb7972f5a",
+      "rendered_from": "20e4ca9ad3b0ae90",
+      "rev": 0
+    },
+    "d:0063": {
+      "authored_hash": "a4c44f6f52681b59",
+      "rendered_hash": "de8cbdba5fa3b269",
+      "rendered_from": "a4c44f6f52681b59",
+      "rev": 0
+    },
+    "d:0064": {
+      "authored_hash": "bff7a721378f4ec9",
+      "rendered_hash": "9e7893255195d083",
+      "rendered_from": "bff7a721378f4ec9",
+      "rev": 0
+    },
+    "d:0065": {
+      "authored_hash": "61d91fdce90bb9ef",
+      "rendered_hash": "1dbde2b5dfd10010",
+      "rendered_from": "61d91fdce90bb9ef",
+      "rev": 0
+    },
+    "d:0066": {
+      "authored_hash": "a5c7d6992bc36854",
+      "rendered_hash": "7f57ddd4a03404d6",
+      "rendered_from": "a5c7d6992bc36854",
+      "rev": 0
+    },
+    "d:0067": {
+      "authored_hash": "4bbe68e45f86f33b",
+      "rendered_hash": "4ea8a0ff9cb3a09c",
+      "rendered_from": "4bbe68e45f86f33b",
+      "rev": 0
+    },
+    "d:0068": {
+      "authored_hash": "57e1e19e63dea192",
+      "rendered_hash": "bfc1b68debedc82b",
+      "rendered_from": "57e1e19e63dea192",
+      "rev": 0
+    },
+    "d:0069": {
+      "authored_hash": "13e7272e27a6ddd4",
+      "rendered_hash": "bed6f34205849436",
+      "rendered_from": "13e7272e27a6ddd4",
+      "rev": 0
+    },
+    "d:0070": {
+      "authored_hash": "44aca3ed21b3479c",
+      "rendered_hash": "dc90eb29051935bc",
+      "rendered_from": "44aca3ed21b3479c",
+      "rev": 0
+    },
+    "d:0071": {
+      "authored_hash": "00c2bbb684b0c9fe",
+      "rendered_hash": "ade11091dfda58f7",
+      "rendered_from": "00c2bbb684b0c9fe",
+      "rev": 0
+    },
+    "d:0072": {
+      "authored_hash": "9ab7ad3f276275a0",
+      "rendered_hash": "102873c24d49c05c",
+      "rendered_from": "9ab7ad3f276275a0",
+      "rev": 0
+    },
+    "d:0073": {
+      "authored_hash": "bdbfbb7b503f30bc",
+      "rendered_hash": "cd3912b1ebde1932",
+      "rendered_from": "bdbfbb7b503f30bc",
+      "rev": 0
+    },
+    "d:0075": {
+      "authored_hash": "308235cdef31d79d",
+      "rendered_hash": "09212cced64cdc9b",
+      "rendered_from": "308235cdef31d79d",
+      "rev": 0
+    },
+    "d:0076": {
+      "authored_hash": "07a1ce9a6b36a8b1",
+      "rendered_hash": "23c03f75764922e2",
+      "rendered_from": "07a1ce9a6b36a8b1",
+      "rev": 0
+    },
+    "d:0077": {
+      "authored_hash": "0e3ed54b43e98c0c",
+      "rendered_hash": "fbd2faacd0bf0019",
+      "rendered_from": "0e3ed54b43e98c0c",
+      "rev": 0
+    },
+    "d:0078": {
+      "authored_hash": "92838dfa85a655bf",
+      "rendered_hash": "04efcedceebd9d1a",
+      "rendered_from": "92838dfa85a655bf",
+      "rev": 0
+    },
+    "d:0079": {
+      "authored_hash": "1315e8c7803fc5c7",
+      "rendered_hash": "3a04bf6c6d928ef6",
+      "rendered_from": "1315e8c7803fc5c7",
+      "rev": 0
+    },
+    "d:0080": {
+      "authored_hash": "9d769818f4b85435",
+      "rendered_hash": "1f4e1b71ff2fcc8c",
+      "rendered_from": "9d769818f4b85435",
+      "rev": 0
+    },
+    "d:0081": {
+      "authored_hash": "16539230c1c23eaa",
+      "rendered_hash": "2ec2857783845122",
+      "rendered_from": "16539230c1c23eaa",
+      "rev": 0
+    },
+    "d:0082": {
+      "authored_hash": "560eaa82e880fe76",
+      "rendered_hash": "4e65098c2cabff4c",
+      "rendered_from": "560eaa82e880fe76",
+      "rev": 0
+    },
+    "d:0084": {
+      "authored_hash": "dfda828409b58205",
+      "rendered_hash": "ac5aa78f889075bd",
+      "rendered_from": "dfda828409b58205",
+      "rev": 0
+    },
+    "d:0085": {
+      "authored_hash": "4628520fc37ad986",
+      "rendered_hash": "496416f1d07ca0f5",
+      "rendered_from": "4628520fc37ad986",
+      "rev": 0
+    },
+    "d:0086": {
+      "authored_hash": "d41f82cf32377382",
+      "rendered_hash": "0d43d38e3d3c97b4",
+      "rendered_from": "d41f82cf32377382",
+      "rev": 0
+    },
+    "d:0087": {
+      "authored_hash": "6453761d693bea29",
+      "rendered_hash": "b4eb68ce4ff513b0",
+      "rendered_from": "6453761d693bea29",
+      "rev": 0
+    },
+    "d:0088": {
+      "authored_hash": "28b7c1ef48b138f6",
+      "rendered_hash": "d1a6842d9755cd9d",
+      "rendered_from": "28b7c1ef48b138f6",
+      "rev": 0
+    },
+    "d:0090": {
+      "authored_hash": "b0ed920c3e55a5f3",
+      "rendered_hash": "8fae3a0384f1b39d",
+      "rendered_from": "b0ed920c3e55a5f3",
+      "rev": 0
+    },
+    "d:0091": {
+      "authored_hash": "63a6ca58cb9b1aa4",
+      "rendered_hash": "4bc78408e1d36238",
+      "rendered_from": "63a6ca58cb9b1aa4",
+      "rev": 0
+    },
+    "d:0092": {
+      "authored_hash": "3e28606f32bea3bd",
+      "rendered_hash": "a301ee06cb273c96",
+      "rendered_from": "3e28606f32bea3bd",
+      "rev": 0
+    },
+    "d:0093": {
+      "authored_hash": "3aee71719342e891",
+      "rendered_hash": "948ac758473047b2",
+      "rendered_from": "3aee71719342e891",
+      "rev": 0
+    },
+    "d:0094": {
+      "authored_hash": "b03d08ef6b02a002",
+      "rendered_hash": "d9d4c080e367a5f8",
+      "rendered_from": "b03d08ef6b02a002",
+      "rev": 0
+    },
+    "d:0095": {
+      "authored_hash": "cb6f1d2a034388b3",
+      "rendered_hash": "8bf75acc1e0113fe",
+      "rendered_from": "cb6f1d2a034388b3",
+      "rev": 0
+    },
+    "d:0096": {
+      "authored_hash": "30a7724a8e353b22",
+      "rendered_hash": "ad3134ac8941a450",
+      "rendered_from": "30a7724a8e353b22",
+      "rev": 0
+    },
+    "d:0097": {
+      "authored_hash": "6a3490eac23c3e27",
+      "rendered_hash": "3798fdf44104f9cc",
+      "rendered_from": "6a3490eac23c3e27",
+      "rev": 0
+    },
+    "d:0098": {
+      "authored_hash": "df08b9420642fa9b",
+      "rendered_hash": "7071b4bc3e56fdd4",
+      "rendered_from": "df08b9420642fa9b",
+      "rev": 0
+    },
+    "d:0099": {
+      "authored_hash": "6608caa548954f41",
+      "rendered_hash": "ef30b3b22643854e",
+      "rendered_from": "6608caa548954f41",
+      "rev": 0
+    },
+    "d:0100": {
+      "authored_hash": "58eabb941b86f593",
+      "rendered_hash": "267752da8abe3a54",
+      "rendered_from": "58eabb941b86f593",
+      "rev": 0
+    },
+    "d:0102": {
+      "authored_hash": "be1111fb00f0be38",
+      "rendered_hash": "a07612bf422f9155",
+      "rendered_from": "be1111fb00f0be38",
+      "rev": 0
+    },
+    "d:0103": {
+      "authored_hash": "5ac8ebf6f8580c00",
+      "rendered_hash": "0a5afbcc59785693",
+      "rendered_from": "5ac8ebf6f8580c00",
+      "rev": 0
+    },
+    "d:0104": {
+      "authored_hash": "520122f52383ddd4",
+      "rendered_hash": "475aae8b150ec439",
+      "rendered_from": "520122f52383ddd4",
+      "rev": 0
+    },
+    "d:0105": {
+      "authored_hash": "5a5a10e8f316a318",
+      "rendered_hash": "dac5be5fddcccc07",
+      "rendered_from": "5a5a10e8f316a318",
+      "rev": 0
+    },
+    "d:0106": {
+      "authored_hash": "5a97cf46645f37f5",
+      "rendered_hash": "f17ce6905488c4fa",
+      "rendered_from": "5a97cf46645f37f5",
+      "rev": 0
+    },
+    "d:0107": {
+      "authored_hash": "71be5a779e0d2a02",
+      "rendered_hash": "b0f5a0038153ece3",
+      "rendered_from": "71be5a779e0d2a02",
+      "rev": 0
+    },
+    "d:0108": {
+      "authored_hash": "9208265794c0cef9",
+      "rendered_hash": "fccb8b33d365b4fd",
+      "rendered_from": "9208265794c0cef9",
+      "rev": 0
+    },
+    "d:0110": {
+      "authored_hash": "7aa1e57056312287",
+      "rendered_hash": "5f0f93d8c6ecefd6",
+      "rendered_from": "7aa1e57056312287",
+      "rev": 0
+    },
+    "d:0111": {
+      "authored_hash": "95ab811d2b041849",
+      "rendered_hash": "3508388a608b5428",
+      "rendered_from": "95ab811d2b041849",
+      "rev": 0
+    },
+    "d:0112": {
+      "authored_hash": "e5d874783b4acddc",
+      "rendered_hash": "50ec096b42e84e69",
+      "rendered_from": "e5d874783b4acddc",
+      "rev": 0
+    },
+    "d:0113": {
+      "authored_hash": "5deda4d204884ffc",
+      "rendered_hash": "b28dadaf4de409f5",
+      "rendered_from": "5deda4d204884ffc",
+      "rev": 0
+    },
+    "d:0114": {
+      "authored_hash": "363577cd55292550",
+      "rendered_hash": "f0fc3d7ad7f4b0fd",
+      "rendered_from": "363577cd55292550",
+      "rev": 0
+    },
+    "d:0115": {
+      "authored_hash": "91edcd64727e57b4",
+      "rendered_hash": "8f164da7347dd9a6",
+      "rendered_from": "91edcd64727e57b4",
+      "rev": 0
+    },
+    "d:0116": {
+      "authored_hash": "e543871ed27b24d5",
+      "rendered_hash": "8e2f236708cd7843",
+      "rendered_from": "e543871ed27b24d5",
+      "rev": 0
+    },
+    "d:0118": {
+      "authored_hash": "e134d42b3ee223e4",
+      "rendered_hash": "2d5ee352d1b466c9",
+      "rendered_from": "e134d42b3ee223e4",
+      "rev": 0
+    },
+    "d:0119": {
+      "authored_hash": "f1331d7f0fcebc70",
+      "rendered_hash": "871466ef993ab80f",
+      "rendered_from": "f1331d7f0fcebc70",
+      "rev": 0
+    },
+    "d:0120": {
+      "authored_hash": "f072f37117a61ec2",
+      "rendered_hash": "80880653807f1828",
+      "rendered_from": "f072f37117a61ec2",
+      "rev": 0
+    },
+    "d:0121": {
+      "authored_hash": "d7c0598d17dd4f46",
+      "rendered_hash": "b81adf3e25c81404",
+      "rendered_from": "d7c0598d17dd4f46",
+      "rev": 0
+    },
+    "d:0122": {
+      "authored_hash": "ef9fe827080830cc",
+      "rendered_hash": "9d556602ecd46ebe",
+      "rendered_from": "ef9fe827080830cc",
+      "rev": 0
+    },
+    "d:0123": {
+      "authored_hash": "1672524889a4a957",
+      "rendered_hash": "7f94ea4de4725f2d",
+      "rendered_from": "1672524889a4a957",
+      "rev": 0
+    },
+    "d:0124": {
+      "authored_hash": "7e949f5839e89e0d",
+      "rendered_hash": "10f55f6d39778f77",
+      "rendered_from": "7e949f5839e89e0d",
+      "rev": 0
+    },
+    "d:0125": {
+      "authored_hash": "3f3a88e180fb0791",
+      "rendered_hash": "99b46812b9b8e2d4",
+      "rendered_from": "3f3a88e180fb0791",
+      "rev": 0
+    },
+    "d:0127": {
+      "authored_hash": "ee85c6230a5c0c37",
+      "rendered_hash": "64a01dc2d03dbd58",
+      "rendered_from": "ee85c6230a5c0c37",
+      "rev": 0
+    },
+    "d:0128": {
+      "authored_hash": "f89a80f0387e57b4",
+      "rendered_hash": "dfae2ff53e613662",
+      "rendered_from": "f89a80f0387e57b4",
+      "rev": 0
+    },
+    "d:0129": {
+      "authored_hash": "697d62ba43271732",
+      "rendered_hash": "3de2e26b516be2e3",
+      "rendered_from": "697d62ba43271732",
+      "rev": 0
+    },
+    "d:0130": {
+      "authored_hash": "325529d540a45ff9",
+      "rendered_hash": "330041c4eb17dff1",
+      "rendered_from": "325529d540a45ff9",
+      "rev": 0
+    },
+    "d:0131": {
+      "authored_hash": "608d3104daca69c7",
+      "rendered_hash": "857b63f46dfe511c",
+      "rendered_from": "608d3104daca69c7",
+      "rev": 0
+    },
+    "d:0132": {
+      "authored_hash": "c62ea7a50f50e1c8",
+      "rendered_hash": "b68e4e9621b0cece",
+      "rendered_from": "c62ea7a50f50e1c8",
+      "rev": 0
+    },
+    "d:0133": {
+      "authored_hash": "b69e629b81a4154b",
+      "rendered_hash": "e8697a513720049e",
+      "rendered_from": "b69e629b81a4154b",
+      "rev": 0
+    },
+    "d:0135": {
+      "authored_hash": "03451f8a549485b3",
+      "rendered_hash": "3583175e1f601492",
+      "rendered_from": "03451f8a549485b3",
+      "rev": 0
+    },
+    "d:0136": {
+      "authored_hash": "cfa030722b4884c6",
+      "rendered_hash": "af261ac444f3baee",
+      "rendered_from": "cfa030722b4884c6",
+      "rev": 0
+    },
+    "d:0137": {
+      "authored_hash": "e0d9137fb4338dc1",
+      "rendered_hash": "73943040c9875080",
+      "rendered_from": "e0d9137fb4338dc1",
+      "rev": 0
+    },
+    "d:0138": {
+      "authored_hash": "5953df20bf12e0b8",
+      "rendered_hash": "dd3ada4e1e1e39a6",
+      "rendered_from": "5953df20bf12e0b8",
+      "rev": 0
+    },
+    "d:0139": {
+      "authored_hash": "b133d105f7b9b498",
+      "rendered_hash": "9afb21e618ee7994",
+      "rendered_from": "b133d105f7b9b498",
+      "rev": 0
+    },
+    "d:0140": {
+      "authored_hash": "72b24785befee55e",
+      "rendered_hash": "20b1b0bbce3581e3",
+      "rendered_from": "72b24785befee55e",
+      "rev": 0
+    },
+    "d:0141": {
+      "authored_hash": "d12e6a849a7e74e7",
+      "rendered_hash": "5dd197c4aff84a7c",
+      "rendered_from": "d12e6a849a7e74e7",
+      "rev": 0
+    },
+    "d:0142": {
+      "authored_hash": "e795273791f1a8af",
+      "rendered_hash": "07604bb7b6a829fd",
+      "rendered_from": "e795273791f1a8af",
+      "rev": 0
+    },
+    "d:0143": {
+      "authored_hash": "5a480ac723ec89a1",
+      "rendered_hash": "d7f06b0c5e36190b",
+      "rendered_from": "5a480ac723ec89a1",
+      "rev": 0
+    },
+    "d:0144": {
+      "authored_hash": "1bc09764eafa5a71",
+      "rendered_hash": "17e7ff25f43a2707",
+      "rendered_from": "1bc09764eafa5a71",
+      "rev": 0
+    },
+    "d:0145": {
+      "authored_hash": "9e6bda606fb68fdc",
+      "rendered_hash": "01834bae009d0ea9",
+      "rendered_from": "9e6bda606fb68fdc",
+      "rev": 0
+    },
+    "d:0146": {
+      "authored_hash": "244159aefccf8d47",
+      "rendered_hash": "f21879770c9836b9",
+      "rendered_from": "244159aefccf8d47",
+      "rev": 0
+    },
+    "d:0147": {
+      "authored_hash": "569d749a38a4d0b5",
+      "rendered_hash": "e7d631ca05542fbc",
+      "rendered_from": "569d749a38a4d0b5",
+      "rev": 0
+    },
+    "d:0148": {
+      "authored_hash": "5c3e7d322f4fb3a8",
+      "rendered_hash": "2243b9bf34910641",
+      "rendered_from": "5c3e7d322f4fb3a8",
+      "rev": 0
+    },
+    "d:0149": {
+      "authored_hash": "f32db0e37496ea15",
+      "rendered_hash": "03ef7e8fe01d3983",
+      "rendered_from": "f32db0e37496ea15",
+      "rev": 0
+    },
+    "d:0150": {
+      "authored_hash": "21d03ddd1b5ee08e",
+      "rendered_hash": "8837cb28d6400b9a",
+      "rendered_from": "21d03ddd1b5ee08e",
+      "rev": 0
+    },
+    "d:0151": {
+      "authored_hash": "7b927dad216256b2",
+      "rendered_hash": "937393facf388fa0",
+      "rendered_from": "7b927dad216256b2",
+      "rev": 0
+    },
+    "d:0152": {
+      "authored_hash": "f8c6fb37af6576d9",
+      "rendered_hash": "d6d8df13b573f26e",
+      "rendered_from": "f8c6fb37af6576d9",
+      "rev": 0
+    },
+    "d:0153": {
+      "authored_hash": "acb22eb9bb37b464",
+      "rendered_hash": "a9fb3f41c551fe66",
+      "rendered_from": "acb22eb9bb37b464",
+      "rev": 0
+    },
+    "d:0154": {
+      "authored_hash": "694098f0f456d4ee",
+      "rendered_hash": "60a8c592b72895ba",
+      "rendered_from": "694098f0f456d4ee",
+      "rev": 0
+    },
+    "d:0156": {
+      "authored_hash": "ce9c4d12e1d30a7a",
+      "rendered_hash": "e5e33f7e823f87b3",
+      "rendered_from": "ce9c4d12e1d30a7a",
+      "rev": 0
+    },
+    "d:0157": {
+      "authored_hash": "5fecdc0019857874",
+      "rendered_hash": "236b423cc58927bc",
+      "rendered_from": "5fecdc0019857874",
+      "rev": 0
+    },
+    "d:0158": {
+      "authored_hash": "1f60cee2c1f0462a",
+      "rendered_hash": "09d386a555cc5f25",
+      "rendered_from": "1f60cee2c1f0462a",
+      "rev": 0
+    },
+    "d:0159": {
+      "authored_hash": "4e3a58ef2c4bfd9b",
+      "rendered_hash": "09e8a1b9155e2d63",
+      "rendered_from": "4e3a58ef2c4bfd9b",
+      "rev": 0
+    },
+    "d:0160": {
+      "authored_hash": "dcbbe62b3d4b4cbb",
+      "rendered_hash": "7e4642c849bb2d10",
+      "rendered_from": "dcbbe62b3d4b4cbb",
+      "rev": 0
+    },
+    "d:0161": {
+      "authored_hash": "a87310989c843d90",
+      "rendered_hash": "572dfe934eb77c32",
+      "rendered_from": "a87310989c843d90",
+      "rev": 0
+    },
+    "d:0162": {
+      "authored_hash": "05e9fd291c09bba6",
+      "rendered_hash": "31d1e11d01959f99",
+      "rendered_from": "05e9fd291c09bba6",
+      "rev": 0
+    },
+    "d:0163": {
+      "authored_hash": "9c3875a87557a69f",
+      "rendered_hash": "daaf6267a05e827b",
+      "rendered_from": "9c3875a87557a69f",
+      "rev": 0
+    },
+    "d:0164": {
+      "authored_hash": "523bff318bcc4777",
+      "rendered_hash": "bcdae5e2296c6d89",
+      "rendered_from": "523bff318bcc4777",
+      "rev": 0
+    },
+    "d:0165": {
+      "authored_hash": "f55728483510dde6",
+      "rendered_hash": "88f1b39a0af663c6",
+      "rendered_from": "f55728483510dde6",
+      "rev": 0
+    },
+    "d:0166": {
+      "authored_hash": "06bddad493fc9f88",
+      "rendered_hash": "85fdadf1a2a36e85",
+      "rendered_from": "06bddad493fc9f88",
+      "rev": 0
+    },
+    "d:0167": {
+      "authored_hash": "056fc62955abf666",
+      "rendered_hash": "62886e8800305026",
+      "rendered_from": "056fc62955abf666",
+      "rev": 0
+    },
+    "d:0168": {
+      "authored_hash": "54de57aa8f7fc216",
+      "rendered_hash": "9dc005549823aab9",
+      "rendered_from": "54de57aa8f7fc216",
+      "rev": 0
+    },
+    "d:0169": {
+      "authored_hash": "b26fe72b891ac4ca",
+      "rendered_hash": "d284a363bff898e4",
+      "rendered_from": "b26fe72b891ac4ca",
+      "rev": 0
+    },
+    "d:0171": {
+      "authored_hash": "c0d0e336d02ff71a",
+      "rendered_hash": "982d251207be4bde",
+      "rendered_from": "c0d0e336d02ff71a",
+      "rev": 0
+    },
+    "d:0172": {
+      "authored_hash": "5ada28ee7da53aa4",
+      "rendered_hash": "0913a54d6155985e",
+      "rendered_from": "5ada28ee7da53aa4",
+      "rev": 0
+    },
+    "d:0173": {
+      "authored_hash": "ef6cdf69316c4f82",
+      "rendered_hash": "838f9abf22aa93f5",
+      "rendered_from": "ef6cdf69316c4f82",
+      "rev": 0
+    },
+    "d:0174": {
+      "authored_hash": "7da7160587e84f3c",
+      "rendered_hash": "688a05046a3cdcdc",
+      "rendered_from": "7da7160587e84f3c",
+      "rev": 0
+    },
+    "d:0175": {
+      "authored_hash": "70cf5f03ed7b6116",
+      "rendered_hash": "deae2e8556925e7b",
+      "rendered_from": "70cf5f03ed7b6116",
+      "rev": 0
+    },
+    "d:0177": {
+      "authored_hash": "450b657b29426f20",
+      "rendered_hash": "1dbfd92850f467bf",
+      "rendered_from": "450b657b29426f20",
+      "rev": 0
+    },
+    "d:0178": {
+      "authored_hash": "b0a0259432ad57ca",
+      "rendered_hash": "bc99ae86c5657500",
+      "rendered_from": "b0a0259432ad57ca",
+      "rev": 0
+    },
+    "d:0179": {
+      "authored_hash": "ed21eca441525523",
+      "rendered_hash": "ebf990ff1d64ac40",
+      "rendered_from": "ed21eca441525523",
+      "rev": 0
+    },
+    "d:0180": {
+      "authored_hash": "077bc9d5cfe96c54",
+      "rendered_hash": "2ae0909ecc87ca5e",
+      "rendered_from": "077bc9d5cfe96c54",
+      "rev": 0
+    },
+    "d:0181": {
+      "authored_hash": "e5295ba19f8f99bb",
+      "rendered_hash": "dfc244bfac1b32e1",
+      "rendered_from": "e5295ba19f8f99bb",
+      "rev": 0
+    },
+    "d:0182": {
+      "authored_hash": "5abd22189b569477",
+      "rendered_hash": "c78e7ad8d795eba4",
+      "rendered_from": "5abd22189b569477",
+      "rev": 0
+    },
+    "d:0183": {
+      "authored_hash": "924e67f5f180cefb",
+      "rendered_hash": "36421fbc49b9cc38",
+      "rendered_from": "924e67f5f180cefb",
+      "rev": 0
+    },
+    "d:0001": {
+      "authored_hash": null,
+      "rendered_hash": "42eafac811eaff44",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0015": {
+      "authored_hash": null,
+      "rendered_hash": "b128e46a4b84ff7f",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0049": {
+      "authored_hash": null,
+      "rendered_hash": "9ef0dce18e8c4b94",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0057": {
+      "authored_hash": null,
+      "rendered_hash": "9ad7f5a96b3e3b6f",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0074": {
+      "authored_hash": null,
+      "rendered_hash": "64d6515875ab357c",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0083": {
+      "authored_hash": null,
+      "rendered_hash": "e00b04dade1949d4",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0089": {
+      "authored_hash": null,
+      "rendered_hash": "b14647690e916aed",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0101": {
+      "authored_hash": null,
+      "rendered_hash": "c6d50b2ed21db6a2",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0109": {
+      "authored_hash": null,
+      "rendered_hash": "7052d38d54bd5fa4",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0117": {
+      "authored_hash": null,
+      "rendered_hash": "b375443f89b9b0bc",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0126": {
+      "authored_hash": null,
+      "rendered_hash": "e8418d7fe3d6496c",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0134": {
+      "authored_hash": null,
+      "rendered_hash": "f0c3a6847165741c",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0155": {
+      "authored_hash": null,
+      "rendered_hash": "298139e297e24edd",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0170": {
+      "authored_hash": null,
+      "rendered_hash": "892919f9cd250105",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0176": {
+      "authored_hash": null,
+      "rendered_hash": "44960ec6004d554d",
+      "rendered_from": "static:cc529d451baf016d",
+      "rev": 0
+    },
+    "d:0184": {
+      "authored_hash": null,
+      "rendered_hash": "d6d8df13b573f26e",
+      "rendered_from": "exact:d6d8df13b573f26e",
+      "rev": 0
+    },
+    "d:0185": {
+      "authored_hash": null,
+      "rendered_hash": "c622d208594dc2e9",
+      "rendered_from": "exact:c622d208594dc2e9",
+      "rev": 0
+    },
+    "d:0186": {
+      "authored_hash": null,
+      "rendered_hash": "b81adf3e25c81404",
+      "rendered_from": "exact:b81adf3e25c81404",
+      "rev": 0
+    },
+    "d:0187": {
+      "authored_hash": null,
+      "rendered_hash": "267752da8abe3a54",
+      "rendered_from": "exact:267752da8abe3a54",
+      "rev": 0
+    },
+    "d:0188": {
+      "authored_hash": null,
+      "rendered_hash": "7071b4bc3e56fdd4",
+      "rendered_from": "exact:7071b4bc3e56fdd4",
+      "rev": 0
+    },
+    "d:0189": {
+      "authored_hash": null,
+      "rendered_hash": "31869d62be9b919b",
+      "rendered_from": "exact:31869d62be9b919b",
+      "rev": 0
+    },
+    "d:0190": {
+      "authored_hash": null,
+      "rendered_hash": "f0fc3d7ad7f4b0fd",
+      "rendered_from": "exact:f0fc3d7ad7f4b0fd",
+      "rev": 0
+    },
+    "d:0191": {
+      "authored_hash": null,
+      "rendered_hash": "ac5aa78f889075bd",
+      "rendered_from": "exact:ac5aa78f889075bd",
+      "rev": 0
+    },
+    "d:0192": {
+      "authored_hash": null,
+      "rendered_hash": "cd3912b1ebde1932",
+      "rendered_from": "exact:cd3912b1ebde1932",
+      "rev": 0
+    },
+    "d:0193": {
+      "authored_hash": null,
+      "rendered_hash": "e8697a513720049e",
+      "rendered_from": "exact:e8697a513720049e",
+      "rev": 0
+    },
+    "d:0194": {
+      "authored_hash": null,
+      "rendered_hash": "2ec2857783845122",
+      "rendered_from": "exact:2ec2857783845122",
+      "rev": 0
+    },
+    "d:0195": {
+      "authored_hash": null,
+      "rendered_hash": "c78e7ad8d795eba4",
+      "rendered_from": "exact:c78e7ad8d795eba4",
+      "rev": 0
+    },
+    "d:0196": {
+      "authored_hash": null,
+      "rendered_hash": "64a01dc2d03dbd58",
+      "rendered_from": "exact:64a01dc2d03dbd58",
+      "rev": 0
+    },
+    "d:0197": {
+      "authored_hash": null,
+      "rendered_hash": "dac5be5fddcccc07",
+      "rendered_from": "exact:dac5be5fddcccc07",
+      "rev": 0
+    },
+    "d:0198": {
+      "authored_hash": null,
+      "rendered_hash": "857b63f46dfe511c",
+      "rendered_from": "exact:857b63f46dfe511c",
+      "rev": 0
+    },
+    "d:0199": {
+      "authored_hash": null,
+      "rendered_hash": "a1f19e4643ad3ca4",
+      "rendered_from": "draft:d32fe1f36c37253b",
+      "rev": 0
+    },
+    "d:0200": {
+      "authored_hash": null,
+      "rendered_hash": "523d9a029a5e82bc",
+      "rendered_from": "draft:bb2db7ef5568fa7a",
+      "rev": 0
+    },
+    "d:0201": {
+      "authored_hash": null,
+      "rendered_hash": "e529993e4d3bc22b",
+      "rendered_from": "draft:5ac8ebf6f8580c00",
+      "rev": 0
+    },
+    "d:0202": {
+      "authored_hash": null,
+      "rendered_hash": "f9784ddad4495908",
+      "rendered_from": "draft:d41f82cf32377382",
+      "rev": 0
+    },
+    "d:0203": {
+      "authored_hash": null,
+      "rendered_hash": "6afc25942db3c11b",
+      "rendered_from": "draft:f55728483510dde6",
+      "rev": 0
+    },
+    "d:0204": {
+      "authored_hash": null,
+      "rendered_hash": "6d03544855cd6ec3",
+      "rendered_from": "draft:02510b232b2842b8",
+      "rev": 0
+    },
+    "d:0205": {
+      "authored_hash": null,
+      "rendered_hash": "bd6f58e1ee1f82e0",
+      "rendered_from": "draft:57e1e19e63dea192",
+      "rev": 0
+    },
+    "d:0206": {
+      "authored_hash": null,
+      "rendered_hash": "1ed957804493331c",
+      "rendered_from": "draft:0e3ed54b43e98c0c",
+      "rev": 0
+    },
+    "d:0207": {
+      "authored_hash": null,
+      "rendered_hash": "5643f7eac5d53609",
+      "rendered_from": "draft:b0ed920c3e55a5f3",
+      "rev": 0
+    },
+    "d:0208": {
+      "authored_hash": null,
+      "rendered_hash": "dcb9104ed6ad79fe",
+      "rendered_from": "draft:f32db0e37496ea15",
+      "rev": 0
+    },
+    "d:0209": {
+      "authored_hash": null,
+      "rendered_hash": "a0f28d52b5517ebf",
+      "rendered_from": "draft:acb22eb9bb37b464",
+      "rev": 0
+    },
+    "d:0210": {
+      "authored_hash": null,
+      "rendered_hash": "aea039a5a325c8e1",
+      "rendered_from": "draft:520122f52383ddd4",
+      "rev": 0
+    },
+    "d:0211": {
+      "authored_hash": null,
+      "rendered_hash": "a74c208c4daa65b3",
+      "rendered_from": "draft:7b927dad216256b2",
+      "rev": 0
+    },
+    "d:0212": {
+      "authored_hash": null,
+      "rendered_hash": "8e790ef0c41cf4c0",
+      "rendered_from": "draft:450b657b29426f20",
+      "rev": 0
+    },
+    "d:0213": {
+      "authored_hash": null,
+      "rendered_hash": "fda07ffdbced211b",
+      "rendered_from": "draft:ea17923e9cf3f336",
+      "rev": 0
+    },
+    "d:0214": {
+      "authored_hash": null,
+      "rendered_hash": "b561815030fe4014",
+      "rendered_from": "draft:836b7b0ec658c092",
+      "rev": 0
+    },
+    "d:0215": {
+      "authored_hash": null,
+      "rendered_hash": "050ba39c413dfd54",
+      "rendered_from": "draft:05e9fd291c09bba6",
+      "rev": 0
+    },
+    "d:0216": {
+      "authored_hash": null,
+      "rendered_hash": "c93b78f4314710ac",
+      "rendered_from": "draft:ce9c4d12e1d30a7a",
+      "rev": 0
+    },
+    "d:0217": {
+      "authored_hash": null,
+      "rendered_hash": "670549c602013545",
+      "rendered_from": "draft:63d8610ab5567f15",
+      "rev": 0
+    },
+    "d:0218": {
+      "authored_hash": null,
+      "rendered_hash": "55d4b7a5e8108331",
+      "rendered_from": "draft:6a3490eac23c3e27",
+      "rev": 0
+    }
+  },
+  "outstanding": {},
+  "author_batches": {},
+  "probes": {
+    "python": "3.10.12",
+    "pydantic": "ok",
+    "yaml": "ok",
+    "jinja2": "ok",
+    "faker": "ok",
+    "docx": "ok",
+    "xlsxwriter": "ok",
+    "pypdf": "ok",
+    "pikepdf": "ok",
+    "openpyxl": "ok",
+    "pptx": "ok",
+    "pypdfium2": "ok",
+    "PIL": "ok",
+    "numpy": "ok",
+    "olefile": "ok",
+    "xlrd": "ok",
+    "weasyprint": "ok",
+    "soffice": "ok"
+  },
+  "fallbacks": [],
+  "generators": {
+    "wo:foundation:0001": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0001": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0002": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0003": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0004": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0005": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0006": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0007": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0008": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0009": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0010": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0011": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0012": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0013": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0014": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0015": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0016": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0017": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0018": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0019": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0020": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0021": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0022": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0023": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0024": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0026": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0027": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0025": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0028": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0029": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0030": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0031": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0032": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0033": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0034": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0035": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0036": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    },
+    "wo:author:0037": {
+      "model": "claude-opus-4-8[1m]",
+      "effort": "xhigh"
+    }
+  }
+}

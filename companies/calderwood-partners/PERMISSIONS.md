@@ -1,0 +1,1363 @@
+# PERMISSIONS
+
+Read-access ground truth for Calderwood Partners LLC (calderwood-partners); posture: departmental.
+Derived from ledger/acl.json; regenerate with `python -m orgsmith acl calderwood-partners`.
+
+## Julie Ramsey (Managing Principal)
+
+- Engagements/Brown and Sons/2009.06.15 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2009.06.28 - Kickoff Memo - Cost Transformation.docx
+- Engagements/Brown and Sons/2009.07.23 - Email 1 - Cost Transformation - Brown and Sons.eml
+- Engagements/Brown and Sons/2009.07.27 - Email 2 - Cost Transformation - Brown and Sons.eml
+- Engagements/Brown and Sons/2009.08.18 - Briefing Deck - Brown and Sons.pptx
+- Engagements/Brown and Sons/2009.10.12 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/2017.06.22 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization (copy).docx
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization.docx
+- Engagements/Brown and Sons/2017.07.31 - Email 1 - Footprint Rationalization - Brown and Sons.eml
+- Engagements/Brown and Sons/2017.10.11 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/Meeting Minutes 2009-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2009-12-18 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-12-20 - Brown and Sons.docx
+- Engagements/Carroll, Merritt and Williams/2009.04.12 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2009.04.25 - Kickoff Memo - Post-Merger Integration.docx
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams - DRAFT.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Briefing Deck - Carroll, Merritt and Williams.pptx
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Email 2 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.06.22 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/2019.05.09 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2019.05.22 - Kickoff Memo - Customer Retention Program.docx
+- Engagements/Carroll, Merritt and Williams/2019.06.17 - Email 1 - Customer Retention Program - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2019.10.01 - Status Report - Carroll, Merritt and Williams v2 FINAL - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/2019.10.01 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/2020.01.29 - Status Report - Carroll, Merritt and Williams v2 FINAL - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/2020.01.29 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2009-06-09 - Carroll, Merritt and Williams.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-09-04 - Carroll, Merritt and Williams - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-09-04 - Carroll, Merritt and Williams.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-12-03 - Carroll, Merritt and Williams - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-12-03 - Carroll, Merritt and Williams.docx
+- Engagements/Garcia-Werner/2012.05.11 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2012.05.24 - Kickoff Memo - Market Entry Assessment.docx
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner - DRAFT.eml
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2012.07.11 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/2021.03.22 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2021.04.04 - Kickoff Memo - Back-Office Automation.docx
+- Engagements/Garcia-Werner/2021.04.29 - Email 1 - Back-Office Automation - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2021.05.25 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2012-06-29 - Garcia-Werner.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2021-05-14 - Garcia-Werner.docx
+- Engagements/Garza, Leblanc and Porter/2009.06.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2009.06.25 - Kickoff Memo - Pricing Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2009.07.20 - Email 1 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.07.22 - Email 2 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter - DRAFT.pptx
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter.pptx
+- Engagements/Garza, Leblanc and Porter/2009.10.09 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/2019.03.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2019.03.25 - Kickoff Memo - Portfolio Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2019.04.19 - Email 1 - Portfolio Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2019.07.28 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/2019.11.25 - Status Report - Garza, Leblanc and Porter v2 FINAL (copy).docx
+- Engagements/Garza, Leblanc and Porter/2019.11.25 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2019-07-02 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2019-09-30 - Garza, Leblanc and Porter.docx
+- Engagements/Hughes Group/2008.05.08 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2008.05.21 - Kickoff Memo - Operating Model Redesign.docx
+- Engagements/Hughes Group/2008.06.16 - Email 1 - Operating Model Redesign - Hughes Group.eml
+- Engagements/Hughes Group/2008.06.17 - Email 2 - Operating Model Redesign - Hughes Group.eml
+- Engagements/Hughes Group/2008.07.13 - Briefing Deck - Hughes Group.pptx
+- Engagements/Hughes Group/2008.09.08 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/2016.02.17 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2016.03.01 - Kickoff Memo - Sales Effectiveness.docx
+- Engagements/Hughes Group/2016.03.25 - Email 1 - Sales Effectiveness - Hughes Group.eml
+- Engagements/Hughes Group/2016.05.13 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/Meeting Minutes 2008-08-15 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2008-11-14 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-04-28 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-07-27 - Hughes Group.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.06 - Engagement Letter - Johnson, Lopez and Brooks - EXECUTED.pdf
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence - DRAFT.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence.docx
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks (copy).eml
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks.eml
+- Engagements/Johnson, Lopez and Brooks/2015.10.06 - Status Report - Johnson, Lopez and Brooks v2 FINAL.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-09-14 - Johnson, Lopez and Brooks.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-12-11 - Johnson, Lopez and Brooks.docx
+- Engagements/Key Group/2009.06.24 - Engagement Letter - Key Group - EXECUTED.pdf
+- Engagements/Key Group/2009.07.07 - Kickoff Memo - Growth Strategy.docx
+- Engagements/Key Group/2009.07.31 - Email 1 - Growth Strategy - Key Group - DRAFT.eml
+- Engagements/Key Group/2009.07.31 - Email 1 - Growth Strategy - Key Group.eml
+- Engagements/Key Group/2009.08.03 - Email 2 - Growth Strategy - Key Group.eml
+- Engagements/Key Group/2009.08.24 - Briefing Deck - Key Group (copy).pptx
+- Engagements/Key Group/2009.08.24 - Briefing Deck - Key Group.pptx
+- Engagements/Key Group/2009.10.14 - Status Report - Key Group v2 FINAL.docx
+- Engagements/Key Group/2018.01.28 - Engagement Letter - Key Group - EXECUTED (copy).pdf
+- Engagements/Key Group/2018.01.28 - Engagement Letter - Key Group - EXECUTED.pdf
+- Engagements/Key Group/2018.02.10 - Kickoff Memo - Shared Services Design.docx
+- Engagements/Key Group/2018.03.07 - Email 1 - Shared Services Design - Key Group.eml
+- Engagements/Key Group/2018.06.06 - Status Report - Key Group v2 FINAL.docx
+- Engagements/Key Group/Meeting Minutes 2009-09-24 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2009-12-23 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2009-12-23 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2018-05-14 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2018-05-14 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2018-08-10 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2018-08-10 - Key Group.docx
+- Engagements/Pacheco-Casey/2014.02.19 - Engagement Letter - Pacheco-Casey - EXECUTED.pdf
+- Engagements/Pacheco-Casey/2014.03.04 - Kickoff Memo - Procurement Transformation.docx
+- Engagements/Pacheco-Casey/2014.03.28 - Email 1 - Procurement Transformation - Pacheco-Casey.eml
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-06-09 - Pacheco-Casey.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-09-05 - Pacheco-Casey.docx
+- Engagements/Poole, Mcknight and Rush/2010.05.08 - Engagement Letter - Poole, Mcknight and Rush - EXECUTED.pdf
+- Engagements/Poole, Mcknight and Rush/2010.05.21 - Kickoff Memo - Supply Chain Review.docx
+- Engagements/Poole, Mcknight and Rush/2010.06.14 - Briefing Deck - Poole, Mcknight and Rush.pptx
+- Engagements/Poole, Mcknight and Rush/2010.06.15 - Email 1 - Supply Chain Review - Poole, Mcknight and Rush - DRAFT.eml
+- Engagements/Poole, Mcknight and Rush/2010.06.15 - Email 1 - Supply Chain Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2010.06.17 - Email 2 - Supply Chain Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2010.07.11 - Status Report - Poole, Mcknight and Rush v2 FINAL.docx
+- Engagements/Poole, Mcknight and Rush/2019.02.12 - Engagement Letter - Poole, Mcknight and Rush - EXECUTED.pdf
+- Engagements/Poole, Mcknight and Rush/2019.02.25 - Kickoff Memo - Capital Allocation Review.docx
+- Engagements/Poole, Mcknight and Rush/2019.03.22 - Email 1 - Capital Allocation Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2019.05.30 - Status Report - Poole, Mcknight and Rush v2 FINAL.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2010-06-30 - Poole, Mcknight and Rush.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2019-05-10 - Poole, Mcknight and Rush.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2019-08-09 - Poole, Mcknight and Rush.docx
+- Engagements/Scott, Smith and Edwards/2011.02.06 - Engagement Letter - Scott, Smith and Edwards - EXECUTED.pdf
+- Engagements/Scott, Smith and Edwards/2011.02.19 - Kickoff Memo - Digital Operating Model.docx
+- Engagements/Scott, Smith and Edwards/2011.03.11 - Briefing Deck - Scott, Smith and Edwards.pptx
+- Engagements/Scott, Smith and Edwards/2011.03.16 - Email 1 - Digital Operating Model - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2011.03.18 - Email 2 - Digital Operating Model - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2011.04.03 - Status Report - Scott, Smith and Edwards v2 FINAL.docx
+- Engagements/Scott, Smith and Edwards/2020.03.06 - Engagement Letter - Scott, Smith and Edwards - EXECUTED.pdf
+- Engagements/Scott, Smith and Edwards/2020.03.19 - Kickoff Memo - Service Delivery Redesign.docx
+- Engagements/Scott, Smith and Edwards/2020.04.13 - Email 1 - Service Delivery Redesign - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2020.07.01 - Status Report - Scott, Smith and Edwards v2 FINAL.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2011-03-25 - Scott, Smith and Edwards.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2020-06-10 - Scott, Smith and Edwards.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2020-09-08 - Scott, Smith and Edwards.docx
+- Engagements/Stark-Wilson/2011.04.30 - Engagement Letter - Stark-Wilson - EXECUTED.pdf
+- Engagements/Stark-Wilson/2011.05.13 - Kickoff Memo - Organization Design.docx
+- Engagements/Stark-Wilson/2011.06.07 - Email 1 - Organization Design - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2011.06.09 - Email 2 - Organization Design - Stark-Wilson - DRAFT.eml
+- Engagements/Stark-Wilson/2011.06.09 - Email 2 - Organization Design - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2011.06.13 - Briefing Deck - Stark-Wilson.pptx
+- Engagements/Stark-Wilson/2011.07.17 - Status Report - Stark-Wilson v2 FINAL.docx
+- Engagements/Stark-Wilson/2020.03.22 - Engagement Letter - Stark-Wilson - EXECUTED.pdf
+- Engagements/Stark-Wilson/2020.04.04 - Kickoff Memo - Channel Strategy.docx
+- Engagements/Stark-Wilson/2020.04.29 - Email 1 - Channel Strategy - Stark-Wilson - DRAFT.eml
+- Engagements/Stark-Wilson/2020.04.29 - Email 1 - Channel Strategy - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2020.06.11 - Status Report - Stark-Wilson v2 FINAL - DRAFT.docx
+- Engagements/Stark-Wilson/2020.06.11 - Status Report - Stark-Wilson v2 FINAL.docx
+- Engagements/Stark-Wilson/Meeting Minutes 2011-07-04 - Stark-Wilson.docx
+- Engagements/Stark-Wilson/Meeting Minutes 2020-05-28 - Stark-Wilson.docx
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED (copy).pdf
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2013.08.12 - Kickoff Memo - Working Capital Program.docx
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray - DRAFT.eml
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2013.11.20 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED - DRAFT.pdf
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2022.05.17 - Kickoff Memo - Margin Recovery Program.docx
+- Engagements/Walker-Murray/2022.06.10 - Email 1 - Margin Recovery Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL (copy).docx
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/Meeting Minutes 2013-10-30 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray - DRAFT.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-08-08 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-11-07 - Walker-Murray.docx
+- Finance/FY2007 Financial Summary.xlsx
+- Finance/FY2008 Financial Summary.xlsx
+- Finance/FY2009 Financial Summary.xlsx
+- Finance/FY2010 Financial Summary.xlsx
+- Finance/FY2011 Financial Summary.xlsx
+- Finance/FY2012 Financial Summary.xlsx
+- Finance/FY2013 Financial Summary.xlsx
+- Finance/FY2014 Financial Summary.xlsx
+- Finance/FY2015 Financial Summary.xlsx
+- Finance/FY2016 Financial Summary.xlsx
+- Finance/FY2017 Financial Summary.xlsx
+- Finance/FY2018 Financial Summary.xlsx
+- Finance/FY2019 Financial Summary.xlsx
+- Finance/FY2020 Financial Summary.xlsx
+- Finance/FY2021 Financial Summary.xlsx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Jason Torres (Principal)
+
+- Engagements/Carroll, Merritt and Williams/2009.04.12 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2009.04.25 - Kickoff Memo - Post-Merger Integration.docx
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams - DRAFT.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Briefing Deck - Carroll, Merritt and Williams.pptx
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Email 2 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.06.22 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2009-06-09 - Carroll, Merritt and Williams.docx
+- Engagements/Garcia-Werner/2012.05.11 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2012.05.24 - Kickoff Memo - Market Entry Assessment.docx
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner - DRAFT.eml
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2012.07.11 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2012-06-29 - Garcia-Werner.docx
+- Engagements/Hughes Group/2008.05.08 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2008.05.21 - Kickoff Memo - Operating Model Redesign.docx
+- Engagements/Hughes Group/2008.06.16 - Email 1 - Operating Model Redesign - Hughes Group.eml
+- Engagements/Hughes Group/2008.06.17 - Email 2 - Operating Model Redesign - Hughes Group.eml
+- Engagements/Hughes Group/2008.07.13 - Briefing Deck - Hughes Group.pptx
+- Engagements/Hughes Group/2008.09.08 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/2016.02.17 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2016.03.01 - Kickoff Memo - Sales Effectiveness.docx
+- Engagements/Hughes Group/2016.03.25 - Email 1 - Sales Effectiveness - Hughes Group.eml
+- Engagements/Hughes Group/2016.05.13 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/Meeting Minutes 2008-08-15 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2008-11-14 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-04-28 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-07-27 - Hughes Group.docx
+- Engagements/Key Group/2018.01.28 - Engagement Letter - Key Group - EXECUTED (copy).pdf
+- Engagements/Key Group/2018.01.28 - Engagement Letter - Key Group - EXECUTED.pdf
+- Engagements/Key Group/2018.02.10 - Kickoff Memo - Shared Services Design.docx
+- Engagements/Key Group/2018.03.07 - Email 1 - Shared Services Design - Key Group.eml
+- Engagements/Key Group/2018.06.06 - Status Report - Key Group v2 FINAL.docx
+- Engagements/Key Group/Meeting Minutes 2018-05-14 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2018-05-14 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2018-08-10 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2018-08-10 - Key Group.docx
+- Engagements/Scott, Smith and Edwards/2011.02.06 - Engagement Letter - Scott, Smith and Edwards - EXECUTED.pdf
+- Engagements/Scott, Smith and Edwards/2011.02.19 - Kickoff Memo - Digital Operating Model.docx
+- Engagements/Scott, Smith and Edwards/2011.03.11 - Briefing Deck - Scott, Smith and Edwards.pptx
+- Engagements/Scott, Smith and Edwards/2011.03.16 - Email 1 - Digital Operating Model - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2011.03.18 - Email 2 - Digital Operating Model - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2011.04.03 - Status Report - Scott, Smith and Edwards v2 FINAL.docx
+- Engagements/Scott, Smith and Edwards/2020.03.06 - Engagement Letter - Scott, Smith and Edwards - EXECUTED.pdf
+- Engagements/Scott, Smith and Edwards/2020.03.19 - Kickoff Memo - Service Delivery Redesign.docx
+- Engagements/Scott, Smith and Edwards/2020.04.13 - Email 1 - Service Delivery Redesign - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2020.07.01 - Status Report - Scott, Smith and Edwards v2 FINAL.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2011-03-25 - Scott, Smith and Edwards.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2020-06-10 - Scott, Smith and Edwards.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2020-09-08 - Scott, Smith and Edwards.docx
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED (copy).pdf
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2013.08.12 - Kickoff Memo - Working Capital Program.docx
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray - DRAFT.eml
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2013.11.20 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED - DRAFT.pdf
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2022.05.17 - Kickoff Memo - Margin Recovery Program.docx
+- Engagements/Walker-Murray/2022.06.10 - Email 1 - Margin Recovery Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL (copy).docx
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/Meeting Minutes 2013-10-30 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray - DRAFT.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-08-08 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-11-07 - Walker-Murray.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Julie Parks (Senior Engagement Manager)
+
+- Engagements/Stark-Wilson/2011.04.30 - Engagement Letter - Stark-Wilson - EXECUTED.pdf
+- Engagements/Stark-Wilson/2011.05.13 - Kickoff Memo - Organization Design.docx
+- Engagements/Stark-Wilson/2011.06.07 - Email 1 - Organization Design - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2011.06.09 - Email 2 - Organization Design - Stark-Wilson - DRAFT.eml
+- Engagements/Stark-Wilson/2011.06.09 - Email 2 - Organization Design - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2011.06.13 - Briefing Deck - Stark-Wilson.pptx
+- Engagements/Stark-Wilson/2011.07.17 - Status Report - Stark-Wilson v2 FINAL.docx
+- Engagements/Stark-Wilson/Meeting Minutes 2011-07-04 - Stark-Wilson.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Michael Walker (Engagement Manager)
+
+
+## Brenda Rodriguez (Senior Consultant)
+
+- Engagements/Garza, Leblanc and Porter/2009.06.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2009.06.25 - Kickoff Memo - Pricing Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2009.07.20 - Email 1 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.07.22 - Email 2 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter - DRAFT.pptx
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter.pptx
+- Engagements/Garza, Leblanc and Porter/2009.10.09 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter.docx
+- Engagements/Hughes Group/2008.05.08 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2008.05.21 - Kickoff Memo - Operating Model Redesign.docx
+- Engagements/Hughes Group/2008.06.16 - Email 1 - Operating Model Redesign - Hughes Group.eml
+- Engagements/Hughes Group/2008.06.17 - Email 2 - Operating Model Redesign - Hughes Group.eml
+- Engagements/Hughes Group/2008.07.13 - Briefing Deck - Hughes Group.pptx
+- Engagements/Hughes Group/2008.09.08 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/Meeting Minutes 2008-08-15 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2008-11-14 - Hughes Group.docx
+- Engagements/Key Group/2009.06.24 - Engagement Letter - Key Group - EXECUTED.pdf
+- Engagements/Key Group/2009.07.07 - Kickoff Memo - Growth Strategy.docx
+- Engagements/Key Group/2009.07.31 - Email 1 - Growth Strategy - Key Group - DRAFT.eml
+- Engagements/Key Group/2009.07.31 - Email 1 - Growth Strategy - Key Group.eml
+- Engagements/Key Group/2009.08.03 - Email 2 - Growth Strategy - Key Group.eml
+- Engagements/Key Group/2009.08.24 - Briefing Deck - Key Group (copy).pptx
+- Engagements/Key Group/2009.08.24 - Briefing Deck - Key Group.pptx
+- Engagements/Key Group/2009.10.14 - Status Report - Key Group v2 FINAL.docx
+- Engagements/Key Group/Meeting Minutes 2009-09-24 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2009-12-23 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2009-12-23 - Key Group.docx
+- Engagements/Pacheco-Casey/2014.02.19 - Engagement Letter - Pacheco-Casey - EXECUTED.pdf
+- Engagements/Pacheco-Casey/2014.03.04 - Kickoff Memo - Procurement Transformation.docx
+- Engagements/Pacheco-Casey/2014.03.28 - Email 1 - Procurement Transformation - Pacheco-Casey.eml
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-06-09 - Pacheco-Casey.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-09-05 - Pacheco-Casey.docx
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED (copy).pdf
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2013.08.12 - Kickoff Memo - Working Capital Program.docx
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray - DRAFT.eml
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2013.11.20 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/Meeting Minutes 2013-10-30 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray - DRAFT.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Deborah Allen (Consultant)
+
+
+## James Green (Senior Associate)
+
+- Engagements/Brown and Sons/2009.06.15 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2009.06.28 - Kickoff Memo - Cost Transformation.docx
+- Engagements/Brown and Sons/2009.07.23 - Email 1 - Cost Transformation - Brown and Sons.eml
+- Engagements/Brown and Sons/2009.07.27 - Email 2 - Cost Transformation - Brown and Sons.eml
+- Engagements/Brown and Sons/2009.08.18 - Briefing Deck - Brown and Sons.pptx
+- Engagements/Brown and Sons/2009.10.12 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/Meeting Minutes 2009-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2009-12-18 - Brown and Sons.docx
+- Engagements/Garcia-Werner/2012.05.11 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2012.05.24 - Kickoff Memo - Market Entry Assessment.docx
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner - DRAFT.eml
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2012.07.11 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2012-06-29 - Garcia-Werner.docx
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED - DRAFT.pdf
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2022.05.17 - Kickoff Memo - Margin Recovery Program.docx
+- Engagements/Walker-Murray/2022.06.10 - Email 1 - Margin Recovery Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL (copy).docx
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-08-08 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-11-07 - Walker-Murray.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Deborah Gordon (Senior Associate)
+
+- Engagements/Brown and Sons/2009.06.15 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2009.06.28 - Kickoff Memo - Cost Transformation.docx
+- Engagements/Brown and Sons/2009.07.23 - Email 1 - Cost Transformation - Brown and Sons.eml
+- Engagements/Brown and Sons/2009.07.27 - Email 2 - Cost Transformation - Brown and Sons.eml
+- Engagements/Brown and Sons/2009.08.18 - Briefing Deck - Brown and Sons.pptx
+- Engagements/Brown and Sons/2009.10.12 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/2017.06.22 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization (copy).docx
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization.docx
+- Engagements/Brown and Sons/2017.07.31 - Email 1 - Footprint Rationalization - Brown and Sons.eml
+- Engagements/Brown and Sons/2017.10.11 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/Meeting Minutes 2009-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2009-12-18 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-12-20 - Brown and Sons.docx
+- Engagements/Garcia-Werner/2012.05.11 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2012.05.24 - Kickoff Memo - Market Entry Assessment.docx
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner - DRAFT.eml
+- Engagements/Garcia-Werner/2012.06.18 - Email 1 - Market Entry Assessment - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2012.07.11 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2012-06-29 - Garcia-Werner.docx
+- Engagements/Garza, Leblanc and Porter/2009.06.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2009.06.25 - Kickoff Memo - Pricing Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2009.07.20 - Email 1 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.07.22 - Email 2 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter - DRAFT.pptx
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter.pptx
+- Engagements/Garza, Leblanc and Porter/2009.10.09 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter.docx
+- Engagements/Poole, Mcknight and Rush/2010.05.08 - Engagement Letter - Poole, Mcknight and Rush - EXECUTED.pdf
+- Engagements/Poole, Mcknight and Rush/2010.05.21 - Kickoff Memo - Supply Chain Review.docx
+- Engagements/Poole, Mcknight and Rush/2010.06.14 - Briefing Deck - Poole, Mcknight and Rush.pptx
+- Engagements/Poole, Mcknight and Rush/2010.06.15 - Email 1 - Supply Chain Review - Poole, Mcknight and Rush - DRAFT.eml
+- Engagements/Poole, Mcknight and Rush/2010.06.15 - Email 1 - Supply Chain Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2010.06.17 - Email 2 - Supply Chain Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2010.07.11 - Status Report - Poole, Mcknight and Rush v2 FINAL.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2010-06-30 - Poole, Mcknight and Rush.docx
+- Engagements/Stark-Wilson/2011.04.30 - Engagement Letter - Stark-Wilson - EXECUTED.pdf
+- Engagements/Stark-Wilson/2011.05.13 - Kickoff Memo - Organization Design.docx
+- Engagements/Stark-Wilson/2011.06.07 - Email 1 - Organization Design - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2011.06.09 - Email 2 - Organization Design - Stark-Wilson - DRAFT.eml
+- Engagements/Stark-Wilson/2011.06.09 - Email 2 - Organization Design - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2011.06.13 - Briefing Deck - Stark-Wilson.pptx
+- Engagements/Stark-Wilson/2011.07.17 - Status Report - Stark-Wilson v2 FINAL.docx
+- Engagements/Stark-Wilson/Meeting Minutes 2011-07-04 - Stark-Wilson.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Daniel Leach (Associate)
+
+- Engagements/Carroll, Merritt and Williams/2009.04.12 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2009.04.25 - Kickoff Memo - Post-Merger Integration.docx
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams - DRAFT.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Briefing Deck - Carroll, Merritt and Williams.pptx
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Email 2 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.06.22 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2009-06-09 - Carroll, Merritt and Williams.docx
+- Engagements/Key Group/2009.06.24 - Engagement Letter - Key Group - EXECUTED.pdf
+- Engagements/Key Group/2009.07.07 - Kickoff Memo - Growth Strategy.docx
+- Engagements/Key Group/2009.07.31 - Email 1 - Growth Strategy - Key Group - DRAFT.eml
+- Engagements/Key Group/2009.07.31 - Email 1 - Growth Strategy - Key Group.eml
+- Engagements/Key Group/2009.08.03 - Email 2 - Growth Strategy - Key Group.eml
+- Engagements/Key Group/2009.08.24 - Briefing Deck - Key Group (copy).pptx
+- Engagements/Key Group/2009.08.24 - Briefing Deck - Key Group.pptx
+- Engagements/Key Group/2009.10.14 - Status Report - Key Group v2 FINAL.docx
+- Engagements/Key Group/Meeting Minutes 2009-09-24 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2009-12-23 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2009-12-23 - Key Group.docx
+- Engagements/Pacheco-Casey/2014.02.19 - Engagement Letter - Pacheco-Casey - EXECUTED.pdf
+- Engagements/Pacheco-Casey/2014.03.04 - Kickoff Memo - Procurement Transformation.docx
+- Engagements/Pacheco-Casey/2014.03.28 - Email 1 - Procurement Transformation - Pacheco-Casey.eml
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-06-09 - Pacheco-Casey.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-09-05 - Pacheco-Casey.docx
+- Engagements/Poole, Mcknight and Rush/2010.05.08 - Engagement Letter - Poole, Mcknight and Rush - EXECUTED.pdf
+- Engagements/Poole, Mcknight and Rush/2010.05.21 - Kickoff Memo - Supply Chain Review.docx
+- Engagements/Poole, Mcknight and Rush/2010.06.14 - Briefing Deck - Poole, Mcknight and Rush.pptx
+- Engagements/Poole, Mcknight and Rush/2010.06.15 - Email 1 - Supply Chain Review - Poole, Mcknight and Rush - DRAFT.eml
+- Engagements/Poole, Mcknight and Rush/2010.06.15 - Email 1 - Supply Chain Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2010.06.17 - Email 2 - Supply Chain Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2010.07.11 - Status Report - Poole, Mcknight and Rush v2 FINAL.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2010-06-30 - Poole, Mcknight and Rush.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Jeffrey Jackson (Director of Operations)
+
+- Finance/FY2007 Financial Summary.xlsx
+- Finance/FY2008 Financial Summary.xlsx
+- Finance/FY2009 Financial Summary.xlsx
+- Finance/FY2010 Financial Summary.xlsx
+- Finance/FY2011 Financial Summary.xlsx
+- Finance/FY2012 Financial Summary.xlsx
+- Finance/FY2013 Financial Summary.xlsx
+- Finance/FY2014 Financial Summary.xlsx
+- Finance/FY2015 Financial Summary.xlsx
+- Finance/FY2016 Financial Summary.xlsx
+- Finance/FY2017 Financial Summary.xlsx
+- Finance/FY2018 Financial Summary.xlsx
+- Finance/FY2019 Financial Summary.xlsx
+- Finance/FY2020 Financial Summary.xlsx
+- Finance/FY2021 Financial Summary.xlsx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## David Wilson (Director of Operations)
+
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Deborah Jimenez (Engagement Manager)
+
+- Engagements/Carroll, Merritt and Williams/2019.05.09 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2019.05.22 - Kickoff Memo - Customer Retention Program.docx
+- Engagements/Carroll, Merritt and Williams/2019.06.17 - Email 1 - Customer Retention Program - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2019.10.01 - Status Report - Carroll, Merritt and Williams v2 FINAL - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/2019.10.01 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/2020.01.29 - Status Report - Carroll, Merritt and Williams v2 FINAL - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/2020.01.29 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-09-04 - Carroll, Merritt and Williams - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-09-04 - Carroll, Merritt and Williams.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-12-03 - Carroll, Merritt and Williams - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-12-03 - Carroll, Merritt and Williams.docx
+- Engagements/Poole, Mcknight and Rush/2019.02.12 - Engagement Letter - Poole, Mcknight and Rush - EXECUTED.pdf
+- Engagements/Poole, Mcknight and Rush/2019.02.25 - Kickoff Memo - Capital Allocation Review.docx
+- Engagements/Poole, Mcknight and Rush/2019.03.22 - Email 1 - Capital Allocation Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2019.05.30 - Status Report - Poole, Mcknight and Rush v2 FINAL.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2019-05-10 - Poole, Mcknight and Rush.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2019-08-09 - Poole, Mcknight and Rush.docx
+- Engagements/Stark-Wilson/2020.03.22 - Engagement Letter - Stark-Wilson - EXECUTED.pdf
+- Engagements/Stark-Wilson/2020.04.04 - Kickoff Memo - Channel Strategy.docx
+- Engagements/Stark-Wilson/2020.04.29 - Email 1 - Channel Strategy - Stark-Wilson - DRAFT.eml
+- Engagements/Stark-Wilson/2020.04.29 - Email 1 - Channel Strategy - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2020.06.11 - Status Report - Stark-Wilson v2 FINAL - DRAFT.docx
+- Engagements/Stark-Wilson/2020.06.11 - Status Report - Stark-Wilson v2 FINAL.docx
+- Engagements/Stark-Wilson/Meeting Minutes 2020-05-28 - Stark-Wilson.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Brenda Clayton (Consultant)
+
+- Engagements/Brown and Sons/2017.06.22 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization (copy).docx
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization.docx
+- Engagements/Brown and Sons/2017.07.31 - Email 1 - Footprint Rationalization - Brown and Sons.eml
+- Engagements/Brown and Sons/2017.10.11 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-12-20 - Brown and Sons.docx
+- Engagements/Poole, Mcknight and Rush/2019.02.12 - Engagement Letter - Poole, Mcknight and Rush - EXECUTED.pdf
+- Engagements/Poole, Mcknight and Rush/2019.02.25 - Kickoff Memo - Capital Allocation Review.docx
+- Engagements/Poole, Mcknight and Rush/2019.03.22 - Email 1 - Capital Allocation Review - Poole, Mcknight and Rush.eml
+- Engagements/Poole, Mcknight and Rush/2019.05.30 - Status Report - Poole, Mcknight and Rush v2 FINAL.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2019-05-10 - Poole, Mcknight and Rush.docx
+- Engagements/Poole, Mcknight and Rush/Meeting Minutes 2019-08-09 - Poole, Mcknight and Rush.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Mary Parker (Research Associate)
+
+- Engagements/Carroll, Merritt and Williams/2009.04.12 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2009.04.25 - Kickoff Memo - Post-Merger Integration.docx
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams - DRAFT.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.20 - Email 1 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Briefing Deck - Carroll, Merritt and Williams.pptx
+- Engagements/Carroll, Merritt and Williams/2009.05.22 - Email 2 - Post-Merger Integration - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2009.06.22 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/2019.05.09 - Engagement Letter - Carroll, Merritt and Williams - EXECUTED.pdf
+- Engagements/Carroll, Merritt and Williams/2019.05.22 - Kickoff Memo - Customer Retention Program.docx
+- Engagements/Carroll, Merritt and Williams/2019.06.17 - Email 1 - Customer Retention Program - Carroll, Merritt and Williams.eml
+- Engagements/Carroll, Merritt and Williams/2019.10.01 - Status Report - Carroll, Merritt and Williams v2 FINAL - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/2019.10.01 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/2020.01.29 - Status Report - Carroll, Merritt and Williams v2 FINAL - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/2020.01.29 - Status Report - Carroll, Merritt and Williams v2 FINAL.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2009-06-09 - Carroll, Merritt and Williams.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-09-04 - Carroll, Merritt and Williams - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-09-04 - Carroll, Merritt and Williams.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-12-03 - Carroll, Merritt and Williams - DRAFT.docx
+- Engagements/Carroll, Merritt and Williams/Meeting Minutes 2019-12-03 - Carroll, Merritt and Williams.docx
+- Engagements/Garza, Leblanc and Porter/2009.06.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2009.06.25 - Kickoff Memo - Pricing Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2009.07.20 - Email 1 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.07.22 - Email 2 - Pricing Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter - DRAFT.pptx
+- Engagements/Garza, Leblanc and Porter/2009.08.15 - Briefing Deck - Garza, Leblanc and Porter.pptx
+- Engagements/Garza, Leblanc and Porter/2009.10.09 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-09-17 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter - DRAFT.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2009-12-16 - Garza, Leblanc and Porter.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Matthew Parrish (Research Associate)
+
+- Engagements/Garcia-Werner/2021.03.22 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2021.04.04 - Kickoff Memo - Back-Office Automation.docx
+- Engagements/Garcia-Werner/2021.04.29 - Email 1 - Back-Office Automation - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2021.05.25 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2021-05-14 - Garcia-Werner.docx
+- Engagements/Hughes Group/2016.02.17 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2016.03.01 - Kickoff Memo - Sales Effectiveness.docx
+- Engagements/Hughes Group/2016.03.25 - Email 1 - Sales Effectiveness - Hughes Group.eml
+- Engagements/Hughes Group/2016.05.13 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-04-28 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-07-27 - Hughes Group.docx
+- Engagements/Pacheco-Casey/2014.02.19 - Engagement Letter - Pacheco-Casey - EXECUTED.pdf
+- Engagements/Pacheco-Casey/2014.03.04 - Kickoff Memo - Procurement Transformation.docx
+- Engagements/Pacheco-Casey/2014.03.28 - Email 1 - Procurement Transformation - Pacheco-Casey.eml
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.07.03 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL (copy).docx
+- Engagements/Pacheco-Casey/2014.10.31 - Status Report - Pacheco-Casey v2 FINAL.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-06-09 - Pacheco-Casey.docx
+- Engagements/Pacheco-Casey/Meeting Minutes 2014-09-05 - Pacheco-Casey.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## John Vasquez (Research Associate)
+
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED (copy).pdf
+- Engagements/Walker-Murray/2013.07.30 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2013.08.12 - Kickoff Memo - Working Capital Program.docx
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray - DRAFT.eml
+- Engagements/Walker-Murray/2013.09.06 - Email 1 - Working Capital Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2013.11.20 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/Meeting Minutes 2013-10-30 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray - DRAFT.docx
+- Engagements/Walker-Murray/Meeting Minutes 2014-01-28 - Walker-Murray.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Cynthia Hart (Research Associate)
+
+- Engagements/Brown and Sons/2017.06.22 - Engagement Letter - Brown and Sons - EXECUTED.pdf
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization (copy).docx
+- Engagements/Brown and Sons/2017.07.05 - Kickoff Memo - Footprint Rationalization.docx
+- Engagements/Brown and Sons/2017.07.31 - Email 1 - Footprint Rationalization - Brown and Sons.eml
+- Engagements/Brown and Sons/2017.10.11 - Status Report - Brown and Sons v2 FINAL.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-09-21 - Brown and Sons.docx
+- Engagements/Brown and Sons/Meeting Minutes 2017-12-20 - Brown and Sons.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.06 - Engagement Letter - Johnson, Lopez and Brooks - EXECUTED.pdf
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence - DRAFT.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence.docx
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks (copy).eml
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks.eml
+- Engagements/Johnson, Lopez and Brooks/2015.10.06 - Status Report - Johnson, Lopez and Brooks v2 FINAL.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-09-14 - Johnson, Lopez and Brooks.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-12-11 - Johnson, Lopez and Brooks.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Melissa Casey (Research Associate)
+
+- Engagements/Garza, Leblanc and Porter/2019.03.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2019.03.25 - Kickoff Memo - Portfolio Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2019.04.19 - Email 1 - Portfolio Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2019.07.28 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/2019.11.25 - Status Report - Garza, Leblanc and Porter v2 FINAL (copy).docx
+- Engagements/Garza, Leblanc and Porter/2019.11.25 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2019-07-02 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2019-09-30 - Garza, Leblanc and Porter.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.06 - Engagement Letter - Johnson, Lopez and Brooks - EXECUTED.pdf
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence - DRAFT.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence.docx
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks (copy).eml
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks.eml
+- Engagements/Johnson, Lopez and Brooks/2015.10.06 - Status Report - Johnson, Lopez and Brooks v2 FINAL.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-09-14 - Johnson, Lopez and Brooks.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-12-11 - Johnson, Lopez and Brooks.docx
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED - DRAFT.pdf
+- Engagements/Walker-Murray/2022.05.04 - Engagement Letter - Walker-Murray - EXECUTED.pdf
+- Engagements/Walker-Murray/2022.05.17 - Kickoff Memo - Margin Recovery Program.docx
+- Engagements/Walker-Murray/2022.06.10 - Email 1 - Margin Recovery Program - Walker-Murray.eml
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL (copy).docx
+- Engagements/Walker-Murray/2022.08.30 - Status Report - Walker-Murray v2 FINAL.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-08-08 - Walker-Murray.docx
+- Engagements/Walker-Murray/Meeting Minutes 2022-11-07 - Walker-Murray.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Nicole Griffin (Research Associate)
+
+- Engagements/Hughes Group/2016.02.17 - Engagement Letter - Hughes Group - EXECUTED.pdf
+- Engagements/Hughes Group/2016.03.01 - Kickoff Memo - Sales Effectiveness.docx
+- Engagements/Hughes Group/2016.03.25 - Email 1 - Sales Effectiveness - Hughes Group.eml
+- Engagements/Hughes Group/2016.05.13 - Status Report - Hughes Group v2 FINAL.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-04-28 - Hughes Group.docx
+- Engagements/Hughes Group/Meeting Minutes 2016-07-27 - Hughes Group.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.06 - Engagement Letter - Johnson, Lopez and Brooks - EXECUTED.pdf
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence - DRAFT.docx
+- Engagements/Johnson, Lopez and Brooks/2015.06.19 - Kickoff Memo - Commercial Due Diligence.docx
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks (copy).eml
+- Engagements/Johnson, Lopez and Brooks/2015.07.14 - Email 1 - Commercial Due Diligence - Johnson, Lopez and Brooks.eml
+- Engagements/Johnson, Lopez and Brooks/2015.10.06 - Status Report - Johnson, Lopez and Brooks v2 FINAL.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-09-14 - Johnson, Lopez and Brooks.docx
+- Engagements/Johnson, Lopez and Brooks/Meeting Minutes 2015-12-11 - Johnson, Lopez and Brooks.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Joseph Reed (Research Associate)
+
+- Engagements/Stark-Wilson/2020.03.22 - Engagement Letter - Stark-Wilson - EXECUTED.pdf
+- Engagements/Stark-Wilson/2020.04.04 - Kickoff Memo - Channel Strategy.docx
+- Engagements/Stark-Wilson/2020.04.29 - Email 1 - Channel Strategy - Stark-Wilson - DRAFT.eml
+- Engagements/Stark-Wilson/2020.04.29 - Email 1 - Channel Strategy - Stark-Wilson.eml
+- Engagements/Stark-Wilson/2020.06.11 - Status Report - Stark-Wilson v2 FINAL - DRAFT.docx
+- Engagements/Stark-Wilson/2020.06.11 - Status Report - Stark-Wilson v2 FINAL.docx
+- Engagements/Stark-Wilson/Meeting Minutes 2020-05-28 - Stark-Wilson.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Daniel Cisneros (Research Associate)
+
+- Engagements/Key Group/2018.01.28 - Engagement Letter - Key Group - EXECUTED (copy).pdf
+- Engagements/Key Group/2018.01.28 - Engagement Letter - Key Group - EXECUTED.pdf
+- Engagements/Key Group/2018.02.10 - Kickoff Memo - Shared Services Design.docx
+- Engagements/Key Group/2018.03.07 - Email 1 - Shared Services Design - Key Group.eml
+- Engagements/Key Group/2018.06.06 - Status Report - Key Group v2 FINAL.docx
+- Engagements/Key Group/Meeting Minutes 2018-05-14 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2018-05-14 - Key Group.docx
+- Engagements/Key Group/Meeting Minutes 2018-08-10 - Key Group (copy).docx
+- Engagements/Key Group/Meeting Minutes 2018-08-10 - Key Group.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Steven Hunt (Research Associate)
+
+- Engagements/Garza, Leblanc and Porter/2019.03.12 - Engagement Letter - Garza, Leblanc and Porter - EXECUTED.pdf
+- Engagements/Garza, Leblanc and Porter/2019.03.25 - Kickoff Memo - Portfolio Strategy.docx
+- Engagements/Garza, Leblanc and Porter/2019.04.19 - Email 1 - Portfolio Strategy - Garza, Leblanc and Porter.eml
+- Engagements/Garza, Leblanc and Porter/2019.07.28 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/2019.11.25 - Status Report - Garza, Leblanc and Porter v2 FINAL (copy).docx
+- Engagements/Garza, Leblanc and Porter/2019.11.25 - Status Report - Garza, Leblanc and Porter v2 FINAL.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2019-07-02 - Garza, Leblanc and Porter.docx
+- Engagements/Garza, Leblanc and Porter/Meeting Minutes 2019-09-30 - Garza, Leblanc and Porter.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Julie Vasquez (Research Associate)
+
+- Engagements/Scott, Smith and Edwards/2020.03.06 - Engagement Letter - Scott, Smith and Edwards - EXECUTED.pdf
+- Engagements/Scott, Smith and Edwards/2020.03.19 - Kickoff Memo - Service Delivery Redesign.docx
+- Engagements/Scott, Smith and Edwards/2020.04.13 - Email 1 - Service Delivery Redesign - Scott, Smith and Edwards.eml
+- Engagements/Scott, Smith and Edwards/2020.07.01 - Status Report - Scott, Smith and Edwards v2 FINAL.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2020-06-10 - Scott, Smith and Edwards.docx
+- Engagements/Scott, Smith and Edwards/Meeting Minutes 2020-09-08 - Scott, Smith and Edwards.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Pamela Miller (Research Associate)
+
+- Engagements/Garcia-Werner/2021.03.22 - Engagement Letter - Garcia-Werner - EXECUTED.pdf
+- Engagements/Garcia-Werner/2021.04.04 - Kickoff Memo - Back-Office Automation.docx
+- Engagements/Garcia-Werner/2021.04.29 - Email 1 - Back-Office Automation - Garcia-Werner.eml
+- Engagements/Garcia-Werner/2021.05.25 - Status Report - Garcia-Werner v2 FINAL.docx
+- Engagements/Garcia-Werner/Meeting Minutes 2021-05-14 - Garcia-Werner.docx
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx
+
+## Steven Sanchez (Research Associate)
+
+- Firm/Firm Overview 2008 v3.docx
+- Firm/Firm Overview 2011 v3.docx
+- Firm/Firm Overview 2014 v3.docx
+- Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3.docx
+- People/2008.01.25 - Onboarding - Julie Parks.docx
+- People/2008.03.08 - Onboarding - Deborah Allen.docx
+- People/2008.03.08 - Onboarding - James Green.docx
+- People/2008.03.08 - Onboarding - Michael Walker.docx
+- People/2009.04.15 - Onboarding - Mary Parker.docx
+- People/2009.11.19 - Onboarding - Matthew Parrish.docx
+- People/2011.11.04 - Onboarding - John Vasquez (copy).docx
+- People/2011.11.04 - Onboarding - John Vasquez.docx
+- People/2012.11.07 - Onboarding - Cynthia Hart.docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez (copy).docx
+- People/2012.12.15 - Onboarding - Deborah Jimenez.docx
+- People/2012.12.20 - Onboarding - David Wilson.docx
+- People/2014.06.07 - Onboarding - Nicole Griffin.docx
+- People/2014.06.22 - Onboarding - Melissa Casey - DRAFT.docx
+- People/2014.06.22 - Onboarding - Melissa Casey.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton - DRAFT.docx
+- People/2015.06.12 - Onboarding - Brenda Clayton.docx
+- People/2016.05.12 - Onboarding - Joseph Reed (copy).docx
+- People/2016.05.12 - Onboarding - Joseph Reed.docx
+- People/2017.02.24 - Onboarding - Daniel Cisneros.docx
+- People/2018.03.24 - Onboarding - Steven Hunt.docx
+- People/2020.01.14 - Onboarding - Julie Vasquez.docx
+- People/2021.01.10 - Onboarding - Pamela Miller.docx
+- People/2022.07.11 - Onboarding - Steven Sanchez.docx

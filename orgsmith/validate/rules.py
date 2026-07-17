@@ -927,7 +927,15 @@ def eml_01(ctx: Context):
     from ..render import people_index
     from ..render.eml import expected_headers
 
-    entries = [e for e in ctx.manifest if e.format == "eml"]
+    # Derived noise .eml files (M12) mirror the source they copy or draft;
+    # their headers are not independently recomputable from the ledger (an
+    # exact duplicate carries the source's headers verbatim), so they are
+    # excluded here, exactly as SCAN-01/LEG-01 exclude derived docs.
+    entries = [
+        e
+        for e in ctx.manifest
+        if e.format == "eml" and e.authoring != "derived"
+    ]
     if not entries:
         yield (
             "format_mix.eml > 0 but the manifest plans no eml documents",

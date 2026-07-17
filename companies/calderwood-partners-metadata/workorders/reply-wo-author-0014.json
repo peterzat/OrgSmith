@@ -1,0 +1,52 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0014",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0056",
+      "blocks": [
+        {"kind": "heading", "text": "Status Report: Supply Chain Review for Poole, Mcknight and Rush", "level": 1},
+        {"kind": "table",
+         "header": ["Field", "Detail"],
+         "rows": [
+           ["Engagement", "Supply chain review"],
+           ["Client", "{{fact:f:E-2010-001.client}}"],
+           ["Prepared by", "Deborah Gordon, Associate, Calderwood Partners"],
+           ["Engagement manager", "Michael Walker, Calderwood Partners"],
+           ["Stage", "Midpoint of a four-month review"]
+         ]},
+        {"kind": "paragraph", "text": "The review is at its midpoint and on plan. The diagnostic work is largely done. We now hold a clean baseline of the client's supply chain spend, its supplier base, and its service levels, all reconciled to the client's own records rather than to any figure we brought in. The second half turns from measuring the current state to designing the changes. This report sets out what closed in the last several weeks, what the design phase will produce, where the budget stands, and the risks worth watching from here."},
+        {"kind": "heading", "text": "What closed since the last report", "level": 2},
+        {"kind": "paragraph", "text": "The last several weeks produced the evidence the design will rest on. Daniel Leach reconciled the freight, procurement, and inventory data against the client's ledgers and warehouse records, checking each figure back to its source before it went into the baseline. The numbers we work from are the client's own, not our estimates. The following are complete:"},
+        {"kind": "list", "items": [
+          "A spend baseline across procurement and logistics, tied to the general ledger, with each category traceable to a record the client already keeps.",
+          "A map of the supplier base by category, showing where spend concentrates and where it fragments across many small vendors.",
+          "Service-level and lead-time measures for the main product lines, drawn from twelve months of the client's own order and delivery records.",
+          "A first read of inventory by location, flagging the sites that carry stock out of proportion to their throughput."
+        ]},
+        {"kind": "paragraph", "text": "One finding stands out. Freight is bought site by site. There are no common carrier terms across locations, and the price spread between sites on the same lane is wide. It is the largest single opportunity the baseline shows, and it is not a matter of one bad contract but of buying the same service many times over without a shared position. Daniel Leach has documented how that figure was built, lane by lane, and it holds up under review."},
+        {"kind": "heading", "text": "The design phase", "level": 2},
+        {"kind": "paragraph", "text": "The second half converts the baseline into changes the client can carry out. Each recommendation will be tested against the transaction data already collected before it reaches the client, so that what we propose is measured against the client's own numbers. The work ahead:"},
+        {"kind": "list", "items": [
+          "A consolidated freight approach with common carrier terms, sized against the lane data now in hand.",
+          "A supplier rationalization plan for the fragmented categories, with each category ranked by the effort it takes against the saving it returns.",
+          "Inventory targets by location, set from throughput and service data rather than from history.",
+          "A phased benefit case over the first two years, each figure carrying its assumption in writing and open to challenge."
+        ]},
+        {"kind": "heading", "text": "Budget", "level": 2},
+        {"kind": "paragraph", "text": "The engagement is tracking within the fixed fee of {{fact:f:E-2010-001.fee}} agreed at the outset. The diagnostic came in on the effort planned for it, and nothing in the design phase requires more than was scoped. We are not carrying any out-of-scope request that would change the figure. Should the design work surface a question that genuinely falls outside what we set out to do, we will bring it to the client as a separate item with its own estimate for a decision, kept apart from the fee already agreed."},
+        {"kind": "heading", "text": "Open risks", "level": 2},
+        {"kind": "paragraph", "text": "Three risks are worth watching at this stage. None is fatal if it is managed early, and each is named here so it can be."},
+        {"kind": "list", "items": [
+          "Data gaps at two smaller sites, where the order records are thinner than at the main locations. Closing them needs a few hours from the client's staff, not a fresh collection, and the design can proceed while they close.",
+          "Supplier concentration. The freight consolidation narrows the carrier list, and the client will hold its own view on which relationships to keep for reasons the spend data does not show. That judgment sits with the client; we can frame the trade-off and cost each option.",
+          "Timing of the client's decisions. The benefit case runs on a critical path, and the design phase holds to it only if the midpoint choices are settled on schedule."
+        ]},
+        {"kind": "paragraph", "text": "Michael Walker will confirm the date for the next review and send the short list of data still outstanding at the two smaller sites. Questions on any part of this report can come to him, or to Daniel Leach on the analysis behind the freight and inventory numbers."},
+        {"kind": "sigblock", "signers": ["p:michael.walker"]}
+      ]
+    }
+  ]
+}

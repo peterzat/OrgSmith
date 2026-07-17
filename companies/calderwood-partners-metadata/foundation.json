@@ -1,0 +1,633 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "calderwood-partners",
+  "people": [
+    {
+      "id": "p:julie.ramsey",
+      "name": "Julie Ramsey",
+      "aliases": [],
+      "title": "Managing Principal",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2007-02-15",
+        "end": null
+      },
+      "email": "julie.ramsey@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0134",
+      "persona": "Sets the firm's plain-spoken standard and enforces it on everything that leaves the office; her own memos are short, declarative, and impatient with hedging. She frames the operating-model question in a single sentence and trusts the analysis to carry the argument from there. A draft that comes back from her usually has the padding struck out and the recommendation moved to the top.",
+      "title_history": []
+    },
+    {
+      "id": "p:jason.torres",
+      "name": "Jason Torres",
+      "aliases": [],
+      "title": "Principal",
+      "dept": "Advisory",
+      "reports_to": "p:julie.ramsey",
+      "employment": {
+        "start": "2007-03-15",
+        "end": null
+      },
+      "email": "jason.torres@calderwoodpartners.com",
+      "phone": "+1 (415) 555-0186",
+      "persona": "Leads the growth-oriented engagements and writes the way he reasons, building from the client's own figures toward a recommendation he states up front. He will let a blunt sentence stand where others would cushion it, and he closes most memos by naming the decision he wants made. His drafts read as one clear idea per line, with little ornament.",
+      "title_history": []
+    },
+    {
+      "id": "p:julie.parks",
+      "name": "Julie Parks",
+      "aliases": [],
+      "title": "Senior Engagement Manager",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2008-01-18",
+        "end": null
+      },
+      "email": "julie.parks@calderwoodpartners.com",
+      "phone": "+1 (415) 555-0143",
+      "persona": "Runs engagements day to day and writes to keep everyone oriented, opening status notes with where things stand before what changed. Her prose is organized and slightly formal, fond of numbered points and clear ownership of next steps. She is the one who makes sure a working session actually produces minutes someone can act on.",
+      "title_history": []
+    },
+    {
+      "id": "p:michael.walker",
+      "name": "Michael Walker",
+      "aliases": [
+        "Mike"
+      ],
+      "title": "Engagement Manager",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2008-03-01",
+        "end": "2012-11-06"
+      },
+      "email": "michael.walker@calderwoodpartners.com",
+      "phone": "+1 (212) 555-0123",
+      "persona": "Manages the mechanics of an engagement and writes in a warm, conversational register that softens a hard message without losing it. He tends toward longer sentences and a friendly close, and he is quick to put a scheduling or data question in a short email rather than let it wait. Clients find his updates easy to read even when the news is mixed.",
+      "title_history": []
+    },
+    {
+      "id": "p:brenda.rodriguez",
+      "name": "Brenda Rodriguez",
+      "aliases": [],
+      "title": "Senior Consultant",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2007-09-13",
+        "end": null
+      },
+      "email": "brenda.rodriguez@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0182",
+      "persona": "Carries the analytical spine of the cost work and writes tight, evidence-first paragraphs that lead with the finding. She is skeptical by temperament and will flag an assumption before she will accept a conclusion, which shows up as careful qualifiers in her drafts. Her voice is dry and precise, more at home with a table than a flourish.",
+      "title_history": []
+    },
+    {
+      "id": "p:deborah.allen",
+      "name": "Deborah Allen",
+      "aliases": [],
+      "title": "Consultant",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2008-03-01",
+        "end": "2015-04-26"
+      },
+      "email": "deborah.allen@calderwoodpartners.com",
+      "phone": "+1 (212) 555-0199",
+      "persona": "Handles modeling and structured analysis and writes cleanly, in a measured, matter-of-fact tone that rarely raises its voice. She organizes a memo around the question being answered and keeps her own view to a short closing note. Colleagues rely on her to make a messy problem legible.",
+      "title_history": []
+    },
+    {
+      "id": "p:james.green",
+      "name": "James Green",
+      "aliases": [],
+      "title": "Senior Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2008-03-01",
+        "end": null
+      },
+      "email": "james.green@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0194",
+      "persona": "Does much of the heavy lifting on data and drafts, and writes quickly in a plain, unfussy style that gets the facts down before it worries about polish. He is comfortable with bullet points and short declaratives, and he leaves the framing to the managers above him. His working notes are dense but easy to follow.",
+      "title_history": []
+    },
+    {
+      "id": "p:deborah.gordon",
+      "name": "Deborah Gordon",
+      "aliases": [],
+      "title": "Senior Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2007-11-23",
+        "end": null
+      },
+      "email": "deborah.gordon@calderwoodpartners.com",
+      "phone": "+1 (312) 555-0169",
+      "persona": "Strong on synthesis and writes with a bit more color than the house norm, reaching for the vivid phrase that makes a finding stick. She likes to open with the takeaway and is willing to argue a point in prose rather than defer to a table. Her drafts sometimes need trimming, but they are rarely dull.",
+      "title_history": [
+        {
+          "title": "Associate",
+          "start": "2007-11-23",
+          "end": "2013-04-12"
+        },
+        {
+          "title": "Senior Associate",
+          "start": "2013-04-13",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:daniel.leach",
+      "name": "Daniel Leach",
+      "aliases": [],
+      "title": "Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2007-12-04",
+        "end": null
+      },
+      "email": "daniel.leach@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0166",
+      "persona": "Newer to the work and writes carefully, almost cautiously, checking each claim against the source before it goes in. His prose is correct and a little stiff, leaning on the structures he has been taught rather than a voice of his own yet. He asks good clarifying questions and captures the detail others skip.",
+      "title_history": [
+        {
+          "title": "Research Associate",
+          "start": "2007-12-04",
+          "end": "2015-10-02"
+        },
+        {
+          "title": "Associate",
+          "start": "2015-10-03",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:jeffrey.jackson",
+      "name": "Jeffrey Jackson",
+      "aliases": [],
+      "title": "Director of Operations",
+      "dept": "Operations",
+      "reports_to": "p:julie.ramsey",
+      "employment": {
+        "start": "2007-04-15",
+        "end": null
+      },
+      "email": "jeffrey.jackson@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0151",
+      "persona": "Keeps the firm's engagements staffed and running and writes in a crisp, administrative register aimed at getting a decision or a date confirmed. His notes are brief and logistics-first, with little patience for narrative. He is the person who turns a vague plan into a scheduled commitment.",
+      "title_history": []
+    },
+    {
+      "id": "p:david.wilson",
+      "name": "David Wilson",
+      "aliases": [],
+      "title": "Director of Operations",
+      "dept": "Operations",
+      "reports_to": "p:jeffrey.jackson",
+      "employment": {
+        "start": "2012-12-13",
+        "end": null
+      },
+      "email": "david.wilson@calderwoodpartners.com",
+      "phone": "+1 (415) 555-0194",
+      "persona": "Runs the back-office side of the practice and writes in a steady, procedural tone that documents what was agreed and who owns it. He favors complete sentences and a clear paper trail, and he tends to restate commitments so nothing is left implicit. His emails are polite, thorough, and hard to misread.",
+      "title_history": [
+        {
+          "title": "Office Manager",
+          "start": "2012-12-13",
+          "end": "2019-10-03"
+        },
+        {
+          "title": "Director of Operations",
+          "start": "2019-10-04",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:deborah.jimenez",
+      "name": "Deborah Jimenez",
+      "aliases": [],
+      "title": "Engagement Manager",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2012-12-08",
+        "end": null
+      },
+      "email": "deborah.jimenez@calderwoodpartners.com",
+      "phone": "+1 (312) 555-0103",
+      "persona": "Manages client-facing delivery and writes with an even, diplomatic touch, careful to keep the client's perspective in the frame. She structures updates around risks and the paths to address them, and prefers to name a problem alongside a proposed response. Her register stays professional and calm under pressure.",
+      "title_history": []
+    },
+    {
+      "id": "p:brenda.clayton",
+      "name": "Brenda Clayton",
+      "aliases": [],
+      "title": "Consultant",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2015-06-05",
+        "end": null
+      },
+      "email": "brenda.clayton@calderwoodpartners.com",
+      "phone": "+1 (312) 555-0106",
+      "persona": "Focuses on operating-model analysis and writes in a lean, functional style that trusts the reader to follow a tight argument. She is economical with words and reluctant to overstate, so her conclusions land with quiet confidence. She would rather show the logic than sell it.",
+      "title_history": []
+    },
+    {
+      "id": "p:mary.parker",
+      "name": "Mary Parker",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2009-04-08",
+        "end": null
+      },
+      "email": "mary.parker@calderwoodpartners.com",
+      "phone": "+1 (415) 555-0162",
+      "persona": "Gathers and organizes the background material an engagement rests on, and writes clear, well-sourced summaries that stay close to the evidence. Her notes are orderly and neutral, careful to separate what is known from what is inferred. She is meticulous about attribution and rarely overreaches.",
+      "title_history": []
+    },
+    {
+      "id": "p:matthew.parrish",
+      "name": "Matthew Parrish",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2009-11-12",
+        "end": null
+      },
+      "email": "matthew.parrish@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0146",
+      "persona": "Supports the analytical teams with desk research and writes in a brisk, businesslike shorthand meant for internal readers. He is fast and comprehensive, and he flags gaps in the data rather than paper over them. His summaries are functional and to the point.",
+      "title_history": []
+    },
+    {
+      "id": "p:john.vasquez",
+      "name": "John Vasquez",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2011-10-28",
+        "end": null
+      },
+      "email": "john.vasquez@calderwoodpartners.com",
+      "phone": "+1 (617) 555-0113",
+      "persona": "Digs into industry and market background and writes with a curious, slightly discursive voice that likes to explain why a finding matters. He tends to add the context others leave out, which makes his notes longer but richer. He is comfortable saying plainly when the evidence is thin.",
+      "title_history": []
+    },
+    {
+      "id": "p:cynthia.hart",
+      "name": "Cynthia Hart",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2012-10-31",
+        "end": null
+      },
+      "email": "cynthia.hart@calderwoodpartners.com",
+      "phone": "+1 (312) 555-0137",
+      "persona": "Assembles data and prepares exhibits, writing spare, well-labeled notes built to be reused in a deck or memo. Her style is quiet and precise, with a preference for structure over prose. She checks her work twice before she circulates anything.",
+      "title_history": []
+    },
+    {
+      "id": "p:melissa.casey",
+      "name": "Melissa Casey",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2014-06-15",
+        "end": null
+      },
+      "email": "melissa.casey@calderwoodpartners.com",
+      "phone": "+1 (617) 555-0165",
+      "persona": "Handles comparables and reference research and writes in a clean, readable style that makes dense material approachable. She organizes findings into tidy themes and is good at the one-line summary that captures the point. Her tone is neutral and unhurried.",
+      "title_history": []
+    },
+    {
+      "id": "p:nicole.griffin",
+      "name": "Nicole Griffin",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2014-05-31",
+        "end": null
+      },
+      "email": "nicole.griffin@calderwoodpartners.com",
+      "phone": "+1 (312) 555-0113",
+      "persona": "Runs down data requests and source material and writes concise, list-oriented notes designed to be scanned quickly. She is direct and unadorned, more interested in accuracy than style. She keeps a careful record of what was asked and what is still outstanding.",
+      "title_history": []
+    },
+    {
+      "id": "p:joseph.reed",
+      "name": "Joseph Reed",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2016-05-05",
+        "end": null
+      },
+      "email": "joseph.reed@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0190",
+      "persona": "Supports the cost and operations research and writes in a plain, dependable voice that states what he found without embellishment. He is thorough and methodical, and he tends to number his points so nothing gets lost. He is reliable on the tedious detail that others rush past.",
+      "title_history": []
+    },
+    {
+      "id": "p:daniel.cisneros",
+      "name": "Daniel Cisneros",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2017-02-17",
+        "end": null
+      },
+      "email": "daniel.cisneros@calderwoodpartners.com",
+      "phone": "+1 (303) 555-0198",
+      "persona": "Focuses on the quantitative background work and writes terse, structured notes that lead with the data and stop there. He is sparing with commentary and trusts the exhibit to speak for itself. His register is flat and efficient, well suited to an internal handoff.",
+      "title_history": []
+    },
+    {
+      "id": "p:steven.hunt",
+      "name": "Steven Hunt",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2018-03-17",
+        "end": null
+      },
+      "email": "steven.hunt@calderwoodpartners.com",
+      "phone": "+1 (312) 555-0118",
+      "persona": "Gathers market and competitor material and writes in an engaged, slightly informal voice that reads like he is talking a colleague through it. He is quick to offer a tentative conclusion and equally quick to caveat it. His notes are lively but occasionally need tightening.",
+      "title_history": []
+    },
+    {
+      "id": "p:julie.vasquez",
+      "name": "Julie Vasquez",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2020-01-07",
+        "end": null
+      },
+      "email": "julie.vasquez@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0168",
+      "persona": "Prepares research and supporting analysis and writes carefully, in a measured tone that keeps every claim tethered to a source. She is organized and detail-minded, and she prefers a clean structure to a clever phrase. She is dependable on the groundwork that makes later drafting easier.",
+      "title_history": []
+    },
+    {
+      "id": "p:pamela.miller",
+      "name": "Pamela Miller",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2021-01-03",
+        "end": null
+      },
+      "email": "pamela.miller@calderwoodpartners.com",
+      "phone": "+1 (206) 555-0130",
+      "persona": "Handles background research and exhibit preparation and writes in a warm, plain style that the rest of the team can pick up easily. She annotates generously so a reader always knows where a point came from. Her notes are thorough and unpretentious.",
+      "title_history": []
+    },
+    {
+      "id": "p:steven.sanchez",
+      "name": "Steven Sanchez",
+      "aliases": [],
+      "title": "Research Associate",
+      "dept": "Advisory",
+      "reports_to": "p:jason.torres",
+      "employment": {
+        "start": "2022-07-04",
+        "end": null
+      },
+      "email": "steven.sanchez@calderwoodpartners.com",
+      "phone": "+1 (303) 555-0169",
+      "persona": "Supports the analytical work with data pulls and summaries, writing in a crisp, no-frills style aimed at speed and clarity. He is comfortable leaving the polish to others and focuses on getting the facts organized first. His register is efficient and quietly confident.",
+      "title_history": []
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:hughes-group",
+      "name": "Hughes Group",
+      "org_type": "client"
+    },
+    {
+      "id": "x:brown-and-sons",
+      "name": "Brown and Sons",
+      "org_type": "client"
+    },
+    {
+      "id": "x:key-group",
+      "name": "Key Group",
+      "org_type": "client"
+    },
+    {
+      "id": "x:carroll-merritt-and-williams",
+      "name": "Carroll, Merritt and Williams",
+      "org_type": "client"
+    },
+    {
+      "id": "x:garza-leblanc-and-porter",
+      "name": "Garza, Leblanc and Porter",
+      "org_type": "client"
+    },
+    {
+      "id": "x:poole-mcknight-and-rush",
+      "name": "Poole, Mcknight and Rush",
+      "org_type": "client"
+    },
+    {
+      "id": "x:scott-smith-and-edwards",
+      "name": "Scott, Smith and Edwards",
+      "org_type": "client"
+    },
+    {
+      "id": "x:stark-wilson",
+      "name": "Stark-Wilson",
+      "org_type": "client"
+    },
+    {
+      "id": "x:garcia-werner",
+      "name": "Garcia-Werner",
+      "org_type": "client"
+    },
+    {
+      "id": "x:walker-murray",
+      "name": "Walker-Murray",
+      "org_type": "client"
+    },
+    {
+      "id": "x:pacheco-casey",
+      "name": "Pacheco-Casey",
+      "org_type": "client"
+    },
+    {
+      "id": "x:johnson-lopez-and-brooks",
+      "name": "Johnson, Lopez and Brooks",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:linda.gallegos",
+      "name": "Linda Gallegos",
+      "org": "x:hughes-group",
+      "title": "Chief Financial Officer",
+      "email": "linda.gallegos@hughesgroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:sandra.frazier",
+      "name": "Sandra Frazier",
+      "org": "x:brown-and-sons",
+      "title": "VP Finance",
+      "email": "sandra.frazier@brownandsons.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:steven.lowe",
+      "name": "Steven Lowe",
+      "org": "x:key-group",
+      "title": "VP Finance",
+      "email": "steven.lowe@keygroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:joseph.wallace",
+      "name": "Joseph Wallace",
+      "org": "x:carroll-merritt-and-williams",
+      "title": "Chief Financial Officer",
+      "email": "joseph.wallace@carrollmerrittandwilliams.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:barbara.ward",
+      "name": "Barbara Ward",
+      "org": "x:garza-leblanc-and-porter",
+      "title": "Director of Operations",
+      "email": "barbara.ward@garzaleblancandporter.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:sandra.flores",
+      "name": "Sandra Flores",
+      "org": "x:poole-mcknight-and-rush",
+      "title": "Chief Operating Officer",
+      "email": "sandra.flores@poolemcknightandrush.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:melissa.johnson",
+      "name": "Melissa Johnson",
+      "org": "x:scott-smith-and-edwards",
+      "title": "General Manager",
+      "email": "melissa.johnson@scottsmithandedwards.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:julie.gonzalez",
+      "name": "Julie Gonzalez",
+      "org": "x:stark-wilson",
+      "title": "Director of Operations",
+      "email": "julie.gonzalez@starkwilson.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:mark.villegas",
+      "name": "Mark Villegas",
+      "org": "x:garcia-werner",
+      "title": "Chief Financial Officer",
+      "email": "mark.villegas@garciawerner.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:james.keller",
+      "name": "James Keller",
+      "org": "x:walker-murray",
+      "title": "Director of Operations",
+      "email": "james.keller@walkermurray.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:david.carter",
+      "name": "David Carter",
+      "org": "x:pacheco-casey",
+      "title": "Director of Operations",
+      "email": "david.carter@pachecocasey.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:barbara.banks",
+      "name": "Barbara Banks",
+      "org": "x:johnson-lopez-and-brooks",
+      "title": "Chief Operating Officer",
+      "email": "barbara.banks@johnsonlopezandbrooks.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:david.bennett",
+      "name": "David Bennett",
+      "org": "x:hughes-group",
+      "title": "Chief Financial Officer",
+      "email": "david.bennett@hughesgroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:diane.gray",
+      "name": "Diane Gray",
+      "org": "x:brown-and-sons",
+      "title": "General Manager",
+      "email": "diane.gray@brownandsons.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2007-01-15",
+      "summary": "Calderwood Partners LLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2008-03-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

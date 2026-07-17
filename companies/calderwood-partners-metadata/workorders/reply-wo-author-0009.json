@@ -1,0 +1,168 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0009",
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0042",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "This is our progress report on the pricing engagement, written for your leadership team a little past the midpoint of the work. Its aim is the same as the one we bring to our meetings: to keep you close to what we are doing and what we are finding, so that nothing in the eventual recommendations arrives without warning. The engagement with {{fact:f:E-2009-004.client}} has, so far, been the kind of problem it looked like when we started. The difficulty is not one price set wrongly but a set of pricing habits that have drifted apart from one another over the years, and the value of the work lies in bringing them back into line."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Where things stand"
+        },
+        {
+          "kind": "paragraph",
+          "text": "By our own reckoning we are at roughly the halfway point of the engagement, and its shape has turned as we expected it to. The first half was diagnosis. We set out to understand how Garza, Leblanc and Porter actually prices today, account by account and product by product, before proposing any change to it. That diagnostic is now substantially in hand, and we are beginning to turn from describing the present to designing what should take its place. We are neither ahead of the plan we gave you nor behind it; we are where a well-run engagement of this length should be at this point."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "What we finished in the last several weeks"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The largest piece of work to close in this period belongs to Brenda Rodriguez, who led the analysis of price realization across the book of business. She reconstructed the path from the list price to the price you actually collect and traced where the difference goes: standard discounts, negotiated concessions, rebates, and the smaller leakages that no single line on an invoice captures on its own. Her finding, which she states carefully because the underlying data still has two gaps we are closing, is that realization varies far more from one customer to the next than from one product to another, and that a handful of your largest accounts carry discounts the rest of the base does not. Deborah Gordon has taken that material and drawn it into a first synthesis that a reader outside the analysis can follow without wading through the workings, and that is the version we expect to bring to your team. My own part has been the source work underneath both of theirs: assembling the transaction history, the published discount schedules, and the competitive price points we were able to verify, and keeping a record of where every figure came from, so that any number we eventually show you can be traced back to something your own staff already recognize."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "The stretch ahead"
+        },
+        {
+          "kind": "paragraph",
+          "text": "With the diagnosis nearly complete, the second half of the engagement turns to what to do about it. We will build a pricing approach that fits how Garza, Leblanc and Porter goes to market rather than a grid lifted from somewhere else: segment-level guidance on where pricing discretion belongs and where it does not, a clearer structure for approving discounts, and a small number of specific corrections on the accounts where realization has drifted furthest. We mean to test each recommendation against your real transaction history before it reaches you, so that what we propose is something we have already checked against your own numbers rather than a principle we hope holds. We would also like to spend time with two or three of your commercial managers as this takes shape. A pricing change that the people who quote and negotiate cannot live with is not a change worth proposing, and they will tell us early where the design meets the ground and where it does not."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "On the fee and the schedule"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement continues within the fixed fee of {{fact:f:E-2009-004.fee}} agreed when we began, and we foresee no change to that figure. Nothing in the work to date has pushed us past the scope the fee was set to cover, and we are not carrying any out-of-scope request that would call for a separate conversation about cost. Should the design phase surface a question that genuinely lies outside what we set out to do, we will raise it with you in writing before we act on it, not after."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "What could move the timeline"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two matters could slow the second half if we do not stay ahead of them, and we would rather you knew of both now. The first is the pair of data gaps mentioned above: two months of rebate detail in the largest segment still reach us only in summary form, and until we have them broken out by account Brenda Rodriguez is treating the concentration finding as strong but not yet final. We expect to close that within the next two weeks. The second is access to your commercial managers as the year draws toward its close, which is a naturally busy stretch for them. If their time proves short, the design work will still move forward, but the testing against how they actually price will run tighter than we would prefer. Neither of these puts the outcome in doubt. We record them only so that the shape of the risk is visible to you as it is to us."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are pleased with how the work is going and, more to the point, with what it is turning up. When the design has firmed enough to be worth reacting to, we will bring it to you in person rather than leave it to a page. In the meantime, if anything in this report raises a question, telephone us and we will walk you through it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Mary Parker, Research Associate, on behalf of the engagement team."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0046",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Minutes of a working session on the pricing engagement for {{fact:f:E-2009-004.client}}, recorded by Brenda Rodriguez. The session reviewed the near-final pricing recommendations with the client and settled what remains before we deliver. The notes follow in the order the meeting took the material."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Present"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Brenda Rodriguez, Senior Consultant",
+            "Mary Parker, Research Associate",
+            "Deborah Gordon, Associate",
+            "Barbara Ward, Director of Operations, Garza, Leblanc and Porter"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Review of the recommendations"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Brenda Rodriguez walked the group through the recommendations as they now stand. The core of the proposal has not changed from the last draft: segment-level pricing guidance, a tighter structure for approving discounts, and specific corrections on the dozen accounts where price realization has drifted furthest below the average of the book. The supporting numbers are now complete. The two rebate months that were open at the last status are reconciled, and with them in place the concentration finding holds at the account level rather than only at the segment total. Barbara Ward accepted the diagnosis and did not contest the account list. Brenda Rodriguez was careful to note that the estimated benefit assumes the approval structure is actually enforced, which is a matter of execution and not of analysis, and she asked that the benefit be carried as a range until the transition is designed."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Making it work day to day"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Barbara Ward raised the practical side. Her concern was less with the pricing logic than with how the approval structure would run in practice: who signs off on an exception, how long an approval takes, and what becomes of a quote already sitting in a customer's hands when the new guidance takes effect. Mary Parker had the transaction detail at hand and confirmed that roughly one quote in six now in circulation would fall outside the proposed guidance, a larger share than Barbara Ward had assumed. The group agreed the rollout needs a defined transition period rather than a hard cutover, and that an exception has to clear within a day or the field will route around it. Deborah Gordon reported on the two commercial managers she and Mary Parker had sat with earlier in the week. Both accepted the logic of segment-level guidance but pushed back on removing discretion entirely on the smallest accounts, where the cost of processing an approval exceeds the price at stake. Brenda Rodriguez agreed to set a threshold below which the existing discretion stands and to size that threshold from the transaction data rather than pick it by feel."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Open before delivery"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two questions remain before the final material is ready. Deborah Gordon is redrafting the recommendation summary so that the segment guidance reads as instructions a sales manager can act on, not as analysis he has to interpret. And the transition Barbara Ward asked for has to be written into the plan with specific dates, which depends on when Garza, Leblanc and Porter means to communicate the change to its own people. Barbara Ward will confirm that timing."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Actions"
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "Due"
+          ],
+          "rows": [
+            [
+              "Lock the account corrections now that the rebate detail is reconciled",
+              "Brenda Rodriguez",
+              "This week"
+            ],
+            [
+              "Size the small-account threshold below which existing discretion stands",
+              "Brenda Rodriguez",
+              "Before the final draft"
+            ],
+            [
+              "Redraft the recommendation summary as manager-level guidance",
+              "Deborah Gordon",
+              "Before the final draft"
+            ],
+            [
+              "Pull the full list of open quotes that fall outside the proposed guidance",
+              "Mary Parker",
+              "This week"
+            ],
+            [
+              "Confirm the internal communication timing so the transition dates can be set",
+              "Barbara Ward",
+              "By the next session"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next working session will be set once Barbara Ward confirms the communication timing."
+        }
+      ]
+    }
+  ]
+}

@@ -137,6 +137,55 @@ def test_derived_docs_are_never_eval_answers(rendered_noise_org):
             assert path not in text, f"{path} leaked into {suite}"
 
 
+def test_eml_01_excludes_derived_noise_emails(tmp_path):
+    """A noise .eml is a copy or draft whose headers mirror its source, not a
+    fresh ledger recompute (an exact duplicate carries the source's To/Subject/
+    Message-ID verbatim). EML-01 must exclude derived docs, exactly as
+    SCAN-01/LEG-01 do, or a duplicated email fails header recomputation."""
+    import shutil as _shutil
+
+    from conftest import build_knobbed_stages, run_authoring, run_enrichment
+    from orgsmith.render import run_render
+    from orgsmith.validate.rules import Context, eml_01
+
+    p = build_knobbed_stages(tmp_path)  # has format_mix.eml > 0
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    ctx = Context.load(p)
+    assert list(eml_01(ctx)) == []  # baseline clean
+
+    src = next(e for e in ctx.manifest if e.format == "eml")
+    copy_path = src.path.rsplit(".", 1)[0] + " (copy).eml"
+    _shutil.copyfile(p.share_dir / src.path, p.share_dir / copy_path)
+    derived = src.model_copy(
+        update={
+            "doc_id": "d:0199",
+            "path": copy_path,
+            "title": src.title + " (copy)",
+            "authoring": "derived",
+            "participants": [],
+            "facts_refs": [],
+            "mentions": [],
+            "key_facts": [],
+            "render_params": {
+                "noise_of": src.doc_id,
+                "noise_kind": "exact_duplicate",
+            },
+        }
+    )
+    ctx.manifest.append(derived)
+    # excluded because authoring == derived: no header-recompute finding
+    assert list(eml_01(ctx)) == []
+    # prove the exclusion is what saves it: as a normal doc it would fail,
+    # because the copied file carries the source's Message-ID, not d:0199's
+    as_batchable = derived.model_copy(
+        update={"authoring": "batchable", "render_params": {}}
+    )
+    ctx.manifest[-1] = as_batchable
+    assert any("Message-ID" in m for m, _ in eml_01(ctx))
+
+
 def test_derive_draft_introduces_no_new_facts():
     source = DocIR(
         doc_id="d:0001",
