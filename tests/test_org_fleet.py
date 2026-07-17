@@ -13,7 +13,7 @@ from orgsmith.paths import OrgPaths
 from orgsmith.status import collect_status
 from orgsmith.validate import run_validate
 
-from conftest import REPO
+from conftest import REPO, flagship_params
 
 pytestmark = pytest.mark.org
 
@@ -33,14 +33,14 @@ SLUGS = _committed_slugs()
 
 
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
 def test_committed_org_validates_clean(slug):
     paths = OrgPaths(root=REPO, slug=slug)
     assert run_validate(paths) == 0
 
 
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
 def test_committed_org_extraction_ground_truth_scores_100(slug):
     from orgsmith.evals.score import score_extraction
     from orgsmith.schemas import ExtractionAnswers
@@ -72,7 +72,7 @@ def test_committed_org_extraction_ground_truth_scores_100(slug):
 
 
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
 def test_committed_org_is_complete(slug):
     paths = OrgPaths(root=REPO, slug=slug)
     status = collect_status(paths)

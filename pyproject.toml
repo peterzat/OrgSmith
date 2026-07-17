@@ -17,5 +17,6 @@ markers = [
     "short: static and configuration checks (pre-push tier)",
     "unit: deterministic logic, schemas, renderers, airlock contract",
     "org: full validation over the committed fleet in companies/",
+    "flagship: the large M12 pilot org, its own tier (excluded from the default org run)",
 ]
 addopts = "-q"

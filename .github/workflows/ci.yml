@@ -21,3 +21,5 @@ jobs:
           .venv/bin/pip install -r requirements-dev.txt
       - name: Tests (short + unit + org)
         run: bin/test
+      - name: Flagship tier (the large M12 pilot org, on its own)
+        run: bin/test flagship

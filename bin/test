@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
-# Test runner. Usage: bin/test [short|unit|org ...]   (default: all tiers)
+# Test runner. Usage: bin/test [short|unit|org|flagship ...]
+# Default (no args) runs short unit org; the flagship tier is opt-in.
 # Each tier is a separate pytest invocation selected by marker; the script
 # fails if any requested tier fails. Keyless and offline by design: no test
 # may call a model or the network.
+#
+# `flagship` is the large M12 pilot org's own tier, excluded from the default
+# org run because validating its 218 files alone is ~2.8s and would push the
+# org tier past its ~5s budget (TESTING.md). The `org` tier selects
+# "org and not flagship" so the two never double-count.
 set -u
 cd "$(dirname "$0")/.."
 
@@ -15,10 +21,11 @@ tiers=("$@")
 rc=0
 for t in "${tiers[@]}"; do
     case "$t" in
-        short|unit|org) ;;
-        *) echo "bin/test: unknown tier '$t' (short|unit|org)" >&2; exit 2 ;;
+        short|unit|flagship) sel="$t" ;;
+        org) sel="org and not flagship" ;;
+        *) echo "bin/test: unknown tier '$t' (short|unit|org|flagship)" >&2; exit 2 ;;
     esac
     echo "== tier: $t =="
-    "$PY" -m pytest -m "$t" || rc=1
+    "$PY" -m pytest -m "$sel" || rc=1
 done
 exit $rc

@@ -5,6 +5,22 @@ from pathlib import Path
 import pytest
 
 REPO = Path(__file__).resolve().parent.parent
+
+# The M12 pilot/flagship org is large enough (218 files) that validating it
+# alone is ~2.8s, which pushes the org tier past its ~5s budget. It gets its
+# own `flagship` marker, excluded from the default org tier and run on its own
+# (TESTING.md). Any future flagship-scale org joins this set.
+FLAGSHIP_SLUGS = {"calderwood-partners"}
+
+
+def flagship_params(slugs):
+    """Wrap flagship slugs so their parametrized cases carry the `flagship`
+    marker in addition to the module's `org` marker, so `-m "org and not
+    flagship"` (the default org tier) skips them and `-m flagship` runs them."""
+    return [
+        pytest.param(s, marks=pytest.mark.flagship) if s in FLAGSHIP_SLUGS else s
+        for s in slugs
+    ]
 sys.path.insert(0, str(REPO))
 
 from orgsmith.charter import run_charter  # noqa: E402

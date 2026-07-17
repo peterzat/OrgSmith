@@ -37,7 +37,7 @@ from orgsmith.fabric import run_fabric
 from orgsmith.foundation import run_scaffold
 from orgsmith.paths import OrgPaths
 
-from conftest import REPO
+from conftest import REPO, flagship_params
 
 pytestmark = pytest.mark.org
 
@@ -187,7 +187,7 @@ def test_every_committed_fixture_has_a_recipe():
 
 
 @pytest.mark.skipif(not RECIPES, reason="no recipes")
-@pytest.mark.parametrize("slug", RECIPES or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(RECIPES) or ["none"])
 def test_every_recipe_derives(slug, regenerated):
     """Fleet-wide, and the coverage that survives the scoped pin: all four
     pure stages run to completion on every recipe and write what the next
@@ -216,7 +216,7 @@ def test_every_recipe_derives(slug, regenerated):
 
 
 @pytest.mark.skipif(not FLEET, reason="no fleet recipes yet")
-@pytest.mark.parametrize("slug", FLEET or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(FLEET) or ["none"])
 def test_fleet_recipe_growth_headcount_and_span_describe_one_firm(slug, regenerated):
     """BACKLOG recipe-growth-outruns-headcount, resolved 2026-07-16 (M11a).
 
@@ -260,7 +260,7 @@ def test_fleet_recipe_growth_headcount_and_span_describe_one_firm(slug, regenera
 
 
 @pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
-@pytest.mark.parametrize("slug", PINNED or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(PINNED) or ["none"])
 def test_committed_foundation_regenerates(slug, regenerated):
     fresh = regenerated[slug].foundation_json.read_text()
     # Blanking personas is only sound while scaffold leaves them to the model.
@@ -270,7 +270,7 @@ def test_committed_foundation_regenerates(slug, regenerated):
 
 
 @pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
-@pytest.mark.parametrize("slug", PINNED or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(PINNED) or ["none"])
 def test_committed_ledgers_regenerate_byte_identical(slug, regenerated):
     committed = OrgPaths(root=REPO, slug=slug)
     names = sorted(
@@ -286,7 +286,7 @@ def test_committed_ledgers_regenerate_byte_identical(slug, regenerated):
 
 
 @pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
-@pytest.mark.parametrize("slug", PINNED or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(PINNED) or ["none"])
 def test_committed_manifest_regenerates_byte_identical(slug, regenerated):
     committed = OrgPaths(root=REPO, slug=slug)
     assert (
@@ -296,7 +296,7 @@ def test_committed_manifest_regenerates_byte_identical(slug, regenerated):
 
 
 @pytest.mark.skipif(not PINNED, reason="no byte-pinned fixture")
-@pytest.mark.parametrize("slug", PINNED or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(PINNED) or ["none"])
 def test_committed_charter_regenerates_byte_identical(slug, regenerated):
     """charter-redump-drift, resolved (2026-07-16, M11a): charter.json is
     frozen beside the ledgers for any fixture generated under the current
@@ -318,7 +318,7 @@ def test_committed_charter_regenerates_byte_identical(slug, regenerated):
 
 
 @pytest.mark.skipif(not SLUGS, reason="no committed orgs yet")
-@pytest.mark.parametrize("slug", SLUGS or ["none"])
+@pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
 def test_committed_charter_redump_stays_additive(slug, regenerated):
     """The weaker guarantee that still covers the not-yet-retired fixtures
     whose charters predate the current schema (BACKLOG: charter-redump-drift).

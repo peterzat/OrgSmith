@@ -420,6 +420,9 @@ def build_splits(manifest, questions, extraction, visibility) -> dict:
       full         the whole corpus (distractors and noise together)
 
     Derived, never stored: a pure function of the manifest and the suites."""
+    authored = {e.path for e in manifest if e.authoring != "derived"}
+    derived = {e.path for e in manifest if e.authoring == "derived"}
+    all_paths = {e.path for e in manifest}
     answer_paths: set[str] = set()
     for q in questions:
         answer_paths.update(q.expected_docs)
@@ -427,9 +430,11 @@ def build_splits(manifest, questions, extraction, visibility) -> dict:
         answer_paths.update(q.expected_docs)
     for q in visibility:
         answer_paths.update(q.expected_docs)
-    authored = {e.path for e in manifest if e.authoring != "derived"}
-    derived = {e.path for e in manifest if e.authoring == "derived"}
-    all_paths = {e.path for e in manifest}
+    # A noise document can be ACL-grantable (it sits in the share), so the
+    # visibility suite may name it. It is still never an answer for the split
+    # curve: keep derived docs out of core so core/distractors carry only
+    # authored docs and noise appears only in the noise/full splits.
+    answer_paths -= derived
     return {
         "core": sorted(answer_paths),
         "distractors": sorted(answer_paths | authored),

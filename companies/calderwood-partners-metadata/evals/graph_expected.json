@@ -1,0 +1,982 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "calderwood-partners",
+  "entities": [
+    {
+      "id": "x:calderwood-partners",
+      "canonical": "Calderwood Partners LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:julie.ramsey",
+      "canonical": "Julie Ramsey",
+      "aliases": [
+        "julie.ramsey@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jason.torres",
+      "canonical": "Jason Torres",
+      "aliases": [
+        "jason.torres@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:julie.parks",
+      "canonical": "Julie Parks",
+      "aliases": [
+        "julie.parks@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:michael.walker",
+      "canonical": "Michael Walker",
+      "aliases": [
+        "Mike",
+        "michael.walker@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:nickname-alias"
+      ]
+    },
+    {
+      "id": "p:brenda.rodriguez",
+      "canonical": "Brenda Rodriguez",
+      "aliases": [
+        "brenda.rodriguez@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:deborah.allen",
+      "canonical": "Deborah Allen",
+      "aliases": [
+        "deborah.allen@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:james.green",
+      "canonical": "James Green",
+      "aliases": [
+        "james.green@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:deborah.gordon",
+      "canonical": "Deborah Gordon",
+      "aliases": [
+        "deborah.gordon@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:daniel.leach",
+      "canonical": "Daniel Leach",
+      "aliases": [
+        "daniel.leach@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:jeffrey.jackson",
+      "canonical": "Jeffrey Jackson",
+      "aliases": [
+        "jeffrey.jackson@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:david.wilson",
+      "canonical": "David Wilson",
+      "aliases": [
+        "david.wilson@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:deborah.jimenez",
+      "canonical": "Deborah Jimenez",
+      "aliases": [
+        "deborah.jimenez@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:brenda.clayton",
+      "canonical": "Brenda Clayton",
+      "aliases": [
+        "brenda.clayton@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:mary.parker",
+      "canonical": "Mary Parker",
+      "aliases": [
+        "mary.parker@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:matthew.parrish",
+      "canonical": "Matthew Parrish",
+      "aliases": [
+        "matthew.parrish@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:john.vasquez",
+      "canonical": "John Vasquez",
+      "aliases": [
+        "john.vasquez@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
+    },
+    {
+      "id": "p:cynthia.hart",
+      "canonical": "Cynthia Hart",
+      "aliases": [
+        "cynthia.hart@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:melissa.casey",
+      "canonical": "Melissa Casey",
+      "aliases": [
+        "melissa.casey@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:nicole.griffin",
+      "canonical": "Nicole Griffin",
+      "aliases": [
+        "nicole.griffin@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:joseph.reed",
+      "canonical": "Joseph Reed",
+      "aliases": [
+        "joseph.reed@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:daniel.cisneros",
+      "canonical": "Daniel Cisneros",
+      "aliases": [
+        "daniel.cisneros@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:steven.hunt",
+      "canonical": "Steven Hunt",
+      "aliases": [
+        "steven.hunt@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:julie.vasquez",
+      "canonical": "Julie Vasquez",
+      "aliases": [
+        "julie.vasquez@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:surname-collision"
+      ]
+    },
+    {
+      "id": "p:pamela.miller",
+      "canonical": "Pamela Miller",
+      "aliases": [
+        "pamela.miller@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:steven.sanchez",
+      "canonical": "Steven Sanchez",
+      "aliases": [
+        "steven.sanchez@calderwoodpartners.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:hughes-group",
+      "canonical": "Hughes Group",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:brown-and-sons",
+      "canonical": "Brown and Sons",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:key-group",
+      "canonical": "Key Group",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:carroll-merritt-and-williams",
+      "canonical": "Carroll, Merritt and Williams",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:garza-leblanc-and-porter",
+      "canonical": "Garza, Leblanc and Porter",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:poole-mcknight-and-rush",
+      "canonical": "Poole, Mcknight and Rush",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:scott-smith-and-edwards",
+      "canonical": "Scott, Smith and Edwards",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:stark-wilson",
+      "canonical": "Stark-Wilson",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:garcia-werner",
+      "canonical": "Garcia-Werner",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:walker-murray",
+      "canonical": "Walker-Murray",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:pacheco-casey",
+      "canonical": "Pacheco-Casey",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:johnson-lopez-and-brooks",
+      "canonical": "Johnson, Lopez and Brooks",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:linda.gallegos",
+      "canonical": "Linda Gallegos",
+      "aliases": [
+        "linda.gallegos@hughesgroup.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:sandra.frazier",
+      "canonical": "Sandra Frazier",
+      "aliases": [
+        "sandra.frazier@brownandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:steven.lowe",
+      "canonical": "Steven Lowe",
+      "aliases": [
+        "steven.lowe@keygroup.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:joseph.wallace",
+      "canonical": "Joseph Wallace",
+      "aliases": [
+        "joseph.wallace@carrollmerrittandwilliams.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:barbara.ward",
+      "canonical": "Barbara Ward",
+      "aliases": [
+        "barbara.ward@garzaleblancandporter.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:sandra.flores",
+      "canonical": "Sandra Flores",
+      "aliases": [
+        "sandra.flores@poolemcknightandrush.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:melissa.johnson",
+      "canonical": "Melissa Johnson",
+      "aliases": [
+        "melissa.johnson@scottsmithandedwards.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:julie.gonzalez",
+      "canonical": "Julie Gonzalez",
+      "aliases": [
+        "julie.gonzalez@starkwilson.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:mark.villegas",
+      "canonical": "Mark Villegas",
+      "aliases": [
+        "mark.villegas@garciawerner.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:james.keller",
+      "canonical": "James Keller",
+      "aliases": [
+        "james.keller@walkermurray.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:david.carter",
+      "canonical": "David Carter",
+      "aliases": [
+        "david.carter@pachecocasey.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:barbara.banks",
+      "canonical": "Barbara Banks",
+      "aliases": [
+        "barbara.banks@johnsonlopezandbrooks.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:david.bennett",
+      "canonical": "David Bennett",
+      "aliases": [
+        "david.bennett@hughesgroup.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:diane.gray",
+      "canonical": "Diane Gray",
+      "aliases": [
+        "diane.gray@brownandsons.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:julie.ramsey",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2007-02-15",
+      "end": null
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "p:julie.ramsey",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2007-03-15",
+      "end": null
+    },
+    {
+      "src": "p:julie.parks",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:julie.parks",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2008-01-18",
+      "end": null
+    },
+    {
+      "src": "p:michael.walker",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:michael.walker",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2008-03-01",
+      "end": null
+    },
+    {
+      "src": "p:brenda.rodriguez",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:brenda.rodriguez",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2007-09-13",
+      "end": null
+    },
+    {
+      "src": "p:deborah.allen",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:deborah.allen",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2008-03-01",
+      "end": null
+    },
+    {
+      "src": "p:james.green",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:james.green",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2008-03-01",
+      "end": null
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2007-11-23",
+      "end": null
+    },
+    {
+      "src": "p:daniel.leach",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:daniel.leach",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2007-12-04",
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.jackson",
+      "dst": "p:julie.ramsey",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:jeffrey.jackson",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2007-04-15",
+      "end": null
+    },
+    {
+      "src": "p:david.wilson",
+      "dst": "p:jeffrey.jackson",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:david.wilson",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2012-12-13",
+      "end": null
+    },
+    {
+      "src": "p:deborah.jimenez",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:deborah.jimenez",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2012-12-08",
+      "end": null
+    },
+    {
+      "src": "p:brenda.clayton",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:brenda.clayton",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2015-06-05",
+      "end": null
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2009-04-08",
+      "end": null
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2009-11-12",
+      "end": null
+    },
+    {
+      "src": "p:john.vasquez",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.vasquez",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2011-10-28",
+      "end": null
+    },
+    {
+      "src": "p:cynthia.hart",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:cynthia.hart",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2012-10-31",
+      "end": null
+    },
+    {
+      "src": "p:melissa.casey",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:melissa.casey",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2014-06-15",
+      "end": null
+    },
+    {
+      "src": "p:nicole.griffin",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nicole.griffin",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2014-05-31",
+      "end": null
+    },
+    {
+      "src": "p:joseph.reed",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joseph.reed",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2016-05-05",
+      "end": null
+    },
+    {
+      "src": "p:daniel.cisneros",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:daniel.cisneros",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2017-02-17",
+      "end": null
+    },
+    {
+      "src": "p:steven.hunt",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:steven.hunt",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2018-03-17",
+      "end": null
+    },
+    {
+      "src": "p:julie.vasquez",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:julie.vasquez",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2020-01-07",
+      "end": null
+    },
+    {
+      "src": "p:pamela.miller",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:pamela.miller",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2021-01-03",
+      "end": null
+    },
+    {
+      "src": "p:steven.sanchez",
+      "dst": "p:jason.torres",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:steven.sanchez",
+      "dst": "x:calderwood-partners",
+      "kind": "works_at",
+      "start": "2022-07-04",
+      "end": null
+    },
+    {
+      "src": "xp:linda.gallegos",
+      "dst": "x:hughes-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:sandra.frazier",
+      "dst": "x:brown-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:steven.lowe",
+      "dst": "x:key-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:joseph.wallace",
+      "dst": "x:carroll-merritt-and-williams",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:barbara.ward",
+      "dst": "x:garza-leblanc-and-porter",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:sandra.flores",
+      "dst": "x:poole-mcknight-and-rush",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:melissa.johnson",
+      "dst": "x:scott-smith-and-edwards",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:julie.gonzalez",
+      "dst": "x:stark-wilson",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:mark.villegas",
+      "dst": "x:garcia-werner",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:james.keller",
+      "dst": "x:walker-murray",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:david.carter",
+      "dst": "x:pacheco-casey",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:barbara.banks",
+      "dst": "x:johnson-lopez-and-brooks",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:david.bennett",
+      "dst": "x:hughes-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:diane.gray",
+      "dst": "x:brown-and-sons",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:hughes-group",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2008-05-18",
+      "end": null
+    },
+    {
+      "src": "x:brown-and-sons",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2009-06-25",
+      "end": null
+    },
+    {
+      "src": "x:key-group",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2009-07-04",
+      "end": null
+    },
+    {
+      "src": "x:carroll-merritt-and-williams",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2009-04-22",
+      "end": null
+    },
+    {
+      "src": "x:garza-leblanc-and-porter",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2009-06-22",
+      "end": null
+    },
+    {
+      "src": "x:poole-mcknight-and-rush",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2010-05-18",
+      "end": null
+    },
+    {
+      "src": "x:scott-smith-and-edwards",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2011-02-16",
+      "end": null
+    },
+    {
+      "src": "x:stark-wilson",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2011-05-10",
+      "end": null
+    },
+    {
+      "src": "x:garcia-werner",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2012-05-21",
+      "end": null
+    },
+    {
+      "src": "x:walker-murray",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2013-08-09",
+      "end": null
+    },
+    {
+      "src": "x:pacheco-casey",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2014-03-01",
+      "end": null
+    },
+    {
+      "src": "x:johnson-lopez-and-brooks",
+      "dst": "x:calderwood-partners",
+      "kind": "client_of",
+      "start": "2015-06-16",
+      "end": null
+    }
+  ]
+}

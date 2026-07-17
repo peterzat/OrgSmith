@@ -13,10 +13,11 @@ From a clean checkout, on a box with Pango (WeasyPrint's text stack):
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
 bin/test                      # short + unit + org; exit 0
+bin/test flagship             # the large M12 pilot org, on its own
 ```
 
-Expect ~32s wall and 447 passing (14 short, 361 unit, 72 org) on a box
-with LibreOffice; 441 passing + 6 skipped without it (measured by hiding
+Expect ~32s wall and 483 passing (14 short, 397 unit, 72 org) on a box
+with LibreOffice; 477 passing + 6 skipped without it (measured by hiding
 soffice from `PATH`, which is what CI sees). Both are green states,
 see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
@@ -25,7 +26,14 @@ dev-mini-based fixture, and the LibreOffice legacy fixture most of all,
 does proportionally more work than the pre-M9 numbers. M11b replaced the
 six pre-v2.0 fixtures with five larger ones and restored the byte pin
 fleet-wide, so the org tier now re-derives seven orgs rather than two: it
-grew 61 -> 72 even as six fixtures left.)
+grew 61 -> 72 even as six fixtures left. M12 added the capability-layer
+knobs and their tests -- unit grew 361 -> 397 -- and landed the pilot org
+`calderwood-partners` in its own `flagship` tier, kept out of the default
+`bin/test` because validating its 218 files is ~2.3s on its own.)
+
+The `flagship` tier is opt-in (`bin/test flagship`, 10 passing) and runs in
+CI on its own step; the default `bin/test` excludes it so the everyday loop
+stays fast.
 
 ## Entry point
 
@@ -50,9 +58,10 @@ pull request, and is the actual gate.
 
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
-| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 14 | < 1s | 0.22s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 361 (355 in CI) | ~20s | ~28s local / ~15s CI |
-| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence | 72 | ~8s | 4.79s |
+| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 14 | < 1s | 0.19s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 397 (391 in CI) | ~20s | ~30s local / ~15s CI |
+| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 72 | ~8s | 3.6s warm |
+| `flagship` | the large M12 pilot org `calderwood-partners` (218 files) on its own: full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 10 | ~5s | 2.3s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
 assert on a shared runner is a flaky test, and this suite has none.
@@ -91,10 +100,13 @@ what makes the projection trustworthy going forward.
   check, and the per-org spread (an image-only-scan org validates far
   cheaper per file than a prose-heavy one, because rules skip in bulk on
   pages with no extractable text) means a "representative" subset is not
-  representative of cost either. What genuinely is a different job is the **flagship** (M12, ~2,000
-  docs): validating it is a scale test, not a fixture regression check, and
-  at 13.7 ms/file it alone is ~27s. It gets its own marker, excluded from
-  the default `bin/test`, and runs in CI on its own.
+  representative of cost either. What genuinely is a different job is the **flagship** (M12):
+  validating it is a scale test, not a fixture regression check. **This
+  landed at M12 as the pilot org `calderwood-partners`** (218 files, ~2.3s on
+  its own): it has its own `flagship` marker, is excluded from the default
+  `bin/test` (`org` selects `-m "org and not flagship"`), and runs in CI on
+  its own step. The full ~2,000-doc flagship is M12b; at 13.7 ms/file it
+  would be ~27s, which is exactly why the tier exists before it lands.
 - **Explicitly rejected:** trimming the fleet to keep the tier fast. The
   fixtures are the oracles; deleting coverage to buy 2 seconds inverts the
   point of having them.
