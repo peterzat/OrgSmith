@@ -6,25 +6,28 @@ pre-2007 `.doc`/`.xls`/`.ppt` binaries included, when the recipe asks),
 plus a ground-truth ledger that knows every fact planted in them.
 
 ```
-companies/dev-mini/
+companies/northgate-staffing/
 ├── TOC.md
 ├── Engagements/
-│   ├── Johnson and Sons/
-│   │   ├── 2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
-│   │   ├── 2019.07.20 - Kickoff Memo - Operational Review.docx
-│   │   ├── Meeting Minutes 2019-08-27 - Johnson and Sons.docx
-│   │   └── 2019.09.07 - Status Report - Johnson and Sons v2 FINAL.docx
-│   ├── Dean PLC/ ...
-│   └── Reeves, Miller and Thompson/ ...
+│   ├── Roach, Moss and Hall/
+│   │   ├── 2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
+│   │   ├── 2015.08.30 - Kickoff Memo - CFO Search.docx
+│   │   ├── 2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
+│   │   ├── 2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
+│   │   ├── Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
+│   │   └── 2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
+│   ├── Sanchez-Baker/ ...
+│   └── Hicks-Castillo/ ...              <- and three more searches
 ├── Finance/
-│   ├── FY2018 Financial Summary.xlsx  ... through FY2022
+│   ├── FY2014 Financial Summary.xlsx    ... through FY2022
 ├── Firm/
-│   ├── Firm Overview 2019 v3.docx
-│   └── Firm Overview 2022 v3.docx
+│   ├── Firm Overview 2015 v3.docx
+│   ├── Firm Overview 2018 v3.docx
+│   └── Firm Overview 2021 v3.docx
 └── People/
-    └── 2020.11.08 - Onboarding - Cynthia Ball.docx
+    └── 2016.07.24 - Onboarding - Jason Bell.docx   <- and five more
 
-companies/dev-mini-metadata/     <- ground truth for all of the above
+companies/northgate-staffing-metadata/   <- ground truth for all of the above
 ├── foundation.json              # roster, org chart, personas, clients
 ├── ledger/                      # finance series, engagements, people graph
 ├── docplan/manifest.jsonl       # every doc: genre, date, authors, planted facts
@@ -51,10 +54,17 @@ with signature blocks, meeting minutes that name every attendee, spreadsheets
 whose formulas recompute to the values the finance ledger says. The
 `-metadata` directory is the answer key.
 
-**Seven companies are already generated and committed here. Browse them
-now: [`companies/`](companies/)** — real files and their answer keys, in the
-browser, nothing to clone or install. You can also write a recipe and
-generate your own.
+**Start here: [`northgate-staffing`](companies/northgate-staffing/)** — the
+firm above, 53 documents across eight years, and its [answer
+key](companies/northgate-staffing-metadata/). Real files in your browser,
+nothing to clone, install, or authenticate. It is the org we consider our best
+current example, so it is also the one our review board was pointed at, and
+[every flaw it found is published below](#what-is-not-modeled-today).
+
+Six more companies are committed beside it — [the fleet](#what-ships-today)
+exists to show breadth (1999–2025, legacy binaries, degraded scans,
+departmental ACLs), not to be browsed end to end. You can also write a recipe
+and generate your own.
 
 ## Who this is for
 
@@ -117,17 +127,20 @@ from being one.
 
 ### What ships today
 
-**Browse the fleet in your browser: [`companies/`](companies/).** All seven
-are committed and public, so every `<slug>/` is a real file share you can
-click through and every `<slug>-metadata/` is its answer key, sitting right
-next to it. Nothing to clone, install, or authenticate.
+All seven are committed and public in [`companies/`](companies/): every
+`<slug>/` is a real file share you can click through and every
+`<slug>-metadata/` is its answer key, sitting right next to it. **If you are
+here to eyeball the output, read
+[`northgate-staffing`](companies/northgate-staffing/) and stop** — the rest of
+the table is here to show the axes the generator moves along (era, sector, ACL
+posture, format mix), not to be read end to end.
 
 Document spans below are the real dates on the files, not the window the
 recipe allowed:
 
 | company | docs | share | answer key |
 | --- | --- | --- | --- |
-| 12-person executive search firm, 2015–2023, the largest here | 53 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
+| **the exemplar** — 12-person executive search firm, 2015–2023, the largest here | 53 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
 | 12-person actuarial consultancy, 2016–2024, a roster that grows | 49 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
 | 10-person patent boutique, 2018–2025 | 45 | [hollowell-ip](companies/hollowell-ip/) | [key](companies/hollowell-ip-metadata/) |
 | 9-person civil engineering firm, 1999–2007, every office doc a pre-2007 binary | 40 | [brackenridge-civil](companies/brackenridge-civil/) | [key](companies/brackenridge-civil-metadata/) |
@@ -201,12 +214,21 @@ under two seconds, with an exact answer key — instead of failing silently on
 
 ### What is not modeled today
 
-Our own adversarial review board read the flagship org, `northgate-staffing`,
-and said it better than we could. These are its actual committed findings —
-**16 major across six dimensions**, all in
+Our own adversarial review board read the exemplar above,
+`northgate-staffing`, and said it better than we could. These are its actual
+committed findings — **16 major across six dimensions**, all in
 `companies/northgate-staffing-metadata/review/findings/`, against a corpus
 that validates clean: 24 rules run, 5 skipped for knobs it leaves off, 0
-errors:
+errors.
+
+**Read these as findings about one org, because that is what they are.** Every
+one below is a limit of the generator today, not a knob `northgate-staffing`
+declined to turn on: nothing in `recipes/` would fix any of them. When that
+stops being true — when a limit here becomes a recipe choice — this section has
+to say which, or it turns into a false claim about what OrgSmith can do. (The
+word "flagship" is reserved for the M12 org and is not this one; see
+[docs/SCALE.md](docs/SCALE.md), which keeps fixtures, fleet, and flagship as
+three separate jobs.)
 
 - **The firm's own paperwork says it has five clients. Its books say
   otherwise.** "The firm has been retained for five engagements to date...
@@ -240,7 +262,7 @@ directly from this list.** Two of these are already logged with the
 arithmetic that proves them (`BACKLOG.md`:
 `engagement-ledger-reads-as-whole-book`,
 `docplan-has-no-business-day-calendar`). Note what the board is *not*
-saying: the previous flagship's findings — a roster where nobody is ever
+saying: the findings against the org this one replaced — a roster where nobody is ever
 hired or promoted, engagement letters with no termination or liability
 clause, a staffing graph where every engagement has the same three people,
 and expense lines frozen as a fixed share of revenue — are **gone**, fixed
@@ -276,12 +298,22 @@ judged. Cross-document voice is the genuinely hard one, and it has no
 scheduled fix.
 
 Out of scope by choice rather than pending: multi-org document exchange,
-litigation-style volume, real duplicate/version chains, personal and
-off-topic content, adversarial or malicious documents, and any human editing
-pass. Email volume is the largest gap above and sits in between: the recipe's
-`format_mix` does dial the email share, but no committed fixture leans that
-way, and the planner currently spaces successive messages in a thread 45 days
-apart, so email-dominant realism needs more than turning the knob up.
+litigation-style volume, personal and off-topic content, adversarial or
+malicious documents, and any human editing pass. Real duplicate and version
+chains were on this list until M12 scoped them in: a flagship meant to test
+retrieval needs a realistic denominator, and today every committed document is
+deliberate. Not built yet; it is scope, not a feature.
+
+Email volume is the largest gap above and sits in between. The recipe's
+`format_mix` dials the email share, and M9 fixed the cadence — a thread now
+opens about four weeks into its engagement with replies a day or two apart
+(`docplan/planner.py`), replacing an earlier 45-day spacing that made a
+"thread" read as monthly memos. But **no committed fixture exercises it**: every
+recipe sets `format_mix.eml` at or below its engagement count, the planner
+assigns mail round-robin over engagements, and so all 11 `.eml` files in the
+fleet are "Email 1". The reply cadence is live code that has never shipped in a
+document. Email-dominant realism needs a recipe that leans on the knob, not
+just the knob.
 
 **Choose accordingly.** If you need volume, noise distribution, or email
 realism, this is the wrong tool today. If you need labeled hard cases,
@@ -386,10 +418,10 @@ an LLM anywhere in an automated path.
 
 **We publish what the critic said about us.** Every org ships the board's
 findings next to the documents they judge, unflattering ones included — 28
-of them against the current flagship, 16 rated major, quoted at length
+of them against the current exemplar, 16 rated major, quoted at length
 [above](#what-is-not-modeled-today). Two of those drove BACKLOG entries
 carrying the arithmetic that proves them. The board's findings against the
-*previous* flagship drove milestones M8 and M9, and are why the frozen
+*retired* exemplar drove milestones M8 and M9, and are why the frozen
 roster, the clause-less contracts, and the lockstep finance are gone.
 `docs/REVIEW-CALIBRATION.md` records the board being calibrated against two
 hand-labeled defects before its findings were relied on, including the case
@@ -726,7 +758,7 @@ on, so it stays small and cheap rather than proving breadth.
 ## Where this is going
 
 **The v2.0 arc is closed.** It was scoped directly from what the review
-board said about the old flagship, and it ran four milestones:
+board said about the retired exemplar, and it ran four milestones:
 
 | | what landed |
 | --- | --- |
