@@ -202,47 +202,55 @@ signature page of a degraded scan, it will fail here, on 19 documents, in
 
 ### What is not modeled today
 
-Our own adversarial review board read the flagship fixture,
-`fernhollow-partners`, and said it better than we could. These are its
-actual committed findings — all rated major, all in
-`companies/fernhollow-partners-metadata/review/findings/`:
+Our own adversarial review board read the flagship org, `northgate-staffing`,
+and said it better than we could. These are its actual committed findings —
+**16 major across six dimensions**, all in
+`companies/northgate-staffing-metadata/review/findings/`, against a corpus
+that passes all 29 validator rules with zero errors:
 
-- **Nobody's career moves.** "Across the corpus's five-year span nobody is
-  hired, promoted, or leaves... which leaves Ryan Strong an Analyst five and
-  a half years after joining a firm that has no other analyst to be junior
-  to."
-- **The contracts are not contracts.** "All four engagement letters are
-  countersigned EXECUTED contracts that allocate no risk: no termination
-  clause, no limitation of liability, no indemnification, no governing law
-  or dispute resolution, no retainer, and no incorporation of standard terms
-  by reference."
-- **The org graph is flat where a real one is lopsided.** "Every engagement
-  across five years is staffed by exactly the same three people and every
-  engagement document names all three."
-- **Finance is too clean.** "Every expense line is a frozen percentage of
-  revenue in all eight years... which no real P&L does" — so Office &
-  Facilities compounds to +89% for a firm whose own ground truth says the
-  same five people never left the same office.
-- **The firm doesn't template what a real firm would template.** The
-  conventions "cluster by authoring batch rather than by client, year, or
-  recipient" — the generator's context resets are more legible in the output
-  than the firm's five employees are.
+- **The firm's own paperwork says it has five clients. Its books say
+  otherwise.** "The firm has been retained for five engagements to date...
+  That is a deliberately short list," says the 2021 firm overview — five
+  fees totalling $500,500 — while the FY2021 financial summary shipping in
+  the same corpus posts **$2,469,000 for that one year**, and lifetime
+  revenue reaches $20.7M. Four of the six reviewers found this
+  independently. It is real: fees are **1.6% to 5.1% of revenue in every
+  org in this fleet**.
+- **Meetings that could not have happened.** Minutes record a client working
+  session on **Saturday 2016-05-28**, and another on **2023-07-04, US
+  Independence Day**, with the client's General Manager attending. Neither
+  remarks on it. The cause: 36% of documents land on a weekend, because the
+  planner draws dates with no business-day calendar.
+- **Every genre collapses to one template across authors.** Four of five
+  engagement emails, by four different people, contain the literal string
+  "Two asks. First… Second…". All six kickoff memos carry a "Workstreams"
+  heading, then "Next Steps," then a closing epigram — six authors who never
+  saw each other's work. "I would rather X now than Y later" appears **34
+  times across 26 of 44 documents**, every author, every year.
+- **The org grows staff it has no work for.** The engagement book is empty
+  for 1,299 days while three people are hired into it, one onboarded with
+  "She is walking into live work rather than a quiet stretch."
+- **The people graph drifts from the ledger it describes.** Two onboarding
+  records tell the hire she reports to the Managing Director; `foundation.json`
+  reports her to the Principal, who is unnamed in both documents.
 
-**This is where the generator stood when the board read it, and the roadmap
-was scoped directly from this list.** Four of those five findings drove the
-next milestone (M8), which has now landed: the frozen roster, the flat
-staffing graph, and the lockstep finance are fixed in the generator, as its
-default behavior rather than as opt-in knobs. A regenerated org now hires,
-promotes, and loses people, staffs engagements with varying teams, and
-computes each expense line from what drives it. The board read
-`fernhollow-partners`, and **fernhollow is not regenerated this turn** — the
-committed fleet is rebuilt wholesale at the v2.0 fleet reset (M11), so the
-findings above still describe the committed fernhollow you can browse, not
-the generator that would produce it today. M9 has since landed the
-document-supply model: the generator now drives document volume from the
-firm's real activity (no fixed skeleton), authors at realistic per-genre
-lengths, and gives engagement letters the standard clauses a real one
-carries.
+**This is where the generator stands today, and the roadmap is scoped
+directly from this list.** Two of these are already logged with the
+arithmetic that proves them (`BACKLOG.md`:
+`engagement-ledger-reads-as-whole-book`,
+`docplan-has-no-business-day-calendar`). Note what the board is *not*
+saying: the previous flagship's findings — a roster where nobody is ever
+hired or promoted, engagement letters with no termination or liability
+clause, a staffing graph where every engagement has the same three people,
+and expense lines frozen as a fixed share of revenue — are **gone**, fixed
+in the generator by M8 and M9 as default behavior rather than opt-in knobs.
+The board had to find new things to hate, and did.
+
+Read the board sceptically, including here. It is the weakest instrument in
+this repo and its false-positive rate is unmeasured: in a controlled A/B
+(`docs/MODEL-AB.md` Round 2) a reviewer asserted that two corpora rendered
+byte-identical prose when all 22 documents differed. Every finding quoted
+above was re-verified against a ledger before it was published.
 
 **`meridian-actuarial` is the first org where you can check that claim
 rather than take it.** It is built on the whole v2.0 stack: its roster

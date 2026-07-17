@@ -1,0 +1,80 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "cross_document_voice",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [],
+      "summary": "The 'I would rather X now than Y later' antithesis is the whole firm's verbal tic: 34 occurrences across 26 of 44 documents, in every author, every genre, and every year from 2015 to 2023.",
+      "evidence": "Kelly: 'a misunderstanding at this stage costs a phone call, and the same misunderstanding at offer stage costs a candidate' (d:0002); 'we can be wrong early and cheaply about what you want, rather than late and expensively' (d:0010). Jeffrey: 'let the client be wrong in front of us, early... rather than in front of a candidate, late' (d:0011); 'This is easy to do from the start and impossible to retrofit' (d:0011). Sandra: 'I would far rather see that now than at the finalist stage' (d:0005). Jason Bell: 'We would rather say that now, while it is an observation, than later, when it would be an excuse' (d:0023). James Grant: 'I would rather ask you for time now and hand it back unused than go looking for it later' (d:0031). Nicole: 'before we need it rather than after' (d:0037). David Weiss promotes it to a section heading: 'Risks I would rather flag now than later' (d:0051). Twelve people with sharply different personas do not independently converge on one rhetorical figure; this is the generator's signature, not the firm's."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0003", "d:0011", "d:0020", "d:0028", "d:0036", "d:0049"],
+      "summary": "All six kickoff memos are the same document: six different authors across eight years each produced a literal 'Workstreams' heading, then 'Next Steps', then a closing 'one last thing' aphorism.",
+      "evidence": "Every one of the six carries the heading 'Workstreams' followed by ownership bullets, then 'Next Steps'. Each closes with the same reserved-wisdom move: 'One note on tone.' (Jeffrey, d:0011); 'One thing worth saying at the start.' (Bell, d:0020); 'One other thing, and it matters more than the list does.' (Grant, d:0028); 'One note on titles, since it will matter here.' (Nicole, d:0036); 'One thing I want written down' (David Weiss, d:0049). The single-objective declaration repeats too: 'Everything below serves that and nothing else' (Bell, d:0020) against 'Everything below hangs off that single sentence, and if a piece of work does not serve it, we are not doing it' (Grant, d:0028). A firm has one memo template; it does not have six people who independently invent the same one and then each append a personal epigram in the same slot."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-3",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0005", "d:0012", "d:0021", "d:0029", "d:0037"],
+      "summary": "All five engagement emails, by five different authors to five different clients over five years, run the identical three-beat structure, and four contain the literal string 'Two asks. First... Second...'.",
+      "evidence": "Sandra (d:0005), Jeffrey (d:0012), James Grant (d:0029) and Nicole (d:0037) each write 'Two asks. First, ... Second, ...'; Jason Bell (d:0021) writes the variant 'Two things worth knowing early' plus 'The ask:'. Every one of the five is: status paragraph, then exactly two asks, then a file/discretion housekeeping note, then a bare-name signoff. In all five, one of the two asks is the client's interview calendar. Five people who never saw each other's mail do not all land on 'Two asks' and the same running order; this reads as one person writing five times, and it is the clearest single tell in the corpus."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-4",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0002", "d:0010", "d:0019", "d:0027", "d:0035", "d:0048"],
+      "summary": "Every engagement letter's team section reads the roster's internal persona notes out to the client, which is not a thing a firm writes to a company it has just signed.",
+      "evidence": "d:0002 tells Jason Myers that Jeffrey 'is thorough past the point most clients think they require' and that James Grant 'is the one who will be on the telephone with your finalist late in the evening when the finalist's spouse has had second thoughts'. d:0010 repeats the same characterization to a different client: 'he is the one who will keep a nervous finalist at the table', and has Kelly announce her own persona line, 'you will hear it in the second sentence'. d:0027 tells Jason Vasquez that Jim 'has the useful habit of telephoning rather than writing'. d:0048 tells David Mcgee that Sandra 'will be the one who tells you no'. These map one-to-one onto the persona field in foundation.json ('talks a nervous finalist back to the table'; 'picking up the phone before writing anything down'; 'the firm's strictest voice on discretion'). Each letter is dramatizing its cast list rather than staffing an engagement."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-5",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0008", "d:0015", "d:0023", "d:0031", "d:0039", "d:0051"],
+      "summary": "The six status reports are interchangeable: six engagements of different kinds across eight years all sit at the identical midpoint with the identical single risk.",
+      "evidence": "Every report opens on the same beat: 'at its midpoint and on schedule' (d:0008), 'At the midpoint of the engagement the search is on plan' (d:0015), 'is at its midpoint and is on schedule' (d:0023), 'is on schedule at the midpoint' (d:0031), 'at approximately the midpoint of its expected duration and is on schedule' (d:0039), 'We are at roughly the midpoint' (d:0051). Each then reports the spec never moved and the map was extended exactly once: 'the market map is complete and has been extended once at your request' (d:0008) against 'the market map is complete and has been extended once at your instruction' (d:0015). In all six the binding risk is the client's calendar, and the fee paragraph reports no variance. Three of them independently write the same reassurance: 'Nothing in this report asks the board for a decision it has not already been asked for' (d:0023), 'Nothing in this report requires a decision from you this week' (d:0039), 'Nothing here needs a decision from you this week' (d:0051). A CFO search, a board search and a compensation study do not have the same shape at the halfway mark."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-6",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0002", "d:0010", "d:0019", "d:0027", "d:0035", "d:0048"],
+      "summary": "The engagement letters are inverted: the legal boilerplate is freshly re-drafted for every client while the personal opening is templated, which is the opposite of how a firm's letters accrete.",
+      "evidence": "The governing-law clause is four different paraphrases of one provision: 'governed by the law of the state in which this firm maintains its principal office, without regard to its conflict-of-laws rules' (d:0002); 'both of us submit to the courts of that state... Neither of us will file anything until we have tried that in a room, once, in person' (d:0010); 'It may be amended only in writing signed by both of us' (d:0019); 'Disputes we cannot resolve between ourselves will go to binding arbitration before a single arbitrator' (d:0035). Meanwhile the personal opener is near-verbatim across four letters: 'say so before you sign it rather than after' (d:0002), 'say so before you sign rather than after' (d:0010), 'tell me before you sign it rather than after' (d:0027), 'tell me before you sign rather than after' (d:0048). Real firms freeze the clause their lawyer wrote and vary the covering note; here d:0010 invents an ad hoc pre-litigation commitment and d:0035 an arbitration term that appear in no other letter and are never explained."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-7",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0016", "d:0024", "d:0025", "d:0040", "d:0042", "d:0046"],
+      "summary": "All six onboarding records run one formula, and each exists mainly to dramatize its subject's persona blurb: one interview anecdote, affirmed as the reason for the offer, then the same discretion sermon delivered fresh.",
+      "evidence": "The hire-for-the-trait move is in all six: 'we hired the phone work, not the resume' (d:0016); 'That is the part I liked and it is why we made the offer' (d:0024); 'That instinct is not common and it is not trainable' (d:0025); 'We hired him for that and not in spite of it' (d:0040); 'She has already shown the instinct that takes other people a year' (d:0046). Each then closes with the discretion rule stated as fresh revelation rather than as existing policy, plus verbatim logistics: 'Desk, telephone, and files are ready before he arrives' and 'First-week reviews and the thirty-day conversation are with Kelly Chavez' appear word for word in d:0016, d:0024, d:0025 and d:0040. Kelly writes the same essay six times over six years without ever once writing 'as you know' or pointing at a handbook."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xdv-8",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": ["d:0007", "d:0014", "d:0030", "d:0033", "d:0050"],
+      "summary": "The meeting minutes are the one genre where voice genuinely separates, and they show what the rest of the corpus is missing.",
+      "evidence": "The minute-taker's identity is legible from the prose alone. Nicole Donovan writes strict honorifics throughout, matching her 'measured and slightly formal' persona: 'Mr. Grant's position was that scope can be added to a person and judgment cannot' (d:0030). John Chang records neutral third-person with no opinion of his own (d:0014, d:0017). James Grant minutes himself in the first person and records his own dissent: 'Sandra Fuentes told me not to and she is right, though I will note for the file that I disagree with the reasoning and not the decision' (d:0007). Sandra reports her own interruptions: 'David Weiss presented and I interrupted rather more than was strictly necessary' (d:0052). No defect claimed. Recorded because it demonstrates the differentiation is achievable and is absent from the kickoff memos, emails and status reports."
+    }
+  ]
+}

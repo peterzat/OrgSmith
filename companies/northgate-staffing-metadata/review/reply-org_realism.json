@@ -1,0 +1,53 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "org_realism",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": ["d:0040", "d:0042", "d:0046", "d:0044"],
+      "summary": "The firm hires three researchers during a three-and-a-half-year stretch in which its own documents record no live engagement, and their onboarding records describe urgent live work that the engagement book does not contain.",
+      "evidence": "The engagement ledger runs E-2019-001 to 2019-09-03, then nothing until E-2023-001 begins 2023-03-25, a gap of 1,299 days. All three hires in that window are onboarded into work that does not exist: Larry Russell (2019-11-19), Mary Parker (2020-11-27), Heather Meyer (2022-09-02). Meyer's record insists 'She is walking into live work rather than a quiet stretch, which is the honest thing to say up front: there will be no month of orientation, and she will be drafting against a real deadline sooner than is comfortable.' Parker's says 'she will have three people asking for things at once and will have to decide which one is actually urgent.' The firm's own overview confirms the ledger is the complete book rather than a documented subset: 'The firm has been retained for five engagements to date ... and most recently {{fact:f:E-2019-001.client}}' (Firm Overview 2021, dated 2021-09-24, describing work already two years stale)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-2",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": ["d:0048", "d:0049"],
+      "summary": "Six of the firm's eleven staff are Research Associates supporting three consultants, and in seven years nobody has ever been promoted off the research bench or left it.",
+      "evidence": "Active roster at 2023-12-31: 1 Managing Director, 2 Principals, 1 Senior Consultant, 1 Office Manager, and 6 Research Associates. In foundation.json only James Grant and Jeffrey Patterson carry any title_history; Jason Bell (hired 2016-07-17), David Weiss (2017-07-25) and Nicole Donovan (2017-12-24) are all still titled 'Research Associate' in 2023, and the firm's entire attrition since 2013 is one departure (John Chang, 2017). In retained search the associate bench is the highest-churn seat and the path is associate to consultant within a few years; a six-to-three researcher-to-consultant ratio against roughly one search a year is inverted. The 2023 engagement letter still introduces a six-year associate as 'David Weiss, Research Associate, will build the peer group and run the data collection', while he in fact fronts the client's kickoff memo and both status reports."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-3",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": ["d:0019", "d:0020", "d:0022", "d:0035", "d:0006"],
+      "summary": "Every client counterparty is a COO or General Manager with no CEO, board chair or CHRO anywhere, and the independent-director search is bought and controlled by the management it is meant to oversee.",
+      "evidence": "All six external contacts are three Chief Operating Officers and three General Managers, though the firm's own overview says 'A board or a chief executive hires us to fill one senior seat. That is the whole business' (d:0006). The Sanchez-Baker board search is the sharpest case: the engagement letter is addressed to Jennifer Frazier, Chief Operating Officer (d:0019), and the kickoff memo notices the problem exactly once, 'The seat belongs to the board, not to management, which changes who we have to satisfy and how the calendar works' (d:0020), then ignores it. Frazier remains the day-to-day contact who 'controls board scheduling', and in the working session she alone confirms the interview panel and 'the off-limits list against the board's own affiliations' (d:0022). The board chair is never contacted. The General Counsel search likewise specifies the GC 'reporting to you', a General Manager (d:0035). Anyone in search would flag a director search run through the COO on sight."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-4",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0044"],
+      "summary": "The 2021 firm overview names only the two most recently hired associates as 'our research bench' while three other Research Associates are serving on that bench the same day.",
+      "evidence": "'Our research bench, Mary Parker and Larry Russell, does the mapping and drafting that stands behind every slate' (Firm Overview 2021, dated 2021-09-24). On that date Jason Bell (since 2016-07-17), David Weiss (since 2017-07-25) and Nicole Donovan (since 2017-12-24) are all serving Research Associates with no end date, and none of them is mentioned. The document reads as though the firm's account of its own staffing only reaches back to the two most recent arrivals."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-5",
+      "dimension": "org_realism",
+      "severity": "note",
+      "docs": [],
+      "summary": "All six clients are named as eponymous professional partnerships, and none is the regional health system the charter's stated client mix calls for.",
+      "evidence": "The client roster is Roach, Moss and Hall; Coleman Ltd; Sanchez-Baker; Davis and Sons; Howard, Carlson and Tran; Hicks-Castillo. The charter says the firm places 'senior operators and board directors at mid-market companies and one regional health system'; no health system appears among the six. The partnership-style naming also sits oddly against the operating businesses the prose actually describes: Howard, Carlson and Tran retains outside counsel and hires a General Counsel for its 'commercial contracting' load (d:0035), and Davis and Sons has plant-level general managers with multi-site responsibility and a supply chain function (d:0030). No single name is wrong; the monoculture across all six is what reads as assembled."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "document_plausibility",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": ["d:0027", "d:0035", "d:0048"],
+      "summary": "Three of the six executed engagement letters carry two adjacent, near-duplicate fee headings, a section-assembly artifact no counter-signed contract would retain.",
+      "evidence": "d:0027 runs the heading 'Fee and Commencement' ('The fee for this assignment is {{fact:f:E-2018-001.fee}}, fixed for the term...') immediately followed by the heading 'Fees and Payment' ('The fee is invoiced in three installments...'). d:0035 repeats the identical pair, and d:0048 does the same with 'Fee and Start Date' then 'Fees and Payment'. The other three letters (d:0002, d:0010, d:0019) carry a single 'Fees and Payment' section. Two sections named 'Fee...' and 'Fees...' back to back, splitting one commercial term across both, is the kind of thing two sets of counsel merge before signature."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-2",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": ["d:0050", "d:0014"],
+      "summary": "Two sets of minutes record client-attended working sessions held on a US federal holiday and on the Saturday of Memorial Day weekend, with no acknowledgment in either.",
+      "evidence": "d:0050 is dated 2023-07-04, Independence Day: 'Working session on the compensation benchmarking study... Minutes taken by Sandra Fuentes', attended by David Mcgee, General Manager of Hicks-Castillo. d:0014 is dated 2016-05-28, the Saturday of Memorial Day weekend: 'Working session... held at the client's offices', attended by Michael Martin, COO of Coleman Ltd. Neither remarks on the date. The underlying cause is visible across the sample: 17 of the 43 sampled documents fall on a Saturday or Sunday (40% against the ~29% a uniform draw gives), so document dates appear to be drawn without a business-day calendar. Minutes are where it shows, because they assert a meeting happened. Note that an author did handle this well when given the chance: d:0025, dated 2017-12-31, writes around it with 'Her arrival lands at the turn of the year, which is convenient rather than awkward.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-3",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": ["d:0002", "d:0019", "d:0048", "d:0010"],
+      "summary": "The executed letters carry rhetorical asides inside the operative boilerplate, the one register where a retained-search letter is expected to go flat.",
+      "evidence": "The liability cap in d:0002 ends 'Nothing in this paragraph limits our liability for our own fraud or willful misconduct, which is as it should be.' d:0048 appends the same shape to the same carve-out eight years later: 'This limitation does not reach our own fraud or willful misconduct, and we are not asking it to.' d:0019's off-limits clause closes 'A firm unwilling to write that clause is telling you something,' which is marketing addressed to the reader inside an operative provision. d:0010's governing-law clause reads 'Neither of us will file anything until we have tried that in a room, once, in person.' The cover paragraphs earning their charm is right for a boutique; the fraud carve-out and the governing-law clause commenting on themselves is not. Marked minor because a reader could take it as a deliberate house style rather than an error."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-4",
+      "dimension": "document_plausibility",
+      "severity": "note",
+      "docs": ["d:0008", "d:0015", "d:0023", "d:0031", "d:0039", "d:0051"],
+      "summary": "Every status report in the corpus opens by declaring it stands at the midpoint and then reflects on the midpoint as a stage; no defect claimed, but it is a shared structural move the similarity metric cannot see.",
+      "evidence": "Six for six, in six different wordings: 'The search is at its midpoint and on schedule' (d:0008); 'At the midpoint of the engagement the search is on plan' (d:0015); 'is at its midpoint and is on schedule' (d:0023); 'is on schedule at the midpoint' (d:0031); 'at approximately the midpoint of its expected duration and is on schedule' (d:0039); 'We are at roughly the midpoint' (d:0051). Several then philosophize about the position: 'the search has consumed its easy half' (d:0023), 'A search at the midpoint should have exactly this shape' (d:0031), 'This is the stage of a retained search where a great deal of work sits behind us' (d:0015). Recorded as a note rather than a defect: a retained firm reporting on a fixed rhythm would plausibly say where it is, and the varied phrasing keeps 4-gram overlap at 0.075. But a document that knows its own position in a narrative arc is a generator artifact, and it survives a similarity check by construction."
+    }
+  ]
+}

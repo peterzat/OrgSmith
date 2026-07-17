@@ -1,0 +1,49 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "finance_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-1",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": [
+        "d:0044",
+        "d:0045",
+        "d:0032"
+      ],
+      "summary": "The firm overviews assert their engagement list is the firm's complete book of business, which contradicts the revenue on the firm's own financial summaries by roughly twenty-fold.",
+      "evidence": "Firm Overview 2021 (d:0044): 'The firm has been retained for five engagements to date' and 'That is a deliberately short list', naming the 2015-2019 clients, whose fees total $425,500. The FY2021 Financial Summary (d:0045) shipping in the same corpus posts $2,469,000 of revenue for that single year. Lifetime revenue across the summaries is $20,712,000 against $500,500 of lifetime engagement fees, or 2.4%. Firm Overview 2018 (d:0032) does the same thing earlier: 'Four clients is not a large number and we are not going to dress it up as one', against $8.18M of revenue booked through FY2018. Ordinarily an engagement ledger reads as a documented sample of a larger book, but this prose deliberately forecloses that reading: 'That is the whole business' and 'We have not added service lines since we opened' (d:0032). Taken at its word, a firm billing $2.4M a year at a top fee of $105,000 would need roughly 25 searches a year, not five in seven years."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-2",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": [
+        "d:0043",
+        "d:0044",
+        "d:0045"
+      ],
+      "summary": "The firm posts three consecutive years of record revenue across 2020-2022, a window in which its own engagement record shows no engagements at all.",
+      "evidence": "The engagements ledger runs 2015, 2016, 2017, 2018, 2019, then nothing until 2023. Revenue over the gap rises every year regardless: FY2020 $2,261,000, FY2021 $2,469,000, FY2022 $2,762,000. Firm Overview 2021 (d:0044), dated 2021-09-24, confirms the drought rather than explaining it: its most recent engagement is 'most recently {{fact:f:E-2019-001.client}}', two years stale, in the firm's best revenue year yet. A retained firm is paid to run searches; with no searches running for three years there is no mechanism in the business the prose describes that produces $7.5M."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-3",
+      "dimension": "finance_realism",
+      "severity": "note",
+      "docs": [
+        "d:0043",
+        "d:0045"
+      ],
+      "summary": "The 2020 travel expense line rises sharply in a year when this firm's travel should have collapsed, and no document in the corpus acknowledges the pandemic.",
+      "evidence": "Travel runs $134,720 in FY2019, then $182,900 in FY2020 (up 36%) and $206,520 in FY2021. The engagement letters define this line as candidate and client travel: 'travel to meet candidates, candidate travel we arrange on your behalf' (d:0002). For a firm whose expense base is flying candidates to interviews, FY2020 is the one year in modern practice where that line falls off a cliff, and here it accelerates. No document across all 44 mentions COVID, the pandemic, remote work, or video interviewing. Recorded as a note rather than a defect because a fleet-wide convention of avoiding real-world events is plausible and would be a recipe decision, not a prose one."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

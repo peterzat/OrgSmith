@@ -1,0 +1,54 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "graph_acl_naturalness",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0042",
+        "d:0046"
+      ],
+      "summary": "Both research associates hired after 2019 are told in their onboarding records that they report to the Managing Director, but the ledger reports them to the Principal, who is not named in either document.",
+      "evidence": "d:0042 (Mary Parker, prepared by Kelly Chavez): 'She sits with the research team and reports to me on paper.' d:0046 (Heather Meyer, recorded by Kelly Chavez): 'Heather sits on the research bench and reports to me, though in practice her week is set by whichever consultant owns the search she is on.' foundation.json gives both p:mary.parker and p:heather.meyer reports_to = p:sandra.fuentes, and graph.json carries reports_to edges from both into p:sandra.fuentes, not into p:kelly.chavez. Mary's phrase 'on paper' names precisely the formal line the ledger owns and gets it wrong. Sandra Fuentes, who holds all nine Search reporting lines, appears nowhere in either record: neither 'Sandra' nor 'Fuentes' occurs in d:0042 or d:0046. The four earlier onboarding records (d:0016, d:0024, d:0025, d:0040) avoid this by claiming only that 'first-week reviews and the thirty-day conversation are with Kelly Chavez', which is a review relationship rather than a reporting line."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0024",
+        "d:0003",
+        "d:0006"
+      ],
+      "summary": "The surname collision is announced as a working hazard in one onboarding record but never occurs: the other Weiss last appears two years before it is written and never appears again in six remaining years, and the two men share no document.",
+      "evidence": "d:0024 (David Weiss onboarding, 2017-08-01) spends a paragraph on the rule: 'David Weiss is the second Weiss on this roster, and in writing, both of them get a first name and a surname, every single time... A note that says only \"Weiss\" reaches the wrong desk, or worse, reaches both and gets handled by neither... Sign in full and expect the same back from everyone here, including me.' James Weiss appears in exactly two of the 44 authored documents, d:0003 (2015-08-30) and d:0006 (2015-09-26), both roughly 22 months BEFORE David Weiss was hired (employment.start 2017-07-25). He is never named again through 2023 despite employment.end = null. No document contains both names, so the ambiguity the rule exists to prevent could not arise even once. The knob (surname_collisions: 1) is satisfied on the roster and narrated in the one document that introduces its subject, but never lived. The absence compounds: James Weiss is the Office Manager who 'holds the calendar' (d:0003), and the calendar is the named top risk in status report after status report ('Calendars, not candidates, are what usually costs a search its best person', d:0004; 'we lose more people to a client who took three weeks to find an hour than to anything else in this process', d:0029; calendar is risk #1 in d:0008, d:0031, d:0039) - yet the man who owns it is absent from all six engagements and from every document after 2015."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-3",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [],
+      "summary": "Across six retained searches in nine years the client contact is never once a CEO, board chair, CFO or CHRO, and the six contacts' titles fall in perfect blocks of three sorted by engagement date.",
+      "evidence": "foundation.json external_people, in engagement order: Jason Myers (COO), Michael Martin (COO), Jennifer Frazier (COO), then Jason Vasquez (General Manager), Amy Alvarez (GM), David Mcgee (GM). Three COOs then three GMs, flipping exactly at the timeline midpoint, one contact per client and no other named person at any client. In retained executive search the buyers are chief executives, board chairs and CHROs, and none appears anywhere. Two of the resulting org charts are inverted: d:0002 sells 'a Chief Financial Officer reporting to you' where 'you' is Jason Myers, COO, and d:0036 records 'a General Counsel reporting to the General Manager'. Mid-market CFOs and GCs report to the chief executive. Each document handles its own contact gracefully in isolation - d:0020 is explicit that on the board search 'the seat belongs to the board, not to management' and casts Frazier as the scheduler rather than the decision-maker - so this reads at the corpus level rather than in any single letter."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "note",
+      "docs": [],
+      "summary": "The open posture yields a perfectly uniform access matrix, which puts candid written assessments of named individuals on the all-hands share; no defect claimed, since the posture is a recipe knob and the grants conform to it.",
+      "evidence": "acl.json posture is 'open' and the grants are a constant function: 11 of 12 people hold all 53 documents, every document has exactly 11 readers, and the twelfth (p:john.chang, departed 2017-07-08) holds none. There is no variation anywhere in the matrix to read a relationship out of. The consequence worth recording is the People/ folder: every research associate can read every colleague's onboarding record, and those records carry frank individual judgments - d:0046 'Heather Meyer asks permission for a number of things she is entitled to simply decide'; d:0040 'Larry Russell should keep flagging the weak one on the first read'. Heather Meyer can read the critique of her own hedging, and so can the whole firm. Nine years of Finance/ summaries are likewise readable by a 2022 hire. In a twelve-person firm People/ is normally the one folder kept off the general share. The validator confirms these grants match the declared posture, so this is an observation about what 'open' costs this particular firm rather than a claim that the ACL is wrong."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

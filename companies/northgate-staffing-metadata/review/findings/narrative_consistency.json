@@ -1,0 +1,62 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "narrative_consistency",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrcon-1",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0032",
+        "d:0044"
+      ],
+      "summary": "All three firm overviews present the six documented engagements as the firm's complete lifetime client history, which the finance ledger contradicts by roughly fortyfold.",
+      "evidence": "Firm Overview 2021 (d:0044): 'The firm has been retained for five engagements to date. Our first client was [Roach, Moss and Hall], and the work since has been for [Coleman Ltd], [Sanchez-Baker], [Davis and Sons], and most recently [Howard, Carlson and Tran]. That is a deliberately short list.' Those five engagements carry fees totaling $425,500 (ledger/engagements.json: $92,000 / $105,000 / $66,000 / $100,500 / $62,000). The firm booked $14,966,000 of revenue 2013-2021 (ledger/finance.json), including $2,469,000 in FY2021 and $2,261,000 in FY2020 -- a year in which, on the overview's own exhaustive account, no engagement was running at all (the ledger gap runs 2019 to 2023). At ~$85K per search, $2.5M/yr is roughly 29 searches a year, not five in nine. Firm Overview 2018 (d:0032) repeats it -- 'Four clients is not a large number and we are not going to dress it up as one' -- against FY2018 revenue of $1,844,000. Firm Overview 2015 (d:0006) says 'Our client is [Roach, Moss and Hall]' and 'We are a young firm with a short client list' one month after that engagement began, though the firm had already booked $1,812,000 across FY2013-FY2014 -- revenue earned before the assignment that d:0032 twice calls 'our first retained assignment'. The FY summaries are committed artifacts sitting in Finance/ beside Firm/, so the two claims are one folder apart. The recipe documents six engagements as a sample of the firm's work; the prose mistakes the sample for the whole."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrcon-2",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0032",
+        "d:0044"
+      ],
+      "summary": "Across 2015, 2018 and 2021 the firm's overviews never once name either Principal, instead naming the Office Manager and two research associates who never appear on a single engagement.",
+      "evidence": "The only roster names appearing in any overview are Kelly Chavez (all three), James Weiss, Office Manager (2015 only), and Larry Russell and Mary Parker (2021 only). Never named in any overview: Sandra Fuentes, Principal, who 'leads our search practice' and leads four of the six engagements (present in 17 of 44 docs); James Grant, Principal from 2019 and the most-present person in the entire corpus (29 of 44 docs); Jeffrey Patterson (18 docs); Nicole Donovan (12 docs). For a retained search firm the overview is the partner-bio document -- the consultants are the product -- and d:0044 even sells that fact without naming anyone: 'the consultant who sits with you in the first meeting is the consultant who calls you every week until the seat is filled.' The naming is inverted: d:0044's 'Our research bench, Mary Parker and Larry Russell, does the mapping and drafting that stands behind every slate' names two of the five Research Associates employed on 2021-09-24 (Jason Bell, Nicole Donovan, David Weiss, Larry Russell, Mary Parker -- none departed, none promoted, all five put on that bench by their own onboarding records), and the two it picks are precisely the two who never touch an engagement anywhere in the corpus, while the three who built every market map in it go unnamed. d:0006 likewise names the Office Manager but omits Sandra Fuentes, one month after d:0002 introduced her to a client as 'your point of contact for anything of substance.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrcon-3",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0016",
+        "d:0024",
+        "d:0025",
+        "d:0040",
+        "d:0042",
+        "d:0046"
+      ],
+      "summary": "Every onboarding record is written as if on the employee's first day but is dated exactly one week after their roster start date.",
+      "evidence": "All six are a uniform +7 days from foundation.json employment.start, and all six speak in the present or future tense about an arrival that already happened. Sharpest is Heather Meyer (d:0046), dated 2022-09-02: 'Heather Meyer joins the firm today as a Research Associate' -- her start is 2022-08-26. Also Jason Bell (d:0016, dated 2016-07-24, start 2016-07-17): 'Jason Bell joins the Search practice this week' and 'Desk, telephone, and files are set up before he arrives'; David Weiss (d:0024, dated 2017-08-01, start 2017-07-25): 'David Weiss starts this week'; Mary Parker (d:0042, dated 2020-11-27, start 2020-11-20): 'Mary Parker starts with us this week'. A record filed a week late is ordinary; a record that says 'today' and 'before he arrives' about a week-old arrival is not."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrcon-4",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": [],
+      "summary": "Kelly Chavez is the signature on all six engagement letters and the protagonist of all three overviews, but appears as a participant in none of the twenty engagement working documents across nine years.",
+      "evidence": "The firm's loudest and most repeated promise is personal: 'Kelly Chavez, Managing Director, is on every search this firm runs. Not in a supervisory sense, not at the pitch and then again at the offer: on the telephone, in the specification meeting, and on the call where somebody has to say that the slate is thin' (d:0032). Every engagement letter renews it in the first person -- 'if the search drifts you will hear it from me directly rather than from a status report' (d:0035). Yet across every kickoff memo, working-session minute, engagement email and status report for all six engagements she is named as an attendee zero times, authors none of them, and is referenced only secondhand ('Kelly will ask me whether I did', d:0028). No defect is claimed: the corpus contains no specification meeting and no slate presentation, which are exactly the scenes the promise names, so her absence is a coverage artifact rather than a contradiction. Recording it because the pattern -- the accountable partner rendered as a signature rather than a participant -- is the shape a reader would probe first if the promise is meant to be load-bearing."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}
