@@ -269,7 +269,14 @@ per-author register plus a banned-construction list) that measurably moved the
 named tics on the pilot, but no single number is its size and it stays the
 genuinely hard one. (Our recipe coherence test still checks only a 40%
 net-margin ceiling with no floor, so an absurdly poor firm passes it; that is
-recorded in `BACKLOG.md`, `recipe-coherence-test-has-no-floor`.)
+recorded in `BACKLOG.md`, `recipe-coherence-test-has-no-floor`.) The pilot's
+voice measurement is one data point on a different recipe from
+`northgate-staffing`, not an effect size: the named tics fell (`Two asks`
+appears in 2 of the pilot's 36 emails against 4 of northgate's 5; the
+`Workstreams` template in 2 of 26 kickoff memos against all 6; the strict
+"rather X now than Y later" antithesis at 0), while the plain words "rather
+than" stay common because they are ordinary English, which is the instrument's
+own point. Read the pilot's `GENERATION-REPORT.md` for the full pattern table.
 
 - **The firm's own paperwork says it has five clients. Its books say
   otherwise.** "The firm has been retained for five engagements to date...

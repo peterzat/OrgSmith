@@ -12,7 +12,7 @@ hours in.
 
 ### Acceptance Criteria
 
-- [ ] **A business-day calendar knob lands default-off.** A recipe that
+- [x] **A business-day calendar knob lands default-off.** A recipe that
   declares a calendar gets no document of a genre that asserts attendance
   (`meeting_minutes`, `engagement_email`) on a Saturday, Sunday, or a declared
   holiday; today 19 of 53 northgate documents (36%) land on a weekend and two
@@ -27,7 +27,7 @@ hours in.
   grandfathers by charter: it skips visibly when the knob is off, and a knob
   that is on with the property violated is a failure, never a skip.
 
-- [ ] **An engagement/revenue coherence knob lands default-off and closes the
+- [x] **An engagement/revenue coherence knob lands default-off and closes the
   gap two reviewers found independently.** `build_finance` never receives the
   engagements ledger today (`fabric/finance.py:72`), so fees are 1.6-5.1% of
   lifetime revenue in every committed org while the firm's own overview calls
@@ -38,7 +38,7 @@ hours in.
   `GENERATION-REPORT.md` and read before the org is committed. Recorded as a
   measurement, never a gate: no ratio threshold enters any test tier.
 
-- [ ] **Prose can no longer contradict a reporting line the ledger owns.**
+- [x] **Prose can no longer contradict a reporting line the ledger owns.**
   This is a hard-rule violation rather than a realism gap: CLAUDE.md says
   relationships come from the ledgers and generated text never carries a value
   the ledger owns, but the org chart is not wired into the placeholder
@@ -50,7 +50,7 @@ hours in.
   rejection. Not a knob: it applies to every org generated after it. Committed
   fixtures are not edited, so the frozen fleet keeps its drift.
 
-- [ ] **A deterministic noise model lands default-off and costs no tokens.**
+- [x] **A deterministic noise model lands default-off and costs no tokens.**
   With the knob on, a recipe emits duplicates, near-duplicates, and
   draft/final version chains **derived from already-authored documents rather
   than from a model pass**, drawn from a NEW `seeds.py` stream and
@@ -62,7 +62,7 @@ hours in.
   scorer can exclude them; a knob that is on with those labels missing is a
   failure. No noise file carries a planted fact the answer key does not own.
 
-- [ ] **`emit-evals` derives nested splits and ground truth still scores 100%
+- [x] **`emit-evals` derives nested splits and ground truth still scores 100%
   on each.** Core / +distractors / +noise / full, one suite graded across all
   four, so the pilot yields a degradation curve rather than a headline number.
   What counts as a distractor versus noise is written down in `docs/` rather
@@ -72,7 +72,7 @@ hours in.
   claims. Splits are derived and never stored, so the frozen fleet gains them
   without regeneration.
 
-- [ ] **The voice mitigation is implemented, measured against a pre-registered
+- [x] **The voice mitigation is implemented, measured against a pre-registered
   pattern set, and reported whatever it says.** Cross-document voice is the
   board's largest cluster (5 of 16 majors) and `review/metrics.py` is
   structurally blind to it: northgate's own report records no same-genre pair
@@ -87,7 +87,7 @@ hours in.
   even if the mitigation does not move it, and the confounds are stated (n=1,
   a different recipe from the fleet's baseline). Nothing here gates.
 
-- [ ] **One pilot org is generated end to end through live `/forge`, with
+- [x] **One pilot org is generated end to end through live `/forge`, with
   every new knob on, and committed.** Roughly 200-300 documents: large enough
   to measure the knobs and the noise model at fleet-like batch counts, far
   short of defeating a context window, which is M12b's job. `validate` passes
@@ -102,7 +102,7 @@ hours in.
   to brief are recorded and read before the org is committed. `doctor` reports
   `soffice ok` before dispatching anything that needs it.
 
-- [ ] **The seven committed orgs do not move, and the README stops calling
+- [x] **The seven committed orgs do not move, and the README stops calling
   knob-fixable findings generator limits.** The byte pin stays green
   fleet-wide, every new knob defaults off, every charter re-dump stays
   additive (`test_committed_charter_redump_stays_additive`), and no existing
@@ -115,7 +115,7 @@ hours in.
   table, and fleet claim matches what is committed at each commit, not only at
   the end.
 
-- [ ] **`bin/test` passes all tiers offline and keyless at close, and the
+- [x] **`bin/test` passes all tiers offline and keyless at close, and the
   pilot does not blow the org tier's budget.** The org tier is ~4.8s against a
   ~5s budget at ~13.7 ms/file, and a 200-300 doc pilot adds ~3-4s, so it takes
   its own marker excluded from the default run if it pushes the tier past
@@ -229,4 +229,4 @@ the six pre-v2.0 fixtures retired, one flagship boarded, and the byte pin and
 additive evolution restored fleet-wide; all 8 criteria met, reviewed 3 BLOCK /
 3 WARN / 6 NOTE, all fixed.*
 
-<!-- SPEC_META: {"date":"2026-07-17","title":"M12a: the flagship's capability layer, proven on a pilot","criteria_total":9,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-17","title":"M12a: the flagship's capability layer, proven on a pilot","criteria_total":9,"criteria_met":9} -->
