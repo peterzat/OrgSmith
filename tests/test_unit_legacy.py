@@ -245,8 +245,13 @@ def test_stripped_legacy_format_fails_recomputation(org_copy, capsys):
 def test_corrupt_ole_binary_is_a_finding_not_a_traceback(tmp_path, capsys):
     """A file with a valid OLE magic but a garbage body makes olefile raise
     on open; LEG-01 must report a finding, not crash. Pure-python read path
-    (no soffice), corrupting a COPY of the committed retro fixture."""
-    slug = "cindergrove-advisors"
+    (no soffice), corrupting a COPY of the committed retro fixture.
+
+    Hosted by cindergrove-advisors until M11b retired it; brackenridge-civil
+    is the fleet's replacement legacy org and a stronger host, at
+    legacy_ratio 1.0 against cindergrove's partial mix.
+    """
+    slug = "brackenridge-civil"
     (tmp_path / "recipes").mkdir()
     shutil.copytree(REPO / "recipes" / slug, tmp_path / "recipes" / slug)
     (tmp_path / "companies").mkdir()

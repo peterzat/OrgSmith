@@ -5,15 +5,24 @@ external-person affiliations, and the later knob families) must keep
 loading, with new fields filling as inert defaults. dev-mini was the
 committed old-shape oracle until its spec-sanctioned M6 regeneration;
 synthetic artifacts now pin the contract instead.
+
+M11b completed that migration. Three tests here read committed pre-M3/M4/M5
+fixtures (torchlake, quillbrook, bramblewood) to assert the same defaults;
+the v2.0 fleet reset retired those six fixtures, so those tests lost their
+subject. They were not repointed at the new fleet, which would have been
+vacuous: every surviving org was generated under the current schema and sets
+these fields explicitly, so asserting "the default is open" against a
+charter that literally says `acl_posture: open` proves nothing about
+defaults. The synthetic OLD_CHARTER and OLD_MANIFEST_LINE below already
+assert every contract those tests covered, and they are strictly better at
+it -- they describe an artifact that genuinely omits the fields, and they
+cannot rot when a fixture is regenerated. This is the same move dev-mini's
+M6 regeneration made, one fleet later.
 """
 
 import pytest
 
-from orgsmith.artifacts import load_charter, load_manifest
-from orgsmith.paths import OrgPaths
 from orgsmith.schemas import Charter, ExternalPerson, ManifestEntry
-
-from conftest import REPO
 
 pytestmark = pytest.mark.unit
 
@@ -68,6 +77,25 @@ def test_old_manifest_line_loads_with_defaults():
     assert entry.rev == 0
 
 
+def test_pre_m3_key_fact_defaults_to_body_location():
+    """A key_fact written before `location` existed reads as body.
+
+    Held by a committed pre-M3 fixture until M11b retired it. Stated
+    synthetically instead: the point is an entry that OMITS the field, which
+    no current fixture does -- every org the fleet now ships writes
+    `location` explicitly, so a fixture-based version of this test would
+    assert the serializer's output rather than the schema's default.
+    """
+    entry = ManifestEntry.model_validate(
+        {
+            **OLD_MANIFEST_LINE,
+            # a v2 key_fact: fact_id only, before location policies existed
+            "key_facts": [{"fact_id": "f:E-2020-001.fee"}],
+        }
+    )
+    assert [k.location for k in entry.key_facts] == ["body"]
+
+
 def test_old_charter_loads_with_knob_defaults():
     charter = Charter.model_validate(OLD_CHARTER)
     gt = charter.graph_targets
@@ -96,46 +124,6 @@ def test_old_external_person_loads_with_empty_affiliations():
         }
     )
     assert xp.affiliations == []
-
-
-TORCHLAKE = OrgPaths(root=REPO, slug="torchlake-engineering")
-
-
-def test_m2_manifest_loads_with_body_location_defaults():
-    """The committed pre-M3 fixture must keep loading; facts are all body."""
-    entries = load_manifest(TORCHLAKE)
-    assert entries, "committed torchlake manifest missing"
-    for entry in entries:
-        assert all(k.location == "body" for k in entry.key_facts)
-
-
-def test_committed_charters_load_with_open_acl_posture():
-    """The pre-M4 fixtures predate acl_posture; the default must be open
-    and none of them may grow an ACL ledger without regeneration.
-    (dev-mini left this list at its M6 regeneration: it now carries the
-    derived overlay for its open posture.)"""
-    for slug in ("torchlake-engineering", "quillbrook-appraisal"):
-        paths = OrgPaths(root=REPO, slug=slug)
-        assert load_charter(paths).acl_posture == "open"
-        assert not paths.acl_json.exists()
-
-
-def test_committed_charters_load_with_format_knob_defaults():
-    """The pre-M5 fixtures predate the format knobs; defaults must be off
-    and format_mix totals must still satisfy target_docs."""
-    for slug in (
-        "torchlake-engineering",
-        "quillbrook-appraisal",
-        "bramblewood-legal",
-    ):
-        charter = load_charter(OrgPaths(root=REPO, slug=slug))
-        culture = charter.doc_culture
-        assert culture.format_mix.pptx == 0, slug
-        assert culture.format_mix.eml == 0, slug
-        assert culture.scanned_ratio == 0.0, slug
-        assert culture.legacy_ratio == 0.0, slug
-        assert culture.ocr_layer_rate == 0.0, slug
-        assert culture.format_mix.total == culture.target_docs, slug
 
 
 def test_ocr_layer_rate_requires_scanned_ratio():

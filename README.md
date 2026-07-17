@@ -51,7 +51,7 @@ with signature blocks, meeting minutes that name every attendee, spreadsheets
 whose formulas recompute to the values the finance ledger says. The
 `-metadata` directory is the answer key.
 
-**Eight companies are already generated and committed here. Browse them
+**Seven companies are already generated and committed here. Browse them
 now: [`companies/`](companies/)** — real files and their answer keys, in the
 browser, nothing to clone or install. You can also write a recipe and
 generate your own.
@@ -117,7 +117,7 @@ from being one.
 
 ### What ships today
 
-**Browse the fleet in your browser: [`companies/`](companies/).** All eight
+**Browse the fleet in your browser: [`companies/`](companies/).** All seven
 are committed and public, so every `<slug>/` is a real file share you can
 click through and every `<slug>-metadata/` is its answer key, sitting right
 next to it. Nothing to clone, install, or authenticate.
@@ -127,77 +127,75 @@ recipe allowed:
 
 | company | docs | share | answer key |
 | --- | --- | --- | --- |
-| 5-person consultancy, 2019–2023 | 22 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
-| 6-person engineering firm, 2019–2024 | 11 | [torchlake-engineering](companies/torchlake-engineering/) | [key](companies/torchlake-engineering-metadata/) |
-| 5-person appraisal practice, 2019–2020 | 11 | [quillbrook-appraisal](companies/quillbrook-appraisal/) | [key](companies/quillbrook-appraisal-metadata/) |
-| 5-person law practice, 2018–2021 | 11 | [bramblewood-legal](companies/bramblewood-legal/) | [key](companies/bramblewood-legal-metadata/) |
-| 5-person strategy consultancy, 2022–2025 | 16 | [gladepoint-strategies](companies/gladepoint-strategies/) | [key](companies/gladepoint-strategies-metadata/) |
-| 5-person ops consultancy, 1998–2004, legacy binaries and scans | 14 | [cindergrove-advisors](companies/cindergrove-advisors/) | [key](companies/cindergrove-advisors-metadata/) |
-| 5-person financial advisory, 2020–2025 | 19 | [fernhollow-partners](companies/fernhollow-partners/) | [key](companies/fernhollow-partners-metadata/) |
+| 12-person executive search firm, 2015–2023, the largest here | 53 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
 | 12-person actuarial consultancy, 2016–2024, a roster that grows | 49 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
+| 10-person patent boutique, 2018–2025 | 45 | [hollowell-ip](companies/hollowell-ip/) | [key](companies/hollowell-ip-metadata/) |
+| 9-person civil engineering firm, 1999–2007, every office doc a pre-2007 binary | 40 | [brackenridge-civil](companies/brackenridge-civil/) | [key](companies/brackenridge-civil-metadata/) |
+| 10-person environmental consultancy, 2013–2021, scans and a departmental ACL | 40 | [saltmarsh-environmental](companies/saltmarsh-environmental/) | [key](companies/saltmarsh-environmental-metadata/) |
+| 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) |
+| 6-person consultancy, 2019–2023, the test fixture | 22 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
 
-Eight companies, 1998–2025, ~6.1 MB of share plus ~3.2 MB of ground truth:
+Seven companies, 1999–2025, ~17 MB of share plus its ground truth:
 
 | | fleet |
 | --- | --- |
-| companies | 8 |
-| people (internal) | 49 |
-| planned documents | 153 (127 model-authored + 26 deterministic workbooks) |
-| engagements | 25 |
-| mean words per authored doc | transitional (see below) |
-| whole fleet as tokens | ~75K |
+| companies | 7 |
+| people (internal) | 66 |
+| planned documents | 280 (225 model-authored + 55 deterministic workbooks) |
+| engagements | 34 |
+| mean words per authored doc | ~690 |
+| mean length against what the brief asked | 0.995 |
 
-The fleet is mid-rebuild (the v2.0 arc, M8-M11), and the table above is a
-snapshot of that. `meridian-actuarial` is the first org built on the full
-v2.0 stack and the shape the rest are headed for: it authors at **mean 675
-words**, its roster grows from 6 seats to 11 across nine years, and at 49
-documents it is the first to sit in the reference fleet's 30-60 band.
-`dev-mini` is regenerated under the M9 supply model (**mean 717 words**);
-the six pre-v2.0 fixtures retain their old ~236-word lengths and frozen
-rosters until the M11 fleet reset replaces them, so the fleet mean is a
-transitional mix. Each org's current numbers live in its
-`GENERATION-REPORT.md`.
+This is the v2.0 fleet, generated in one arc and frozen. Every org is built
+on the full stack: rosters that hire, promote, and lose people; expense
+lines each computed from what drives them; document volume driven by the
+firm's real activity rather than a fixed skeleton. Every org was authored by
+the same model at the same effort, and **every one of the 225 authored
+documents lands within 25% of the words its brief asked for** — fleet mean
+0.995. Each org's numbers live in its `GENERATION-REPORT.md`.
 
-Per company: 5–12 people, 11–49 documents, 2–6 engagements, a 3–9 year span.
+Per company: 6–12 people, 22–53 documents, 3–6 engagements, a 5–9 year span.
 
-By format: 81 `.docx`, 25 `.pdf`, 24 `.xlsx`, 8 `.doc`, 7 `.eml`, 5 `.pptx`,
-2 `.xls`, 1 `.ppt`.
+By format: 146 `.docx`, 46 `.xlsx`, 34 `.pdf`, 24 `.doc`, 11 `.eml`, 9
+`.xls`, 8 `.pptx`, 2 `.ppt`.
 
-By genre: 25 engagement letters, 29 sets of meeting minutes, 21 kickoff
-memos, 21 status reports, 26 financial summaries, 11 firm overviews, 7
-onboarding records, 7 email threads, 6 briefing decks. (Six more recipes
-are committed under `recipes/` with no generated org yet: they are the rest
-of the M11 reference fleet, and they derive and validate as recipes on
-every test run.)
+By genre: 55 financial summaries, 51 sets of meeting minutes, 37 status
+reports, 34 engagement letters, 34 kickoff memos, 29 onboarding records, 19
+firm overviews, 11 email threads, 10 briefing decks.
 
 ### Where that sits against a real firm
 
-A real five-person professional-services firm over five years does not
-produce 14 documents. It produces, very roughly:
+A real ten-person professional-services firm over eight years does not
+produce 40 documents. It produces, very roughly:
 
-- **Email in the tens of thousands.** Five people sending even 20 messages a
-  working day is ~125,000 messages over five years. OrgSmith ships **4
+- **Email in the tens of thousands.** Ten people sending even 20 messages a
+  working day is ~400,000 messages over eight years. OrgSmith ships **11
   `.eml` files across the entire fleet.** Real firms are email-dominant
   corpora; this one is document-dominant. That is the single largest
-  fidelity gap.
+  fidelity gap, and it has not moved.
 - **Files in the thousands to hundreds of thousands**, most of them junk:
   drafts, near-duplicate versions, dead templates, misfiled scans, someone's
-  lunch menu. OrgSmith ships 11–49 documents per company, each one
+  lunch menu. OrgSmith ships 22–53 documents per company, each one
   deliberate and none of them junk.
-- **Documents 3–6× longer — now being fixed.** Real engagement letters run
-  800–1,500 words; the fleet's old authored mean was **236 words** against
-  briefs asking 130–350. The model was roughly hitting its targets; the
-  targets were wrong. **M9 raised them**: length is a per-genre property of
-  the genre registry, engagement letters now target 1,100, and the
-  regenerated `dev-mini` authors at **mean 717 words** with clause-bearing
-  letters. The six frozen fixtures are raised at the M11 reset. Measured and
-  published in every org's `GENERATION-REPORT.md`.
+- **A book of business far larger than the documented one.** Every org's
+  engagement ledger is a deliberate sample: fees across it come to 1.6–5.1%
+  of the revenue on the same firm's own financial summaries. Our review
+  board caught the corpus mistaking that sample for the whole business, and
+  the arithmetic is published rather than smoothed over (`BACKLOG.md`,
+  `engagement-ledger-reads-as-whole-book`).
+- **Documents 3–6× longer — fixed.** Real engagement letters run 800–1,500
+  words; the pre-v2.0 fleet's authored mean was **236 words** against briefs
+  asking 130–350. The model was roughly hitting its targets; the targets
+  were wrong. M9 made length a per-genre property of the genre registry and
+  raised engagement letters to 1,100. The v2.0 fleet authors at **mean ~690
+  words** with clause-bearing letters, and this is now the one gap on this
+  list that is closed.
 
-There is no honest way to call 14 documents a sample of that. What it is: a
+There is no honest way to call 40 documents a sample of that. What it is: a
 corpus where **every** hard case you care about is present, labeled, and
 checkable. If your extractor cannot find a fee that exists only on the
-signature page of a degraded scan, it will fail here, on 19 documents, in
-1.7 seconds, with an exact answer key — instead of failing silently on
+signature page of a degraded scan, it will fail here, on 40 documents, in
+under two seconds, with an exact answer key — instead of failing silently on
 50,000 real ones.
 
 ### What is not modeled today
@@ -390,9 +388,10 @@ what the metric provably cannot see.
 
 ### The evidence, concretely
 
-- **422 tests** across three tiers (`bin/test`), keyless and offline; the
-  `org` tier validates every committed fixture, derives every recipe, and
-  checks each fleet recipe's internal coherence in ~2.1s.
+- **440 tests** across three tiers (`bin/test`), keyless and offline; the
+  `org` tier validates all seven committed fixtures, derives every recipe,
+  re-derives every fixture's structure byte-identically, and checks each
+  fleet recipe's internal coherence in ~4.8s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
@@ -429,14 +428,13 @@ Five rules have survived every milestone so far and govern new work:
 - **Verification is the ceiling.** The validator and the eval suites are
   oracles computed from ground truth, never another model's opinion; no
   LLM grades an LLM anywhere in an automated path.
-- **Additive evolution, restored after a v2.0 breaking window.** The
-  standing rule: new capabilities arrive as schema fields that default
-  inert and randomness drawn from new seed streams, so every committed
-  fixture keeps loading, validating, and regenerating byte-identical
-  structure. That rule is deliberately suspended for the v2.0 arc (M8-M11):
-  the realism work defaults on rather than off, and the committed fleet is
-  regenerated wholesale rather than held byte-identical. It is restored,
-  and the fleet re-frozen, when the new fleet lands at M11.
+- **Additive evolution.** New capabilities arrive as schema fields that
+  default inert and randomness drawn from new seed streams, so every
+  committed fixture keeps loading, validating, and regenerating
+  byte-identical structure. This rule was deliberately suspended for the
+  v2.0 arc (M8-M11), when the realism work defaulted on rather than off and
+  the fleet was regenerated wholesale. **That window is now closed:** the
+  new fleet landed at M11 and every committed org is byte-pinned again.
 - **Derive, don't store.** Anything recomputable from the ledgers (eval
   suites, ACL grants, ambiguity tags, PERMISSIONS.md) is emitted at read
   time, which is how frozen fixtures gain new capabilities without
@@ -462,9 +460,9 @@ bin/test                                        # short + unit + org tiers, offl
 ```
 
 ```bash
-python -m orgsmith validate fernhollow-partners      # 29 rules against ground truth
-python -m orgsmith report fernhollow-partners        # corpus metrics -> GENERATION-REPORT.md
-python -m orgsmith score fernhollow-partners \
+python -m orgsmith validate northgate-staffing       # 29 rules against ground truth
+python -m orgsmith report northgate-staffing         # corpus metrics -> GENERATION-REPORT.md
+python -m orgsmith score northgate-staffing \
     --suite extraction --answers my_system.json      # grade your system
 ```
 
@@ -519,36 +517,34 @@ batch records what actually authored it.
 
 ## What is in the box today
 
-- The full pipeline, end to end, proven on eight committed fixtures:
+- The full pipeline, end to end, proven on seven committed fixtures, all
+  generated on the v2.0 stack and all byte-pinned:
+  `northgate-staffing` (a 12-person executive search firm, 53 documents,
+  six engagements, 2015-2023) — the largest here, growing from 7 seats to
+  12, with both ambiguity knobs on: a nickname alias (Jim/James Grant,
+  internal-only) and a surname-collision pair;
   `meridian-actuarial` (a 12-person actuarial consultancy, 49 documents,
-  six engagements, 2016-2024) — the first org built on the full v2.0 stack
-  and the largest here, with a roster that grows from 6 seats to 11, a
-  departmental ACL, both hard-case knobs, and a surname-collision pair;
-  `dev-mini` (a 5-person consultancy, 22 documents, three engagements,
-  2019-2023, with mention ground truth, the ACL overlay, and visibility
-  evals); `torchlake-engineering` (a 6-person engineering firm, 11
-  documents, 2019-2024) generated with every ambiguity knob on: a
-  surname-collision pair, a nickname alias planted in rendered minutes,
-  and an external contact with a mid-history employer change;
-  `quillbrook-appraisal` (a 5-person appraisal practice, 11 documents,
-  2019-2020) generated with the hard-case knobs on;
-  `bramblewood-legal` (a 5-person law practice, 11 documents, 2018-2021)
-  generated with a departmental ACL posture; `gladepoint-strategies`
-  (a 5-person strategy consultancy, 16 documents, 2022-2025) whose mix
-  adds a briefing deck and email threads; and `cindergrove-advisors`
-  (a 5-person operations consultancy founded 1995, 14 documents,
-  1998-2004) generated with the scan and legacy knobs on: every office
-  doc a real pre-2007 binary, two engagement letters rasterized as
-  degraded scans (one with a synthetic OCR layer, one image-only). Its
-  roster still carries modern seeded names: era-appropriate naming now
-  exists (M8) but cindergrove predates it and is not regenerated until the
-  v2.0 fleet reset (M11). And `fernhollow-partners` (a 5-person financial
-  advisory boutique, 19 documents, four engagements, 2020-2025)
-  generated with `affiliations_in_docs` on: one client contact signs an
-  early engagement letter under one employer and appears in late
-  documents under another, era-correct per document date, with dated
-  works_at edges and the multi-affiliation ambiguity tag in its answer
-  key.
+  2016-2024) — the first org on the v2.0 stack, growing 6 seats to 11, with
+  a departmental ACL, both hard-case knobs, and a surname collision;
+  `hollowell-ip` (a 10-person patent boutique, 45 documents, 2018-2025)
+  with a departmental ACL, a signature-page-only fee, and a nickname alias
+  across a two-Joseph collision;
+  `brackenridge-civil` (a 9-person civil engineering firm, 40 documents,
+  1999-2007) generated with the legacy and scan knobs at full: **every**
+  office document a real pre-2007 OLE binary (24 `.doc`, 9 `.xls`, 2
+  `.ppt`), scans at 0.5 with a synthetic OCR layer, and an era-appropriate
+  roster for its founding year;
+  `saltmarsh-environmental` (a 10-person environmental consultancy, 40
+  documents, 2013-2021) with scans at 0.6, a departmental ACL, and
+  `affiliations_in_docs` on: a client contact signs an early engagement
+  letter under one employer and appears later under another, era-correct
+  per document date, with dated works_at edges and the multi-affiliation
+  tag in its answer key;
+  `verdant-health` (a 7-person healthcare advisory, 31 documents,
+  2020-2025) with scans and affiliations on; and
+  `dev-mini` (a 6-person consultancy, 22 documents, 2019-2023) — the test
+  fixture the whole unit tier is built on, with mention ground truth, the
+  ACL overlay, and visibility evals.
 - Access-control ground truth: the recipe's `acl_posture` derives
   `ledger/acl.json` (exactly which internal people may read which
   documents: matter teams plus the CEO-equivalent for engagement folders,
@@ -618,14 +614,14 @@ realistic per-genre lengths, and a folder taxonomy beyond
 window of concurrent authors over a serial, single-writer merge, which is
 what makes a fleet-sized generation a few hours instead of a few days.
 
-M11 is landing in two turns. The first (done) wrote the reference fleet's
-six new recipes — spanning civil engineering, environmental, actuarial, IP
-law, executive search, and healthcare, from 1999 to 2025 — gave the
-generator a roster that can grow, and proved the shape by generating
-`meridian-actuarial` end to end. The second retires the six pre-v2.0
-fixtures, generates the remaining five orgs, and re-freezes the fleet. Then
-one flagship org large enough to defeat a context window (M12). See
-[docs/SCALE.md](docs/SCALE.md) for how big those should be and why.
+**M11 has landed, and the v2.0 arc is closed.** The reference fleet is
+rebuilt: six new recipes spanning civil engineering, environmental,
+actuarial, IP law, executive search, and healthcare, from 1999 to 2025; a
+generator whose rosters grow; all six orgs generated through the live
+airlock; the six pre-v2.0 fixtures retired; and the byte pin restored
+fleet-wide, which re-freezes the fixtures and restores additive evolution.
+Next is one flagship org large enough to defeat a context window (M12). See
+[docs/SCALE.md](docs/SCALE.md) for how big that should be and why.
 
 ## Provenance and safety
 

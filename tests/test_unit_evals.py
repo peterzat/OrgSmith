@@ -241,16 +241,52 @@ def test_extraction_wrong_answers_attributed(org):
 
 
 def test_extraction_covers_committed_fixtures():
-    for slug in ("dev-mini", "torchlake-engineering"):
+    """Every planted fact in every committed org is hosted by a question.
+
+    Named dev-mini and torchlake until M11b retired the latter. Walks the
+    whole committed fleet now, derived from disk rather than hand-listed, so
+    a new org joins automatically and a retired one cannot rot the list.
+
+    The location expectation is grandfathered by CHARTER, not hardcoded: the
+    old form asserted every question was body-located, which was true only
+    because both named orgs happened to leave hard_cases off. Four of the
+    fleet's seven orgs now plant signature-page or filename facts, so that
+    assertion would be wrong for them and right for the wrong reason on the
+    rest. Read the knob and assert accordingly.
+    """
+    slugs = sorted(
+        p.name
+        for p in (REPO / "companies").iterdir()
+        if p.is_dir() and not p.name.endswith("-metadata")
+    )
+    assert slugs, "no committed fixtures found"
+    for slug in slugs:
         paths = OrgPaths(root=REPO, slug=slug)
         engagements = load_engagements(paths)
         questions = build_extraction(engagements, load_manifest(paths))
-        # every planted fact in both committed fixtures is hosted somewhere
         total_facts = len(engagements.fact_index())
         assert len(questions) == total_facts, slug
         assert total_facts >= 6, slug
-        assert all(q.expected_docs and q.expected_value for q in questions)
-        assert all(q.location == "body" for q in questions), slug
+        assert all(q.expected_docs and q.expected_value for q in questions), slug
+
+        hard = load_charter(paths).hard_cases
+        locations = {q.location for q in questions}
+        if hard.signature_page_facts == 0 and hard.filename_dates == 0:
+            assert locations == {"body"}, (
+                f"{slug} plants no hard cases, so every fact is body-located; "
+                f"got {sorted(locations)}"
+            )
+        else:
+            assert "body" in locations, slug
+            expected = {"body"}
+            if hard.signature_page_facts:
+                expected.add("signature_page")
+            if hard.filename_dates:
+                expected.add("filename")
+            assert locations <= expected, (
+                f"{slug} produced a location its charter does not enable: "
+                f"{sorted(locations - expected)}"
+            )
 
 
 def test_extraction_location_tags_on_hardcase_org(tmp_path):
@@ -341,17 +377,36 @@ def test_graph_per_class_breakdown(org):
     assert result.classes["surname-collision"]["expected"] >= 2
 
 
-def test_committed_torchlake_gains_tags_without_regeneration():
-    paths = OrgPaths(root=REPO, slug="torchlake-engineering")
+@pytest.mark.parametrize(
+    "slug,tag",
+    [
+        ("northgate-staffing", "ambiguity:surname-collision"),
+        ("northgate-staffing", "ambiguity:nickname-alias"),
+        ("hollowell-ip", "ambiguity:nickname-alias"),
+        ("meridian-actuarial", "ambiguity:surname-collision"),
+        ("saltmarsh-environmental", "ambiguity:multi-affiliation"),
+        ("verdant-health", "ambiguity:multi-affiliation"),
+    ],
+)
+def test_committed_fixtures_gain_ambiguity_tags_without_regeneration(slug, tag):
+    """Ambiguity tags derive from committed ledgers, never stored.
+
+    torchlake carried all three knobs and held this in one assertion until
+    M11b retired it. No org in the new fleet carries all three -- northgate
+    has surname-collision and nickname-alias, hollowell nickname-alias,
+    meridian surname-collision, saltmarsh and verdant multi-affiliation -- so
+    the contract is asserted per (org, tag) instead. Worth stating plainly:
+    the fleet spreads the three ambiguity classes across four orgs rather
+    than concentrating them, so no single org exercises a
+    surname-collision-and-multi-affiliation interaction the way torchlake
+    did. The tags themselves stay covered; a cross-class interaction is not.
+    """
+    paths = OrgPaths(root=REPO, slug=slug)
     expected = build_graph_expected(
         load_charter(paths), load_foundation(paths), load_graph(paths)
     )
     tags = {t for e in expected.entities for t in e.tags}
-    assert {
-        "ambiguity:surname-collision",
-        "ambiguity:nickname-alias",
-        "ambiguity:multi-affiliation",
-    } <= tags
+    assert tag in tags, f"{slug} should derive {tag}; got {sorted(tags)}"
 
 
 def test_committed_dev_mini_has_no_ambiguity_tags():
@@ -453,16 +508,20 @@ def test_visibility_malformed_answers_rejected(acl_org, tmp_path):
     bad = tmp_path / "bad.json"
     bad.write_text('{"suite": "visibility", "answers": [{"id": 7}]}')
     assert run_score(acl_org.evals_dir, "visibility", bad) == 2
-    # And a suite that was never emitted fails actionably (torchlake is
-    # pre-ACL: its committed evals carry no visibility file).
+    # And a suite that was never emitted fails actionably. torchlake hosted
+    # this by being pre-ACL (its committed evals carried no visibility file)
+    # until M11b retired it. Every org in the new fleet derives an ACL and so
+    # ships a visibility suite, leaving no natural host -- the condition is
+    # built here instead of borrowed from a fixture that happens to lack it,
+    # which is what let this rot in the first place.
     good = tmp_path / "good.json"
     good.write_text('{"suite": "visibility", "answers": []}')
+    empty = tmp_path / "evals-without-visibility"
+    empty.mkdir()
+    (empty / "retrieval.jsonl").write_text("")
+    assert not (empty / "visibility.jsonl").exists()
     with pytest.raises(SystemExit, match="no visibility suite"):
-        run_score(
-            REPO / "companies" / "torchlake-engineering-metadata" / "evals",
-            "visibility",
-            good,
-        )
+        run_score(empty, "visibility", good)
 
 
 def test_committed_fixture_evals_reemit_byte_identical(tmp_path):

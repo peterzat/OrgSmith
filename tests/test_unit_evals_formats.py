@@ -147,10 +147,13 @@ def test_ground_truth_scores_100_over_format_org(format_org):
 @pytest.mark.parametrize(
     "slug",
     [
-        "dev-mini",
-        "torchlake-engineering",
-        "quillbrook-appraisal",
-        "bramblewood-legal",
+        # The whole committed fleet, not a hand-listed subset: M11b retired
+        # the three pre-v2.0 slugs this named and a literal list is what let
+        # them rot here. Derived from disk so a new org joins automatically
+        # and a retired one cannot be silently left behind.
+        p.name
+        for p in sorted((REPO / "companies").iterdir())
+        if p.is_dir() and not p.name.endswith("-metadata")
     ],
 )
 def test_committed_fixture_evals_reemit_byte_identically(slug, tmp_path):

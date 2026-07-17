@@ -15,15 +15,17 @@ python3 -m venv .venv
 bin/test                      # short + unit + org; exit 0
 ```
 
-Expect ~30s wall and 422 passing (12 short, 349 unit, 61 org) on a box
-with LibreOffice; ~17s and 416 passing + 6 skipped without it. Both are
-green states, see Environment axis. No API key, no network, no model: a
+Expect ~32s wall and 440 passing (12 short, 356 unit, 72 org) on a box
+with LibreOffice; 434 passing + 6 skipped without it (measured by hiding
+soffice from `shutil.which`, which is what CI sees). Both are green states,
+see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
 the tracer -- `dev-mini` grew from 13 to 22 documents -- so every
 dev-mini-based fixture, and the LibreOffice legacy fixture most of all,
-does proportionally more work than the pre-M9 numbers. M11a added the
-49-doc `meridian-actuarial` and six new fleet recipes, which is most of the
-org tier's growth from 40 tests to 61.)
+does proportionally more work than the pre-M9 numbers. M11b replaced the
+six pre-v2.0 fixtures with five larger ones and restored the byte pin
+fleet-wide, so the org tier now re-derives seven orgs rather than two: it
+grew 61 -> 72 even as six fixtures left.)
 
 ## Entry point
 
@@ -49,8 +51,8 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants | 12 | < 1s | 0.13s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 349 (343 in CI) | ~20s | ~27s local / ~15s CI |
-| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe** (byte-pinned on `dev-mini` and `meridian-actuarial` until M11) and checking fleet-recipe coherence | 61 | ~5s | 2.10s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 356 (350 in CI) | ~20s | ~28s local / ~15s CI |
+| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence | 72 | ~8s | 4.79s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
 assert on a shared runner is a flaky test, and this suite has none.
@@ -62,30 +64,34 @@ knobs.
 Resolves BACKLOG `org-tier-scaling-plan` (2026-07-16, M11a). **Decision: no
 split now, and the trigger is measured rather than guessed.**
 
-Measured today, with the fleet's first 49-doc org committed: 153 share
-files, 61 tests, **2.10s** — up from 1.36s / 104 files before
-`meridian-actuarial`. That is **13.7 ms per share file** end to end for the
-whole tier (validation dominates; deriving all thirteen recipes is ~60ms
-each and scales with recipe count, not file count). It is still ~2.4x
-inside the ~5s budget, so a split today would save nothing measurable and
-cost a permanent seam. Ceremony.
+**Re-measured 2026-07-17 (M11b), with the fleet turn landed.** The
+projection above held almost exactly: it predicted 280 share files ≈ 3.8s,
+and the actual fleet is **294 share files, 72 tests, ~3.9s steady-state**
+(13.3 ms/file; the first run of a session reads ~5.2s cold, so measure warm
+and measure more than once). The decision is unchanged -- **still no split**
+-- but the headroom is now the story rather than the margin: the tier sits
+roughly 1.1s under its own trigger, where at M11a it sat 2.9s under.
 
-The projection is what makes this worth writing down rather than deferring
-again. When the fleet turn retires the six pre-v2.0 fixtures and commits
-the remaining five new orgs, the tier holds **280 share files ≈ 3.8s** —
-inside budget, but only just, and with nothing left for M12. So:
+Original M11a measurement, kept for the trend: 153 share files, 61 tests,
+**2.10s** — up from 1.36s / 104 files before `meridian-actuarial`. That was
+**13.7 ms per share file** end to end (validation dominates; deriving all
+thirteen recipes is ~60ms each and scales with recipe count, not file
+count). Per-file cost is essentially flat across the fleet reset, which is
+what makes the projection trustworthy going forward.
 
-- **Trigger:** the `org` tier crossing **5s** measured (`bin/test org`), or
-  any single committed org above ~150 files. The fleet turn will land near
-  the first and should re-measure rather than assume this projection.
+- **Trigger:** the `org` tier crossing **5s** measured warm (`bin/test
+  org`), or any single committed org above ~150 files. M11b landed at ~3.9s
+  and re-measured rather than assuming; the next turn that adds a fixture
+  should do the same, because at 13.3 ms/file one more 50-doc org is ~0.7s
+  and two would fire the trigger.
 - **What splits it, when it fires: by job, not by size.** The `org` tier's
   job is "every committed fixture still validates against its ground truth",
   and that job wants the whole fleet — a subset tier that skips five of
   seven orgs is not a cheaper version of it, it is a different and weaker
-  check, and the per-org spread (cindergrove validates at 2.3 ms/file
-  against bramblewood's 17.1, because rules skip in bulk on image-only
-  scans) means a "representative" subset is not representative of cost
-  either. What genuinely is a different job is the **flagship** (M12, ~2,000
+  check, and the per-org spread (an image-only-scan org validates far
+  cheaper per file than a prose-heavy one, because rules skip in bulk on
+  pages with no extractable text) means a "representative" subset is not
+  representative of cost either. What genuinely is a different job is the **flagship** (M12, ~2,000
   docs): validating it is a scale test, not a fixture regression check, and
   at 13.7 ms/file it alone is ~27s. It gets its own marker, excluded from
   the default `bin/test`, and runs in CI on its own.
@@ -114,22 +120,24 @@ re-derives fixtures from `recipes/<slug>/ORG-CHARTER.md` and diffs
 `foundation.json` (structure; personas are model-authored and blanked on
 both sides), `ledger/*.json`, and `docplan/manifest.jsonl` byte-for-byte.
 
-**The byte-pin is scoped to `dev-mini` for M8..M10** (was: all seven).
-M8 lifts the freeze on `companies/` and makes v2.0 a breaking window:
-churn moves `foundation.json`, behavioral finance moves `finance.json`,
-and rotation moves the manifest, so no pin against the other six
-fixtures' committed bytes can pass, and they retire in M11 rather than
-being regenerated twice to no end. The six stay committed and keep
-validating clean; only the byte comparison narrows. **This is a real loss
-of coverage on six recipes, and it is temporary** — M11 sets `PINNED`
-back to `SLUGS` once the new fleet exists. It is an argument for M11
-landing promptly, not a new steady state.
+**The byte-pin covers the whole committed fleet again as of M11b**
+(`PINNED = SLUGS`, seven orgs). It was scoped to `dev-mini` for M8..M10 and
+to `{dev-mini, meridian-actuarial}` at M11a, because M8 lifted the freeze
+and made v2.0 a breaking window: churn moved `foundation.json`, behavioral
+finance moved `finance.json`, and rotation moved the manifest, so no pin
+against the six pre-v2.0 fixtures' committed bytes could pass. That was
+recorded at the time as "a real loss of coverage on six recipes, and it is
+temporary". It was temporary: M11b retired those six, generated their
+replacements on the v2.0 stack, and restored the pin fleet-wide. `PINNED`
+is now `SLUGS` itself rather than a filtered literal, so a newly committed
+org cannot be quietly left unpinned.
 
 What survives fleet-wide, because it costs ~60ms and catches a different
 class of break: `test_every_committed_recipe_still_derives` runs all four
 pure stages on all seven recipes. A generator that crashes on
-cindergrove's 1998 recipe or on a knob cluster no other fixture carries
-is still caught; only "the bytes moved" is not.
+brackenridge's 1999 recipe or on a knob cluster no other fixture carries
+is still caught. Since M11b restored `PINNED = SLUGS`, "the bytes moved" is
+caught too, on every committed org rather than on the tracer alone.
 
 **`charter.json` is pinned for current-schema fixtures as of 2026-07-16**
 (M11a), which resolves `charter-redump-drift`. Two assertions, deliberately
@@ -154,14 +162,18 @@ at different strengths:
 - `test_committed_charter_redump_stays_additive` (SLUGS) keeps the weaker
   never-drop-a-key, never-move-a-value invariant fleet-wide.
 
-The split is not hedging. The drift was never a code defect: the six
-pre-v2.0 fixtures' charters were written by an older schema, so a fresh
-derive legitimately gains fields they never carried, and no write guard can
-change that. Measured 2026-07-16: dev-mini byte-identical, the other six
-drift -- fernhollow included, which was still clean at M8, exactly the
-widening the backlog entry predicted. The six keep only the additive
-guarantee until the fleet turn retires them; every fixture generated from
-here forward is byte-pinned on its charter from birth. The additive test
+The split was not hedging, and M11b collapsed it. The drift was never a
+code defect: the six pre-v2.0 fixtures' charters were written by an older
+schema, so a fresh derive legitimately gained fields they never carried, and
+no write guard could change that. Measured 2026-07-16: dev-mini
+byte-identical, the other six drift -- fernhollow included, which was still
+clean at M8, exactly the widening the backlog entry predicted. Those six
+retired at M11b, so the weaker tier now has no subject: every committed
+fixture is on the current schema and byte-pinned on its charter from birth,
+and the two assertions have converged on the same seven orgs. The weaker
+assertion is kept anyway, because it is the one that will still hold the
+line the next time a charter field is added to a fixture generated before
+it. The additive test
 deliberately does not count today's gained keys, which would ratify the
 drift instead of bounding it. Inertness is enforced by the sibling
 assertions, not by introspecting defaults: a charter field whose default
@@ -206,7 +218,7 @@ landmines M8 names (a reordered `Faker` draw, a re-used
 (dev-mini only, and only a projection: id, name, title, reports_to,
 email, employment.start) and
 `test_unit_affiliation_docs.py::test_knob_off_reproduces_committed_engagements_ledger`
-(dev-mini and torchlake, `engagements.json` only). They are narrow and
+(dev-mini and saltmarsh, `engagements.json` only). They are narrow and
 incidental, so leave them alone: they fail with a knob-specific message
 that names the actual cause, which a fleet-wide byte diff cannot.
 `test_pure_stages_are_deterministic` remains the run-to-run check on
@@ -256,10 +268,13 @@ control, so its false-positive rate is unmeasured (BACKLOG:
 Two targets running different suites, deliberately.
 
 - **CI (`ubuntu-latest`, no LibreOffice)** is the gate: all three tiers on
-  every push and PR. Six legacy tests skip. Legacy *validation* is still
-  covered here, by the org tier reading `cindergrove-advisors`'s real
-  `.doc`/`.xls`/`.ppt` binaries pure-Python (olefile, xlrd) in 1.4s with
-  `soffice` absent. Verified 2026-07-16.
+  every push and PR. Six legacy tests skip (434 passing + 6 skipped).
+  Legacy *validation* is still covered here, by the org tier reading
+  `brackenridge-civil`'s real `.doc`/`.xls`/`.ppt` binaries pure-Python
+  (olefile, xlrd) with `soffice` absent -- a stronger check than the
+  retired cindergrove gave it, since brackenridge runs legacy_ratio 1.0 and
+  ships 35 OLE containers against cindergrove's partial mix. Verified
+  2026-07-17.
 - **Generation box (LibreOffice present)** is the only place legacy
   *conversion* (`render/legacy.py`, `soffice --headless`) is ever
   exercised. `python -m orgsmith doctor` reports `soffice ok`.

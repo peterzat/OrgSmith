@@ -83,11 +83,22 @@ def test_committed_org_is_complete(slug):
     assert paths.toc_md.exists()
 
 
-def test_fernhollow_exercises_affiliation_surfaces(capsys):
-    """The M6 fixture: AFF and NAME rules run unskipped, the graph
-    carries dated works_at edges for the boundary person plus the
-    multi-affiliation ambiguity tag, and the corpus is modern-format
-    only (CI stays LibreOffice-free)."""
+def test_affiliation_host_exercises_affiliation_surfaces(capsys):
+    """The fleet's affiliation host: AFF and NAME rules run unskipped, the
+    graph carries dated works_at edges for the boundary person plus the
+    multi-affiliation ambiguity tag, and the corpus is modern-format only
+    (CI stays LibreOffice-free).
+
+    Hosted by fernhollow from M6 until M11b retired it; saltmarsh is the
+    replacement. The `if not exists: skip` guard fernhollow carried is gone
+    rather than repointed. It was there to let the test land before the
+    fixture did, but once fernhollow retired it turned into a silent pass:
+    the org tier reported "fernhollow-partners not committed yet" and moved
+    on, which is grandfathering by absence -- the exact thing CLAUDE.md
+    forbids. A missing host is now a failure, because saltmarsh's recipe has
+    the knob ON and a knob that is on with its artifact missing is tamper
+    evidence, never a skip.
+    """
     from orgsmith.artifacts import (
         load_charter,
         load_foundation,
@@ -96,9 +107,10 @@ def test_fernhollow_exercises_affiliation_surfaces(capsys):
     )
     from orgsmith.evals.emit import build_graph_expected
 
-    paths = OrgPaths(root=REPO, slug="fernhollow-partners")
-    if not paths.meta_dir.exists():
-        pytest.skip("fernhollow-partners not committed yet")
+    paths = OrgPaths(root=REPO, slug="saltmarsh-environmental")
+    assert load_charter(paths).graph_targets.affiliations_in_docs is True, (
+        "the affiliation host must ship the knob on, or this test is vacuous"
+    )
 
     assert run_validate(
         paths, as_json=True, only=["AFF-01", "AFF-02", "NAME-01"]

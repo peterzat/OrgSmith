@@ -69,26 +69,41 @@ RECIPES = sorted(p.name for p in (REPO / "recipes").iterdir() if p.is_dir())
 
 # Recipes exempt from the coherence check below, and why each is exempt.
 #
-# The six pre-v2.0 recipes retire when the fleet turn replaces them, and
-# BACKLOG recipe-growth-outruns-headcount is explicit that fixing them first
-# is work thrown away. dev-mini is exempt for a different and permanent-ish
-# reason: SCALE.md separates fixtures (regression oracles) from the reference
-# fleet (breadth), dev-mini is the former, and it is the byte-pinned tracer --
-# fixing its growth_rate means regenerating it, which this turn deliberately
-# does not do. Its recipe does post an incoherent ~43% terminal margin; that
-# is recorded rather than silently exempted.
+# M11b shrank this to {"dev-mini"}, as the M11a comment said it must: the six
+# pre-v2.0 recipes it also named were retired by the fleet reset, so every
+# recipe under recipes/ is now a v2.0 fleet recipe and coherent by
+# measurement, except the tracer.
 #
-# This set must shrink to {"dev-mini"} when the fleet turn lands.
+# dev-mini is exempt for a different and permanent-ish reason: SCALE.md
+# separates fixtures (regression oracles) from the reference fleet (breadth),
+# dev-mini is the former, and it is the byte-pinned tracer -- fixing its
+# growth_rate means regenerating it, which no turn has yet chosen to do. Its
+# recipe does post an incoherent ~43% terminal margin; that is recorded
+# rather than silently exempted (BACKLOG dev-mini-margin-incoherent).
 _COHERENCE_EXEMPT = {
     "dev-mini",
-    "torchlake-engineering",
-    "quillbrook-appraisal",
-    "bramblewood-legal",
-    "gladepoint-strategies",
-    "cindergrove-advisors",
-    "fernhollow-partners",
 }
 FLEET = [s for s in RECIPES if s not in _COHERENCE_EXEMPT]
+
+
+def test_coherence_exempt_names_only_live_recipes():
+    """The exempt set cannot go stale (M11a review NOTE, closed M11b).
+
+    Nothing asserted that _COHERENCE_EXEMPT was a subset of RECIPES, so a
+    deleted recipe left a dead entry behind and the set could not fail when
+    it rotted. The concrete trap the review named: the fleet turn deletes the
+    six legacy recipes, the set keeps six dead entries, and if a future fleet
+    recipe ever reuses one of those slugs it is silently exempted from the
+    coherence check with no signal. This is the same reason
+    test_every_committed_fixture_has_a_recipe exists, and the same rule
+    CLAUDE.md states -- grandfather by charter, not by absence.
+    """
+    stale = _COHERENCE_EXEMPT - set(RECIPES)
+    assert not stale, (
+        f"_COHERENCE_EXEMPT names recipes that no longer exist: {sorted(stale)}. "
+        "Prune them in the same commit that deletes the recipe, or a future "
+        "recipe reusing the slug is silently exempted from the coherence check."
+    )
 
 # No professional-services firm posts this. Set well clear of both sides of
 # the measurement rather than tuned to it: the new fleet lands at 20.0-26.2%
@@ -96,18 +111,20 @@ FLEET = [s for s in RECIPES if s not in _COHERENCE_EXEMPT]
 # separates coherent from incoherent by ~14pp in either direction.
 _NET_MARGIN_CEILING = 0.40
 
-# The fixtures whose committed bytes are pinned. Scoped to the tracer for
-# M8..M10 (see the module docstring); M11 restores it to the whole fleet by
-# setting this back to SLUGS once the new fleet is generated. Kept as a
-# derived list rather than a literal so an absent slug degrades to an empty
-# pin and a visible skip, not a KeyError.
+# The fixtures whose committed bytes are pinned.
 #
-# meridian-actuarial joins at M11a: it is the first org generated under the
-# v2.0 stack, so unlike the six retiring fixtures there is no pre-v2.0 drift
-# to grandfather -- it is pinned from birth, which is the state the whole
-# fleet returns to when M11 sets this back to SLUGS.
-_PIN = {"dev-mini", "meridian-actuarial"}
-PINNED = [s for s in SLUGS if s in _PIN]
+# M11b closes the v2.0 window and restores this to the whole committed fleet,
+# as the M8 comment said it would. It is SLUGS itself now, not a filtered
+# subset: every committed org was generated under the v2.0 stack, so there is
+# no pre-v2.0 drift left to grandfather and no reason for any org to sit
+# outside the pin. The narrowing to {dev-mini, meridian-actuarial} that M8
+# through M11a needed is over.
+#
+# Deliberately SLUGS rather than a literal set: a literal is what let
+# _COHERENCE_EXEMPT rot above, and it would let a newly generated org be
+# quietly left unpinned. Every committed fixture with a recipe is pinned, and
+# test_every_committed_fixture_has_a_recipe makes that the whole fleet.
+PINNED = SLUGS
 
 
 @pytest.fixture(scope="module")

@@ -22,27 +22,27 @@ README.md for the product shape and SPEC.md for the current unit of work.
   inside skills.
 - `orgsmith/schemas.py` is the keystone: ALL inter-stage contracts live
   there as pydantic models with `orgsmith/<kind>@<ver>` schema ids.
-- **Additive evolution — SUSPENDED for the v2.0 window (M8-M11).** The
-  standing rule: new capabilities are recipe knobs that default off, schema
-  fields that default inert on the existing schema ids, and randomness
-  drawn only from NEW `seeds.py` streams, so every committed fixture keeps
-  loading, validating clean, and regenerating byte-identical structure
-  without regeneration or hand edits. For the v2.0 arc this is deliberately
-  relaxed by user decision: the realism knobs default ON with one code
-  path, and the fleet is regenerated rather than held byte-identical.
-  Restore this rule at M11 when the new fleet is frozen. The `seeds.py`
-  per-stream discipline is NOT relaxed — it is what keeps a single
-  generation reproducible, which still holds.
-- **Committed fixtures are frozen — EXCEPT during the v2.0 reset.** The
-  standing rule: never edit or regenerate a committed org's ledgers,
-  manifest, or authored prose. During M8-M11 the fleet is being rebuilt, so
-  regeneration is expected; `dev-mini` is the only byte-pinned fixture until
-  M11 restores the pin fleet-wide (see `tests/test_org_regen.py`, `PINNED`).
-  `evals/`, `acl.json`, and PERMISSIONS.md are derived and may always be
+- **Additive evolution.** New capabilities are recipe knobs that default
+  off, schema fields that default inert on the existing schema ids, and
+  randomness drawn only from NEW `seeds.py` streams, so every committed
+  fixture keeps loading, validating clean, and regenerating byte-identical
+  structure without regeneration or hand edits. This rule was SUSPENDED for
+  the v2.0 window (M8-M11) by user decision and is **restored as of M11b**:
+  the fleet is regenerated, re-frozen, and pinned fleet-wide again
+  (`tests/test_org_regen.py`, `PINNED = SLUGS`). The `seeds.py` per-stream
+  discipline was never relaxed — it is what keeps a single generation
+  reproducible.
+- **Committed fixtures are frozen.** Never edit or regenerate a committed
+  org's ledgers, manifest, or authored prose. The M8-M11 carve-out for the
+  v2.0 reset is **closed as of M11b**: the new seven-org fleet is generated
+  and the pin is restored fleet-wide (`tests/test_org_regen.py`,
+  `PINNED = SLUGS`), not scoped to `dev-mini`. `evals/`, `acl.json`,
+  `GENERATION-REPORT.md`, and PERMISSIONS.md are derived and may always be
   re-emitted. Validator rules grandfather by CHARTER, not by artifact
   absence: skip visibly only when the recipe knob is off; a knob that is
   on with its artifact missing is a failure (tamper evidence), never a
-  skip.
+  skip. The same rule applies to tests: a fixture-hosted test whose host is
+  deleted must fail or be re-hosted, never skip itself into a silent pass.
 - The user-facing product name appears in code only via `PRODUCT_NAME` in
   `orgsmith/__init__.py`. The pre-rename working name must not appear
   anywhere in the repo (enforced by a short-tier test; see

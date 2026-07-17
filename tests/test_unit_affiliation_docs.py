@@ -44,12 +44,14 @@ def _charter(slug, **graph_target_updates):
 AFF_KNOBS = dict(multi_affiliations=1, affiliations_in_docs=True)
 
 
-def _aff_org(slug="fernhollow-partners"):
-    # fernhollow is the fixture that actually ships affiliations_in_docs, so
+def _aff_org(slug="saltmarsh-environmental"):
+    # saltmarsh is the fixture that actually ships affiliations_in_docs, so
     # it is the honest host. These tests used to bolt the knob onto dev-mini,
     # which worked until M8's staffing rotation shifted engagement dates and
     # dev-mini's seed could no longer place its multi-affiliation person on
-    # both sides. fernhollow is sized for exactly this and places cleanly.
+    # both sides. fernhollow hosted this from M8 until M11b retired it;
+    # saltmarsh is its replacement, sized for exactly this and placing
+    # cleanly (verdant-health is the fleet's other honest host).
     charter = _charter(slug, **AFF_KNOBS)
     foundation = build_foundation(charter)
     return charter, foundation, build_engagements(charter, foundation)
@@ -127,10 +129,16 @@ def test_reassignment_rebuilds_client_dependent_fields():
 
 
 def test_impossible_placement_fails_actionably():
-    # torchlake's frozen seed genuinely cannot host both sides of its
-    # multi-affiliation boundary; the failure must be actionable, at
-    # fabric, before any model pass.
-    charter = _charter("torchlake-engineering", affiliations_in_docs=True)
+    # dev-mini's seed genuinely cannot host both sides of a multi-affiliation
+    # boundary; the failure must be actionable, at fabric, before any model
+    # pass. torchlake hosted this until M11b retired it. dev-mini is the
+    # honest replacement rather than a contrivance: _aff_org's comment above
+    # records that M8's staffing rotation is what cost dev-mini this
+    # placement, so the recipe that failed the knob is now the one pinning
+    # the failure. Verified to raise on the message below, not merely to
+    # raise: dev-mini reports "cannot place xp:stephanie.campos on an
+    # engagement under x:johnson-and-sons".
+    charter = _charter("dev-mini", **AFF_KNOBS)
     foundation = build_foundation(charter)
     with pytest.raises(SystemExit, match="Widen doc_culture.date_range"):
         build_engagements(charter, foundation)
@@ -153,10 +161,23 @@ def test_knob_off_leaves_clients_on_their_simple_assignment():
     committed bytes are no longer reproducible and the pin could not survive
     -- the same reason test_org_regen.py narrowed to dev-mini. The property
     the pin actually protected is behavioral and is asserted directly here,
-    against torchlake's real recipe (multi_affiliations: 1, knob off), churn
-    pinned off so only the affiliations pass is under test."""
-    charter = _charter("torchlake-engineering")
+    churn pinned off so only the affiliations pass is under test.
+
+    Hosted by torchlake's real recipe (multi_affiliations: 1, knob off) until
+    M11b retired it. No surviving recipe has that combination -- the fleet's
+    two multi_affiliations hosts, saltmarsh and verdant, both ship the knob
+    ON -- so the knob is forced off here instead of found off. That is a
+    weaker setup and worth naming: it tests the off path of a recipe that
+    ships on, rather than a recipe someone actually wrote that way. The
+    property under test is unchanged, and multi_affiliations: 1 still comes
+    from the real recipe, so there is still a multi-affiliation person the
+    off path could wrongly reassign."""
+    charter = _charter("saltmarsh-environmental", affiliations_in_docs=False)
     assert charter.graph_targets.affiliations_in_docs is False
+    assert charter.graph_targets.multi_affiliations == 1, (
+        "the host recipe must still plant a multi-affiliation person, or the "
+        "knob-off assertion below is vacuous"
+    )
     foundation = build_foundation(charter)
     ledger = build_engagements(charter, foundation)
 
@@ -247,11 +268,12 @@ def aff_render_org(tmp_path_factory):
 
     from conftest import run_authoring, run_enrichment
 
-    # fernhollow ships the affiliation knobs; dev-mini used to have them
+    # saltmarsh ships the affiliation knobs; dev-mini used to have them
     # bolted on, but M8's staffing rotation shifted its dates past a working
-    # placement (see _aff_org). Churn is pinned off in the recipe text so this
-    # render test exercises only the affiliations path.
-    slug = "fernhollow-partners"
+    # placement (see _aff_org). fernhollow hosted this until M11b retired it.
+    # Churn is pinned off in the recipe text so this render test exercises
+    # only the affiliations path.
+    slug = "saltmarsh-environmental"
     root = tmp_path_factory.mktemp("affrender")
     dest = root / "recipes" / slug
     dest.mkdir(parents=True)

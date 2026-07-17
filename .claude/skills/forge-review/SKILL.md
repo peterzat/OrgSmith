@@ -1,6 +1,6 @@
 ---
 name: forge-review
-description: Adversarial review board for a generated org. Usage /forge-review <slug> (e.g. /forge-review fernhollow-partners). Dispatches fresh-context reviewers across six quality dimensions and merges their findings into GENERATION-REPORT.md. Read-only; never edits ledgers, prose, or rendered files.
+description: Adversarial review board for a generated org. Usage /forge-review <slug> (e.g. /forge-review northgate-staffing). Dispatches fresh-context reviewers across six quality dimensions and merges their findings into GENERATION-REPORT.md. Read-only; never edits ledgers, prose, or rendered files.
 ---
 
 # /forge-review — the board
