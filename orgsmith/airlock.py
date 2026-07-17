@@ -22,6 +22,41 @@ from .schemas import WorkOrder, write_model
 from .state import BatchRef, OrgState, save_state
 
 
+def _next_serial(workorders_dir: Path, stage: str) -> int:
+    """One past the highest serial on disk for `stage`.
+
+    The max, not the count. Counting reuses a serial after any deletion and
+    the reused name then overwrites the order that survived, silently, taking
+    the audit trail and `state.author_batches` (keyed by work-order id) out of
+    agreement with it. Gaps are fine; reuse is not. Names that do not parse are
+    ignored rather than fatal, since the directory is an audit trail and may
+    collect strays.
+    """
+    prefix = f"{stage}-"
+    highest = 0
+    for path in workorders_dir.glob(f"{prefix}*.json"):
+        tail = path.name[len(prefix) : -len(".json")]
+        if tail.isdigit():
+            highest = max(highest, int(tail))
+    return highest + 1
+
+
+def _fresh_work_order_path(workorders_dir: Path, stage: str, serial: int) -> Path:
+    """The path for a new order, refusing to land on an existing file.
+
+    `_next_serial` makes this unreachable on its own; it is here because the
+    cost of being wrong is a destroyed work order rather than a failed run.
+    """
+    path = workorders_dir / f"{stage}-{serial:04d}.json"
+    if path.exists():
+        raise SystemExit(
+            f"{stage}: refusing to overwrite existing work order {path}; "
+            f"serial {serial:04d} was computed as free but is not. Check for "
+            f"a concurrent dispatcher or a hand-edited workorders directory."
+        )
+    return path
+
+
 def outstanding_work_order(paths: OrgPaths, state: OrgState, stage: str) -> Path | None:
     name = state.outstanding.get(stage)
     if name is None:
@@ -50,10 +85,10 @@ def emit_work_order(
         return existing
 
     paths.workorders_dir.mkdir(parents=True, exist_ok=True)
-    serial = len(list(paths.workorders_dir.glob(f"{stage}-*.json"))) + 1
+    serial = _next_serial(paths.workorders_dir, stage)
     wo_id = f"wo:{stage}:{serial:04d}"
     order = build(wo_id)
-    path = paths.workorders_dir / f"{stage}-{serial:04d}.json"
+    path = _fresh_work_order_path(paths.workorders_dir, stage, serial)
     write_model(path, order)
     state.outstanding[stage] = path.name
     save_state(paths, state)
@@ -100,15 +135,17 @@ def emit_author_batch(
     fresh order: the caller has already chosen a batch disjoint from every
     outstanding one, so concurrent batches coexist without overlap.
 
-    Serial numbering counts the work-order files on disk, so it stays
+    Serial numbering reads the work-order files on disk, so it stays
     deterministic as long as emission is sequential (the orchestrating skill
     calls this once per batch; only the model authoring runs concurrently).
+    Two concurrent dispatchers would still race, and `_fresh_work_order_path`
+    is what turns that race into a failed run rather than a lost order.
     """
     paths.workorders_dir.mkdir(parents=True, exist_ok=True)
-    serial = len(list(paths.workorders_dir.glob("author-*.json"))) + 1
+    serial = _next_serial(paths.workorders_dir, "author")
     wo_id = f"wo:author:{serial:04d}"
     order = build(wo_id)
-    path = paths.workorders_dir / f"author-{serial:04d}.json"
+    path = _fresh_work_order_path(paths.workorders_dir, "author", serial)
     write_model(path, order)
     state.author_batches[wo_id] = BatchRef(
         workorder=path.name, doc_ids=list(doc_ids)

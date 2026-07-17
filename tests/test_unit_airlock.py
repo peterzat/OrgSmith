@@ -4,6 +4,7 @@ import json
 
 import pytest
 
+from orgsmith.airlock import _fresh_work_order_path, _next_serial
 from orgsmith.artifacts import load_foundation, load_manifest, load_work_order
 from orgsmith.authoring.contexts import run_next_batch
 from orgsmith.authoring.ingest import docir_path
@@ -226,6 +227,64 @@ def test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink(org):
 
     assert not org.docir_dir.exists()  # nothing written by any rejected attempt
     assert ingest_author(org, _write(org, "ok.json", good)) == 0
+
+
+def test_work_order_serial_never_reuses_a_deleted_number(org):
+    """A deleted order must not hand its serial to the next emit.
+
+    Work orders are kept after ingest as an audit trail, so the directory
+    normally only grows and a count-based serial looks safe. Nothing enforces
+    that. Counting meant one deletion made the next emit compute a serial that
+    was already taken, write over the order that survived, and replace its
+    entry in `state.author_batches` (keyed by work-order id) -- losing the
+    surviving batch's doc_ids with no error. The max is stable under gaps.
+    """
+    run_enrichment(org)
+    assert run_next_batch(org) == 0
+    assert run_next_batch(org) == 0
+    assert sorted(p.name for p in org.workorders_dir.glob("author-*.json")) == [
+        "author-0001.json",
+        "author-0002.json",
+    ]
+
+    survivor = org.workorders_dir / "author-0002.json"
+    survivor_bytes = survivor.read_bytes()
+    survivor_docs = load_state(org).author_batches["wo:author:0002"].doc_ids
+    (org.workorders_dir / "author-0001.json").unlink()
+
+    assert run_next_batch(org) == 0
+
+    assert survivor.read_bytes() == survivor_bytes, "surviving order was overwritten"
+    assert (org.workorders_dir / "author-0003.json").exists()
+
+    batches = load_state(org).author_batches
+    assert set(batches) == {"wo:author:0001", "wo:author:0002", "wo:author:0003"}
+    assert batches["wo:author:0002"].doc_ids == survivor_docs
+    # Still disjoint: a reused serial would have merged two batches' claims.
+    claimed = [d for ref in batches.values() for d in ref.doc_ids]
+    assert len(claimed) == len(set(claimed))
+
+
+def test_fresh_work_order_path_refuses_to_clobber(org):
+    """The belt to `_next_serial`'s braces: if a serial is ever computed as
+    free and is not, the run fails instead of destroying an order."""
+    org.workorders_dir.mkdir(parents=True, exist_ok=True)
+    (org.workorders_dir / "author-0001.json").write_text("{}")
+    with pytest.raises(SystemExit, match="refusing to overwrite"):
+        _fresh_work_order_path(org.workorders_dir, "author", 1)
+
+
+def test_next_serial_reads_the_max_not_the_count(org):
+    org.workorders_dir.mkdir(parents=True, exist_ok=True)
+    assert _next_serial(org.workorders_dir, "author") == 1
+    for name in ("author-0001.json", "author-0007.json"):
+        (org.workorders_dir / name).write_text("{}")
+    assert _next_serial(org.workorders_dir, "author") == 8
+    # Other stages and unparseable strays do not perturb the count.
+    (org.workorders_dir / "foundation-0003.json").write_text("{}")
+    (org.workorders_dir / "author-draft.json").write_text("{}")
+    assert _next_serial(org.workorders_dir, "author") == 8
+    assert _next_serial(org.workorders_dir, "foundation") == 4
 
 
 def test_authoring_converges_over_all_batches(org):
