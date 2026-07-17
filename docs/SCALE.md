@@ -118,11 +118,13 @@ length is now a per-genre property of the genre registry
 every authored genre raised off the old band. **Raising the targets is what
 makes the flagship affordable** — ~2,000 documents rather than ~8,500.
 
-**M11b closed the projection.** The whole fleet is regenerated under the
-raised targets and authors at **mean 694 words**, with every one of its 225
-authored documents inside 75-150% of its brief — so the flagship row above is
-measured rather than projected, and the mixed-fleet caveat this section used
-to carry is gone. The fixed genre skeleton is gone too: document supply is
+**M11b closed the projection's weakest input.** The whole fleet is regenerated
+under the raised targets and authors at **mean 694 words**, with every one of
+its 225 authored documents inside 75-150% of its brief — so the flagship row
+now extrapolates from a measured fleet-wide mean instead of a hoped-for target,
+and the mixed-fleet caveat this section used to carry is gone. The row is still
+an extrapolation: no 2,000-document org exists, and 2,000 x 694 is arithmetic,
+not a measurement. What M11b bought is that the multiplicand is real. The fixed genre skeleton is gone too: document supply is
 driver-derived (the registry walks the firm's engagements, fiscal years, and
 hires), so "~2,000 documents" is a recipe of the right shape rather than a
 planner rewrite. `dev-mini` grew from 13 to 22 documents on the same recipe
