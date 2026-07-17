@@ -492,8 +492,15 @@ against byte-identical ledgers and briefs, produced one corpus a blind
 reviewer said would "take a deliberate effort to catch out" and one it
 rejected outright as too thin to survive first contact — at 60% of the
 words its briefs asked for. **Both passed all 29 validator rules with
-zero errors**, which is exactly why the quality instrument exists. See
-[docs/MODEL-AB.md](docs/MODEL-AB.md).
+zero errors**, which is exactly why the quality instrument exists.
+
+A second run put a strong mid-tier model against the same control on
+today's longer briefs, because the first result did not license a
+conclusion about one. It writes only mildly thinner (85% of brief against
+the frontier model's 97%), but it spent **1.89x the tokens for the same 22
+documents** — which at standard rates makes the cheaper-per-token model the
+more expensive one. **A per-token price is not a cost.** Measure tokens.
+See [docs/MODEL-AB.md](docs/MODEL-AB.md).
 
 Nothing downstream can detect a weak authoring pass from the artifacts, so
 OrgSmith surfaces the setting before tokens are spent rather than gating
