@@ -15,7 +15,7 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from ..airlock import clear_author_batch, match_author_batch
-from ..artifacts import load_engagements, load_manifest
+from ..artifacts import load_engagements, load_foundation, load_manifest
 from ..fabric.engagements import render_date
 from ..naming import check_filename, strip_control
 from ..paths import OrgPaths
@@ -23,12 +23,70 @@ from ..schemas import (
     AuthoringDeliverable,
     DocBrief,
     DocIR,
+    Foundation,
+    ManifestEntry,
     dump_json,
     surface_in_text,
 )
 from ..state import load_state, save_state, sha256_file
 
 _PLACEHOLDER = re.compile(r"\{\{fact:([^}]*)\}\}")
+# A reporting construction: "reports to ...", "reporting directly to ...",
+# capturing the clause target up to the next sentence break. Used to reject
+# prose naming a supervisor the ledger's reports_to edge does not (rf:graph-1).
+_REPORTS_TO = re.compile(
+    r"report(?:s|ing|ed)?\s+(?:directly\s+)?to\s+([^.;:\n]{2,60})",
+    re.IGNORECASE,
+)
+
+
+def _contains_token(needle: str, haystack: str) -> bool:
+    """Word-boundary containment, so "Consultant" does not match inside
+    "Senior Consultant" and a title is only found as a standalone run."""
+    return (
+        re.search(rf"(?<!\w){re.escape(needle)}(?!\w)", haystack, re.IGNORECASE)
+        is not None
+    )
+
+
+def _check_reporting_line(
+    entry: ManifestEntry, foundation: Foundation, resolved: str
+) -> list[str]:
+    """Reject onboarding prose that names an internal supervisor the ledger's
+    reports_to edge contradicts (M12, rf:graph-1). A reporting line is a
+    relationship the ledger owns; the brief states the true one and this check
+    recomputes truth from foundation rather than trusting the brief. Fires only
+    when a reporting construction names a DIFFERENT internal manager title or
+    person, so correct prose, silent prose, and mentions of outside parties all
+    pass -- precision over recall."""
+    if entry.genre != "onboarding_record" or not entry.participants:
+        return []
+    subject = foundation.person(entry.participants[0])
+    if subject.reports_to is None:
+        return []
+    manager = foundation.person(subject.reports_to)
+    true_title = manager.title_at(entry.date)
+    true_name = manager.name
+    managed = {p.reports_to for p in foundation.people if p.reports_to}
+    mgmt_titles = {foundation.person(mid).title_at(entry.date) for mid in managed}
+    wrong_titles = mgmt_titles - {true_title}
+    wrong_names = {p.name for p in foundation.people} - {true_name, subject.name}
+
+    problems: list[str] = []
+    for tgt in _REPORTS_TO.findall(resolved):
+        if _contains_token(true_title, tgt) or _contains_token(true_name, tgt):
+            continue  # names the real manager; correct
+        hit = next(
+            (t for t in wrong_titles if _contains_token(t, tgt)),
+            None,
+        ) or next((n for n in wrong_names if _contains_token(n, tgt)), None)
+        if hit is not None:
+            problems.append(
+                f"reporting line contradicts the ledger: prose reports "
+                f"{subject.name} to {hit!r}, but foundation reports them to "
+                f"{true_name} ({true_title})"
+            )
+    return problems
 
 
 def docir_path(paths: OrgPaths, doc_id: str) -> Path:
@@ -176,6 +234,7 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         problems.append(f"work-order docs not delivered: {', '.join(missing)}")
     facts = load_engagements(paths).fact_index()
     manifest = load_manifest(paths)
+    foundation = load_foundation(paths)
     entries = {e.doc_id: e for e in manifest}
     for doc in deliverable.docs:
         if doc.doc_id in briefs:
@@ -219,6 +278,9 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
                     f"{doc.doc_id}: missing required mention "
                     f"{mention.surface!r} ({mention.entity})"
                 )
+            if entry is not None:
+                for p in _check_reporting_line(entry, foundation, resolved):
+                    problems.append(f"{doc.doc_id}: {p}")
 
     if problems:
         print("ingest: deliverable rejected:")

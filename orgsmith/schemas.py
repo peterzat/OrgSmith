@@ -662,6 +662,14 @@ class DocBrief(StrictModel):
     # handed the timeless recipe narrative and one client fact. This carries a
     # date-scoped digest naming clients by FACT ID only, never by value.
     firm_digest: str = ""
+    # For onboarding_record (M12): the new hire's reporting line, resolved from
+    # foundation's `reports_to` edge as of the doc date. rf:graph-1 was an
+    # onboarding record telling a hire she reports to the Managing Director when
+    # the ledger reports her to the Principal. A reporting line is a
+    # relationship the ledger owns, so the brief states it and ingest rejects
+    # prose that names a different internal supervisor. Empty when the subject
+    # has no manager (the CEO-equivalent) or the genre carries no reporting line.
+    reporting_line: str = ""
 
 
 class WorkOrder(StrictModel):

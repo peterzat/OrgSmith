@@ -77,6 +77,11 @@
           "title": "Participants",
           "type": "array"
         },
+        "reporting_line": {
+          "default": "",
+          "title": "Reporting Line",
+          "type": "string"
+        },
         "target_words": {
           "default": 250,
           "title": "Target Words",

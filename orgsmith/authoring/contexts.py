@@ -123,6 +123,9 @@ Hard rules:
   as established as of this document's date. Reference clients only through
   the placeholders it names; claim no engagement it does not list; present
   nothing later than this document as already true.
+- If a doc carries `reporting_line`, the person reports to exactly who it
+  names and to no one else. Do not name any other person or title as their
+  supervisor; a reporting relationship is owned by the ledger, not invented.
 - Write plain, era-appropriate business prose in the org's voice.
 """
 
@@ -197,6 +200,26 @@ def _firm_digest(all_engagements, when: date) -> str:
         f"these placeholders, never by inventing a name: {client_refs}. "
         f"Present nothing that post-dates this document as established, and "
         f"claim no engagement not listed here."
+    )
+
+
+def _reporting_line(foundation: Foundation, subject_id: str, when: date) -> str:
+    """The new hire's reporting line as of `when`, from foundation's
+    `reports_to` edge (M12, rf:graph-1). A reporting line is a relationship the
+    ledger owns; briefing it stops the author guessing a wrong supervisor, and
+    ingest rejects prose that names a different internal manager. Empty for the
+    CEO-equivalent (no manager) so the airlock stays silent where there is
+    nothing to state. Names and titles are briefed directly, exactly as
+    PersonBrief already briefs author and participant titles -- they are not
+    fact placeholders, and never have been."""
+    subject = foundation.person(subject_id)
+    if subject.reports_to is None:
+        return ""
+    manager = foundation.person(subject.reports_to)
+    return (
+        f"Reports to {manager.name}, {manager.title_at(when)}. State the "
+        f"reporting line only as briefed: name no other person or title as "
+        f"this hire's supervisor."
     )
 
 
@@ -354,6 +377,14 @@ def run_next_batch(paths: OrgPaths) -> int:
                     firm_digest=(
                         _firm_digest(engagements.values(), entry.date)
                         if entry.genre == "company_overview"
+                        else ""
+                    ),
+                    reporting_line=(
+                        _reporting_line(
+                            foundation, entry.participants[0], entry.date
+                        )
+                        if entry.genre == "onboarding_record"
+                        and entry.participants
                         else ""
                     ),
                 )
