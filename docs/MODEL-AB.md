@@ -6,7 +6,7 @@ was folklore: plausible, repeated, never measured. This is the measurement.
 **Result: the folklore was right, and the gap is not subtle.** One model
 produced a corpus a blind reviewer said it "would take a deliberate effort
 to catch out." The other produced one the same reviewer refused outright.
-**Both validated clean under all 29 rules.**
+**Both validated clean, with zero errors, on every rule that ran.**
 
 Two experiments live in this document. The first (2026-07-16, below) is
 Opus against Haiku on pre-M9 briefs, and it established that the axis is
@@ -114,13 +114,19 @@ reports "unrecorded", the unknown effort ranks as unknown rather than
 below-floor, and nothing failed.
 
 **3. The board found a real pipeline bug, in a lane no one assigned it.**
-Arm B's reviewer noticed that the PDF renderer silently flattens `\n`
-inside a paragraph block while the DOCX renderer honors it as `<w:br/>`.
-Verified independently: `pdf.py:90` emits `<p>{text}</p>`, where HTML
-collapses newlines to spaces, and python-docx does emit `<w:br/>`. It
-affects the committed fixture `gladepoint-strategies` `d:0008`, a PDF whose
-addressee block renders as one smeared line. It validates clean because no
-rule checks line breaks. Filed to BACKLOG.md; out of scope for M7.
+Arm B's reviewer noticed that the PDF renderer silently flattened `\n`
+inside a paragraph block while the DOCX renderer honored it as `<w:br/>`.
+Verified independently at the time: `pdf.py` emitted `<p>{text}</p>`, where
+HTML collapses newlines to spaces, and python-docx does emit `<w:br/>`. It
+affected `gladepoint-strategies` `d:0008`, a PDF whose addressee block
+rendered as one smeared line, and it validated clean because no rule checks
+line breaks.
+
+**Fixed at M9** (`pdf.py` now emits `<br>` for intra-paragraph newlines);
+the fixture it was found in was retired by the M11b fleet reset. Recorded
+here because the provenance is the point: a critic pointed at prose found a
+renderer defect that no oracle and no proxy in this repo was looking for,
+which is the argument for keeping a weak instrument in the loop.
 
 ## Limits
 

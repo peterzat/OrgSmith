@@ -41,10 +41,10 @@ shown, so a fee or a date cannot be mistranscribed into a document.
 OrgSmith runs as Claude Code skills rather than against an API, so authoring
 bills to the Claude subscription you already have, needs no API keys, and the
 deterministic stages (ledgers, rendering, validation) cost no tokens at all.
-The writer is whatever model your Claude Code session is set to: OrgSmith
-pins none. Use the strongest you have. That is measured rather than folklore
-([docs/MODEL-AB.md](docs/MODEL-AB.md)), and `doctor` prints your session's
-effort against the authoring floor and warns when you are under it.
+The writer is whatever model your session is set to — OrgSmith pins none, so
+[which one you pick is the one choice that changes your
+corpus](#which-model-should-write-your-documents), and we measured it rather
+than guessed.
 
 The result reads like a real firm wrote it: engagement letters on letterhead
 with signature blocks, meeting minutes that name every attendee, spreadsheets
@@ -135,7 +135,7 @@ recipe allowed:
 | 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) |
 | 6-person consultancy, 2019–2023, the test fixture | 22 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
 
-Seven companies, 1999–2025, ~17 MB of share plus its ground truth:
+Seven companies, 1999–2025: ~16 MB of browsable share, plus ~5 MB of ground truth beside it.
 
 | | fleet |
 | --- | --- |
@@ -144,15 +144,16 @@ Seven companies, 1999–2025, ~17 MB of share plus its ground truth:
 | planned documents | 280 (225 model-authored + 55 deterministic workbooks) |
 | engagements | 34 |
 | mean words per authored doc | ~690 |
-| mean length against what the brief asked | 0.995 |
+| mean length against what the brief asked | 0.998 |
 
 This is the v2.0 fleet, generated in one arc and frozen. Every org is built
 on the full stack: rosters that hire, promote, and lose people; expense
 lines each computed from what drives them; document volume driven by the
 firm's real activity rather than a fixed skeleton. Every org was authored by
-the same model at the same effort, and **every one of the 225 authored
-documents lands within 25% of the words its brief asked for** — fleet mean
-0.995. Each org's numbers live in its `GENERATION-REPORT.md`.
+`claude-opus-4-8[1m]` — the six fleet orgs at effort `xhigh`, `dev-mini` at
+`max` — and **every one of the 225 authored documents lands within 25% of
+the words its brief asked for**. Each org records what actually authored it,
+batch by batch, in its `GENERATION-REPORT.md`.
 
 Per company: 6–12 people, 22–53 documents, 3–6 engagements, a 5–9 year span.
 
@@ -246,29 +247,33 @@ and expense lines frozen as a fixed share of revenue — are **gone**, fixed
 in the generator by M8 and M9 as default behavior rather than opt-in knobs.
 The board had to find new things to hate, and did.
 
-Read the board sceptically, including here. It is the weakest instrument in
-this repo and its false-positive rate is unmeasured: in a controlled A/B
-(`docs/MODEL-AB.md` Round 2) a reviewer asserted that two corpora rendered
-byte-identical prose when all 22 documents differed. Every finding quoted
-above was re-verified against a ledger before it was published.
+Read the board sceptically, including here — it is the weakest instrument in
+this repo, it has been caught publishing a checkable falsehood, and its
+false-positive rate is unmeasured ([what this does not
+prove](#what-this-does-not-prove)). Every finding quoted above was
+re-verified against a ledger before it was published.
 
-**`meridian-actuarial` is the first org where you can check that claim
-rather than take it.** It is built on the whole v2.0 stack: its roster
-grows from 6 seats to 11 across nine years, one person leaves and is
-backfilled, two are promoted, and its expense lines are each computed from
-what drives them. That last part is where the fix bit hardest. Fixing the
-lockstep finance is what made every recipe's *own* incoherence visible:
+**You can check that rather than take it: every org above ships its own
+board findings and its own numbers.** All seven are built on the whole v2.0
+stack — rosters that grow, one person leaving and being backfilled, people
+promoted, expense lines each computed from what drives them.
+
+That last part is where the fix bit hardest, and it is worth knowing why.
+Fixing the lockstep finance made every recipe's *own* incoherence visible:
 once compensation tracks a roster instead of tracking fees, a firm that
 compounds revenue with a headcount that never moves posts a net margin
-climbing toward 50%, which no professional-services firm does. The model
-was right and the recipes were wrong. The fleet's six new recipes are each
-tuned so their growth, headcount, and span describe one firm — measured,
-recorded in the recipe, and checked on every test run.
+climbing toward 50%, which no professional-services firm does. The model was
+right and the recipes were wrong. So each fleet recipe is now tuned until
+its growth, headcount, and span describe one firm — measured from its own
+finance ledger, recorded in the recipe, and re-checked on every test run
+(`test_fleet_recipe_growth_headcount_and_span_describe_one_firm`). This is
+the pattern worth stealing: when a fix reveals that your inputs were wrong,
+the fix is not to soften the model.
 
 [SPEC.md](SPEC.md) is the current unit of work and says exactly what it
-commits to. Each turn's board findings stay
-committed next to the org they judged. Cross-document voice is the genuinely
-hard one, and it has no scheduled fix.
+commits to. Each turn's board findings stay committed next to the org they
+judged. Cross-document voice is the genuinely hard one, and it has no
+scheduled fix.
 
 Out of scope by choice rather than pending: multi-org document exchange,
 litigation-style volume, real duplicate/version chains, personal and
@@ -379,14 +384,18 @@ the board is read-only and never authored what it reviews; `bin/test` cannot
 reach the board at all (a static test proves no tier can); and no LLM grades
 an LLM anywhere in an automated path.
 
-**We publish what the critic said about us.** The board's findings against
-the flagship fixture are committed to this repo, unflattering ones included
-— the frozen roster, the too-clean finance, the batch-legible conventions
-quoted above. `docs/REVIEW-CALIBRATION.md` records the board being
-calibrated against two hand-labeled defects before its findings were relied
-on, including the case where it **overruled the metric** (judging a flagged
-similar pair to be realistic template reuse) and the case where it caught
-what the metric provably cannot see.
+**We publish what the critic said about us.** Every org ships the board's
+findings next to the documents they judge, unflattering ones included — 28
+of them against the current flagship, 16 rated major, quoted at length
+[above](#what-is-not-modeled-today). Two of those drove BACKLOG entries
+carrying the arithmetic that proves them. The board's findings against the
+*previous* flagship drove milestones M8 and M9, and are why the frozen
+roster, the clause-less contracts, and the lockstep finance are gone.
+`docs/REVIEW-CALIBRATION.md` records the board being calibrated against two
+hand-labeled defects before its findings were relied on, including the case
+where it **overruled the metric** (judging a flagged similar pair to be
+realistic template reuse) and the case where it caught what the metric
+provably cannot see.
 
 ### The evidence, concretely
 
@@ -411,13 +420,134 @@ what the metric provably cannot see.
   `SPEC.md`, `CODEREVIEW.md`, and `SECURITY.md` are in the repo; read them
   to see what the review actually caught.
 
-**What this does not prove.** The board has been calibrated on one org, one
-model, one run, with no negative control — so its false-positive rate is
-unmeasured. The metrics have no validated thresholds. Nothing here
+### What this does not prove
+
+The board has been calibrated on one org, one model, one run, with no
+negative control, so its false-positive rate is unmeasured — and it is not
+zero. We have caught it inventing a checkable
+falsehood: during the Round 2 A/B a reviewer asserted that two corpora
+rendered byte-identical prose when all 22 documents differed, and it
+attributed one arm's sentence to the other. That is one instance, not a
+rate, and it is the reason every board finding quoted in this README was
+re-verified against a ledger before publication. Treat the board as the
+weakest instrument here, because it is.
+
+The metrics have no validated thresholds either. And nothing here
 establishes that a system which scores well on OrgSmith scores well on a
 real corpus; the fidelity gaps above are the reason to doubt it. These
-limits are recorded in `docs/REVIEW-CALIBRATION.md` rather than smoothed
-over.
+limits live in `docs/REVIEW-CALIBRATION.md`, `docs/MODEL-AB.md`, and
+`BACKLOG.md` rather than being smoothed over.
+
+## Which model should write your documents?
+
+Short answer: **the strongest one you have, and the cheaper model is
+probably not cheaper.** Long answer, because this is the one choice that
+changes your corpus and the one thing no artifact can tell you about
+afterward.
+
+OrgSmith pins no model. The writer is whatever your Claude Code session is
+set to, which makes this your decision on every run. It is also a decision
+the rest of the system is structurally blind to: the validator checks that
+documents agree with their ledgers, and a thin, lifeless, perfectly accurate
+corpus agrees with its ledgers completely.
+
+So we measured it twice, at the same seed, against byte-identical ledgers
+and briefs, changing only the model. Full write-up and limits in
+[docs/MODEL-AB.md](docs/MODEL-AB.md).
+
+**Round 1 — Opus 4.8 against Haiku 4.5.** One corpus a blind reviewer said
+would "take a deliberate effort to catch out"; the other it rejected
+outright as too thin to survive first contact, at **60% of the words its
+briefs asked for**, with 8 of 9 documents off brief. Both corpora passed
+every validator rule that ran, with zero errors. The folklore was right, and
+the gap is not subtle. But Haiku is a small, fast, cheap model, so this
+establishes that the axis is real — not where a strong mid-tier model sits
+on it.
+
+**Round 2 — Opus 4.8 against Sonnet 5.** Run because Round 1 licenses no
+conclusion about a mid-tier model, and because "Opus is overkill for placing
+prose around placeholders" is a reasonable hypothesis that deserved a number
+rather than a dismissal. The quality gap turned out to be modest: **0.853 of
+brief against 0.967**, with 4 of 22 documents off brief against 0. Sonnet is
+mildly terse, not thin. Nothing like Haiku's collapse. On quality alone it
+would be a defensible choice.
+
+**The cost case is what failed instead.** Sonnet spent **1.89x the tokens**
+for byte-identical work — it made more tool calls, re-read more, and
+self-checked more, while producing 0.86x the words. Sonnet 5 is priced at
+exactly 0.6x Opus 4.8 on *both* halves ($3/$15 per MTok against $5/$25), so
+the arithmetic is short:
+
+| pricing | arithmetic | result |
+| --- | --- | --- |
+| standard | 1.89 × 0.6 | **13% more expensive than Opus** |
+| introductory ($2/$10, through 2026-08-31) | 1.89 × 0.4 | 24% cheaper |
+
+At standard rates **the cheaper-per-token model is the more expensive choice
+for this workload**, and the only window where it saves anything is
+promotional and expiring. For a fleet that gets byte-pinned and lives for
+years, that is not a trade worth 12% thinner prose.
+
+The transferable lesson is not about Sonnet, which is a capable model that
+will write you a decent corpus. It is that **a per-token price is not a
+cost.** For an agentic authoring workload the token multiplier can move
+further than the rate card does, and it moves in the direction nobody quotes
+you. If you pick a model on price, measure the tokens it actually spends on
+*your* workload.
+
+### How we guard a choice we refuse to gate
+
+This is where OrgSmith's philosophy gets concrete, because the obvious move
+— a test that fails when the corpus reads thin — is one we deliberately do
+not make.
+
+**No test asserts prose quality, and none ever will.** Quality has no
+validated threshold here, and the moment a similarity or length number
+becomes a bar, the generator learns to satisfy the bar rather than the
+intent: a similarity rule teaches it to paraphrase. That is Goodhart, and
+`bin/test` is kept free of it by construction — no tier may touch a model,
+the network, a key, or a wall clock, and a static test proves no tier can
+reach the review board at all. What the tests *do* guard is that the
+deterministic half cannot drift underneath you: the same recipe re-derives
+every committed org byte-identically, so if a change moves a ledger, the
+suite says so in seconds.
+
+Instead of gating, four cheap mechanisms make a weak pass *visible*:
+
+- **Preflight, before tokens are spent.** `doctor` prints your session's
+  effort against the authoring floor (stated once, in `orgsmith/effort.py`)
+  and warns when you are under it. `/forge` reports the model and effort in
+  Step 0. This is the only moment the choice is free.
+- **A free detector, after.** `report` computes each document's length
+  against the words its brief actually asked for, with no model and no
+  tokens. It separated Round 1's arms decisively (1.16 vs 0.60) and Round
+  2's clearly (0.967 vs 0.853). It is the cheapest quality signal in the
+  system, and reading it before you trust a fresh org costs nothing.
+- **Provenance as a record, never a check.** Every batch records the model
+  and effort that authored it. Round 1 is exactly why it is not a check: the
+  weaker model *misreported its own effort* and skipped a stamp entirely.
+  Had any rule trusted that field, it would now be enforcing a value the
+  model made up.
+- **A human reads the number.** The metric measures, the board judges, the
+  human decides. That sequence is the whole design.
+
+**The honest caveats, because this section argues for spending more money.**
+Both rounds are n = 1, one org and one run per arm, and the effort axis was
+never independently varied — they establish a default with evidence behind
+it, not an effect size.
+
+And the 13% figure is softer than it looks. It holds only if both arms spend
+tokens in the same input/output/cache mix, and we have evidence they do not:
+Sonnet re-read more (proportionally more input and cache-read tokens, the
+cheap components) while producing fewer words (fewer output tokens, the
+expensive one). That skew makes 1.135x an *over*-estimate of Sonnet's true
+cost, and a blended-price shift of ~12% would drop it under 1.0 and flip the
+headline. We cannot settle it from the artifacts: the harness reports one
+undifferentiated token total per worker. So the defensible claim is narrower
+than "Sonnet is more expensive" — it is that **Sonnet's 0.6x rate card does
+not buy you a 0.6x bill, the gap is most of the way to erasing the discount,
+and nobody should assume the direction without measuring.** Full derivation
+and limits in [docs/MODEL-AB.md](docs/MODEL-AB.md).
 
 ## Design principles
 
@@ -462,7 +592,7 @@ bin/test                                        # short + unit + org tiers, offl
 ```
 
 ```bash
-python -m orgsmith validate northgate-staffing       # 29 rules against ground truth
+python -m orgsmith validate northgate-staffing       # every rule its recipe enables
 python -m orgsmith report northgate-staffing         # corpus metrics -> GENERATION-REPORT.md
 python -m orgsmith score northgate-staffing \
     --suite extraction --answers my_system.json      # grade your system
@@ -492,61 +622,47 @@ voice.
 session is running; OrgSmith pins nothing and needs no API keys, so
 generation bills to your existing plan. Deterministic stages (scaffold,
 ledgers, rendering, validation) run as plain Python and cost no tokens at
-all.
-
-Use the strongest model available for authoring passes. That is measured,
-not folklore: the same recipe authored twice, at the same seed and so
-against byte-identical ledgers and briefs, produced one corpus a blind
-reviewer said would "take a deliberate effort to catch out" and one it
-rejected outright as too thin to survive first contact — at 60% of the
-words its briefs asked for. **Both passed all 29 validator rules with
-zero errors**, which is exactly why the quality instrument exists.
-
-A second run put a strong mid-tier model against the same control on
-today's longer briefs, because the first result did not license a
-conclusion about one. It writes only mildly thinner (85% of brief against
-the frontier model's 97%), but it spent **1.89x the tokens for the same 22
-documents** — which at standard rates makes the cheaper-per-token model the
-more expensive one. **A per-token price is not a cost.** Measure tokens.
-See [docs/MODEL-AB.md](docs/MODEL-AB.md).
-
-Nothing downstream can detect a weak authoring pass from the artifacts, so
-OrgSmith surfaces the setting before tokens are spent rather than gating
-on it: `python -m orgsmith doctor` prints the session effort against the
-authoring floor (stated once, in `orgsmith/effort.py`) and warns when you
-are below it, `/forge` reports the model and effort in Step 0, and each
-batch records what actually authored it.
+all. Use the strongest model you have, and read
+[Which model should write your documents?](#which-model-should-write-your-documents)
+before deciding a cheaper one saves you anything — measured, it did not.
 
 ## What is in the box today
 
-- The full pipeline, end to end, proven on seven committed fixtures, all
-  generated on the v2.0 stack and all byte-pinned:
-  `northgate-staffing` (a 12-person executive search firm, 53 documents,
-  six engagements, 2015-2023) — the largest here, growing from 6 seats to
-  11, with both ambiguity knobs on: a nickname alias (Jim/James Grant,
-  internal-only) and a surname-collision pair;
-  `meridian-actuarial` (a 12-person actuarial consultancy, 49 documents,
-  2016-2024) — the first org on the v2.0 stack, growing 6 seats to 11, with
-  a departmental ACL, both hard-case knobs, and a surname collision;
-  `hollowell-ip` (a 10-person patent boutique, 45 documents, 2018-2025)
-  with a departmental ACL, a signature-page-only fee, and a nickname alias
-  across a two-Joseph collision;
-  `brackenridge-civil` (a 9-person civil engineering firm, 40 documents,
-  1999-2007) generated with the legacy and scan knobs at full: **every**
-  office document a real pre-2007 OLE binary (24 `.doc`, 9 `.xls`, 2
-  `.ppt`), scans at 0.5 with a synthetic OCR layer, and an era-appropriate
-  roster for its founding year;
-  `saltmarsh-environmental` (a 10-person environmental consultancy, 40
-  documents, 2013-2021) with scans at 0.6, a departmental ACL, and
-  `affiliations_in_docs` on: a client contact signs an early engagement
-  letter under one employer and appears later under another, era-correct
-  per document date, with dated works_at edges and the multi-affiliation
-  tag in its answer key;
-  `verdant-health` (a 7-person healthcare advisory, 31 documents,
-  2020-2025) with scans and affiliations on; and
-  `dev-mini` (a 6-person consultancy, 22 documents, 2019-2023) — the test
-  fixture the whole unit tier is built on, with mention ground truth, the
-  ACL overlay, and visibility evals.
+### Which fixture proves what
+
+The fleet table [above](#what-ships-today) says what each org *is*. This says
+what each one *exercises*, so you can pick the fixture that stresses the part
+of your system you care about. Every row is read from that org's committed
+charter. Most columns have a validator rule that recomputes them from the
+recipe and fails the org on a mismatch — `ACL-01/02/03`, `LEG-01`,
+`SCAN-01/02`, `LOC-01/02/03` (the hard cases), `AFF-01/02`, `EML-01`,
+`MENT-01/02` (the ambiguity surfaces). Decks are the exception: they are
+covered by the generic "every file opens in its native reader" rule
+(`FILE-01`) rather than by a deck-specific recompute.
+
+| org | ACL | legacy | scans | OCR | sig-page fee | filename date | surname | nickname | multi-affil | decks | mail | hires/departs/promos |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `brackenridge-civil` | open | **1.0** | 0.5 | 0.5 | — | — | — | — | — | ✓ | — | 3/1/1 |
+| `hollowell-ip` | departmental | — | — | — | ✓ | — | — | ✓ | — | ✓ | ✓ | 4/1/1 |
+| `meridian-actuarial` | departmental | — | — | — | ✓ | ✓ | ✓ | — | — | ✓ | ✓ | 5/1/2 |
+| `northgate-staffing` | open | — | — | — | — | — | ✓ | ✓ | — | ✓ | ✓ | 5/1/2 |
+| `saltmarsh-environmental` | departmental | — | 0.6 | 0.5 | ✓ | ✓ | — | — | ✓ | ✓ | — | 4/1/1 |
+| `verdant-health` | open | — | 0.5 | — | — | — | — | — | ✓ | ✓ | — | 1/1/1 |
+| `dev-mini` | open | — | — | — | — | — | — | — | — | — | — | 0/1/1 |
+
+Reading it: **`brackenridge-civil`** is the ugly-format org — `legacy_ratio`
+at 1.0 means *every* office document is a real pre-2007 OLE container (24
+`.doc`, 9 `.xls`, 2 `.ppt`), half its PDFs are degraded scans, and half of
+those carry a synthetic OCR layer. **`saltmarsh-environmental`** and
+**`verdant-health`** are where a contact changes employer mid-history, with
+dated `works_at` edges and era-correct resolution per document date.
+**`meridian-actuarial`** carries both hard-case knobs, so a fee lives only on
+a signature page and a date lives only in a filename. **`dev-mini`** is
+deliberately bare: it is the regression oracle the ~356-test unit tier builds
+on, so it stays small and cheap rather than proving breadth.
+
+- The full pipeline, end to end, proven on all seven, every one generated on
+  the v2.0 stack through the live airlock and byte-pinned.
 - Access-control ground truth: the recipe's `acl_posture` derives
   `ledger/acl.json` (exactly which internal people may read which
   documents: matter teams plus the CEO-equivalent for engagement folders,
@@ -607,23 +723,31 @@ batch records what actually authored it.
   a fresh context, which is what lets large orgs span sessions), and
   `/forge-review` + `forge-reviewer` (the board).
 
-M8 landed roster churn, behavioral finance, staffing rotation,
-date-scoped briefs, and era-appropriate naming; M9 landed the
-document-supply model: a genre registry that drives document volume from
-the firm's engagements, fiscal years, and hires (no fixed skeleton),
-realistic per-genre lengths, and a folder taxonomy beyond
-`Engagements/Finance/Firm`. M10 landed parallel authoring: a bounded K-wide
-window of concurrent authors over a serial, single-writer merge, which is
-what makes a fleet-sized generation a few hours instead of a few days.
+## Where this is going
 
-**M11 has landed, and the v2.0 arc is closed.** The reference fleet is
-rebuilt: six new recipes spanning civil engineering, environmental,
-actuarial, IP law, executive search, and healthcare, from 1999 to 2025; a
-generator whose rosters grow; all six orgs generated through the live
-airlock; the six pre-v2.0 fixtures retired; and the byte pin restored
-fleet-wide, which re-freezes the fixtures and restores additive evolution.
-Next is one flagship org large enough to defeat a context window (M12). See
-[docs/SCALE.md](docs/SCALE.md) for how big that should be and why.
+**The v2.0 arc is closed.** It was scoped directly from what the review
+board said about the old flagship, and it ran four milestones:
+
+| | what landed |
+| --- | --- |
+| **M8** | Roster churn, behavioral finance, staffing rotation, date-scoped briefs, era-appropriate naming. The firm gets a history. |
+| **M9** | The document-supply model: a genre registry driving volume from the firm's engagements, fiscal years, and hires (no fixed skeleton), realistic per-genre lengths, and a folder taxonomy beyond `Engagements/Finance/Firm`. |
+| **M10** | Parallel authoring: a bounded K-wide window of concurrent authors over a serial, single-writer merge. This is what makes a fleet-sized run a few hours instead of a few days. |
+| **M11** | The fleet reset: six new recipes (civil engineering, environmental, actuarial, IP law, executive search, healthcare; 1999–2025), all generated through the live airlock, the six pre-v2.0 fixtures retired, and the byte pin restored fleet-wide — which re-freezes the fixtures and restores additive evolution. |
+
+**Next: M12, one flagship org large enough to defeat a context window.**
+Today's whole fleet is ~280 documents; you can fit that in a 1M-token
+context and answer questions about it without retrieving anything, which
+means it cannot prove a retrieval system works. See
+[docs/SCALE.md](docs/SCALE.md) for how big that has to be, what it costs at
+measured per-batch rates, and why resume stops being a convenience and
+becomes the only reason it is possible.
+
+Known and logged rather than hidden: `BACKLOG.md` carries the two fleet-wide
+board findings above (the engagement book read as the whole business; dates
+drawn with no business-day calendar), the board's unmeasured false-positive
+rate, and three more. Cross-document voice is the genuinely hard one and has
+no scheduled fix.
 
 ## Provenance and safety
 
@@ -638,10 +762,16 @@ See NOTICE.
 
 OrgSmith is itself an agentically coded project: designed and implemented
 in [Claude Code](https://claude.com/claude-code) running
-[zat.env](https://github.com/peterzat/zat.env) (spec-driven turns,
-adversarial code review, pre-push gates), using Claude Fable 5 at
-`/effort xhigh`. The committed dev-mini org was authored the same way,
-through the same airlock shipped in this repo.
+[zat.env](https://github.com/peterzat/zat.env) — spec-driven turns,
+adversarial code review with builder/verifier separation, and a pre-push
+gate that blocks unreviewed code.
+
+The committed fleet was authored through the same airlock this repo ships,
+by `claude-opus-4-8[1m]` (the six fleet orgs at `/effort xhigh`, `dev-mini`
+at `max`). Every org's `GENERATION-REPORT.md` records what actually wrote
+it, batch by batch — self-reported, and treated as a record rather than an
+oracle for the reason [Round 1
+found](#which-model-should-write-your-documents).
 
 ## License
 

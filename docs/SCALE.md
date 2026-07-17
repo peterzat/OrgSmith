@@ -2,8 +2,8 @@
 
 What size should a generated org be? Three different answers, because
 there are three different jobs. This document settles the targets and the
-reasoning; **M7 writes them down and builds none of them.** The reference
-fleet is M11 and the flagship is M12.
+reasoning. **The reference fleet landed at M11 (2026-07-17); the flagship
+is M12 and is not built.**
 
 **Milestone numbers here follow the M8 renumbering** (SPEC.md states it
 once): the roster/finance/brief work is M8, the document-supply model and
@@ -11,17 +11,21 @@ realistic lengths are M9, parallel authoring and the scale fixes are M10,
 the reference fleet is M11, and the flagship is M12. Earlier drafts of this
 file numbered the fleet M10 and the flagship M11.
 
-All numbers below were measured against the committed fleet at v1.5.0
-(seven orgs, 107 share files, 81 authored documents) on the development
-box. Re-measure before trusting them; they are here to show the shape of
-the constraints, not as constants.
+**Two measurement bases appear below.** The original reasoning was
+measured against the pre-v2.0 fleet at v1.5.0 (seven orgs, 107 share files,
+81 authored documents). The v2.0 fleet that replaced it at M11b is **seven
+orgs, 294 share files, 225 authored documents, 156,225 authored words
+(~208K tokens), mean 694 words/doc**. Where a v1.5.0 number still drives a
+conclusion it is re-checked against the new fleet in place. Re-measure
+before trusting any of it; these show the shape of the constraints, not
+constants.
 
 ## The three sizes
 
 | tier | size | job | when |
 | --- | --- | --- | --- |
-| fixtures | 9-19 docs | regression oracles | now (committed) |
-| reference fleet | ~360 docs total, ~30-60 per org | prove breadth | M11 |
+| fixtures | ~20 docs | regression oracles | now (`dev-mini`, 22 docs) |
+| reference fleet | ~30-60 per org | prove breadth | **landed M11** (6 orgs, 258 docs) |
 | flagship | one org, large enough to defeat a context window | prove scale | M12 |
 
 These are three jobs, not three points on one line. Conflating them is
@@ -50,10 +54,13 @@ The budget in SPEC.md is org under ~5 s. At 15 ms/file that is roughly
 today's fleet. Fixtures are cheap, but they are not free, and the tier is
 the thing that must stay fast enough to run without thinking.
 
-Note the per-org spread: cindergrove-advisors validates at 2.3 ms/file
-against bramblewood-legal's 17.1. Rules skip in bulk on an org whose
-documents are image-only scans and legacy binaries, because there is less
-extractable text to check. A fixture's cost tracks what it proves.
+Note the per-org spread: an org whose documents are image-only scans and
+legacy binaries validates several times cheaper per file than a prose-heavy
+one, because rules skip in bulk where there is less extractable text to
+check. A fixture's cost tracks what it proves. (The two orgs originally
+measured here, cindergrove-advisors at 2.3 ms/file against
+bramblewood-legal's 17.1, were retired by the M11b fleet reset; the shape of
+the spread survives them.)
 
 ## The reference fleet proves breadth
 
@@ -79,12 +86,14 @@ against the committed fleet:
 
 | corpus | authored words | ~tokens |
 | --- | ---: | ---: |
-| the whole committed fleet (81 docs) | 19,083 | ~25K |
-| a 360-doc reference fleet, today's lengths | 84,960 | ~113K |
-| a 2,000-doc org, today's lengths | 472,000 | ~628K |
-| a 2,000-doc org at realistic lengths (~800 words) | 1,600,000 | ~2.1M |
+| the whole committed v2.0 fleet (225 docs, measured) | 156,225 | ~208K |
+| a 360-doc reference fleet at the fleet's real mean | 249,960 | ~333K |
+| a 2,000-doc flagship at the fleet's real mean | 1,388,666 | **~1.85M** |
 
-(Tokens estimated at 1.33 per word.)
+(Tokens estimated at 1.33 per word. Mean is the v2.0 fleet's measured 694
+words/doc. The pre-v2.0 rows this table used to carry — 81 docs at ~25K, and
+a 2,000-doc org at the old 236-word mean reaching only ~628K — are what
+motivated M9; they are gone because the lengths they described are.)
 
 Read that third row. **A 2,000-document org, at the lengths this
 generator currently produces, fits inside a 1M-token context window.** An
@@ -109,15 +118,20 @@ flagship would need ~8,500 documents to be a genuine retrieval problem; at
 realistic lengths it needs ~2,000. **Raising the targets is what makes the
 flagship affordable**, which is why M9 preceded M12.
 
-Two facts on the 236 figure now that M9 has landed. First, only `dev-mini`
-is regenerated so far: it authored at **mean 717 words** under the raised
-targets (every document within 75-150% of its brief), while the six frozen
-fixtures retain their pre-M9 lengths until the M11 fleet reset, so the
-fleet mean is currently mixed. Second, the fixed genre skeleton is gone:
-document supply is now driver-derived (the registry walks the firm's
-engagements, fiscal years, and hires), so "~2,000 documents" is a recipe of
-the right shape rather than a planner rewrite. `dev-mini` grew from 13 to 22
-documents on the same recipe purely from the drivers.
+**M11b closed this.** The whole fleet is regenerated under the raised
+targets and authors at **mean 694 words**, with every one of its 225
+authored documents inside 75-150% of its brief — so the mixed-fleet caveat
+this paragraph used to carry is gone, and the fourth row above is measured
+rather than projected. The fixed genre skeleton is gone too: document supply
+is driver-derived (the registry walks the firm's engagements, fiscal years,
+and hires), so "~2,000 documents" is a recipe of the right shape rather than
+a planner rewrite. `dev-mini` grew from 13 to 22 documents on the same
+recipe purely from the drivers.
+
+The flagship arithmetic now resolves: at 694 words/doc a 2,000-document org
+is **~1.85M tokens**, which clears a 1M-token context window with margin.
+That was the whole point of raising the targets, and it is why M9 preceded
+M12.
 
 ## The authoring wall is the binding constraint
 

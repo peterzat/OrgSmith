@@ -4,6 +4,14 @@ A critic is only worth reading if you know what it catches. This records
 the board's first run against two labeled positives that were identified
 by hand, before the board existed, in `fernhollow-partners`.
 
+> **`fernhollow-partners` was retired by the M11b fleet reset (2026-07-17)
+> and is no longer in the repo.** This document is kept as the historical
+> record of the run: the calibration happened against that org, and the
+> limits below are the limits of *that* run. It has not been re-run against
+> the v2.0 fleet, so everything here describes a board calibrated on a
+> corpus you can no longer open. Read the limits accordingly — and note that
+> a false positive has since been measured (below).
+
 The rule this run was held to: **a board that misses both is not
 calibrated**, and its findings may not be relied on until it is tuned or
 its limits are written down.
@@ -88,11 +96,18 @@ no meaning as a quality bar and must never become a validator rule.
 - **One org, one model, one run.** Calibrated on `fernhollow-partners`
   only. A different org, model, or effort is uncalibrated territory.
 - **The ACL half of `graph_acl_naturalness` was untestable here.**
-  fernhollow's posture is `open`, so all five internal people get
-  byte-identical grants and the dimension carries no ACL signal
+  fernhollow's posture was `open`, so all five internal people got
+  byte-identical grants and the dimension carried no ACL signal
   (`rf:graph-5`). Calibrating it needs a partitioning posture.
-- **No negative control.** Nothing established what the board reports on a
-  corpus with no defects, so its false-positive rate is unmeasured. The
+- **No negative control, and a false positive has since been measured.**
+  Nothing here established what the board reports on a corpus with no
+  defects, so its false-positive rate is unmeasured. It is not zero: during
+  the MODEL-AB Round 2 A/B (2026-07-17, `docs/MODEL-AB.md`) a reviewer
+  asserted that two corpora rendered byte-identical prose when all 22
+  documents differed, and attributed one arm's sentence to the other. One
+  instance is not a rate, but it is no longer a hypothetical, and it is why
+  every board finding quoted in the README is re-verified against a ledger
+  before publication. BACKLOG `board-negative-control` tracks the real fix. The
   reviewers did decline findings explicitly and one recorded an organic
   pattern as a strength "so it doesn't get fixed" (`rf:graph-4`), which is
   evidence of restraint but not a measurement of it.
