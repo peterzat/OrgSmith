@@ -1,8 +1,36 @@
 {
   "$defs": {
+    "BusinessCalendar": {
+      "additionalProperties": false,
+      "description": "M12: a recipe-declared business-day calendar. When present, documents\nof genres that assert a meeting happened (meeting_minutes, engagement_email)\nare dated on a weekday that is not a declared holiday; docplan shifts them\nto the nearest business day. The board found northgate minutes recording\nclient sessions on a Saturday and on US Independence Day\n(docplan-has-no-business-day-calendar).\n\nHolidays are DECLARED by the recipe, never assumed by the code: the fleet\nspans 1999-2025, and which days are holidays is era- and locale-dependent.\nA recipe with no holidays still excludes weekends. The shift is\ndeterministic and consumes no RNG, so it perturbs no seed stream.",
+      "properties": {
+        "holidays": {
+          "default": [],
+          "items": {
+            "format": "date",
+            "type": "string"
+          },
+          "title": "Holidays",
+          "type": "array"
+        }
+      },
+      "title": "BusinessCalendar",
+      "type": "object"
+    },
     "DocCulture": {
       "additionalProperties": false,
       "properties": {
+        "business_calendar": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BusinessCalendar"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "date_range": {
           "maxItems": 2,
           "minItems": 2,

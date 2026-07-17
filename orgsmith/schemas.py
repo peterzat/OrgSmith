@@ -83,6 +83,22 @@ class FormatMix(StrictModel):
         return self.docx + self.pdf + self.xlsx + self.pptx + self.eml
 
 
+class BusinessCalendar(StrictModel):
+    """M12: a recipe-declared business-day calendar. When present, documents
+    of genres that assert a meeting happened (meeting_minutes, engagement_email)
+    are dated on a weekday that is not a declared holiday; docplan shifts them
+    to the nearest business day. The board found northgate minutes recording
+    client sessions on a Saturday and on US Independence Day
+    (docplan-has-no-business-day-calendar).
+
+    Holidays are DECLARED by the recipe, never assumed by the code: the fleet
+    spans 1999-2025, and which days are holidays is era- and locale-dependent.
+    A recipe with no holidays still excludes weekends. The shift is
+    deterministic and consumes no RNG, so it perturbs no seed stream."""
+
+    holidays: list[date] = []
+
+
 class DocCulture(StrictModel):
     # ADVISORY since M9. Document supply is derived by the genre registry from
     # the firm's drivers (engagements, fiscal years, hires), so the manifest
@@ -104,6 +120,10 @@ class DocCulture(StrictModel):
     scanned_ratio: float = Field(ge=0.0, le=1.0, default=0.0)
     legacy_ratio: float = Field(ge=0.0, le=1.0, default=0.0)
     ocr_layer_rate: float = Field(ge=0.0, le=1.0, default=0.0)
+    # M12: recipe-declared business-day calendar, default OFF (None). Presence
+    # turns it on; committed recipes without it stay byte-identical because the
+    # date shift is a no-op when this is None.
+    business_calendar: BusinessCalendar | None = None
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":
@@ -115,6 +135,14 @@ class DocCulture(StrictModel):
                 "ocr_layer_rate requires scanned_ratio > 0; an OCR layer "
                 "only exists on scanned documents"
             )
+        if self.business_calendar is not None:
+            for h in self.business_calendar.holidays:
+                if not (start <= h <= end):
+                    raise ValueError(
+                        f"declared holiday {h} is outside date_range "
+                        f"{start}..{end}; declare only holidays the corpus "
+                        f"can land on"
+                    )
         return self
 
 

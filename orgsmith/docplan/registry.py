@@ -90,6 +90,12 @@ class GenreRule:
     # to say so on an existing recipe is its format_mix, now that the bucket
     # no longer has to sum to target_docs.
     optional_count: str = ""
+    # M12: this genre asserts a meeting or working session HAPPENED on its
+    # date (minutes, a status email within a live thread), so the business-day
+    # calendar shifts it off weekends and declared holidays. Off for genres
+    # whose date is a filing or publication (letters, reports, overviews),
+    # which legitimately carry any date. Default inert.
+    asserts_attendance: bool = False
 
 
 # The registry. Order is presentation order only; the planner sorts the final
@@ -134,6 +140,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         title_prefix="Meeting Minutes",
         filename="Meeting Minutes {date:%Y-%m-%d} - {client}.docx",
         target_words=600,
+        asserts_attendance=True,  # minutes claim a session happened on the date
     ),
     GenreRule(
         genre="status_report",
@@ -170,6 +177,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         title_prefix="RE",
         filename="{date:%Y.%m.%d} - Email {n} - {service} - {client}.eml",
         target_words=250,  # a real status email, raised from 130
+        asserts_attendance=True,  # a live thread reads as sent on a workday
     ),
     GenreRule(
         genre="onboarding_record",

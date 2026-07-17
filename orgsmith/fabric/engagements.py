@@ -36,16 +36,61 @@ def render_date(value: date) -> str:
     return f"{value:%B} {value.day}, {value.year}"
 
 
-def minutes_date(start: date, end: date, range_start: date, range_end: date) -> date:
-    """The engagement's working-session date, 40% through its duration.
+def calendar_holidays(charter: Charter) -> frozenset[date] | None:
+    """The recipe's declared holiday set, or None when the business-day
+    calendar is off (M12). None means no shift, so committed recipes without
+    the knob keep every date byte-identical. Both fabric and docplan read this
+    from the same charter, so they build the same calendar."""
+    cal = charter.doc_culture.business_calendar
+    return None if cal is None else frozenset(cal.holidays)
+
+
+def to_business_day(
+    d: date, calendar: frozenset[date] | None, floor: date, ceil: date
+) -> date:
+    """The nearest business day to `d` within [floor, ceil], or `d` unchanged
+    when the calendar is off (M12). A business day is a weekday not in the
+    declared holiday set. Ties prefer the earlier day (a session slated for a
+    weekend reads as the preceding workday); the search falls forward only when
+    stepping back would leave the window. Deterministic and RNG-free, so it
+    perturbs no seed stream and is idempotent on a day already valid."""
+    if calendar is None:
+        return d
+
+    def ok(x: date) -> bool:
+        return x.weekday() < 5 and x not in calendar
+
+    if ok(d):
+        return d
+    for delta in range(1, 8):
+        back = d - timedelta(days=delta)
+        if back >= floor and ok(back):
+            return back
+        fwd = d + timedelta(days=delta)
+        if fwd <= ceil and ok(fwd):
+            return fwd
+    return d  # window too constrained to host a business day; CAL-01 flags it
+
+
+def minutes_date(
+    start: date,
+    end: date,
+    range_start: date,
+    range_end: date,
+    calendar: frozenset[date] | None = None,
+) -> date:
+    """The engagement's working-session date, 40% through its duration, shifted
+    to a business day when the recipe declares a calendar (M12).
 
     Single source of truth shared by fabric (which plants filename-only
     minutes-date facts) and docplan (which dates the minutes doc): both
     sides must land on the same day or the planted fact would not match
-    the filename docplan builds."""
+    the filename docplan builds. The calendar reaches both from the charter,
+    so the shift is identical on both sides."""
     duration = (end - start).days
     when = start + timedelta(days=int(duration * 0.4))
-    return max(range_start, min(when, range_end))
+    when = max(range_start, min(when, range_end))
+    return to_business_day(when, calendar, range_start, range_end)
 
 
 def _employed_at(person, when: date) -> bool:
@@ -364,8 +409,9 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
     for eng in engagements[: min(hard.signature_page_facts, len(engagements))]:
         fee = next(f for f in eng.facts if f.id == f"f:{eng.id}.fee")
         fee.location_policy = "signature_page"
+    cal = calendar_holidays(charter)
     for eng in engagements[: min(hard.filename_dates, len(engagements))]:
-        md = minutes_date(eng.start, eng.end, range_start, range_end)
+        md = minutes_date(eng.start, eng.end, range_start, range_end, cal)
         eng.facts.append(
             Fact(
                 id=f"f:{eng.id}.minutes-date",

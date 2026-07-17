@@ -57,6 +57,15 @@ doc_culture:
   #                         # the binary itself is a documented residual
   #                         # risk; workbook values are read back via
   #                         # xlrd, containers and markers via olefile.
+  # Business-day calendar (M12), optional, default off (absent). When present,
+  # documents of genres that assert a session happened (meeting_minutes,
+  # engagement_email) are dated on a weekday that is not a declared holiday;
+  # docplan shifts them to the nearest business day. Holidays are declared by
+  # the recipe, never assumed by the code, because the fleet spans 1999-2025
+  # and holiday tables are era- and locale-dependent. Weekends are always
+  # excluded; the holiday list may be empty. Validated by CAL-01.
+  # business_calendar:
+  #   holidays: [2021-07-05, 2021-12-24]   # declared, inside date_range
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD

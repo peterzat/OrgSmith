@@ -23,7 +23,12 @@ from ..artifacts import (
     load_foundation,
     save_manifest,
 )
-from ..fabric.engagements import LETTER_LEAD_DAYS, minutes_date
+from ..fabric.engagements import (
+    LETTER_LEAD_DAYS,
+    calendar_holidays,
+    minutes_date,
+    to_business_day,
+)
 from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
 from ..seeds import rng
@@ -128,6 +133,7 @@ class _Planner:
         self.finance = finance
         self.engagements = engagements
         self.range_start, self.range_end = charter.doc_culture.date_range
+        self.calendar = calendar_holidays(charter)
         self.ceo = next(p for p in foundation.people if p.reports_to is None)
         self.ops_lead = self._ops_lead()
         self.planned: list[dict] = []
@@ -236,7 +242,9 @@ class _Planner:
             # The hosting genre's first instance shares the exact minutes_date
             # the fabric planted the filename fact on; recurrence follows.
             if rule.hosts_filename:
-                first = minutes_date(start, end, self.range_start, self.range_end)
+                first = minutes_date(
+                    start, end, self.range_start, self.range_end, self.calendar
+                )
             else:
                 first = self._clamp_range(start + timedelta(days=anchor_off))
             dates = [first]
@@ -247,10 +255,23 @@ class _Planner:
                     break
                 dates.append(self._clamp_range(d))
                 k += 1
-            return self._dedupe(dates)
+            return self._dedupe(self._shift_attendance(rule, dates))
         return [self._clamp_range(
             start + timedelta(days=anchor_off + rule.start_offset_days)
         )]
+
+    def _shift_attendance(self, rule: GenreRule, dates: list[date]) -> list[date]:
+        """Shift an attendance-asserting genre's dates onto business days when
+        the recipe declares a calendar (M12). Idempotent on the minutes' first
+        instance, which minutes_date already shifted at the source so fabric's
+        filename fact matches. A no-op for other genres and for a recipe with
+        no calendar, so committed fixtures stay byte-identical."""
+        if not rule.asserts_attendance or self.calendar is None:
+            return dates
+        return [
+            to_business_day(d, self.calendar, self.range_start, self.range_end)
+            for d in dates
+        ]
 
     def _facts_for(
         self, rule: GenreRule, eng, is_first: bool
@@ -345,6 +366,12 @@ class _Planner:
                 ed = self._clamp_range(
                     last[eng.id] + timedelta(days=erand.randint(1, 3))
                 )
+            # A live thread reads as sent on a workday (M12). The cadence RNG
+            # draws BEFORE the shift, so the shift never perturbs the stream;
+            # a no-op when no calendar is declared.
+            ed = to_business_day(
+                ed, self.calendar, self.range_start, self.range_end
+            )
             last[eng.id] = ed
             refs, _, _ = self._facts_for(rule, eng, False)
             name = rule.filename.format(

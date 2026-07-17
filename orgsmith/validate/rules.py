@@ -255,6 +255,12 @@ def _needs_mention_knob(ctx: Context) -> str | None:
     return None
 
 
+def _needs_calendar(ctx: Context) -> str | None:
+    if ctx.charter.doc_culture.business_calendar is None:
+        return "business_calendar is not declared for this recipe"
+    return None
+
+
 @dataclass(frozen=True)
 class Rule:
     id: str
@@ -334,6 +340,35 @@ def date_02(ctx: Context):
                     f"(start {person.employment.start})",
                     e.path,
                 )
+
+
+def cal_01(ctx: Context):
+    """M12: when a recipe declares a business-day calendar, every document of
+    a genre that asserts a session happened (minutes, engagement mail) lands on
+    a weekday that is not a declared holiday. The planner shifts these dates;
+    this recomputes that no attendance document slipped onto a weekend or a
+    declared holiday. Grandfathers by charter: skips visibly when the knob is
+    off (available=_needs_calendar), and a knob that is on with a violation is
+    a failure, not a skip."""
+    from ..docplan.registry import REGISTRY
+
+    holidays = set(ctx.charter.doc_culture.business_calendar.holidays)
+    attendance = {r.genre for r in REGISTRY if r.asserts_attendance}
+    for e in ctx.manifest:
+        if e.genre not in attendance:
+            continue
+        if e.date.weekday() >= 5:
+            yield (
+                f"{e.genre} dated {e.date} ({e.date:%A}), a weekend; an "
+                f"attendance genre must land on a business day",
+                e.path,
+            )
+        elif e.date in holidays:
+            yield (
+                f"{e.genre} dated {e.date}, a declared holiday; an attendance "
+                f"genre must land on a business day",
+                e.path,
+            )
 
 
 # --- FIN ------------------------------------------------------------------
@@ -1098,6 +1133,8 @@ RULES = [
          name_01),
     Rule("DATE-01", "ERROR", "doc dates inside charter range", date_01),
     Rule("DATE-02", "ERROR", "authors employed at doc date", date_02),
+    Rule("CAL-01", "ERROR", "attendance genres land on business days", cal_01,
+         available=_needs_calendar),
     Rule("FIN-01", "ERROR", "finance ledger ties out", fin_01),
     Rule("FIN-02", "ERROR", "workbooks tie to the finance ledger", fin_02),
     Rule("FACT-01", "ERROR", "planted facts appear verbatim in doc text", fact_01),
