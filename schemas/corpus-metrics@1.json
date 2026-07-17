@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "DocMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "genre": {
+          "enum": [
+            "engagement_letter",
+            "kickoff_memo",
+            "meeting_minutes",
+            "status_report",
+            "company_overview",
+            "financial_summary",
+            "briefing_deck",
+            "engagement_email",
+            "onboarding_record"
+          ],
+          "title": "Genre",
+          "type": "string"
+        },
+        "target_words": {
+          "title": "Target Words",
+          "type": "integer"
+        },
+        "words": {
+          "title": "Words",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "doc_id",
+        "genre",
+        "words",
+        "target_words"
+      ],
+      "title": "DocMetric",
+      "type": "object"
+    },
+    "SimilarPair": {
+      "additionalProperties": false,
+      "description": "Two same-genre docs and their n-gram overlap.\n\nHigh overlap is a measurement, not a verdict: real firms genuinely reuse\nengagement-letter templates. The board judges whether it reads as reuse\nor as the generator running out of ideas.",
+      "properties": {
+        "doc_a": {
+          "title": "Doc A",
+          "type": "string"
+        },
+        "doc_b": {
+          "title": "Doc B",
+          "type": "string"
+        },
+        "genre": {
+          "enum": [
+            "engagement_letter",
+            "kickoff_memo",
+            "meeting_minutes",
+            "status_report",
+            "company_overview",
+            "financial_summary",
+            "briefing_deck",
+            "engagement_email",
+            "onboarding_record"
+          ],
+          "title": "Genre",
+          "type": "string"
+        },
+        "jaccard": {
+          "title": "Jaccard",
+          "type": "number"
+        }
+      },
+      "required": [
+        "doc_a",
+        "doc_b",
+        "genre",
+        "jaccard"
+      ],
+      "title": "SimilarPair",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/corpus-metrics@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "docs": {
+      "items": {
+        "$ref": "#/$defs/DocMetric"
+      },
+      "title": "Docs",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/corpus-metrics@1",
+      "default": "orgsmith/corpus-metrics@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "similar_pairs": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SimilarPair"
+      },
+      "title": "Similar Pairs",
+      "type": "array"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "docs"
+  ],
+  "title": "CorpusMetrics",
+  "type": "object"
+}

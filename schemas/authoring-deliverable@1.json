@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "header": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Header",
+          "type": "array"
+        },
+        "items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "enum": [
+            "heading",
+            "paragraph",
+            "list",
+            "table",
+            "sigblock"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "level": {
+          "default": 1,
+          "title": "Level",
+          "type": "integer"
+        },
+        "rows": {
+          "default": [],
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "signers": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Signers",
+          "type": "array"
+        },
+        "text": {
+          "default": "",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "DocIR": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "title": "Blocks",
+          "type": "array"
+        },
+        "doc_id": {
+          "pattern": "^d:\\d{4}$",
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "orgsmith/docir@1",
+          "default": "orgsmith/docir@1",
+          "title": "Schema Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "doc_id",
+        "blocks"
+      ],
+      "title": "DocIR",
+      "type": "object"
+    },
+    "Generator": {
+      "additionalProperties": false,
+      "description": "Which model, at which effort, authored one batch.\n\nA RECORD, not an oracle. Self-reported by the skill that dispatched the\npass and not recomputable from artifacts, so no validator rule may ever\nreference it: a rule would fake a guarantee the system cannot make.\nOptional and inert by default, which is what keeps deliverables written\nbefore it existed loading unchanged against the same schema ids.",
+      "properties": {
+        "effort": {
+          "minLength": 1,
+          "title": "Effort",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "effort"
+      ],
+      "title": "Generator",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/authoring-deliverable@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "docs": {
+      "items": {
+        "$ref": "#/$defs/DocIR"
+      },
+      "title": "Docs",
+      "type": "array"
+    },
+    "generator": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Generator"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "schema_id": {
+      "const": "orgsmith/authoring-deliverable@1",
+      "default": "orgsmith/authoring-deliverable@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "work_order_id": {
+      "title": "Work Order Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "work_order_id",
+    "docs"
+  ],
+  "title": "AuthoringDeliverable",
+  "type": "object"
+}

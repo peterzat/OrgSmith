@@ -1,0 +1,85 @@
+{
+  "$defs": {
+    "Generator": {
+      "additionalProperties": false,
+      "description": "Which model, at which effort, authored one batch.\n\nA RECORD, not an oracle. Self-reported by the skill that dispatched the\npass and not recomputable from artifacts, so no validator rule may ever\nreference it: a rule would fake a guarantee the system cannot make.\nOptional and inert by default, which is what keeps deliverables written\nbefore it existed loading unchanged against the same schema ids.",
+      "properties": {
+        "effort": {
+          "minLength": 1,
+          "title": "Effort",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "effort"
+      ],
+      "title": "Generator",
+      "type": "object"
+    },
+    "PersonaEnrichment": {
+      "additionalProperties": false,
+      "properties": {
+        "person_id": {
+          "title": "Person Id",
+          "type": "string"
+        },
+        "persona": {
+          "minLength": 40,
+          "title": "Persona",
+          "type": "string"
+        }
+      },
+      "required": [
+        "person_id",
+        "persona"
+      ],
+      "title": "PersonaEnrichment",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/enrichment-deliverable@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generator": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Generator"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "personas": {
+      "items": {
+        "$ref": "#/$defs/PersonaEnrichment"
+      },
+      "title": "Personas",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/enrichment-deliverable@1",
+      "default": "orgsmith/enrichment-deliverable@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "work_order_id": {
+      "title": "Work Order Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "work_order_id",
+    "personas"
+  ],
+  "title": "EnrichmentDeliverable",
+  "type": "object"
+}

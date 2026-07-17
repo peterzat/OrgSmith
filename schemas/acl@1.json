@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "AclGrant": {
+      "additionalProperties": false,
+      "properties": {
+        "docs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Docs",
+          "type": "array"
+        },
+        "person": {
+          "title": "Person",
+          "type": "string"
+        }
+      },
+      "required": [
+        "person",
+        "docs"
+      ],
+      "title": "AclGrant",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/acl@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Read-access ground truth: one grant per internal person, roster\norder. Derived (never authored) from the charter's posture plus the\nmanifest and engagement teams; external people carry no grants.",
+  "properties": {
+    "grants": {
+      "items": {
+        "$ref": "#/$defs/AclGrant"
+      },
+      "title": "Grants",
+      "type": "array"
+    },
+    "posture": {
+      "enum": [
+        "open",
+        "departmental"
+      ],
+      "title": "Posture",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "orgsmith/acl@1",
+      "default": "orgsmith/acl@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "posture",
+    "grants"
+  ],
+  "title": "AclLedger",
+  "type": "object"
+}

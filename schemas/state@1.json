@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "BatchRef": {
+      "additionalProperties": false,
+      "description": "One outstanding authoring work order (M10 parallel authoring).\n\nThe author stage dispatches concurrent batches; each is tracked here by\nits work_order_id until its deliverable is ingested. `workorder` is the\nfile under workorders/; `doc_ids` are the batchable docs it covers, kept\nso `--next-batch` can exclude in-flight docs without loading every order.",
+      "properties": {
+        "doc_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Doc Ids",
+          "type": "array"
+        },
+        "workorder": {
+          "title": "Workorder",
+          "type": "string"
+        }
+      },
+      "required": [
+        "workorder"
+      ],
+      "title": "BatchRef",
+      "type": "object"
+    },
+    "DocState": {
+      "additionalProperties": false,
+      "properties": {
+        "authored_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authored Hash"
+        },
+        "rendered_from": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rendered From"
+        },
+        "rendered_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rendered Hash"
+        },
+        "rev": {
+          "default": 0,
+          "title": "Rev",
+          "type": "integer"
+        }
+      },
+      "title": "DocState",
+      "type": "object"
+    },
+    "Generator": {
+      "additionalProperties": false,
+      "description": "Which model, at which effort, authored one batch.\n\nA RECORD, not an oracle. Self-reported by the skill that dispatched the\npass and not recomputable from artifacts, so no validator rule may ever\nreference it: a rule would fake a guarantee the system cannot make.\nOptional and inert by default, which is what keeps deliverables written\nbefore it existed loading unchanged against the same schema ids.",
+      "properties": {
+        "effort": {
+          "minLength": 1,
+          "title": "Effort",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "effort"
+      ],
+      "title": "Generator",
+      "type": "object"
+    },
+    "StageState": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Inputs Hash"
+        },
+        "status": {
+          "default": "pending",
+          "enum": [
+            "pending",
+            "done"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "title": "StageState",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/state@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "author_batches": {
+      "additionalProperties": {
+        "$ref": "#/$defs/BatchRef"
+      },
+      "title": "Author Batches",
+      "type": "object"
+    },
+    "docs": {
+      "additionalProperties": {
+        "$ref": "#/$defs/DocState"
+      },
+      "default": {},
+      "title": "Docs",
+      "type": "object"
+    },
+    "fallbacks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Fallbacks",
+      "type": "array"
+    },
+    "generators": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Generator"
+      },
+      "title": "Generators",
+      "type": "object"
+    },
+    "outstanding": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {},
+      "title": "Outstanding",
+      "type": "object"
+    },
+    "probes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {},
+      "title": "Probes",
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "orgsmith/state@1",
+      "default": "orgsmith/state@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "stages": {
+      "additionalProperties": {
+        "$ref": "#/$defs/StageState"
+      },
+      "default": {},
+      "title": "Stages",
+      "type": "object"
+    }
+  },
+  "required": [
+    "slug"
+  ],
+  "title": "OrgState",
+  "type": "object"
+}

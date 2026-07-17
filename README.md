@@ -334,6 +334,14 @@ surface prose, through an airlock:
   self-contained JSON work order; `--ingest` validates the deliverable
   (pydantic + lints) and merges it. Skills are the only reader/writer of
   work orders.
+- **That file exchange is the whole interface.** OrgSmith ships Claude Code
+  skills as its driver, but nothing in the package knows what wrote a
+  deliverable: anything that reads a `WorkOrder` and writes back an
+  `AuthoringDeliverable` drives the pipeline — another harness, a plain API
+  script, a local model, a replay of a previous run, a human with a text
+  editor. Both contracts are published as JSON Schema in
+  [`schemas/`](schemas/) (`python -m orgsmith emit-schemas`), so you do not
+  need to import Python to read them.
 - The model writes documents with `{{fact:...}}` placeholders and is never
   shown the underlying values. Python substitutes them at render time, so a
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
@@ -362,6 +370,7 @@ charter -> foundation -> fabric -> docplan -> author -> render -> assemble
  (recipe)   (roster)    (ledgers)  (manifest)  (model)   (files)    (TOC)
               overlays:  acl (grants + PERMISSIONS.md)
               oracles:   validate / emit-evals / score / status / doctor
+              contracts: emit-schemas (JSON Schema for every stage boundary)
 ```
 
 Long runs checkpoint into `state.json`: kill the session mid-generation,

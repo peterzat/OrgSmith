@@ -1,0 +1,207 @@
+{
+  "$defs": {
+    "KeyFact": {
+      "additionalProperties": false,
+      "description": "A planted fact with its placement policy. Mirrors the owning ledger\nFact's `location_policy` so manifest consumers need not join against the\nledger to know where a fact is allowed to appear.",
+      "properties": {
+        "fact_id": {
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "location": {
+          "default": "body",
+          "enum": [
+            "body",
+            "signature_page",
+            "filename"
+          ],
+          "title": "Location",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fact_id"
+      ],
+      "title": "KeyFact",
+      "type": "object"
+    },
+    "PlannedMention": {
+      "additionalProperties": false,
+      "description": "One entity the doc must name, with the exact surface form the\nmention-echo validator looks for in extractable text.",
+      "properties": {
+        "entity": {
+          "title": "Entity",
+          "type": "string"
+        },
+        "kind": {
+          "default": "person",
+          "enum": [
+            "person",
+            "org"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "surface": {
+          "title": "Surface",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity",
+        "surface"
+      ],
+      "title": "PlannedMention",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/manifest-entry@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authoring": {
+      "default": "batchable",
+      "enum": [
+        "batchable",
+        "static"
+      ],
+      "title": "Authoring",
+      "type": "string"
+    },
+    "authors": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Authors",
+      "type": "array"
+    },
+    "date": {
+      "format": "date",
+      "title": "Date",
+      "type": "string"
+    },
+    "doc_id": {
+      "pattern": "^d:\\d{4}$",
+      "title": "Doc Id",
+      "type": "string"
+    },
+    "engagement": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Engagement"
+    },
+    "facts_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Facts Refs",
+      "type": "array"
+    },
+    "format": {
+      "enum": [
+        "docx",
+        "pdf",
+        "xlsx",
+        "pptx",
+        "eml",
+        "doc",
+        "xls",
+        "ppt"
+      ],
+      "title": "Format",
+      "type": "string"
+    },
+    "genre": {
+      "enum": [
+        "engagement_letter",
+        "kickoff_memo",
+        "meeting_minutes",
+        "status_report",
+        "company_overview",
+        "financial_summary",
+        "briefing_deck",
+        "engagement_email",
+        "onboarding_record"
+      ],
+      "title": "Genre",
+      "type": "string"
+    },
+    "key_facts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/KeyFact"
+      },
+      "title": "Key Facts",
+      "type": "array"
+    },
+    "mentions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/PlannedMention"
+      },
+      "title": "Mentions",
+      "type": "array"
+    },
+    "participants": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Participants",
+      "type": "array"
+    },
+    "path": {
+      "title": "Path",
+      "type": "string"
+    },
+    "render_params": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "default": {},
+      "title": "Render Params",
+      "type": "object"
+    },
+    "rev": {
+      "default": 0,
+      "title": "Rev",
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "orgsmith/manifest-entry@1",
+      "default": "orgsmith/manifest-entry@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_id",
+    "path",
+    "title",
+    "genre",
+    "format",
+    "date",
+    "authors"
+  ],
+  "title": "ManifestEntry",
+  "type": "object"
+}

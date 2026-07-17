@@ -1,0 +1,99 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "header": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Header",
+          "type": "array"
+        },
+        "items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "enum": [
+            "heading",
+            "paragraph",
+            "list",
+            "table",
+            "sigblock"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "level": {
+          "default": 1,
+          "title": "Level",
+          "type": "integer"
+        },
+        "rows": {
+          "default": [],
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "signers": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Signers",
+          "type": "array"
+        },
+        "text": {
+          "default": "",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Block",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/docir@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocks": {
+      "items": {
+        "$ref": "#/$defs/Block"
+      },
+      "title": "Blocks",
+      "type": "array"
+    },
+    "doc_id": {
+      "pattern": "^d:\\d{4}$",
+      "title": "Doc Id",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "orgsmith/docir@1",
+      "default": "orgsmith/docir@1",
+      "title": "Schema Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_id",
+    "blocks"
+  ],
+  "title": "DocIR",
+  "type": "object"
+}

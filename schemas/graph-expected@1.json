@@ -1,0 +1,140 @@
+{
+  "$defs": {
+    "GraphEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "dst": {
+          "title": "Dst",
+          "type": "string"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "kind": {
+          "enum": [
+            "reports_to",
+            "works_at",
+            "client_of",
+            "participant"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "src": {
+          "title": "Src",
+          "type": "string"
+        },
+        "start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        }
+      },
+      "required": [
+        "src",
+        "dst",
+        "kind"
+      ],
+      "title": "GraphEdge",
+      "type": "object"
+    },
+    "GraphEntityExpected": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "canonical": {
+          "title": "Canonical",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "person",
+            "org"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "canonical",
+        "kind"
+      ],
+      "title": "GraphEntityExpected",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/graph-expected@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/GraphEdge"
+      },
+      "title": "Edges",
+      "type": "array"
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/$defs/GraphEntityExpected"
+      },
+      "title": "Entities",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/graph-expected@1",
+      "default": "orgsmith/graph-expected@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "entities",
+    "edges"
+  ],
+  "title": "GraphExpected",
+  "type": "object"
+}

@@ -1,0 +1,354 @@
+{
+  "$defs": {
+    "DocCulture": {
+      "additionalProperties": false,
+      "properties": {
+        "date_range": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "format": "date",
+              "type": "string"
+            }
+          ],
+          "title": "Date Range",
+          "type": "array"
+        },
+        "format_mix": {
+          "$ref": "#/$defs/FormatMix"
+        },
+        "legacy_ratio": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Legacy Ratio",
+          "type": "number"
+        },
+        "ocr_layer_rate": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Ocr Layer Rate",
+          "type": "number"
+        },
+        "scanned_ratio": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Scanned Ratio",
+          "type": "number"
+        },
+        "target_docs": {
+          "exclusiveMinimum": 0,
+          "title": "Target Docs",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "target_docs",
+        "date_range",
+        "format_mix"
+      ],
+      "title": "DocCulture",
+      "type": "object"
+    },
+    "EngagementPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "exclusiveMinimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "services": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Services",
+          "type": "array"
+        }
+      },
+      "required": [
+        "count"
+      ],
+      "title": "EngagementPlan",
+      "type": "object"
+    },
+    "FinanceProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "base_revenue": {
+          "description": "first full fiscal year, USD",
+          "exclusiveMinimum": 0,
+          "title": "Base Revenue",
+          "type": "integer"
+        },
+        "expense_ratio": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Expense Ratio",
+          "type": "number"
+        },
+        "growth_rate": {
+          "maximum": 2.0,
+          "minimum": -0.5,
+          "title": "Growth Rate",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_revenue",
+        "growth_rate",
+        "expense_ratio"
+      ],
+      "title": "FinanceProfile",
+      "type": "object"
+    },
+    "FormatMix": {
+      "additionalProperties": false,
+      "properties": {
+        "docx": {
+          "default": 0,
+          "title": "Docx",
+          "type": "integer"
+        },
+        "eml": {
+          "default": 0,
+          "title": "Eml",
+          "type": "integer"
+        },
+        "pdf": {
+          "default": 0,
+          "title": "Pdf",
+          "type": "integer"
+        },
+        "pptx": {
+          "default": 0,
+          "title": "Pptx",
+          "type": "integer"
+        },
+        "xlsx": {
+          "default": 0,
+          "title": "Xlsx",
+          "type": "integer"
+        }
+      },
+      "title": "FormatMix",
+      "type": "object"
+    },
+    "GraphTargets": {
+      "additionalProperties": false,
+      "properties": {
+        "affiliations_in_docs": {
+          "default": false,
+          "title": "Affiliations In Docs",
+          "type": "boolean"
+        },
+        "external_orgs": {
+          "minimum": 1,
+          "title": "External Orgs",
+          "type": "integer"
+        },
+        "external_people": {
+          "minimum": 1,
+          "title": "External People",
+          "type": "integer"
+        },
+        "min_mentions_per_person": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Min Mentions Per Person",
+          "type": "integer"
+        },
+        "multi_affiliations": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Multi Affiliations",
+          "type": "integer"
+        },
+        "nickname_aliases": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Nickname Aliases",
+          "type": "integer"
+        },
+        "surname_collisions": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Surname Collisions",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "external_orgs",
+        "external_people"
+      ],
+      "title": "GraphTargets",
+      "type": "object"
+    },
+    "HardCases": {
+      "additionalProperties": false,
+      "description": "Hard-to-find fact planting (M3+). Defaults keep the knobs off so\nrecipes and committed orgs from before them regenerate byte-identically.\n\nsignature_page_facts: engagement fees that appear ONLY on the signature\npage of their engagement letter (pdf), injected at render time.\nfilename_dates: meeting dates that appear ONLY in the minutes filename;\nthe document text carries no date in any form.",
+      "properties": {
+        "filename_dates": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Filename Dates",
+          "type": "integer"
+        },
+        "signature_page_facts": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Signature Page Facts",
+          "type": "integer"
+        }
+      },
+      "title": "HardCases",
+      "type": "object"
+    },
+    "RosterChurn": {
+      "additionalProperties": false,
+      "description": "The roster's time dimension (M8). ON by default: a firm where nobody\nis ever hired, promoted, or leaves is the shape the review board\nindicted (`rf:orgreal-1`), so a frozen roster is now the opt-out rather\nthan the default. Set both to 0 for the pre-M8 shape.\n\nCounts, not rates, matching the surname_collisions / nickname_aliases /\nmulti_affiliations idiom: a recipe asks for a shape and the generator\nplants exactly it. A count also makes the fixture a specimen rather than\na sample, which is the house position -- an org must CONTAIN the case,\nnot contain it on average.\n\nBoth degrade rather than crash when the roster cannot host them, because\nunlike the knobs above these default ON and every recipe in the repo is\n5-6 people. The degradation is reported at scaffold time and visible in\nthe ledger.\n\ndepartures: seats whose incumbent leaves mid-range and is backfilled by\na new hire into the same seat. Only seats that manage nobody are\neligible, so the reporting tree cannot dangle: `reports_to` is a scalar\nwith no time dimension, so a departing manager has nowhere to hand its\nreports to.\npromotions: people who move up one rung of their department's `titles`\nlist mid-range. Recorded in `Person.title_history`.\nhires: NEW seats opened across the range, so the firm grows. Distinct\nfrom a departure's backfill, which refills a vacated seat and leaves the\nseat count flat -- `headcount` counts the seats the firm OPENS WITH, and\neach growth hire opens another.\n\nWhy `hires` exists at all (BACKLOG: recipe-growth-outruns-headcount).\nWith a frozen seat count, compensation rises only by raises (~3%/yr)\nwhile fees compound at `finance.growth_rate`, so any firm growing faster\nthan ~2.75%/yr posts a net margin that climbs forever -- the fleet was\nmeasured at 45-55% terminal margins, which no professional-services firm\nposts. A recipe's growth, headcount, and span have to describe one firm,\nand without this knob the only coherent firm is a stagnant one. Roughly,\na stable margin wants `hires` such that seats grow at about\n`growth_rate` minus the raise rate.\n\nUnlike `departures`/`promotions` this defaults OFF, which is deliberate\nrather than v2.0 caution: a default-on `hires` would move the roster of\nevery committed fixture, including the byte-pinned tracer. Recipes that\ngrow ask for it.",
+      "properties": {
+        "departures": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Departures",
+          "type": "integer"
+        },
+        "hires": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Hires",
+          "type": "integer"
+        },
+        "promotions": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Promotions",
+          "type": "integer"
+        }
+      },
+      "title": "RosterChurn",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/charter@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl_posture": {
+      "default": "open",
+      "enum": [
+        "open",
+        "departmental"
+      ],
+      "title": "Acl Posture",
+      "type": "string"
+    },
+    "doc_culture": {
+      "$ref": "#/$defs/DocCulture"
+    },
+    "domain": {
+      "title": "Domain",
+      "type": "string"
+    },
+    "engagements": {
+      "$ref": "#/$defs/EngagementPlan"
+    },
+    "finance": {
+      "$ref": "#/$defs/FinanceProfile"
+    },
+    "founded": {
+      "maximum": 2100,
+      "minimum": 1800,
+      "title": "Founded",
+      "type": "integer"
+    },
+    "graph_targets": {
+      "$ref": "#/$defs/GraphTargets"
+    },
+    "hard_cases": {
+      "$ref": "#/$defs/HardCases",
+      "default": {
+        "filename_dates": 0,
+        "signature_page_facts": 0
+      }
+    },
+    "headcount": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Headcount",
+      "type": "object"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "narrative": {
+      "title": "Narrative",
+      "type": "string"
+    },
+    "org_type": {
+      "title": "Org Type",
+      "type": "string"
+    },
+    "roster_churn": {
+      "$ref": "#/$defs/RosterChurn",
+      "default": {
+        "departures": 1,
+        "hires": 0,
+        "promotions": 1
+      }
+    },
+    "schema_id": {
+      "const": "orgsmith/charter@1",
+      "default": "orgsmith/charter@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "seed": {
+      "title": "Seed",
+      "type": "integer"
+    },
+    "slug": {
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "title": "Slug",
+      "type": "string"
+    },
+    "titles": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "default": {},
+      "title": "Titles",
+      "type": "object"
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "seed",
+    "org_type",
+    "founded",
+    "domain",
+    "headcount",
+    "doc_culture",
+    "finance",
+    "engagements",
+    "graph_targets",
+    "narrative"
+  ],
+  "title": "Charter",
+  "type": "object"
+}

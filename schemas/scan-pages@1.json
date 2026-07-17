@@ -1,0 +1,31 @@
+{
+  "$id": "orgsmith/scan-pages@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "True per-page text of a scanned document, archived at render time\nbefore rasterization. This is the text-obligation oracle for image-only\nscans, whose rendered pages expose nothing extractable.",
+  "properties": {
+    "doc_id": {
+      "title": "Doc Id",
+      "type": "string"
+    },
+    "pages": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/scan-pages@1",
+      "default": "orgsmith/scan-pages@1",
+      "title": "Schema Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_id",
+    "pages"
+  ],
+  "title": "ScanPages",
+  "type": "object"
+}

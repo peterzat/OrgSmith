@@ -62,6 +62,40 @@ def test_pyproject_version_matches_package():
     assert match.group(1) == orgsmith.__version__
 
 
+def test_every_schema_id_has_a_model():
+    """SCHEMA_IDS is the published list; a name with no model behind it is a
+    contract we advertise and cannot validate."""
+    from orgsmith.schemas import SCHEMA_IDS
+    from orgsmith.schemas_export import contract_models
+
+    models = contract_models()
+    assert set(SCHEMA_IDS.values()) <= set(models), (
+        f"ids with no model: {sorted(set(SCHEMA_IDS.values()) - set(models))}"
+    )
+
+
+def test_committed_schemas_match_the_models():
+    """`schemas/` is committed so a consumer can read the contracts without
+    importing Python. Derived, therefore pinned: re-emit and compare, the same
+    way the fleet's structure is pinned. Regenerate with
+    `python -m orgsmith emit-schemas`."""
+    from orgsmith.schemas_export import contract_models, render, schema_filename
+
+    out = REPO / "schemas"
+    models = contract_models()
+    committed = {p.name for p in out.glob("*.json")}
+    expected = {schema_filename(sid) for sid in models}
+    assert committed == expected, (
+        f"schemas/ is stale: missing {sorted(expected - committed)}, "
+        f"extra {sorted(committed - expected)}; run emit-schemas"
+    )
+    for schema_id, model in models.items():
+        path = out / schema_filename(schema_id)
+        assert path.read_text("utf-8") == render(schema_id, model), (
+            f"{path.name} is stale; run: python -m orgsmith emit-schemas"
+        )
+
+
 def test_core_modules_import():
     import orgsmith.cli  # noqa: F401
     import orgsmith.paths  # noqa: F401

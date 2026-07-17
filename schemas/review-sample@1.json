@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "SampledDoc": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "docx",
+            "pdf",
+            "xlsx",
+            "pptx",
+            "eml",
+            "doc",
+            "xls",
+            "ppt"
+          ],
+          "title": "Format",
+          "type": "string"
+        },
+        "genre": {
+          "enum": [
+            "engagement_letter",
+            "kickoff_memo",
+            "meeting_minutes",
+            "status_report",
+            "company_overview",
+            "financial_summary",
+            "briefing_deck",
+            "engagement_email",
+            "onboarding_record"
+          ],
+          "title": "Genre",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "stratum": {
+          "title": "Stratum",
+          "type": "string"
+        },
+        "words": {
+          "title": "Words",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "doc_id",
+        "path",
+        "genre",
+        "format",
+        "date",
+        "stratum",
+        "words"
+      ],
+      "title": "SampledDoc",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/review-sample@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A deterministic stratified reading list for the board.\n\nDrawn from the `review.sample` seed stream so two runs over an unchanged\norg select the same docs in the same order.",
+  "properties": {
+    "docs": {
+      "items": {
+        "$ref": "#/$defs/SampledDoc"
+      },
+      "title": "Docs",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/review-sample@1",
+      "default": "orgsmith/review-sample@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "thin_strata": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Thin Strata",
+      "type": "array"
+    }
+  },
+  "required": [
+    "slug",
+    "docs"
+  ],
+  "title": "ReviewSample",
+  "type": "object"
+}

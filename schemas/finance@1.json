@@ -1,0 +1,99 @@
+{
+  "$defs": {
+    "FiscalYear": {
+      "additionalProperties": false,
+      "properties": {
+        "expenses": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Expenses",
+          "type": "object"
+        },
+        "quarters": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Quarters",
+          "type": "array"
+        },
+        "revenue": {
+          "title": "Revenue",
+          "type": "integer"
+        },
+        "year": {
+          "title": "Year",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "year",
+        "revenue",
+        "quarters",
+        "expenses"
+      ],
+      "title": "FiscalYear",
+      "type": "object"
+    },
+    "LedgerCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "ok": {
+          "title": "Ok",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "ok",
+        "detail"
+      ],
+      "title": "LedgerCheck",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/finance@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/LedgerCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/finance@1",
+      "default": "orgsmith/finance@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "years": {
+      "items": {
+        "$ref": "#/$defs/FiscalYear"
+      },
+      "title": "Years",
+      "type": "array"
+    }
+  },
+  "required": [
+    "slug",
+    "years",
+    "checks"
+  ],
+  "title": "FinanceLedger",
+  "type": "object"
+}

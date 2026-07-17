@@ -1,0 +1,156 @@
+{
+  "$defs": {
+    "Engagement": {
+      "additionalProperties": false,
+      "properties": {
+        "client": {
+          "title": "Client",
+          "type": "string"
+        },
+        "end": {
+          "format": "date",
+          "title": "End",
+          "type": "string"
+        },
+        "external_participants": {
+          "items": {
+            "type": "string"
+          },
+          "title": "External Participants",
+          "type": "array"
+        },
+        "facts": {
+          "items": {
+            "$ref": "#/$defs/Fact"
+          },
+          "title": "Facts",
+          "type": "array"
+        },
+        "fee": {
+          "title": "Fee",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^E-\\d{4}-\\d{3}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "internal_participants": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Internal Participants",
+          "type": "array"
+        },
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "client",
+        "start",
+        "end",
+        "fee",
+        "internal_participants",
+        "external_participants",
+        "summary",
+        "facts"
+      ],
+      "title": "Engagement",
+      "type": "object"
+    },
+    "Fact": {
+      "additionalProperties": false,
+      "description": "One planted, render-ready fact. `rendered` is the exact surface form\nsubstituted for ``{{fact:<id>}}``; validators look for it verbatim in\ndocument text.",
+      "properties": {
+        "id": {
+          "pattern": "^f:[A-Za-z0-9.\\-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "money",
+            "date",
+            "text"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "location_policy": {
+          "default": "body",
+          "enum": [
+            "body",
+            "signature_page",
+            "filename"
+          ],
+          "title": "Location Policy",
+          "type": "string"
+        },
+        "rendered": {
+          "title": "Rendered",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "value",
+        "rendered"
+      ],
+      "title": "Fact",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/engagements@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "engagements": {
+      "items": {
+        "$ref": "#/$defs/Engagement"
+      },
+      "title": "Engagements",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/engagements@1",
+      "default": "orgsmith/engagements@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "engagements"
+  ],
+  "title": "EngagementsLedger",
+  "type": "object"
+}

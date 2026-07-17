@@ -1,0 +1,259 @@
+{
+  "$defs": {
+    "DocBrief": {
+      "additionalProperties": false,
+      "properties": {
+        "authors": {
+          "items": {
+            "$ref": "#/$defs/PersonBrief"
+          },
+          "title": "Authors",
+          "type": "array"
+        },
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "engagement_position": {
+          "default": "",
+          "title": "Engagement Position",
+          "type": "string"
+        },
+        "engagement_summary": {
+          "default": "",
+          "title": "Engagement Summary",
+          "type": "string"
+        },
+        "facts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FactBrief"
+          },
+          "title": "Facts",
+          "type": "array"
+        },
+        "firm_digest": {
+          "default": "",
+          "title": "Firm Digest",
+          "type": "string"
+        },
+        "genre": {
+          "enum": [
+            "engagement_letter",
+            "kickoff_memo",
+            "meeting_minutes",
+            "status_report",
+            "company_overview",
+            "financial_summary",
+            "briefing_deck",
+            "engagement_email",
+            "onboarding_record"
+          ],
+          "title": "Genre",
+          "type": "string"
+        },
+        "guidance": {
+          "default": "",
+          "title": "Guidance",
+          "type": "string"
+        },
+        "mentions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/PlannedMention"
+          },
+          "title": "Mentions",
+          "type": "array"
+        },
+        "participants": {
+          "items": {
+            "$ref": "#/$defs/PersonBrief"
+          },
+          "title": "Participants",
+          "type": "array"
+        },
+        "target_words": {
+          "default": 250,
+          "title": "Target Words",
+          "type": "integer"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "doc_id",
+        "title",
+        "genre",
+        "date",
+        "authors",
+        "participants"
+      ],
+      "title": "DocBrief",
+      "type": "object"
+    },
+    "FactBrief": {
+      "additionalProperties": false,
+      "properties": {
+        "hint": {
+          "title": "Hint",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "hint"
+      ],
+      "title": "FactBrief",
+      "type": "object"
+    },
+    "PersonBrief": {
+      "additionalProperties": false,
+      "properties": {
+        "dept": {
+          "title": "Dept",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "persona": {
+          "default": "",
+          "title": "Persona",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "title",
+        "dept"
+      ],
+      "title": "PersonBrief",
+      "type": "object"
+    },
+    "PlannedMention": {
+      "additionalProperties": false,
+      "description": "One entity the doc must name, with the exact surface form the\nmention-echo validator looks for in extractable text.",
+      "properties": {
+        "entity": {
+          "title": "Entity",
+          "type": "string"
+        },
+        "kind": {
+          "default": "person",
+          "enum": [
+            "person",
+            "org"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "surface": {
+          "title": "Surface",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity",
+        "surface"
+      ],
+      "title": "PlannedMention",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/work-order@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deliverable_schema": {
+      "title": "Deliverable Schema",
+      "type": "string"
+    },
+    "docs": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DocBrief"
+      },
+      "title": "Docs",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "instructions": {
+      "title": "Instructions",
+      "type": "string"
+    },
+    "narrative": {
+      "title": "Narrative",
+      "type": "string"
+    },
+    "org_name": {
+      "title": "Org Name",
+      "type": "string"
+    },
+    "org_type": {
+      "title": "Org Type",
+      "type": "string"
+    },
+    "people": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/PersonBrief"
+      },
+      "title": "People",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/work-order@1",
+      "default": "orgsmith/work-order@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "foundation",
+        "author"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "stage",
+    "slug",
+    "org_name",
+    "org_type",
+    "narrative",
+    "instructions",
+    "deliverable_schema"
+  ],
+  "title": "WorkOrder",
+  "type": "object"
+}

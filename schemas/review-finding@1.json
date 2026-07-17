@@ -1,0 +1,66 @@
+{
+  "$id": "orgsmith/review-finding@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dimension": {
+      "enum": [
+        "org_realism",
+        "finance_realism",
+        "narrative_consistency",
+        "document_plausibility",
+        "graph_acl_naturalness",
+        "cross_document_voice"
+      ],
+      "title": "Dimension",
+      "type": "string"
+    },
+    "docs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Docs",
+      "type": "array"
+    },
+    "evidence": {
+      "default": "",
+      "title": "Evidence",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^rf:[a-z0-9][a-z0-9._-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "orgsmith/review-finding@1",
+      "default": "orgsmith/review-finding@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "blocker",
+        "major",
+        "minor",
+        "note"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "summary": {
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "dimension",
+    "severity",
+    "summary"
+  ],
+  "title": "ReviewFinding",
+  "type": "object"
+}

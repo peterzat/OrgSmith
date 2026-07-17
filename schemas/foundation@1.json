@@ -1,0 +1,331 @@
+{
+  "$defs": {
+    "Affiliation": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "org": {
+          "title": "Org",
+          "type": "string"
+        },
+        "start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        }
+      },
+      "required": [
+        "org"
+      ],
+      "title": "Affiliation",
+      "type": "object"
+    },
+    "EmploymentSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start"
+      ],
+      "title": "EmploymentSpan",
+      "type": "object"
+    },
+    "ExternalOrg": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^x:[a-z0-9.\\-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "org_type": {
+          "title": "Org Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "org_type"
+      ],
+      "title": "ExternalOrg",
+      "type": "object"
+    },
+    "ExternalPerson": {
+      "additionalProperties": false,
+      "properties": {
+        "affiliations": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Affiliation"
+          },
+          "title": "Affiliations",
+          "type": "array"
+        },
+        "email": {
+          "title": "Email",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^xp:[a-z0-9.\\-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "org": {
+          "title": "Org",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "org",
+        "title",
+        "email"
+      ],
+      "title": "ExternalPerson",
+      "type": "object"
+    },
+    "Person": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "dept": {
+          "title": "Dept",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email",
+          "type": "string"
+        },
+        "employment": {
+          "$ref": "#/$defs/EmploymentSpan"
+        },
+        "id": {
+          "pattern": "^p:[a-z0-9.\\-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "persona": {
+          "default": "",
+          "title": "Persona",
+          "type": "string"
+        },
+        "phone": {
+          "title": "Phone",
+          "type": "string"
+        },
+        "reports_to": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reports To"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "title_history": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/TitleSpan"
+          },
+          "title": "Title History",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "title",
+        "dept",
+        "employment",
+        "email",
+        "phone"
+      ],
+      "title": "Person",
+      "type": "object"
+    },
+    "TimelineEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "ground_truth_tags": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Ground Truth Tags",
+          "type": "array"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "summary"
+      ],
+      "title": "TimelineEvent",
+      "type": "object"
+    },
+    "TitleSpan": {
+      "additionalProperties": false,
+      "description": "One title held over a window. Mirrors Affiliation: entries run oldest\nfirst, the last entry's title equals Person.title, and end=None means the\ntitle is still held.",
+      "properties": {
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "start"
+      ],
+      "title": "TitleSpan",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/foundation@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "external_orgs": {
+      "items": {
+        "$ref": "#/$defs/ExternalOrg"
+      },
+      "title": "External Orgs",
+      "type": "array"
+    },
+    "external_people": {
+      "items": {
+        "$ref": "#/$defs/ExternalPerson"
+      },
+      "title": "External People",
+      "type": "array"
+    },
+    "people": {
+      "items": {
+        "$ref": "#/$defs/Person"
+      },
+      "title": "People",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/foundation@1",
+      "default": "orgsmith/foundation@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "timeline": {
+      "items": {
+        "$ref": "#/$defs/TimelineEvent"
+      },
+      "title": "Timeline",
+      "type": "array"
+    }
+  },
+  "required": [
+    "slug",
+    "people",
+    "external_orgs",
+    "external_people",
+    "timeline"
+  ],
+  "title": "Foundation",
+  "type": "object"
+}

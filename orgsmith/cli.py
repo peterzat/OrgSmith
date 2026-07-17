@@ -109,6 +109,16 @@ def main(argv=None) -> int:
     p_doc.add_argument("slug", nargs="?", help="record results into this org's state")
     p_doc.add_argument("--root", type=Path, default=None)
 
+    p_schemas = sub.add_parser(
+        "emit-schemas", help="inter-stage contracts -> JSON Schema files"
+    )
+    p_schemas.add_argument(
+        "--out",
+        type=Path,
+        default=Path("schemas"),
+        help="output directory (default: ./schemas)",
+    )
+
     args = parser.parse_args(argv)
 
     if args.verb == "validate":
@@ -130,6 +140,11 @@ def main(argv=None) -> int:
 
         paths = org_paths(args.slug, args.root) if args.slug else None
         return run_doctor(paths)
+
+    if args.verb == "emit-schemas":
+        from .schemas_export import run_emit_schemas
+
+        return run_emit_schemas(args.out)
 
     if args.verb == "score":
         from .evals import run_score

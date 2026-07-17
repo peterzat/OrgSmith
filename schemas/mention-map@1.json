@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "MentionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "entity": {
+          "title": "Entity",
+          "type": "string"
+        },
+        "kind": {
+          "default": "person",
+          "enum": [
+            "person",
+            "org"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "surface": {
+          "title": "Surface",
+          "type": "string"
+        }
+      },
+      "required": [
+        "doc_id",
+        "entity",
+        "surface"
+      ],
+      "title": "MentionRecord",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/mention-map@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Flat ground-truth view of every planned mention, for external\nconsumers who should not need to parse the manifest.",
+  "properties": {
+    "mentions": {
+      "items": {
+        "$ref": "#/$defs/MentionRecord"
+      },
+      "title": "Mentions",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/mention-map@1",
+      "default": "orgsmith/mention-map@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "mentions"
+  ],
+  "title": "MentionMap",
+  "type": "object"
+}
