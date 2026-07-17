@@ -265,11 +265,14 @@ flagship as three separate jobs.)
   heading, then "Next Steps," then a closing epigram — six authors who never
   saw each other's work. The board also counts the "I would rather X now than
   Y later" antithesis at **34 occurrences across 26 of 44 documents**, every
-  author, every year — that one is its judgment rather than a ledger fact,
-  because the figure is semantic (its own evidence includes "easy to do from
-  the start and impossible to retrofit", the move without the words). A
-  literal `rather…than` count over the same 44 documents returns **20 across
-  17**, which is the reproducible floor. The defect is the same either way.
+  author, every year. Treat that number as its judgment, not as arithmetic:
+  the figure is semantic, and what you count decides what you get. Measured
+  over the same 44 documents (2026-07-17), a strict temporal reading finds
+  **5**; the plain words `rather than` appear **146 times across 43 of 44
+  documents**, once per 200 words. The first is too tight and the last sweeps
+  up ordinary English, and no ledger adjudicates between them — which is the
+  finding underneath the finding. The defect is real at every reading; only
+  its size is a matter of opinion.
 - **The org grows staff it has no work for.** The engagement book is empty
   for 1,299 days while three people are hired into it, one onboarded with
   "She is walking into live work rather than a quiet stretch."
@@ -295,9 +298,10 @@ false-positive rate is unmeasured ([what this does not
 prove](#what-this-does-not-prove)). Every finding quoted above was re-verified
 against a ledger before it was published, **except the one that cannot be**:
 no ledger owns whether two sentences are the same rhetorical figure, so the
-board's count of 34 is labelled as its judgment and given a reproducible floor
-beside it. That is the rule working, not an exception to it — a finding that
-resists checking gets said out loud rather than rounded up into a fact.
+board's count of 34 is labelled as its judgment and bracketed by what the same
+corpus yields under a strict and a loose reading. That is the rule working
+rather than an exception to it — a finding that resists checking gets said out
+loud instead of rounded up into a fact.
 
 **You can check that rather than take it: every org above ships its own
 board findings and its own numbers.** All seven are built on the whole v2.0
