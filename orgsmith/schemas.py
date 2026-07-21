@@ -127,6 +127,44 @@ class NoiseModel(StrictModel):
         return self
 
 
+class MailCulture(StrictModel):
+    """M14: recipe-declared email culture. Presence turns on thread mechanics
+    for engagement mail: minute-granularity send times inside business hours,
+    In-Reply-To / References chains, RE: subjects, a derived quoted-history
+    tail, a deterministic To/Cc partition, promotion-aware signature blocks,
+    and per-engagement thread depth drawn from a new stream. Absent (None)
+    leaves every committed artifact byte-identical: the old fixed-09:00-UTC
+    single-message path runs and no new seed stream draws a value.
+
+    Timezones stay UTC (documented): send minutes are UTC wall-clock, so
+    `business_hours` is a UTC window, not a local one. Mailbox-ecology counts
+    (a mundane internal genre, MIME transmittal attachments) default off; a
+    knob-on culture may still leave each at 0.
+    """
+
+    # Send minutes fall in [start*60, end*60); start < end, both 0..24.
+    business_hours: tuple[int, int] = (9, 17)
+    # The longest reply chain a thread may reach. Per-engagement depth varies
+    # from the docplan.email.threads stream between 1 and this.
+    max_thread_depth: int = Field(ge=1, default=6)
+    # Count of non-engagement internal emails (scheduling / logistics / admin)
+    # planned across the date range, authored short, carrying mentions but no
+    # engagement facts. Lands in the distractors eval split.
+    mundane_emails: int = Field(ge=0, default=0)
+    # Count of transmittal emails carrying a MIME attachment whose bytes equal
+    # a rendered share document. The manifest owns the email->attachment link.
+    attachments: int = Field(ge=0, default=0)
+
+    @model_validator(mode="after")
+    def _check(self) -> "MailCulture":
+        lo, hi = self.business_hours
+        if not (0 <= lo < hi <= 24):
+            raise ValueError(
+                "business_hours must satisfy 0 <= start < end <= 24"
+            )
+        return self
+
+
 class DocCulture(StrictModel):
     # ADVISORY since M9. Document supply is derived by the genre registry from
     # the firm's drivers (engagements, fiscal years, hires), so the manifest
@@ -163,6 +201,11 @@ class DocCulture(StrictModel):
     # A brief-only nudge, unproven and unmeasurable to a single number: report
     # measures the tics as a range, and nothing gates.
     voice_diversify: bool = False
+    # M14: recipe-declared email culture, default OFF (None). Presence turns on
+    # thread mechanics and mailbox ecology for engagement mail; committed
+    # recipes without it plan the same manifest byte-for-byte and draw nothing
+    # from the new email seed streams.
+    mail: MailCulture | None = None
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":

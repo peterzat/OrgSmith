@@ -57,6 +57,17 @@
           "title": "Legacy Ratio",
           "type": "number"
         },
+        "mail": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MailCulture"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "noise": {
           "anyOf": [
             {
@@ -259,6 +270,50 @@
         }
       },
       "title": "HardCases",
+      "type": "object"
+    },
+    "MailCulture": {
+      "additionalProperties": false,
+      "description": "M14: recipe-declared email culture. Presence turns on thread mechanics\nfor engagement mail: minute-granularity send times inside business hours,\nIn-Reply-To / References chains, RE: subjects, a derived quoted-history\ntail, a deterministic To/Cc partition, promotion-aware signature blocks,\nand per-engagement thread depth drawn from a new stream. Absent (None)\nleaves every committed artifact byte-identical: the old fixed-09:00-UTC\nsingle-message path runs and no new seed stream draws a value.\n\nTimezones stay UTC (documented): send minutes are UTC wall-clock, so\n`business_hours` is a UTC window, not a local one. Mailbox-ecology counts\n(a mundane internal genre, MIME transmittal attachments) default off; a\nknob-on culture may still leave each at 0.",
+      "properties": {
+        "attachments": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Attachments",
+          "type": "integer"
+        },
+        "business_hours": {
+          "default": [
+            9,
+            17
+          ],
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Business Hours",
+          "type": "array"
+        },
+        "max_thread_depth": {
+          "default": 6,
+          "minimum": 1,
+          "title": "Max Thread Depth",
+          "type": "integer"
+        },
+        "mundane_emails": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Mundane Emails",
+          "type": "integer"
+        }
+      },
+      "title": "MailCulture",
       "type": "object"
     },
     "NoiseModel": {
