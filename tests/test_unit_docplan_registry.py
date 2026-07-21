@@ -197,9 +197,17 @@ def test_registry_lengths_are_realistic_and_the_brief_sources_them():
     letter = next(r for r in REGISTRY if r.genre == "engagement_letter")
     assert 800 <= letter.target_words <= 1500
     assert _TARGET_WORDS["engagement_letter"] == letter.target_words
-    # Every authored genre was raised off the old 130-350 band.
-    authored = [r for r in REGISTRY if r.authoring == "batchable"]
+    # Every authored ENGAGEMENT/firm genre was raised off the old 130-350
+    # band. The M14 mundane internal_email is the deliberate exception: a
+    # scheduling note is realistically short, so it sits well below the band.
+    authored = [
+        r
+        for r in REGISTRY
+        if r.authoring == "batchable" and r.genre != "internal_email"
+    ]
     assert authored and all(r.target_words >= 250 for r in authored)
+    mundane = next(r for r in REGISTRY if r.genre == "internal_email")
+    assert 0 < mundane.target_words < 250
 
 
 def test_email_thread_replies_are_days_apart_not_weeks():

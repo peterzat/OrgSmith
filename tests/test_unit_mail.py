@@ -362,3 +362,91 @@ def test_eml02_skips_visibly_when_mail_off(capsys):
     assert run_validate(committed, only=["EML-02"]) == 0
     out = capsys.readouterr().out
     assert "SKIP EML-02" in out and "doc_culture.mail is not declared" in out
+
+
+# --- mundane internal mail (M14 mailbox ecology) --------------------------
+
+
+@pytest.fixture(scope="module")
+def ecology_org(tmp_path_factory):
+    paths = _build_mail_org(
+        tmp_path_factory.mktemp("mail-ecology"),
+        eml=8,
+        max_depth=5,
+        extra_culture="    mundane_emails: 4\n",
+    )
+    run_enrichment(paths)
+    run_authoring(paths)
+    assert run_render(paths) == 0
+    return paths
+
+
+def _mundane(paths):
+    return [e for e in load_manifest(paths) if e.genre == "internal_email"]
+
+
+def test_mundane_mail_planned_off_engagement(ecology_org):
+    mundane = _mundane(ecology_org)
+    assert len(mundane) == 4
+    for m in mundane:
+        assert m.format == "eml"
+        assert m.engagement is None
+        assert m.facts_refs == []
+        assert "send_minute" in m.render_params
+        assert "thread_pos" not in m.render_params  # standalone, not a thread
+        assert m.path.startswith("Firm/Mail/")
+
+
+def test_mundane_mail_carries_colleague_mentions(ecology_org):
+    for m in _mundane(ecology_org):
+        assert m.mentions, f"{m.path} names no one"
+        body = _parse(ecology_org.share_dir / m.path).get_body(
+            preferencelist=("plain",)
+        ).get_content()
+        for mention in m.mentions:
+            assert mention.surface in body
+
+
+def test_mundane_mail_has_no_thread_headers(ecology_org):
+    for m in _mundane(ecology_org):
+        msg = _parse(ecology_org.share_dir / m.path)
+        assert msg["In-Reply-To"] is None
+        assert msg["References"] is None
+        assert not str(msg["Subject"]).startswith("RE: ")
+
+
+def test_ecology_validates_clean(ecology_org):
+    assert run_validate(ecology_org) == 0
+
+
+def test_mundane_mail_is_a_retrieval_distractor(ecology_org):
+    import json
+
+    from orgsmith.acl import run_acl
+    from orgsmith.assemble import run_assemble
+    from orgsmith.evals.emit import run_emit_evals
+
+    assert run_assemble(ecology_org) == 0
+    assert run_acl(ecology_org) == 0
+    assert run_emit_evals(ecology_org) == 0
+    mundane_paths = {m.path for m in _mundane(ecology_org)}
+
+    def answers(name):
+        return {
+            p
+            for line in (ecology_org.evals_dir / name).read_text().splitlines()
+            for p in json.loads(line)["expected_docs"]
+        }
+
+    # Mundane mail is a retrieval/extraction DISTRACTOR: never an answer to
+    # those suites. (Visibility still counts it -- a readable doc is a
+    # visibility answer, exactly -- so it does appear in `core` via that suite,
+    # which is correct, not a leak.)
+    assert not (mundane_paths & answers("retrieval.jsonl"))
+    assert not (mundane_paths & answers("extraction.jsonl"))
+
+    splits = json.loads(
+        (ecology_org.evals_dir / "splits.json").read_text()
+    )["splits"]
+    assert mundane_paths <= set(splits["distractors"])
+    assert mundane_paths <= set(splits["full"])

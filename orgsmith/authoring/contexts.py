@@ -79,6 +79,13 @@ _GENRE_GUIDANCE = {
         "practice, and first-period logistics and expectations. Name the "
         "new employee. 2-4 short paragraphs, no sigblock."
     ),
+    "internal_email": (
+        "A short, mundane internal email about firm logistics: scheduling, "
+        "office admin, coverage, supplies -- NOT about any client "
+        "engagement. One or two brief paragraphs. Name the colleagues "
+        "involved. No client facts, no figures, no sigblock. The subject "
+        "lives in the message header, not the body."
+    ),
 }
 
 # The genre registry owns per-genre word targets (raised to real-world
@@ -376,6 +383,26 @@ def run_next_batch(paths: OrgPaths) -> int:
                 if locations.get(ref, "body") == "body"
             ]
             guidance = _GENRE_GUIDANCE[entry.genre]
+            if entry.genre == "engagement_email" and "thread_pos" in (
+                entry.render_params
+            ):
+                # M14 thread-position guidance: a reply answers the message
+                # before it rather than restating the engagement.
+                if int(entry.render_params["thread_pos"]) > 0:
+                    guidance += (
+                        " This is a reply partway through an ongoing thread: "
+                        "answer the previous message directly, do not "
+                        "reintroduce the engagement or the participants, and "
+                        "keep it to a few tight lines. A quoted history and "
+                        "your signature are appended automatically -- write "
+                        "only your new reply."
+                    )
+                else:
+                    guidance += (
+                        " This opens the thread: set the topic up clearly for "
+                        "the replies that follow. Your signature is appended "
+                        "automatically; do not type one."
+                    )
             if any(loc == "signature_page" for loc in locations.values()):
                 guidance += (
                     " Commercial fee terms are executed on the signature "

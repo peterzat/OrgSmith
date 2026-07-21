@@ -186,6 +186,8 @@ class _Planner:
         for rule in REGISTRY:
             if rule.genre == "engagement_email":
                 self._emit_email(rule)
+            elif rule.genre == "internal_email":
+                self._emit_mundane(rule)
             elif rule.driver == "per_engagement":
                 self._emit_engagement(rule)
             elif rule.driver == "per_fiscal_year":
@@ -518,6 +520,69 @@ class _Planner:
                     },
                     authoring=rule.authoring,
                 )
+
+    _MUNDANE_SUBJECTS = (
+        "Office logistics",
+        "Scheduling next week",
+        "Building access",
+        "IT maintenance window",
+        "Timesheet reminder",
+        "Holiday coverage",
+        "Team lunch",
+        "Parking update",
+        "All-hands prep",
+        "Supplies order",
+    )
+
+    def _emit_mundane(self, rule: GenreRule) -> None:
+        """Mundane internal mail (M14): non-engagement scheduling / logistics /
+        admin, spread across the range, authored short, carrying colleague
+        mentions but no engagement facts, drawn only from docplan.email.mundane
+        so a knob-off recipe plans none. Standalone messages (no thread), so
+        they are distractor traffic, not thread answers."""
+        mail = self.charter.doc_culture.mail
+        if mail is None or mail.mundane_emails == 0:
+            return
+        count = mail.mundane_emails
+        mrand = rng(self.charter.seed, "docplan.email.mundane")
+        lo, hi = mail.business_hours
+        day_lo, day_hi = lo * 60, hi * 60
+        span = max(1, (self.range_end - self.range_start).days)
+        for i in range(count):
+            frac = (i + 0.5) / count
+            when = to_business_day(
+                self._clamp_range(
+                    self.range_start + timedelta(days=int(frac * span))
+                ),
+                self.calendar, self.range_start, self.range_end,
+            )
+            employed = [
+                p for p in self.foundation.people if _employed_at(p, when)
+            ]
+            if len(employed) < 2:
+                continue  # too few staff on that date to address a note
+            author = employed[mrand.randrange(len(employed))]
+            others = [p for p in employed if p.id != author.id]
+            k = min(len(others), mrand.choice((1, 1, 2)))
+            recips = mrand.sample(others, k)
+            subject = self._MUNDANE_SUBJECTS[i % len(self._MUNDANE_SUBJECTS)]
+            minute = mrand.randint(day_lo, day_hi - 1)
+            name = rule.filename.format(
+                date=when, subject=sanitize_component(subject)
+            )
+            self._add(
+                path=f"{rule.folder}/{name}",
+                title=subject,
+                genre=rule.genre,
+                format=rule.format,
+                date=when,
+                authors=[author.id],
+                participants=[p.id for p in recips],
+                engagement=None,
+                facts_refs=[],
+                render_params={"send_minute": minute},
+                authoring=rule.authoring,
+            )
 
     def _emit_fiscal_year(self, rule: GenreRule) -> None:
         """One financial summary per fiscal year whose January publish date

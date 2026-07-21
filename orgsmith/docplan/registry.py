@@ -214,4 +214,19 @@ REGISTRY: tuple[GenreRule, ...] = (
         participants="none",
         filename="FY{year} Financial Summary.xlsx",
     ),
+    GenreRule(
+        # M14 mailbox ecology: mundane internal mail (scheduling, logistics,
+        # admin). Count is doc_culture.mail.mundane_emails, spread across the
+        # range; the planner special-cases this genre (like engagement_email)
+        # rather than a driver window. Off entirely when mail is off, so
+        # committed recipes plan none of it.
+        genre="internal_email",
+        driver="mail_culture",
+        format="eml",
+        folder="Firm/Mail",
+        target_words=110,  # a short note
+        participants="none",  # the planner picks internal recipients
+        title_prefix="",
+        filename="{date:%Y.%m.%d} - {subject}.eml",
+    ),
 )

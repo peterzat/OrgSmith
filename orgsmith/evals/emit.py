@@ -210,12 +210,20 @@ def build_retrieval(
 
     if mention_map is not None:
         by_path = {e.doc_id: e.path for e in manifest}
+        # M14: mundane internal mail names colleagues (a validated mention, for
+        # the graph) but is distractor traffic, not a document ABOUT the
+        # person. Excluding it from the mention retrieval answers keeps it a
+        # genuine retrieval distractor rather than a core answer. (Visibility
+        # still counts it: a readable doc is a visibility answer, exactly.)
+        mundane_ids = {
+            e.doc_id for e in manifest if e.genre == "internal_email"
+        }
         for person in foundation.people:
             docs = sorted(
                 {
                     by_path[r.doc_id]
                     for r in mention_map.mentions
-                    if r.entity == person.id
+                    if r.entity == person.id and r.doc_id not in mundane_ids
                 }
             )
             if docs:
@@ -231,7 +239,9 @@ def build_retrieval(
                     {
                         by_path[r.doc_id]
                         for r in mention_map.mentions
-                        if r.entity == person.id and r.surface == alias
+                        if r.entity == person.id
+                        and r.surface == alias
+                        and r.doc_id not in mundane_ids
                     }
                 )
                 if alias_docs:

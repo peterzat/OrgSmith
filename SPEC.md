@@ -71,8 +71,11 @@ argument.
 - [ ] **A mundane internal-email genre.** A new non-engagement email genre
   (scheduling / logistics / admin) is planned across the recipe date range under
   the knob, authored short, carrying name mentions but no engagement facts, and
-  landing in the `distractors` eval split (excluded from `core`). A knob-off
-  charter plans none of it.
+  acting as a retrieval/extraction distractor: it appears in the `distractors`
+  and `full` eval splits and is never a retrieval or extraction *answer*. (It
+  remains a visibility answer, exactly, because it is a readable document, so it
+  does appear in `core` via the visibility suite; that is correct, not a leak.)
+  A knob-off charter plans none of it.
 
 - [ ] **MIME transmittal attachments.** At least one committed pilot transmittal
   email carries a real MIME attachment whose bytes are identical to a rendered

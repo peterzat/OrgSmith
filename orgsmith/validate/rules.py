@@ -214,8 +214,10 @@ def _always(_ctx: Context) -> str | None:
 
 
 def _needs_eml(ctx: Context) -> str | None:
-    if ctx.charter.doc_culture.format_mix.eml == 0:
-        return "format_mix.eml is 0 for this recipe"
+    mail = ctx.charter.doc_culture.mail
+    mundane = mail.mundane_emails if mail is not None else 0
+    if ctx.charter.doc_culture.format_mix.eml == 0 and mundane == 0:
+        return "format_mix.eml is 0 and no mundane mail for this recipe"
     return None
 
 

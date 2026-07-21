@@ -624,6 +624,7 @@ Genre = Literal[
     "briefing_deck",  # pptx
     "engagement_email",  # eml
     "onboarding_record",  # docx, per-hire (M9); lands in People/
+    "internal_email",  # eml, M14: mundane internal mail (mail culture only)
 ]
 
 DocFormat = Literal[
