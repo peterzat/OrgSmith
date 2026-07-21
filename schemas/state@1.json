@@ -12,6 +12,7 @@
           "type": "array"
         },
         "workorder": {
+          "pattern": "^[A-Za-z0-9_-]+\\.json$",
           "title": "Workorder",
           "type": "string"
         }
@@ -156,6 +157,7 @@
     },
     "outstanding": {
       "additionalProperties": {
+        "pattern": "^[A-Za-z0-9_-]+\\.json$",
         "type": "string"
       },
       "default": {},

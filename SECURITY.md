@@ -1,123 +1,82 @@
 # Security
 
-## Security Review — 2026-07-17c (scope: paths)
+## Security Review — 2026-07-21 (scope: M13 path containment and letterhead escaping)
 
-**Summary:** Focused re-read of the airlock module and its unit tier
-(`orgsmith/airlock.py`, `tests/test_unit_airlock.py`), the two files that own
-the model boundary. Both were in the previous scan's file list, but that scan
-read them as part of a 29-file sweep; this one reads the module as a whole,
-against its own stated invariants. No BLOCK, no WARN, one NOTE: the module
-asserts that work orders live under `-metadata/workorders/` but does not
-enforce it on the read path, so a name out of a tampered `state.json` reaches
-a file read outside that directory. Not exploitable in any current flow; filed
-because it is the same shape as the `docir_path` NOTE the project chose to
-close in July.
+**Summary:** M13 closes the two notes carried open into this milestone. Both
+were non-exploitable in any current flow but held only by the good behavior of
+whoever wrote the input, at a data-versus-code boundary that exists on paper
+(orgs are publishable artifacts). Each is now fixed rather than accepted, in
+depth: at the schema, at the sink, and at the render context. No new BLOCK,
+WARN, or NOTE.
 
-### Findings
+### Findings closed
 
-**[NOTE] orgsmith/airlock.py:79 — `state.json`-derived names reach a file read
-outside `workorders_dir`; the module's stated containment invariant is not
-enforced at the sink.**
+**[CLOSED] `state.json`-derived work-order names reached a file read outside
+`workorders_dir`** (was NOTE, 2026-07-17c, `orgsmith/airlock.py:79`). Neither
+`OrgState.outstanding` values nor `BatchRef.workorder` carried a pattern, so a
+tampered `state.json` (a value the module joins under `workorders_dir`, where
+pathlib discards the base for an absolute operand and `../` traverses out)
+survived validation as a free string and reached `outstanding_work_order` /
+`match_author_batch`. Closed with the same two-layer shape `DocIR.doc_id`
+received:
 
-- **Attack vector:** Requires an attacker-supplied org tree (data, not code).
-  `state.json` is committed with every org (7 under `companies/`) and the repo
-  publishes publicly, so an org that arrives by fork, PR, or hand-off carries
-  its own `state.outstanding` / `author_batches[].workorder` values. Neither
-  field carries a pattern (`state.py:48`, `state.py:69`), so both survive
-  validation as free strings. `outstanding_work_order` then builds
-  `paths.workorders_dir / name` (`airlock.py:79`), and pathlib's `/` **discards
-  the base when the right operand is absolute**, so `"/etc/passwd"` resolves to
-  itself rather than under `workorders_dir`; `../` traversal reaches out the
-  same way. `emit_work_order` hands the escaped path back to its caller
-  (`airlock.py:97-100`), and `/forge` passes it to `forge-author`, whose first
-  instruction is to read the work-order file it was given
-  (`.claude/skills/forge-author/SKILL.md:16`). The read lands in model context.
-  `match_outstanding` reaches the same sink and would surface file content
-  through an uncaught `ValidationError`.
-- **Evidence:** Confirmed by execution, not by reading. A `state.json` with
-  `outstanding: {"foundation": "<abs path outside the org>"}` loads clean and
-  `outstanding_work_order` returns that exact path, `startswith(workorders_dir)`
-  False, contents readable by the caller. Secondary, same precondition: the
-  un-repr'd interpolations at `airlock.py:84` (`{path}`), `:99` (`{existing}`)
-  and `:197` (`{ref.workorder}`) would pass control characters from a tampered
-  `state.json` straight to the terminal. Every *deliverable*-controlled
-  interpolation in the module is already `!r`-quoted, which fully escapes
-  ESC and newline (verified). The gap is state-derived strings only.
-- **Why NOTE and not WARN:** an attacker who can write `state.json` in your
-  tree can usually write `orgsmith/*.py` too, and win more directly. The gap
-  only matters at a data-vs-code boundary that exists on paper (orgs are
-  publishable artifacts) but that no real flow crosses today: operators
-  generate their own orgs, downstream consumers use the fixtures for RAG rather
-  than regeneration, and CI never reaches the airlock (only the model
-  touchpoints call it: `foundation/contexts.py`, `foundation/ingest.py`,
-  `authoring/ingest.py`). This is the *same* non-local safety the 2026-07-16
-  `docir_path` NOTE described: not exploitable, but holding only by the good
-  behavior of whoever wrote the state file.
-- **Remediation:** Guard the sink the way `docir_path` now guards itself
-  (`authoring/ingest.py:34-45`): resolve the candidate and require it under
-  `workorders_dir`, or run the name through `check_filename` (which forbids
-  `/`, `\`, and control characters) before joining. A pattern on
-  `OrgState.outstanding` values and `BatchRef.workorder` would close it at the
-  schema as well, matching the two-layer fix `DocIR.doc_id` received and the
-  test at `test_unit_airlock.py:198`.
+- Schema (commit 1adbb5a): both fields are now constrained to
+  `^[A-Za-z0-9_-]+\.json$` (`orgsmith/state.py`, `WorkOrderName`), which admits
+  every name the generator writes and rejects separators, `..`, absolute paths,
+  and control characters at load. No `orgsmith/state@1` bump; all eight
+  committed states load, validate, and round-trip byte-identically
+  (`tests/test_unit_paths.py`).
+- Sink (commit 1adbb5a): `naming.contained_join` guards the join, so a value
+  that reaches the sink anyway (validation bypassed, or a future pattern
+  relaxation) is refused rather than resolving outside `workorders_dir`.
+- Terminal (commit 1adbb5a): the state-derived path interpolations in
+  `airlock.py`'s messages now pass through `strip_control` or `repr`, so a
+  control character in a tampered name cannot rewrite terminal output. Proven by
+  a test driving an ESC-bearing name to a print site.
 
-### Reviewed Surface
+Supporting hardening (commit 59a17c8): the three doc_id-to-filename sinks
+(`authoring/ingest.py`, `review/corpus.py`, `render/scan.py`) now share one
+guarded helper, `naming.doc_id_filename`, so the containment is uniform rather
+than present at the one sink that remembered to check.
 
-- **The airlock still cannot reach a model or the network.** `airlock.py`
-  imports only `pathlib`, `typing`, and three local modules; neither file
-  contains `subprocess`, `eval`, `exec`, `pickle`, `yaml.load`, `os.system`, a
-  socket, or an HTTP client.
-- **Nothing secret-shaped or PII-shaped has ever been in either file.** Swept
-  `git log -p --follow --all` over both (4 commits on `airlock.py`), across all
-  added lines rather than the net diff: zero hits for private-key blocks, JWTs,
-  AWS/GitHub/Slack/Google/Anthropic key shapes, bearer tokens, quoted
-  `api_key|password|secret|token=` assignments, connection strings, email
-  addresses, IPs, and `/home/`, `/Users/` paths.
-- **The concurrency guard is real, and it is the right primitive.**
-  `_claim_work_order_path` claims by `touch(exist_ok=False)` (`O_CREAT|O_EXCL`),
-  not check-then-write, so the kernel decides the race and the loser exits
-  rather than destroying an order; `O_EXCL` also refuses to follow a planted
-  symlink. `_next_serial` takes the max, not the count, and gates on
-  `isascii() and isdigit()`, which is correct rather than paranoid:
-  `"²".isdigit()` is True while `int("²")` raises, and `"٣"` parses as 3.
-- **One candidate DoS was chased and disproved rather than filed.** `int(tail)`
-  (`airlock.py:44`) is uncaught, and Python caps integer parsing at 4300 digits
-  (CVE-2020-10735 backport, live on this 3.10.12), so a long enough serial would
-  raise `ValueError` and break the docstring's promise that strays are "ignored
-  rather than fatal". It is unreachable: the filesystem refuses any filename
-  past 255 bytes, verified by attempting the write, so a 4301-digit serial
-  cannot exist on disk. No finding.
-- **Work orders carry no ledger values, and the model is not trusted as an
-  oracle.** `test_unit_airlock.py:149-151` asserts no money/date surface form
-  appears anywhere in a serialized order, and `match_outstanding` /
-  `match_author_batch` check the deliverable's `work_order_id` against the
-  order that is actually outstanding rather than believing it.
-- **The tests write only under `tmp_path`.** `build_pure_stages`
-  (`conftest.py:17-29`) roots every path at the fixture's `tmp_path` and touches
-  the repo only to `copytree` the recipe out of it. No archive extraction, so
-  no zip-slip surface.
-- **Not re-verified, and named rather than implied:** the M9 `render/pdf.py`
-  letterhead NOTE (recipe-author-controlled interpolation under
-  `autoescape=False`) is against unchanged code outside this path scope and
-  **carries forward open**. Dimensions with no surface in these two files:
-  authentication/authorization, dependency and supply chain (no manifest in
-  scope; `airlock.py` adds no third-party import), and infrastructure (no config
-  in scope). That is a scope statement, not a clean bill. Sanity check:
-  `tests/test_unit_airlock.py` passes 13/13.
+**[CLOSED] Charter-tainted letterhead reached a CSS and an HTML context under
+`autoescape=False`** (was the carried-forward M9 NOTE, `orgsmith/render/pdf.py`).
+The PDF template renders with `autoescape=False` because `body` is pre-built,
+already-escaped HTML, but `letterhead0` and `letterhead_rest` (the charter name
+and domain, tainted via `render/styles.py`) reached a CSS `content:` string and
+two HTML `div` contexts unescaped. Closed (commit 66b87b9) by escaping per
+context in Python before the template runs: `_css_string` for the `@top-left`
+content (backslash-escapes the string delimiter and hex-escapes control
+characters) and `html.escape` for the divs. Both are the identity on all eight
+committed charters (plain ASCII), so committed letterhead output is unchanged; a
+charter name carrying `"`, `<`, or `&` now renders a well-formed PDF showing the
+literal name (`tests/test_unit_paths.py`).
+
+### Reviewed surface and scope
+
+- **The airlock still cannot reach a model or the network.** M13 adds no
+  third-party import to `airlock.py`; it imports `naming` (stdlib-only) for the
+  join guard. Python still never calls a model, and no LLM grades an LLM in any
+  automated tier.
+- **The fix is a validator tightening on `orgsmith/state@1`, not a schema id
+  bump.** It is safe only because the pattern admits every committed value, which
+  the round-trip test enforces over all eight orgs.
+- **CI stays pure Python where it must.** The letterhead identity check is pure
+  Python (no renderer); the hostile-charter render test uses WeasyPrint, which is
+  present in CI (only LibreOffice is absent).
+- **`bin/test` is green on all tiers** (short, unit, org, flagship), keyless and
+  offline, with zero fixture movement (the byte pin holds).
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-17b, scope paths, commit f897c63): swept the 29 files of
-the pre-M12 turn (`62a5665..HEAD`, 11 commits) per-commit rather than against
-the net diff; 0 BLOCK / 0 WARN / 0 NOTE. It cleared the new `emit-schemas` verb
-(output filenames derive from `Literal` schema ids, not from input), read the
-one `https://` in `schemas_export.py` as the JSON Schema dialect identifier
-rather than a fetch, and read the 19 emitted schemas plus the verbatim external
-critique as outbound disclosure into a public repo, finding only facts
-`schemas.py` already publishes. It carried forward the M9 `render/pdf.py`
-letterhead NOTE, which remains open.*
+*Prior review (2026-07-17c, scope paths, commit f538f0d): read `airlock.py` and
+its unit tier as a whole against the module's own invariants; 0 BLOCK / 0 WARN /
+1 NOTE (the state-path containment gap, closed above), and carried forward the
+M9 `render/pdf.py` letterhead NOTE (also closed above). The concurrency guard
+(`touch(exist_ok=False)`) and the `isascii() and isdigit()` serial gate were
+read as correct and are unchanged.*
 
-<!-- SECURITY_META: {"date":"2026-07-17","commit":"f538f0dc29a6eb2ae0929158b00ce9b614f36c62","scope":"paths","scanned_files":["orgsmith/airlock.py","tests/test_unit_airlock.py"],"block":0,"warn":0,"note":1} -->
+<!-- SECURITY_META: {"date":"2026-07-21","commit":"66b87b9","scope":"m13-path-containment-and-letterhead","scanned_files":["orgsmith/state.py","orgsmith/airlock.py","orgsmith/naming.py","orgsmith/render/pdf.py","orgsmith/render/styles.py","orgsmith/review/corpus.py","orgsmith/render/scan.py","orgsmith/authoring/ingest.py"],"block":0,"warn":0,"note":0} -->
