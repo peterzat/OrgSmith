@@ -35,7 +35,7 @@ _TEMPLATE = """\
 @page {
   size: Letter;
   margin: 2.6cm 2.2cm 2.4cm 2.2cm;
-  @top-left { content: "{{ letterhead0 }}"; font-family: {{ font }}, {{ generic }};
+  @top-left { content: "{{ letterhead0_css }}"; font-family: {{ font }}, {{ generic }};
               font-size: 8.5pt; color: #{{ accent }}; }
   @bottom-center { content: "Page " counter(page) " of " counter(pages);
                    font-size: 8.5pt; color: #555; }
@@ -62,8 +62,8 @@ td, th { border: 1px solid #999; padding: 4px 8px; font-size: 10pt;
 </head>
 <body>
 <div class="letterhead">
-  <div class="name">{{ letterhead0 }}</div>
-  {% for line in letterhead_rest %}<div class="sub">{{ line }}</div>{% endfor %}
+  <div class="name">{{ letterhead0_html }}</div>
+  {% for line in letterhead_rest_html %}<div class="sub">{{ line }}</div>{% endfor %}
 </div>
 <div class="dateline">{{ dateline }}</div>
 {{ body }}
@@ -72,6 +72,26 @@ td, th { border: 1px solid #999; padding: 4px 8px; font-size: 10pt;
 """
 
 _ENV = Environment(autoescape=False)
+
+
+def _css_string(text: str) -> str:
+    """Escape a value for a CSS double-quoted string (the @top-left letterhead
+    content). The template runs with autoescape=False because `body` is
+    pre-built HTML, so the charter-tainted letterhead is escaped here, per
+    context: this backslash-escapes the string delimiter and backslash and
+    hex-escapes any control character, so a charter name cannot break out of
+    the CSS string. The HTML letterhead contexts are escaped separately with
+    html.escape. Identity on any value with no '\"', '\\\\', or control
+    character, which is every committed charter (M9 letterhead NOTE)."""
+    out = []
+    for ch in text:
+        if ch in '"\\':
+            out.append("\\" + ch)
+        elif ord(ch) < 0x20 or ord(ch) == 0x7F:
+            out.append(f"\\{ord(ch):x} ")
+        else:
+            out.append(ch)
+    return "".join(out)
 
 _LEGAL_SUFFIXES = {
     "llc", "inc", "incorporated", "lp", "llp", "plc", "ltd", "limited",
@@ -179,8 +199,9 @@ def render_pdf(
         font=f'"{style.font_family}"',
         generic=style.font_generic,
         accent=style.accent_hex,
-        letterhead0=style.letterhead_lines[0],
-        letterhead_rest=list(style.letterhead_lines[1:]),
+        letterhead0_css=_css_string(style.letterhead_lines[0]),
+        letterhead0_html=html.escape(style.letterhead_lines[0]),
+        letterhead_rest_html=[html.escape(line) for line in style.letterhead_lines[1:]],
         dateline=when_text,
         body=_blocks_to_html(
             docir, people, when_text, sig_fact_text,

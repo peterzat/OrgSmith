@@ -6,6 +6,8 @@ Covers the three hardening surfaces closed in M13:
 - context-correct escaping of charter-tainted letterhead.
 """
 
+import html
+from datetime import date
 from pathlib import Path
 
 import pytest
@@ -14,7 +16,8 @@ from pydantic import ValidationError
 from orgsmith.airlock import match_author_batch, outstanding_work_order
 from orgsmith.naming import doc_id_filename
 from orgsmith.paths import OrgPaths
-from orgsmith.schemas import dump_json
+from orgsmith.render.pdf import _css_string
+from orgsmith.schemas import Charter, dump_json
 from orgsmith.state import BatchRef, OrgState
 
 from conftest import REPO
@@ -115,3 +118,65 @@ def test_committed_states_load_and_round_trip_under_the_new_pattern():
         raw = sj.read_text("utf-8")
         state = OrgState.model_validate_json(raw)
         assert dump_json(state) == raw, f"{sj} did not round-trip"
+
+
+# --- letterhead context escaping (criterion 3) -----------------------------
+
+
+def test_css_string_escapes_delimiters_and_controls():
+    # Backslash and the string delimiter are escaped.
+    assert _css_string('Acme "Co" \\ Ltd') == 'Acme \\"Co\\" \\\\ Ltd'
+    # A control character (ESC, 0x1b) becomes a hex escape with a terminator.
+    assert _css_string("a\x1bb") == "a\\1b b"
+    # Angle brackets and ampersand are legal inside a CSS string; left as-is
+    # (they are escaped in the separate HTML letterhead context instead).
+    assert _css_string("A <b> & C") == "A <b> & C"
+
+
+def test_letterhead_escape_is_identity_on_every_committed_charter():
+    """All eight committed charters are plain ASCII, so both escapes are the
+    identity: adding them changes no committed letterhead output."""
+    charters = sorted(REPO.glob("companies/*-metadata/charter.json"))
+    assert len(charters) == 8
+    for cj in charters:
+        charter = Charter.model_validate_json(cj.read_text("utf-8"))
+        for line in (charter.name, f"www.{charter.domain}"):
+            assert _css_string(line) == line, cj
+            assert html.escape(line) == line, cj
+
+
+def test_hostile_charter_name_renders_a_well_formed_pdf_with_the_literal_name(tmp_path):
+    """A charter name carrying '<', '>', '&', and '\"' renders a well-formed PDF
+    showing the literal name: the angle brackets survive as text rather than
+    being parsed as an HTML tag, and the quote does not break the CSS string."""
+    from pypdf import PdfReader
+
+    from orgsmith.render.pdf import render_pdf
+    from orgsmith.render.styles import StylePack
+    from orgsmith.schemas import Block, DocIR, ManifestEntry
+
+    hostile = 'Zephyr <script> & "Quotes" Ltd'
+    style = StylePack(
+        font_family="Georgia",
+        font_generic="serif",
+        accent_hex="1F3A5F",
+        letterhead_lines=(hostile, "www.example.com"),
+    )
+    docir = DocIR(doc_id="d:0001", blocks=[Block(kind="paragraph", text="Body.")])
+    entry = ManifestEntry(
+        doc_id="d:0001",
+        path="Firm/Doc.pdf",
+        title="Doc",
+        genre="engagement_letter",
+        format="pdf",
+        date=date(2021, 1, 4),
+        authors=["p:a"],
+    )
+    target = tmp_path / "out.pdf"
+    render_pdf(docir, entry, style, "A Author", {}, target)
+
+    assert target.read_bytes().startswith(b"%PDF")
+    text = "".join(page.extract_text() for page in PdfReader(str(target)).pages)
+    assert "Zephyr" in text and "script" in text
+    for ch in "<>&":
+        assert ch in text, f"{ch!r} missing from extracted text {text!r}"
