@@ -373,7 +373,7 @@ def ecology_org(tmp_path_factory):
         tmp_path_factory.mktemp("mail-ecology"),
         eml=8,
         max_depth=5,
-        extra_culture="    mundane_emails: 4\n",
+        extra_culture="    mundane_emails: 4\n    attachments: 1\n",
     )
     run_enrichment(paths)
     run_authoring(paths)
@@ -450,3 +450,74 @@ def test_mundane_mail_is_a_retrieval_distractor(ecology_org):
     )["splits"]
     assert mundane_paths <= set(splits["distractors"])
     assert mundane_paths <= set(splits["full"])
+
+
+# --- transmittal attachments (M14 mailbox ecology) ------------------------
+
+
+def _transmittals(paths):
+    return [
+        e for e in load_manifest(paths)
+        if e.render_params.get("attach_path")
+    ]
+
+
+def test_transmittal_carries_byte_identical_attachment(ecology_org):
+    from orgsmith.render.eml import eml_attachment_bytes
+
+    trans = _transmittals(ecology_org)
+    assert trans, "no transmittal planned"
+    for t in trans:
+        src = ecology_org.share_dir / str(t.render_params["attach_path"])
+        assert src.exists()
+        got = eml_attachment_bytes(ecology_org.share_dir / t.path)
+        assert got == src.read_bytes()
+        # the opener of its thread, so no quoted history precedes it
+        assert int(t.render_params["thread_pos"]) == 0
+
+
+def test_transmittal_attributed_in_extraction_evals(ecology_org):
+    import json
+
+    from orgsmith.acl import run_acl
+    from orgsmith.assemble import run_assemble
+    from orgsmith.evals.emit import run_emit_evals
+
+    assert run_assemble(ecology_org) == 0
+    assert run_acl(ecology_org) == 0
+    assert run_emit_evals(ecology_org) == 0
+    trans = _transmittals(ecology_org)[0]
+    attached = str(trans.render_params["attach_path"])
+    extraction = [
+        json.loads(line)
+        for line in (ecology_org.evals_dir / "extraction.jsonl")
+        .read_text()
+        .splitlines()
+    ]
+    # every extraction question that names the attached doc also credits the
+    # transmittal email that carries it byte-identically.
+    for q in extraction:
+        if attached in q["expected_docs"]:
+            assert trans.path in q["expected_docs"], q["fact_id"]
+    assert any(
+        trans.path in q["expected_docs"] for q in extraction
+    ), "transmittal never attributed a fact"
+
+
+def test_eml03_detects_a_mismatched_attachment(ecology_org, tmp_path, capsys):
+    dst = tmp_path / "companies"
+    shutil.copytree(ecology_org.root / "companies", dst)
+    shutil.copytree(ecology_org.root / "recipes", tmp_path / "recipes")
+    copy = OrgPaths(root=tmp_path, slug="dev-mini")
+    trans = _transmittals(copy)[0]
+    src = copy.share_dir / str(trans.render_params["attach_path"])
+    src.write_bytes(src.read_bytes() + b"tampered")
+    assert run_validate(copy, only=["EML-03"]) == 1
+    assert "byte-identical" in capsys.readouterr().out
+
+
+def test_eml03_skips_visibly_when_mail_off(capsys):
+    committed = OrgPaths(root=REPO, slug="dev-mini")
+    assert run_validate(committed, only=["EML-03"]) == 0
+    out = capsys.readouterr().out
+    assert "SKIP EML-03" in out

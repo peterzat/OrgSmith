@@ -152,13 +152,33 @@ did not drop an answer, not a claim about any system.
 """
 
 
+def _attachment_map(manifest) -> dict[str, list[str]]:
+    """{attached-source path: [transmittal email paths]} (M14). A transmittal
+    email carries a rendered share document byte-identically, so wherever that
+    document is an expected answer the transmittal is an equally valid source.
+    Derived from the manifest, so pre-M14 orgs get an empty map."""
+    out: dict[str, list[str]] = {}
+    for e in manifest:
+        ap = e.render_params.get("attach_path")
+        if ap and e.authoring != "derived":
+            out.setdefault(str(ap), []).append(e.path)
+    return out
+
+
 def build_retrieval(
     charter, foundation, engagements, manifest, mention_map
 ) -> list[RetrievalQuestion]:
     questions: list[tuple[str, list[str], list[str]]] = []
 
+    attach_map = _attachment_map(manifest)
+
     def docs_with_fact(ref: str) -> list[str]:
-        return sorted(e.path for e in manifest if ref in e.facts_refs)
+        hosts = {e.path for e in manifest if ref in e.facts_refs}
+        # M14: a transmittal email carries its source byte-identically, so it
+        # is an equally valid place to find that source's facts.
+        for src in list(hosts):
+            hosts.update(attach_map.get(src, ()))
+        return sorted(hosts)
 
     for eng in engagements.engagements:
         questions.append(
@@ -297,6 +317,7 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
     (body facts) or key_facts (which also carry filename-only facts that
     never enter facts_refs); pre-key_facts manifests still work through
     facts_refs alone."""
+    attach_map = _attachment_map(manifest)
     questions: list[ExtractionQuestion] = []
     serial = 0
     for eng in engagements.engagements:
@@ -307,7 +328,12 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
                 if fact.id in e.facts_refs
                 or any(k.fact_id == fact.id for k in e.key_facts)
             ]
-            hosts = sorted({e.path for e in host_entries})
+            host_paths = {e.path for e in host_entries}
+            # M14: a transmittal attaches its source byte-identically, so it
+            # is an equally valid host for that source's facts.
+            for src in list(host_paths):
+                host_paths.update(attach_map.get(src, ()))
+            hosts = sorted(host_paths)
             if not hosts:
                 continue
             suffix = fact.id.rsplit(".", 1)[-1]

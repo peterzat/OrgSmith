@@ -154,11 +154,15 @@ def render_eml(
     domain: str,
     thread: list | None = None,
     body: str | None = None,
+    attachment: tuple[bytes, str] | None = None,
 ) -> bytes:
     """`body` overrides the flattened DocIR text: mail-block messages pass a
     full body (authored words + signature + quoted history), built by the
     render stage which holds the thread and the foundation. Knob-off mail
-    passes None and keeps the pre-M14 flattened body, byte-for-byte."""
+    passes None and keeps the pre-M14 flattened body, byte-for-byte.
+
+    `attachment` is (bytes, filename) for a transmittal email (M14): the bytes
+    are a rendered share document, embedded byte-identically as a MIME part."""
     msg = EmailMessage(policy=policy.SMTP)
     for name, value in expected_headers(
         entry, people, slug, domain, thread
@@ -166,4 +170,25 @@ def render_eml(
         msg[name] = value
     msg[MARKER_HEADER] = "true"
     msg.set_content(_body_text(docir, entry) if body is None else body)
+    if attachment is not None:
+        data, filename = attachment
+        msg.add_attachment(
+            data, maintype="application", subtype="octet-stream",
+            filename=filename,
+        )
     return msg.as_bytes()
+
+
+def eml_attachment_bytes(path) -> bytes | None:
+    """The embedded attachment payload of a transmittal eml, or None if the
+    message carries no attachment. Shared by the transmittal validator so the
+    byte-identity check reads the part exactly as it was written."""
+    from pathlib import Path
+
+    from email import policy as _policy
+    from email.parser import BytesParser
+
+    msg = BytesParser(policy=_policy.default).parse(open(Path(path), "rb"))
+    for part in msg.iter_attachments():
+        return part.get_content()
+    return None

@@ -527,7 +527,15 @@ def file_01(ctx: Context):
                 for header in ("From", "To", "Date", "Subject", "Message-ID"):
                     if msg[header] is None:
                         yield (f"eml missing {header} header", e.path)
-                msg.get_content()  # undecodable body -> reader failure below
+                # get_content() raises on a multipart transmittal; decode the
+                # plain body and every attachment part instead (M14).
+                body = msg.get_body(preferencelist=("plain",))
+                if body is None:
+                    yield ("eml has no plain-text body", e.path)
+                else:
+                    body.get_content()  # undecodable body -> reader failure
+                for part in msg.iter_attachments():
+                    part.get_content()  # undecodable attachment -> failure
             elif e.format in ("doc", "xls", "ppt"):
                 import olefile
 
@@ -1018,6 +1026,42 @@ def eml_02(ctx: Context):
             )
 
 
+def eml_03(ctx: Context):
+    """A transmittal email's MIME attachment is byte-identical to the share
+    document it carries (render_params.attach_path). Runs when mail is
+    declared; a recipe asking for attachments with none planted, or a
+    transmittal whose attachment does not match, is a failure, not a skip."""
+    from ..render.eml import eml_attachment_bytes
+
+    transmittals = [
+        e
+        for e in ctx.manifest
+        if e.render_params.get("attach_path") and e.authoring != "derived"
+    ]
+    want = ctx.charter.doc_culture.mail.attachments
+    if want > 0 and not transmittals:
+        yield (
+            f"mail.attachments is {want} but the manifest plans no "
+            "transmittal mail",
+            "docplan/manifest.jsonl",
+        )
+        return
+    for e in transmittals:
+        path = ctx.paths.share_dir / e.path
+        src = ctx.paths.share_dir / str(e.render_params["attach_path"])
+        if not path.exists() or not src.exists():
+            continue  # FILE-01/MAN-01 report the absence
+        got = eml_attachment_bytes(path)
+        if got is None:
+            yield ("transmittal email carries no MIME attachment", e.path)
+        elif got != src.read_bytes():
+            yield (
+                "transmittal attachment is not byte-identical to "
+                f"{e.render_params['attach_path']!r}",
+                e.path,
+            )
+
+
 # --- SCAN -----------------------------------------------------------------
 
 
@@ -1281,6 +1325,8 @@ RULES = [
          eml_01, available=_needs_eml),
     Rule("EML-02", "ERROR", "mail signature blocks recompute from the ledger",
          eml_02, available=_needs_mail),
+    Rule("EML-03", "ERROR", "transmittal attachments match their share doc",
+         eml_03, available=_needs_mail),
     Rule("SCAN-01", "ERROR", "scan flags recompute; raster and OCR presence "
          "match the plan", scan_01, available=_needs_scan),
     Rule("SCAN-02", "ERROR", "true-text archives exist exactly for scans",

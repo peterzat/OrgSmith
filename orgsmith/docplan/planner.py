@@ -480,6 +480,7 @@ class _Planner:
         day_lo, day_hi = lo * 60, hi * 60
         opener_hi = day_lo + (day_hi - day_lo) // 2  # openers land before noon
         hrand = rng(self.charter.seed, "docplan.email.hours")
+        attached = 0
         for eng, depth in zip(engs, depths):
             if depth == 0:
                 continue
@@ -504,6 +505,16 @@ class _Planner:
                 name = rule.filename.format(
                     date=cur_date, client=client, service=service, n=pos + 1
                 )
+                render_params = {"thread_pos": pos, "send_minute": cur_min}
+                # M14 transmittal: the opener of the first `attachments`
+                # threads carries the engagement's kickoff memo as a MIME
+                # attachment. The kickoff is planned before mail (registry
+                # order), so its path is already known here.
+                if pos == 0 and attached < mail.attachments:
+                    kickoff = self._attach_source(eng)
+                    if kickoff is not None:
+                        render_params["attach_path"] = kickoff
+                        attached += 1
                 self._add(
                     path=f"Engagements/{client}/{name}",
                     title=eng.title,
@@ -514,12 +525,24 @@ class _Planner:
                     participants=self._participant_ids(rule, eng),
                     engagement=eng.id,
                     facts_refs=list(ancestor_refs),
-                    render_params={
-                        "thread_pos": pos,
-                        "send_minute": cur_min,
-                    },
+                    render_params=render_params,
                     authoring=rule.authoring,
                 )
+        if attached < mail.attachments:
+            raise SystemExit(
+                f"docplan: mail.attachments wants {mail.attachments} "
+                f"transmittal(s) but only {attached} thread(s) have a kickoff "
+                f"memo to attach; lower attachments or add engagements"
+            )
+
+    def _attach_source(self, eng: Engagement) -> str | None:
+        """The share path of the kickoff memo a transmittal opener attaches: a
+        modern docx with body facts, planted before mail in registry order.
+        None when the engagement has no kickoff."""
+        for d in self.planned:
+            if d.get("engagement") == eng.id and d["genre"] == "kickoff_memo":
+                return d["path"]
+        return None
 
     _MUNDANE_SUBJECTS = (
         "Office logistics",

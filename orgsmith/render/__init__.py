@@ -128,6 +128,8 @@ def run_render(paths: OrgPaths) -> int:
     for entry in manifest:
         if entry.authoring == "derived":
             continue  # noise docs render in a second pass, after their sources
+        if entry.render_params.get("attach_path") is not None:
+            continue  # transmittal mail renders after its attachment exists
         doc_state = state.doc(entry.doc_id)
         if entry.authoring == "static":
             basis = f"static:{finance_hash}"
@@ -297,6 +299,53 @@ def run_render(paths: OrgPaths) -> int:
                 derive_draft_docir(src_docir, entry.doc_id), facts
             )
             _render_derived(entry, draft, style, people, charter, target)
+        doc_state.rendered_hash = sha256_file(target)
+        doc_state.rendered_from = basis
+        state.docs[entry.doc_id] = doc_state
+        rendered += 1
+
+    # --- transmittal attachment pass (M14): attachments now rendered ---
+    for entry in manifest:
+        ap = entry.render_params.get("attach_path")
+        if ap is None or entry.authoring == "derived":
+            continue
+        doc_state = state.doc(entry.doc_id)
+        if doc_state.authored_hash is None:
+            pending += 1
+            continue
+        attach_file = paths.share_dir / str(ap)
+        if not attach_file.exists():
+            pending += 1  # the attached document is not rendered yet
+            continue
+        import hashlib
+
+        from .eml import render_eml, thread_members
+
+        attach_bytes = attach_file.read_bytes()
+        basis = (
+            f"attach:{doc_state.authored_hash}:"
+            f"{hashlib.sha256(attach_bytes).hexdigest()}"
+        )
+        target = paths.share_dir / entry.path
+        if doc_state.rendered_from == basis and target.exists():
+            skipped += 1
+            continue
+        from ..authoring.ingest import docir_path
+
+        who = people_index(foundation, at=entry.date) if aff_docs else people
+        docir = DocIR.model_validate_json(
+            docir_path(paths, entry.doc_id).read_text("utf-8")
+        )
+        resolved = resolve_docir(docir, facts)
+        mail_body = _full_mail_body(entry, paths, manifest, facts, foundation, who)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(
+            render_eml(
+                resolved, entry, who, charter.slug, charter.domain,
+                thread_members(entry, manifest), mail_body,
+                (attach_bytes, str(ap).rsplit("/", 1)[-1]),
+            )
+        )
         doc_state.rendered_hash = sha256_file(target)
         doc_state.rendered_from = basis
         state.docs[entry.doc_id] = doc_state
