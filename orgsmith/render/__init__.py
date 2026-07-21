@@ -49,6 +49,35 @@ def people_index(foundation, at: date | None = None) -> dict[str, dict]:
     return people
 
 
+def _full_mail_body(entry, paths, manifest, facts, foundation, people) -> str:
+    """A mail-block message's rendered body (M14): the author's resolved words,
+    a deterministic signature block (name / title-as-of-send-date / phone from
+    foundation, never authored), then a derived quoted-history tail carrying
+    the predecessor's full body. Recurses up the thread, so the chain nests the
+    way a real reply does. Pure text, zero tokens, byte-stable on re-render."""
+    from ..authoring.ingest import docir_path
+    from .eml import _body_text, mail_signature, quote_history, thread_members
+
+    docir = DocIR.model_validate_json(
+        docir_path(paths, entry.doc_id).read_text("utf-8")
+    )
+    resolved = resolve_docir(docir, facts)
+    author = foundation.person(entry.authors[0])
+    parts = [_body_text(resolved, entry), mail_signature(author, entry.date)]
+    thread = thread_members(entry, manifest)
+    pos = int(entry.render_params.get("thread_pos", 0))
+    if thread is not None and pos > 0:
+        pred = thread[pos - 1]
+        parts.append(
+            quote_history(
+                pred,
+                _full_mail_body(pred, paths, manifest, facts, foundation, people),
+                people,
+            )
+        )
+    return "\n\n".join(parts)
+
+
 def _render_derived(entry, resolved, style, people, charter, target) -> None:
     """Render a derived noise draft. Noise is planned only in modern,
     non-scan, non-sig formats, so this is the plain DocIR path with none of
@@ -187,10 +216,17 @@ def run_render(paths: OrgPaths) -> int:
             elif entry.format == "eml":
                 from .eml import render_eml, thread_members
 
+                mail_body = (
+                    _full_mail_body(
+                        entry, paths, manifest, facts, foundation, people
+                    )
+                    if entry.render_params.get("send_minute") is not None
+                    else None
+                )
                 target.write_bytes(
                     render_eml(
                         resolved, entry, people, charter.slug, charter.domain,
-                        thread_members(entry, manifest),
+                        thread_members(entry, manifest), mail_body,
                     )
                 )
             elif entry.format == "pdf":

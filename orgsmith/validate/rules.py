@@ -219,6 +219,12 @@ def _needs_eml(ctx: Context) -> str | None:
     return None
 
 
+def _needs_mail(ctx: Context) -> str | None:
+    if ctx.charter.doc_culture.mail is None:
+        return "doc_culture.mail is not declared for this recipe"
+    return None
+
+
 def _needs_scan(ctx: Context) -> str | None:
     if ctx.charter.doc_culture.scanned_ratio == 0:
         return "scanned_ratio is 0 for this recipe"
@@ -973,6 +979,43 @@ def eml_01(ctx: Context):
                     )
 
 
+def eml_02(ctx: Context):
+    """Mail-block messages end their own words with a signature block that
+    recomputes from the ledger (name, title AS OF the send date, phone), so a
+    promotion changes it mid-corpus and the model cannot author it. Runs only
+    when the recipe declares doc_culture.mail; a knob on with no mail is tamper
+    evidence, exactly like EML-01."""
+    from ..render.eml import mail_signature
+
+    entries = [
+        e
+        for e in ctx.manifest
+        if e.format == "eml"
+        and e.authoring != "derived"
+        and "send_minute" in e.render_params
+    ]
+    if not entries:
+        yield (
+            "doc_culture.mail is declared but the manifest plans no "
+            "thread mail",
+            "docplan/manifest.jsonl",
+        )
+        return
+    for e in entries:
+        path = ctx.paths.share_dir / e.path
+        if not path.exists():
+            continue  # FILE-01/MAN-01 report the absence
+        body = _eml_message(path).get_body(preferencelist=("plain",))
+        text = body.get_content() if body is not None else ""
+        want = mail_signature(ctx.foundation.person(e.authors[0]), e.date)
+        if want not in text:
+            yield (
+                "mail signature block does not recompute from the ledger "
+                f"(expected the author's name / title-as-of-{e.date} / phone)",
+                e.path,
+            )
+
+
 # --- SCAN -----------------------------------------------------------------
 
 
@@ -1234,6 +1277,8 @@ RULES = [
          "employers", aff_02, available=_needs_affiliation_docs),
     Rule("EML-01", "ERROR", "eml transport headers recompute from the ledger",
          eml_01, available=_needs_eml),
+    Rule("EML-02", "ERROR", "mail signature blocks recompute from the ledger",
+         eml_02, available=_needs_mail),
     Rule("SCAN-01", "ERROR", "scan flags recompute; raster and OCR presence "
          "match the plan", scan_01, available=_needs_scan),
     Rule("SCAN-02", "ERROR", "true-text archives exist exactly for scans",

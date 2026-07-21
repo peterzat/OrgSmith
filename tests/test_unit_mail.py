@@ -241,8 +241,11 @@ def test_mail_renders_byte_identically(mail_rendered):
     from orgsmith.schemas import DocIR
     from orgsmith.artifacts import load_engagements
 
+    from orgsmith.render import _full_mail_body
+
     charter = load_charter(mail_rendered)
-    people = people_index(load_foundation(mail_rendered))
+    foundation = load_foundation(mail_rendered)
+    people = people_index(foundation)
     facts = load_engagements(mail_rendered).fact_index()
     manifest = load_manifest(mail_rendered)
     reply = next(m for m in _mails(mail_rendered) if int(m.render_params["thread_pos"]) > 0)
@@ -251,8 +254,9 @@ def test_mail_renders_byte_identically(mail_rendered):
     )
     resolved = resolve_docir(docir, facts)
     thread = thread_members(reply, manifest)
-    a = render_eml(resolved, reply, people, charter.slug, charter.domain, thread)
-    b = render_eml(resolved, reply, people, charter.slug, charter.domain, thread)
+    body = _full_mail_body(reply, mail_rendered, manifest, facts, foundation, people)
+    a = render_eml(resolved, reply, people, charter.slug, charter.domain, thread, body)
+    b = render_eml(resolved, reply, people, charter.slug, charter.domain, thread, body)
     assert a == b == (mail_rendered.share_dir / reply.path).read_bytes()
 
 
@@ -283,3 +287,78 @@ def test_spurious_inreplyto_on_opener_fails_eml01(mail_copy, capsys):
     target.write_bytes(tampered.encode("utf-8"))
     assert run_validate(mail_copy, only=["EML-01"]) == 1
     assert "no thread predecessor" in capsys.readouterr().out
+
+
+# --- quoted history and signatures (M14 body render) ----------------------
+
+
+def test_replies_carry_quoted_history(mail_rendered):
+    manifest = load_manifest(mail_rendered)
+    for entry in _mails(mail_rendered):
+        if int(entry.render_params["thread_pos"]) == 0:
+            continue
+        body = _parse(mail_rendered.share_dir / entry.path).get_body(
+            preferencelist=("plain",)
+        ).get_content()
+        thread = thread_members(entry, manifest)
+        pred = thread[int(entry.render_params["thread_pos"]) - 1]
+        assert f"On {pred.date:%Y-%m-%d}," in body
+        assert "wrote:" in body
+        assert "\n> " in body  # quote-prefixed predecessor body
+
+
+def test_mail_body_carries_recomputed_signature(mail_rendered):
+    from orgsmith.render.eml import mail_signature
+
+    foundation = load_foundation(mail_rendered)
+    for entry in _mails(mail_rendered):
+        body = _parse(mail_rendered.share_dir / entry.path).get_body(
+            preferencelist=("plain",)
+        ).get_content()
+        person = foundation.person(entry.authors[0])
+        assert mail_signature(person, entry.date) in body
+
+
+def test_signature_is_promotion_aware():
+    from datetime import date
+
+    from orgsmith.render.eml import mail_signature
+    from orgsmith.schemas import EmploymentSpan, Person, TitleSpan
+
+    person = Person(
+        id="p:jane.doe",
+        name="Jane Doe",
+        title="Principal",
+        dept="Advisory",
+        employment=EmploymentSpan(start=date(2018, 1, 1)),
+        email="jane@x.com",
+        phone="+1 555 0100",
+        title_history=[
+            TitleSpan(title="Manager", start=date(2018, 1, 1), end=date(2020, 6, 30)),
+            TitleSpan(title="Principal", start=date(2020, 7, 1)),
+        ],
+    )
+    early = mail_signature(person, date(2019, 1, 1))
+    late = mail_signature(person, date(2021, 1, 1))
+    assert "Manager" in early and "Principal" not in early
+    assert "Principal" in late and "Manager" not in late
+    assert "+1 555 0100" in early and "Jane Doe" in early
+
+
+def test_tampered_signature_fails_eml02(mail_copy, capsys):
+    entry = _mails(mail_copy)[0]
+    target = mail_copy.share_dir / entry.path
+    text = target.read_bytes().decode("utf-8")
+    foundation = load_foundation(mail_copy)
+    title = foundation.person(entry.authors[0]).title_at(entry.date)
+    assert title in text
+    target.write_bytes(text.replace(title, "Grand Poobah", 1).encode("utf-8"))
+    assert run_validate(mail_copy, only=["EML-02"]) == 1
+    assert "does not recompute" in capsys.readouterr().out
+
+
+def test_eml02_skips_visibly_when_mail_off(capsys):
+    committed = OrgPaths(root=REPO, slug="dev-mini")
+    assert run_validate(committed, only=["EML-02"]) == 0
+    out = capsys.readouterr().out
+    assert "SKIP EML-02" in out and "doc_culture.mail is not declared" in out

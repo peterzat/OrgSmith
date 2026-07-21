@@ -220,7 +220,12 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
         # this org). Weekends only, no declared holidays; one duplicate and one
         # draft, which is enough to run both rules.
         "  business_calendar:\n    holidays: []\n"
-        "  noise:\n    duplicates: 1\n    drafts: 1\n",
+        "  noise:\n    duplicates: 1\n    drafts: 1\n"
+        # M14: mail on so EML-02 (signatures) finds its knob here too; the
+        # zero-skip test keys off this org. eml: 2 gives single-message
+        # threads, enough to run EML-01/EML-02 (the reply path is exercised
+        # by test_unit_mail).
+        "  mail:\n    business_hours: [9, 17]\n    max_thread_depth: 3\n",
     )
     text = text.replace("target_docs: 22", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)

@@ -105,6 +105,26 @@ def expected_headers(
     return headers
 
 
+def mail_signature(person, when) -> str:
+    """The deterministic signature block a mail-block message ends its own
+    words with (M14): name, title AS OF the send date, phone -- all from
+    foundation, never authored, so a promotion changes the block mid-corpus.
+    Shared by the renderer and EML-02 so the two cannot drift."""
+    return f"-- \n{person.name}\n{person.title_at(when)}\n{person.phone}"
+
+
+def quote_history(pred_entry: ManifestEntry, pred_body: str, people) -> str:
+    """A derived quoted-history tail: an attribution line plus the
+    predecessor's full body (which already nests its own quoted history),
+    quote-prefixed. Pure text, zero tokens, byte-stable on re-render."""
+    author = pred_entry.authors[0]
+    header = f"On {pred_entry.date:%Y-%m-%d}, {people[author]['name']} wrote:"
+    quoted = "\n".join(
+        ("> " + line).rstrip() for line in pred_body.splitlines()
+    )
+    return f"{header}\n{quoted}"
+
+
 def _body_text(docir: DocIR, entry: ManifestEntry) -> str:
     lines: list[str] = []
     for block in docir.blocks:
@@ -133,12 +153,17 @@ def render_eml(
     slug: str,
     domain: str,
     thread: list | None = None,
+    body: str | None = None,
 ) -> bytes:
+    """`body` overrides the flattened DocIR text: mail-block messages pass a
+    full body (authored words + signature + quoted history), built by the
+    render stage which holds the thread and the foundation. Knob-off mail
+    passes None and keeps the pre-M14 flattened body, byte-for-byte."""
     msg = EmailMessage(policy=policy.SMTP)
     for name, value in expected_headers(
         entry, people, slug, domain, thread
     ).items():
         msg[name] = value
     msg[MARKER_HEADER] = "true"
-    msg.set_content(_body_text(docir, entry))
+    msg.set_content(_body_text(docir, entry) if body is None else body)
     return msg.as_bytes()
