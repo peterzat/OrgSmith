@@ -42,6 +42,7 @@ SCHEMA_IDS = {
     "review_finding": "orgsmith/review-finding@1",
     "review_findings": "orgsmith/review-findings@1",
     "corpus_metrics": "orgsmith/corpus-metrics@1",
+    "distribution_lists": "orgsmith/distribution-lists@1",
 }
 
 
@@ -154,6 +155,11 @@ class MailCulture(StrictModel):
     # Count of transmittal emails carrying a MIME attachment whose bytes equal
     # a rendered share document. The manifest owns the email->attachment link.
     attachments: int = Field(ge=0, default=0)
+    # Count of internal distribution lists to derive (All Staff, then per
+    # department). Mundane mail can be addressed to a DL; the lists live in
+    # their own derived ledger (a Foundation field would break the frozen
+    # foundation byte pin), and visibility expands the address to its members.
+    distribution_lists: int = Field(ge=0, default=0)
 
     @model_validator(mode="after")
     def _check(self) -> "MailCulture":
@@ -608,6 +614,29 @@ class GraphLedger(StrictModel):
     slug: str
     entities: list[str]
     edges: list[GraphEdge]
+
+
+class DistributionList(StrictModel):
+    """M14: an internal mailing list mail can be addressed to. A read-access
+    ledger object (name, address, current members), NOT a Foundation field:
+    the committed foundations are frozen and cannot gain a field without
+    breaking the byte pin, so distribution lists live in their own derived
+    ledger beside acl.json, re-emitted rather than authored. Cut-line scope:
+    address plus flat members plus visibility expansion, no nesting, no
+    moderation."""
+
+    id: str = Field(pattern=r"^dl:[a-z0-9.\-]+$")
+    name: str
+    address: str
+    members: list[str]  # p: ids, roster order, employed as of corpus end
+
+
+class DistributionListsLedger(StrictModel):
+    schema_id: Literal["orgsmith/distribution-lists@1"] = SCHEMA_IDS[
+        "distribution_lists"
+    ]
+    slug: str
+    lists: list[DistributionList]
 
 
 # --------------------------------------------------------------------------

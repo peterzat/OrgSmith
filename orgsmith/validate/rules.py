@@ -9,6 +9,7 @@ from typing import Callable, Iterator
 from ..artifacts import (
     load_acl,
     load_charter,
+    load_distribution_lists,
     load_engagements,
     load_finance,
     load_foundation,
@@ -33,6 +34,7 @@ class Context:
     mention_map: object  # None for orgs generated before mention ground truth
     acl: object  # None for orgs generated before the ACL overlay
     manifest: list
+    dls: object = None  # None when the recipe declares no distribution lists
     _text_cache: dict = field(default_factory=dict)
 
     @classmethod
@@ -47,6 +49,7 @@ class Context:
             mention_map=load_mention_map(paths),
             acl=load_acl(paths),
             manifest=load_manifest(paths),
+            dls=load_distribution_lists(paths),
         )
 
     def entry(self, doc_id: str):
@@ -224,6 +227,13 @@ def _needs_eml(ctx: Context) -> str | None:
 def _needs_mail(ctx: Context) -> str | None:
     if ctx.charter.doc_culture.mail is None:
         return "doc_culture.mail is not declared for this recipe"
+    return None
+
+
+def _needs_dls(ctx: Context) -> str | None:
+    mail = ctx.charter.doc_culture.mail
+    if mail is None or mail.distribution_lists == 0:
+        return "no distribution lists declared for this recipe"
     return None
 
 
@@ -1062,6 +1072,60 @@ def eml_03(ctx: Context):
             )
 
 
+def dl_01(ctx: Context):
+    """The distribution-list ledger recomputes from charter + foundation;
+    every DL-addressed message names a real list; and visibility expands the
+    list to its members (every current member can read the message). Runs when
+    the recipe declares lists; a knob on with the ledger missing is tamper
+    evidence, not a skip."""
+    from ..acl import derive_distribution_lists
+
+    expected = derive_distribution_lists(ctx.charter, ctx.foundation)
+    if ctx.dls is None:
+        yield (
+            "distribution_lists declared but ledger/distribution_lists.json "
+            "is missing",
+            "ledger/distribution_lists.json",
+        )
+        return
+    if ctx.dls.model_dump() != expected.model_dump():
+        yield (
+            "distribution-list ledger does not recompute from charter + "
+            "foundation",
+            "ledger/distribution_lists.json",
+        )
+        return
+    by_addr = {dl.address: dl for dl in ctx.dls.lists}
+    current = {
+        p.id for p in ctx.foundation.people if p.employment.end is None
+    }
+    reader_of = {}
+    if ctx.acl is not None:
+        for grant in ctx.acl.grants:
+            for doc in grant.docs:
+                reader_of.setdefault(doc, set()).add(grant.person)
+    for e in ctx.manifest:
+        addr = e.render_params.get("dl")
+        if not addr:
+            continue
+        dl = by_addr.get(str(addr))
+        if dl is None:
+            yield (
+                f"message addresses {addr!r}, not a known distribution list",
+                e.path,
+            )
+            continue
+        if ctx.acl is None:
+            continue  # visibility expansion is ACL-derived; ACL-* report absence
+        missing = (set(dl.members) & current) - reader_of.get(e.path, set())
+        if missing:
+            yield (
+                f"distribution list {dl.address} members {sorted(missing)} "
+                f"cannot read the message addressed to them",
+                e.path,
+            )
+
+
 # --- SCAN -----------------------------------------------------------------
 
 
@@ -1327,6 +1391,8 @@ RULES = [
          eml_02, available=_needs_mail),
     Rule("EML-03", "ERROR", "transmittal attachments match their share doc",
          eml_03, available=_needs_mail),
+    Rule("DL-01", "ERROR", "distribution lists recompute and expand for "
+         "visibility", dl_01, available=_needs_dls),
     Rule("SCAN-01", "ERROR", "scan flags recompute; raster and OCR presence "
          "match the plan", scan_01, available=_needs_scan),
     Rule("SCAN-02", "ERROR", "true-text archives exist exactly for scans",

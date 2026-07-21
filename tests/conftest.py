@@ -225,7 +225,11 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
         # zero-skip test keys off this org. eml: 2 gives single-message
         # threads, enough to run EML-01/EML-02 (the reply path is exercised
         # by test_unit_mail).
-        "  mail:\n    business_hours: [9, 17]\n    max_thread_depth: 3\n",
+        "  mail:\n    business_hours: [9, 17]\n    max_thread_depth: 3\n"
+        # M14: one distribution list so DL-01 finds its knob here too (the
+        # zero-skip test keys off this org). No mundane mail, so the ledger
+        # recomputes with no DL-addressed docs to expand -- enough to run DL-01.
+        "    distribution_lists: 1\n",
     )
     text = text.replace("target_docs: 22", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)

@@ -369,15 +369,21 @@ def test_eml02_skips_visibly_when_mail_off(capsys):
 
 @pytest.fixture(scope="module")
 def ecology_org(tmp_path_factory):
+    from orgsmith.acl import run_acl
+
     paths = _build_mail_org(
         tmp_path_factory.mktemp("mail-ecology"),
         eml=8,
         max_depth=5,
-        extra_culture="    mundane_emails: 4\n    attachments: 1\n",
+        extra_culture=(
+            "    mundane_emails: 6\n    attachments: 1\n"
+            "    distribution_lists: 2\n"
+        ),
     )
     run_enrichment(paths)
     run_authoring(paths)
     assert run_render(paths) == 0
+    assert run_acl(paths) == 0  # writes the DL ledger DL-01 checks
     return paths
 
 
@@ -387,7 +393,7 @@ def _mundane(paths):
 
 def test_mundane_mail_planned_off_engagement(ecology_org):
     mundane = _mundane(ecology_org)
-    assert len(mundane) == 4
+    assert len(mundane) == 6
     for m in mundane:
         assert m.format == "eml"
         assert m.engagement is None
@@ -521,3 +527,73 @@ def test_eml03_skips_visibly_when_mail_off(capsys):
     assert run_validate(committed, only=["EML-03"]) == 0
     out = capsys.readouterr().out
     assert "SKIP EML-03" in out
+
+
+# --- distribution lists (M14, derived ledger) -----------------------------
+
+
+def test_dl_ledger_derived_beside_acl(ecology_org):
+    from orgsmith.artifacts import load_distribution_lists
+
+    dls = load_distribution_lists(ecology_org)
+    assert dls is not None and len(dls.lists) == 2
+    # All Staff first, then a department team; addresses at the org domain.
+    assert dls.lists[0].name == "All Staff"
+    for dl in dls.lists:
+        assert dl.address.endswith("@pinebrookadvisory.com")
+        assert dl.members, f"{dl.address} has no members"
+    # committed foundation.json never gains a distribution_lists field
+    import json
+
+    foundation = json.loads(ecology_org.foundation_json.read_text())
+    assert "distribution_lists" not in foundation
+
+
+def test_some_mundane_mail_is_dl_addressed(ecology_org):
+    dl_addressed = [m for m in _mundane(ecology_org) if m.render_params.get("dl")]
+    assert dl_addressed, "no mundane mail addressed to a distribution list"
+    from orgsmith.artifacts import load_distribution_lists
+
+    addrs = {dl.address for dl in load_distribution_lists(ecology_org).lists}
+    for m in dl_addressed:
+        msg = _parse(ecology_org.share_dir / m.path)
+        assert str(msg["To"]) == m.render_params["dl"]
+        assert m.render_params["dl"] in addrs
+        assert msg["Cc"] is None
+
+
+def test_dl_members_can_read_the_message(ecology_org):
+    from orgsmith.artifacts import load_acl, load_distribution_lists
+
+    acl = load_acl(ecology_org)
+    reader_of = {}
+    for grant in acl.grants:
+        for doc in grant.docs:
+            reader_of.setdefault(doc, set()).add(grant.person)
+    by_addr = {dl.address: dl for dl in load_distribution_lists(ecology_org).lists}
+    for m in _mundane(ecology_org):
+        addr = m.render_params.get("dl")
+        if not addr:
+            continue
+        members = set(by_addr[addr].members)
+        assert members <= reader_of.get(m.path, set())
+
+
+def test_dl01_detects_a_tampered_ledger(ecology_org, tmp_path, capsys):
+    shutil.copytree(ecology_org.root / "companies", tmp_path / "companies")
+    shutil.copytree(ecology_org.root / "recipes", tmp_path / "recipes")
+    copy = OrgPaths(root=tmp_path, slug="dev-mini")
+    import json
+
+    led = json.loads(copy.distribution_lists_json.read_text())
+    led["lists"][0]["members"] = led["lists"][0]["members"][:-1]  # drop a member
+    copy.distribution_lists_json.write_text(json.dumps(led, indent=2) + "\n")
+    assert run_validate(copy, only=["DL-01"]) == 1
+    assert "does not recompute" in capsys.readouterr().out
+
+
+def test_dl01_skips_visibly_when_no_lists(capsys):
+    committed = OrgPaths(root=REPO, slug="dev-mini")
+    assert run_validate(committed, only=["DL-01"]) == 0
+    out = capsys.readouterr().out
+    assert "SKIP DL-01" in out and "no distribution lists" in out

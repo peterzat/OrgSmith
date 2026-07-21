@@ -70,8 +70,13 @@ def expected_headers(
     (thread_members); it is required to resolve a reply's predecessor id."""
     author = entry.authors[0]
     mail_on = "send_minute" in entry.render_params
+    dl_addr = entry.render_params.get("dl")
     recipients = [p for p in entry.participants if p != author] or [author]
-    if mail_on:
+    if dl_addr:
+        # Addressed to a distribution list (M14): the To header is the list,
+        # not the individual participants (who remain, for body mentions).
+        to, cc = [], []
+    elif mail_on:
         to = [p for p in recipients if p.startswith("xp:")]
         cc = [p for p in recipients if not p.startswith("xp:")]
         if not to:  # an internal-only message: everyone in To, no Cc
@@ -89,7 +94,9 @@ def expected_headers(
 
     headers = {
         "From": _addr(author, people),
-        "To": ", ".join(_addr(p, people) for p in to),
+        "To": str(dl_addr) if dl_addr else ", ".join(
+            _addr(p, people) for p in to
+        ),
     }
     if cc:
         headers["Cc"] = ", ".join(_addr(p, people) for p in cc)

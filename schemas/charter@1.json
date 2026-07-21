@@ -300,6 +300,12 @@
           "title": "Business Hours",
           "type": "array"
         },
+        "distribution_lists": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Distribution Lists",
+          "type": "integer"
+        },
         "max_thread_depth": {
           "default": 6,
           "minimum": 1,

@@ -67,6 +67,18 @@ def load_acl(paths: OrgPaths):
     return AclLedger.model_validate_json(paths.acl_json.read_text("utf-8"))
 
 
+def load_distribution_lists(paths: OrgPaths):
+    """DistributionListsLedger (M14), or None when the recipe declares none
+    (the derived ledger is absent). Callers must handle None."""
+    from .schemas import DistributionListsLedger
+
+    if not paths.distribution_lists_json.exists():
+        return None
+    return DistributionListsLedger.model_validate_json(
+        paths.distribution_lists_json.read_text("utf-8")
+    )
+
+
 def load_manifest(paths: OrgPaths) -> list[ManifestEntry]:
     entries = []
     for line in _read(paths.manifest_jsonl).splitlines():

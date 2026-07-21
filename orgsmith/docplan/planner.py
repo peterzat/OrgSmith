@@ -567,6 +567,9 @@ class _Planner:
         if mail is None or mail.mundane_emails == 0:
             return
         count = mail.mundane_emails
+        from ..acl import derive_distribution_lists
+
+        dls = derive_distribution_lists(self.charter, self.foundation).lists
         mrand = rng(self.charter.seed, "docplan.email.mundane")
         lo, hi = mail.business_hours
         day_lo, day_hi = lo * 60, hi * 60
@@ -593,6 +596,12 @@ class _Planner:
             name = rule.filename.format(
                 date=when, subject=sanitize_component(subject)
             )
+            render_params = {"send_minute": minute}
+            # M14: address every third mundane note to a distribution list; the
+            # To header becomes the list, the named colleagues stay as body
+            # mentions. Visibility expands the list to its members (DL-01).
+            if dls and i % 3 == 0:
+                render_params["dl"] = dls[i % len(dls)].address
             self._add(
                 path=f"{rule.folder}/{name}",
                 title=subject,
@@ -603,7 +612,7 @@ class _Planner:
                 participants=[p.id for p in recips],
                 engagement=None,
                 facts_refs=[],
-                render_params={"send_minute": minute},
+                render_params=render_params,
                 authoring=rule.authoring,
             )
 

@@ -85,11 +85,14 @@ argument.
   and any attachment-carried planted fact is attributed in the derived eval
   suites.
 
-- [ ] **Distribution lists as foundation objects.** `foundation.json` gains
-  distribution-list objects (name, address, members) that are inert by default
-  (every committed `foundation.json` re-serializes byte-identically); knob-on
-  mail can address a DL, and the visibility ground truth expands DL membership
-  deterministically so a DL-addressed message resolves to the right reader set.
+- [ ] **Distribution lists as a derived ledger.** Distribution-list objects
+  (name, address, members) live in a derived `ledger/distribution_lists.json`,
+  NOT on `Foundation` (a field on the frozen, non-re-emittable foundation would
+  break the byte pin criterion 1 requires; the DL ledger is derived from charter
+  + roster like `acl.json`, so committed foundations stay byte-identical and the
+  ledger re-emits). Knob-on mundane mail can address a DL (the To header is the
+  list), and the visibility ground truth expands DL membership deterministically
+  so every current member of a DL-addressed message's list can read it (DL-01).
   Scope: address plus flat members plus visibility expansion; no nesting, no
   moderation semantics.
 

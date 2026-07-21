@@ -44,7 +44,7 @@ pytestmark = pytest.mark.org
 # acl.json is derived rather than a pure-stage output (CLAUDE.md lists it
 # with evals/ and PERMISSIONS.md as re-emittable), and test_unit_acl.py
 # already diffs its re-derivation.
-DERIVED_LEDGERS = {"acl.json"}
+DERIVED_LEDGERS = {"acl.json", "distribution_lists.json"}
 
 
 def _committed_slugs():

@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "DistributionList": {
+      "additionalProperties": false,
+      "description": "M14: an internal mailing list mail can be addressed to. A read-access\nledger object (name, address, current members), NOT a Foundation field:\nthe committed foundations are frozen and cannot gain a field without\nbreaking the byte pin, so distribution lists live in their own derived\nledger beside acl.json, re-emitted rather than authored. Cut-line scope:\naddress plus flat members plus visibility expansion, no nesting, no\nmoderation.",
+      "properties": {
+        "address": {
+          "title": "Address",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^dl:[a-z0-9.\\-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Members",
+          "type": "array"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "address",
+        "members"
+      ],
+      "title": "DistributionList",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/distribution-lists@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "lists": {
+      "items": {
+        "$ref": "#/$defs/DistributionList"
+      },
+      "title": "Lists",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/distribution-lists@1",
+      "default": "orgsmith/distribution-lists@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "lists"
+  ],
+  "title": "DistributionListsLedger",
+  "type": "object"
+}
