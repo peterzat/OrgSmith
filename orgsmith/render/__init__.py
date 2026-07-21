@@ -185,11 +185,12 @@ def run_render(paths: OrgPaths) -> int:
                     render_pptx(resolved, entry, style, author_name)
                 )
             elif entry.format == "eml":
-                from .eml import render_eml
+                from .eml import render_eml, thread_members
 
                 target.write_bytes(
                     render_eml(
-                        resolved, entry, people, charter.slug, charter.domain
+                        resolved, entry, people, charter.slug, charter.domain,
+                        thread_members(entry, manifest),
                     )
                 )
             elif entry.format == "pdf":

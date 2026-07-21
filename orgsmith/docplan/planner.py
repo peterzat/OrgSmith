@@ -340,16 +340,26 @@ class _Planner:
                 )
 
     def _emit_email(self, rule: GenreRule) -> None:
-        """Engagement mail: format_mix.eml messages assigned round-robin over
+        """Engagement mail. Knob-off (no doc_culture.mail): the pre-M14 flat
+        path. Knob-on (M14): real threads with minute-granularity timing,
+        varied depth, and reply structure the renderer turns into In-Reply-To /
+        References / quoted history."""
+        want = getattr(self.charter.doc_culture.format_mix, rule.optional_count)
+        if want == 0:
+            return
+        if self.charter.doc_culture.mail is None:
+            self._emit_email_flat(rule, want)
+        else:
+            self._emit_email_threaded(rule, want, self.charter.doc_culture.mail)
+
+    def _emit_email_flat(self, rule: GenreRule, want: int) -> None:
+        """The pre-M14 path: format_mix.eml messages assigned round-robin over
         engagements (wrapping is fine; a thread carries many mails). A thread
         opens about four weeks into its engagement and its replies land a day
         or two apart, so it reads as a thread rather than as monthly memos
         (the old 45-day spacing; email-thread-spacing). The per-reply gap
         draws from its OWN seed stream so the cadence never perturbs another
         pass's randomness."""
-        want = getattr(self.charter.doc_culture.format_mix, rule.optional_count)
-        if want == 0:
-            return
         engs = self.engagements.engagements
         erand = rng(self.charter.seed, "docplan.email.cadence")
         rounds: dict[str, int] = {}
@@ -389,6 +399,125 @@ class _Planner:
                 facts_refs=refs,
                 authoring=rule.authoring,
             )
+
+    def _thread_depths(self, want: int, n: int, max_depth: int) -> list[int]:
+        """Per-engagement thread depths summing to `want`, each in
+        [1, max_depth], varied rather than uniform round-robin: engagements
+        draw a priority weight from the docplan.email.threads stream and fill
+        to the cap in that order, so some threads run long and others stay
+        short. When want <= n only the first `want` engagements host a
+        (single-message) thread."""
+        if want <= n:
+            return [1] * want + [0] * (n - want)
+        trand = rng(self.charter.seed, "docplan.email.threads")
+        depths = [1] * n
+        remaining = want - n
+        order = sorted(
+            range(n), key=lambda i: (trand.random(), i), reverse=True
+        )
+        for i in order:
+            take = min(max_depth - depths[i], remaining)
+            depths[i] += take
+            remaining -= take
+            if remaining == 0:
+                break
+        return depths
+
+    def _next_send(
+        self, cur_date: date, cur_min: int, day_lo: int, day_hi: int, hrand
+    ) -> tuple[date, int]:
+        """The next strictly-later (date, minute) in a thread. Same-day replies
+        occur (a later minute the same day); otherwise the reply lands one or a
+        few business days on. Always strictly increasing, and bounded: at the
+        range-end wall it stays same-day with a later minute."""
+        gap = hrand.choice((0, 0, 1, 1, 2, 3))
+        if gap == 0 and cur_min + 1 < day_hi:
+            return cur_date, hrand.randint(cur_min + 1, day_hi - 1)
+        g = max(1, gap)
+        for _ in range(21):
+            cand = to_business_day(
+                self._clamp_range(cur_date + timedelta(days=g)),
+                self.calendar, self.range_start, self.range_end,
+            )
+            if cand > cur_date:
+                return cand, hrand.randint(day_lo, day_hi - 1)
+            g += 1
+        return cur_date, min(cur_min + 1, day_hi - 1)
+
+    def _thread_author(self, eng: Engagement, when: date, pos: int) -> str:
+        """A thread alternates its internal sender (senior, then junior) so it
+        reads as a back-and-forth and the signature block changes down the
+        chain. A one-person team keeps a single sender; an empty team (nobody
+        employed on the date) falls back to the CEO-equivalent."""
+        team = [p for p in self._team(eng) if _employed_at(p, when)]
+        if not team:
+            return self.ceo.id
+        return (team[0] if pos % 2 == 0 else team[-1]).id
+
+    def _emit_email_threaded(
+        self, rule: GenreRule, want: int, mail
+    ) -> None:
+        """M14 engagement threads. Depth varies per engagement; each thread
+        opens ~28 days in and its replies land at strictly increasing
+        minute-granularity times inside the declared business hours, with
+        same-day replies occurring. thread_pos and send_minute ride in
+        render_params; the renderer and EML-01 turn them into the Date,
+        In-Reply-To, References, RE: subject, and quoted history. Draws come
+        only from the new email streams, so a knob-off recipe draws nothing."""
+        engs = self.engagements.engagements
+        n = len(engs)
+        if want > n * mail.max_thread_depth:
+            raise SystemExit(
+                f"docplan: format_mix.eml wants {want} mail(s) but {n} "
+                f"engagement(s) x max_thread_depth {mail.max_thread_depth} "
+                f"host at most {n * mail.max_thread_depth}; lower eml, raise "
+                f"engagements.count, or raise max_thread_depth"
+            )
+        depths = self._thread_depths(want, n, mail.max_thread_depth)
+        lo, hi = mail.business_hours
+        day_lo, day_hi = lo * 60, hi * 60
+        opener_hi = day_lo + (day_hi - day_lo) // 2  # openers land before noon
+        hrand = rng(self.charter.seed, "docplan.email.hours")
+        for eng, depth in zip(engs, depths):
+            if depth == 0:
+                continue
+            client = sanitize_component(self._client_name(eng))
+            service = eng.title.split(" for ")[0]
+            cur_date = to_business_day(
+                self._clamp_range(eng.start + timedelta(days=28)),
+                self.calendar, self.range_start, self.range_end,
+            )
+            cur_min = hrand.randint(day_lo, opener_hi)
+            ancestor_refs: list[str] = []
+            for pos in range(depth):
+                if pos > 0:
+                    cur_date, cur_min = self._next_send(
+                        cur_date, cur_min, day_lo, day_hi, hrand
+                    )
+                refs, _, _ = self._facts_for(rule, eng, False)
+                # A reply's quoted tail carries its predecessor's resolved
+                # body, so the reply's manifest entry owns those fact surfaces
+                # too: evals attribute a quoted fact to the reply as well.
+                ancestor_refs = list(dict.fromkeys(ancestor_refs + refs))
+                name = rule.filename.format(
+                    date=cur_date, client=client, service=service, n=pos + 1
+                )
+                self._add(
+                    path=f"Engagements/{client}/{name}",
+                    title=eng.title,
+                    genre=rule.genre,
+                    format=rule.format,
+                    date=cur_date,
+                    authors=[self._thread_author(eng, cur_date, pos)],
+                    participants=self._participant_ids(rule, eng),
+                    engagement=eng.id,
+                    facts_refs=list(ancestor_refs),
+                    render_params={
+                        "thread_pos": pos,
+                        "send_minute": cur_min,
+                    },
+                    authoring=rule.authoring,
+                )
 
     def _emit_fiscal_year(self, rule: GenreRule) -> None:
         """One financial summary per fiscal year whose January publish date

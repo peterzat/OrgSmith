@@ -925,7 +925,7 @@ def eml_01(ctx: Context):
     helper the renderer used. Runs only when the charter asks for mail, so
     a knob that is on with no .eml documents is tamper evidence."""
     from ..render import people_index
-    from ..render.eml import expected_headers
+    from ..render.eml import expected_headers, thread_members
 
     # Derived noise .eml files (M12) mirror the source they copy or draft;
     # their headers are not independently recomputable from the ledger (an
@@ -948,8 +948,9 @@ def eml_01(ctx: Context):
         if not path.exists():
             continue  # FILE-01/MAN-01 report the absence
         msg = _eml_message(path)
+        thread = thread_members(e, ctx.manifest)
         expected = expected_headers(
-            e, people, ctx.charter.slug, ctx.charter.domain
+            e, people, ctx.charter.slug, ctx.charter.domain, thread
         )
         for name, want in expected.items():
             got = re.sub(r"\s+", " ", str(msg[name] or "")).strip()
@@ -959,6 +960,17 @@ def eml_01(ctx: Context):
                     f"{got!r} != {want!r}",
                     e.path,
                 )
+        # A thread opener must carry no threading headers: a planted
+        # In-Reply-To / References on an opener is tamper evidence the
+        # per-header loop above cannot see (it only checks expected headers).
+        if "In-Reply-To" not in expected:
+            for spurious in ("In-Reply-To", "References"):
+                if msg[spurious] is not None:
+                    yield (
+                        f"header {spurious} present on a message the ledger "
+                        f"gives no thread predecessor",
+                        e.path,
+                    )
 
 
 # --- SCAN -----------------------------------------------------------------
