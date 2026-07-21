@@ -1,168 +1,193 @@
 # SPEC
 
-## Spec — 2026-07-21 — M13: path containment and letterhead escaping (realism-wave hygiene)
+## Spec — 2026-07-21 — M14: email realism (thread mechanics + mailbox ecology) and the email-first pilot
 
-**Goal:** Close the two open SECURITY.md notes and the divergent path helpers
-they descend from, so the model boundary is contained at the schema, the sink,
-and the terminal, and charter-tainted letterhead can no longer break out of its
-render context. Zero tokens, pure Python, one turn, no regeneration: the first
-milestone of the M13-M16 realism wave buys the right to open the frozen-fixture
-carve-out in M14 with the path-safety debt already paid.
+**Goal:** Ship the realism wave's most important improvement: email that reads
+like a real mailbox. Thread mechanics (minute-granularity timing, In-Reply-To /
+References chains, quoted history, To/Cc, promotion-aware signatures, varied
+depth) plus mailbox ecology (a mundane internal genre, MIME transmittal
+attachments, distribution lists) all land under a new optional
+`doc_culture.mail` block that leaves every committed artifact byte-identical
+when off. Then prove it in one committed, boarded pilot org whose fixtures
+exercise `k>0` threads for the first time, closing the standing
+`email-threads-unproven-in-fixtures` debt with a fixture rather than an
+argument.
 
 ### Acceptance Criteria
 
-- [x] **A `state.json` whose `outstanding` value or `author_batches[].workorder`
-  carries a path separator, `..`, an absolute path, or a control character is
-  rejected at schema validation, and a value that reaches the sink anyway
-  cannot resolve outside `workorders_dir`.** Today neither field carries a
-  pattern (`state.py:69`, `:48`), so a tampered value survives validation as a
-  free string and `outstanding_work_order` (`airlock.py:79`) /
-  `match_author_batch` (`airlock.py:186`) join it under `workorders_dir` where
-  pathlib discards the base for an absolute operand and `../` traverses out.
-  Both layers guard, mirroring the two-layer fix `DocIR.doc_id` received: a
-  pattern on the schema fields and a contained-join guard at the sink, so a
-  refactor of one cannot reopen the hole. Proven by tamper tests in the shape
-  of `tests/test_unit_airlock.py` /
-  `tests/test_unit_pure_stages.py:136-153` (hostile absolute path, `../`
-  traversal, control character) that assert rejection at parse and a raised
-  guard at the join.
+- [ ] **Additive and inert by default.** A new optional `MailCulture` block on
+  `DocCulture` (no `doc-culture` / `docplan-manifest` / `foundation` schema id
+  bump) and a `Foundation.distribution_lists` field defaulting empty. All eight
+  committed fleet orgs plus `calderwood-partners` load, validate, re-serialize,
+  and regenerate byte-identically; `PINNED = SLUGS` stays green fleet-wide; a
+  knob-off charter draws zero values from every new `seeds.py` stream
+  (`docplan.email.hours`, `docplan.email.threads`, `docplan.email.mundane`,
+  `docplan.email.attach`, `foundation.dls`), proven by a test that regenerates a
+  committed org and asserts byte-identity, not merely validity. Every new
+  validator check skips *visibly* on a knob-off charter and fails on
+  knob-on-with-artifact-missing (grandfather by charter, per CLAUDE.md).
 
-- [x] **All eight committed `state.json` files still load, validate, and
-  re-serialize under the new patterns, and the byte pin stays green fleet-wide.**
-  The pattern admits every work-order name the generator has ever written
-  (`{stage}-NNNN.json`, including the `foundation_enrich` stage and the
-  `author-NNNN.json` batch refs), so no historically-committed value is
-  rejected. This is the guard on the criterion above: `PINNED = SLUGS`
-  (`tests/test_org_regen.py`) and the `org` tier revalidate all eight orgs with
-  zero fixture movement. `orgsmith/state@1` is not bumped; this is a validator
-  tightening on the existing id, safe only because it admits every committed
-  value.
+- [ ] **Thread timing.** Under `doc_culture.mail`, a thread's messages carry
+  strictly increasing minute-granularity send datetimes inside the recipe's
+  declared business hours, with same-day replies occurring; every `.eml` `Date`
+  header recomputes exactly from ledgers plus manifest through the single shared
+  `expected_headers` function. Same-day replies in one thread render to distinct,
+  non-colliding filenames (collision test). Knob-off orgs keep the fixed 09:00
+  UTC `Date` header and the committed fleet revalidates unchanged.
 
-- [x] **Letterhead and style interpolations are context-escaped, separately for
-  the CSS-string and HTML contexts they land in, and the escape is an identity
-  transform on all eight committed charters.** `render/pdf.py:74` runs Jinja2
-  with `autoescape=False`, and `letterhead0` / `letterhead_rest` (charter name
-  and domain, tainted via `render/styles.py:43`) reach a CSS `content:` string
-  at `pdf.py:38` and HTML `<div>` contexts at `pdf.py:65-66` unescaped, while
-  body blocks already go through `html.escape`. A charter name containing `"`,
-  `<`, or `&` renders a well-formed PDF showing the literal name (the CSS string
-  is not broken by a quote, the HTML is not broken by an angle bracket), proven
-  by a render test feeding a hostile charter name. Because all eight committed
-  charter names and domains are plain ASCII (verified this turn), the escape
-  changes no committed output: a pure-Python test asserts the escape is identity
-  on each committed `charter.name` and `charter.domain`, so the claim holds in
-  CI without rendering.
+- [ ] **Threading headers, one shared twin.** Replies carry `In-Reply-To` naming
+  the predecessor's `Message-ID` and an ordered `References` chain; thread
+  openers carry neither; reply subjects read `RE: {subject}` and openers carry
+  the plain subject. The renderer and the validator compute these from one shared
+  `expected_headers` function (no twin drift); a hand-tampered threading header
+  is a validator *failure*, not a skip. Proven by a unit test that renders a
+  reply manifest entry and validates the rendered bytes against the same shared
+  expectation.
 
-- [x] **Exactly one guarded helper turns a `doc_id` into a safe filesystem name,
-  and `review/corpus.py` and `render/scan.py` route through it.** The
-  `doc_id.replace(':', '')` join is copied unguarded at `review/corpus.py:44`
-  and `render/scan.py:31`, while `authoring/ingest.py:99-103` guards its own
-  copy with `check_filename`. After this turn the guarded basename derivation
-  exists once; both other sites call it (each appending its own directory and
-  suffix), and a `doc_id` containing a separator raises rather than escaping its
-  directory, proven the way `tests/test_unit_airlock.py`'s traversal test proves
-  the ingest sink. (`render/eml.py:42` also joins a `doc_id` but into a
-  Message-ID, not a path, and is out of scope.)
+- [ ] **Derived quoted history, zero tokens, byte-stable.** A reply renders a
+  derived quoted tail (`On {date}, {name} wrote:` followed by the predecessor's
+  quote-prefixed resolved body) at render time with no model pass, byte-identical
+  on re-render. Any planted-fact surface a quoted tail carries is owned by that
+  reply's own manifest entry (`facts_refs` propagation), so the extraction and
+  retrieval eval suites still score 100% by construction on the pilot.
 
-- [x] **State-derived strings interpolated into terminal output are neutralized
-  via `strip_control` or `!r`.** The un-repr'd `{path}` interpolations in
-  `airlock.py`'s `SystemExit` / `print` sites carry a tampered name's control
-  characters straight to the terminal, where an ESC sequence can rewrite earlier
-  output; deliverable-controlled interpolations in the module are already
-  `!r`-quoted. Proven by a test that drives an ESC/control-bearing state-derived
-  value to a print site and asserts the raw control character does not reach the
-  output. (The schema pattern above is the primary defense for the
-  `outstanding` / `workorder` fields; this hardens the print path for any
-  state-derived string, including fields the pattern does not cover.)
+- [ ] **Deterministic To/Cc partition.** Recipients split into To and Cc
+  deterministically from ledger ground truth (departed-as-of-send-date people
+  handled, not crashed); at least one committed pilot thread has a Cc set
+  disjoint from its To set; the people-graph and visibility eval suites stay
+  exact on the pilot.
 
-- [x] **SECURITY.md records both notes closed with the fix commit, and `bin/test`
-  passes all tiers offline and keyless with zero fixture movement.** A new
-  SECURITY.md entry closes the 2026-07-17c `airlock.py:79` NOTE
-  (state-derived names reaching a read outside `workorders_dir`) and the
-  carried-forward M9 `render/pdf.py` letterhead NOTE. `bin/test`
-  (`short` + `unit` + `org`) is green, no tier gains a model, network, key, or
-  wall-clock dependency, and the byte pin is green at the commit.
+- [ ] **Promotion-aware signature blocks.** Knob-on mail ends in a deterministic
+  signature block (name, title as of the send date, phone) sourced from
+  `foundation.json` and never authored, so a promotion changes a person's
+  signature mid-corpus. The model still cannot author a signature block (the
+  ingest rejection of authored signature facts stands); signature content
+  recomputes in validation.
 
-- [x] **A `provider-neutral-authoring-driver` entry is added to BACKLOG.md.** It
-  records the user decision (2026-07-21) that a provider-neutral authoring
-  interface is wanted "soon, not this wave," cites `docs/EXTERNAL-CRITIQUE-2026-07-17.md`
-  section 4 and the README's "the file exchange is the whole interface"
-  position, and carries a concrete revisit criterion (first external consumer of
-  the authoring interface, the packaging/release turn, or a MODEL-AB round 3).
-  It passes the same specificity / revisit / why-deferred gates every BACKLOG
-  entry must.
+- [ ] **Varied thread depth from a new stream.** Thread depth varies across
+  engagements, drawn from `docplan.email.threads` rather than a uniform
+  round-robin, and the pilot ships at least one thread of depth 4 or more.
+
+- [ ] **A mundane internal-email genre.** A new non-engagement email genre
+  (scheduling / logistics / admin) is planned across the recipe date range under
+  the knob, authored short, carrying name mentions but no engagement facts, and
+  landing in the `distractors` eval split (excluded from `core`). A knob-off
+  charter plans none of it.
+
+- [ ] **MIME transmittal attachments.** At least one committed pilot transmittal
+  email carries a real MIME attachment whose bytes are identical to a rendered
+  share document; the manifest owns the email→attachment relationship; `FILE-01`
+  still opens the `.eml`, `MAN-01` (manifest 1:1 with share files) still holds
+  because the attachment lives inside the `.eml` and is not an extra share file;
+  and any attachment-carried planted fact is attributed in the derived eval
+  suites.
+
+- [ ] **Distribution lists as foundation objects.** `foundation.json` gains
+  distribution-list objects (name, address, members) that are inert by default
+  (every committed `foundation.json` re-serializes byte-identically); knob-on
+  mail can address a DL, and the visibility ground truth expands DL membership
+  deterministically so a DL-addressed message resolves to the right reader set.
+  Scope: address plus flat members plus visibility expansion; no nesting, no
+  moderation semantics.
+
+- [ ] **The email-first pilot, committed and boarded.** A new pilot org
+  (`ashcombe-advisory`, ~12 seats, ~5-6 engagements, ~60-75 docs) is generated
+  live through the airlock, committed, and browsable: `.eml` is 50% or more of
+  its authored documents, it ships 5 or more threads with a max depth up to ~8,
+  and its `format_mix.eml` sits well above its engagement count. It validates
+  green (new rules skipping visibly where the charter leaves a sub-knob off),
+  scores 100% on all four eval splits, is run through `/forge-review` with the
+  board findings published in its `GENERATION-REPORT.md`. This closes BACKLOG
+  `email-threads-unproven-in-fixtures` with a fixture.
+
+- [ ] **Additive proof, docs, and the carve-out.** Full `bin/test` is green on
+  all tiers, keyless and offline, with the byte pin green on every previously
+  committed org. The project `CLAUDE.md` gains the M13-M16 frozen-fixture
+  carve-out declaration naming the pilot as a wave workbench; `docs/RECIPE-FORMAT.md`
+  documents the `doc_culture.mail` block; the README's "no committed fixture
+  exercises threads" / "all 11 `.eml` files are Email 1" language is corrected
+  (it becomes false this turn); and BACKLOG `event-simulation` is annotated that
+  email work advances process realism without the `fabric` rewrite.
 
 ### Context
 
-- **Adopted from `~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`** (the
-  approved M13-M16 realism wave). This spec is M13, the wave's hygiene turn.
-  Its candidate outcomes were reformulated into the criteria above; the plan's
-  own scope note bounds it. At turn close the `### Proposal` step pulls the next
-  milestone section (M14: email realism plus the email-first pilot) from that
-  file, so read it for what comes next.
+- **Adopted from the M14 section of `~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`**,
+  the approved M13-M16 realism wave. The plan lists 12 candidate outcomes and the
+  exact touchpoints; the criteria above reformulate and consolidate them. Read
+  the plan's M14 section for the outcome-by-outcome detail and the wave context.
 
-- **In scope, and nothing wider.** The two airlock path sinks
-  (`airlock.py:79`, `:186`), the two unpatterned state fields (`state.py:69`,
-  `:48`), the divergent `doc_id`-to-name copies (`review/corpus.py:44`,
-  `render/scan.py:31`) unified onto the guarded pattern from
-  `authoring/ingest.py:99-103` (`naming.check_filename`), terminal hygiene for
-  state-derived strings, and the M9 letterhead escape (`render/pdf.py`,
-  `render/styles.py:43`). **Out:** work-order content addressing, the
-  `state.json` three-way split (`state-json-mixes-execution-and-provenance` in
-  BACKLOG; M13 adds a field pattern, it does not split the file or bump the
-  id), and any schema id bump. No new recipe knob, no new `seeds.py` stream, no
-  ledger change.
+- **Meeting-invite mail (`text/calendar` VEVENT) is the declared cut-line.** The
+  plan's outcome 10 (an invite email preceding a minuted working session, its
+  VEVENT date recomputed by the validator) is the first thing cut if the turn
+  runs long. Implement it if the capability layer lands with room; it is not a
+  hard criterion above. A standalone `.ics` DocFormat is explicitly out
+  (`text/calendar` inside `.eml` reuses the existing renderer/validator/`FILE-01`
+  plumbing). Timezones stay UTC, documented.
 
-- **The two-layer precedent to copy is already in the repo.** `DocIR.doc_id`
-  got a schema pattern and `docir_path` (`authoring/ingest.py:92-103`) guards
-  itself with `check_filename`, and `test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink`
-  (`tests/test_unit_airlock.py`) proves both layers independently ("a refactor
-  of that ordering cannot reopen a traversal"). The state-value fix is the same
-  shape applied to `OrgState.outstanding` values and `BatchRef.workorder`.
-  `naming.py` already ships the primitives: `check_filename` (forbids `/`, `\`,
-  control characters) and `strip_control` (neutralizes terminal control
-  characters).
+- **The one shared `expected_headers` twin is the load-bearing anti-drift
+  device.** `render/eml.py` already computes every header as a pure function of
+  the ledgers (`EML-01`). The renderer and the validator must call the *same*
+  function to derive threading headers, subjects, and dates, and a unit test must
+  render one entry and validate those bytes so the two cannot diverge silently.
 
-- **This is a validator tightening on a frozen fixture, which is the one risk.**
-  Adding a `pattern` to an existing `orgsmith/state@1` field can reject a
-  previously valid state. The mitigation is criterion 2: round-trip all eight
-  committed states before the turn closes. The pattern must admit the
-  `foundation_enrich` stage's underscore and the `author-NNNN.json` batch-ref
-  form. Additive evolution is not suspended this turn (the carve-out that
-  suspends the frozen-fixtures rule lands in the M14 spec commit, not here); the
-  byte pin is the safety net for every change.
+- **Additive-evolution discipline is in force (the carve-out only reopens frozen
+  fixtures, not additive evolution).** Every capability lands as a default-off
+  knob with inert schema defaults on existing schema ids and randomness drawn
+  only from the new streams listed in criterion 1. `docplan.email.cadence` (the
+  M9 stream) is left untouched so knob-off byte-stability holds. Prove inertness
+  against the not-yet-regenerated committed fixtures before the pilot turns
+  anything on.
 
-- **CI has WeasyPrint but no LibreOffice.** Render tests run in CI, so the
-  hostile-charter-name PDF render test is CI-safe; the letterhead identity check
-  is pure Python (compare the escape's output to the input for each committed
-  charter) and needs no renderer at all. Keep validation of every committed
-  fixture pure-Python, per CLAUDE.md.
+- **In scope, and nothing wider.** Schema (`schemas.py`: `MailCulture` on
+  `DocCulture`, `Foundation.distribution_lists`, genre `Literal` additions),
+  `docplan/registry.py` (genre rows), `docplan/planner.py` (`_emit_email` knob-on
+  branch, `facts_refs` propagation to replies, send-minute planting; fix the
+  stale Cc comment at `:65`), `render/eml.py` (shared `expected_headers`
+  extension, MIME multipart, quoting, signatures, optional calendar part),
+  `render/__init__.py` (reply resolves after predecessor; attachment embed pass),
+  `foundation/scaffold.py` (DL derivation), `validate/rules.py` (`EML-01`
+  extension or `EML-02`), `authoring/contexts.py` (thread-position and mundane
+  genre brief guidance), `evals/emit.py` (split keying, attachment attribution),
+  `acl.py` (DL expansion if the posture interacts), the new
+  `recipes/ashcombe-advisory/ORG-CHARTER.md`, `docs/RECIPE-FORMAT.md`, and unit
+  tests. **Out:** any noise interaction (M15), attachment-version mismatch (M15,
+  where version chains exist), personal / off-topic content, timezone modeling.
 
-- **Charter names verified this turn:** all eight (Northgate Talent Partners
-  LLC / northgatetalent.com, Calderwood Partners LLC, Pinebrook Advisory Group
-  LLC, Hollowell Patent Group PLLC, Brackenridge Civil Group Inc, Meridian
-  Actuarial Advisors LLC, Saltmarsh Environmental Partners LLC, Verdant Health
-  Advisory LLC) are plain ASCII with no HTML/CSS special characters, so the
-  letterhead escape is output-neutral for the committed corpus.
+- **Known edge cases the pressure test surfaced.** (1) Same-day replies must not
+  collide on filename; add a dedupe/collision test. (2) A reply must render only
+  after its predecessor is resolved, so `render/__init__.py` orders replies after
+  their openers. (3) The To/Cc partition must tolerate a recipient who has
+  departed as of the send date rather than crash. (4) A quoted tail that carries
+  a planted fact must attribute that fact to the reply's manifest entry, or the
+  extraction eval drops below 100%.
+
+- **CI has WeasyPrint but no LibreOffice, and no model, network, key, or wall
+  clock in any test tier.** The `.eml` renderer is stdlib `email`, so the whole
+  mail path validates pure-Python in CI. The render-and-validate twin test and
+  the quoted-tail byte-stability test need no renderer beyond stdlib. Keep every
+  new fixture-validating test pure-Python, per CLAUDE.md.
 
 - **House practices (zat.env).** Small committable increments with tests in the
-  same increment. When fixing a bug, change only what is necessary; do not
-  refactor surrounding code in the same change. If two consecutive fix attempts
-  fail, revert to the last working state and re-evaluate. Do not modify a test
-  to accommodate a regression. The airlock is not otherwise touched: Python
-  still never calls a model or the network, and no LLM grades an LLM in any
-  automated tier.
+  same increment; run the relevant tier after each functional change. When
+  fixing a bug, change only what is necessary; do not refactor surrounding code
+  in the same change. If two consecutive fix attempts fail, revert to the last
+  working state and re-evaluate. Do not modify a test to accommodate a
+  regression. The airlock is not otherwise touched: Python still never calls a
+  model or the network, and no LLM grades an LLM in any automated tier. The
+  pilot's prose is authored only inside skills, through the file-exchange
+  airlock.
 
 - **Verification (this turn).** `bin/test` all tiers green, keyless and offline;
-  `org` tier revalidates the committed fleet; `PINNED = SLUGS` byte pin green;
-  the three tamper tests (hostile `state.json` values, an ESC-bearing name
-  through a print site, a hostile charter name through the letterhead) pass;
-  SECURITY.md's two open notes closed.
+  the byte pin green on every previously committed org at every commit including
+  mid-turn; knob-off proofs (byte-identical committed artifacts, zero draws from
+  the new streams) per capability; the render-and-validate twin test and the
+  same-day-collision test pass; the pilot generates live end to end, validates
+  green, scores 100% on all four eval splits, and is boarded via `/forge-review`.
 
 ---
-*Prior spec (2026-07-17): M12a — the flagship's capability layer (business-day
-calendar, engagement/revenue coherence, deterministic noise model, nested eval
-splits, voice mitigation, reporting-line lint) proven on the `calderwood-partners`
-pilot; all 9 criteria met.*
+*Prior spec (2026-07-21): M13 — path containment and letterhead escaping
+(realism-wave hygiene); state-derived work-order names contained at schema, sink,
+and terminal, charter-tainted letterhead context-escaped, both SECURITY.md notes
+closed; all 7 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-21","title":"M13: path containment and letterhead escaping (realism-wave hygiene)","criteria_total":7,"criteria_met":7} -->
+<!-- SPEC_META: {"date":"2026-07-21","title":"M14: email realism (thread mechanics + mailbox ecology) and the email-first pilot","criteria_total":12,"criteria_met":0} -->
