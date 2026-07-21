@@ -11,7 +11,7 @@ carve-out in M14 with the path-safety debt already paid.
 
 ### Acceptance Criteria
 
-- [ ] **A `state.json` whose `outstanding` value or `author_batches[].workorder`
+- [x] **A `state.json` whose `outstanding` value or `author_batches[].workorder`
   carries a path separator, `..`, an absolute path, or a control character is
   rejected at schema validation, and a value that reaches the sink anyway
   cannot resolve outside `workorders_dir`.** Today neither field carries a
@@ -27,7 +27,7 @@ carve-out in M14 with the path-safety debt already paid.
   traversal, control character) that assert rejection at parse and a raised
   guard at the join.
 
-- [ ] **All eight committed `state.json` files still load, validate, and
+- [x] **All eight committed `state.json` files still load, validate, and
   re-serialize under the new patterns, and the byte pin stays green fleet-wide.**
   The pattern admits every work-order name the generator has ever written
   (`{stage}-NNNN.json`, including the `foundation_enrich` stage and the
@@ -38,7 +38,7 @@ carve-out in M14 with the path-safety debt already paid.
   tightening on the existing id, safe only because it admits every committed
   value.
 
-- [ ] **Letterhead and style interpolations are context-escaped, separately for
+- [x] **Letterhead and style interpolations are context-escaped, separately for
   the CSS-string and HTML contexts they land in, and the escape is an identity
   transform on all eight committed charters.** `render/pdf.py:74` runs Jinja2
   with `autoescape=False`, and `letterhead0` / `letterhead_rest` (charter name
@@ -53,7 +53,7 @@ carve-out in M14 with the path-safety debt already paid.
   on each committed `charter.name` and `charter.domain`, so the claim holds in
   CI without rendering.
 
-- [ ] **Exactly one guarded helper turns a `doc_id` into a safe filesystem name,
+- [x] **Exactly one guarded helper turns a `doc_id` into a safe filesystem name,
   and `review/corpus.py` and `render/scan.py` route through it.** The
   `doc_id.replace(':', '')` join is copied unguarded at `review/corpus.py:44`
   and `render/scan.py:31`, while `authoring/ingest.py:99-103` guards its own
@@ -64,7 +64,7 @@ carve-out in M14 with the path-safety debt already paid.
   the ingest sink. (`render/eml.py:42` also joins a `doc_id` but into a
   Message-ID, not a path, and is out of scope.)
 
-- [ ] **State-derived strings interpolated into terminal output are neutralized
+- [x] **State-derived strings interpolated into terminal output are neutralized
   via `strip_control` or `!r`.** The un-repr'd `{path}` interpolations in
   `airlock.py`'s `SystemExit` / `print` sites carry a tampered name's control
   characters straight to the terminal, where an ESC sequence can rewrite earlier
@@ -75,7 +75,7 @@ carve-out in M14 with the path-safety debt already paid.
   `outstanding` / `workorder` fields; this hardens the print path for any
   state-derived string, including fields the pattern does not cover.)
 
-- [ ] **SECURITY.md records both notes closed with the fix commit, and `bin/test`
+- [x] **SECURITY.md records both notes closed with the fix commit, and `bin/test`
   passes all tiers offline and keyless with zero fixture movement.** A new
   SECURITY.md entry closes the 2026-07-17c `airlock.py:79` NOTE
   (state-derived names reaching a read outside `workorders_dir`) and the
@@ -83,7 +83,7 @@ carve-out in M14 with the path-safety debt already paid.
   (`short` + `unit` + `org`) is green, no tier gains a model, network, key, or
   wall-clock dependency, and the byte pin is green at the commit.
 
-- [ ] **A `provider-neutral-authoring-driver` entry is added to BACKLOG.md.** It
+- [x] **A `provider-neutral-authoring-driver` entry is added to BACKLOG.md.** It
   records the user decision (2026-07-21) that a provider-neutral authoring
   interface is wanted "soon, not this wave," cites `docs/EXTERNAL-CRITIQUE-2026-07-17.md`
   section 4 and the README's "the file exchange is the whole interface"
@@ -165,4 +165,4 @@ calendar, engagement/revenue coherence, deterministic noise model, nested eval
 splits, voice mitigation, reporting-line lint) proven on the `calderwood-partners`
 pilot; all 9 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-21","title":"M13: path containment and letterhead escaping (realism-wave hygiene)","criteria_total":7,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-21","title":"M13: path containment and letterhead escaping (realism-wave hygiene)","criteria_total":7,"criteria_met":7} -->
