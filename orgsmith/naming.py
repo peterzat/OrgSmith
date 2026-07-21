@@ -49,6 +49,23 @@ def check_relpath(relpath: str) -> list[str]:
     return problems
 
 
+def doc_id_filename(doc_id: str, suffix: str) -> str:
+    """Filesystem name for a doc_id-derived artifact: the ':' stripped and a
+    constant `suffix` (".json", ".pages.json") appended.
+
+    The single guarded doc_id-to-name derivation, shared by every doc_id-keyed
+    sink so none re-implements the join. It guards itself rather than trusting
+    the caller: `check_filename` forbids '/', '\\', and control characters, so
+    no doc_id can escape its directory even if the schema pattern on a doc_id
+    were relaxed or an unvalidated id reached the sink. Raises ValueError on an
+    unsafe doc_id."""
+    name = f"{doc_id.replace(':', '')}{suffix}"
+    problems = check_filename(name)
+    if problems:
+        raise ValueError(f"unsafe doc_id {doc_id!r}: {'; '.join(problems)}")
+    return name
+
+
 def strip_control(text: str, keep: str = "\n\t") -> str:
     """Neutralize control characters in untrusted strings bound for a
     terminal (escape sequences can rewrite or hide earlier output).

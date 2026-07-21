@@ -1,232 +1,168 @@
 # SPEC
 
-## Spec — 2026-07-17 — M12a: the flagship's capability layer, proven on a pilot
+## Spec — 2026-07-21 — M13: path containment and letterhead escaping (realism-wave hygiene)
 
-**Goal:** Build the capability layer the M12 flagship needs (a business-day
-calendar, engagement/revenue coherence, a deterministic noise model, nested
-eval splits, and a voice mitigation), land every piece of it additively so the
-seven pinned orgs do not move, and prove the whole stack live on one pilot org
-that turns every new knob on. The window-defeating ~2,000-document flagship is
-M12b; this turn buys the right to run it without discovering its defects 30
-hours in.
+**Goal:** Close the two open SECURITY.md notes and the divergent path helpers
+they descend from, so the model boundary is contained at the schema, the sink,
+and the terminal, and charter-tainted letterhead can no longer break out of its
+render context. Zero tokens, pure Python, one turn, no regeneration: the first
+milestone of the M13-M16 realism wave buys the right to open the frozen-fixture
+carve-out in M14 with the path-safety debt already paid.
 
 ### Acceptance Criteria
 
-- [x] **A business-day calendar knob lands default-off.** A recipe that
-  declares a calendar gets no document of a genre that asserts attendance
-  (`meeting_minutes`, `engagement_email`) on a Saturday, Sunday, or a declared
-  holiday; today 19 of 53 northgate documents (36%) land on a weekend and two
-  minutes record client sessions on a Saturday and on US Independence Day. The
-  knob moves `minutes_date`, which fabric plants as a *fact value* and docplan
-  independently recomputes (`fabric/engagements.py:39-48`,
-  `docplan/planner.py:238`), so both sides land on the same day or the org
-  fails to derive rather than shipping a filename that disagrees with its own
-  minutes. The calendar is era- and locale-dependent (the fleet spans
-  1999-2025), so the recipe declares it rather than the code assuming one. Any
-  new randomness draws from a NEW `seeds.py` stream. A validator rule
-  grandfathers by charter: it skips visibly when the knob is off, and a knob
-  that is on with the property violated is a failure, never a skip.
+- [ ] **A `state.json` whose `outstanding` value or `author_batches[].workorder`
+  carries a path separator, `..`, an absolute path, or a control character is
+  rejected at schema validation, and a value that reaches the sink anyway
+  cannot resolve outside `workorders_dir`.** Today neither field carries a
+  pattern (`state.py:69`, `:48`), so a tampered value survives validation as a
+  free string and `outstanding_work_order` (`airlock.py:79`) /
+  `match_author_batch` (`airlock.py:186`) join it under `workorders_dir` where
+  pathlib discards the base for an absolute operand and `../` traverses out.
+  Both layers guard, mirroring the two-layer fix `DocIR.doc_id` received: a
+  pattern on the schema fields and a contained-join guard at the sink, so a
+  refactor of one cannot reopen the hole. Proven by tamper tests in the shape
+  of `tests/test_unit_airlock.py` /
+  `tests/test_unit_pure_stages.py:136-153` (hostile absolute path, `../`
+  traversal, control character) that assert rejection at parse and a raised
+  guard at the join.
 
-- [x] **An engagement/revenue coherence knob lands default-off and closes the
-  gap two reviewers found independently.** `build_finance` never receives the
-  engagements ledger today (`fabric/finance.py:72`), so fees are 1.6-5.1% of
-  lifetime revenue in every committed org while the firm's own overview calls
-  five engagements "the whole business". With the knob on, the paperwork and
-  the financial summaries describe one book: either revenue derives from the
-  engagement ledger or `firm_digest` tells the author its engagements are a
-  sample. The pilot's measured fee/revenue ratio is written to its
-  `GENERATION-REPORT.md` and read before the org is committed. Recorded as a
-  measurement, never a gate: no ratio threshold enters any test tier.
+- [ ] **All eight committed `state.json` files still load, validate, and
+  re-serialize under the new patterns, and the byte pin stays green fleet-wide.**
+  The pattern admits every work-order name the generator has ever written
+  (`{stage}-NNNN.json`, including the `foundation_enrich` stage and the
+  `author-NNNN.json` batch refs), so no historically-committed value is
+  rejected. This is the guard on the criterion above: `PINNED = SLUGS`
+  (`tests/test_org_regen.py`) and the `org` tier revalidate all eight orgs with
+  zero fixture movement. `orgsmith/state@1` is not bumped; this is a validator
+  tightening on the existing id, safe only because it admits every committed
+  value.
 
-- [x] **Prose can no longer contradict a reporting line the ledger owns.**
-  This is a hard-rule violation rather than a realism gap: CLAUDE.md says
-  relationships come from the ledgers and generated text never carries a value
-  the ledger owns, but the org chart is not wired into the placeholder
-  mechanism, so northgate ships two onboarding records telling a hire she
-  reports to the Managing Director when `foundation.json` reports her to the
-  Principal. A deliverable that states a reporting relationship contradicting
-  `foundation.json`'s edges is rejected at ingest or cannot be written at all,
-  proven by a unit test that feeds a contradicting deliverable and asserts the
-  rejection. Not a knob: it applies to every org generated after it. Committed
-  fixtures are not edited, so the frozen fleet keeps its drift.
+- [ ] **Letterhead and style interpolations are context-escaped, separately for
+  the CSS-string and HTML contexts they land in, and the escape is an identity
+  transform on all eight committed charters.** `render/pdf.py:74` runs Jinja2
+  with `autoescape=False`, and `letterhead0` / `letterhead_rest` (charter name
+  and domain, tainted via `render/styles.py:43`) reach a CSS `content:` string
+  at `pdf.py:38` and HTML `<div>` contexts at `pdf.py:65-66` unescaped, while
+  body blocks already go through `html.escape`. A charter name containing `"`,
+  `<`, or `&` renders a well-formed PDF showing the literal name (the CSS string
+  is not broken by a quote, the HTML is not broken by an angle bracket), proven
+  by a render test feeding a hostile charter name. Because all eight committed
+  charter names and domains are plain ASCII (verified this turn), the escape
+  changes no committed output: a pure-Python test asserts the escape is identity
+  on each committed `charter.name` and `charter.domain`, so the claim holds in
+  CI without rendering.
 
-- [x] **A deterministic noise model lands default-off and costs no tokens.**
-  With the knob on, a recipe emits duplicates, near-duplicates, and
-  draft/final version chains **derived from already-authored documents rather
-  than from a model pass**, drawn from a NEW `seeds.py` stream and
-  byte-identical on re-derivation. Exact byte-duplicates alone are not
-  sufficient: an agent collapses those on a hash without reading them
-  (`docs/SCALE.md`), which is the caveat that decides whether the flagship's
-  token count is real. Ground truth labels every noise file and names the
-  document it derives from, so authored and derived words are separable and a
-  scorer can exclude them; a knob that is on with those labels missing is a
-  failure. No noise file carries a planted fact the answer key does not own.
+- [ ] **Exactly one guarded helper turns a `doc_id` into a safe filesystem name,
+  and `review/corpus.py` and `render/scan.py` route through it.** The
+  `doc_id.replace(':', '')` join is copied unguarded at `review/corpus.py:44`
+  and `render/scan.py:31`, while `authoring/ingest.py:99-103` guards its own
+  copy with `check_filename`. After this turn the guarded basename derivation
+  exists once; both other sites call it (each appending its own directory and
+  suffix), and a `doc_id` containing a separator raises rather than escaping its
+  directory, proven the way `tests/test_unit_airlock.py`'s traversal test proves
+  the ingest sink. (`render/eml.py:42` also joins a `doc_id` but into a
+  Message-ID, not a path, and is out of scope.)
 
-- [x] **`emit-evals` derives nested splits and ground truth still scores 100%
-  on each.** Core / +distractors / +noise / full, one suite graded across all
-  four, so the pilot yields a degradation curve rather than a headline number.
-  What counts as a distractor versus noise is written down in `docs/` rather
-  than left to the reader. `score` grades any split from nothing but the
-  `evals/` directory, and ground-truth answers score 100% on every split by
-  construction, which is the sanity check that the harness measures what it
-  claims. Splits are derived and never stored, so the frozen fleet gains them
-  without regeneration.
+- [ ] **State-derived strings interpolated into terminal output are neutralized
+  via `strip_control` or `!r`.** The un-repr'd `{path}` interpolations in
+  `airlock.py`'s `SystemExit` / `print` sites carry a tampered name's control
+  characters straight to the terminal, where an ESC sequence can rewrite earlier
+  output; deliverable-controlled interpolations in the module are already
+  `!r`-quoted. Proven by a test that drives an ESC/control-bearing state-derived
+  value to a print site and asserts the raw control character does not reach the
+  output. (The schema pattern above is the primary defense for the
+  `outstanding` / `workorder` fields; this hardens the print path for any
+  state-derived string, including fields the pattern does not cover.)
 
-- [x] **The voice mitigation is implemented, measured against a pre-registered
-  pattern set, and reported whatever it says.** Cross-document voice is the
-  board's largest cluster (5 of 16 majors) and `review/metrics.py` is
-  structurally blind to it: northgate's own report records no same-genre pair
-  above 0.0751 4-gram Jaccard against a corpus where four of five engagement
-  emails contain the literal string "Two asks. First... Second...". A cheap
-  mitigation ships (a per-author style vector, a banned-construction list, or
-  equivalent) and its effect is measured on the pilot with an instrument whose
-  patterns are **printed in the output**, reporting a range across strict and
-  loose readings rather than a single number, because no ledger owns whether
-  two sentences are the same rhetorical figure and every published count here
-  has been taste wearing a decimal point. The result is recorded and published
-  even if the mitigation does not move it, and the confounds are stated (n=1,
-  a different recipe from the fleet's baseline). Nothing here gates.
+- [ ] **SECURITY.md records both notes closed with the fix commit, and `bin/test`
+  passes all tiers offline and keyless with zero fixture movement.** A new
+  SECURITY.md entry closes the 2026-07-17c `airlock.py:79` NOTE
+  (state-derived names reaching a read outside `workorders_dir`) and the
+  carried-forward M9 `render/pdf.py` letterhead NOTE. `bin/test`
+  (`short` + `unit` + `org`) is green, no tier gains a model, network, key, or
+  wall-clock dependency, and the byte pin is green at the commit.
 
-- [x] **One pilot org is generated end to end through live `/forge`, with
-  every new knob on, and committed.** Roughly 200-300 documents: large enough
-  to measure the knobs and the noise model at fleet-like batch counts, far
-  short of defeating a context window, which is M12b's job. `validate` passes
-  with 0 errors and SKIP lines only for knobs its recipe leaves off; its
-  structure re-derives byte-identical; it joins `PINNED` automatically
-  (`PINNED = SLUGS`, `tests/test_org_regen.py:127`). Its `format_mix.eml`
-  exceeds its engagement count, so at least one thread ships with `k>0` and
-  M9's 1-3 day reply cadence appears in a rendered `.eml` for the first time
-  in any committed fixture. `state.json`'s `generators` records the model and
-  effort per batch, every pass at or above `AUTHORING_EFFORT_FLOOR` on the
-  same model as the fleet (`claude-opus-4-8[1m]`). Mean words and mean ratio
-  to brief are recorded and read before the org is committed. `doctor` reports
-  `soffice ok` before dispatching anything that needs it.
-
-- [x] **The seven committed orgs do not move, and the README stops calling
-  knob-fixable findings generator limits.** The byte pin stays green
-  fleet-wide, every new knob defaults off, every charter re-dump stays
-  additive (`test_committed_charter_redump_stays_additive`), and no existing
-  `seeds.py` stream is reused or reordered. The README's "What is not modeled
-  today" currently states that every finding in it is a generator limit rather
-  than a knob a recipe declined, and that when that stops being true the
-  section has to say which. This turn makes it stop being true for the weekend
-  meetings and the fee/revenue gap, so the section says so; `BACKLOG.md:86`
-  calls paying this price mandatory rather than optional. Every README count,
-  table, and fleet claim matches what is committed at each commit, not only at
-  the end.
-
-- [x] **`bin/test` passes all tiers offline and keyless at close, and the
-  pilot does not blow the org tier's budget.** The org tier is ~4.8s against a
-  ~5s budget at ~13.7 ms/file, and a 200-300 doc pilot adds ~3-4s, so it takes
-  its own marker excluded from the default run if it pushes the tier past
-  budget (`TESTING.md:94-97` pre-specifies exactly this for the flagship;
-  registering it means `pyproject.toml`, the `bin/test` allowlist, and a
-  module-level `pytestmark`). Counts and timing are recorded in TESTING.md. No
-  tier gains a model, network, key, or wall-clock dependency, and `dev-mini`'s
-  byte pin stays green.
+- [ ] **A `provider-neutral-authoring-driver` entry is added to BACKLOG.md.** It
+  records the user decision (2026-07-21) that a provider-neutral authoring
+  interface is wanted "soon, not this wave," cites `docs/EXTERNAL-CRITIQUE-2026-07-17.md`
+  section 4 and the README's "the file exchange is the whole interface"
+  position, and carries a concrete revisit criterion (first external consumer of
+  the authoring interface, the packaging/release turn, or a MODEL-AB round 3).
+  It passes the same specificity / revisit / why-deferred gates every BACKLOG
+  entry must.
 
 ### Context
 
-- **Scope decision (user, this turn): capability plus a scaled-down pilot.**
-  The ~2,000-document flagship is ~334 batches and ~1.3 days of authoring
-  (`docs/SCALE.md`). Building the knobs and proving them on a ~200-300 doc org
-  first mirrors the M11a/M11b split that worked: M11a wrote six recipes and
-  generated one tracer; M11b spent the 3-6 hours that proof de-risked. A
-  defect found after 30 hours of flagship authoring costs another 30.
+- **Adopted from `~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`** (the
+  approved M13-M16 realism wave). This spec is M13, the wave's hygiene turn.
+  Its candidate outcomes were reformulated into the criteria above; the plan's
+  own scope note bounds it. At turn close the `### Proposal` step pulls the next
+  milestone section (M14: email realism plus the email-first pilot) from that
+  file, so read it for what comes next.
 
-- **Additive evolution is restored and this turn does not suspend it.** The
-  triad that makes default-off knobs safe is real and load-bearing:
-  `seeds.py:13` hashes stream names through SHA-256, so a new stream cannot
-  perturb an existing one ("Adding a new consumer never disturbs existing
-  streams"); `schemas.py:51` sets `extra="forbid"` with inert defaults, so a
-  new field is rejected rather than silently ignored; and
-  `test_org_regen.py:322` enforces that a charter re-dump may gain a key but
-  never drop or move one. The worked example to copy is `affiliations_in_docs`
-  (`schemas.py:155-168`): an inert default, a comment naming the milestone, a
-  `@model_validator` rejecting incoherent combinations, and inertness enforced
-  at the consumer (`fabric/engagements.py:330-335`: "Knob off = zero fields
-  touched and zero RNG consumed"). Schema ids stay `@1`; default-off is
-  backward-compatible by construction.
+- **In scope, and nothing wider.** The two airlock path sinks
+  (`airlock.py:79`, `:186`), the two unpatterned state fields (`state.py:69`,
+  `:48`), the divergent `doc_id`-to-name copies (`review/corpus.py:44`,
+  `render/scan.py:31`) unified onto the guarded pattern from
+  `authoring/ingest.py:99-103` (`naming.check_filename`), terminal hygiene for
+  state-derived strings, and the M9 letterhead escape (`render/pdf.py`,
+  `render/styles.py:43`). **Out:** work-order content addressing, the
+  `state.json` three-way split (`state-json-mixes-execution-and-provenance` in
+  BACKLOG; M13 adds a field pattern, it does not split the file or bump the
+  id), and any schema id bump. No new recipe knob, no new `seeds.py` stream, no
+  ledger change.
 
-- **The fleet and `dev-mini` are NOT regenerated** (`BACKLOG.md`,
-  `fleet-regenerates-under-the-new-knobs`, decided 2026-07-17). SCALE.md keeps
-  fixtures, fleet, and flagship as three jobs rather than three points on one
-  line; regenerating the fleet to turn on flagship knobs conflates them, and
-  re-suspending the freeze one milestone after restoring it makes the rules
-  decorative. The price is paid in the README instead (criterion 8).
+- **The two-layer precedent to copy is already in the repo.** `DocIR.doc_id`
+  got a schema pattern and `docir_path` (`authoring/ingest.py:92-103`) guards
+  itself with `check_filename`, and `test_traversal_doc_id_is_rejected_at_the_schema_and_at_the_sink`
+  (`tests/test_unit_airlock.py`) proves both layers independently ("a refactor
+  of that ordering cannot reopen a traversal"). The state-value fix is the same
+  shape applied to `OrgState.outstanding` values and `BatchRef.workorder`.
+  `naming.py` already ships the primitives: `check_filename` (forbids `/`, `\`,
+  control characters) and `strip_control` (neutralizes terminal control
+  characters).
 
-- **Where the code actually stands**, verified this turn rather than assumed:
-  there is **no business-day calendar anywhere** (grep for weekday/weekend
-  across `orgsmith/` returns zero hits), and document dates are mostly
-  deterministic arithmetic off engagement anchors rather than RNG draws, so
-  the knob is a change to `_engagement_dates`/`_add` rather than a new draw.
-  **No noise model exists**: the `v2 FINAL` / `v3` filenames are cosmetic with
-  no v1 behind them (`registry.py:148,196`), and `ManifestEntry.rev` is a
-  soft-fix counter, so this is genuinely new surface. `build_finance` takes no
-  engagements ledger at all, so criterion 2 changes its signature and the
-  `fabric/run.py` stage order. Adding a genre on an existing driver needs only
-  a `REGISTRY` row (`registry.py:99-209`).
+- **This is a validator tightening on a frozen fixture, which is the one risk.**
+  Adding a `pattern` to an existing `orgsmith/state@1` field can reject a
+  previously valid state. The mitigation is criterion 2: round-trip all eight
+  committed states before the turn closes. The pattern must admit the
+  `foundation_enrich` stage's underscore and the `author-NNNN.json` batch-ref
+  form. Additive evolution is not suspended this turn (the carve-out that
+  suspends the frozen-fixtures rule lands in the M14 spec commit, not here); the
+  byte pin is the safety net for every change.
 
-- **Two entries fire as side effects and should be watched, not fixed.**
-  Deriving `base_revenue` from the engagement book makes low-revenue recipes
-  reachable by accident, which fires `recipe-coherence-test-has-no-floor`: the
-  fleet coherence test asserts a 0.40 margin ceiling with **no floor**
-  (`tests/test_org_regen.py:112,252`), so an absurdly poor firm passes it. If
-  criterion 2 takes the derive-revenue design, the floor stops being
-  hypothetical and a number can be chosen against a real case. Separately, a
-  pilot at fleet-like batch counts does *not* multiply
-  `concurrent-workers-share-one-scratchpad`'s exposure ~9x the way the
-  flagship will; the prompt-level mitigation (`/forge` Step 3b, namespace
-  scratch per work order) held across 38 batches at M11b and is at proven
-  exposure here. M12b's spec must take the position this one defers.
+- **CI has WeasyPrint but no LibreOffice.** Render tests run in CI, so the
+  hostile-charter-name PDF render test is CI-safe; the letterhead identity check
+  is pure Python (compare the escape's output to the input for each committed
+  charter) and needs no renderer at all. Keep validation of every committed
+  fixture pure-Python, per CLAUDE.md.
 
-- **What can fail before it costs authoring time.** `test_every_recipe_derives`
-  turns impossible knob combinations into ~60ms failures across every recipe.
-  Run `bin/test` green before dispatching anything. `doctor` reports `soffice
-  ok` and effort `xhigh` against a `high` floor on this box today; CI has no
-  LibreOffice, so validation of every committed fixture must stay pure Python.
+- **Charter names verified this turn:** all eight (Northgate Talent Partners
+  LLC / northgatetalent.com, Calderwood Partners LLC, Pinebrook Advisory Group
+  LLC, Hollowell Patent Group PLLC, Brackenridge Civil Group Inc, Meridian
+  Actuarial Advisors LLC, Saltmarsh Environmental Partners LLC, Verdant Health
+  Advisory LLC) are plain ASCII with no HTML/CSS special characters, so the
+  letterhead escape is output-neutral for the committed corpus.
 
-- **Use the same model as the fleet, at or above the effort floor. This is
-  measured, not a preference.** `docs/MODEL-AB.md`: the weak arm produced a
-  corpus at 60% of what its briefs asked, which a blind board rejected
-  outright and which **passed all 29 validator rules with zero errors**.
-  Nothing downstream can detect a weak authoring pass from the artifacts. The
-  pilot gets byte-pinned like everything else. `AUTHORING_EFFORT_FLOOR` lives
-  in exactly one place (`effort.py:30`) and a short-tier test enforces that.
+- **House practices (zat.env).** Small committable increments with tests in the
+  same increment. When fixing a bug, change only what is necessary; do not
+  refactor surrounding code in the same change. If two consecutive fix attempts
+  fail, revert to the last working state and re-evaluate. Do not modify a test
+  to accommodate a regression. The airlock is not otherwise touched: Python
+  still never calls a model or the network, and no LLM grades an LLM in any
+  automated tier.
 
-- **Nothing new gates, and the hierarchy decides which instrument to trust.**
-  Oracles beat proxies beat critics (zat.env): `validate` and the byte pin are
-  the oracles, `report` and the voice instrument are proxies, the board is the
-  critic and is treated as the weakest. No `report` metric, board finding,
-  ratio, or wall-clock number becomes an assertion. A similarity rule would
-  only teach the generator to paraphrase. The metric measures, the board
-  judges, the human decides.
-
-- **The airlock is not touched.** Python still never calls a model or the
-  network. Model touchpoints stay exactly `--emit-context`/`--next-batch` and
-  `--ingest`. No LLM grades an LLM in any automated tier.
-
-- **House practices (zat.env).** Small committable increments with tests in
-  the same increment; every commit ships. When fixing a bug, change only what
-  is necessary. If two consecutive fix attempts fail, revert to the last
-  working state and re-evaluate. Do not modify a test to accommodate a
-  regression. Write state to a file before context grows stale: this turn
-  spans a multi-hour authoring run, and resume is file-derived from
-  `state.json` plus committed files, never conversation memory.
-
-- **Environment.** Python 3.10-compatible; run everything via
-  `.venv/bin/python`. Tests stay keyless and offline. Expect roughly 3-5 hours
-  of pilot authoring wall-clock at the fleet's measured ~5.2 min/batch and
-  1.86x window speedup, and treat that as a range rather than a constant:
-  per-batch time varied ~9x within a single run at one setting.
-
-- **This turn ends with a push** (explicitly authorized): implement
-  autonomously, then push when the criteria are met and `bin/test` is green.
+- **Verification (this turn).** `bin/test` all tiers green, keyless and offline;
+  `org` tier revalidates the committed fleet; `PINNED = SLUGS` byte pin green;
+  the three tamper tests (hostile `state.json` values, an ESC-bearing name
+  through a print site, a hostile charter name through the letterhead) pass;
+  SECURITY.md's two open notes closed.
 
 ---
-*Prior spec (2026-07-17): M11b — the five remaining fleet orgs generated live,
-the six pre-v2.0 fixtures retired, one flagship boarded, and the byte pin and
-additive evolution restored fleet-wide; all 8 criteria met, reviewed 3 BLOCK /
-3 WARN / 6 NOTE, all fixed.*
+*Prior spec (2026-07-17): M12a — the flagship's capability layer (business-day
+calendar, engagement/revenue coherence, deterministic noise model, nested eval
+splits, voice mitigation, reporting-line lint) proven on the `calderwood-partners`
+pilot; all 9 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-17","title":"M12a: the flagship's capability layer, proven on a pilot","criteria_total":9,"criteria_met":9} -->
+<!-- SPEC_META: {"date":"2026-07-21","title":"M13: path containment and letterhead escaping (realism-wave hygiene)","criteria_total":7,"criteria_met":0} -->

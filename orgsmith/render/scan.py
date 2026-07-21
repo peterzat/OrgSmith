@@ -16,6 +16,7 @@ import io
 import re
 from pathlib import Path
 
+from ..naming import doc_id_filename
 from ..paths import OrgPaths
 from ..schemas import Fact, ManifestEntry, ScanPages, write_model
 from ..seeds import derive_seed, rng
@@ -28,7 +29,7 @@ _CANDIDATE = re.compile("|".join(_SWAPS))
 
 
 def scan_pages_path(paths: OrgPaths, doc_id: str) -> Path:
-    return paths.scans_dir / f"{doc_id.replace(':', '')}.pages.json"
+    return paths.scans_dir / doc_id_filename(doc_id, ".pages.json")
 
 
 def _protected_surfaces(entry: ManifestEntry, facts: dict[str, Fact]) -> list[str]:

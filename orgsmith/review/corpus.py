@@ -23,6 +23,7 @@ from pathlib import Path
 
 from ..artifacts import load_manifest
 from ..authoring.contexts import _TARGET_WORDS as _GENRE_TARGETS
+from ..naming import doc_id_filename
 from ..paths import OrgPaths
 from ..schemas import DocIR, ManifestEntry
 
@@ -41,7 +42,7 @@ LONGFORM_WORDS = 300
 
 
 def docir_path(paths: OrgPaths, doc_id: str) -> Path:
-    return paths.docir_dir / f"{doc_id.replace(':', '')}.json"
+    return paths.docir_dir / doc_id_filename(doc_id, ".json")
 
 
 def prose_text(doc: DocIR) -> str:

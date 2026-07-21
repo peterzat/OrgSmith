@@ -17,7 +17,7 @@ from pydantic import ValidationError
 from ..airlock import clear_author_batch, match_author_batch
 from ..artifacts import load_engagements, load_foundation, load_manifest
 from ..fabric.engagements import render_date
-from ..naming import check_filename, strip_control
+from ..naming import doc_id_filename, strip_control
 from ..paths import OrgPaths
 from ..schemas import (
     AuthoringDeliverable,
@@ -91,16 +91,10 @@ def _check_reporting_line(
 
 def docir_path(paths: OrgPaths, doc_id: str) -> Path:
     """The docir sink, and the airlock's only model-output-to-filesystem path
-    (via `run_ingest` below). It guards itself rather than trusting the caller:
-    `check_filename` forbids `/` and `\\`, so no doc_id can escape docir_dir
-    even if the schema pattern on DocIR.doc_id were relaxed or a future caller
-    passed an unvalidated id. `check_relpath` would be the wrong guard here --
-    it splits on `/` before checking, so it accepts "a/b"."""
-    name = f"{doc_id.replace(':', '')}.json"
-    problems = check_filename(name)
-    if problems:
-        raise ValueError(f"unsafe doc_id {doc_id!r}: {'; '.join(problems)}")
-    return paths.docir_dir / name
+    (via `run_ingest` below). The guarded doc_id-to-name derivation lives in
+    `naming.doc_id_filename`, shared with the review and scan sinks so all three
+    guard identically; it raises on any id that would escape docir_dir."""
+    return paths.docir_dir / doc_id_filename(doc_id, ".json")
 
 
 def _chunks(doc: DocIR) -> str:
