@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from pathlib import Path
 
 FORBIDDEN_CHARS = set('<>:"/\\|?*')
 WINDOWS_RESERVED = {
@@ -47,6 +48,23 @@ def check_relpath(relpath: str) -> list[str]:
     for part in parts:
         problems.extend(check_filename(part))
     return problems
+
+
+def contained_join(base: Path, name: str) -> Path:
+    """Join a single untrusted path component `name` under `base`, refusing any
+    name that could escape it. `check_filename` forbids '/', '\\', and control
+    characters, so `name` cannot contain a separator and the result is always a
+    direct child of `base` (a bare '..' is rejected too: it ends in a dot).
+    Raises ValueError otherwise. Used by the airlock to guard state-derived
+    work-order
+    names at the read sink, independent of the schema pattern that also rejects
+    them at load (M13; SECURITY.md 2026-07-17c)."""
+    problems = check_filename(name)
+    if problems:
+        raise ValueError(
+            f"unsafe path component {name!r}: {'; '.join(problems)}"
+        )
+    return base / name
 
 
 def doc_id_filename(doc_id: str, suffix: str) -> str:

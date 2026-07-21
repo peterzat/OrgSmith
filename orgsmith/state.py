@@ -12,12 +12,22 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-from typing import Literal
+from typing import Annotated, Literal
 
-from pydantic import Field
+from pydantic import Field, StringConstraints
 
 from .paths import OrgPaths
 from .schemas import SCHEMA_IDS, Generator, StrictModel, write_model
+
+# A work-order filename as stored in state: one safe path component living
+# directly under workorders/. The pattern rejects path separators, "..",
+# absolute paths, and control characters at load (M13; SECURITY.md 2026-07-17c),
+# so a tampered state.json cannot steer a file read outside workorders_dir, and
+# a control character cannot ride a name into a terminal message. The airlock
+# also guards the join at the sink (naming.contained_join), so the containment
+# holds even if this pattern is bypassed. Admits every name the generator
+# writes: "<stage>-NNNN.json" (e.g. "foundation-0001.json", "author-0003.json").
+WorkOrderName = Annotated[str, StringConstraints(pattern=r"^[A-Za-z0-9_-]+\.json$")]
 
 STAGES = [
     "charter",
@@ -45,7 +55,7 @@ class BatchRef(StrictModel):
     so `--next-batch` can exclude in-flight docs without loading every order.
     """
 
-    workorder: str
+    workorder: WorkOrderName
     doc_ids: list[str] = Field(default_factory=list)
 
 
@@ -66,7 +76,7 @@ class OrgState(StrictModel):
     # stage -> workorders/<file>; at most one outstanding per stage. Governs
     # the single-outstanding stages (foundation enrichment). The author stage
     # is concurrent and lives in `author_batches` instead.
-    outstanding: dict[str, str] = {}
+    outstanding: dict[str, WorkOrderName] = {}
     # Author stage supports concurrent outstanding batches (M10 parallel
     # authoring): work_order_id -> BatchRef. Empty by default so every
     # committed state.json still loads under the unchanged orgsmith/state@1 id.

@@ -17,6 +17,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Callable, Iterable
 
+from .naming import contained_join, strip_control
 from .paths import OrgPaths
 from .schemas import WorkOrder, write_model
 from .state import BatchRef, OrgState, save_state
@@ -76,12 +77,17 @@ def outstanding_work_order(paths: OrgPaths, state: OrgState, stage: str) -> Path
     name = state.outstanding.get(stage)
     if name is None:
         return None
-    path = paths.workorders_dir / name
+    try:
+        path = contained_join(paths.workorders_dir, name)
+    except ValueError as exc:
+        raise SystemExit(
+            f"state names an unsafe work order for stage {stage!r}: {exc}"
+        ) from None
     if not path.exists():
         raise SystemExit(
             f"state says work order {name!r} is outstanding for stage "
-            f"{stage!r} but {path} is missing; restore it or clear the "
-            f"outstanding entry in {paths.state_json}"
+            f"{stage!r} but {strip_control(str(path))} is missing; restore it "
+            f"or clear the outstanding entry in {paths.state_json}"
         )
     return path
 
@@ -183,18 +189,23 @@ def match_author_batch(
             f"ingest: {work_order_id!r} is not an outstanding author batch; "
             f"emit one first or inspect {paths.state_json}"
         )
-    path = paths.workorders_dir / ref.workorder
+    try:
+        path = contained_join(paths.workorders_dir, ref.workorder)
+    except ValueError as exc:
+        raise SystemExit(
+            f"state names an unsafe author batch work order: {exc}"
+        ) from None
     if not path.exists():
         raise SystemExit(
             f"state says author batch {ref.workorder!r} is outstanding but "
-            f"{path} is missing; restore it or clear the entry in "
-            f"{paths.state_json}"
+            f"{strip_control(str(path))} is missing; restore it or clear the "
+            f"entry in {paths.state_json}"
         )
     order = WorkOrder.model_validate_json(path.read_text("utf-8"))
     if order.id != work_order_id:
         raise SystemExit(
             f"ingest: deliverable answers {work_order_id!r} but the stored "
-            f"order is {order.id!r} ({ref.workorder})"
+            f"order is {order.id!r} ({ref.workorder!r})"
         )
     return order
 
