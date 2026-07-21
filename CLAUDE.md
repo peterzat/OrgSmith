@@ -48,6 +48,25 @@ README.md for the product shape and SPEC.md for the current unit of work.
   anywhere in the repo (enforced by a short-tier test; see
   `tests/test_short.py` for the check).
 
+## Frozen-fixture carve-out, realism wave (M13-M16), opened 2026-07-21
+
+The frozen-fixtures rule is suspended in the following scoped way and no
+other: (1) the email pilot org `ashcombe-advisory` is a wave workbench and
+may be regenerated or extended by M14 and M15 as knobs land; (2) `dev-mini`
+may be regenerated exactly once, in M15; (3) the six remaining v2.0 fleet
+orgs, the exemplar `northgate-staffing`, `calderwood-partners`, and the pilot
+may be regenerated exactly once each, in M16, under recipes updated to the
+wave's knobs. Regeneration is always wholesale (delete and re-run the full
+pipeline from the recipe), never an in-place edit of ledgers, manifest, or
+prose. `PINNED = SLUGS` stays enforced and must be green at every commit,
+including mid-wave. Additive evolution is NOT suspended: every wave capability
+still lands as a default-off knob with inert schema defaults and new seed
+streams, proven inert against not-yet-regenerated fixtures before any org
+turns it on. The carve-out closes when M16's re-freeze criterion lands, at
+which point this paragraph is replaced by closure language mirroring M11b.
+This supersedes the BACKLOG decision `fleet-regenerates-under-the-new-knobs`
+(2026-07-17) by user decision; that entry's own revisit criteria have fired.
+
 ## Environment
 
 - This box runs Python 3.10; `.python-version` says 3.12. Code stays

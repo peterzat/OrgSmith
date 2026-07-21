@@ -76,6 +76,24 @@ doc_culture:
   # noise:
   #   duplicates: 3     # exact byte-duplicates
   #   drafts: 5         # near-duplicate draft versions
+  # Email culture (M14), optional, default off (absent). Presence turns
+  # engagement mail into real threads: per-engagement depth varied from a
+  # seed stream, minute-granularity send times inside business_hours (with
+  # same-day replies), In-Reply-To / References chains, RE: subjects, a
+  # derived quoted-history tail, a deterministic To(client)/Cc(team)
+  # partition, and a promotion-aware signature block (name / title-as-of-date
+  # / phone, from foundation, never authored). Set format_mix.eml well above
+  # engagements.count so threads run deep. Mailbox ecology is optional on top:
+  # mundane_emails plants short non-engagement internal notes (retrieval
+  # distractors); attachments makes that many thread openers transmittals
+  # carrying their engagement's kickoff memo as a byte-identical MIME
+  # attachment. Validated by EML-01 (headers), EML-02 (signatures), EML-03
+  # (attachments). Absent leaves every committed artifact byte-identical.
+  # mail:
+  #   business_hours: [9, 17]   # UTC window; timezones stay UTC (documented)
+  #   max_thread_depth: 6       # longest reply chain a thread may reach
+  #   mundane_emails: 4         # short non-engagement internal notes
+  #   attachments: 1            # transmittal openers carrying a kickoff memo
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD
