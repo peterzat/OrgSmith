@@ -43,6 +43,7 @@ SCHEMA_IDS = {
     "review_findings": "orgsmith/review-findings@1",
     "corpus_metrics": "orgsmith/corpus-metrics@1",
     "distribution_lists": "orgsmith/distribution-lists@1",
+    "style_specs": "orgsmith/style-specs@1",
 }
 
 
@@ -201,6 +202,12 @@ class MailCulture(StrictModel):
     # their own derived ledger (a Foundation field would break the frozen
     # foundation byte pin), and visibility expands the address to its members.
     distribution_lists: int = Field(ge=0, default=0)
+    # M15 (mundane-email-author-self-names): when on, mention planning does
+    # not force a mail author's own name into their authored body -- the
+    # render-time signature block names them and validation reads it. Default
+    # off keeps every committed manifest re-deriving byte-identically; a
+    # recipe opts in at its regeneration.
+    exempt_author_mentions: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "MailCulture":
@@ -696,6 +703,31 @@ class DistributionListsLedger(StrictModel):
     ]
     slug: str
     lists: list[DistributionList]
+
+
+class StyleSpec(StrictModel):
+    """M15 (persona voice v2): one person's structured writing style. A
+    ledger object derived from charter + roster (per-person foundation.style
+    streams), never model-authored: enrichment `persona` prose stays the
+    model's only free-text field. Knob-on briefs derive per-author guidance
+    from it; style owns salutation prose and prose habits, the ledger owns
+    signature facts (M14 signatures are appended at render, not authored)."""
+
+    person: str
+    voice_register: Literal[
+        "crisp", "warm", "formal", "plainspoken", "structured"
+    ]
+    sentence_length: Literal["short", "medium", "long"]
+    greeting: str  # salutation form, e.g. "Hi {first},"
+    closing: str  # sign-off word(s) before the appended signature block
+    habits: list[str]
+    banned_tics: list[str]
+
+
+class StyleSpecsLedger(StrictModel):
+    schema_id: Literal["orgsmith/style-specs@1"] = SCHEMA_IDS["style_specs"]
+    slug: str
+    specs: list[StyleSpec]
 
 
 # --------------------------------------------------------------------------

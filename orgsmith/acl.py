@@ -184,6 +184,14 @@ def run_acl(paths: OrgPaths) -> int:
     if dls.lists:
         write_model(paths.distribution_lists_json, dls)
         dl_note = f", {len(dls.lists)} distribution lists"
+    # M15: the style-spec ledger, same discipline -- derived, knob-gated,
+    # recomputed by STY-01 so a knob-on org missing it is tamper evidence.
+    from .foundation.style import derive_style_specs
+
+    styles = derive_style_specs(charter, foundation)
+    if styles.specs:
+        write_model(paths.style_specs_json, styles)
+        dl_note += f", {len(styles.specs)} style specs"
     print(
         f"acl: {len(acl.grants)} grants ({acl.posture}) -> "
         f"{paths.acl_json} + {paths.permissions_md}{dl_note}"

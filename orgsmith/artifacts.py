@@ -79,6 +79,18 @@ def load_distribution_lists(paths: OrgPaths):
     )
 
 
+def load_style_specs(paths: OrgPaths):
+    """StyleSpecsLedger (M15), or None when the recipe leaves style_specs
+    off (the derived ledger is absent). Callers must handle None."""
+    from .schemas import StyleSpecsLedger
+
+    if not paths.style_specs_json.exists():
+        return None
+    return StyleSpecsLedger.model_validate_json(
+        paths.style_specs_json.read_text("utf-8")
+    )
+
+
 def load_manifest(paths: OrgPaths) -> list[ManifestEntry]:
     entries = []
     for line in _read(paths.manifest_jsonl).splitlines():

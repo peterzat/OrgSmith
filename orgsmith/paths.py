@@ -77,6 +77,10 @@ class OrgPaths:
         return self.ledger_dir / "distribution_lists.json"
 
     @property
+    def style_specs_json(self) -> Path:
+        return self.ledger_dir / "style_specs.json"
+
+    @property
     def evals_dir(self) -> Path:
         return self.meta_dir / "evals"
 

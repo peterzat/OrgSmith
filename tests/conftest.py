@@ -229,7 +229,9 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
         # M14: one distribution list so DL-01 finds its knob here too (the
         # zero-skip test keys off this org). No mundane mail, so the ledger
         # recomputes with no DL-addressed docs to expand -- enough to run DL-01.
-        "    distribution_lists: 1\n",
+        "    distribution_lists: 1\n"
+        # M15: style specs on so STY-01 finds its knob here too.
+        "  style_specs: true\n",
     )
     text = text.replace("target_docs: 22", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)

@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "StyleSpec": {
+      "additionalProperties": false,
+      "description": "M15 (persona voice v2): one person's structured writing style. A\nledger object derived from charter + roster (per-person foundation.style\nstreams), never model-authored: enrichment `persona` prose stays the\nmodel's only free-text field. Knob-on briefs derive per-author guidance\nfrom it; style owns salutation prose and prose habits, the ledger owns\nsignature facts (M14 signatures are appended at render, not authored).",
+      "properties": {
+        "banned_tics": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Banned Tics",
+          "type": "array"
+        },
+        "closing": {
+          "title": "Closing",
+          "type": "string"
+        },
+        "greeting": {
+          "title": "Greeting",
+          "type": "string"
+        },
+        "habits": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Habits",
+          "type": "array"
+        },
+        "person": {
+          "title": "Person",
+          "type": "string"
+        },
+        "sentence_length": {
+          "enum": [
+            "short",
+            "medium",
+            "long"
+          ],
+          "title": "Sentence Length",
+          "type": "string"
+        },
+        "voice_register": {
+          "enum": [
+            "crisp",
+            "warm",
+            "formal",
+            "plainspoken",
+            "structured"
+          ],
+          "title": "Voice Register",
+          "type": "string"
+        }
+      },
+      "required": [
+        "person",
+        "voice_register",
+        "sentence_length",
+        "greeting",
+        "closing",
+        "habits",
+        "banned_tics"
+      ],
+      "title": "StyleSpec",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/style-specs@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {
+      "const": "orgsmith/style-specs@1",
+      "default": "orgsmith/style-specs@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "specs": {
+      "items": {
+        "$ref": "#/$defs/StyleSpec"
+      },
+      "title": "Specs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "slug",
+    "specs"
+  ],
+  "title": "StyleSpecsLedger",
+  "type": "object"
+}

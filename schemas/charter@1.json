@@ -311,6 +311,11 @@
           "title": "Distribution Lists",
           "type": "integer"
         },
+        "exempt_author_mentions": {
+          "default": false,
+          "title": "Exempt Author Mentions",
+          "type": "boolean"
+        },
         "max_thread_depth": {
           "default": 6,
           "minimum": 1,

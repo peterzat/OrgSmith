@@ -267,6 +267,36 @@ def _needs_dls(ctx: Context) -> str | None:
     return None
 
 
+def _needs_style(ctx: Context) -> str | None:
+    if not ctx.charter.doc_culture.style_specs:
+        return "recipe declares no per-person style specs"
+    return None
+
+
+def sty_01(ctx: Context):
+    """M15: the style-spec ledger recomputes exactly from charter + roster
+    via the one shared derive_style_specs twin. Grandfathers by charter:
+    skips when style_specs is off; a knob on with the ledger missing or
+    hand-edited is a failure, not a skip. The spec is never model-authored,
+    so any drift from the recompute is tamper evidence."""
+    from ..artifacts import load_style_specs
+    from ..foundation.style import derive_style_specs
+
+    got = load_style_specs(ctx.paths)
+    if got is None:
+        yield (
+            "style_specs is on but ledger/style_specs.json is missing",
+            "ledger/style_specs.json",
+        )
+        return
+    want = derive_style_specs(ctx.charter, ctx.foundation)
+    if got != want:
+        yield (
+            "style-spec ledger does not recompute from charter + roster",
+            "ledger/style_specs.json",
+        )
+
+
 def _needs_scan(ctx: Context) -> str | None:
     if ctx.charter.doc_culture.scanned_ratio == 0:
         return "scanned_ratio is 0 for this recipe"
@@ -1547,6 +1577,8 @@ RULES = [
          eml_03, available=_needs_mail),
     Rule("DL-01", "ERROR", "distribution lists recompute and expand for "
          "visibility", dl_01, available=_needs_dls),
+    Rule("STY-01", "ERROR", "per-person style specs recompute from the "
+         "roster", sty_01, available=_needs_style),
     Rule("SCAN-01", "ERROR", "scan flags recompute; raster and OCR presence "
          "match the plan", scan_01, available=_needs_scan),
     Rule("SCAN-02", "ERROR", "true-text archives exist exactly for scans",

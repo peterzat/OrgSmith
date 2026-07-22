@@ -259,6 +259,69 @@ def _author_voice(seed: int, person_id: str) -> str:
     return rng(seed, "author.voice", person_id).choice(_VOICE_REGISTERS)
 
 
+_REGISTER_PROSE = {
+    "crisp": "short declarative sentences, few adjectives, no flourishes",
+    "warm": "connective prose, first-person-plural framing, no slogans",
+    "formal": "careful qualifications and a measured, precise tone",
+    "plainspoken": "concrete nouns and verbs, no epigrams",
+    "structured": "ordered, enumerative prose with minimal figuration",
+}
+
+
+def _style_guidance(spec, genre: str) -> str:
+    """M15 (persona voice v2): per-author brief guidance derived from the
+    style-spec ledger. Auditable in retained work orders. Style owns the
+    salutation prose and prose habits; the ledger owns signature facts, so
+    every mail form ends before the auto-appended signature block."""
+    text = (
+        f" Your personal writing style, held consistently: a "
+        f"{spec.voice_register} register "
+        f"({_REGISTER_PROSE[spec.voice_register]}) in {spec.sentence_length} "
+        f"sentences. You habitually: {'; '.join(spec.habits)}."
+        f" Never use {'; '.join(spec.banned_tics)}."
+    )
+    if genre in ("engagement_email", "internal_email"):
+        text += (
+            f' Open with your salutation form "{spec.greeting}" (fill in the '
+            f'recipient\'s first name) and sign off with "{spec.closing}" -- '
+            f"the signature block itself is appended automatically from the "
+            f"ledger; never type one."
+        )
+    return text
+
+
+def _mail_audience(foundation: Foundation, entry) -> str:
+    """M15 (mail-audience-internal-vs-external): name who the message is
+    delivered To, so a client-delivered reply cannot be authored as an
+    internal staff note. Mirrors expected_headers' partition exactly:
+    external participants land in To, internal colleagues in Cc; a
+    DL-addressed or all-internal message is internal traffic."""
+    if entry.render_params.get("dl"):
+        return (
+            " Delivery: addressed to an internal distribution list; every "
+            "reader is a colleague, so an internal register is right."
+        )
+    author = entry.authors[0]
+    recipients = [p for p in entry.participants if p != author]
+    to = [p for p in recipients if p.startswith("xp:")]
+    if to:
+        names = ", ".join(
+            next(x.name for x in foundation.external_people if x.id == pid)
+            for pid in to
+        )
+        return (
+            f" Delivery: this message is sent To {names} at the client; "
+            f"internal colleagues see it on Cc only. Address the client "
+            f"directly, in a client-facing register -- it is not an internal "
+            f"note, and nothing in it may read as a staff-to-staff aside "
+            f"about the client."
+        )
+    return (
+        " Delivery: internal only -- every recipient is a colleague, so an "
+        "internal register is right."
+    )
+
+
 def _reporting_line(foundation: Foundation, subject_id: str, when: date) -> str:
     """The new hire's reporting line as of `when`, from foundation's
     `reports_to` edge (M12, rf:graph-1). A reporting line is a relationship the
@@ -369,6 +432,17 @@ def run_next_batch(paths: OrgPaths) -> int:
     # whether an external person's employer is resolved historically.
     aff_docs = charter.graph_targets.affiliations_in_docs
 
+    # M15: per-author style specs from the one derive_style_specs twin (the
+    # same recompute STY-01 checks the published ledger against). Empty when
+    # the knob is off, so knob-off briefs stay byte-identical.
+    style_specs = {}
+    if charter.doc_culture.style_specs:
+        from ..foundation.style import derive_style_specs
+
+        style_specs = {
+            s.person: s for s in derive_style_specs(charter, foundation).specs
+        }
+
     def build(wo_id: str) -> WorkOrder:
         briefs = []
         for entry in batch:
@@ -403,6 +477,9 @@ def run_next_batch(paths: OrgPaths) -> int:
                         "the replies that follow. Your signature is appended "
                         "automatically; do not type one."
                     )
+            if entry.format == "eml" and "send_minute" in entry.render_params:
+                # M15: every mail-block email names its delivery audience.
+                guidance += _mail_audience(foundation, entry)
             if any(loc == "signature_page" for loc in locations.values()):
                 guidance += (
                     " Commercial fee terms are executed on the signature "
@@ -419,6 +496,10 @@ def run_next_batch(paths: OrgPaths) -> int:
                 guidance += (
                     " " + _author_voice(charter.seed, entry.authors[0])
                     + _VOICE_BANNED
+                )
+            if style_specs and entry.authors:
+                guidance += _style_guidance(
+                    style_specs[entry.authors[0]], entry.genre
                 )
             briefs.append(
                 DocBrief(

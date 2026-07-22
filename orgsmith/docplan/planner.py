@@ -742,11 +742,24 @@ class _Planner:
         """Natural mentions from doc identity, then coverage top-up, then
         nickname plants. Static docs carry no mentions (no model pass)."""
         eng_by_id = {e.id: e for e in self.engagements.engagements}
+        mail = self.charter.doc_culture.mail
+        exempt = mail is not None and mail.exempt_author_mentions
         for doc in self.planned:
             doc["mentions"] = []
             if doc.get("authoring") == "static":
                 continue
-            for pid in doc["authors"] + doc["participants"]:
+            people = doc["authors"] + doc["participants"]
+            if exempt and doc["format"] == "eml":
+                # M15 (mundane-email-author-self-names): knob-on mail ends in
+                # a render-time signature block that names the author, and
+                # validation reads the rendered text, so forcing the name
+                # into the authored body only produced third-person
+                # self-reference. Gated (default off) so every committed
+                # manifest re-derives byte-identically until a recipe opts
+                # in at its regeneration.
+                authors = set(doc["authors"])
+                people = [p for p in people if p not in authors]
+            for pid in people:
                 self._doc_mention_add(doc, self._entity_surface(pid))
             if doc["engagement"]:
                 eng = eng_by_id[doc["engagement"]]

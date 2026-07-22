@@ -635,3 +635,110 @@ def test_render_defers_reply_when_a_thread_predecessor_is_unauthored(tmp_path):
         assert not (paths.share_dir / e.path).exists(), (
             f"{e.path} rendered despite an unauthored thread opener"
         )
+
+
+# --- M15: the two adopted mail-brief fixes --------------------------------
+
+
+def test_briefs_name_the_delivery_audience(tmp_path):
+    """mail-audience-internal-vs-external (M14 pilot board): every mail-block
+    email brief states who the message is delivered To, so a client-delivered
+    reply cannot be authored as an internal staff note."""
+    import json
+
+    from orgsmith.artifacts import load_foundation
+
+    p = _build_mail_org(
+        tmp_path, eml=8, max_depth=4,
+        extra_culture="    mundane_emails: 3\n",
+    )
+    run_enrichment(p)
+    run_authoring(p)
+    foundation = load_foundation(p)
+    xp_names = {x.id: x.name for x in foundation.external_people}
+    manifest = {e.doc_id: e for e in load_manifest(p)}
+    seen_client = seen_internal = 0
+    for wo_file in sorted(p.workorders_dir.glob("author-*.json")):
+        wo = json.loads(wo_file.read_text())
+        for doc in wo["docs"]:
+            entry = manifest[doc["doc_id"]]
+            if entry.format != "eml":
+                assert "Delivery:" not in doc["guidance"]
+                continue
+            guidance = doc["guidance"]
+            assert "Delivery:" in guidance
+            author = entry.authors[0]
+            to = [
+                pid
+                for pid in entry.participants
+                if pid != author and pid.startswith("xp:")
+            ]
+            if to:
+                assert "at the client" in guidance
+                for pid in to:
+                    assert xp_names[pid] in guidance
+                seen_client += 1
+            else:
+                assert "every recipient is a colleague" in guidance or (
+                    "every reader is a colleague" in guidance
+                )
+                seen_internal += 1
+    assert seen_client and seen_internal
+
+
+def test_exempt_author_mentions_defaults_off_and_matches_before(tmp_path):
+    """The exemption is gated: a mail block without the field plans the same
+    manifest as one setting it false, so committed manifests re-derive
+    byte-identically (the fleet pin holds the committed proof)."""
+    a = _build_mail_org(tmp_path / "a", eml=8, max_depth=4)
+    b = _build_mail_org(
+        tmp_path / "b", eml=8, max_depth=4,
+        extra_culture="    exempt_author_mentions: false\n",
+    )
+    assert a.manifest_jsonl.read_bytes() == b.manifest_jsonl.read_bytes()
+
+
+def test_exempt_author_mentions_drops_the_self_mention(tmp_path):
+    """mundane-email-author-self-names (M14 pilot board): with the knob on,
+    a mail author's own name is no longer a required body mention (the
+    render-time signature names them); everyone else stays required, and
+    non-eml genres are untouched."""
+    on = _build_mail_org(
+        tmp_path / "on", eml=8, max_depth=4,
+        extra_culture=(
+            "    mundane_emails: 3\n    exempt_author_mentions: true\n"
+        ),
+    )
+    off = _build_mail_org(
+        tmp_path / "off", eml=8, max_depth=4,
+        extra_culture="    mundane_emails: 3\n",
+    )
+    checked = 0
+    off_by_path = {e.path: e for e in load_manifest(off)}
+    for e in load_manifest(on):
+        entities = {m.entity for m in e.mentions}
+        if e.format == "eml":
+            assert e.authors[0] not in entities
+            # the control org requires the very mention the knob drops
+            assert e.authors[0] in {
+                m.entity for m in off_by_path[e.path].mentions
+            }
+            checked += 1
+        else:
+            assert off_by_path[e.path].mentions == e.mentions
+    assert checked
+
+
+def test_exempt_org_still_validates_clean(tmp_path):
+    """The signature still names the author (EML-02) and nothing forces a
+    third-person self-reference into the body."""
+    p = _build_mail_org(
+        tmp_path, eml=8, max_depth=4,
+        extra_culture=(
+            "    mundane_emails: 3\n    exempt_author_mentions: true\n"
+        ),
+    )
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    assert run_validate(p) == 0
