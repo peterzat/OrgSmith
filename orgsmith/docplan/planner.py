@@ -940,7 +940,78 @@ class _Planner:
                 )
                 next_id += 1
         next_id = self._plan_chains(entries, eligible, seen, derived, next_id)
+        next_id = self._plan_misfiles(entries, eligible, seen, derived, next_id)
         return entries + derived
+
+    def _plan_misfiles(
+        self,
+        entries: list[ManifestEntry],
+        eligible: list[ManifestEntry],
+        seen: set[str],
+        derived: list[ManifestEntry],
+        next_id: int,
+    ) -> int:
+        """M15: misfiled copies. An exact copy of an authored source filed in
+        a folder other than its source's, engagement folders included. The
+        manifest owns the location and everything downstream follows it (ACL
+        grants and the visibility suite derive from the manifest), so a
+        misfile readable by the wrong team is ground truth, never a validator
+        failure. Draws only from the NEW docplan.noise.misfile stream and
+        appends after chains, keeping earlier kinds byte-stable.
+
+        The `engagement` label stays the source's: it describes what the
+        document IS (engagement A's letter), while `path` says where it SITS.
+        Access follows the path: acl.derive_acl grants a misfile its
+        destination folder's reader set, as a real share's folder ACL
+        would."""
+        noise = self.charter.doc_culture.noise
+        if noise is None or noise.misfiled == 0:
+            return next_id
+        mrng = rng(self.charter.seed, "docplan.noise.misfile")
+        folders = sorted({e.path.rsplit("/", 1)[0] for e in entries if "/" in e.path})
+        if noise.misfiled > len(eligible):
+            raise SystemExit(
+                f"docplan: noise wants {noise.misfiled} misfiled cop(ies) but "
+                f"only {len(eligible)} eligible source(s) exist; lower "
+                f"misfiled or grow the corpus"
+            )
+        picks = mrng.sample(range(len(eligible)), noise.misfiled)
+        for pi in picks:
+            src = eligible[pi]
+            src_dir = src.path.rsplit("/", 1)[0] if "/" in src.path else ""
+            foreign = [f for f in folders if f != src_dir]
+            if not foreign:
+                raise SystemExit(
+                    "docplan: noise.misfiled needs a second directory to "
+                    "misfile into, and the share plans only one"
+                )
+            dest = foreign[mrng.randrange(len(foreign))]
+            base = src.path.rsplit("/", 1)[-1]
+            path = f"{dest}/{base}"
+            if path.lower() in seen:
+                dot = path.rfind(".")
+                path = f"{path[:dot]} ({next_id}){path[dot:]}"
+            seen.add(path.lower())
+            derived.append(
+                ManifestEntry(
+                    doc_id=f"d:{next_id:04d}",
+                    path=path,
+                    title=f"{src.title} (misfiled)",
+                    genre=src.genre,
+                    format=src.format,
+                    date=src.date,
+                    authors=list(src.authors),
+                    participants=[],
+                    engagement=src.engagement,
+                    authoring="derived",
+                    render_params={
+                        "noise_of": src.doc_id,
+                        "noise_kind": "misfile",
+                    },
+                )
+            )
+            next_id += 1
+        return next_id
 
     def _plan_chains(
         self,

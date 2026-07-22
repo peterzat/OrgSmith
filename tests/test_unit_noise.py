@@ -419,3 +419,108 @@ def test_noise01_fires_on_a_backdated_final(rendered_chain_org):
     ]
     findings = list(noise_01(ctx))
     assert any("not earlier than its final" in msg for msg, _ in findings)
+
+
+# --- M15 noise v2: misfiled copies ----------------------------------------
+
+
+def test_misfiles_plan_into_a_foreign_folder(tmp_path):
+    p = _pure(tmp_path, misfiled=2)
+    manifest = load_manifest(p)
+    by_id = {e.doc_id: e for e in manifest}
+    misfiles = [e for e in manifest if e.noise_kind == "misfile"]
+    assert len(misfiles) == 2
+    for m in misfiles:
+        src = by_id[m.noise_of]
+        assert m.path.rsplit("/", 1)[0] != src.path.rsplit("/", 1)[0]
+        assert m.path.rsplit("/", 1)[-1] == src.path.rsplit("/", 1)[-1]
+        assert not m.facts_refs and not m.key_facts and not m.mentions
+
+
+def test_misfile_renders_as_a_byte_copy(tmp_path):
+    p = _pure(tmp_path, misfiled=1)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    manifest = load_manifest(p)
+    by_id = {e.doc_id: e for e in manifest}
+    m = next(e for e in manifest if e.noise_kind == "misfile")
+    src = by_id[m.noise_of]
+    assert (p.share_dir / m.path).read_bytes() == (
+        p.share_dir / src.path
+    ).read_bytes()
+    assert list(noise_01(Context.load(p))) == []
+
+
+def test_noise01_fires_on_a_misfile_filed_at_home(tmp_path):
+    p = _pure(tmp_path, misfiled=1)
+    ctx = Context.load(p)
+    m = next(e for e in ctx.manifest if e.noise_kind == "misfile")
+    by_id = {e.doc_id: e for e in ctx.manifest}
+    src = by_id[m.noise_of]
+    home = src.path.rsplit("/", 1)[0] + "/" + m.path.rsplit("/", 1)[-1]
+    moved = m.model_copy(update={"path": home})
+    ctx.manifest = [
+        moved if e.doc_id == m.doc_id else e for e in ctx.manifest
+    ]
+    findings = list(noise_01(ctx))
+    assert any("source's own folder" in msg for msg, _ in findings)
+
+
+def test_acl_and_visibility_follow_the_misfiled_location(tmp_path):
+    """A misfile readable by the wrong team is ground truth: grants derive
+    from the manifest path, so the misfile carries its destination folder's
+    grant set, not its source's."""
+    from orgsmith.acl import run_acl
+    from orgsmith.artifacts import load_acl
+    from orgsmith.validate.rules import acl_01, acl_02, acl_03
+
+    dest = tmp_path / "recipes" / "dev-mini"
+    dest.mkdir(parents=True)
+    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    anchor = "  external_people: 3\n"
+    assert anchor in text
+    text = text.replace(anchor, anchor + "\nacl_posture: departmental\n")
+    mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    assert mix in text
+    text = text.replace(mix, mix + "  noise:\n    misfiled: 2\n")
+    (dest / "ORG-CHARTER.md").write_text(text)
+    p = OrgPaths(root=tmp_path, slug="dev-mini")
+    for stage in (run_charter, run_scaffold, run_fabric, run_docplan):
+        assert stage(p) == 0
+    assert run_acl(p) == 0
+
+    manifest = load_manifest(p)
+    by_id = {e.doc_id: e for e in manifest}
+    acl = load_acl(p)
+    holders = {}
+    for g in acl.grants:
+        for doc in g.docs:
+            holders.setdefault(doc, set()).add(g.person)
+    checked = 0
+    for m in (e for e in manifest if e.noise_kind == "misfile"):
+        folder = m.path.rsplit("/", 1)[0]
+        siblings = [
+            e
+            for e in manifest
+            if e.doc_id != m.doc_id
+            and e.authoring != "derived"
+            and e.path.rsplit("/", 1)[0] == folder
+        ]
+        assert siblings  # destination folders come from the authored plan
+        expected: set = set()
+        for s in siblings:
+            expected |= holders.get(s.path, set())
+        # the misfile reads as its destination folder does (the union of the
+        # folder's authored readers), not as its source's content would
+        assert holders.get(m.path, set()) == expected
+        checked += 1
+    assert checked
+
+    # the recompute rules pass: the misfiled location is never a failure
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    ctx = Context.load(p)
+    for rule in (acl_01, acl_02, acl_03):
+        assert list(rule(ctx)) == []

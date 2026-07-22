@@ -458,6 +458,18 @@ def noise_01(ctx: Context):
                 f"{e.noise_of}; noise must derive from an authored source",
                 e.path,
             )
+    for e in derived:
+        if e.noise_kind != "misfile" or e.noise_of not in by_id:
+            continue
+        src = by_id[e.noise_of]
+        e_dir = e.path.rsplit("/", 1)[0] if "/" in e.path else ""
+        s_dir = src.path.rsplit("/", 1)[0] if "/" in src.path else ""
+        if e_dir == s_dir:
+            yield (
+                f"misfiled doc {e.doc_id} sits in its source's own folder "
+                f"{s_dir!r}; a misfile lives elsewhere",
+                e.path,
+            )
     chains: dict[str, list] = {}
     for e in derived:
         if e.noise_kind == "version" and e.noise_of in by_id:

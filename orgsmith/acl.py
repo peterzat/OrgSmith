@@ -91,6 +91,12 @@ def derive_acl(charter, foundation, engagements, manifest) -> AclLedger:
     the CEO-equivalent plus the workbook's author; everything else
     (firm-level documents) by everyone. Employment scoping applies on top of
     all three.
+
+    Misfiled noise (M15) follows its folder, not its content: a real share's
+    ACL lives on directories, so a misfile is readable by the union of its
+    destination folder's non-derived readers. Engagement A's letter misfiled
+    into engagement B's folder is readable by B's team (and by everyone when
+    it lands in an open folder) -- deliberately, as ground truth.
     """
     ceo = next(p for p in foundation.people if p.reports_to is None)
     eng_by_id = {e.id: e for e in engagements.engagements}
@@ -101,16 +107,29 @@ def derive_acl(charter, foundation, engagements, manifest) -> AclLedger:
     # seats that manage nobody, so ACL-02 stays satisfied by construction.
     current = {p.id for p in foundation.people if p.employment.end is None}
 
-    for entry in manifest:
+    def doc_readers(entry) -> set[str]:
         if charter.acl_posture == "open":
-            readers = set(readable)
-        elif entry.engagement is not None:
+            return set(readable)
+        if entry.engagement is not None:
             eng = eng_by_id[entry.engagement]
-            readers = set(eng.internal_participants) | {ceo.id}
-        elif entry.genre == "financial_summary":
-            readers = {ceo.id} | set(entry.authors)
+            return set(eng.internal_participants) | {ceo.id}
+        if entry.genre == "financial_summary":
+            return {ceo.id} | set(entry.authors)
+        return set(readable)
+
+    folder_readers: dict[str, set[str]] = {}
+    for entry in manifest:
+        if entry.noise_kind == "misfile" or "/" not in entry.path:
+            continue
+        folder = entry.path.rsplit("/", 1)[0]
+        folder_readers.setdefault(folder, set()).update(doc_readers(entry))
+
+    for entry in manifest:
+        folder = entry.path.rsplit("/", 1)[0] if "/" in entry.path else ""
+        if entry.noise_kind == "misfile" and folder in folder_readers:
+            readers = folder_readers[folder]
         else:
-            readers = set(readable)
+            readers = doc_readers(entry)
         # `current` is roster-derived, so this also drops externals, which
         # carry no grants.
         for pid in readers & current:

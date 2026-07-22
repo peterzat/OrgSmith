@@ -794,7 +794,7 @@ class ManifestEntry(StrictModel):
             raise ValueError(
                 "a derived noise doc carries no facts or mentions of its own"
             )
-        kinds = ("exact_duplicate", "draft", "version")
+        kinds = ("exact_duplicate", "draft", "version", "misfile")
         if derived and self.noise_kind not in kinds:
             raise ValueError(
                 f"noise_kind must be one of {kinds}, got {self.noise_kind!r}"

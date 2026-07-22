@@ -292,7 +292,7 @@ def run_render(paths: OrgPaths) -> int:
         if src_state.authored_hash is None:
             pending += 1
             continue
-        if entry.noise_kind == "exact_duplicate":
+        if entry.noise_kind in ("exact_duplicate", "misfile"):
             basis = f"exact:{src_state.rendered_hash}"
         elif entry.noise_kind == "version":
             pos = entry.render_params["noise_pos"]
@@ -304,7 +304,7 @@ def run_render(paths: OrgPaths) -> int:
             skipped += 1
             continue
         target.parent.mkdir(parents=True, exist_ok=True)
-        if entry.noise_kind == "exact_duplicate":
+        if entry.noise_kind in ("exact_duplicate", "misfile"):
             import shutil
 
             src_target = paths.share_dir / by_id[entry.noise_of].path
