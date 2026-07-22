@@ -554,6 +554,23 @@ def noise_01(ctx: Context):
                     f"members {ids}; every version must diverge",
                     src.path,
                 )
+    by_path = {e.path: e for e in ctx.manifest}
+    mismatched = sum(
+        1
+        for e in ctx.manifest
+        if e.authoring != "derived"
+        and e.render_params.get("attach_path")
+        and by_path.get(str(e.render_params["attach_path"])) is not None
+        and by_path[str(e.render_params["attach_path"])].noise_kind
+        == "version"
+    )
+    if mismatched != noise.attachment_mismatch:
+        yield (
+            f"charter plans {noise.attachment_mismatch} attachment-version "
+            f"mismatch(es) but {mismatched} transmittal(s) attach a "
+            f"version-chain member",
+            "docplan/manifest.jsonl",
+        )
 
 
 # --- FIN ------------------------------------------------------------------

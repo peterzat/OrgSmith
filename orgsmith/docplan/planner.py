@@ -1183,7 +1183,18 @@ class _Planner:
         are untouched. Renderers give each member a distinct version banner,
         so no two members are byte-identical and hash dedupe cannot collapse
         the chain. Appended after the M12 kinds so existing doc_ids and paths
-        stay byte-stable."""
+        stay byte-stable.
+
+        Attachment-version mismatch (noise.attachment_mismatch) rides here:
+        the drawn transmittals' attached documents are forced to host the
+        first chains, and each such transmittal's attach_path is retargeted
+        to its chain's latest non-final member -- the email carries the
+        near-final draft while the share holds the final. The manifest owns
+        the relationship (EML-03 keeps validating attachment bytes against
+        attach_path), and the eval suites stay exact by construction: a
+        derived member hosts no facts, so a mismatched transmittal is never
+        an expected answer for the final's facts. With the mismatch at 0 the
+        chain draw order is byte-identical to the plain path."""
         noise = self.charter.doc_culture.noise
         if noise is None or noise.version_chains == 0:
             return next_id
@@ -1196,16 +1207,58 @@ class _Planner:
             for e in eligible
             if e.format != "eml" and (e.date - start).days >= 4
         ]
-        if noise.version_chains > len(chainable):
+        forced: list[tuple[ManifestEntry, ManifestEntry]] = []
+        if noise.attachment_mismatch:
+            arng = rng(self.charter.seed, "docplan.noise.attach")
+            transmittals = [
+                e for e in entries if e.render_params.get("attach_path")
+            ]
+            if noise.attachment_mismatch > len(transmittals):
+                raise SystemExit(
+                    f"docplan: noise wants {noise.attachment_mismatch} "
+                    f"attachment mismatch(es) but the plan carries only "
+                    f"{len(transmittals)} transmittal(s); lower "
+                    f"attachment_mismatch or raise mail.attachments"
+                )
+            by_path = {e.path: e for e in entries}
+            chain_ok = {e.doc_id for e in chainable}
+            for ti in arng.sample(
+                range(len(transmittals)), noise.attachment_mismatch
+            ):
+                t = transmittals[ti]
+                src = by_path.get(str(t.render_params["attach_path"]))
+                if src is None or src.doc_id not in chain_ok:
+                    raise SystemExit(
+                        f"docplan: attachment_mismatch needs the attached "
+                        f"doc {t.render_params['attach_path']!r} to host a "
+                        f"version chain (modern, body-facts, dated 4+ days "
+                        f"into the range) and it cannot"
+                    )
+                forced.append((t, src))
+        forced_ids: list[str] = []
+        for _, src in forced:
+            if src.doc_id not in forced_ids:
+                forced_ids.append(src.doc_id)
+        if noise.version_chains < len(forced_ids):
+            raise SystemExit(
+                f"docplan: attachment_mismatch spans {len(forced_ids)} "
+                f"attached doc(s), each needing its own version chain; "
+                f"raise version_chains to at least {len(forced_ids)}"
+            )
+        pool = [e for e in chainable if e.doc_id not in set(forced_ids)]
+        free = noise.version_chains - len(forced_ids)
+        if free > len(pool):
             raise SystemExit(
                 f"docplan: noise wants {noise.version_chains} version "
-                f"chain(s) but only {len(chainable)} chainable source(s) "
-                f"exist (non-eml, dated 4+ days into the range); lower "
-                f"version_chains or grow the corpus"
+                f"chain(s) but only {len(pool) + len(forced_ids)} chainable "
+                f"source(s) exist (non-eml, dated 4+ days into the range); "
+                f"lower version_chains or grow the corpus"
             )
-        picks = crng.sample(range(len(chainable)), noise.version_chains)
-        for pi in picks:
-            src = chainable[pi]
+        picks = crng.sample(range(len(pool)), free)
+        by_id = {e.doc_id: e for e in chainable}
+        sources = [by_id[i] for i in forced_ids] + [pool[i] for i in picks]
+        latest_member: dict[str, str] = {}
+        for src in sources:
             length = crng.randint(3, 5)  # members including the final
             span = (src.date - start).days
             spacing = max(1, min(crng.randint(2, 7), span // (length - 1)))
@@ -1247,7 +1300,10 @@ class _Planner:
                         },
                     )
                 )
+                latest_member[src.doc_id] = path
                 next_id += 1
+        for t, src in forced:
+            t.render_params["attach_path"] = latest_member[src.doc_id]
         return next_id
 
     def _check_hard_cases(self, entries: list[ManifestEntry]) -> None:

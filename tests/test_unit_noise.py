@@ -708,3 +708,143 @@ def test_noise01_fires_on_missing_or_filled_empty_dir(tmp_path):
 def test_empty_dirs_over_demand_fails_at_plan_time(tmp_path):
     with pytest.raises(SystemExit, match="junk-name slots"):
         _pure(tmp_path, empty_dirs=500)
+
+
+# --- M15 noise v2: attachment-version mismatch ----------------------------
+
+
+_MISMATCH_CULTURE = (
+    "    attachments: 2\n"
+    "  noise:\n"
+    "    version_chains: 2\n"
+    "    attachment_mismatch: 1\n"
+)
+
+
+@pytest.fixture(scope="module")
+def mismatch_org(tmp_path_factory):
+    from test_unit_mail import _build_mail_org
+
+    p = _build_mail_org(
+        tmp_path_factory.mktemp("mismatch-org"),
+        eml=8,
+        max_depth=4,
+        extra_culture=_MISMATCH_CULTURE,
+    )
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    return p
+
+
+def test_mismatch_retargets_one_transmittal_to_a_chain_member(mismatch_org):
+    manifest = load_manifest(mismatch_org)
+    by_path = {e.path: e for e in manifest}
+    by_id = {e.doc_id: e for e in manifest}
+    hits = []
+    for e in manifest:
+        ap = e.render_params.get("attach_path")
+        if not ap or e.authoring == "derived":
+            continue
+        target = by_path[str(ap)]
+        if target.noise_kind == "version":
+            hits.append((e, target))
+    assert len(hits) == 1  # attachment_mismatch: 1
+    email, member = hits[0]
+    length = int(member.render_params["noise_len"])
+    assert int(member.render_params["noise_pos"]) == length - 1  # near-final
+    final = by_id[member.noise_of]
+    assert final.genre == "kickoff_memo"
+    assert final.path in by_path  # the share holds the final
+
+
+def test_mismatch_attachment_bytes_are_the_draft_and_rules_pass(mismatch_org):
+    from orgsmith.render.eml import eml_attachment_bytes
+    from orgsmith.validate.rules import eml_03
+
+    p = mismatch_org
+    manifest = load_manifest(p)
+    by_path = {e.path: e for e in manifest}
+    by_id = {e.doc_id: e for e in manifest}
+    email = next(
+        e
+        for e in manifest
+        if e.authoring != "derived"
+        and e.render_params.get("attach_path")
+        and by_path[str(e.render_params["attach_path"])].noise_kind
+        == "version"
+    )
+    member = by_path[str(email.render_params["attach_path"])]
+    final = by_id[member.noise_of]
+    got = eml_attachment_bytes(p.share_dir / email.path)
+    assert got == (p.share_dir / member.path).read_bytes()  # the draft
+    assert got != (p.share_dir / final.path).read_bytes()  # not the final
+    ctx = Context.load(p)
+    assert list(eml_03(ctx)) == []
+    assert list(noise_01(ctx)) == []
+
+
+def test_mismatch_earns_no_attachment_credit_in_extraction(mismatch_org):
+    """A transmittal carrying the FINAL is an extra expected host for the
+    final's facts (M14). One carrying a superseded draft earns no such
+    credit: it appears for a kickoff-hosted fact only when its own body
+    hosts that fact too."""
+    p = mismatch_org
+    assert run_emit_evals(p) == 0
+    manifest = load_manifest(p)
+    by_path = {e.path: e for e in manifest}
+    by_id = {e.doc_id: e for e in manifest}
+    email = next(
+        e
+        for e in manifest
+        if e.authoring != "derived"
+        and e.render_params.get("attach_path")
+        and by_path[str(e.render_params["attach_path"])].noise_kind
+        == "version"
+    )
+    member = by_path[str(email.render_params["attach_path"])]
+    final = by_id[member.noise_of]
+    checked = 0
+    for line in (p.evals_dir / "extraction.jsonl").read_text().splitlines():
+        q = json.loads(line)
+        fact = q["fact_id"]
+        if fact in final.facts_refs and fact not in email.facts_refs:
+            assert email.path not in q["expected_docs"]
+            checked += 1
+    assert checked  # the kickoff hosts at least one fact the email does not
+
+
+def test_noise01_fires_when_the_mismatch_is_reverted(mismatch_org):
+    ctx = Context.load(mismatch_org)
+    by_path = {e.path: e for e in ctx.manifest}
+    email = next(
+        e
+        for e in ctx.manifest
+        if e.authoring != "derived"
+        and e.render_params.get("attach_path")
+        and by_path[str(e.render_params["attach_path"])].noise_kind
+        == "version"
+    )
+    member = by_path[str(email.render_params["attach_path"])]
+    final_id = member.noise_of
+    final = next(e for e in ctx.manifest if e.doc_id == final_id)
+    email.render_params["attach_path"] = final.path  # quietly point back
+    findings = list(noise_01(ctx))
+    assert any("attachment-version" in msg for msg, _ in findings)
+
+
+def test_mismatch_over_demand_fails_actionably(tmp_path):
+    from test_unit_mail import _build_mail_org
+
+    with pytest.raises(SystemExit, match="transmittal"):
+        _build_mail_org(
+            tmp_path,
+            eml=8,
+            max_depth=4,
+            extra_culture=(
+                "    attachments: 1\n"
+                "  noise:\n"
+                "    version_chains: 3\n"
+                "    attachment_mismatch: 3\n"
+            ),
+        )
