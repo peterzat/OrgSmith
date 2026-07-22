@@ -15,6 +15,10 @@ _DRAFT_BANNER = (
     "DRAFT -- superseded by the final version; not for distribution"
 )
 
+_VERSION_BANNER = (
+    "WORKING DRAFT v{pos} -- superseded; retained for reference"
+)
+
 
 def derive_draft_docir(source: DocIR, doc_id: str) -> DocIR:
     """A draft near-duplicate of `source`: a DRAFT banner heading, then the
@@ -25,3 +29,19 @@ def derive_draft_docir(source: DocIR, doc_id: str) -> DocIR:
         blocks = blocks[:-1]
     banner = Block(kind="heading", text=_DRAFT_BANNER, level=1)
     return DocIR(doc_id=doc_id, blocks=[banner, *blocks])
+
+
+def derive_version_docir(
+    source: DocIR, doc_id: str, pos: int, length: int
+) -> DocIR:
+    """Member `pos` (1-based, pos < length) of a version chain whose final
+    member is the source document. Earlier members keep fewer trailing blocks
+    and every member carries a banner naming its own version, so no two chain
+    members (nor the final) can share bytes even when the block prefix
+    collapses on a short source. Deterministic and RNG-free."""
+    blocks = list(source.blocks)
+    keep = max(1, len(blocks) - (length - pos))
+    banner = Block(
+        kind="heading", text=_VERSION_BANNER.format(pos=pos), level=1
+    )
+    return DocIR(doc_id=doc_id, blocks=[banner, *blocks[:keep]])

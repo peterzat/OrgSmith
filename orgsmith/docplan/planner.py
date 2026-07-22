@@ -863,10 +863,17 @@ class _Planner:
         return self._plan_noise(entries)
 
     @staticmethod
-    def _noise_path(src_path: str, kind: str, suffix: str = "") -> str:
+    def _noise_path(
+        src_path: str, kind: str, suffix: str = "", pos: int = 0
+    ) -> str:
         dot = src_path.rfind(".")
         stem, ext = src_path[:dot], src_path[dot:]
-        tag = " (copy)" if kind == "exact_duplicate" else " - DRAFT"
+        if kind == "exact_duplicate":
+            tag = " (copy)"
+        elif kind == "version":
+            tag = f" v{pos}"
+        else:
+            tag = " - DRAFT"
         extra = f" {suffix}" if suffix else ""
         return f"{stem}{tag}{extra}{ext}"
 
@@ -932,7 +939,79 @@ class _Planner:
                     )
                 )
                 next_id += 1
+        next_id = self._plan_chains(entries, eligible, seen, derived, next_id)
         return entries + derived
+
+    def _plan_chains(
+        self,
+        entries: list[ManifestEntry],
+        eligible: list[ManifestEntry],
+        seen: set[str],
+        derived: list[ManifestEntry],
+        next_id: int,
+    ) -> int:
+        """M15: version chains with divergence. Each chain's final member is
+        an authored source; the planner plants length-1 earlier versions with
+        deterministic earlier dates inside the recipe's range, every draw from
+        the NEW docplan.noise.chains stream so the M12 duplicates/drafts picks
+        are untouched. Renderers give each member a distinct version banner,
+        so no two members are byte-identical and hash dedupe cannot collapse
+        the chain. Appended after the M12 kinds so existing doc_ids and paths
+        stay byte-stable."""
+        noise = self.charter.doc_culture.noise
+        if noise is None or noise.version_chains == 0:
+            return next_id
+        crng = rng(self.charter.seed, "docplan.noise.chains")
+        start = self.charter.doc_culture.date_range[0]
+        # A versioned email is not a thing; chains need date room for the
+        # earlier members (max length 5 -> up to 4 earlier dates).
+        chainable = [
+            e
+            for e in eligible
+            if e.format != "eml" and (e.date - start).days >= 4
+        ]
+        if noise.version_chains > len(chainable):
+            raise SystemExit(
+                f"docplan: noise wants {noise.version_chains} version "
+                f"chain(s) but only {len(chainable)} chainable source(s) "
+                f"exist (non-eml, dated 4+ days into the range); lower "
+                f"version_chains or grow the corpus"
+            )
+        picks = crng.sample(range(len(chainable)), noise.version_chains)
+        for pi in picks:
+            src = chainable[pi]
+            length = crng.randint(3, 5)  # members including the final
+            span = (src.date - start).days
+            spacing = max(1, min(crng.randint(2, 7), span // (length - 1)))
+            for pos in range(1, length):
+                path = self._noise_path(src.path, "version", pos=pos)
+                if path.lower() in seen:
+                    path = self._noise_path(
+                        src.path, "version", suffix=str(next_id), pos=pos
+                    )
+                seen.add(path.lower())
+                derived.append(
+                    ManifestEntry(
+                        doc_id=f"d:{next_id:04d}",
+                        path=path,
+                        title=f"{src.title} (v{pos})",
+                        genre=src.genre,
+                        format=src.format,
+                        date=src.date - timedelta(days=(length - pos) * spacing),
+                        authors=list(src.authors),
+                        participants=[],
+                        engagement=src.engagement,
+                        authoring="derived",
+                        render_params={
+                            "noise_of": src.doc_id,
+                            "noise_kind": "version",
+                            "noise_pos": pos,
+                            "noise_len": length,
+                        },
+                    )
+                )
+                next_id += 1
+        return next_id
 
     def _check_hard_cases(self, entries: list[ManifestEntry]) -> None:
         """The knob contract gate: placement demand meets document supply

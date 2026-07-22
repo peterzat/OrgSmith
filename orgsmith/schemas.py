@@ -794,11 +794,25 @@ class ManifestEntry(StrictModel):
             raise ValueError(
                 "a derived noise doc carries no facts or mentions of its own"
             )
-        if derived and self.noise_kind not in ("exact_duplicate", "draft"):
+        kinds = ("exact_duplicate", "draft", "version")
+        if derived and self.noise_kind not in kinds:
             raise ValueError(
-                f"noise_kind must be exact_duplicate or draft, got "
-                f"{self.noise_kind!r}"
+                f"noise_kind must be one of {kinds}, got {self.noise_kind!r}"
             )
+        if derived and self.noise_kind == "version":
+            pos = self.render_params.get("noise_pos")
+            ln = self.render_params.get("noise_len")
+            ok = (
+                isinstance(pos, int)
+                and isinstance(ln, int)
+                and ln >= 3
+                and 1 <= pos < ln
+            )
+            if not ok:
+                raise ValueError(
+                    "a version chain member carries integer noise_pos and "
+                    "noise_len with len >= 3 and 1 <= pos < len"
+                )
         return self
 
 

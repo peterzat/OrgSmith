@@ -294,6 +294,9 @@ def run_render(paths: OrgPaths) -> int:
             continue
         if entry.noise_kind == "exact_duplicate":
             basis = f"exact:{src_state.rendered_hash}"
+        elif entry.noise_kind == "version":
+            pos = entry.render_params["noise_pos"]
+            basis = f"version{pos}:{src_state.authored_hash}"
         else:
             basis = f"draft:{src_state.authored_hash}"
         target = paths.share_dir / entry.path
@@ -308,14 +311,21 @@ def run_render(paths: OrgPaths) -> int:
             shutil.copyfile(src_target, target)
         else:
             from ..authoring.ingest import docir_path
-            from .noise import derive_draft_docir
+            from .noise import derive_draft_docir, derive_version_docir
 
             src_docir = DocIR.model_validate_json(
                 docir_path(paths, entry.noise_of).read_text("utf-8")
             )
-            draft = resolve_docir(
-                derive_draft_docir(src_docir, entry.doc_id), facts
-            )
+            if entry.noise_kind == "version":
+                derived_ir = derive_version_docir(
+                    src_docir,
+                    entry.doc_id,
+                    int(entry.render_params["noise_pos"]),
+                    int(entry.render_params["noise_len"]),
+                )
+            else:
+                derived_ir = derive_draft_docir(src_docir, entry.doc_id)
+            draft = resolve_docir(derived_ir, facts)
             _render_derived(entry, draft, style, people, charter, target)
         doc_state.rendered_hash = sha256_file(target)
         doc_state.rendered_from = basis

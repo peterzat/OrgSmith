@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass, field
 from typing import Callable, Iterator
@@ -429,7 +430,11 @@ def noise_01(ctx: Context):
     authored and derived words stay separable and a scorer can exclude noise.
     Grandfathers by charter: skips when noise is off (available=_needs_noise);
     a knob on with the noise stripped or a label broken is a failure, not a
-    skip. File existence is MAN-01/FILE-01's job; this checks the labels."""
+    skip. File existence is MAN-01/FILE-01's job; this checks the labels --
+    plus, since M15, the version-chain invariants: members cover 1..len-1
+    with one agreed length, every member predates its final, and no two chain
+    members (final included) are byte-identical, so a chain that hash dedupe
+    could collapse is tamper evidence."""
     by_id = {e.doc_id: e for e in ctx.manifest}
     derived = [e for e in ctx.manifest if e.authoring == "derived"]
     if not derived:
@@ -453,6 +458,51 @@ def noise_01(ctx: Context):
                 f"{e.noise_of}; noise must derive from an authored source",
                 e.path,
             )
+    chains: dict[str, list] = {}
+    for e in derived:
+        if e.noise_kind == "version" and e.noise_of in by_id:
+            chains.setdefault(e.noise_of, []).append(e)
+    for src_id, members in sorted(chains.items()):
+        src = by_id[src_id]
+        lens = {int(m.render_params["noise_len"]) for m in members}
+        if len(lens) != 1:
+            yield (
+                f"version chain on {src_id} disagrees on noise_len "
+                f"({sorted(lens)})",
+                src.path,
+            )
+            continue
+        length = lens.pop()
+        positions = sorted(
+            int(m.render_params["noise_pos"]) for m in members
+        )
+        if positions != list(range(1, length)):
+            yield (
+                f"version chain on {src_id} has members at {positions}, "
+                f"wants 1..{length - 1}",
+                src.path,
+            )
+        for m in members:
+            if m.date >= src.date:
+                yield (
+                    f"version member {m.doc_id} is dated {m.date}, not "
+                    f"earlier than its final {src_id} ({src.date})",
+                    m.path,
+                )
+        digests: dict[str, list] = {}
+        for m in [*members, src]:
+            path = ctx.paths.share_dir / m.path
+            if not path.exists():
+                continue  # missing files are MAN-01/FILE-01 findings
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            digests.setdefault(digest, []).append(m.doc_id)
+        for ids in digests.values():
+            if len(ids) > 1:
+                yield (
+                    f"version chain on {src_id} carries byte-identical "
+                    f"members {ids}; every version must diverge",
+                    src.path,
+                )
 
 
 # --- FIN ------------------------------------------------------------------
@@ -1389,7 +1439,8 @@ RULES = [
     Rule("DATE-02", "ERROR", "authors employed at doc date", date_02),
     Rule("CAL-01", "ERROR", "attendance genres land on business days", cal_01,
          available=_needs_calendar),
-    Rule("NOISE-01", "ERROR", "derived noise docs name a real source",
+    Rule("NOISE-01", "ERROR", "derived noise docs name a real source; "
+         "version chains cohere and diverge",
          noise_01, available=_needs_noise),
     Rule("FIN-01", "ERROR", "finance ledger ties out", fin_01),
     Rule("FIN-02", "ERROR", "workbooks tie to the finance ledger", fin_02),
