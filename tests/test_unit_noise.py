@@ -585,3 +585,79 @@ def test_noise01_fires_on_a_filled_in_template(tmp_path):
 def test_stale_over_demand_fails_actionably(tmp_path):
     with pytest.raises(SystemExit, match="template-able genre"):
         _pure(tmp_path, stale_templates=99)
+
+
+# --- M15 noise v2: filename variety ---------------------------------------
+
+
+_ALL_KINDS = dict(
+    duplicates=3, drafts=3, version_chains=1, misfiled=2, stale_templates=2
+)
+
+
+def test_variety_off_is_byte_identical_to_before(tmp_path):
+    """The switch is inert: same counts with and without filename_variety:
+    false plan the same manifest, so committed recipes keep their names."""
+    a = _pure(tmp_path / "a", **_ALL_KINDS)
+    b = _pure(tmp_path / "b", filename_variety=False, **_ALL_KINDS)
+    assert a.manifest_jsonl.read_bytes() == b.manifest_jsonl.read_bytes()
+
+
+def test_variety_decorates_without_touching_identity(tmp_path):
+    """Variety changes noise paths only: same ids, kinds, sources, dates."""
+    off = load_manifest(_pure(tmp_path / "off", **_ALL_KINDS))
+    on = load_manifest(
+        _pure(tmp_path / "on", filename_variety=True, **_ALL_KINDS)
+    )
+    assert len(off) == len(on)
+    for a, b in zip(off, on):
+        assert a.doc_id == b.doc_id
+        assert a.noise_kind == b.noise_kind
+        assert a.noise_of == b.noise_of
+        assert a.date == b.date
+        assert a.genre == b.genre
+        if a.authoring != "derived":
+            assert a.path == b.path  # authored naming is untouchable
+
+
+def test_variety_shows_three_distinct_patterns(tmp_path):
+    import re
+
+    p = _pure(tmp_path, filename_variety=True, **_ALL_KINDS)
+    manifest = load_manifest(p)
+    by_id = {e.doc_id: e for e in manifest}
+    patterns = set()
+    for e in manifest:
+        if e.authoring != "derived" or e.noise_kind == "stale_template":
+            continue
+        src = by_id[e.noise_of]
+        src_stem = src.path.rsplit("/", 1)[-1].rsplit(".", 1)[0]
+        base = e.path.rsplit("/", 1)[-1].rsplit(".", 1)[0]
+        # reduce the decorated name to its pattern shape
+        shape = base.replace(src_stem, "{stem}")
+        shape = re.sub(r"\d+", "{n}", shape)
+        patterns.add(shape)
+    assert len(patterns) >= 3, patterns
+
+
+def test_variety_names_a_version_chain_alike(tmp_path):
+    p = _pure(tmp_path, filename_variety=True, version_chains=2)
+    manifest = load_manifest(p)
+    for members in _chains(manifest).values():
+        shapes = set()
+        for m in members:
+            pos = m.render_params["noise_pos"]
+            base = m.path.rsplit("/", 1)[-1]
+            shapes.add(base.replace(f"v{pos}", "v{pos}"))
+        assert len(shapes) == 1  # one decoration per chain
+
+
+def test_variety_re_derives_byte_identically(tmp_path):
+    a = _pure(tmp_path / "a", filename_variety=True, **_ALL_KINDS)
+    dest = tmp_path / "b" / "recipes" / "dev-mini"
+    dest.parent.mkdir(parents=True)
+    shutil.copytree(a.root / "recipes" / "dev-mini", dest)
+    q = OrgPaths(root=tmp_path / "b", slug="dev-mini")
+    for stage in (run_charter, run_scaffold, run_fabric, run_docplan):
+        assert stage(q) == 0
+    assert a.manifest_jsonl.read_bytes() == q.manifest_jsonl.read_bytes()

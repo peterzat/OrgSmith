@@ -877,6 +877,60 @@ class _Planner:
         extra = f" {suffix}" if suffix else ""
         return f"{stem}{tag}{extra}{ext}"
 
+    # M15 filename variety: the decoration grammar a real share accretes.
+    # Index 0 is each kind's classic decoration, so the off switch and the
+    # grammar's first row agree on what "undecorated" means.
+    _VARIETY = {
+        "exact_duplicate": (
+            "{stem} (copy){ext}",
+            "Copy of {stem}{ext}",
+            "{stem} - Copy{ext}",
+            "{stem}_old{ext}",
+            "{stem} FINAL FINAL{ext}",
+        ),
+        "draft": (
+            "{stem} - DRAFT{ext}",
+            "{stem} draft{ext}",
+            "{stem}_draft_v0{ext}",
+            "{stem} (working){ext}",
+            "{stem} DO NOT USE{ext}",
+        ),
+        "misfile": (
+            "{stem}{ext}",
+            "Copy of {stem}{ext}",
+            "{stem} (1){ext}",
+        ),
+        "version": (
+            "{stem} v{pos}{ext}",
+            "{stem}_v{pos}{ext}",
+            "{stem} - v{pos}{ext}",
+        ),
+        "stale_template": (
+            "{stem}{ext}",
+            "{stem} OLD{ext}",
+            "{stem} (do not use){ext}",
+            "Copy of {stem}{ext}",
+        ),
+    }
+
+    def _vary_path(
+        self, path: str, kind: str, nrng, pos: int = 0, idx: int | None = None
+    ) -> str:
+        """Decorate an UNdecorated path (the source's own name, or the plain
+        template name) from the variety grammar. `nrng` is the
+        docplan.noise.names stream; callers only reach here when
+        filename_variety is on, so a knob-off recipe draws zero values from
+        the stream and keeps its committed names byte-unchanged. `idx` pins
+        the pattern (a version chain decorates every member alike)."""
+        dirname, _, base = path.rpartition("/")
+        dot = base.rfind(".")
+        stem, ext = base[:dot], base[dot:]
+        options = self._VARIETY[kind]
+        if idx is None:
+            idx = nrng.randrange(len(options))
+        name = options[idx].format(stem=stem, ext=ext, pos=pos)
+        return f"{dirname}/{name}" if dirname else name
+
     def _plan_noise(self, entries: list[ManifestEntry]) -> list[ManifestEntry]:
         """Append derived noise documents (M12): exact duplicates and draft
         near-duplicates of eligible authored sources, from a NEW seed stream so
@@ -906,6 +960,13 @@ class _Planner:
         picks = rng(self.charter.seed, "docplan.noise").sample(
             range(len(eligible)), total
         )
+        # M15 filename variety: one stream for every decoration draw, created
+        # only when the switch is on so a knob-off recipe draws zero values.
+        nrng = (
+            rng(self.charter.seed, "docplan.noise.names")
+            if noise.filename_variety
+            else None
+        )
         plan = [("exact_duplicate", noise.duplicates), ("draft", noise.drafts)]
         seen = {e.path.lower() for e in entries}
         derived: list[ManifestEntry] = []
@@ -915,7 +976,10 @@ class _Planner:
             for _ in range(count):
                 src = eligible[picks[cursor]]
                 cursor += 1
-                path = self._noise_path(src.path, kind)
+                if nrng is None:
+                    path = self._noise_path(src.path, kind)
+                else:
+                    path = self._vary_path(src.path, kind, nrng)
                 if path.lower() in seen:
                     path = self._noise_path(src.path, kind, suffix=str(next_id))
                 seen.add(path.lower())
@@ -939,9 +1003,13 @@ class _Planner:
                     )
                 )
                 next_id += 1
-        next_id = self._plan_chains(entries, eligible, seen, derived, next_id)
-        next_id = self._plan_misfiles(entries, eligible, seen, derived, next_id)
-        next_id = self._plan_stale_templates(entries, seen, derived, next_id)
+        next_id = self._plan_chains(
+            entries, eligible, seen, derived, next_id, nrng
+        )
+        next_id = self._plan_misfiles(
+            entries, eligible, seen, derived, next_id, nrng
+        )
+        next_id = self._plan_stale_templates(seen, derived, next_id, nrng, entries)
         return entries + derived
 
     _TEMPLATE_GENRES = (
@@ -954,10 +1022,11 @@ class _Planner:
 
     def _plan_stale_templates(
         self,
-        entries: list[ManifestEntry],
         seen: set[str],
         derived: list[ManifestEntry],
         next_id: int,
+        nrng=None,
+        entries: list[ManifestEntry] = (),
     ) -> int:
         """M15: dead templates in a Templates/ folder. Genre-shaped documents
         whose every field is a bracketed dummy: zero planted facts, zero
@@ -997,6 +1066,8 @@ class _Planner:
             ]
             author = employed[srng.randrange(len(employed))]
             path = f"Templates/{prefix} Template.docx"
+            if nrng is not None:
+                path = self._vary_path(path, "stale_template", nrng)
             if path.lower() in seen:
                 path = f"Templates/{prefix} Template ({next_id}).docx"
             seen.add(path.lower())
@@ -1025,6 +1096,7 @@ class _Planner:
         seen: set[str],
         derived: list[ManifestEntry],
         next_id: int,
+        nrng=None,
     ) -> int:
         """M15: misfiled copies. An exact copy of an authored source filed in
         a folder other than its source's, engagement folders included. The
@@ -1063,6 +1135,8 @@ class _Planner:
             dest = foreign[mrng.randrange(len(foreign))]
             base = src.path.rsplit("/", 1)[-1]
             path = f"{dest}/{base}"
+            if nrng is not None:
+                path = self._vary_path(path, "misfile", nrng)
             if path.lower() in seen:
                 dot = path.rfind(".")
                 path = f"{path[:dot]} ({next_id}){path[dot:]}"
@@ -1095,6 +1169,7 @@ class _Planner:
         seen: set[str],
         derived: list[ManifestEntry],
         next_id: int,
+        nrng=None,
     ) -> int:
         """M15: version chains with divergence. Each chain's final member is
         an authored source; the planner plants length-1 earlier versions with
@@ -1129,8 +1204,19 @@ class _Planner:
             length = crng.randint(3, 5)  # members including the final
             span = (src.date - start).days
             spacing = max(1, min(crng.randint(2, 7), span // (length - 1)))
+            # One decoration per chain: real version families are named alike.
+            vidx = (
+                nrng.randrange(len(self._VARIETY["version"]))
+                if nrng is not None
+                else None
+            )
             for pos in range(1, length):
-                path = self._noise_path(src.path, "version", pos=pos)
+                if nrng is None:
+                    path = self._noise_path(src.path, "version", pos=pos)
+                else:
+                    path = self._vary_path(
+                        src.path, "version", nrng, pos=pos, idx=vidx
+                    )
                 if path.lower() in seen:
                     path = self._noise_path(
                         src.path, "version", suffix=str(next_id), pos=pos
