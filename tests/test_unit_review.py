@@ -487,6 +487,22 @@ def test_author_ranges_are_deterministic_and_bounded(authored_org):
     ] == [(r.author, r.docs, r.within, r.cross, r.early_late) for r in again]
 
 
+def test_report_token_cost_counts_match_the_manifest(authored_org):
+    """The zero-token claim is counted from the manifest, not asserted."""
+    from orgsmith.artifacts import load_manifest
+    from orgsmith.review.report import run_report
+
+    assert run_report(authored_org) == 0
+    text = authored_org.generation_report_md.read_text()
+    manifest = load_manifest(authored_org)
+    batchable = sum(1 for e in manifest if e.authoring == "batchable")
+    free = sum(1 for e in manifest if e.authoring != "batchable")
+    assert f"{batchable} of {len(manifest)} documents were authored" in text
+    assert f"The other {free} cost zero model tokens" in text
+    # and it sits in provenance, above both dashboards
+    assert text.index("Model cost:") < text.index("## Integrity dashboard")
+
+
 def test_report_splits_integrity_from_realism(authored_org):
     from orgsmith.review.report import run_report
 

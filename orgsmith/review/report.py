@@ -64,6 +64,42 @@ def _provenance_lines(paths: OrgPaths) -> list[str]:
     return lines
 
 
+def _token_cost_lines(paths: OrgPaths) -> list[str]:
+    """M15: what the corpus cost a model, counted from the manifest.
+
+    Only `batchable` documents are ever sent to an author. `static` documents
+    render from the ledgers and `derived` documents are byte-derived from
+    already-committed DocIR (or, for stale templates, from the manifest entry
+    alone), so both are produced with no model call at all. That is what
+    makes a noise append free: turning a noise knob on adds derived entries
+    and dispatches no work order, which is checkable here rather than
+    asserted in prose.
+    """
+    manifest = load_manifest(paths)
+    total = len(manifest)
+    counts = {"batchable": 0, "static": 0, "derived": 0}
+    for entry in manifest:
+        counts[entry.authoring] = counts.get(entry.authoring, 0) + 1
+    batches = len(load_state(paths).generators)
+    free = counts["static"] + counts["derived"]
+    lines = [
+        f"Model cost: {counts['batchable']} of {total} documents were "
+        f"authored by a model"
+        + (f", across {batches} work order(s)." if batches else "."),
+    ]
+    if free:
+        lines.append("")
+        lines.append(
+            f"The other {free} cost zero model tokens: "
+            f"{counts['static']} static (rendered from the deterministic "
+            f"ledgers) and {counts['derived']} derived (copied or "
+            f"transformed from committed DocIR by the noise stages). "
+            f"Derived documents are added by re-running the pipeline, "
+            f"never by dispatching an authoring batch."
+        )
+    return lines
+
+
 def _length_lines(metrics: CorpusMetrics) -> list[str]:
     if not metrics.docs:
         return ["No authored documents."]
@@ -296,6 +332,8 @@ def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
         "## Provenance",
         "",
         *_provenance_lines(paths),
+        "",
+        *_token_cost_lines(paths),
         "",
         # M15: the two-dashboard split. Integrity is recomputation against
         # ground truth (holds exactly or the org is broken); Realism is

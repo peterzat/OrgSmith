@@ -27,6 +27,10 @@ Generator, per batch (self-reported at ingest; not verifiable):
 | wo:author:0015 | claude-opus-4-8 | xhigh |
 | wo:foundation:0001 | claude-opus-4-8 | xhigh |
 
+Model cost: 79 of 87 documents were authored by a model, across 16 work order(s).
+
+The other 8 cost zero model tokens: 8 static (rendered from the deterministic ledgers) and 0 derived (copied or transformed from committed DocIR by the noise stages). Derived documents are added by re-running the pipeline, never by dispatching an authoring batch.
+
 ## Integrity dashboard
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
