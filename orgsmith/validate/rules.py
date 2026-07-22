@@ -126,6 +126,35 @@ class Context:
         self._text_cache[key] = pages
         return pages
 
+    def pdf_layout_text(self, entry) -> str:
+        """PDF text via pypdf's 'layout' extraction, whitespace-normalized.
+
+        The default 'plain' mode inserts a spurious intra-word space for some
+        glyph sequences (a hyphen before a capital: "Kirby-Taylor" comes out
+        "Kirby-T aylor"), a false negative for a surface-in-text check even
+        though the name renders correctly. Layout mode preserves the run.
+
+        Used ONLY as a FACT-01/MENT-01 fallback when the surface is missing
+        from the plain text, so it can rescue a rendered-but-mis-extracted
+        surface without changing any check that already passes. Returns "" for
+        non-pdf or image-only entries, so the fallback is a no-op there."""
+        key = ("layout", entry.doc_id)
+        if key in self._text_cache:
+            return self._text_cache[key]
+        if entry.format != "pdf" or _image_only(entry):
+            self._text_cache[key] = ""
+            return ""
+        from pypdf import PdfReader
+
+        path = self.paths.share_dir / entry.path
+        text = "\n".join(
+            page.extract_text(extraction_mode="layout") or ""
+            for page in PdfReader(str(path)).pages
+        )
+        text = re.sub(r"\s+", " ", text)
+        self._text_cache[key] = text
+        return text
+
     def _legacy_text(self, entry) -> str:
         """Text obligations for a converted binary run against its
         authoring source: the fact-resolved DocIR (plus signer names, which
@@ -496,7 +525,9 @@ def fact_01(ctx: Context):
         for ref in e.facts_refs:
             if ref not in facts:
                 yield (f"facts_ref {ref} not in engagement ledger", e.path)
-            elif facts[ref].rendered not in text:
+            elif facts[ref].rendered not in text and (
+                facts[ref].rendered not in ctx.pdf_layout_text(e)
+            ):
                 yield (
                     f"fact {ref} surface form {facts[ref].rendered!r} not "
                     f"found in extractable text",
@@ -599,7 +630,11 @@ def ment_01(ctx: Context):
             continue
         if not (ctx.paths.share_dir / entry.path).exists():
             continue  # FILE-01/MAN-01 report the absence
-        if not surface_in_text(record.surface, ctx.doc_text(entry)):
+        if not surface_in_text(
+            record.surface, ctx.doc_text(entry)
+        ) and not surface_in_text(
+            record.surface, ctx.pdf_layout_text(entry)
+        ):
             yield (
                 f"planned mention surface {record.surface!r} "
                 f"({record.entity}) not found in extractable text",

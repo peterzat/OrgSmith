@@ -38,6 +38,20 @@ def test_rule_catalog_v0():
     assert {"ORG", "DATE", "FIN", "FACT", "FILE", "MAN", "PROV"} <= families
 
 
+def test_pdf_layout_text_extracts_pdf_and_noops_elsewhere():
+    """The FACT-01/MENT-01 layout-mode fallback: extracts real text for a pdf
+    (rescuing pypdf's spurious intra-word spaces, e.g. 'Kirby-T aylor') and is a
+    no-op ('') for non-pdf entries so the fallback never rescues those."""
+    from conftest import REPO
+    from orgsmith.validate.rules import Context
+
+    ctx = Context.load(OrgPaths(root=REPO, slug="dev-mini"))
+    pdf = next(e for e in ctx.manifest if e.format == "pdf")
+    docx = next(e for e in ctx.manifest if e.format == "docx")
+    assert ctx.pdf_layout_text(pdf).strip(), "layout mode extracted no text"
+    assert ctx.pdf_layout_text(docx) == "", "layout fallback must no-op non-pdf"
+
+
 def test_generated_org_validates_clean(org):
     assert run_validate(org) == 0
 
