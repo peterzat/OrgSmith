@@ -1,199 +1,206 @@
 # SPEC
 
-## Spec — 2026-07-21 — M14: email realism (thread mechanics + mailbox ecology) and the email-first pilot
+## Spec — 2026-07-22 — M15: organizational noise v2, persona voice v2, and the two-dashboard split
 
-**Goal:** Ship the realism wave's most important improvement: email that reads
-like a real mailbox. Thread mechanics (minute-granularity timing, In-Reply-To /
-References chains, quoted history, To/Cc, promotion-aware signatures, varied
-depth) plus mailbox ecology (a mundane internal genre, MIME transmittal
-attachments, distribution lists) all land under a new optional
-`doc_culture.mail` block that leaves every committed artifact byte-identical
-when off. Then prove it in one committed, boarded pilot org whose fixtures
-exercise `k>0` threads for the first time, closing the standing
-`email-threads-unproven-in-fixtures` debt with a fixture rather than an
-argument.
+**Goal:** Land the wave's noise and voice capability layers plus the
+measurement split that lets M16 show deltas: derived zero-token noise kinds
+(version chains, misfiles, stale templates, filename variety,
+attachment-version mismatch, empty directories), a structured per-person
+style spec driving per-author briefs, deterministic per-author proxy
+metrics, an integrity-vs-realism reporting split with distributional
+numbers published against the still-frozen fleet, and dev-mini's one-time
+regeneration as the voice proof bed, closing its incoherent margin.
 
 ### Acceptance Criteria
 
-- [x] **Additive and inert by default.** A new optional `MailCulture` block on
-  `DocCulture` (no `doc-culture` / `docplan-manifest` / `foundation` schema id
-  bump) and a `Foundation.distribution_lists` field defaulting empty. All eight
-  committed fleet orgs plus `calderwood-partners` load, validate, re-serialize,
-  and regenerate byte-identically; `PINNED = SLUGS` stays green fleet-wide; a
-  knob-off charter draws zero values from every new `seeds.py` stream
-  (`docplan.email.hours`, `docplan.email.threads`, `docplan.email.mundane`,
-  `docplan.email.attach`, `foundation.dls`), proven by a test that regenerates a
-  committed org and asserts byte-identity, not merely validity. Every new
-  validator check skips *visibly* on a knob-off charter and fails on
-  knob-on-with-artifact-missing (grandfather by charter, per CLAUDE.md).
+- [ ] **Additive and inert by default.** `NoiseModel` gains count fields for
+  the new kinds (version chains, misfiled copies, stale templates, empty
+  directories, attachment-version mismatch) plus a filename-variety switch,
+  all defaulting zero/off on the existing schema ids; the per-person style
+  spec lands under a new default-off knob with inert schema defaults. Every
+  committed org (the seven fleet orgs, `calderwood-partners`,
+  `ashcombe-advisory`) loads, validates, re-serializes, and regenerates
+  byte-identically with the new knobs off; `PINNED = SLUGS` stays green;
+  all committed `foundation.json` files re-serialize byte-identically. In
+  particular `calderwood-partners`, whose committed `{duplicates: 15,
+  drafts: 20}` noise is already on, re-plans a byte-identical manifest, so
+  the new fields cannot perturb the existing draw order. New randomness
+  comes only from new `seeds.py` streams, and a knob-off charter draws zero
+  values from every one of them. Every new validator check skips visibly on
+  a knob-off charter and fails on knob-on-with-artifact-missing.
 
-- [x] **Thread timing.** Under `doc_culture.mail`, a thread's messages carry
-  strictly increasing minute-granularity send datetimes inside the recipe's
-  declared business hours, with same-day replies occurring; every `.eml` `Date`
-  header recomputes exactly from ledgers plus manifest through the single shared
-  `expected_headers` function. Same-day replies in one thread render to distinct,
-  non-colliding filenames (collision test). Knob-off orgs keep the fixed 09:00
-  UTC `Date` header and the committed fleet revalidates unchanged.
+- [ ] **Version chains with divergence.** A knob-on org contains a version
+  chain of length 3 or more in which no two members are byte-identical, so
+  hash dedupe cannot collapse it; every non-final member is labeled derived
+  with its source and kind in the manifest and carries a deterministic date
+  earlier than its source's, inside the recipe's date range.
 
-- [x] **Threading headers, one shared twin.** Replies carry `In-Reply-To` naming
-  the predecessor's `Message-ID` and an ordered `References` chain; thread
-  openers carry neither; reply subjects read `RE: {subject}` and openers carry
-  the plain subject. The renderer and the validator compute these from one shared
-  `expected_headers` function (no twin drift); a hand-tampered threading header
-  is a validator *failure*, not a skip. Proven by a unit test that renders a
-  reply manifest entry and validates the rendered bytes against the same shared
-  expectation.
+- [ ] **Misfiled copies.** A misfiled derived copy sits in a folder other
+  than its source's, including across engagement folders; the manifest owns
+  the location; ACL grants and the visibility suite follow the real
+  location automatically (acl derives from the manifest), so a misfile
+  readable by the wrong team is ground truth, never a validator failure.
 
-- [x] **Derived quoted history, zero tokens, byte-stable.** A reply renders a
-  derived quoted tail (`On {date}, {name} wrote:` followed by the predecessor's
-  quote-prefixed resolved body) at render time with no model pass, byte-identical
-  on re-render. Any planted-fact surface a quoted tail carries is owned by that
-  reply's own manifest entry (`facts_refs` propagation), so the extraction and
-  retrieval eval suites still score 100% by construction on the pilot.
+- [ ] **Stale templates.** Stale templates render as genre-shaped documents
+  with bracketed dummy fields, zero planted facts, and zero planned
+  mentions, labeled derived; they are never a retrieval or extraction
+  answer (they remain visibility answers because they are readable
+  documents, mirroring the mundane-genre precedent).
 
-- [x] **Deterministic To/Cc partition.** Recipients split into To and Cc
-  deterministically from ledger ground truth (departed-as-of-send-date people
-  handled, not crashed); at least one committed pilot thread has a Cc set
-  disjoint from its To set; the people-graph and visibility eval suites stay
-  exact on the pilot.
+- [ ] **Filename variety.** Noise filenames draw from a variant decoration
+  grammar ("Copy of X", "X (1)", "X_old", "X FINAL FINAL" and the like)
+  under the switch; existing kinds' naming stays byte-unchanged; the
+  knob-on org shows at least three distinct decoration patterns.
 
-- [x] **Promotion-aware signature blocks.** Knob-on mail ends in a deterministic
-  signature block (name, title as of the send date, phone) sourced from
-  `foundation.json` and never authored, so a promotion changes a person's
-  signature mid-corpus. The model still cannot author a signature block (the
-  ingest rejection of authored signature facts stands); signature content
-  recomputes in validation.
+- [ ] **Attachment-version mismatch.** At least one knob-on transmittal
+  email attaches a non-final version-chain member while the share holds the
+  final; the attached bytes are byte-identical to the manifested draft
+  member; the manifest owns the mismatch relationship; eval attribution
+  stays exact.
 
-- [x] **Varied thread depth from a new stream.** Thread depth varies across
-  engagements, drawn from `docplan.email.threads` rather than a uniform
-  round-robin, and the pilot ships at least one thread of depth 4 or more.
+- [ ] **Split hygiene and tamper coverage.** Every new noise kind is
+  excluded from the `core` and `distractors` eval splits and included in
+  `noise` and `full` automatically; NOISE-01 (or a successor rule) covers
+  the new kinds so knob-on with labels missing is a failure; ground truth
+  scores 100% on all four splits; MAN-01, FILE-01, and PROV-01 hold
+  unweakened (every derived file manifested, openable, stamped); empty
+  directories recompute from the charter knob; a count with too few
+  eligible sources fails actionably at plan time (the existing `NoiseModel`
+  idiom), never silently under-plans.
 
-- [x] **A mundane internal-email genre.** A new non-engagement email genre
-  (scheduling / logistics / admin) is planned across the recipe date range under
-  the knob, authored short, carrying name mentions but no engagement facts, and
-  acting as a retrieval/extraction distractor: it appears in the `distractors`
-  and `full` eval splits and is never a retrieval or extraction *answer*. (It
-  remains a visibility answer, exactly, because it is a readable document, so it
-  does appear in `core` via the visibility suite; that is correct, not a leak.)
-  A knob-off charter plans none of it.
+- [ ] **The zero-token pilot noise append.** `ashcombe-advisory` gains the
+  noise kinds under its updated recipe via a wholesale pipeline re-run that
+  reuses its committed DocIR: no authoring batch is dispatched (`state.json`
+  shows none), derived entries are appended, the org re-renders,
+  re-validates green, scores 100% on all four splits, and is re-pinned. The
+  zero-token claim is stated in its `GENERATION-REPORT.md` and is true.
 
-- [x] **MIME transmittal attachments.** At least one committed pilot transmittal
-  email carries a real MIME attachment whose bytes are identical to a rendered
-  share document; the manifest owns the email→attachment relationship; `FILE-01`
-  still opens the `.eml`, `MAN-01` (manifest 1:1 with share files) still holds
-  because the attachment lives inside the `.eml` and is not an extra share file;
-  and any attachment-carried planted fact is attributed in the derived eval
-  suites.
+- [ ] **Per-person style spec in the ledgers.** Under the new knob, each
+  roster person carries a structured style spec (register, sentence-length
+  bias, greeting and closing forms, formatting habits, banned tics) drawn
+  deterministically from a new stream and stored in the deterministic
+  ledgers; enrichment `persona` prose remains the model's only free-text
+  field, and the spec is never model-authored.
 
-- [x] **Distribution lists as a derived ledger.** Distribution-list objects
-  (name, address, members) live in a derived `ledger/distribution_lists.json`,
-  NOT on `Foundation` (a field on the frozen, non-re-emittable foundation would
-  break the byte pin criterion 1 requires; the DL ledger is derived from charter
-  + roster like `acl.json`, so committed foundations stay byte-identical and the
-  ledger re-emits). Knob-on mundane mail can address a DL (the To header is the
-  list), and the visibility ground truth expands DL membership deterministically
-  so every current member of a DL-addressed message's list can read it (DL-01).
-  Scope: address plus flat members plus visibility expansion; no nesting, no
-  moderation semantics.
+- [ ] **Per-author brief guidance.** Knob-on briefs carry per-author
+  guidance derived from the style spec, auditable in retained work orders;
+  `voice_diversify` v1 keeps meaning exactly what it means for existing
+  recipes; style guidance composes with M14 signatures: style owns
+  salutation and prose habits, the ledger owns signature facts.
 
-- [x] **The email-first pilot, committed and boarded.** A new pilot org
-  (`ashcombe-advisory`, ~12 seats, ~5-6 engagements, ~60-75 docs) is generated
-  live through the airlock, committed, and browsable: `.eml` is 50% or more of
-  its authored documents, it ships 5 or more threads with a max depth up to ~8,
-  and its `format_mix.eml` sits well above its engagement count. It validates
-  green (new rules skipping visibly where the charter leaves a sub-knob off),
-  scores 100% on all four eval splits, is run through `/forge-review` with the
-  board findings published in its `GENERATION-REPORT.md`. This closes BACKLOG
-  `email-threads-unproven-in-fixtures` with a fixture.
+- [ ] **The two adopted mail-brief fixes.** (a) An engagement-thread reply
+  brief names the recipient and audience (who the message is To, whether
+  the thread is client-facing), so a client-delivered reply is no longer
+  authored as an internal note; unit-tested against the brief text
+  (capability half of `mail-audience-internal-vs-external`; fixture proof
+  lands at M16's pilot regeneration). (b) Mention planning exempts a
+  mail-block email's author from required body mentions, gated so every
+  committed manifest still re-derives byte-identically; the render-time
+  signature still names the author and validation still passes
+  (capability half of `mundane-email-author-self-names`); unit-tested.
 
-- [x] **Additive proof, docs, and the carve-out.** Full `bin/test` is green on
-  all tiers, keyless and offline, with the byte pin green on every previously
-  committed org. The project `CLAUDE.md` gains the M13-M16 frozen-fixture
-  carve-out declaration naming the pilot as a wave workbench; `docs/RECIPE-FORMAT.md`
-  documents the `doc_culture.mail` block; the README's "no committed fixture
-  exercises threads" / "all 11 `.eml` files are Email 1" language is corrected
-  (it becomes false this turn); and BACKLOG `event-simulation` is annotated that
-  email work advances process realism without the `fabric` rewrite.
+- [ ] **Per-author proxy metrics.** `report` computes deterministic
+  per-author metrics with no model (within-author vs cross-author
+  similarity, author consistency over time), reported as ranges beside the
+  existing pre-registered tic table and labeled measure-never-gate; no new
+  metric gates any test tier.
+
+- [ ] **The two-dashboard split with frozen-fleet numbers.**
+  `GENERATION-REPORT.md` and the README present Integrity (validator
+  results, byte pin, evals scoring 100% by construction) and Realism
+  (distributions, similarity, voice ranges, board findings) as separate
+  dashboards with a hard line, no number appearing in the wrong context;
+  the distributional dashboard runs against the still-frozen fleet and its
+  numbers are committed before any regeneration so M16 can show deltas;
+  reference lines are documented as non-calibrated context (annotating
+  `external-validity-program`, not closing it).
+
+- [ ] **dev-mini regenerated once, coherent.** Under the carve-out,
+  dev-mini's recipe is retuned so growth, headcount, and span describe one
+  firm; the org regenerates wholesale, live through the airlock, with the
+  voice knob on and noise off (the tracer stays bare); it validates green,
+  scores 100% on all four splits, and is re-pinned; `_COHERENCE_EXEMPT` in
+  `tests/test_org_regen.py` is emptied and the coherence test passes on
+  dev-mini unexempted. Closes `dev-mini-margin-incoherent`.
+
+- [ ] **Tests, docs, and the ledger of record.** Full `bin/test` (all tiers
+  plus `flagship`) green, keyless and offline, with the byte pin green at
+  every commit including mid-turn; `docs/RECIPE-FORMAT.md` documents the
+  new noise and voice knobs; a `noise-kinds-deliberately-excluded`
+  BACKLOG.md entry records the four user-accepted exclusions
+  (corrupted/unopenable files, personal material, contradictory
+  corrections, broken cross-document links) with reasons and revisit
+  criteria; `generator-fingerprinting` is annotated (filename grammar and
+  voice-template fingerprints eroded; real defenses stay deferred).
 
 ### Context
 
-- **Adopted from the M14 section of `~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`**,
-  the approved M13-M16 realism wave. The plan lists 12 candidate outcomes and the
-  exact touchpoints; the criteria above reformulate and consolidate them. Read
-  the plan's M14 section for the outcome-by-outcome detail and the wave context.
+- **Consumed from the 2026-07-22 proposal; adopted from the M15 section of
+  `~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`** (the approved
+  M13-M16 realism wave). Read that section for the outcome-by-outcome
+  detail; the criteria above reformulate and consolidate its 11 candidate
+  outcomes plus the dev-mini regen.
 
-- **Meeting-invite mail (`text/calendar` VEVENT) is the declared cut-line.** The
-  plan's outcome 10 (an invite email preceding a minuted working session, its
-  VEVENT date recomputed by the validator) is the first thing cut if the turn
-  runs long. Implement it if the capability layer lands with room; it is not a
-  hard criterion above. A standalone `.ics` DocFormat is explicitly out
-  (`text/calendar` inside `.eml` reuses the existing renderer/validator/`FILE-01`
-  plumbing). Timezones stay UTC, documented.
+- **Two decisions taken at adoption.** (1) The two M14 pilot-board
+  mail-brief fixes ride M15 rather than M16: M16 is scoped as
+  regeneration, re-freeze, and release, and the additive rule requires a
+  capability to exist and be proven inert before a regeneration can turn
+  it on, so the capability half lands here and the fixture proof lands
+  with M16's pilot regeneration. Both entries' revisit criteria name M15
+  because the same files are touched (`authoring/contexts.py:389` for the
+  reply guidance, `docplan/planner.py:741` `plan_mentions` for the
+  exemption). (2) The dev-mini regeneration also fixes its incoherent
+  margin, closing `dev-mini-margin-incoherent`, since the carve-out's
+  one-time regen is exactly that entry's cheapest revisit path.
 
-- **The one shared `expected_headers` twin is the load-bearing anti-drift
-  device.** `render/eml.py` already computes every header as a pure function of
-  the ledgers (`EML-01`). The renderer and the validator must call the *same*
-  function to derive threading headers, subjects, and dates, and a unit test must
-  render one entry and validate those bytes so the two cannot diverge silently.
+- **Out of scope (user-accepted exclusions, logged to BACKLOG per the last
+  criterion):** corrupted or unopenable files (FILE-01 stays a tamper
+  oracle), personal material, contradictory corrections, broken
+  cross-document links. Also out: any post-hoc voice-editing pass, any
+  gate on any voice or realism number, showing workers sibling prose (the
+  M10 wall stays down), and fleet-brief rewrites
+  (`recipe-brief-leaks-genre-spec` stays deferred to M16's recipe
+  updates).
 
-- **Additive-evolution discipline is in force (the carve-out only reopens frozen
-  fixtures, not additive evolution).** Every capability lands as a default-off
-  knob with inert schema defaults on existing schema ids and randomness drawn
-  only from the new streams listed in criterion 1. `docplan.email.cadence` (the
-  M9 stream) is left untouched so knob-off byte-stability holds. Prove inertness
-  against the not-yet-regenerated committed fixtures before the pilot turns
-  anything on.
+- **Carve-out mechanics.** `ashcombe-advisory` is the wave workbench: its
+  extension is a wholesale pipeline re-run under an updated recipe with
+  committed DocIR reused, never an in-place edit of ledgers, manifest, or
+  prose. `dev-mini` regenerates exactly once, here. `PINNED = SLUGS` must
+  be green at every commit, including between capability landing and
+  regeneration.
 
-- **In scope, and nothing wider.** Schema (`schemas.py`: `MailCulture` on
-  `DocCulture`, `Foundation.distribution_lists`, genre `Literal` additions),
-  `docplan/registry.py` (genre rows), `docplan/planner.py` (`_emit_email` knob-on
-  branch, `facts_refs` propagation to replies, send-minute planting; fix the
-  stale Cc comment at `:65`), `render/eml.py` (shared `expected_headers`
-  extension, MIME multipart, quoting, signatures, optional calendar part),
-  `render/__init__.py` (reply resolves after predecessor; attachment embed pass),
-  `foundation/scaffold.py` (DL derivation), `validate/rules.py` (`EML-01`
-  extension or `EML-02`), `authoring/contexts.py` (thread-position and mundane
-  genre brief guidance), `evals/emit.py` (split keying, attachment attribution),
-  `acl.py` (DL expansion if the posture interacts), the new
-  `recipes/ashcombe-advisory/ORG-CHARTER.md`, `docs/RECIPE-FORMAT.md`, and unit
-  tests. **Out:** any noise interaction (M15), attachment-version mismatch (M15,
-  where version chains exist), personal / off-topic content, timezone modeling.
+- **Inertness edges the pressure test surfaced.** (1) `calderwood-partners`
+  is the sharpest: its noise knob is already on, so new `NoiseModel` fields
+  must not perturb the existing duplicates/drafts draw order (criterion 1
+  pins its manifest byte-identity explicitly). (2) The mention-planning
+  exemption changes pinned manifest content, so it must be gated such that
+  committed manifests re-derive byte-identically until a recipe opts in.
+  (3) Committed `foundation.json` files are frozen and non-re-emittable;
+  wherever the style spec lives, their bytes cannot change (the M14
+  distribution-lists precedent: a derived ledger is the escape hatch if an
+  inert field cannot hold byte-identity).
 
-- **Known edge cases the pressure test surfaced.** (1) Same-day replies must not
-  collide on filename; add a dedupe/collision test. (2) A reply must render only
-  after its predecessor is resolved, so `render/__init__.py` orders replies after
-  their openers. (3) The To/Cc partition must tolerate a recipient who has
-  departed as of the send date rather than crash. (4) A quoted tail that carries
-  a planted fact must attribute that fact to the reply's manifest entry, or the
-  extraction eval drops below 100%.
+- **CI has no LibreOffice, no model, no network, no key, no wall clock in
+  any test tier.** All new noise kinds derive and validate pure-Python;
+  fixture-validating tests stay keyless and offline, per CLAUDE.md.
 
-- **CI has WeasyPrint but no LibreOffice, and no model, network, key, or wall
-  clock in any test tier.** The `.eml` renderer is stdlib `email`, so the whole
-  mail path validates pure-Python in CI. The render-and-validate twin test and
-  the quoted-tail byte-stability test need no renderer beyond stdlib. Keep every
-  new fixture-validating test pure-Python, per CLAUDE.md.
+- **House practices (zat.env).** Small committable increments with tests in
+  the same increment; run the relevant tier after each functional change.
+  If two consecutive fix attempts fail, revert and re-evaluate. Never
+  modify a test to accommodate a regression. The airlock is untouched:
+  Python never calls a model or the network, no LLM grades an LLM in any
+  automated tier, and the noise stages spend zero tokens by construction.
 
-- **House practices (zat.env).** Small committable increments with tests in the
-  same increment; run the relevant tier after each functional change. When
-  fixing a bug, change only what is necessary; do not refactor surrounding code
-  in the same change. If two consecutive fix attempts fail, revert to the last
-  working state and re-evaluate. Do not modify a test to accommodate a
-  regression. The airlock is not otherwise touched: Python still never calls a
-  model or the network, and no LLM grades an LLM in any automated tier. The
-  pilot's prose is authored only inside skills, through the file-exchange
-  airlock.
-
-- **Verification (this turn).** `bin/test` all tiers green, keyless and offline;
-  the byte pin green on every previously committed org at every commit including
-  mid-turn; knob-off proofs (byte-identical committed artifacts, zero draws from
-  the new streams) per capability; the render-and-validate twin test and the
-  same-day-collision test pass; the pilot generates live end to end, validates
-  green, scores 100% on all four eval splits, and is boarded via `/forge-review`.
+- **Verification (this turn).** `bin/test` all tiers plus `flagship` green,
+  keyless and offline; knob-off byte-identity proofs per capability before
+  any org turns a knob on; the pilot noise append dispatches zero authoring
+  batches; dev-mini regenerates live end to end, validates green, scores
+  100% on all four splits; the frozen-fleet distributional numbers are
+  committed before any regeneration.
 
 ---
-*Prior spec (2026-07-21): M13 — path containment and letterhead escaping
-(realism-wave hygiene); state-derived work-order names contained at schema, sink,
-and terminal, charter-tainted letterhead context-escaped, both SECURITY.md notes
-closed; all 7 criteria met.*
+*Prior spec (2026-07-21): M14 — email realism (thread mechanics + mailbox
+ecology) under the optional `doc_culture.mail` block, proven by the committed
+and boarded email-first pilot `ashcombe-advisory`; all 12 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-21","title":"M14: email realism (thread mechanics + mailbox ecology) and the email-first pilot","criteria_total":12,"criteria_met":12} -->
+<!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":0} -->
