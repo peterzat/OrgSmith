@@ -115,6 +115,12 @@ def main(argv=None) -> int:
     p_doc.add_argument("slug", nargs="?", help="record results into this org's state")
     p_doc.add_argument("--root", type=Path, default=None)
 
+    p_dist = sub.add_parser(
+        "distributions",
+        help="fleet distributional dashboard -> docs/DISTRIBUTIONS.md",
+    )
+    p_dist.add_argument("--root", type=Path, default=None)
+
     p_schemas = sub.add_parser(
         "emit-schemas", help="inter-stage contracts -> JSON Schema files"
     )
@@ -151,6 +157,10 @@ def main(argv=None) -> int:
         from .schemas_export import run_emit_schemas
 
         return run_emit_schemas(args.out)
+    if args.verb == "distributions":
+        from .distributions import run_distributions
+
+        return run_distributions(args.root)
 
     if args.verb == "score":
         from .evals import run_score

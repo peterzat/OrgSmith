@@ -135,3 +135,19 @@ def test_affiliation_host_exercises_affiliation_surfaces(capsys):
 
     formats = {e.format for e in load_manifest(paths)}
     assert formats <= {"docx", "pdf", "xlsx", "pptx", "eml"}
+
+
+@pytest.mark.org
+def test_distributions_dashboard_is_fresh_and_covers_the_fleet():
+    """docs/DISTRIBUTIONS.md is committed so a reader gets the frozen-fleet
+    numbers without running anything; like schemas/, it must match a
+    re-derivation exactly. Re-emit with `python -m orgsmith distributions`."""
+    from orgsmith.distributions import committed_slugs, render_distributions
+
+    committed = (REPO / "docs" / "DISTRIBUTIONS.md").read_text()
+    assert committed == render_distributions(REPO), (
+        "docs/DISTRIBUTIONS.md is stale; run: python -m orgsmith distributions"
+    )
+    for slug in committed_slugs(REPO):
+        assert f"| {slug} |" in committed
+    assert "non-calibrated" in committed
