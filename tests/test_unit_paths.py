@@ -109,11 +109,12 @@ def test_sink_contains_a_value_that_bypassed_the_schema(tmp_path, hostile):
 
 
 def test_committed_states_load_and_round_trip_under_the_new_pattern():
-    """The guard on the pattern: all eight committed states still load, validate,
-    and re-serialize byte-identically. A pattern that rejected a historically
-    written name would fail here."""
+    """The guard on the pattern: every committed state still loads, validates,
+    and re-serializes byte-identically. A pattern that rejected a historically
+    written name would fail here. (Nine as of M14: the fleet, calderwood, and
+    the ashcombe-advisory email pilot.)"""
     states = sorted(REPO.glob("companies/*-metadata/state.json"))
-    assert len(states) == 8
+    assert len(states) == 9
     for sj in states:
         raw = sj.read_text("utf-8")
         state = OrgState.model_validate_json(raw)
@@ -134,10 +135,11 @@ def test_css_string_escapes_delimiters_and_controls():
 
 
 def test_letterhead_escape_is_identity_on_every_committed_charter():
-    """All eight committed charters are plain ASCII, so both escapes are the
-    identity: adding them changes no committed letterhead output."""
+    """Every committed charter is plain ASCII, so both escapes are the
+    identity: adding them changes no committed letterhead output. (Nine as of
+    M14: the fleet, calderwood, and the ashcombe-advisory email pilot.)"""
     charters = sorted(REPO.glob("companies/*-metadata/charter.json"))
-    assert len(charters) == 8
+    assert len(charters) == 9
     for cj in charters:
         charter = Charter.model_validate_json(cj.read_text("utf-8"))
         for line in (charter.name, f"www.{charter.domain}"):
