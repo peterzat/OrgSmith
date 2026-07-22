@@ -288,6 +288,29 @@ def run_render(paths: OrgPaths) -> int:
         if entry.authoring != "derived":
             continue
         doc_state = state.doc(entry.doc_id)
+        if entry.noise_kind == "stale_template":
+            # No source doc: the template is a pure function of the entry.
+            basis = "stale:template"
+            target = paths.share_dir / entry.path
+            if doc_state.rendered_from == basis and target.exists():
+                skipped += 1
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            from .noise import stale_template_docir
+
+            _render_derived(
+                entry,
+                stale_template_docir(entry.doc_id, entry.genre, entry.title),
+                style,
+                people,
+                charter,
+                target,
+            )
+            doc_state.rendered_hash = sha256_file(target)
+            doc_state.rendered_from = basis
+            state.docs[entry.doc_id] = doc_state
+            rendered += 1
+            continue
         src_state = state.doc(entry.noise_of)
         if src_state.authored_hash is None:
             pending += 1

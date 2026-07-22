@@ -31,6 +31,56 @@ def derive_draft_docir(source: DocIR, doc_id: str) -> DocIR:
     return DocIR(doc_id=doc_id, blocks=[banner, *blocks])
 
 
+_TEMPLATE_SECTIONS = {
+    "engagement_letter": (
+        "Background",
+        "Scope of Engagement",
+        "Fees and Expenses",
+        "Terms and Termination",
+        "Signatures",
+    ),
+    "kickoff_memo": (
+        "Objectives",
+        "Workstreams",
+        "Team and Responsibilities",
+        "First Thirty Days",
+    ),
+    "meeting_minutes": ("Attendees", "Agenda", "Decisions", "Action Items"),
+    "status_report": (
+        "Summary",
+        "Progress This Period",
+        "Risks and Issues",
+        "Next Steps",
+    ),
+    "onboarding_record": (
+        "Position and Start Date",
+        "Reporting Line",
+        "Systems Access",
+        "First Assignments",
+    ),
+}
+
+
+def stale_template_docir(doc_id: str, genre: str, title: str) -> DocIR:
+    """M15: a dead template. Genre-shaped (the genre's own section headings)
+    with every field a bracketed dummy, zero planted facts, zero mentions.
+    Deterministic and RNG-free; no model pass ever touches it."""
+    blocks = [
+        Block(kind="heading", text=title, level=1),
+        Block(kind="paragraph", text="Date: [DATE]    Author: [AUTHOR NAME]"),
+    ]
+    for section in _TEMPLATE_SECTIONS[genre]:
+        blocks.append(Block(kind="heading", text=section, level=2))
+        blocks.append(
+            Block(
+                kind="paragraph",
+                text=f"[{section.upper()} -- replace with the matter's own "
+                f"text before use.]",
+            )
+        )
+    return DocIR(doc_id=doc_id, blocks=blocks)
+
+
 def derive_version_docir(
     source: DocIR, doc_id: str, pos: int, length: int
 ) -> DocIR:

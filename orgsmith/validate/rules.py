@@ -445,6 +445,20 @@ def noise_01(ctx: Context):
         )
         return
     for e in derived:
+        if e.noise_kind == "stale_template":
+            # No source; the invariant is the content: a dead template's
+            # every field is a bracketed dummy, so brackets must survive in
+            # extractable text (a filled-in template is tamper).
+            if (ctx.paths.share_dir / e.path).exists():
+                text = ctx.doc_text(e)
+                if "[" not in text or "]" not in text:
+                    yield (
+                        f"stale template {e.doc_id} carries no bracketed "
+                        f"dummy field; a filled-in template is not a "
+                        f"template",
+                        e.path,
+                    )
+            continue
         src = by_id.get(e.noise_of)
         if src is None:
             yield (

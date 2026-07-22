@@ -782,22 +782,33 @@ class ManifestEntry(StrictModel):
     @model_validator(mode="after")
     def _check_noise(self) -> "ManifestEntry":
         derived = self.authoring == "derived"
-        has_labels = "noise_of" in self.render_params and (
-            "noise_kind" in self.render_params
-        )
-        if derived != has_labels:
+        if derived != ("noise_kind" in self.render_params):
             raise ValueError(
-                "render_params carries noise_of and noise_kind exactly for "
+                "render_params carries noise_kind exactly for "
                 "authoring == 'derived'"
             )
         if derived and (self.facts_refs or self.key_facts or self.mentions):
             raise ValueError(
                 "a derived noise doc carries no facts or mentions of its own"
             )
-        kinds = ("exact_duplicate", "draft", "version", "misfile")
+        kinds = (
+            "exact_duplicate",
+            "draft",
+            "version",
+            "misfile",
+            "stale_template",
+        )
         if derived and self.noise_kind not in kinds:
             raise ValueError(
                 f"noise_kind must be one of {kinds}, got {self.noise_kind!r}"
+            )
+        # A stale template has no source document; every other kind must
+        # name one, and only derived docs carry the label at all.
+        sourced = derived and self.noise_kind != "stale_template"
+        if sourced != ("noise_of" in self.render_params):
+            raise ValueError(
+                "render_params carries noise_of exactly for derived kinds "
+                "with a source (a stale_template has none)"
             )
         if derived and self.noise_kind == "version":
             pos = self.render_params.get("noise_pos")

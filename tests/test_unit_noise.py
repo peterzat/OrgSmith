@@ -524,3 +524,64 @@ def test_acl_and_visibility_follow_the_misfiled_location(tmp_path):
     ctx = Context.load(p)
     for rule in (acl_01, acl_02, acl_03):
         assert list(rule(ctx)) == []
+
+
+# --- M15 noise v2: stale templates ----------------------------------------
+
+
+def test_stale_templates_plan_dated_authored_and_sourceless(tmp_path):
+    from orgsmith.artifacts import load_charter, load_foundation
+
+    p = _pure(tmp_path, stale_templates=2)
+    manifest = load_manifest(p)
+    stale = [e for e in manifest if e.noise_kind == "stale_template"]
+    assert len(stale) == 2
+    assert len({e.genre for e in stale}) == 2  # distinct genres, no twins
+    start, end = load_charter(p).doc_culture.date_range
+    people = {q.id: q for q in load_foundation(p).people}
+    for e in stale:
+        assert e.path.startswith("Templates/")
+        assert "noise_of" not in e.render_params
+        assert e.engagement is None
+        assert not e.facts_refs and not e.key_facts and not e.mentions
+        assert start <= e.date <= end
+        author = people[e.authors[0]]
+        assert author.employment.start <= e.date
+        assert (
+            author.employment.end is None or author.employment.end >= e.date
+        )
+
+
+def test_stale_template_renders_bracketed_and_validates(tmp_path):
+    p = _pure(tmp_path, stale_templates=1)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    ctx = Context.load(p)
+    assert list(noise_01(ctx)) == []
+    e = next(x for x in ctx.manifest if x.noise_kind == "stale_template")
+    text = ctx.doc_text(e)
+    assert "[" in text and "]" in text
+    assert "{{fact:" not in text
+
+
+def test_noise01_fires_on_a_filled_in_template(tmp_path):
+    import docx as docx_lib
+
+    p = _pure(tmp_path, stale_templates=1)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    e = next(
+        x for x in load_manifest(p) if x.noise_kind == "stale_template"
+    )
+    d = docx_lib.Document()
+    d.add_paragraph("Scope agreed and fees confirmed; nothing left to fill.")
+    d.save(str(p.share_dir / e.path))
+    findings = list(noise_01(Context.load(p)))
+    assert any("bracketed" in msg for msg, _ in findings)
+
+
+def test_stale_over_demand_fails_actionably(tmp_path):
+    with pytest.raises(SystemExit, match="template-able genre"):
+        _pure(tmp_path, stale_templates=99)

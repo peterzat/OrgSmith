@@ -941,7 +941,82 @@ class _Planner:
                 next_id += 1
         next_id = self._plan_chains(entries, eligible, seen, derived, next_id)
         next_id = self._plan_misfiles(entries, eligible, seen, derived, next_id)
+        next_id = self._plan_stale_templates(entries, seen, derived, next_id)
         return entries + derived
+
+    _TEMPLATE_GENRES = (
+        "engagement_letter",
+        "kickoff_memo",
+        "meeting_minutes",
+        "status_report",
+        "onboarding_record",
+    )
+
+    def _plan_stale_templates(
+        self,
+        entries: list[ManifestEntry],
+        seen: set[str],
+        derived: list[ManifestEntry],
+        next_id: int,
+    ) -> int:
+        """M15: dead templates in a Templates/ folder. Genre-shaped documents
+        whose every field is a bracketed dummy: zero planted facts, zero
+        planned mentions, never a retrieval or extraction answer (they stay
+        visibility answers because they are readable, like the mundane
+        genre). One template per drawn genre, genres sampled without
+        replacement from those the org actually plans, so two templates can
+        never be byte-identical. Dated in the first half of the range (dead
+        templates are old) with an author employed on that date. Draws only
+        from the NEW docplan.noise.stale stream."""
+        noise = self.charter.doc_culture.noise
+        if noise is None or noise.stale_templates == 0:
+            return next_id
+        srng = rng(self.charter.seed, "docplan.noise.stale")
+        planned_genres = {e.genre for e in entries}
+        present = [g for g in self._TEMPLATE_GENRES if g in planned_genres]
+        if noise.stale_templates > len(present):
+            raise SystemExit(
+                f"docplan: noise wants {noise.stale_templates} stale "
+                f"template(s) but the plan carries only {len(present)} "
+                f"template-able genre(s) {present}; lower stale_templates"
+            )
+        picks = srng.sample(range(len(present)), noise.stale_templates)
+        span = (self.range_end - self.range_start).days
+        registry = {r.genre: r for r in REGISTRY}
+        for gi in picks:
+            genre = present[gi]
+            prefix = registry[genre].title_prefix or genre.title()
+            date = self.range_start + timedelta(
+                days=srng.randint(0, max(span // 2, 1))
+            )
+            employed = [
+                p
+                for p in self.foundation.people
+                if p.employment.start <= date
+                and (p.employment.end is None or p.employment.end >= date)
+            ]
+            author = employed[srng.randrange(len(employed))]
+            path = f"Templates/{prefix} Template.docx"
+            if path.lower() in seen:
+                path = f"Templates/{prefix} Template ({next_id}).docx"
+            seen.add(path.lower())
+            derived.append(
+                ManifestEntry(
+                    doc_id=f"d:{next_id:04d}",
+                    path=path,
+                    title=f"{prefix} Template",
+                    genre=genre,
+                    format="docx",
+                    date=date,
+                    authors=[author.id],
+                    participants=[],
+                    engagement=None,
+                    authoring="derived",
+                    render_params={"noise_kind": "stale_template"},
+                )
+            )
+            next_id += 1
+        return next_id
 
     def _plan_misfiles(
         self,
