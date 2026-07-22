@@ -2,7 +2,7 @@
 
 Derived artifact: re-emit with `python -m orgsmith report ashcombe-advisory`. Never edit by hand. Nothing here gates anything; it is what the quality instrument measured and what the review board said, for a human to read.
 
-87 documents planned; 79 carry authored prose.
+104 documents planned; 79 carry authored prose.
 
 ## Provenance
 
@@ -27,15 +27,15 @@ Generator, per batch (self-reported at ingest; not verifiable):
 | wo:author:0015 | claude-opus-4-8 | xhigh |
 | wo:foundation:0001 | claude-opus-4-8 | xhigh |
 
-Model cost: 79 of 87 documents were authored by a model, across 16 work order(s).
+Model cost: 79 of 104 documents were authored by a model, across 16 work order(s).
 
-The other 8 cost zero model tokens: 8 static (rendered from the deterministic ledgers) and 0 derived (copied or transformed from committed DocIR by the noise stages). Derived documents are added by re-running the pipeline, never by dispatching an authoring batch.
+The other 25 cost zero model tokens: 8 static (rendered from the deterministic ledgers) and 17 derived (copied or transformed from committed DocIR by the noise stages). Derived documents are added by re-running the pipeline, never by dispatching an authoring batch.
 
 ## Integrity dashboard
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 28 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, AFF-01, AFF-02, STY-01, SCAN-01, SCAN-02, LEG-01.
+Validator: 29 rules run, 0 error(s), 0 warning(s); skipped by charter knob: AFF-01, AFF-02, STY-01, SCAN-01, SCAN-02, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score ashcombe-advisory --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 

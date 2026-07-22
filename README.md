@@ -199,7 +199,7 @@ flagship is M17; the pilot is the same capability at a tenth the scale.
 
 [`ashcombe-advisory`](companies/ashcombe-advisory/) is the M14 email-first
 pilot, committed beside the fleet: a 12-seat corporate communications and
-investor-relations advisory across 2017–2024, 87 documents, generated through
+investor-relations advisory across 2017–2024, 104 documents, generated through
 the same live airlock on `claude-opus-4-8` at effort `xhigh`. It is the
 org to read for email realism. Under a new optional `doc_culture.mail` block,
 its engagement mail runs as real threads — **42 authored `.eml`, 53% of its
@@ -208,12 +208,27 @@ send times in declared business hours, `In-Reply-To`/`References` chains, RE:
 subjects, derived quoted-history tails, a deterministic To/Cc split,
 promotion-aware signature blocks, two transmittal emails carrying a kickoff
 memo as a byte-identical MIME attachment, a mundane internal-email genre, and
-three distribution lists. It validates clean (28 rules run, 0 errors) and
+three distribution lists. It validates clean (29 rules run, 0 errors) and
 scores 100% on all four eval splits. Its board findings ship in its
 [`GENERATION-REPORT.md`](companies/ashcombe-advisory-metadata/GENERATION-REPORT.md) —
 read the recipient/audience finding: some replies were authored in an internal
 register but are delivered to the client, a realism gap logged for the wave's
 regeneration turn.
+
+It is also the M15 noise workbench. **17 of its 104 documents are derived**
+and cost zero model tokens: two exact duplicates, three drafts, three version
+chains whose members diverge (so hash dedupe cannot collapse them), two
+misfiled copies sitting in the wrong client folder, two dead templates full of
+bracketed dummy fields, and three junk directories. One transmittal attaches
+`_v3` of a kickoff memo while the share holds the final, so an agent that
+trusts the attachment is reading a superseded document. Filenames decorate
+themselves the way real shares do (`Copy of …`, `… (1)`, `… FINAL FINAL`,
+`… EXECUTED DO NOT USE`). The whole layer landed as a pipeline re-run over the
+committed DocIR: no authoring batch was dispatched, and its
+`GENERATION-REPORT.md` states that cost as a count, not a claim. Every derived
+document is labeled in the manifest and excluded from the `core` and
+`distractors` eval splits automatically, so noise is ground truth rather than
+a scoring hazard.
 
 ### Where that sits against a real firm
 
@@ -232,8 +247,15 @@ produce 40 documents. It produces, very roughly:
   remains document-dominant, by design (specimens, not samples).
 - **Files in the thousands to hundreds of thousands**, most of them junk:
   drafts, near-duplicate versions, dead templates, misfiled scans, someone's
-  lunch menu. OrgSmith ships 22–53 documents per company, each one
-  deliberate and none of them junk.
+  lunch menu. OrgSmith ships 22–218 documents per company. Junk is now a
+  recipe knob rather than an absence: `calderwood-partners` carries 35
+  derived duplicates and drafts, and the noise workbench
+  [`ashcombe-advisory`](#the-m14-email-pilot) carries 17 across six kinds
+  (duplicates, drafts, diverging version chains, misfiles, dead templates,
+  junk directories). Every junk file is labeled in the manifest and kept out
+  of the clean eval splits, which is the part a real share cannot do for you.
+  The gap that remains is proportion: real shares are mostly junk, and these
+  are not.
 - **A book of business far larger than the documented one.** Every org's
   engagement ledger is a deliberate sample: fees across it come to 1.6–5.1%
   of the revenue on the same firm's own financial summaries. Our review

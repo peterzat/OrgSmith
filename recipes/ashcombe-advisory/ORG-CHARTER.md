@@ -36,6 +36,20 @@ doc_culture:
     mundane_emails: 8
     attachments: 2
     distribution_lists: 3
+  # Organizational noise (M15), appended to the committed corpus with the
+  # DocIR reused and zero authoring tokens: derived copies, drafts, version
+  # chains with divergence, misfiles, dead templates, junk directories, one
+  # transmittal attaching the near-final draft while the share holds the
+  # final, and decorated junk filenames.
+  noise:
+    duplicates: 2
+    drafts: 3
+    version_chains: 3
+    misfiled: 2
+    stale_templates: 2
+    empty_dirs: 3
+    attachment_mismatch: 1
+    filename_variety: true
 
 finance:
   # 8% growth against three net new seats over eight years; a coherent

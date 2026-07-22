@@ -12,20 +12,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -41,6 +47,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -66,7 +73,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -77,6 +87,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -87,11 +98,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Michael Morris (Partner)
 
@@ -102,20 +119,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -131,6 +154,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -156,7 +180,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -167,6 +194,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -177,11 +205,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Christopher Walton (Senior Advisor)
 
@@ -192,20 +226,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -221,6 +261,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -246,7 +287,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -257,6 +301,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -267,11 +312,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Daniel Valenzuela (Advisor)
 
@@ -282,20 +333,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -311,6 +368,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -336,7 +394,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -347,6 +408,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -357,11 +419,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Laura Bradley (Senior Associate)
 
@@ -372,20 +440,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -401,6 +475,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -426,7 +501,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -437,6 +515,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -447,11 +526,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## John Macias (Associate)
 
@@ -462,20 +547,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -491,6 +582,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -516,7 +608,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -527,6 +622,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -537,11 +633,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Michelle Black (Communications Analyst)
 
@@ -555,20 +657,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -584,6 +692,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -609,7 +718,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -620,6 +732,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -630,11 +743,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Michelle Rose (Communications Associate)
 
@@ -645,20 +764,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -674,6 +799,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -699,7 +825,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -710,6 +839,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -720,11 +850,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Lisa Flores (Director of Operations)
 
@@ -735,20 +871,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -764,6 +906,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -789,7 +932,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -800,6 +946,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -810,11 +957,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Pamela Rojas (Office Manager)
 
@@ -825,20 +978,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -854,6 +1013,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -879,7 +1039,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -890,6 +1053,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -900,11 +1064,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Sandra Mcdonald (Office Manager)
 
@@ -915,20 +1085,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -944,6 +1120,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -969,7 +1146,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -980,6 +1160,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -990,11 +1171,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Kimberly Le (Communications Analyst)
 
@@ -1005,20 +1192,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -1034,6 +1227,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -1059,7 +1253,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -1070,6 +1267,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -1080,11 +1278,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Amy Carter (Communications Associate)
 
@@ -1095,20 +1299,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -1124,6 +1334,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -1149,7 +1360,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -1160,6 +1374,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -1170,11 +1385,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Nancy Suarez (Communications Associate)
 
@@ -1185,20 +1406,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -1214,6 +1441,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -1239,7 +1467,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -1250,6 +1481,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -1260,11 +1492,17 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
 
 ## Julie Bailey (Communications Associate)
 
@@ -1275,20 +1513,26 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.16 - Email 3 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.20 - Email 4 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.23 - Briefing Deck - Barrera Group.pptx
+- Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml
 - Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.24 - Email 6 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.27 - Email 7 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
 - Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
 - Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
 - Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
 - Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
 - Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
 - Engagements/Gallegos, Pope and Marsh/2024.03.11 - Email 1 - Reputation Audit - Gallegos, Pope and Marsh.eml
@@ -1304,6 +1548,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Kirby-Taylor/2022.04.18 - Engagement Letter - Kirby-Taylor - EXECUTED.pdf
 - Engagements/Kirby-Taylor/2022.05.01 - Kickoff Memo - Media Relations Program.docx
 - Engagements/Kirby-Taylor/2022.05.26 - Email 1 - Media Relations Program - Kirby-Taylor.eml
+- Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml
 - Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.05.31 - Email 3 - Media Relations Program - Kirby-Taylor.eml
 - Engagements/Kirby-Taylor/2022.06.03 - Email 4 - Media Relations Program - Kirby-Taylor.eml
@@ -1329,7 +1574,10 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Suarez-Jones/2023.08.10 - Email 6 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.10 - Email 7 - Executive Messaging - Suarez-Jones.eml
 - Engagements/Suarez-Jones/2023.08.11 - Email 8 - Executive Messaging - Suarez-Jones.eml
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v1.docx
+- Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL v2.docx
 - Engagements/Suarez-Jones/2023.09.15 - Status Report - Suarez-Jones v2 FINAL.docx
+- Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml
 - Engagements/Suarez-Jones/Meeting Minutes 2023-08-31 - Suarez-Jones.docx
 - Finance/FY2016 Financial Summary.xlsx
 - Finance/FY2017 Financial Summary.xlsx
@@ -1340,6 +1588,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Finance/FY2022 Financial Summary.xlsx
 - Finance/FY2023 Financial Summary.xlsx
 - Firm/Firm Overview 2017 v3.docx
+- Firm/Firm Overview 2020 v3 draft.docx
 - Firm/Firm Overview 2020 v3.docx
 - Firm/Firm Overview 2023 v3.docx
 - Firm/Mail/2017.07.03 - Office logistics.eml
@@ -1350,8 +1599,14 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Firm/Mail/2022.07.01 - Holiday coverage.eml
 - Firm/Mail/2023.07.03 - Team lunch.eml
 - Firm/Mail/2024.07.01 - Parking update.eml
+- Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx
 - People/2019.01.12 - Onboarding - Amy Carter.docx
 - People/2019.02.06 - Onboarding - Sandra Mcdonald.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v1.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v2.docx
+- People/2019.02.06 - Onboarding - Sandra Mcdonald_v3.docx
 - People/2020.08.21 - Onboarding - Kimberly Le.docx
 - People/2021.02.08 - Onboarding - Nancy Suarez.docx
 - People/2023.05.02 - Onboarding - Julie Bailey.docx
+- Templates/Copy of Status Report Template.docx
+- Templates/Engagement Letter Template OLD.docx
