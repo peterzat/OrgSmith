@@ -73,9 +73,35 @@ doc_culture:
   # derived words stay separable and evals exclude it. Fails at docplan if the
   # corpus has too few eligible sources (batchable, modern-format, no scan,
   # legacy, or non-body fact). Validated by NOISE-01.
+  # Noise v2 (M15) adds four more derived kinds, a junk-directory count, and
+  # a filename switch, all optional and default zero/off, all still
+  # model-free. version_chains plants chains of length 3-4 whose members each
+  # drop a different amount of tail, so no two members (final included) are
+  # byte-identical and hash dedupe cannot collapse the chain; members are
+  # dated before their source, inside date_range. misfiled copies land in a
+  # folder other than their source's, including another engagement's, and ACL
+  # follows the real location (a misfile readable by the wrong team is ground
+  # truth, not a validator failure). stale_templates render genre-shaped
+  # documents of bracketed dummy fields with zero planted facts and zero
+  # mentions, under Templates/. empty_dirs plants that many junk directories
+  # (Archive, New folder, Backup...); each carries one zero-byte .gitkeep,
+  # without which git would drop the directory from a committed org.
+  # attachment_mismatch retargets that many transmittals onto the near-final
+  # chain member while the share holds the final, so an agent trusting the
+  # attachment reads a superseded document; it requires mail.attachments > 0
+  # and version_chains > 0. filename_variety decorates NOISE filenames only
+  # ("Copy of X", "X (1)", "X_old", "X FINAL FINAL"); existing kinds' naming
+  # is byte-unchanged when it is off. Every kind is excluded from the core and
+  # distractors eval splits automatically. Validated by NOISE-01.
   # noise:
-  #   duplicates: 3     # exact byte-duplicates
-  #   drafts: 5         # near-duplicate draft versions
+  #   duplicates: 3            # exact byte-duplicates
+  #   drafts: 5                # near-duplicate draft versions
+  #   version_chains: 2        # diverging _v1/_v2/_v3 chains (M15)
+  #   misfiled: 2              # copies filed in the wrong folder (M15)
+  #   stale_templates: 2       # dead Templates/ boilerplate (M15)
+  #   empty_dirs: 3            # junk directories (M15)
+  #   attachment_mismatch: 1   # transmittal attaches a superseded draft (M15)
+  #   filename_variety: true   # decorate noise filenames (M15)
   # Email culture (M14), optional, default off (absent). Presence turns
   # engagement mail into real threads: per-engagement depth varied from a
   # seed stream, minute-granularity send times inside business_hours (with
@@ -99,6 +125,31 @@ doc_culture:
   #   mundane_emails: 4         # short non-engagement internal notes
   #   attachments: 1            # transmittal openers carrying a kickoff memo
   #   distribution_lists: 3     # All Staff + per-department mailing lists
+  #   exempt_author_mentions: false  # M15: drop the author from a mundane
+  #                             # note's required body mentions, so nobody
+  #                             # writes their own name into their own email
+  #                             # (the render-time signature still names
+  #                             # them). Gated because turning it on changes
+  #                             # planned mentions, so committed manifests
+  #                             # re-derive byte-identically until a recipe
+  #                             # opts in.
+  # Voice, two knobs, both optional and default off:
+  # voice_diversify: true   # M12, v1: per-author register from a seed stream
+  #                         # plus a brief-level ban on the constructions the
+  #                         # review board named. Meaning is unchanged by M15.
+  # style_specs: true       # M15, v2: each roster person carries a STRUCTURED
+  #                         # style spec (register, sentence-length bias,
+  #                         # greeting and closing forms, formatting habits,
+  #                         # banned tics), drawn deterministically into
+  #                         # ledger/style_specs.json and turned into
+  #                         # per-author brief guidance. The spec is never
+  #                         # model-authored; enrichment `persona` prose stays
+  #                         # the model's only free-text field. Style owns
+  #                         # salutation and prose habits, the ledger owns
+  #                         # signature facts, so the two cannot contradict.
+  #                         # Recomputed by STY-01. A proxy, never a gate: the
+  #                         # report ranges per-author similarity and nothing
+  #                         # in any test tier reads a threshold.
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD

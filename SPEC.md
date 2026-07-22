@@ -13,7 +13,7 @@ regeneration as the voice proof bed, closing its incoherent margin.
 
 ### Acceptance Criteria
 
-- [ ] **Additive and inert by default.** `NoiseModel` gains count fields for
+- [x] **Additive and inert by default.** `NoiseModel` gains count fields for
   the new kinds (version chains, misfiled copies, stale templates, empty
   directories, attachment-version mismatch) plus a filename-variety switch,
   all defaulting zero/off on the existing schema ids; the per-person style
@@ -29,36 +29,36 @@ regeneration as the voice proof bed, closing its incoherent margin.
   values from every one of them. Every new validator check skips visibly on
   a knob-off charter and fails on knob-on-with-artifact-missing.
 
-- [ ] **Version chains with divergence.** A knob-on org contains a version
+- [x] **Version chains with divergence.** A knob-on org contains a version
   chain of length 3 or more in which no two members are byte-identical, so
   hash dedupe cannot collapse it; every non-final member is labeled derived
   with its source and kind in the manifest and carries a deterministic date
   earlier than its source's, inside the recipe's date range.
 
-- [ ] **Misfiled copies.** A misfiled derived copy sits in a folder other
+- [x] **Misfiled copies.** A misfiled derived copy sits in a folder other
   than its source's, including across engagement folders; the manifest owns
   the location; ACL grants and the visibility suite follow the real
   location automatically (acl derives from the manifest), so a misfile
   readable by the wrong team is ground truth, never a validator failure.
 
-- [ ] **Stale templates.** Stale templates render as genre-shaped documents
+- [x] **Stale templates.** Stale templates render as genre-shaped documents
   with bracketed dummy fields, zero planted facts, and zero planned
   mentions, labeled derived; they are never a retrieval or extraction
   answer (they remain visibility answers because they are readable
   documents, mirroring the mundane-genre precedent).
 
-- [ ] **Filename variety.** Noise filenames draw from a variant decoration
+- [x] **Filename variety.** Noise filenames draw from a variant decoration
   grammar ("Copy of X", "X (1)", "X_old", "X FINAL FINAL" and the like)
   under the switch; existing kinds' naming stays byte-unchanged; the
   knob-on org shows at least three distinct decoration patterns.
 
-- [ ] **Attachment-version mismatch.** At least one knob-on transmittal
+- [x] **Attachment-version mismatch.** At least one knob-on transmittal
   email attaches a non-final version-chain member while the share holds the
   final; the attached bytes are byte-identical to the manifested draft
   member; the manifest owns the mismatch relationship; eval attribution
   stays exact.
 
-- [ ] **Split hygiene and tamper coverage.** Every new noise kind is
+- [x] **Split hygiene and tamper coverage.** Every new noise kind is
   excluded from the `core` and `distractors` eval splits and included in
   `noise` and `full` automatically; NOISE-01 (or a successor rule) covers
   the new kinds so knob-on with labels missing is a failure; ground truth
@@ -68,27 +68,27 @@ regeneration as the voice proof bed, closing its incoherent margin.
   eligible sources fails actionably at plan time (the existing `NoiseModel`
   idiom), never silently under-plans.
 
-- [ ] **The zero-token pilot noise append.** `ashcombe-advisory` gains the
+- [x] **The zero-token pilot noise append.** `ashcombe-advisory` gains the
   noise kinds under its updated recipe via a wholesale pipeline re-run that
   reuses its committed DocIR: no authoring batch is dispatched (`state.json`
   shows none), derived entries are appended, the org re-renders,
   re-validates green, scores 100% on all four splits, and is re-pinned. The
   zero-token claim is stated in its `GENERATION-REPORT.md` and is true.
 
-- [ ] **Per-person style spec in the ledgers.** Under the new knob, each
+- [x] **Per-person style spec in the ledgers.** Under the new knob, each
   roster person carries a structured style spec (register, sentence-length
   bias, greeting and closing forms, formatting habits, banned tics) drawn
   deterministically from a new stream and stored in the deterministic
   ledgers; enrichment `persona` prose remains the model's only free-text
   field, and the spec is never model-authored.
 
-- [ ] **Per-author brief guidance.** Knob-on briefs carry per-author
+- [x] **Per-author brief guidance.** Knob-on briefs carry per-author
   guidance derived from the style spec, auditable in retained work orders;
   `voice_diversify` v1 keeps meaning exactly what it means for existing
   recipes; style guidance composes with M14 signatures: style owns
   salutation and prose habits, the ledger owns signature facts.
 
-- [ ] **The two adopted mail-brief fixes.** (a) An engagement-thread reply
+- [x] **The two adopted mail-brief fixes.** (a) An engagement-thread reply
   brief names the recipient and audience (who the message is To, whether
   the thread is client-facing), so a client-delivered reply is no longer
   authored as an internal note; unit-tested against the brief text
@@ -99,13 +99,13 @@ regeneration as the voice proof bed, closing its incoherent margin.
   signature still names the author and validation still passes
   (capability half of `mundane-email-author-self-names`); unit-tested.
 
-- [ ] **Per-author proxy metrics.** `report` computes deterministic
+- [x] **Per-author proxy metrics.** `report` computes deterministic
   per-author metrics with no model (within-author vs cross-author
   similarity, author consistency over time), reported as ranges beside the
   existing pre-registered tic table and labeled measure-never-gate; no new
   metric gates any test tier.
 
-- [ ] **The two-dashboard split with frozen-fleet numbers.**
+- [x] **The two-dashboard split with frozen-fleet numbers.**
   `GENERATION-REPORT.md` and the README present Integrity (validator
   results, byte pin, evals scoring 100% by construction) and Realism
   (distributions, similarity, voice ranges, board findings) as separate
@@ -203,4 +203,4 @@ regeneration as the voice proof bed, closing its incoherent margin.
 ecology) under the optional `doc_culture.mail` block, proven by the committed
 and boarded email-first pilot `ashcombe-advisory`; all 12 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":13} -->
