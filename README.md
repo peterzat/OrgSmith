@@ -458,7 +458,7 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 34-rule validator ties every document back to the
+- After rendering, a 35-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
@@ -502,7 +502,7 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 relying on for any given claim.
 
 **Oracles — strongest, and where all the facts live.** An oracle recomputes
-the answer from ground truth. The 34-rule validator and the eval suites are
+the answer from ground truth. The 35-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
 is why the airlock exists — the model never sees a value it is placing, so
@@ -551,10 +551,43 @@ where it **overruled the metric** (judging a flagged similar pair to be
 realistic template reuse) and the case where it caught what the metric
 provably cannot see.
 
+### Two dashboards, and the line between them
+
+The hierarchy above is a claim about instruments. The reporting enforces it
+as a layout: every org's
+[`GENERATION-REPORT.md`](companies/ashcombe-advisory-metadata/GENERATION-REPORT.md)
+carries two dashboards with a hard line between them, and no number is
+allowed to appear in the other's context.
+
+**Integrity** is recomputation against ground truth: validator results, the
+eval suites scoring 100% *by construction* (the answer key is derived from
+the same ledgers the documents are, so anything less is a broken org, not a
+weak one), and the byte pin. These hold exactly or the org is broken. They
+say nothing whatever about how real the prose reads, and reporting them as
+if they did is the single most available way to overstate a synthetic
+corpus.
+
+**Realism** is measurement and judgment: length against brief, same-genre
+similarity, per-author voice ranges, fee coverage, and the review board's
+findings. Nothing here has a validated threshold, nothing here gates, and a
+number moving in a direction we like is not evidence that it should have.
+Fleet-wide distributions live in
+[`docs/DISTRIBUTIONS.md`](docs/DISTRIBUTIONS.md) — corpus shape per org plus
+an aggregate, with reference lines that restate this README's
+order-of-magnitude prose about real firms rather than any sampled
+population. They are context for reading the gap, not a score
+(`external-validity-program` in `BACKLOG.md` is open, and this does not
+close it).
+
+The practical test of the line: an integrity number can only ever be "holds"
+or "the org is broken", so it deserves no celebration; a realism number can
+move a long way and still not mean the corpus got better. Keeping them in
+separate boxes makes it hard to quote one as the other.
+
 ### The evidence, concretely
 
-- **551 tests** across the default three tiers (`bin/test`), keyless and
-  offline (545 pass with six legacy-format tests skipped where LibreOffice is
+- **602 tests** across the default three tiers (`bin/test`), keyless and
+  offline (596 pass with six legacy-format tests skipped where LibreOffice is
   absent, as in CI), plus a fourth `flagship` tier (20 tests) for the two
   large pilot orgs (`calderwood-partners` and the M14 email pilot
   `ashcombe-advisory`), run on their own so the everyday loop stays fast;
@@ -864,7 +897,7 @@ on, so it stays small and cheap rather than proving breadth.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 34-rule validator, capability
+- The airlock, checkpoint/resume, the 35-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - The quality instrument, which measures the one thing the validator
