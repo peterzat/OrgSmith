@@ -18,7 +18,7 @@ from orgsmith.foundation.scaffold import run_scaffold
 from orgsmith.paths import OrgPaths
 from orgsmith.render import run_render
 from orgsmith.render.noise import derive_draft_docir
-from orgsmith.schemas import Block, DocIR
+from orgsmith.schemas import Block, DocCulture, DocIR, MailCulture, NoiseModel
 from orgsmith.validate.rules import Context, _needs_noise, noise_01
 
 from conftest import REPO, run_authoring, run_enrichment
@@ -205,3 +205,76 @@ def test_derive_draft_introduces_no_new_facts():
 
     draft_ph = set(re.findall(r"\{\{fact:([^}]*)\}\}", " ".join(texts)))
     assert draft_ph <= src_ph
+
+
+# --- M15 noise v2: schema layer -------------------------------------------
+
+
+def _culture(**kw) -> DocCulture:
+    from datetime import date
+
+    return DocCulture(
+        target_docs=20,
+        date_range=(date(2020, 1, 1), date(2024, 12, 31)),
+        format_mix={"docx": 10, "eml": 5},
+        **kw,
+    )
+
+
+def test_noise_v2_fields_default_zero_and_off():
+    """calderwood's committed {duplicates: 15, drafts: 20} shape gains the
+    new fields at zero/off, so its declared noise plans unchanged."""
+    m = NoiseModel(duplicates=15, drafts=20)
+    assert m.version_chains == 0
+    assert m.misfiled == 0
+    assert m.stale_templates == 0
+    assert m.empty_dirs == 0
+    assert m.attachment_mismatch == 0
+    assert m.filename_variety is False
+
+
+def test_a_v2_kind_alone_declares_a_valid_model():
+    assert NoiseModel(version_chains=1).version_chains == 1
+    assert NoiseModel(empty_dirs=2).empty_dirs == 2
+
+
+def test_all_zero_noise_model_still_rejected():
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError):
+        NoiseModel()
+    with pytest.raises(ValidationError):
+        # the variety switch alone plans nothing
+        NoiseModel(filename_variety=True)
+
+
+def test_attachment_mismatch_requires_mail_with_attachments():
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError, match="mail block"):
+        _culture(noise=NoiseModel(version_chains=1, attachment_mismatch=1))
+    with pytest.raises(ValidationError, match="mail block"):
+        _culture(
+            noise=NoiseModel(version_chains=1, attachment_mismatch=1),
+            mail=MailCulture(),  # attachments defaults 0
+        )
+
+
+def test_attachment_mismatch_requires_version_chains():
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError, match="version_chains"):
+        _culture(
+            noise=NoiseModel(duplicates=1, attachment_mismatch=1),
+            mail=MailCulture(attachments=2),
+        )
+    ok = _culture(
+        noise=NoiseModel(version_chains=1, attachment_mismatch=1),
+        mail=MailCulture(attachments=2),
+    )
+    assert ok.noise.attachment_mismatch == 1
+
+
+def test_style_specs_defaults_off_on_doc_culture():
+    assert _culture().style_specs is False
+    assert _culture(style_specs=True).style_specs is True

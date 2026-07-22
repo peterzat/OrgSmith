@@ -93,6 +93,11 @@
           "title": "Scanned Ratio",
           "type": "number"
         },
+        "style_specs": {
+          "default": false,
+          "title": "Style Specs",
+          "type": "boolean"
+        },
         "target_docs": {
           "exclusiveMinimum": 0,
           "title": "Target Docs",
@@ -324,8 +329,14 @@
     },
     "NoiseModel": {
       "additionalProperties": false,
-      "description": "M12: deterministic corpus noise, derived from already-authored documents\nwith no model pass. A real share is mostly junk (drafts, copies, superseded\nversions); today every committed document is deliberate. When declared, the\ndocplan plans `duplicates` exact byte-duplicates and `drafts` near-duplicate\ndraft versions of eligible authored documents, each labeled in the manifest\nwith its source (noise_of) so authored and derived words stay separable and\na scorer can exclude them.\n\nExact byte-duplicates alone are not enough: an agent collapses those on a\nhash without reading them (docs/SCALE.md), so `drafts` carry a near-copy\nthat does not. Counts, not rates, matching the hard_cases idiom: a recipe\nasks for a shape and docplan plants exactly it, failing actionably if the\ncorpus has too few eligible sources.",
+      "description": "M12: deterministic corpus noise, derived from already-authored documents\nwith no model pass. A real share is mostly junk (drafts, copies, superseded\nversions); today every committed document is deliberate. When declared, the\ndocplan plans `duplicates` exact byte-duplicates and `drafts` near-duplicate\ndraft versions of eligible authored documents, each labeled in the manifest\nwith its source (noise_of) so authored and derived words stay separable and\na scorer can exclude them.\n\nExact byte-duplicates alone are not enough: an agent collapses those on a\nhash without reading them (docs/SCALE.md), so `drafts` carry a near-copy\nthat does not. Counts, not rates, matching the hard_cases idiom: a recipe\nasks for a shape and docplan plants exactly it, failing actionably if the\ncorpus has too few eligible sources.\n\nM15 (noise v2) adds five kinds and a switch, every one defaulting\nzero/off so a committed recipe's declared noise (calderwood's\n{duplicates: 15, drafts: 20}) plans a byte-identical manifest. Each new\nkind draws only from its own new seed stream:\n\n- `version_chains`: chains of 3+ near-duplicate versions of one source\n  in which no two members are byte-identical, so hash dedupe cannot\n  collapse them; non-final members carry deterministic earlier dates.\n- `misfiled`: copies filed in a folder other than their source's. The\n  manifest owns the location; ACL and visibility follow it, so a\n  misfile readable by the wrong team is ground truth.\n- `stale_templates`: genre-shaped dead templates with bracketed dummy\n  fields, zero planted facts, zero planned mentions.\n- `empty_dirs`: empty directories in the share tree, recomputed from\n  the charter.\n- `attachment_mismatch`: transmittal emails that attach a non-final\n  version-chain member while the share holds the final. Requires the\n  mail block with attachments and version_chains > 0 (checked on\n  DocCulture).\n- `filename_variety`: noise filenames draw from a variant decoration\n  grammar (\"Copy of X\", \"X (1)\", \"X_old\") instead of the fixed\n  \" (copy)\"/\" - DRAFT\" tags. Off keeps existing kinds' naming\n  byte-unchanged.",
       "properties": {
+        "attachment_mismatch": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Attachment Mismatch",
+          "type": "integer"
+        },
         "drafts": {
           "default": 0,
           "minimum": 0,
@@ -336,6 +347,35 @@
           "default": 0,
           "minimum": 0,
           "title": "Duplicates",
+          "type": "integer"
+        },
+        "empty_dirs": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Empty Dirs",
+          "type": "integer"
+        },
+        "filename_variety": {
+          "default": false,
+          "title": "Filename Variety",
+          "type": "boolean"
+        },
+        "misfiled": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Misfiled",
+          "type": "integer"
+        },
+        "stale_templates": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Stale Templates",
+          "type": "integer"
+        },
+        "version_chains": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Version Chains",
           "type": "integer"
         }
       },

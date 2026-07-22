@@ -59,10 +59,17 @@
     },
     "noise": {
       "duplicates": 15,
-      "drafts": 20
+      "drafts": 20,
+      "version_chains": 0,
+      "misfiled": 0,
+      "stale_templates": 0,
+      "empty_dirs": 0,
+      "attachment_mismatch": 0,
+      "filename_variety": false
     },
     "voice_diversify": true,
-    "mail": null
+    "mail": null,
+    "style_specs": false
   },
   "finance": {
     "base_revenue": 2600000,

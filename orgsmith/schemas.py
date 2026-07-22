@@ -113,17 +113,58 @@ class NoiseModel(StrictModel):
     hash without reading them (docs/SCALE.md), so `drafts` carry a near-copy
     that does not. Counts, not rates, matching the hard_cases idiom: a recipe
     asks for a shape and docplan plants exactly it, failing actionably if the
-    corpus has too few eligible sources."""
+    corpus has too few eligible sources.
+
+    M15 (noise v2) adds five kinds and a switch, every one defaulting
+    zero/off so a committed recipe's declared noise (calderwood's
+    {duplicates: 15, drafts: 20}) plans a byte-identical manifest. Each new
+    kind draws only from its own new seed stream:
+
+    - `version_chains`: chains of 3+ near-duplicate versions of one source
+      in which no two members are byte-identical, so hash dedupe cannot
+      collapse them; non-final members carry deterministic earlier dates.
+    - `misfiled`: copies filed in a folder other than their source's. The
+      manifest owns the location; ACL and visibility follow it, so a
+      misfile readable by the wrong team is ground truth.
+    - `stale_templates`: genre-shaped dead templates with bracketed dummy
+      fields, zero planted facts, zero planned mentions.
+    - `empty_dirs`: empty directories in the share tree, recomputed from
+      the charter.
+    - `attachment_mismatch`: transmittal emails that attach a non-final
+      version-chain member while the share holds the final. Requires the
+      mail block with attachments and version_chains > 0 (checked on
+      DocCulture).
+    - `filename_variety`: noise filenames draw from a variant decoration
+      grammar ("Copy of X", "X (1)", "X_old") instead of the fixed
+      " (copy)"/" - DRAFT" tags. Off keeps existing kinds' naming
+      byte-unchanged."""
 
     duplicates: int = Field(ge=0, default=0)
     drafts: int = Field(ge=0, default=0)
+    version_chains: int = Field(ge=0, default=0)
+    misfiled: int = Field(ge=0, default=0)
+    stale_templates: int = Field(ge=0, default=0)
+    empty_dirs: int = Field(ge=0, default=0)
+    attachment_mismatch: int = Field(ge=0, default=0)
+    filename_variety: bool = False
+
+    def _counts(self) -> tuple[int, ...]:
+        return (
+            self.duplicates,
+            self.drafts,
+            self.version_chains,
+            self.misfiled,
+            self.stale_templates,
+            self.empty_dirs,
+            self.attachment_mismatch,
+        )
 
     @model_validator(mode="after")
     def _check(self) -> "NoiseModel":
-        if self.duplicates == 0 and self.drafts == 0:
+        if not any(self._counts()):
             raise ValueError(
-                "a declared noise model must plan at least one duplicate or "
-                "draft; omit the block entirely to leave noise off"
+                "a declared noise model must plan at least one derived "
+                "artifact; omit the block entirely to leave noise off"
             )
         return self
 
@@ -212,6 +253,13 @@ class DocCulture(StrictModel):
     # recipes without it plan the same manifest byte-for-byte and draw nothing
     # from the new email seed streams.
     mail: MailCulture | None = None
+    # M15 (persona voice v2): when on, each roster person carries a structured
+    # style spec (register, sentence-length bias, greeting/closing forms,
+    # formatting habits, banned tics) drawn from a new stream into a derived
+    # ledger, and knob-on briefs carry per-author guidance derived from it.
+    # Default off: committed foundations and briefs stay byte-identical, and
+    # voice_diversify (v1) keeps meaning exactly what it means today.
+    style_specs: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":
@@ -231,6 +279,17 @@ class DocCulture(StrictModel):
                         f"{start}..{end}; declare only holidays the corpus "
                         f"can land on"
                     )
+        if self.noise is not None and self.noise.attachment_mismatch > 0:
+            if self.mail is None or self.mail.attachments == 0:
+                raise ValueError(
+                    "noise.attachment_mismatch requires the mail block with "
+                    "attachments > 0; the mismatch rides a transmittal email"
+                )
+            if self.noise.version_chains == 0:
+                raise ValueError(
+                    "noise.attachment_mismatch requires version_chains > 0; "
+                    "the mismatched attachment is a non-final chain member"
+                )
         return self
 
 
