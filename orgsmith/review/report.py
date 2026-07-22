@@ -24,6 +24,7 @@ from .metrics import (
     LONG_RATIO,
     SHORT_RATIO,
     SIMILAR_JACCARD,
+    author_ranges,
     flagged_lengths,
     flagged_pairs,
     run_metrics,
@@ -190,6 +191,71 @@ def _voice_lines(paths: OrgPaths) -> list[str]:
     return lines
 
 
+def _integrity_lines(paths: OrgPaths) -> list[str]:
+    """The recompute half (M15 dashboard split): validator, evals, byte pin.
+    These hold exactly or the org is broken, and they say nothing about how
+    real the prose reads."""
+    from ..validate import collect
+    from ..validate.rules import RULES, Context
+
+    try:
+        findings, skipped = collect(Context.load(paths))
+    except Exception as exc:  # a half-generated org cannot recompute yet
+        return [
+            f"Validator recompute unavailable here ({type(exc).__name__}); "
+            f"run `python -m orgsmith validate {paths.slug}` once the org "
+            f"is rendered."
+        ]
+    errors = [f for f in findings if f["severity"] == "ERROR"]
+    skip_ids = ", ".join(s["rule"] for s in skipped) or "none"
+    lines = [
+        f"Validator: {len(RULES) - len(skipped)} rules run, "
+        f"{len(errors)} error(s), {len(findings) - len(errors)} warning(s); "
+        f"skipped by charter knob: {skip_ids}.",
+        "",
+        f"Eval suites derive from the ledgers and score 100% by construction "
+        f"(`python -m orgsmith score {paths.slug} --suite ... --answers ...` "
+        f"grades an external system). Structure re-derives byte-identically "
+        f"from the recipe (the org-tier byte pin).",
+    ]
+    if errors:
+        lines += ["", "THE ORG DOES NOT VALIDATE. First findings:"]
+        for f in errors[:10]:
+            lines.append(f"- {f['rule']} [{f['target']}] {_cell(f['message'])}")
+    return lines
+
+
+def _author_lines(paths: OrgPaths) -> list[str]:
+    rows = author_ranges(paths)
+    if not rows:
+        return ["No authored documents to measure."]
+    lines = [
+        "Per-author 4-gram Jaccard proxies, computed with no model: within "
+        "is an author's own doc pairs, cross is their docs against every "
+        "other author's, early/late is the overlap of the author's "
+        "first-half shingles with their second half in date order "
+        "(consistency over time). Ranges beside the tic table above, never "
+        "gates: similarity is structurally blind to template collapse "
+        "(docs/REVIEW-CALIBRATION.md), so this is context for the board's "
+        "voice reading, not a verdict.",
+        "",
+        "| author | docs | within mean (min-max) | cross mean | early/late |",
+        "| --- | ---: | --- | ---: | ---: |",
+    ]
+    for r in rows:
+        within = (
+            "-"
+            if r.within is None
+            else f"{r.within[1]:.4f} ({r.within[0]:.4f}-{r.within[2]:.4f})"
+        )
+        cross = "-" if r.cross is None else f"{r.cross:.4f}"
+        early_late = "-" if r.early_late is None else f"{r.early_late:.4f}"
+        lines.append(
+            f"| {r.author} | {r.docs} | {within} | {cross} | {early_late} |"
+        )
+    return lines
+
+
 def _findings_lines(paths: OrgPaths) -> list[str]:
     findings = load_findings(paths)
     if not findings:
@@ -231,23 +297,45 @@ def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
         "",
         *_provenance_lines(paths),
         "",
-        "## Length against brief",
+        # M15: the two-dashboard split. Integrity is recomputation against
+        # ground truth (holds exactly or the org is broken); Realism is
+        # measurement and judgment (ranges, never gates). The hard line: no
+        # number appears in the other's context.
+        "## Integrity dashboard",
+        "",
+        "Recomputation against ground truth. These hold exactly or the org "
+        "is broken -- and they say nothing about how real the prose reads. "
+        "No realism number appears here.",
+        "",
+        *_integrity_lines(paths),
+        "",
+        "## Realism dashboard",
+        "",
+        "Measurement and judgment: lengths, similarity, voice ranges, and "
+        "the board's opinion. Nothing here gates, no threshold is "
+        "validated, and no integrity number appears here.",
+        "",
+        "### Length against brief",
         "",
         *_length_lines(metrics),
         "",
-        "## Same-genre similarity",
+        "### Same-genre similarity",
         "",
         *_similarity_lines(metrics),
         "",
-        "## Fee coverage",
+        "### Fee coverage",
         "",
         *_fee_coverage_lines(paths),
         "",
-        "## Cross-document voice",
+        "### Cross-document voice",
         "",
         *_voice_lines(paths),
         "",
-        "## Review board",
+        "### Per-author similarity proxies",
+        "",
+        *_author_lines(paths),
+        "",
+        "### Review board",
         "",
         *_findings_lines(paths),
         "",

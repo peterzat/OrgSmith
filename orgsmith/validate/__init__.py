@@ -13,16 +13,13 @@ from ..paths import OrgPaths
 from .rules import RULES, Context
 
 
-def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
-    ctx = Context.load(paths)
-    selected = RULES if not only else [r for r in RULES if r.id in set(only)]
-    if only and len(selected) != len(set(only)):
-        known = {r.id for r in RULES}
-        raise SystemExit(f"validate: unknown rule ids: {sorted(set(only) - known)}")
-
-    findings = []
-    skipped = []
-    for rule in selected:
+def collect(ctx: Context, selected=None) -> tuple[list[dict], list[dict]]:
+    """Run rules against a loaded context, returning (findings, skipped) as
+    plain dicts. Shared by run_validate and the report's integrity dashboard
+    so the two cannot drift."""
+    findings: list[dict] = []
+    skipped: list[dict] = []
+    for rule in RULES if selected is None else selected:
         reason = rule.available(ctx)
         if reason is not None:
             skipped.append({"rule": rule.id, "reason": reason})
@@ -32,6 +29,17 @@ def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
                 {"rule": rule.id, "severity": rule.severity,
                  "message": message, "target": target}
             )
+    return findings, skipped
+
+
+def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
+    ctx = Context.load(paths)
+    selected = RULES if not only else [r for r in RULES if r.id in set(only)]
+    if only and len(selected) != len(set(only)):
+        known = {r.id for r in RULES}
+        raise SystemExit(f"validate: unknown rule ids: {sorted(set(only) - known)}")
+
+    findings, skipped = collect(ctx, selected)
 
     errors = [f for f in findings if f["severity"] == "ERROR"]
     ran = len(selected) - len(skipped)

@@ -456,3 +456,53 @@ def test_unreadable_findings_file_warns_instead_of_vanishing(tmp_path, capsys):
     out = capsys.readouterr().out
     assert len(findings) == 1  # the readable dimension still loads
     assert "org_realism.json" in out and "WARNING" in out
+
+
+# --- M15: per-author proxies and the two-dashboard split ------------------
+
+
+def test_author_ranges_are_deterministic_and_bounded(authored_org):
+    from orgsmith.artifacts import load_manifest
+    from orgsmith.review.metrics import author_ranges
+
+    rows = author_ranges(authored_org)
+    authors = {
+        e.authors[0]
+        for e in load_manifest(authored_org)
+        if e.authoring == "batchable"
+    }
+    assert {r.author for r in rows} == authors
+    for r in rows:
+        assert r.docs >= 1
+        if r.within is not None:
+            lo, mid, hi = r.within
+            assert 0.0 <= lo <= mid <= hi <= 1.0
+        if r.cross is not None:
+            assert 0.0 <= r.cross <= 1.0
+        if r.early_late is not None:
+            assert 0.0 <= r.early_late <= 1.0
+    again = author_ranges(authored_org)
+    assert [
+        (r.author, r.docs, r.within, r.cross, r.early_late) for r in rows
+    ] == [(r.author, r.docs, r.within, r.cross, r.early_late) for r in again]
+
+
+def test_report_splits_integrity_from_realism(authored_org):
+    from orgsmith.review.report import run_report
+
+    assert run_report(authored_org) == 0
+    text = authored_org.generation_report_md.read_text()
+    integ = text.index("## Integrity dashboard")
+    realism = text.index("## Realism dashboard")
+    assert integ < realism
+    # integrity content stays in integrity; realism sections come after
+    assert integ < text.index("Validator:") < realism
+    for section in (
+        "### Length against brief",
+        "### Same-genre similarity",
+        "### Cross-document voice",
+        "### Per-author similarity proxies",
+        "### Review board",
+    ):
+        assert text.index(section) > realism, section
+    assert "measure" in text  # the never-gate framing survives

@@ -49,7 +49,19 @@ Generator, per batch (self-reported at ingest; not verifiable):
 | wo:author:0037 | claude-opus-4-8[1m] | xhigh |
 | wo:foundation:0001 | claude-opus-4-8[1m] | xhigh |
 
-## Length against brief
+## Integrity dashboard
+
+Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
+
+Validator: 28 rules run, 0 error(s), 0 warning(s); skipped by charter knob: AFF-01, AFF-02, EML-02, EML-03, DL-01, STY-01, LEG-01.
+
+Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score calderwood-partners --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
+
+## Realism dashboard
+
+Measurement and judgment: lengths, similarity, voice ranges, and the board's opinion. Nothing here gates, no threshold is validated, and no integrity number appears here.
+
+### Length against brief
 
 168 authored documents, 98907 words, mean 589.
 
@@ -65,7 +77,7 @@ Off brief (outside 75%-150% of target):
 | d:0004 | onboarding_record | 321 | 450 | 0.71 |
 | d:0060 | briefing_deck | 288 | 400 | 0.72 |
 
-## Same-genre similarity
+### Same-genre similarity
 
 Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement, not a verdict: real firms reuse templates. The board judges which of these read as reuse.
 
@@ -99,7 +111,7 @@ Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement,
 | d:0023 | d:0026 | engagement_letter | 0.1528 |
 | d:0070 | d:0166 | company_overview | 0.1512 |
 
-## Fee coverage
+### Fee coverage
 
 22 documented engagement(s), fees totalling $1,545,000, against $68,226,000 of lifetime revenue.
 
@@ -107,7 +119,7 @@ Documented fees are 2.3% of lifetime revenue.
 
 The recipe declares the engagement book a sample (engagements.book_is_sample), so the firm overview presents these engagements as representative rather than complete. The gap between fees and revenue is expected and coherent.
 
-## Cross-document voice
+### Cross-document voice
 
 Pre-registered voice patterns over 168 authored documents. This is a RANGE across strict and loose readings, not a single count: no ledger owns whether two sentences are the same figure, so the strict rows disagree and the plain words sweep up ordinary English. Nothing here gates.
 
@@ -121,6 +133,35 @@ Pre-registered voice patterns over 168 authored documents. This is a RANGE acros
 | `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 2 | 2 |
 | `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 5 | 5 |
 
-## Review board
+### Per-author similarity proxies
+
+Per-author 4-gram Jaccard proxies, computed with no model: within is an author's own doc pairs, cross is their docs against every other author's, early/late is the overlap of the author's first-half shingles with their second half in date order (consistency over time). Ranges beside the tic table above, never gates: similarity is structurally blind to template collapse (docs/REVIEW-CALIBRATION.md), so this is context for the board's voice reading, not a verdict.
+
+| author | docs | within mean (min-max) | cross mean | early/late |
+| --- | ---: | --- | ---: | ---: |
+| p:brenda.clayton | 5 | 0.0034 (0.0000-0.0219) | 0.0013 | 0.0004 |
+| p:brenda.rodriguez | 13 | 0.0039 (0.0000-0.0314) | 0.0012 | 0.0114 |
+| p:cynthia.hart | 3 | 0.0013 (0.0011-0.0015) | 0.0024 | 0.0020 |
+| p:daniel.cisneros | 3 | 0.0074 (0.0055-0.0100) | 0.0021 | 0.0121 |
+| p:daniel.leach | 7 | 0.0075 (0.0000-0.0420) | 0.0012 | 0.0120 |
+| p:deborah.allen | 5 | 0.0022 (0.0000-0.0076) | 0.0012 | 0.0055 |
+| p:deborah.gordon | 9 | 0.0040 (0.0000-0.0591) | 0.0012 | 0.0069 |
+| p:deborah.jimenez | 7 | 0.0037 (0.0000-0.0295) | 0.0011 | 0.0122 |
+| p:james.green | 3 | 0.0010 (0.0000-0.0029) | 0.0013 | 0.0025 |
+| p:jason.torres | 13 | 0.0026 (0.0000-0.0277) | 0.0014 | 0.0061 |
+| p:john.vasquez | 3 | 0.0028 (0.0013-0.0043) | 0.0012 | 0.0034 |
+| p:joseph.reed | 3 | 0.0095 (0.0024-0.0192) | 0.0013 | 0.0171 |
+| p:julie.parks | 5 | 0.0021 (0.0000-0.0081) | 0.0011 | 0.0053 |
+| p:julie.ramsey | 46 | 0.0183 (0.0000-0.3495) | 0.0004 | 0.1172 |
+| p:julie.vasquez | 3 | 0.0025 (0.0012-0.0037) | 0.0015 | 0.0023 |
+| p:mary.parker | 7 | 0.0043 (0.0000-0.0331) | 0.0014 | 0.0028 |
+| p:matthew.parrish | 7 | 0.0036 (0.0000-0.0362) | 0.0011 | 0.0033 |
+| p:melissa.casey | 8 | 0.0026 (0.0000-0.0218) | 0.0017 | 0.0108 |
+| p:michael.walker | 6 | 0.0016 (0.0000-0.0065) | 0.0008 | 0.0042 |
+| p:nicole.griffin | 5 | 0.0057 (0.0000-0.0291) | 0.0016 | 0.0023 |
+| p:pamela.miller | 3 | 0.0021 (0.0012-0.0029) | 0.0014 | 0.0025 |
+| p:steven.hunt | 4 | 0.0074 (0.0034-0.0159) | 0.0014 | 0.0059 |
+
+### Review board
 
 No board findings ingested. Run `/forge-review calderwood-partners` to dispatch the review board; the metrics above stand on their own without it.

@@ -27,7 +27,19 @@ Generator, per batch (self-reported at ingest; not verifiable):
 | wo:author:0015 | claude-opus-4-8 | xhigh |
 | wo:foundation:0001 | claude-opus-4-8 | xhigh |
 
-## Length against brief
+## Integrity dashboard
+
+Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
+
+Validator: 28 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, AFF-01, AFF-02, STY-01, SCAN-01, SCAN-02, LEG-01.
+
+Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score ashcombe-advisory --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
+
+## Realism dashboard
+
+Measurement and judgment: lengths, similarity, voice ranges, and the board's opinion. Nothing here gates, no threshold is validated, and no integrity number appears here.
+
+### Length against brief
 
 79 authored documents, 28814 words, mean 365.
 
@@ -74,7 +86,7 @@ Off brief (outside 75%-150% of target):
 | d:0023 | meeting_minutes | 434 | 600 | 0.72 |
 | d:0009 | briefing_deck | 292 | 400 | 0.73 |
 
-## Same-genre similarity
+### Same-genre similarity
 
 Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement, not a verdict: real firms reuse templates. The board judges which of these read as reuse.
 
@@ -92,7 +104,7 @@ Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement,
 | d:0038 | d:0075 | engagement_letter | 0.1819 |
 | d:0045 | d:0075 | engagement_letter | 0.1704 |
 
-## Fee coverage
+### Fee coverage
 
 6 documented engagement(s), fees totalling $346,000, against $32,164,000 of lifetime revenue.
 
@@ -100,7 +112,7 @@ Documented fees are 1.1% of lifetime revenue.
 
 The recipe declares the engagement book a sample (engagements.book_is_sample), so the firm overview presents these engagements as representative rather than complete. The gap between fees and revenue is expected and coherent.
 
-## Cross-document voice
+### Cross-document voice
 
 Pre-registered voice patterns over 79 authored documents. This is a RANGE across strict and loose readings, not a single count: no ledger owns whether two sentences are the same figure, so the strict rows disagree and the plain words sweep up ordinary English. Nothing here gates.
 
@@ -114,7 +126,27 @@ Pre-registered voice patterns over 79 authored documents. This is a RANGE across
 | `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 11 | 7 |
 | `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 9 | 9 |
 
-## Review board
+### Per-author similarity proxies
+
+Per-author 4-gram Jaccard proxies, computed with no model: within is an author's own doc pairs, cross is their docs against every other author's, early/late is the overlap of the author's first-half shingles with their second half in date order (consistency over time). Ranges beside the tic table above, never gates: similarity is structurally blind to template collapse (docs/REVIEW-CALIBRATION.md), so this is context for the board's voice reading, not a verdict.
+
+| author | docs | within mean (min-max) | cross mean | early/late |
+| --- | ---: | --- | ---: | ---: |
+| p:amy.carter | 8 | 0.0025 (0.0000-0.0203) | 0.0009 | 0.0039 |
+| p:christopher.walton | 2 | 0.0000 (0.0000-0.0000) | 0.0004 | 0.0000 |
+| p:daniel.valenzuela | 7 | 0.0009 (0.0000-0.0074) | 0.0013 | 0.0009 |
+| p:john.macias | 7 | 0.0010 (0.0000-0.0081) | 0.0006 | 0.0067 |
+| p:julie.hill | 16 | 0.0311 (0.0000-0.4180) | 0.0004 | 0.1113 |
+| p:kimberly.le | 6 | 0.0020 (0.0000-0.0206) | 0.0004 | 0.0016 |
+| p:laura.bradley | 6 | 0.0022 (0.0000-0.0118) | 0.0010 | 0.0033 |
+| p:melissa.zimmerman | 5 | 0.0009 (0.0000-0.0049) | 0.0005 | 0.0010 |
+| p:michael.morris | 6 | 0.0052 (0.0000-0.0204) | 0.0018 | 0.0105 |
+| p:michelle.black | 2 | 0.0206 (0.0206-0.0206) | 0.0015 | 0.0206 |
+| p:michelle.rose | 11 | 0.0011 (0.0000-0.0146) | 0.0008 | 0.0004 |
+| p:nancy.suarez | 2 | 0.0388 (0.0388-0.0388) | 0.0014 | 0.0388 |
+| p:sandra.mcdonald | 1 | - | 0.0001 | - |
+
+### Review board
 
 17 findings from the review board.
 

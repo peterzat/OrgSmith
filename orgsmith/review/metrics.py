@@ -83,6 +83,76 @@ def flagged_pairs(metrics: CorpusMetrics) -> list[SimilarPair]:
     return [p for p in metrics.similar_pairs if p.jaccard >= SIMILAR_JACCARD]
 
 
+class AuthorRange:
+    """One author's proxy row (M15). Plain object, not a contract: these
+    numbers live only in the rendered report, never in a schema'd artifact,
+    so the thresholds and shape stay free to tune."""
+
+    def __init__(self, author, docs, within, cross, early_late):
+        self.author = author
+        self.docs = docs
+        self.within = within  # (min, mean, max) or None with < 2 docs
+        self.cross = cross  # mean vs every other author's docs, or None
+        self.early_late = early_late  # first-half vs second-half shingles
+
+
+def author_ranges(paths: OrgPaths) -> list[AuthorRange]:
+    """M15: deterministic per-author similarity proxies, no model. For each
+    author: the range of pairwise 4-gram Jaccard among their own docs
+    (within), the mean against every other author's docs (cross), and the
+    overlap of their first-half shingles with their second half, in date
+    order (early/late, a consistency-over-time proxy).
+
+    A PROXY, measure-never-gate: same-genre similarity is structurally blind
+    to template collapse (docs/REVIEW-CALIBRATION.md), thresholds are
+    unvalidated, and nothing here enters any test tier as a bar. The M12a
+    confound stands: this is measurement machinery plus data points, never
+    an effect size."""
+    authored = load_authored(paths)
+    entries = [
+        e
+        for e in load_manifest(paths)
+        if e.doc_id in authored and e.authoring == "batchable"
+    ]
+    grams = {
+        e.doc_id: shingles(prose_text(authored[e.doc_id])) for e in entries
+    }
+    by_author: dict[str, list] = {}
+    for e in entries:
+        by_author.setdefault(e.authors[0], []).append(e)
+
+    def mean(xs):
+        return sum(xs) / len(xs)
+
+    rows = []
+    for author in sorted(by_author):
+        docs = sorted(by_author[author], key=lambda e: (e.date, e.doc_id))
+        within_scores = [
+            jaccard(grams[a.doc_id], grams[b.doc_id])
+            for a, b in itertools.combinations(docs, 2)
+        ]
+        within = (
+            (min(within_scores), mean(within_scores), max(within_scores))
+            if within_scores
+            else None
+        )
+        others = [e for e in entries if e.authors[0] != author]
+        cross_scores = [
+            jaccard(grams[a.doc_id], grams[b.doc_id])
+            for a in docs
+            for b in others
+        ]
+        cross = mean(cross_scores) if cross_scores else None
+        early, late = docs[: len(docs) // 2], docs[len(docs) // 2:]
+        early_late = None
+        if early and late:
+            eg = set().union(*(grams[e.doc_id] for e in early))
+            lg = set().union(*(grams[e.doc_id] for e in late))
+            early_late = jaccard(eg, lg)
+        rows.append(AuthorRange(author, len(docs), within, cross, early_late))
+    return rows
+
+
 def flagged_lengths(metrics: CorpusMetrics) -> list[DocMetric]:
     return [
         d
