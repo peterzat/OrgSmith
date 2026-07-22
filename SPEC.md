@@ -15,7 +15,7 @@ argument.
 
 ### Acceptance Criteria
 
-- [ ] **Additive and inert by default.** A new optional `MailCulture` block on
+- [x] **Additive and inert by default.** A new optional `MailCulture` block on
   `DocCulture` (no `doc-culture` / `docplan-manifest` / `foundation` schema id
   bump) and a `Foundation.distribution_lists` field defaulting empty. All eight
   committed fleet orgs plus `calderwood-partners` load, validate, re-serialize,
@@ -27,7 +27,7 @@ argument.
   validator check skips *visibly* on a knob-off charter and fails on
   knob-on-with-artifact-missing (grandfather by charter, per CLAUDE.md).
 
-- [ ] **Thread timing.** Under `doc_culture.mail`, a thread's messages carry
+- [x] **Thread timing.** Under `doc_culture.mail`, a thread's messages carry
   strictly increasing minute-granularity send datetimes inside the recipe's
   declared business hours, with same-day replies occurring; every `.eml` `Date`
   header recomputes exactly from ledgers plus manifest through the single shared
@@ -35,7 +35,7 @@ argument.
   non-colliding filenames (collision test). Knob-off orgs keep the fixed 09:00
   UTC `Date` header and the committed fleet revalidates unchanged.
 
-- [ ] **Threading headers, one shared twin.** Replies carry `In-Reply-To` naming
+- [x] **Threading headers, one shared twin.** Replies carry `In-Reply-To` naming
   the predecessor's `Message-ID` and an ordered `References` chain; thread
   openers carry neither; reply subjects read `RE: {subject}` and openers carry
   the plain subject. The renderer and the validator compute these from one shared
@@ -44,31 +44,31 @@ argument.
   reply manifest entry and validates the rendered bytes against the same shared
   expectation.
 
-- [ ] **Derived quoted history, zero tokens, byte-stable.** A reply renders a
+- [x] **Derived quoted history, zero tokens, byte-stable.** A reply renders a
   derived quoted tail (`On {date}, {name} wrote:` followed by the predecessor's
   quote-prefixed resolved body) at render time with no model pass, byte-identical
   on re-render. Any planted-fact surface a quoted tail carries is owned by that
   reply's own manifest entry (`facts_refs` propagation), so the extraction and
   retrieval eval suites still score 100% by construction on the pilot.
 
-- [ ] **Deterministic To/Cc partition.** Recipients split into To and Cc
+- [x] **Deterministic To/Cc partition.** Recipients split into To and Cc
   deterministically from ledger ground truth (departed-as-of-send-date people
   handled, not crashed); at least one committed pilot thread has a Cc set
   disjoint from its To set; the people-graph and visibility eval suites stay
   exact on the pilot.
 
-- [ ] **Promotion-aware signature blocks.** Knob-on mail ends in a deterministic
+- [x] **Promotion-aware signature blocks.** Knob-on mail ends in a deterministic
   signature block (name, title as of the send date, phone) sourced from
   `foundation.json` and never authored, so a promotion changes a person's
   signature mid-corpus. The model still cannot author a signature block (the
   ingest rejection of authored signature facts stands); signature content
   recomputes in validation.
 
-- [ ] **Varied thread depth from a new stream.** Thread depth varies across
+- [x] **Varied thread depth from a new stream.** Thread depth varies across
   engagements, drawn from `docplan.email.threads` rather than a uniform
   round-robin, and the pilot ships at least one thread of depth 4 or more.
 
-- [ ] **A mundane internal-email genre.** A new non-engagement email genre
+- [x] **A mundane internal-email genre.** A new non-engagement email genre
   (scheduling / logistics / admin) is planned across the recipe date range under
   the knob, authored short, carrying name mentions but no engagement facts, and
   acting as a retrieval/extraction distractor: it appears in the `distractors`
@@ -77,7 +77,7 @@ argument.
   does appear in `core` via the visibility suite; that is correct, not a leak.)
   A knob-off charter plans none of it.
 
-- [ ] **MIME transmittal attachments.** At least one committed pilot transmittal
+- [x] **MIME transmittal attachments.** At least one committed pilot transmittal
   email carries a real MIME attachment whose bytes are identical to a rendered
   share document; the manifest owns the email→attachment relationship; `FILE-01`
   still opens the `.eml`, `MAN-01` (manifest 1:1 with share files) still holds
@@ -85,7 +85,7 @@ argument.
   and any attachment-carried planted fact is attributed in the derived eval
   suites.
 
-- [ ] **Distribution lists as a derived ledger.** Distribution-list objects
+- [x] **Distribution lists as a derived ledger.** Distribution-list objects
   (name, address, members) live in a derived `ledger/distribution_lists.json`,
   NOT on `Foundation` (a field on the frozen, non-re-emittable foundation would
   break the byte pin criterion 1 requires; the DL ledger is derived from charter
@@ -96,7 +96,7 @@ argument.
   Scope: address plus flat members plus visibility expansion; no nesting, no
   moderation semantics.
 
-- [ ] **The email-first pilot, committed and boarded.** A new pilot org
+- [x] **The email-first pilot, committed and boarded.** A new pilot org
   (`ashcombe-advisory`, ~12 seats, ~5-6 engagements, ~60-75 docs) is generated
   live through the airlock, committed, and browsable: `.eml` is 50% or more of
   its authored documents, it ships 5 or more threads with a max depth up to ~8,
@@ -106,7 +106,7 @@ argument.
   board findings published in its `GENERATION-REPORT.md`. This closes BACKLOG
   `email-threads-unproven-in-fixtures` with a fixture.
 
-- [ ] **Additive proof, docs, and the carve-out.** Full `bin/test` is green on
+- [x] **Additive proof, docs, and the carve-out.** Full `bin/test` is green on
   all tiers, keyless and offline, with the byte pin green on every previously
   committed org. The project `CLAUDE.md` gains the M13-M16 frozen-fixture
   carve-out declaration naming the pilot as a wave workbench; `docs/RECIPE-FORMAT.md`
@@ -196,4 +196,4 @@ argument.
 and terminal, charter-tainted letterhead context-escaped, both SECURITY.md notes
 closed; all 7 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-21","title":"M14: email realism (thread mechanics + mailbox ecology) and the email-first pilot","criteria_total":12,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-21","title":"M14: email realism (thread mechanics + mailbox ecology) and the email-first pilot","criteria_total":12,"criteria_met":12} -->
