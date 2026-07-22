@@ -1,0 +1,426 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "ashcombe-advisory",
+  "people": [
+    {
+      "id": "p:julie.hill",
+      "name": "Julie Hill",
+      "aliases": [],
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2014-02-15",
+        "end": null
+      },
+      "email": "julie.hill@ashcombeadvisory.com",
+      "phone": "+1 (206) 555-0195",
+      "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position.",
+      "title_history": []
+    },
+    {
+      "id": "p:michael.morris",
+      "name": "Michael Morris",
+      "aliases": [
+        "Mike"
+      ],
+      "title": "Partner",
+      "dept": "Advisory",
+      "reports_to": "p:julie.hill",
+      "employment": {
+        "start": "2014-03-15",
+        "end": null
+      },
+      "email": "michael.morris@ashcombeadvisory.com",
+      "phone": "+1 (415) 555-0195",
+      "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping.",
+      "title_history": []
+    },
+    {
+      "id": "p:christopher.walton",
+      "name": "Christopher Walton",
+      "aliases": [],
+      "title": "Senior Advisor",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2015-04-30",
+        "end": null
+      },
+      "email": "christopher.walton@ashcombeadvisory.com",
+      "phone": "+1 (212) 555-0175",
+      "persona": "A senior advisor who owns the strategy behind a positioning push and writes to keep the argument visible, opening a note with the message the client is trying to land. He is comfortable pushing back on a draft that overpromises and will say so directly but without heat. His prose is confident, economical, and light on ornament.",
+      "title_history": []
+    },
+    {
+      "id": "p:daniel.valenzuela",
+      "name": "Daniel Valenzuela",
+      "aliases": [],
+      "title": "Advisor",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2014-10-22",
+        "end": null
+      },
+      "email": "daniel.valenzuela@ashcombeadvisory.com",
+      "phone": "+1 (206) 555-0109",
+      "persona": "An advisor who runs two or three engagements at once and writes to keep each one moving, favoring short status threads that end with a specific ask. His voice is practical and even, more interested in getting an approval routed than in polishing the sentence. He is good at translating a client's worry into a concrete next step.",
+      "title_history": []
+    },
+    {
+      "id": "p:laura.bradley",
+      "name": "Laura Bradley",
+      "aliases": [],
+      "title": "Senior Associate",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2014-11-05",
+        "end": null
+      },
+      "email": "laura.bradley@ashcombeadvisory.com",
+      "phone": "+1 (212) 555-0177",
+      "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked.",
+      "title_history": []
+    },
+    {
+      "id": "p:john.macias",
+      "name": "John Macias",
+      "aliases": [],
+      "title": "Associate",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2014-11-13",
+        "end": null
+      },
+      "email": "john.macias@ashcombeadvisory.com",
+      "phone": "+1 (617) 555-0181",
+      "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else.",
+      "title_history": []
+    },
+    {
+      "id": "p:michelle.black",
+      "name": "Michelle Black",
+      "aliases": [],
+      "title": "Communications Analyst",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2015-09-26",
+        "end": "2020-07-08"
+      },
+      "email": "michelle.black@ashcombeadvisory.com",
+      "phone": "+1 (312) 555-0149",
+      "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize.",
+      "title_history": []
+    },
+    {
+      "id": "p:melissa.zimmerman",
+      "name": "Melissa Zimmerman",
+      "aliases": [],
+      "title": "Communications Analyst",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2015-09-10",
+        "end": null
+      },
+      "email": "melissa.zimmerman@ashcombeadvisory.com",
+      "phone": "+1 (303) 555-0132",
+      "persona": "A communications analyst who tracks announcement timelines and keeps the pieces aligned, writing crisp logistics-first notes aimed at confirming a date or a sign-off. She is thorough about who still owes what and restates commitments so nothing stays implicit. Her email is efficient and easy to act on.",
+      "title_history": [
+        {
+          "title": "Research Analyst",
+          "start": "2015-09-10",
+          "end": "2020-08-02"
+        },
+        {
+          "title": "Communications Analyst",
+          "start": "2020-08-03",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:michelle.rose",
+      "name": "Michelle Rose",
+      "aliases": [],
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2014-03-29",
+        "end": null
+      },
+      "email": "michelle.rose@ashcombeadvisory.com",
+      "phone": "+1 (303) 555-0126",
+      "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point.",
+      "title_history": []
+    },
+    {
+      "id": "p:lisa.flores",
+      "name": "Lisa Flores",
+      "aliases": [],
+      "title": "Director of Operations",
+      "dept": "Operations",
+      "reports_to": "p:julie.hill",
+      "employment": {
+        "start": "2014-04-15",
+        "end": null
+      },
+      "email": "lisa.flores@ashcombeadvisory.com",
+      "phone": "+1 (206) 555-0187",
+      "persona": "Runs operations for the firm and writes in a steady, procedural tone that documents what was agreed and who owns it. She favors complete sentences and a clean paper trail, and tends to restate a commitment so it cannot be misread later. Her notes are polite, thorough, and built to keep the small office running on schedule.",
+      "title_history": []
+    },
+    {
+      "id": "p:pamela.rojas",
+      "name": "Pamela Rojas",
+      "aliases": [],
+      "title": "Office Manager",
+      "dept": "Operations",
+      "reports_to": "p:lisa.flores",
+      "employment": {
+        "start": "2014-10-21",
+        "end": null
+      },
+      "email": "pamela.rojas@ashcombeadvisory.com",
+      "phone": "+1 (303) 555-0129",
+      "persona": "An office manager who keeps schedules, files, and the mailbox in order and writes in a friendly, direct register aimed at getting a date or a detail confirmed. Her email is brief and logistics-first, with little narrative and no wasted words. She is the one who turns a loose plan into a booked, written commitment.",
+      "title_history": []
+    },
+    {
+      "id": "p:sandra.mcdonald",
+      "name": "Sandra Mcdonald",
+      "aliases": [],
+      "title": "Office Manager",
+      "dept": "Operations",
+      "reports_to": "p:lisa.flores",
+      "employment": {
+        "start": "2019-01-30",
+        "end": null
+      },
+      "email": "sandra.mcdonald@ashcombeadvisory.com",
+      "phone": "+1 (206) 555-0120",
+      "persona": "An office manager who handles the day-to-day mechanics of the mailbox and calendar, writing short, orderly notes that confirm arrangements and chase the missing reply. Her tone is patient and matter-of-fact, and she keeps a careful record of what was asked and what is still outstanding. She would rather send a quick reminder than let a thread go cold.",
+      "title_history": [
+        {
+          "title": "Client Coordinator",
+          "start": "2019-01-30",
+          "end": "2023-06-22"
+        },
+        {
+          "title": "Office Manager",
+          "start": "2023-06-23",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:kimberly.le",
+      "name": "Kimberly Le",
+      "aliases": [],
+      "title": "Communications Analyst",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2020-08-14",
+        "end": null
+      },
+      "email": "kimberly.le@ashcombeadvisory.com",
+      "phone": "+1 (312) 555-0185",
+      "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish.",
+      "title_history": []
+    },
+    {
+      "id": "p:amy.carter",
+      "name": "Amy Carter",
+      "aliases": [],
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2019-01-05",
+        "end": null
+      },
+      "email": "amy.carter@ashcombeadvisory.com",
+      "phone": "+1 (617) 555-0180",
+      "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past.",
+      "title_history": []
+    },
+    {
+      "id": "p:nancy.suarez",
+      "name": "Nancy Suarez",
+      "aliases": [],
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2021-02-01",
+        "end": null
+      },
+      "email": "nancy.suarez@ashcombeadvisory.com",
+      "phone": "+1 (303) 555-0149",
+      "persona": "A communications associate who drafts and circulates messaging and writes with a touch more color than the house norm, reaching for the phrase that makes a point land. She likes to open with the takeaway and will argue a wording choice in prose rather than defer to the group. Her drafts occasionally need trimming, but they are rarely flat.",
+      "title_history": []
+    },
+    {
+      "id": "p:julie.bailey",
+      "name": "Julie Bailey",
+      "aliases": [],
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "reports_to": "p:michael.morris",
+      "employment": {
+        "start": "2023-04-25",
+        "end": null
+      },
+      "email": "julie.bailey@ashcombeadvisory.com",
+      "phone": "+1 (303) 555-0113",
+      "persona": "A communications associate who supports the advisors with drafts and approval tracking, writing in a lean, functional style that trusts the reader to follow a tight note. She is economical with words and reluctant to overstate, so her updates land with quiet confidence. She keeps her threads short and her next steps unambiguous.",
+      "title_history": []
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:barrera-group",
+      "name": "Barrera Group",
+      "org_type": "client"
+    },
+    {
+      "id": "x:castaneda-adams-and-davis",
+      "name": "Castaneda, Adams and Davis",
+      "org_type": "client"
+    },
+    {
+      "id": "x:lee-rice-and-adams",
+      "name": "Lee, Rice and Adams",
+      "org_type": "client"
+    },
+    {
+      "id": "x:kirby-taylor",
+      "name": "Kirby-Taylor",
+      "org_type": "client"
+    },
+    {
+      "id": "x:suarez-jones",
+      "name": "Suarez-Jones",
+      "org_type": "client"
+    },
+    {
+      "id": "x:gallegos-pope-and-marsh",
+      "name": "Gallegos, Pope and Marsh",
+      "org_type": "client"
+    },
+    {
+      "id": "x:williams-vasquez",
+      "name": "Williams-Vasquez",
+      "org_type": "client"
+    },
+    {
+      "id": "x:johnson-clark-and-anderson",
+      "name": "Johnson, Clark and Anderson",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:mary.frank",
+      "name": "Mary Frank",
+      "org": "x:barrera-group",
+      "title": "Director of Operations",
+      "email": "mary.frank@barreragroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:lauren.heath",
+      "name": "Lauren Heath",
+      "org": "x:castaneda-adams-and-davis",
+      "title": "Chief Operating Officer",
+      "email": "lauren.heath@castanedaadamsanddavis.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:megan.sutton",
+      "name": "Megan Sutton",
+      "org": "x:lee-rice-and-adams",
+      "title": "Director of Operations",
+      "email": "megan.sutton@leericeandadams.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:sandra.mcdaniel",
+      "name": "Sandra Mcdaniel",
+      "org": "x:kirby-taylor",
+      "title": "Director of Operations",
+      "email": "sandra.mcdaniel@kirbytaylor.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:jennifer.herrera",
+      "name": "Jennifer Herrera",
+      "org": "x:suarez-jones",
+      "title": "VP Finance",
+      "email": "jennifer.herrera@suarezjones.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:robert.smith",
+      "name": "Robert Smith",
+      "org": "x:gallegos-pope-and-marsh",
+      "title": "VP Finance",
+      "email": "robert.smith@gallegospopeandmarsh.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:melissa.russo",
+      "name": "Melissa Russo",
+      "org": "x:williams-vasquez",
+      "title": "VP Finance",
+      "email": "melissa.russo@williamsvasquez.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:amanda.flynn",
+      "name": "Amanda Flynn",
+      "org": "x:johnson-clark-and-anderson",
+      "title": "General Manager",
+      "email": "amanda.flynn@johnsonclarkandanderson.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:deborah.martin",
+      "name": "Deborah Martin",
+      "org": "x:barrera-group",
+      "title": "Chief Financial Officer",
+      "email": "deborah.martin@barreragroup.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:michael.bridges",
+      "name": "Michael Bridges",
+      "org": "x:castaneda-adams-and-davis",
+      "title": "VP Finance",
+      "email": "michael.bridges@castanedaadamsanddavis.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2014-01-15",
+      "summary": "Ashcombe Advisory Partners LLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2015-05-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

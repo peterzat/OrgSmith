@@ -1,0 +1,438 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0015",
+  "stage": "author",
+  "slug": "ashcombe-advisory",
+  "org_name": "Ashcombe Advisory Partners LLC",
+  "org_type": "corporate communications advisory",
+  "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0015\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0081",
+      "title": "Reputation Audit for Gallegos, Pope and Marsh",
+      "genre": "engagement_email",
+      "date": "2024-03-15",
+      "authors": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        },
+        {
+          "id": "xp:robert.smith",
+          "name": "Robert Smith",
+          "title": "VP Finance",
+          "dept": "Gallegos, Pope and Marsh",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reputation Audit for Gallegos, Pope and Marsh, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.rose",
+          "surface": "Michelle Rose",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.smith",
+          "surface": "Robert Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gallegos-pope-and-marsh",
+          "surface": "Gallegos, Pope and Marsh",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 27% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0082",
+      "title": "Reputation Audit for Gallegos, Pope and Marsh",
+      "genre": "engagement_email",
+      "date": "2024-03-18",
+      "authors": [
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        },
+        {
+          "id": "xp:robert.smith",
+          "name": "Robert Smith",
+          "title": "VP Finance",
+          "dept": "Gallegos, Pope and Marsh",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reputation Audit for Gallegos, Pope and Marsh, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.rose",
+          "surface": "Michelle Rose",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.smith",
+          "surface": "Robert Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gallegos-pope-and-marsh",
+          "surface": "Gallegos, Pope and Marsh",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 30% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0083",
+      "title": "Reputation Audit for Gallegos, Pope and Marsh",
+      "genre": "engagement_email",
+      "date": "2024-03-19",
+      "authors": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        },
+        {
+          "id": "xp:robert.smith",
+          "name": "Robert Smith",
+          "title": "VP Finance",
+          "dept": "Gallegos, Pope and Marsh",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reputation Audit for Gallegos, Pope and Marsh, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.rose",
+          "surface": "Michelle Rose",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.smith",
+          "surface": "Robert Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gallegos-pope-and-marsh",
+          "surface": "Gallegos, Pope and Marsh",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 31% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0084",
+      "title": "Reputation Audit for Gallegos, Pope and Marsh",
+      "genre": "engagement_email",
+      "date": "2024-03-19",
+      "authors": [
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        },
+        {
+          "id": "xp:robert.smith",
+          "name": "Robert Smith",
+          "title": "VP Finance",
+          "dept": "Gallegos, Pope and Marsh",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reputation Audit for Gallegos, Pope and Marsh, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.rose",
+          "surface": "Michelle Rose",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.smith",
+          "surface": "Robert Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gallegos-pope-and-marsh",
+          "surface": "Gallegos, Pope and Marsh",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 31% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0085",
+      "title": "Meeting Minutes: Reputation Audit for Gallegos, Pope and Marsh",
+      "genre": "meeting_minutes",
+      "date": "2024-03-29",
+      "authors": [
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        },
+        {
+          "id": "xp:robert.smith",
+          "name": "Robert Smith",
+          "title": "VP Finance",
+          "dept": "Gallegos, Pope and Marsh",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reputation Audit for Gallegos, Pope and Marsh, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.rose",
+          "surface": "Michelle Rose",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:robert.smith",
+          "surface": "Robert Smith",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gallegos-pope-and-marsh",
+          "surface": "Gallegos, Pope and Marsh",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0086",
+      "title": "Status Report: Reputation Audit for Gallegos, Pope and Marsh",
+      "genre": "status_report",
+      "date": "2024-04-10",
+      "authors": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michelle.rose",
+          "name": "Michelle Rose",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who assembles drafts and routes them for approval, writing in a warm, readable style that makes a dense update approachable. She organizes a note around what changed and what is left, and is quick to put a small question in a short email rather than let it stall. Her threads stay friendly without wandering off the point."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        }
+      ],
+      "engagement_summary": "Reputation Audit for Gallegos, Pope and Marsh, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.rose",
+          "surface": "Michelle Rose",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gallegos-pope-and-marsh",
+          "surface": "Gallegos, Pope and Marsh",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

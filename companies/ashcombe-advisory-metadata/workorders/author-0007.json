@@ -1,0 +1,288 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0007",
+  "stage": "author",
+  "slug": "ashcombe-advisory",
+  "org_name": "Ashcombe Advisory Partners LLC",
+  "org_type": "corporate communications advisory",
+  "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0007\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0032",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2020-03-16",
+      "authors": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [
+        {
+          "id": "f:E-2017-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        }
+      ],
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2017-2018, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2017-001.client}}, {{fact:f:E-2018-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0033",
+      "title": "IT maintenance window",
+      "genre": "internal_email",
+      "date": "2020-07-01",
+      "authors": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:daniel.valenzuela",
+          "name": "Daniel Valenzuela",
+          "title": "Advisor",
+          "dept": "Advisory",
+          "persona": "An advisor who runs two or three engagements at once and writes to keep each one moving, favoring short status threads that end with a specific ask. His voice is practical and even, more interested in getting an approval routed than in polishing the sentence. He is good at translating a client's worry into a concrete next step."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
+          "entity": "p:daniel.valenzuela",
+          "surface": "Daniel Valenzuela",
+          "kind": "person"
+        }
+      ],
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0034",
+      "title": "Onboarding: Kimberly Le",
+      "genre": "onboarding_record",
+      "date": "2020-08-21",
+      "authors": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Michael Morris, Partner. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0036",
+      "title": "Onboarding: Nancy Suarez",
+      "genre": "onboarding_record",
+      "date": "2021-02-08",
+      "authors": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nancy.suarez",
+          "name": "Nancy Suarez",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who drafts and circulates messaging and writes with a touch more color than the house norm, reaching for the phrase that makes a point land. She likes to open with the takeaway and will argue a wording choice in prose rather than defer to the group. Her drafts occasionally need trimming, but they are rarely flat."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nancy.suarez",
+          "surface": "Nancy Suarez",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Michael Morris, Partner. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0037",
+      "title": "Timesheet reminder",
+      "genre": "internal_email",
+      "date": "2021-07-02",
+      "authors": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:kimberly.le",
+          "name": "Kimberly Le",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who does close reading of client and market material and writes tight, evidence-first notes that lead with the finding. She is careful by temperament and will flag an assumption before she accepts a conclusion. Her voice is dry and exact, more at home with a clean summary than a flourish."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kimberly.le",
+          "surface": "Kimberly Le",
+          "kind": "person"
+        }
+      ],
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0057",
+      "title": "Holiday coverage",
+      "genre": "internal_email",
+      "date": "2022-07-01",
+      "authors": [
+        {
+          "id": "p:christopher.walton",
+          "name": "Christopher Walton",
+          "title": "Senior Advisor",
+          "dept": "Advisory",
+          "persona": "A senior advisor who owns the strategy behind a positioning push and writes to keep the argument visible, opening a note with the message the client is trying to land. He is comfortable pushing back on a draft that overpromises and will say so directly but without heat. His prose is confident, economical, and light on ornament."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:christopher.walton",
+          "surface": "Christopher Walton",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        }
+      ],
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

@@ -1,0 +1,475 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0012",
+  "stage": "author",
+  "slug": "ashcombe-advisory",
+  "org_name": "Ashcombe Advisory Partners LLC",
+  "org_type": "corporate communications advisory",
+  "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0012\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0061",
+      "title": "Engagement Letter: Executive Messaging for Suarez-Jones",
+      "genre": "engagement_letter",
+      "date": "2023-06-25",
+      "authors": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        },
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        },
+        {
+          "id": "xp:jennifer.herrera",
+          "name": "Jennifer Herrera",
+          "title": "VP Finance",
+          "dept": "Suarez-Jones",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jennifer.herrera",
+          "surface": "Jennifer Herrera",
+          "kind": "person"
+        },
+        {
+          "entity": "x:suarez-jones",
+          "surface": "Suarez-Jones",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0063",
+      "title": "Kickoff Memo: Executive Messaging for Suarez-Jones",
+      "genre": "kickoff_memo",
+      "date": "2023-07-08",
+      "authors": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        },
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        },
+        {
+          "id": "xp:jennifer.herrera",
+          "name": "Jennifer Herrera",
+          "title": "VP Finance",
+          "dept": "Suarez-Jones",
+          "persona": ""
+        },
+        {
+          "id": "p:julie.bailey",
+          "name": "Julie Bailey",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate who supports the advisors with drafts and approval tracking, writing in a lean, functional style that trusts the reader to follow a tight note. She is economical with words and reluctant to overstate, so her updates land with quiet confidence. She keeps her threads short and her next steps unambiguous."
+        }
+      ],
+      "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jennifer.herrera",
+          "surface": "Jennifer Herrera",
+          "kind": "person"
+        },
+        {
+          "entity": "x:suarez-jones",
+          "surface": "Suarez-Jones",
+          "kind": "org"
+        },
+        {
+          "entity": "p:julie.bailey",
+          "surface": "Julie Bailey",
+          "kind": "person"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0064",
+      "title": "Executive Messaging for Suarez-Jones",
+      "genre": "engagement_email",
+      "date": "2023-08-02",
+      "authors": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        },
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        },
+        {
+          "id": "xp:jennifer.herrera",
+          "name": "Jennifer Herrera",
+          "title": "VP Finance",
+          "dept": "Suarez-Jones",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jennifer.herrera",
+          "surface": "Jennifer Herrera",
+          "kind": "person"
+        },
+        {
+          "entity": "x:suarez-jones",
+          "surface": "Suarez-Jones",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one.",
+      "engagement_position": "This document is dated about 19% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0065",
+      "title": "Executive Messaging for Suarez-Jones",
+      "genre": "engagement_email",
+      "date": "2023-08-02",
+      "authors": [
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        },
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        },
+        {
+          "id": "xp:jennifer.herrera",
+          "name": "Jennifer Herrera",
+          "title": "VP Finance",
+          "dept": "Suarez-Jones",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jennifer.herrera",
+          "surface": "Jennifer Herrera",
+          "kind": "person"
+        },
+        {
+          "entity": "x:suarez-jones",
+          "surface": "Suarez-Jones",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 19% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0066",
+      "title": "Executive Messaging for Suarez-Jones",
+      "genre": "engagement_email",
+      "date": "2023-08-03",
+      "authors": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        },
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        },
+        {
+          "id": "xp:jennifer.herrera",
+          "name": "Jennifer Herrera",
+          "title": "VP Finance",
+          "dept": "Suarez-Jones",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jennifer.herrera",
+          "surface": "Jennifer Herrera",
+          "kind": "person"
+        },
+        {
+          "entity": "x:suarez-jones",
+          "surface": "Suarez-Jones",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 20% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0067",
+      "title": "Executive Messaging for Suarez-Jones",
+      "genre": "engagement_email",
+      "date": "2023-08-04",
+      "authors": [
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.macias",
+          "name": "John Macias",
+          "title": "Associate",
+          "dept": "Advisory",
+          "persona": "An associate who does the legwork on drafts and approval chasing and writes in a brisk, unfussy style that gets the facts down first. He is comfortable with short declaratives and bulleted next steps, and he leaves the framing to the advisors above him. His threads are easy to follow because he answers the message before him and nothing else."
+        },
+        {
+          "id": "p:amy.carter",
+          "name": "Amy Carter",
+          "title": "Communications Associate",
+          "dept": "Advisory",
+          "persona": "A communications associate newer to the work who writes carefully, checking each claim against the source before it goes into a draft. Her prose is correct and a little formal, leaning on the structures she has been taught rather than a settled voice of her own yet. She asks good clarifying questions and captures the detail others skip past."
+        },
+        {
+          "id": "xp:jennifer.herrera",
+          "name": "Jennifer Herrera",
+          "title": "VP Finance",
+          "dept": "Suarez-Jones",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.macias",
+          "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:jennifer.herrera",
+          "surface": "Jennifer Herrera",
+          "kind": "person"
+        },
+        {
+          "entity": "x:suarez-jones",
+          "surface": "Suarez-Jones",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply.",
+      "engagement_position": "This document is dated about 21% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

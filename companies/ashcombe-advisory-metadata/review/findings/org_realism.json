@@ -1,0 +1,51 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "ashcombe-advisory",
+  "dimension": "org_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0059",
+        "d:0018",
+        "d:0061",
+        "d:0086"
+      ],
+      "summary": "Every client is named like a professional-services partnership, contradicting the firm's own description of its clients as public and pre-IPO operating companies.",
+      "evidence": "The firm overview (d:0059) says 'Our clients are mid-market public companies and firms on their way to going public,' yet the entire book is named in law-firm style: Castaneda, Adams and Davis; Lee, Rice and Adams; Gallegos, Pope and Marsh; Kirby-Taylor; Suarez-Jones. d:0018 runs an 'investor relations program' for 'Castaneda, Adams and Davis' and d:0086 reads 'the analyst notes, and the transcripts of your own calls' for 'Gallegos, Pope and Marsh.' Firms named 'X, Y and Z' do not hold earnings calls, carry analyst coverage, or IPO."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-2",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0045",
+        "d:0038",
+        "d:0002",
+        "d:0061"
+      ],
+      "summary": "Across all six documented clients the sole counterpart is an Operations or Finance officer; no client has a communications, IR, or marketing lead, even for the media-relations and crisis engagements.",
+      "evidence": "The Media Relations Program (d:0045) is sponsored by 'Sandra Mcdaniel, Director of Operations'; Crisis Communications (d:0038) by 'Megan Sutton, Director of Operations'; Corporate Positioning (d:0002) by 'Mary Frank, Director of Operations'; the rest by COO or VP Finance (d:0061). Not one of the eight external clients has a Head of Communications, Head of IR, or CMO. A communications firm whose every buyer is Operations or Finance, including one buying a media-relations program, reads as contacts drawn from a generic officer pool rather than the function that would actually retain the service."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-3",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0041",
+        "d:0072"
+      ],
+      "summary": "The advisory hierarchy is a flat spoke: the one Partner carries all eleven advisory reports while the Senior Advisor, Advisor, and Senior Associate supervise no one, and the highest-stakes engagements are led by associate-level staff.",
+      "evidence": "In foundation.json every Advisory member reports directly to Michael Morris (Partner); Christopher Walton (Senior Advisor), Daniel Valenzuela (Advisor), and Laura Bradley (Senior Associate) each have zero reports. The Crisis Communications team (d:0041) is 'Amy Carter, Communications Associate / Nancy Suarez, Communications Associate' with no advisor or partner, and Executive Messaging (d:0072) is led by 'John Macias, Associate, engagement lead.' This cuts against the firm's self-description of a bench of advisors who each 'carry two or three client relationships.'"
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8",
+    "effort": "xhigh"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "ashcombe-advisory",
+  "dimension": "graph_acl_naturalness",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-internal-note-to-client",
+      "dimension": "graph_acl_naturalness",
+      "severity": "blocker",
+      "docs": [
+        "d:0064"
+      ],
+      "summary": "The Suarez-Jones kickoff email is an internal-only planning note but is delivered to the client as the primary recipient.",
+      "evidence": "d:0064 is addressed To: Jennifer Herrera <jennifer.herrera@suarezjones.com> (the client's VP Finance), yet the body opens 'Amy,' and reads as John Macias briefing his colleague: 'nothing slips between us ... before it goes anywhere near the client, so we are not sending Jennifer Herrera anything we have not both read.' The client is the To: recipient of a message about what to withhold from her."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-fullname-surface",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0005",
+        "d:0008",
+        "d:0030",
+        "d:0033",
+        "d:0037",
+        "d:0068"
+      ],
+      "summary": "Across the mailbox, correspondents and the sender's own self are named by full first-and-last name where real email uses a first name or a pronoun, a mention-planting seam.",
+      "evidence": "Senders name themselves in the third person: d:0030 (from Sandra Mcdonald) 'I have listed Sandra Mcdonald so their notices come to me'; d:0033 (from Julie Hill) 'reach Julie Hill by phone'; d:0037 (from John Macias) 'Route anything you cannot resolve to John Macias'. Recipients are named in the third person inside replies to them: d:0008 (Michelle Rose to Mary Frank) 'The draft went to Mary Frank first thing Friday'. Threads open on first-name terms ('Mary,', 'Amy,') then re-salute the same person by full name mid-thread: d:0068 'Jennifer Herrera,'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-recipient-scope",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0057",
+        "d:0062",
+        "d:0087"
+      ],
+      "summary": "The To: line of the mundane internal emails does not match the audience the body is written for.",
+      "evidence": "d:0087 (To: Nancy Suarez and Julie Hill only) is a firm-wide parking notice: 'Julie Hill asked me to make sure this reached everyone before the weekend, so please forward it to anyone I have missed.' d:0062 (To: all-staff) says 'Once you've locked the date I'll write the group,' implying this is not the group email, though it is addressed to the whole firm. d:0057 (To: John Macias alone) is a holiday-coverage broadcast that names its single recipient as the coverage contact."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-unused-lists",
+      "dimension": "graph_acl_naturalness",
+      "severity": "note",
+      "docs": [],
+      "summary": "Of the three distribution lists in the ledger, only all-staff@ is ever a recipient; the other two carry no traffic and one has a single member.",
+      "evidence": "all-staff@ashcombeadvisory.com appears as a recipient on 3 emails; advisory@ashcombeadvisory.com (11 members) and leadership@ashcombeadvisory.com are never addressed anywhere in the corpus, and dl:leadership is a distribution list with exactly one member (Julie Hill)."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8",
+    "effort": "xhigh"
+  }
+}

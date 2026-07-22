@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "ashcombe-advisory",
+  "dimension": "finance_realism",
+  "generator": {"model": "claude-opus-4-8", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-realism-1",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0018", "d:0038", "d:0061"],
+      "summary": "Fixed engagement fees barely move with scope or duration: the longest, most senior programs are priced at roughly half the monthly rate of the shortest ones, inverting how professional-services fees usually scale.",
+      "evidence": "Ledger fees (engagements.json) cluster tightly regardless of term: Corporate Positioning $59,000, Investor Relations Program $47,000, Crisis Communications $46,500, Media Relations $46,000, Reputation Audit $45,500, with Executive Messaging $102,000 the lone outlier. The letters state the terms and teams: d:0018 'runs approximately nine months' as a partner-led IR program (Michael Morris, Partner, plus a senior associate and an analyst) at $47,000, about $5,200/month; d:0038 'runs approximately eight months' of crisis communications at $46,500, about $5,800/month; while d:0061 'runs about five months' at $102,000, about $20,000/month. A nine-month partner-led IR program and an eight-month crisis engagement priced below a four-month reputation audit, and crisis work (the premium line) billed at ~$5,800/month, read as a single default project price rather than scope-based pricing to a reader who knows the market. (Distinct from the report's fee-to-revenue metric, which addresses the aggregate sample gap, not per-engagement pricing.)"
+    }
+  ]
+}

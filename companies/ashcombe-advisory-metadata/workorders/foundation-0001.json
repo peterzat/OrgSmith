@@ -1,0 +1,126 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "ashcombe-advisory",
+  "org_name": "Ashcombe Advisory Partners LLC",
+  "org_type": "corporate communications advisory",
+  "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:julie.hill",
+      "name": "Julie Hill",
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:michael.morris",
+      "name": "Michael Morris",
+      "title": "Partner",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:christopher.walton",
+      "name": "Christopher Walton",
+      "title": "Senior Advisor",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:daniel.valenzuela",
+      "name": "Daniel Valenzuela",
+      "title": "Advisor",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:laura.bradley",
+      "name": "Laura Bradley",
+      "title": "Senior Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:john.macias",
+      "name": "John Macias",
+      "title": "Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:michelle.black",
+      "name": "Michelle Black",
+      "title": "Communications Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:melissa.zimmerman",
+      "name": "Melissa Zimmerman",
+      "title": "Communications Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:michelle.rose",
+      "name": "Michelle Rose",
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:lisa.flores",
+      "name": "Lisa Flores",
+      "title": "Director of Operations",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:pamela.rojas",
+      "name": "Pamela Rojas",
+      "title": "Office Manager",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:sandra.mcdonald",
+      "name": "Sandra Mcdonald",
+      "title": "Office Manager",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:kimberly.le",
+      "name": "Kimberly Le",
+      "title": "Communications Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:amy.carter",
+      "name": "Amy Carter",
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:nancy.suarez",
+      "name": "Nancy Suarez",
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:julie.bailey",
+      "name": "Julie Bailey",
+      "title": "Communications Associate",
+      "dept": "Advisory",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

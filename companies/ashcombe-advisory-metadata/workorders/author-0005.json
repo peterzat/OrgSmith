@@ -1,0 +1,536 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0005",
+  "stage": "author",
+  "slug": "ashcombe-advisory",
+  "org_name": "Ashcombe Advisory Partners LLC",
+  "org_type": "corporate communications advisory",
+  "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0005\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0018",
+      "title": "Engagement Letter: Investor Relations Program for Castaneda, Adams and Davis",
+      "genre": "engagement_letter",
+      "date": "2018-06-27",
+      "authors": [
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Leads the firm and sets its plain-spoken house style, insisting that anything going to a client answer the question in the first line. Her own email is short and decisive, quick to name who owns the next move and by when. She reads the whole thread before she replies and dislikes messaging that hedges when the moment calls for a clear position."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:laura.bradley",
+          "name": "Laura Bradley",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked."
+        },
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        },
+        {
+          "id": "xp:lauren.heath",
+          "name": "Lauren Heath",
+          "title": "Chief Operating Officer",
+          "dept": "Castaneda, Adams and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Investor Relations Program for Castaneda, Adams and Davis, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2018-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:laura.bradley",
+          "surface": "Laura Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.black",
+          "surface": "Michelle Black",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:lauren.heath",
+          "surface": "Lauren Heath",
+          "kind": "person"
+        },
+        {
+          "entity": "x:castaneda-adams-and-davis",
+          "surface": "Castaneda, Adams and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 9 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0020",
+      "title": "Kickoff Memo: Investor Relations Program for Castaneda, Adams and Davis",
+      "genre": "kickoff_memo",
+      "date": "2018-07-10",
+      "authors": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:laura.bradley",
+          "name": "Laura Bradley",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked."
+        },
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        },
+        {
+          "id": "xp:lauren.heath",
+          "name": "Lauren Heath",
+          "title": "Chief Operating Officer",
+          "dept": "Castaneda, Adams and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Investor Relations Program for Castaneda, Adams and Davis, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:laura.bradley",
+          "surface": "Laura Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.black",
+          "surface": "Michelle Black",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:lauren.heath",
+          "surface": "Lauren Heath",
+          "kind": "person"
+        },
+        {
+          "entity": "x:castaneda-adams-and-davis",
+          "surface": "Castaneda, Adams and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "engagement_position": "This document is dated about 1% of the way through the engagement (in the early phase); it runs roughly 9 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0021",
+      "title": "Investor Relations Program for Castaneda, Adams and Davis",
+      "genre": "engagement_email",
+      "date": "2018-08-03",
+      "authors": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:laura.bradley",
+          "name": "Laura Bradley",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked."
+        },
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        },
+        {
+          "id": "xp:lauren.heath",
+          "name": "Lauren Heath",
+          "title": "Chief Operating Officer",
+          "dept": "Castaneda, Adams and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Investor Relations Program for Castaneda, Adams and Davis, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:laura.bradley",
+          "surface": "Laura Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.black",
+          "surface": "Michelle Black",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:lauren.heath",
+          "surface": "Lauren Heath",
+          "kind": "person"
+        },
+        {
+          "entity": "x:castaneda-adams-and-davis",
+          "surface": "Castaneda, Adams and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one.",
+      "engagement_position": "This document is dated about 10% of the way through the engagement (in the early phase); it runs roughly 9 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0022",
+      "title": "Briefing Deck: Investor Relations Program for Castaneda, Adams and Davis",
+      "genre": "briefing_deck",
+      "date": "2018-09-10",
+      "authors": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:laura.bradley",
+          "name": "Laura Bradley",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked."
+        },
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        },
+        {
+          "id": "xp:lauren.heath",
+          "name": "Lauren Heath",
+          "title": "Chief Operating Officer",
+          "dept": "Castaneda, Adams and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Investor Relations Program for Castaneda, Adams and Davis, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:laura.bradley",
+          "surface": "Laura Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.black",
+          "surface": "Michelle Black",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:lauren.heath",
+          "surface": "Lauren Heath",
+          "kind": "person"
+        },
+        {
+          "entity": "x:castaneda-adams-and-davis",
+          "surface": "Castaneda, Adams and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 400,
+      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock.",
+      "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 9 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0023",
+      "title": "Meeting Minutes: Investor Relations Program for Castaneda, Adams and Davis",
+      "genre": "meeting_minutes",
+      "date": "2018-10-19",
+      "authors": [
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:laura.bradley",
+          "name": "Laura Bradley",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked."
+        },
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        },
+        {
+          "id": "xp:lauren.heath",
+          "name": "Lauren Heath",
+          "title": "Chief Operating Officer",
+          "dept": "Castaneda, Adams and Davis",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Investor Relations Program for Castaneda, Adams and Davis, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.black",
+          "surface": "Michelle Black",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:laura.bradley",
+          "surface": "Laura Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:lauren.heath",
+          "surface": "Lauren Heath",
+          "kind": "person"
+        },
+        {
+          "entity": "x:castaneda-adams-and-davis",
+          "surface": "Castaneda, Adams and Davis",
+          "kind": "org"
+        },
+        {
+          "entity": "p:michael.morris",
+          "surface": "Mike",
+          "kind": "person"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 9 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0024",
+      "title": "Status Report: Investor Relations Program for Castaneda, Adams and Davis",
+      "genre": "status_report",
+      "date": "2018-11-15",
+      "authors": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "A partner who carries the firm's more delicate accounts and writes with a steady, reassuring register built for anxious clients ahead of an announcement. He frames a recommendation as a choice between clean options and states which one he would take. His threads stay calm and orderly even when a disclosure timeline is slipping."
+        },
+        {
+          "id": "p:laura.bradley",
+          "name": "Laura Bradley",
+          "title": "Senior Associate",
+          "dept": "Advisory",
+          "persona": "A senior associate who drafts much of the client-facing messaging and writes cleanly, matching her register to the audience without losing the point. She is careful with tone on sensitive announcements and flags the line that could be read the wrong way. Her replies are prompt and stay tight to whatever was actually asked."
+        },
+        {
+          "id": "p:michelle.black",
+          "name": "Michelle Black",
+          "title": "Communications Analyst",
+          "dept": "Advisory",
+          "persona": "A communications analyst who prepares the underlying material a message rests on and writes in a neutral, well-organized register meant to be reused in a draft. She separates what is confirmed from what is still open and labels her notes so a reader can scan them fast. Her tone is quiet and precise, quicker to structure than to editorialize."
+        }
+      ],
+      "engagement_summary": "Investor Relations Program for Castaneda, Adams and Davis, running about 9 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:laura.bradley",
+          "surface": "Laura Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.black",
+          "surface": "Michelle Black",
+          "kind": "person"
+        },
+        {
+          "entity": "x:castaneda-adams-and-davis",
+          "surface": "Castaneda, Adams and Davis",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 9 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

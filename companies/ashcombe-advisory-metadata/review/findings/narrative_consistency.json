@@ -1,0 +1,44 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "ashcombe-advisory",
+  "dimension": "narrative_consistency",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-1",
+      "dimension": "narrative_consistency",
+      "severity": "blocker",
+      "docs": [
+        "d:0064",
+        "d:0065",
+        "d:0066",
+        "d:0067",
+        "d:0005",
+        "d:0006",
+        "d:0048",
+        "d:0049",
+        "d:0050",
+        "d:0078",
+        "d:0079",
+        "d:0080"
+      ],
+      "summary": "In four of the six engagement threads, emails written as internal staff-to-staff handoffs are delivered to the client, so the client's own inbox carries the firm's private deliberation, including a message that says the client must not see it.",
+      "evidence": "Suarez-Jones Email 1 (d:0064) is rendered To: Jennifer Herrera <jennifer.herrera@suarezjones.com> (the client), yet the body opens 'To: Amy Carter' / 'Amy,' and states 'before it goes anywhere near the client, so we are not sending Jennifer Herrera anything we have not both read' -- a note sent to Jennifer Herrera that discusses withholding it from Jennifer Herrera, with a second contradictory To: line inside the body. The same internal-routed-to-client pattern recurs: Kirby-Taylor Email 3 (d:0049), To: Sandra Mcdaniel, reads 'Right. I will chase Sandra Mcdaniel today for the Kirby-Taylor spokesperson list'; Gallegos Email 3 (d:0079), To: Robert Smith, reads 'I will chase the materials with Robert Smith today'; Barrera Email 3 (d:0006), To: Mary Frank, reads 'hold the investor line for the second round. Mary Frank was clear at kickoff that she wants the Barrera Group story to land on operations first.' A reader who opens any of these .eml files sees the To: header naming the client and a body that treats that same client as an absent third party. The Suarez-Jones thread proves it is a defect and not the genre: the model authored those four openers as internal ('walk it together', 'in your inbox', figures to 'mark unverified') but the thread routed them all to the client. Open the .eml, compare the To: line to the body, and the illusion is gone in seconds."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-2",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0030"
+      ],
+      "summary": "An internal note refers to its own sender by full name in the third person, so the writer appears to be talking about someone else.",
+      "evidence": "The building-access email (d:0030) is From: Sandra Mcdonald, yet its body reads 'The building also wants a single office contact on the account, and I have listed Sandra Mcdonald so their notices come to me.' Sandra listing 'Sandra Mcdonald' and then routing the notices to 'me' is the writer naming herself in the third person; a real sender writes 'I have listed myself.' The same authoring habit that names the recipient in the third person in the engagement threads shows up here pointed at the sender."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8",
+    "effort": "xhigh"
+  }
+}

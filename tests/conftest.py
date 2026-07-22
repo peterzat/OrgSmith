@@ -10,7 +10,7 @@ REPO = Path(__file__).resolve().parent.parent
 # alone is ~2.8s, which pushes the org tier past its ~5s budget. It gets its
 # own `flagship` marker, excluded from the default org tier and run on its own
 # (TESTING.md). Any future flagship-scale org joins this set.
-FLAGSHIP_SLUGS = {"calderwood-partners"}
+FLAGSHIP_SLUGS = {"calderwood-partners", "ashcombe-advisory"}
 
 
 def flagship_params(slugs):

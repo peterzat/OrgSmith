@@ -1,0 +1,512 @@
+{
+  "schema_id": "orgsmith/graph@1",
+  "slug": "ashcombe-advisory",
+  "entities": [
+    "x:ashcombe-advisory",
+    "p:julie.hill",
+    "p:michael.morris",
+    "p:christopher.walton",
+    "p:daniel.valenzuela",
+    "p:laura.bradley",
+    "p:john.macias",
+    "p:michelle.black",
+    "p:melissa.zimmerman",
+    "p:michelle.rose",
+    "p:lisa.flores",
+    "p:pamela.rojas",
+    "p:sandra.mcdonald",
+    "p:kimberly.le",
+    "p:amy.carter",
+    "p:nancy.suarez",
+    "p:julie.bailey",
+    "x:barrera-group",
+    "x:castaneda-adams-and-davis",
+    "x:lee-rice-and-adams",
+    "x:kirby-taylor",
+    "x:suarez-jones",
+    "x:gallegos-pope-and-marsh",
+    "x:williams-vasquez",
+    "x:johnson-clark-and-anderson",
+    "xp:mary.frank",
+    "xp:lauren.heath",
+    "xp:megan.sutton",
+    "xp:sandra.mcdaniel",
+    "xp:jennifer.herrera",
+    "xp:robert.smith",
+    "xp:melissa.russo",
+    "xp:amanda.flynn",
+    "xp:deborah.martin",
+    "xp:michael.bridges"
+  ],
+  "edges": [
+    {
+      "src": "p:julie.hill",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-02-15",
+      "end": null
+    },
+    {
+      "src": "p:michael.morris",
+      "dst": "p:julie.hill",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:michael.morris",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-03-15",
+      "end": null
+    },
+    {
+      "src": "p:christopher.walton",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:christopher.walton",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2015-04-30",
+      "end": null
+    },
+    {
+      "src": "p:daniel.valenzuela",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:daniel.valenzuela",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-10-22",
+      "end": null
+    },
+    {
+      "src": "p:laura.bradley",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:laura.bradley",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-11-05",
+      "end": null
+    },
+    {
+      "src": "p:john.macias",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:john.macias",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-11-13",
+      "end": null
+    },
+    {
+      "src": "p:michelle.black",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:michelle.black",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2015-09-26",
+      "end": null
+    },
+    {
+      "src": "p:melissa.zimmerman",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:melissa.zimmerman",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2015-09-10",
+      "end": null
+    },
+    {
+      "src": "p:michelle.rose",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:michelle.rose",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-03-29",
+      "end": null
+    },
+    {
+      "src": "p:lisa.flores",
+      "dst": "p:julie.hill",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:lisa.flores",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-04-15",
+      "end": null
+    },
+    {
+      "src": "p:pamela.rojas",
+      "dst": "p:lisa.flores",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:pamela.rojas",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2014-10-21",
+      "end": null
+    },
+    {
+      "src": "p:sandra.mcdonald",
+      "dst": "p:lisa.flores",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:sandra.mcdonald",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2019-01-30",
+      "end": null
+    },
+    {
+      "src": "p:kimberly.le",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:kimberly.le",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2020-08-14",
+      "end": null
+    },
+    {
+      "src": "p:amy.carter",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:amy.carter",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2019-01-05",
+      "end": null
+    },
+    {
+      "src": "p:nancy.suarez",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:nancy.suarez",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2021-02-01",
+      "end": null
+    },
+    {
+      "src": "p:julie.bailey",
+      "dst": "p:michael.morris",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:julie.bailey",
+      "dst": "x:ashcombe-advisory",
+      "kind": "works_at",
+      "start": "2023-04-25",
+      "end": null
+    },
+    {
+      "src": "xp:mary.frank",
+      "dst": "x:barrera-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:lauren.heath",
+      "dst": "x:castaneda-adams-and-davis",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:megan.sutton",
+      "dst": "x:lee-rice-and-adams",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:sandra.mcdaniel",
+      "dst": "x:kirby-taylor",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:jennifer.herrera",
+      "dst": "x:suarez-jones",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:robert.smith",
+      "dst": "x:gallegos-pope-and-marsh",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:melissa.russo",
+      "dst": "x:williams-vasquez",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:amanda.flynn",
+      "dst": "x:johnson-clark-and-anderson",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:deborah.martin",
+      "dst": "x:barrera-group",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:michael.bridges",
+      "dst": "x:castaneda-adams-and-davis",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:barrera-group",
+      "dst": "x:ashcombe-advisory",
+      "kind": "client_of",
+      "start": "2017-02-15",
+      "end": null
+    },
+    {
+      "src": "p:daniel.valenzuela",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-02-15",
+      "end": "2017-07-10"
+    },
+    {
+      "src": "p:michelle.rose",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-02-15",
+      "end": "2017-07-10"
+    },
+    {
+      "src": "xp:mary.frank",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-02-15",
+      "end": "2017-07-10"
+    },
+    {
+      "src": "x:castaneda-adams-and-davis",
+      "dst": "x:ashcombe-advisory",
+      "kind": "client_of",
+      "start": "2018-07-07",
+      "end": null
+    },
+    {
+      "src": "p:michael.morris",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "p:laura.bradley",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "p:michelle.black",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "xp:lauren.heath",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "x:lee-rice-and-adams",
+      "dst": "x:ashcombe-advisory",
+      "kind": "client_of",
+      "start": "2021-07-23",
+      "end": null
+    },
+    {
+      "src": "p:amy.carter",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-07-23",
+      "end": "2022-03-20"
+    },
+    {
+      "src": "p:nancy.suarez",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-07-23",
+      "end": "2022-03-20"
+    },
+    {
+      "src": "xp:megan.sutton",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-07-23",
+      "end": "2022-03-20"
+    },
+    {
+      "src": "x:kirby-taylor",
+      "dst": "x:ashcombe-advisory",
+      "kind": "client_of",
+      "start": "2022-04-28",
+      "end": null
+    },
+    {
+      "src": "p:laura.bradley",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "p:kimberly.le",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "p:melissa.zimmerman",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "xp:sandra.mcdaniel",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "x:suarez-jones",
+      "dst": "x:ashcombe-advisory",
+      "kind": "client_of",
+      "start": "2023-07-05",
+      "end": null
+    },
+    {
+      "src": "p:john.macias",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-07-05",
+      "end": "2023-11-26"
+    },
+    {
+      "src": "p:amy.carter",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-07-05",
+      "end": "2023-11-26"
+    },
+    {
+      "src": "xp:jennifer.herrera",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-07-05",
+      "end": "2023-11-26"
+    },
+    {
+      "src": "x:gallegos-pope-and-marsh",
+      "dst": "x:ashcombe-advisory",
+      "kind": "client_of",
+      "start": "2024-02-12",
+      "end": null
+    },
+    {
+      "src": "p:michelle.rose",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-02-12",
+      "end": "2024-06-08"
+    },
+    {
+      "src": "p:kimberly.le",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-02-12",
+      "end": "2024-06-08"
+    },
+    {
+      "src": "xp:robert.smith",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-02-12",
+      "end": "2024-06-08"
+    }
+  ]
+}

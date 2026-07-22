@@ -1,0 +1,37 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "ashcombe-advisory",
+  "dimension": "document_plausibility",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0030",
+        "d:0057",
+        "d:0016",
+        "d:0033",
+        "d:0037"
+      ],
+      "summary": "In the mundane internal emails the sender routinely refers to himself or herself by full name in the third person, which no real author writing their own note would do.",
+      "evidence": "d:0030 is from Sandra Mcdonald yet reads 'I have listed Sandra Mcdonald so their notices come to me' (first person and third-person self-name in one sentence). d:0057 is from Christopher Walton: 'Christopher Walton is reachable by phone for a real emergency only.' Same tell in d:0016 (Julie Hill: 'Julie Hill is reachable by phone'), d:0033 (Julie Hill: 'reach Julie Hill by phone'), and d:0037 (John Macias: 'Route anything you cannot resolve to John Macias'). A person writes 'I'm reachable' / 'route it to me', not their own name."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-2",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0073"
+      ],
+      "summary": "A status report prepared by John Macias switches between first person and naming himself in the third person within a single closing paragraph.",
+      "evidence": "d:0073 (Prepared by John Macias) closes: 'I will keep this report on the same rhythm ... Anything that needs a decision from your side, John Macias will bring to you directly and early rather than let it sit.' The 'I' and 'John Macias' are the same person one sentence apart."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8",
+    "effort": "xhigh"
+  }
+}

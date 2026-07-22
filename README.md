@@ -193,7 +193,27 @@ calendar, an engagement book declared a sample, deterministic duplicates and
 drafts, and the voice mitigation. Its measurements are in its
 [`GENERATION-REPORT.md`](companies/calderwood-partners-metadata/GENERATION-REPORT.md),
 and it validates clean (28 rules run, 0 errors). The full window-defeating
-flagship is M12b; the pilot is the same capability at a tenth the scale.
+flagship is M17; the pilot is the same capability at a tenth the scale.
+
+#### The M14 email pilot
+
+[`ashcombe-advisory`](companies/ashcombe-advisory/) is the M14 email-first
+pilot, committed beside the fleet: a 12-seat corporate communications and
+investor-relations advisory across 2017–2024, 87 documents, generated through
+the same live airlock on `claude-opus-4-8[1m]` at effort `xhigh`. It is the
+org to read for email realism. Under a new optional `doc_culture.mail` block,
+its engagement mail runs as real threads — **42 authored `.eml`, 53% of its
+authored documents, across 6 threads up to depth 8** — with minute-granularity
+send times in declared business hours, `In-Reply-To`/`References` chains, RE:
+subjects, derived quoted-history tails, a deterministic To/Cc split,
+promotion-aware signature blocks, two transmittal emails carrying a kickoff
+memo as a byte-identical MIME attachment, a mundane internal-email genre, and
+three distribution lists. It validates clean (28 rules run, 0 errors) and
+scores 100% on all four eval splits. Its board findings ship in its
+[`GENERATION-REPORT.md`](companies/ashcombe-advisory-metadata/GENERATION-REPORT.md) —
+read the recipient/audience finding: some replies were authored in an internal
+register but are delivered to the client, a realism gap logged for the wave's
+regeneration turn.
 
 ### Where that sits against a real firm
 
@@ -201,10 +221,15 @@ A real ten-person professional-services firm over eight years does not
 produce 40 documents. It produces, very roughly:
 
 - **Email in the tens of thousands.** Ten people sending even 20 messages a
-  working day is ~400,000 messages over eight years. OrgSmith ships **11
-  `.eml` files across the entire fleet.** Real firms are email-dominant
-  corpora; this one is document-dominant. That is the single largest
-  fidelity gap, and it has not moved.
+  working day is ~400,000 messages over eight years. The frozen v2.0 fleet
+  ships **11 `.eml` files**, all single messages: email volume and thread
+  mechanics were the largest fidelity gap. M14 addressed the *mechanics* (not
+  the volume) with a committed email-first pilot, `ashcombe-advisory`: real
+  threads with minute-granularity timing, `In-Reply-To`/`References` chains,
+  quoted history, a To/Cc split, promotion-aware signatures, transmittal
+  attachments, and mundane internal traffic. It ships 42 authored `.eml`
+  (53% of its authored documents) across 6 threads up to depth 8. Volume
+  remains document-dominant, by design (specimens, not samples).
 - **Files in the thousands to hundreds of thousands**, most of them junk:
   drafts, near-duplicate versions, dead templates, misfiled scans, someone's
   lunch menu. OrgSmith ships 22–53 documents per company, each one
@@ -366,19 +391,24 @@ chains were on this list until M12 scoped them in: a flagship meant to test
 retrieval needs a realistic denominator, and today every committed document is
 deliberate. Not built yet; it is scope, not a feature.
 
-Email volume is the largest gap above and sits in between. The recipe's
-`format_mix` dials the email share, and M9 fixed the cadence — a thread now
-opens about four weeks into its engagement with replies a day or two apart
-(`docplan/planner.py`), replacing an earlier 45-day spacing that made a
-"thread" read as monthly memos. But **no committed fixture exercises it**: every
-recipe sets `format_mix.eml` at or below its engagement count, the planner
-assigns mail round-robin over engagements, and so all 11 `.eml` files in the
-fleet are "Email 1". The reply cadence is live code that has never shipped in a
-document. Email-dominant realism needs a recipe that leans on the knob, not
-just the knob.
+Email thread mechanics were the largest gap above, and M14 closed the
+*mechanics* half with a committed fixture. The frozen fleet's 11 `.eml` are
+still single messages ("Email 1"): every fleet recipe sets `format_mix.eml`
+at or below its engagement count, so the reply cadence never fired in a
+shipped fleet document. The email-first pilot `ashcombe-advisory` is where it
+does: under a new optional `doc_culture.mail` block, engagement mail runs as
+real threads (`docplan/planner.py`, `render/eml.py`) with minute-granularity
+send times in declared business hours, `In-Reply-To`/`References` chains, RE:
+subjects, a derived quoted-history tail, a deterministic To/Cc split,
+promotion-aware signature blocks, transmittal attachments, and a mundane
+internal-email genre. Its board findings (including where an authored reply's
+tone does not match its rendered recipient) ship beside it in
+`GENERATION-REPORT.md`. What is still open is *volume*: even the pilot is
+document-dominant, and no corpus here approaches an email-dominant one.
 
-**Choose accordingly.** If you need volume, noise distribution, or email
-realism, this is the wrong tool today. If you need labeled hard cases,
+**Choose accordingly.** If you need email *volume* this is still the wrong
+tool; if you need thread *mechanics*, the pilot has them. If you need labeled
+hard cases,
 format heterogeneity, reproducibility, and a corpus you can legally publish,
 it is a good one. See [docs/SCALE.md](docs/SCALE.md) for the size targets
 and the measurements behind them, including why a 2,000-document org at
