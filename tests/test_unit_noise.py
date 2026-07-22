@@ -848,3 +848,52 @@ def test_mismatch_over_demand_fails_actionably(tmp_path):
                 "    attachment_mismatch: 3\n"
             ),
         )
+
+
+# --- M15 noise v2: the whole kit validates (criterion 7 integration) ------
+
+
+def test_every_noise_kind_at_once_validates_clean(tmp_path):
+    """All kinds on one org: every derived file manifested (MAN-01), openable
+    (FILE-01), stamped (PROV-01), labels coherent (NOISE-01), splits keyed --
+    the full rule catalog, not the noise rule alone."""
+    from orgsmith.validate import run_validate
+    from test_unit_mail import _build_mail_org
+
+    p = _build_mail_org(
+        tmp_path,
+        eml=8,
+        max_depth=4,
+        extra_culture=(
+            "    attachments: 2\n"
+            "  noise:\n"
+            "    duplicates: 1\n"
+            "    drafts: 1\n"
+            "    version_chains: 2\n"
+            "    misfiled: 1\n"
+            "    stale_templates: 1\n"
+            "    empty_dirs: 2\n"
+            "    attachment_mismatch: 1\n"
+            "    filename_variety: true\n"
+        ),
+    )
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    assert run_validate(p) == 0
+    kinds = {e.noise_kind for e in load_manifest(p) if e.authoring == "derived"}
+    assert kinds == {
+        "exact_duplicate",
+        "draft",
+        "version",
+        "misfile",
+        "stale_template",
+    }
+    assert run_emit_evals(p) == 0
+    splits = json.loads((p.evals_dir / "splits.json").read_text())["splits"]
+    derived_paths = {
+        e.path for e in load_manifest(p) if e.authoring == "derived"
+    }
+    assert derived_paths <= set(splits["noise"])
+    assert not derived_paths & set(splits["core"])
+    assert not derived_paths & set(splits["distractors"])
