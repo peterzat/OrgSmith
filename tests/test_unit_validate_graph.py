@@ -11,7 +11,7 @@ from orgsmith.paths import OrgPaths
 from orgsmith.render import run_render
 from orgsmith.validate import run_validate
 
-from conftest import REPO, build_knobbed_stages, run_authoring, run_enrichment
+from conftest import REPO, base_recipe_text, build_knobbed_stages, run_authoring, run_enrichment
 
 pytestmark = pytest.mark.unit
 
@@ -56,7 +56,7 @@ def test_pre_m2_org_skips_visibly(tmp_path, capsys):
     failing."""
     dest = tmp_path / "recipes" / "dev-mini"
     dest.mkdir(parents=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text()
     knob = "  min_mentions_per_person: 1\n"
     assert knob in text
     (dest / "ORG-CHARTER.md").write_text(text.replace(knob, ""))

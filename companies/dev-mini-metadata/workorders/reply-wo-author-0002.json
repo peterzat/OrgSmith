@@ -1,10 +1,7 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "max"
-  },
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -12,68 +9,61 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Pinebrook Advisory Group",
-          "level": 1
+          "level": 1,
+          "text": "Pinebrook Advisory Group LLC: Firm Overview"
         },
         {
           "kind": "paragraph",
-          "text": "Pinebrook Advisory Group is a management consulting firm built for mid-market operating companies. We are five people, and that is a deliberate choice rather than a stage we are trying to grow out of. A company that hires us gets the people whose names are on the proposal, not a rotating cast of juniors, and a partner stays close to the work from the first conversation to the last. If you run a business in the middle market and you want a straight answer about how your operation is performing and what to do about it, that is the work we do, and we would rather do a handful of engagements well each year than chase every one that comes along."
+          "text": "Pinebrook Advisory Group is a management consultancy for mid-market operating companies, and the work we do is defined, short and finished. A client hires us to answer one question, we answer it in writing, and we go. We are not a firm that installs itself in a client's lobby for two years, and the reason is not modesty. The engagements where we are worth the fee are the ones where an outside team, given the time to look and no stake in whichever decision got the client here, gets further in one concentrated stretch than the client's own people can while they are also running the business."
         },
         {
           "kind": "heading",
-          "text": "Who We Serve",
-          "level": 2
+          "level": 2,
+          "text": "What we do"
         },
         {
           "kind": "paragraph",
-          "text": "Our clients are operating companies, the businesses that make, move, and sell real things. They are usually past the scrappy early years and into the harder middle stretch, where the company has grown faster than the systems and habits meant to support it, and the people running it can feel the friction without always being able to name its source. That is precisely the situation in which an outside, evidence-based read pays for itself. We are not the right firm for every problem, and we will tell you when we are not. When we are the right firm, you get our full attention and a partner's direct involvement, not a proposal team that disappears once the work begins."
+          "text": "Three kinds of work account for nearly all of it. An operational review is a structured comparison of how a business actually runs against how it believes it runs, and it ends in a short set of recommendations, each with an owner and a place in a sequence, because a recommendation with neither attached is a wish. A pricing study is narrower work and usually harder, since it obliges a client to say plainly what the product is worth and to whom, and most of the analysis exists to test that sentence rather than to print a new price list. Integration support is the work that starts after an acquisition closes, when two sets of systems and two sets of habits have to become one, and the part that clients underestimate is how much of the value sits in deciding what to leave alone."
         },
         {
           "kind": "heading",
-          "text": "What We Do",
-          "level": 2
+          "level": 2,
+          "text": "How an engagement runs"
         },
         {
           "kind": "paragraph",
-          "text": "Our engagements fall into three areas. Whatever the starting point, the way we work does not change: we work from evidence, we keep the scope tight, and we make only the recommendations we would be willing to carry out ourselves."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Operational reviews. We map how work actually gets done across your core functions, find where cost, time, or quality is being lost, and hand back a short, prioritized set of changes you can act on, rather than a survey of everything that could conceivably be improved.",
-            "Pricing studies. We examine how you price, what that pricing is costing you, and where there is room to price with more discipline, so that margin stops leaking in the places no one is watching.",
-            "Post-acquisition integration support. We help a buyer bring an acquired business into the fold without breaking what made it worth buying, from the pressured first months through the harder work that follows."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "These problems overlap more than the list suggests. A pricing question often turns out to be an operations question wearing a different hat, and the first hundred days after an acquisition are mostly an operational review run at speed. We follow the work where it leads, within a scope we have agreed with you, and we say so when we come to think the real problem is not the one you hired us to solve."
+          "text": "Every engagement begins with a written scope and a fixed fee, both agreed before any work starts, and we would rather spend an extra week arguing about the scope than send an invoice somebody has to explain upstairs. We staff thin on purpose. The people who meet a client in the first week are the people still on the file at the end, there is no second team behind a curtain, and that is the honest advantage of a firm this size as well as its honest limit, since it means we can carry only a few engagements at once and say no more often than a larger firm would need to. Findings go to the client as we get them, in a form short enough to be read in a meeting rather than filed for later. Nobody here is paid to save a surprise for the final report."
         },
         {
           "kind": "heading",
-          "text": "How We Work",
-          "level": 2
+          "level": 2,
+          "text": "Who we work for"
         },
         {
           "kind": "paragraph",
-          "text": "Every engagement is led by a partner and staffed by people who do the analysis themselves. We begin by getting the objective stated plainly, in your own words, so that we are solving the problem you actually have and not the one that happens to be easiest to study. From there we go to the work. We watch how the operation runs, we talk with the people who run it, and we reconcile what we see against the numbers you already produce, weighting the figures your team trusts and tracing the ones it does not back to their source. We keep you informed as we go, because no client of ours should be surprised at the readout. At the close you receive a short written findings report, a prioritized set of recommendations, and a working session in which we walk your leadership through both, so the conclusions are understood and owned before we hand them over."
+          "text": "Our clients are operating companies in the middle market, held privately or by a sponsor, and most of them sit somewhere between the stage where a founder knew every number personally and the stage where a finance function knows them instead. The recurring problem in that band is not a shortage of information. It is that the information has never been asked a direct question by anyone with the time to sit with the answer, and the people best placed to ask it are the people with the least room in their week to do so. An outside firm is one way to buy that room, and it is not the only way, which is a thing we say early rather than late."
         },
         {
           "kind": "heading",
-          "text": "Representative Work",
-          "level": 2
+          "level": 2,
+          "text": "Representative work"
         },
         {
           "kind": "paragraph",
-          "text": "Our current engagement is an operational review for {{fact:f:E-2019-001.client}}, a mid-market operating company working through the familiar problem of an operation that has outgrown its processes. The objective is the one we set for every review of this kind: a clear, honest picture of how the operation runs today, and a practical, prioritized set of changes worth making. The work stays close to the operation and rests on what we can observe rather than on what any manual claims, and it is a fair example of what this firm does best."
+          "text": "The engagement now under way is an operational review for {{fact:f:E-2019-001.client}}, and it is the reference call we would ask a prospective client to make once the work is done. Our list is short. A firm at this stage can either pad this section with the names of companies it has merely spoken to, or it can state plainly that it has one client, that the work is in progress, and that the client will take the call. The second is worth more to anyone who is actually deciding, and the first is the kind of thing we are in business to talk clients out of doing in their own materials."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "The firm"
         },
         {
           "kind": "paragraph",
-          "text": "If any of this fits a problem you are wrestling with, the fastest way to find out whether we can help is a direct conversation. We will tell you plainly whether the work is a good fit for us. If it is not, we will say so, and point you toward someone better suited to it."
+          "text": "Daniel Jones, the Managing Partner, signs everything that leaves this office, and he reads it in full before he signs it, which clients tend to discover the first time a draft comes back shorter than it went in. Behind him is a small consulting team and the office that keeps the firm running. We introduce the people who will be on an engagement before it starts rather than after, because a client who meets the team on the first morning of the work has been sold something other than what we sell."
         },
         {
           "kind": "paragraph",
-          "text": "Daniel Jones\nManaging Partner\nPinebrook Advisory Group"
+          "text": "The short version: one defined question, a fixed fee agreed in advance, an answer written to be read, and a firm small enough that the person who promised the work is the person doing it."
         }
       ]
     },
@@ -83,91 +73,119 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Onboarding Record: Cynthia Ball",
-          "level": 1
+          "level": 1,
+          "text": "Onboarding Record: Cynthia Ball"
         },
         {
           "kind": "paragraph",
-          "text": "To: The firm\nFrom: Daniel Jones\nRe: Cynthia Ball joins the consulting team"
+          "text": "Prepared by Daniel Jones, Managing Partner. Copy to the personnel file."
         },
         {
           "kind": "paragraph",
-          "text": "Please join me in welcoming Cynthia Ball, who starts with Pinebrook Advisory Group this week as an Analyst on our consulting team. Cynthia comes to us with a strong quantitative background and, just as important, a knack for taking a tangled set of findings and turning it into clean exhibits and tables that a client can actually read. That combination is exactly what our engagements run on. We are five people, so a new colleague is not a small addition, and I expect her to be in the middle of the analytical work before long."
+          "text": "Cynthia Ball joins the consulting practice as an Analyst and reports to Robert Miller, Principal Consultant, who will set her assignments and review her work before it comes to me. Her first weeks will be run mostly from home, which is not how any of us would choose to start somebody, so Robert has been asked to speak with her daily rather than weekly at the outset and to put her on a live file straight away instead of holding her back for a clean moment that is not going to arrive."
         },
         {
           "kind": "paragraph",
-          "text": "Cynthia will sit with the consulting team and work across our active engagements, pairing with the principals and senior consultants who lead the day-to-day. Her role is the analytical spine of an engagement: pulling and checking the operating data, building the exhibits and tables that carry our findings, and drafting the working notes that a principal can lift straight into a status report. She should also feel free to ask the blunt question in a working session. We would far rather surface a hard issue early than polish around it, and that instinct is one of the reasons we hired her."
+          "text": "We hired her for the part of this job that cannot be taught. In her interviews she talked about site visits the way other candidates talk about models, and what came through was that she is genuinely interested in how work gets done, that she asks about it in a way that makes people want to answer, and that she comes back with the detail nobody thought to put in the data room. She is also fast at turning a page of untidy interview notes into an exhibit a client executive can read without help. That is worth more here than it would be at a larger firm, because at this firm the analyst who took the notes builds the exhibit and is often in the room when it is presented."
         },
         {
           "kind": "paragraph",
-          "text": "A word on how we work, since it is easier to say than to pick up by osmosis. We keep our documents lean and our findings grounded in evidence, the partner reviews everything that leaves the office, and inside the firm we use first names and speak plainly with one another. Cynthia will not be expected to know our clients or our methods on her first day. She will be expected to ask when something is unclear, to write down what she observes while it is fresh, and to raise a problem early rather than let it ride. Those habits matter more here than polish, and they are quicker to learn than most people fear."
+          "text": "The practical things are few and there is no handbook to hide behind. Her laptop, firm email and access to the shared drive are set up and waiting. Time goes against an engagement code in the week it is worked rather than being reconstructed at month end, and expenses go in with the receipt attached. Our document conventions matter more than they sound: files are named to a standard, drafts live on the shared drive and not on anyone's desktop, and nothing goes to a client from an analyst's mailbox. Before her first client meeting she should read the engagement file end to end, including the parts that did not go the way we intended."
         },
         {
           "kind": "paragraph",
-          "text": "For her first few weeks the plan is simple. Cynthia will spend time with each of us to learn how we run an engagement and how we like our work reviewed, and she will take on a defined piece of a live engagement rather than waiting on the sidelines. I have asked the team to make sure she has what she needs from day one: access to the working files, a walk through our templates and the plain rules we follow for how documents are dated and filed, and a standing invitation to bring questions to me directly. We are a small firm, and that is a feature, not a limitation. Welcome aboard, Cynthia."
+          "text": "The expectations are the same ones everyone here gets. Write the recommendation first and put the reasoning underneath it, because a draft that arrives with the answer on page four comes back with page four circled and very little else on it. And when she thinks a partner has it wrong, she should say so in the room and not in the corridor afterwards. She was more direct in her interviews than an analyst is generally expected to be, and I want it written down somewhere she may reread in a year that the directness is the reason she is here rather than something to grow out of."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0021",
+      "doc_id": "d:0017",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Pinebrook Advisory Group",
-          "level": 1
+          "level": 1,
+          "text": "Onboarding Record: Susan Thomas"
         },
         {
           "kind": "paragraph",
-          "text": "Pinebrook Advisory Group is a management consulting firm of five people, and we mean to keep it that size. The size is the strategy. It lets a partner stay on every engagement from start to finish, it keeps our clients out of the hands of a rotating bench of juniors, and it enforces the discipline that makes our work worth paying for: we take on only what we can do well, we keep the scope tight, and we hand back decisions rather than binders."
+          "text": "For the personnel file. Prepared by Daniel Jones, Managing Partner."
         },
         {
           "kind": "paragraph",
-          "text": "We work with mid-market operating companies, the businesses that make, move, and sell real things and that have grown to the point where the way they run needs a hard, honest look. Over the past three years that has meant a steady handful of engagements a year, each one led by a partner and staffed by people who do the analysis themselves. The problems change from one client to the next. The method does not: we work from evidence, we say what we find plainly, and we recommend only what we would be willing to carry out ourselves. We have stayed in the middle market on purpose. It is where a firm our size can come to know a client's operation in real depth, and where clear, practical advice still changes the trajectory of a business rather than getting lost in a much larger machine."
+          "text": "Susan Thomas joins the consulting practice this week as an Analyst, reporting to Robert Miller, Principal Consultant, who will assign her work and review it. She goes onto a live engagement in her second week. We do not have the kind of bench that lets a new analyst read binders for a month, and in my experience the ones who are any good would rather not. Robert will set her review schedule and keep it. I will see her written work the way I see everybody's here, which is to say all of it, before any of it leaves the office."
+        },
+        {
+          "kind": "paragraph",
+          "text": "What she does that we needed: she will not pull a figure until somebody has told her what question it answers, and she keeps asking until the question is a real one. In her second interview she asked what decision a particular exhibit was meant to change, and nobody in the room had an answer worth the paper. That is most of the reason she is here. Her instinct for which number will actually move a client's decision, and which one is decoration, is better than her years should allow, and over a year it will save us weeks of work that no client ever wanted to buy."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Logistics. Her laptop, firm email and shared drive access are ready as of today. Time is recorded against the engagement code in the week it is worked, and expenses are filed with receipts. We are in the office together on the days an engagement needs us there and not otherwise, and it is the calendar rather than a policy that decides which days those are. Our file naming standard is not a suggestion. The closed engagement files are the model for it, and she should read two of them before she sits in front of a client, for the shape of the reports rather than the content."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On writing, which is most of this job in the end: the recommendation goes first, the reasoning goes underneath it, and a caveat is stated once and then left alone. Her sample writing already does all three, which is rarer in this market than it ought to be. The part she will like least is the reformatting, and there is more of it at a firm this size than at one with a production department, because a client executive judges a page by whether the columns line up before reading a word on it. She should do that work without complaint for now, and in a year she can hand it to somebody newer."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0022",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Pinebrook Advisory Group LLC: Firm Overview"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three engagements, all of them closed, and no two of them the same shape. That is the record of this firm as it stands, and a prospective client should weigh it as a short record honestly described rather than a long one. What the three have in common is the only thing we would ask anyone to generalize from. In each of them the client already held the information needed to make the decision, and in each of them nobody inside the building had been given the standing, or the free week, to ask that information a direct question. That is the work. It is also the only work we claim to be good at."
         },
         {
           "kind": "heading",
-          "text": "What We Do",
-          "level": 2
+          "level": 2,
+          "text": "The record"
         },
         {
           "kind": "paragraph",
-          "text": "Our work falls into three areas. Operational reviews are the core of the practice: mapping how work actually gets done across a company's key functions, finding where cost, time, and quality are being lost, and turning that into a short, prioritized set of changes. Pricing studies look at how a company prices and where margin is leaking, so that discipline replaces habit in the places that most affect the bottom line. Post-acquisition integration work helps a buyer fold an acquired business in without breaking what made it worth buying. Most clients come to us with one of these problems clearly in view; often the work that matters most is the problem sitting right next to it."
+          "text": "The first engagement this firm signed was an operational review for {{fact:f:E-2019-001.client}}, and it set the pattern for everything after it: a written scope, a fixed fee, a walk through the operation with the people who actually run it, and a set of recommendations short enough that a management team could argue about all of them in one sitting. The second was a pricing study for {{fact:f:E-2020-001.client}}, run almost entirely by telephone and video for reasons everybody now remembers, which worked better than we expected, though we would still rather be in the room when the answer is going to be unwelcome. The third was integration support for {{fact:f:E-2021-001.client}} in the months after their acquisition closed, where most of what we added was deciding, item by item, which of two ways of doing a thing to keep and which of the available arguments were not worth having."
         },
         {
           "kind": "heading",
-          "text": "The Team",
-          "level": 2
+          "level": 2,
+          "text": "What the three had in common"
         },
         {
           "kind": "paragraph",
-          "text": "The firm is deliberately flat. A partner leads each engagement and answers for the result, and the day-to-day is carried by senior and principal consultants and an analyst who do the mapping, the data work, and the writing themselves. There is no layer between the people who meet the client and the people who do the work, because at five people they are the same people. It is the arrangement that lets us promise a client the partner's attention and actually keep the promise."
+          "text": "None of them was a research project. Each began with a decision the client had to make and a point by which it had to be made, and the scope was written backwards from that. We do not sell studies. A study is what a firm produces when nobody agreed in advance what would change as a result of it, and the recognizable end of one is a document that circulates for two weeks and then stops circulating. If a client cannot tell us what they will do differently depending on our answer, we are the wrong firm for the assignment, and we would rather say so before anyone has spent anything than discover it together in the last month."
         },
         {
           "kind": "heading",
-          "text": "Selected Engagements",
-          "level": 2
+          "level": 2,
+          "text": "What has changed"
         },
         {
           "kind": "paragraph",
-          "text": "The firm's first operational review was for {{fact:f:E-2019-001.client}}, an operating company whose processes had not kept pace with its growth. The pattern of that work, close to the operation and grounded in what we could observe rather than in what a manual claimed, set the template for the reviews that followed. Since then our engagements have included work for {{fact:f:E-2020-001.client}} and {{fact:f:E-2021-001.client}}, across the range of problems described above. In each case the shape of the result was the same: a clear read on the situation, a handful of recommendations the client believed in, and a leadership working session to make sure the conclusions were understood and owned before we handed them over."
+          "text": "Less than a prospective client might expect. We still scope in writing, still quote a fixed fee, and still put the people who met the client in the first week on the file at the end. The change is one of tempo: findings now go out earlier and shorter, because a client who can see the direction of travel by the midpoint makes better use of the last third of an engagement than one who is handed a finished document and asked to react to it. We have also grown slower to say yes, which is a change we would not have predicted and do not regret."
         },
         {
           "kind": "heading",
-          "text": "How We Run an Engagement",
-          "level": 2
+          "level": 2,
+          "text": "Terms"
         },
         {
           "kind": "paragraph",
-          "text": "Every engagement starts the same way, with the objective stated plainly in the client's own words, so that we solve the problem you have and not the one that is easiest to study. From there the work is direct. We observe the operation, we talk with the people who run it, and we reconcile what we see against the numbers the company already produces. We keep the client informed as we go, because no client of ours should be surprised at the readout. At the close you get a short written findings report, a prioritized set of recommendations, and a working session where we walk your leadership through both. The engagement is over when you have what you need to act, not when the hours run out."
+          "text": "A fixed fee, set out in the engagement letter and agreed before any work begins, billed on the schedule that same letter states. We do not bill by the hour, because hourly billing puts the firm and the client on opposite sides of every question about how long a piece of work should take, and that is a bad place to be standing when the work turns out to be harder than either party thought. Expenses are passed through at cost and itemized. If the scope moves far enough to move the fee, that conversation happens in writing at the point it becomes apparent, and never at the end."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "The firm"
         },
         {
           "kind": "paragraph",
-          "text": "If your company is at the point where how it runs deserves a hard, outside look, that is our work, and the fastest way to find out whether we are the right firm for it is a direct conversation. We will tell you honestly whether it is a good fit. If it is not, we will point you somewhere better."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Daniel Jones\nManaging Partner\nPinebrook Advisory Group"
+          "text": "Nothing leaves this office without Daniel Jones reading it first, and the Managing Partner reads with a pen in his hand, which is why our reports are shorter than the ones they sit next to and why the recommendation is in the opening paragraph instead of on the last page. The practice has grown since that first engagement, though not by much and not by accident, because we would rather turn work away than staff it with people the client has never met. Anyone who is going to be on your engagement will have been in the room before it starts."
         }
       ]
     }

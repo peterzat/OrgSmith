@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session Minutes: Pricing Study",
+      "text": "Minutes: Recommendation Review",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Subject: Pricing study for {{fact:f:E-2020-001.client}}\nRecorded by: Susan Wiley",
+      "text": "The draft recommendation held. The client accepted its structure in principle and asked for one number to be retested. Three items were left open. One of them can still change the recommendation; the other two cannot.",
       "level": 1,
       "items": [],
       "header": [],
@@ -34,10 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Susan Wiley, Analyst, Pinebrook Advisory Group",
-        "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
-        "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group",
-        "Cynthia Foley, VP Finance, Dean PLC"
+        "Jennifer Fletcher, Senior Consultant",
+        "Robert Miller, Principal Consultant",
+        "Susan Wiley, Analyst",
+        "Cynthia Foley, VP Finance, {{fact:f:E-2020-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -45,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Discussion",
+      "text": "Review of the Draft",
       "level": 2,
       "items": [],
       "header": [],
@@ -54,7 +54,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "With the analysis essentially complete, the session focused on the draft recommendations and how they will be presented to leadership. I walked the group through the near-final waterfall and the dispersion analysis, both of which now rest on data traced to source. The provisional figures we were working from at the midpoint have held up, with only minor revisions once the off-invoice items were fully mapped, and the small variance we had against the monthly sales totals has been closed. A handful of customer cases are still being validated, mostly accounts whose net price sits well outside the pattern for reasons the data alone does not explain, and I flagged those as open rather than settle them before the checking is done.",
+      "text": "Jennifer Fletcher walked the room through the recommended structure. It sets price bands by product family, moves discount authority up one level in the two regions where discretion currently sits lowest, and prices exceptions rather than prohibiting them. Cynthia Foley accepted the shape without argument. She asked that the margin effect be shown account by account before she takes it to her executive committee, on the grounds that the committee will ask which customers lose and she would rather answer than promise to follow up.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Open Items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The first is the price of an exception. The draft sets it as a flat uplift. Robert Miller argued that a flat uplift will be worked around inside a quarter, because the people it constrains negotiate for a living. Jennifer Fletcher will test a banded alternative against the transaction history. The structure does not change either way. The number may.",
       "level": 1,
       "items": [],
       "header": [],
@@ -63,7 +81,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The discussion centered on four recommendations taking shape. The first is tightening the authority under which discretionary discounts are granted, since much of the dispersion traces back to discounts approved informally and never revisited. The second is repricing the small orders that the cost-to-serve work shows are being filled at a loss once handling and freight are counted. The third is narrowing the net-price dispersion among comparable customers, so that similar accounts are not paying materially different prices for reasons no one can defend. The fourth is bringing the off-invoice rebates and credits under the same review and visibility as on-invoice price, which today sits outside anyone's regular look. Robert laid out how he would rank the four by the margin each is worth, and was deliberate that the ranking has to rest on the quantified figures and not on impression. Jennifer Fletcher pressed the group to state each recommendation plainly, in a form leadership can approve or reject, rather than hedge it.",
+      "text": "The second is one product family. Its discount pattern is driven by a handful of contracts whose terms predate the current price list. Susan Wiley will schedule those contracts with their terms and expiries so the recommendation can treat them as a named exception rather than bend the general rule around them. Cynthia Foley confirmed that none of them can be reopened early.",
       "level": 1,
       "items": [],
       "header": [],
@@ -72,7 +90,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Cynthia Foley gave a candid read on which of the changes will meet resistance inside the company and which can move quickly, which is useful for how we sequence them in the readout; she was clear that the discount-authority change is the one most likely to draw pushback from the sales side. She also confirmed the last data items we had been waiting on. We agreed that the next step is a clean draft of the findings and recommendations for the leadership working session, and that nothing goes into that draft which we cannot trace back to the data.",
+      "text": "The third is communication. The structure constrains the two regions that discount most, and it will not be welcome there. Cynthia Foley will decide who tells them and in what order. She asked whether the firm would prepare the supporting exhibit for that conversation. Robert Miller said yes and asked her to confirm the audience first, since the exhibit for a regional manager is not the exhibit for an executive committee.",
       "level": 1,
       "items": [],
       "header": [],
@@ -80,8 +98,17 @@
       "signers": []
     },
     {
+      "kind": "heading",
+      "text": "Also Discussed",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "We closed by confirming what the leadership working session will need to contain: the four recommendations, each with the margin it is worth and the evidence behind it, and a clear sequence for acting on them. Robert and Jennifer will build that draft, and I will supply the supporting exhibits, each tied back to the underlying data so any figure raised in the room can be traced on the spot. Nothing decided today changes the direction of the work; the session confirmed we are ready to move from analysis into the readout.",
+      "text": "A pilot was raised briefly. One region, one quarter, ahead of any general rollout. Cynthia Foley is in favor. No decision was taken and none was asked for. The review was held by video, as the last two have been. The closing session and the final report were touched on at the end: both follow once the account-level margin exhibit is finished and the exception price is settled.",
       "level": 1,
       "items": [],
       "header": [],
@@ -103,37 +130,52 @@
       "level": 1,
       "items": [],
       "header": [
-        "Action",
+        "No.",
         "Owner",
-        "Target"
+        "Action",
+        "Due"
       ],
       "rows": [
         [
-          "Finalize the recommendation ranking against the quantified margin figures",
-          "Robert Miller",
-          "Before the readout"
-        ],
-        [
-          "Validate the remaining customer dispersion cases",
-          "Susan Wiley",
-          "Within one week"
-        ],
-        [
-          "Draft the findings and recommendations for the leadership working session",
+          "1",
           "Jennifer Fletcher",
-          "Before the readout"
+          "Test a banded exception price against the transaction history",
+          "Before the next review"
         ],
         [
-          "Confirm the final rebate and cost-to-serve figures",
+          "2",
+          "Susan Wiley",
+          "Produce the account-level margin exhibit for the executive committee",
+          "Next week"
+        ],
+        [
+          "3",
+          "Susan Wiley",
+          "Schedule the legacy contracts in the affected family with terms and expiries",
+          "Next week"
+        ],
+        [
+          "4",
           "Cynthia Foley",
+          "Confirm the audience for the regional communication exhibit",
           "This week"
         ],
         [
-          "Assemble the supporting exhibits, each traced to source",
-          "Susan Wiley",
-          "Before the readout"
+          "5",
+          "Robert Miller",
+          "Circulate the outline of the final report and the closing session agenda",
+          "Before the next review"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Item 1 is the only open item that can move the recommendation. Items 2 through 5 support it. The next review will be set once items 1 and 2 are done.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

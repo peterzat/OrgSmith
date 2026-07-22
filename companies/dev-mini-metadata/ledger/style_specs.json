@@ -1,0 +1,111 @@
+{
+  "schema_id": "orgsmith/style-specs@1",
+  "slug": "dev-mini",
+  "specs": [
+    {
+      "person": "p:daniel.jones",
+      "voice_register": "crisp",
+      "sentence_length": "long",
+      "greeting": "Hello {first},",
+      "closing": "Regards",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:robert.miller",
+      "voice_register": "crisp",
+      "sentence_length": "long",
+      "greeting": "Hello {first},",
+      "closing": "Best regards",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "closes with one clear next step"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:jennifer.fletcher",
+      "voice_register": "structured",
+      "sentence_length": "short",
+      "greeting": "Good morning {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "closes with one clear next step",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "closing epigrams or aphorisms",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:susan.wiley",
+      "voice_register": "crisp",
+      "sentence_length": "short",
+      "greeting": "{first},",
+      "closing": "Best",
+      "habits": [
+        "opens with the conclusion before the detail",
+        "prefers numbered lists over bullet points"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:michelle.lopez",
+      "voice_register": "warm",
+      "sentence_length": "medium",
+      "greeting": "Hello {first},",
+      "closing": "Regards",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "prefers numbered lists over bullet points"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:cynthia.ball",
+      "voice_register": "formal",
+      "sentence_length": "short",
+      "greeting": "Good morning {first},",
+      "closing": "Best regards",
+      "habits": [
+        "prefers numbered lists over bullet points",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:susan.thomas",
+      "voice_register": "warm",
+      "sentence_length": "short",
+      "greeting": "Dear {first},",
+      "closing": "Thanks",
+      "habits": [
+        "closes with one clear next step",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "closing epigrams or aphorisms"
+      ]
+    }
+  ]
+}

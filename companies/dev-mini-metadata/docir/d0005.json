@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session Minutes: Operational Review",
+      "text": "Minutes: Operational Review Working Session, {{fact:f:E-2019-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Subject: Operational review for {{fact:f:E-2019-001.client}}\nRecorded by: Robert Miller",
+      "text": "Held at the client's offices. Recorded by Robert Miller.",
       "level": 1,
       "items": [],
       "header": [],
@@ -53,7 +53,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The session covered the process maps assembled so far, with most of our time on the order-to-cash flow. We walked it step by step against what we have observed on site and marked each point where the documented process and the actual practice diverge. Several of those gaps are small, a form filled in later than the procedure implies or an approval taken by phone and recorded afterward. A few are larger, most notably a manual reconciliation step between order entry and fulfillment that does not appear in the written process at all. I want to be clear that we did not draw conclusions today. The purpose was to confirm that we are seeing the operation as it actually runs before we start weighing what any of it means.",
+      "text": "Stephanie Campos opened by asking where the work stands, and the answer we gave her is that observation in receiving, put-away, and picking is finished, the supervisor interviews are finished, and the order data is in hand and part way through reconciliation, which is far enough along to describe a pattern and not far enough along to put a number in front of her operating managers. She did not ask for a finding today and we did not offer one.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,7 +62,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Stephanie Campos walked us through where the monthly operating reports come from and which figures her team trusts more than others. That distinction matters a great deal for the analysis, and we will weight our work accordingly rather than treat every number as equally solid. She noted that the volume figures are reliable while the cycle-time figures are assembled by hand and vary in quality, so we agreed to trace a sample of those cycle-time figures back to source and confirm exactly what they measure.",
+      "text": "The substance of the hour was the distance between the schedule the floor works to and the schedule the system holds. Every supervisor we have sat with keeps his own version of the day, on paper or in a spreadsheet, and each of them gave the same reason for it, which is that the system schedule is set before the day's constraints are known and nobody goes back to correct it once the day starts moving. Jennifer Fletcher walked the group through what that does downstream, which is that the dates the sales office promises customers are built on a schedule the floor has already abandoned by mid-morning.",
       "level": 1,
       "items": [],
       "header": [],
@@ -71,7 +71,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Jennifer Fletcher raised the handoffs between functions as the area clients most often underestimate, and the group agreed those handoffs deserve a closer look in the next round of observation. The point was less about any one function performing poorly than about what falls between them. We flagged two functions where our process maps are still incomplete, and those need to be finished before we can compare across the operation with any confidence.",
+      "text": "Stephanie Campos said her operating managers would dispute that characterization. We told her they may well be right in places, and that we will bring the paper schedules and the system extract to the next session and lay them beside each other so the argument happens over one document instead of two impressions.",
       "level": 1,
       "items": [],
       "header": [],
@@ -80,7 +80,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We spent the back half of the session on the intake side, where orders first enter the system. The team there described a fair amount of rework when an order arrives incomplete, and we want to measure how often that happens before we say anything about its cost. Stephanie Campos offered to pull the exception counts her team already tracks, which gives us a starting point. For the record, our sample of observation is still small; two or three visits to a function are enough to form questions, not to settle them.",
+      "text": "Two items came out of the discussion that move our plan slightly. The first is that downtime is recorded in three places under three different definitions, and we cannot reconcile the count without somebody from her staff who knows why the definitions differ. The second is the returns process, which sits outside our scope as written and which keeps coming up in interviews as the reason picking gets interrupted. We asked whether she wanted it looked at. She said to look at it, and to keep it inside the current scope and fee, and Jennifer Fletcher will put the revised boundary in writing so nobody is guessing later about what was agreed in a room.",
       "level": 1,
       "items": [],
       "header": [],
@@ -89,7 +89,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We closed by confirming what the next working session should cover: the completed maps for the remaining functions, a first look at the cycle-time sample, and the handoffs we most want to observe directly. No decisions were taken today, and none were expected; the value of the session was in aligning on what we are looking at.",
+      "text": "Outstanding from our side is nothing. Outstanding from theirs is the maintenance log extract and the promise-date history, both requested earlier this month and neither yet with us.",
       "level": 1,
       "items": [],
       "header": [],
@@ -111,37 +111,46 @@
       "level": 1,
       "items": [],
       "header": [
-        "Action",
+        "Item",
         "Owner",
-        "Target"
+        "By"
       ],
       "rows": [
         [
-          "Complete process maps for the two remaining functions",
-          "Robert Miller",
-          "Before the next working session"
+          "Release the maintenance log extract and the promise-date history",
+          "Stephanie Campos",
+          "End of this week"
         ],
         [
-          "Trace the sampled cycle-time figures back to source and confirm what they measure",
-          "Robert Miller",
-          "Before the next working session"
+          "Name a member of finance staff to work the downtime definitions with us",
+          "Stephanie Campos",
+          "End of this week"
         ],
         [
-          "Circulate the interview summary to the client team",
+          "Reconcile the three downtime definitions and document which one we will use",
+          "Robert Miller",
+          "Next working session"
+        ],
+        [
+          "Confirm the returns question and the revised scope boundary in writing",
           "Jennifer Fletcher",
-          "Within one week"
+          "This week"
         ],
         [
-          "Provide the remaining monthly operating reports",
-          "Stephanie Campos",
-          "By the next working session"
-        ],
-        [
-          "Pull the order-intake exception counts already tracked",
-          "Stephanie Campos",
-          "By the next working session"
+          "Assemble the paper schedules and the system extract side by side",
+          "Robert Miller",
+          "Next working session"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The next working session is set for the week after next at the client's offices, and the one thing that has to be true before it is that the maintenance extract is in our hands, because the downtime reconciliation is now the piece the rest of the operations analysis waits on.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

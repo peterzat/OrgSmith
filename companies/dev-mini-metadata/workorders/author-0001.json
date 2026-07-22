@@ -5,8 +5,8 @@
   "slug": "dev-mini",
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
-  "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Pinebrook Advisory Group is a small management consultancy serving\nmid-market operating companies, five people at the start of the window and\nsix by the end. The firm takes on a handful of engagements a year:\noperational reviews, pricing studies, and post-acquisition integration\nsupport. Its documents are lean and practical: engagement letters on firm\nletterhead, kickoff memos, meeting minutes that name every attendee, and\nstatus reports written for a client executive who skims. The Managing\nPartner signs everything that leaves the building. Tone is plain American\nbusiness English, first names inside the firm, full names and titles when a\nclient is on the page.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0002",
@@ -19,7 +19,7 @@
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
         }
       ],
       "participants": [
@@ -28,14 +28,14 @@
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+          "persona": "Jennifer structures a problem fast, usually on a whiteboard, and she is comfortable telling a client early that the thing they asked for is not the thing they need. She carries the pricing work and most of the integration engagements, where the real job is getting two groups of people to agree on what a word means. Her memos read the way she talks, plain and slightly clipped, with the awkward finding put plainly instead of buried on the last page. She is generous with the analysts about method and blunt with them about sloppy exhibits."
         },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+          "persona": "Robert works operational reviews from the floor up. He would rather spend a morning walking a warehouse and talking to line supervisors than start from whatever the client's own reporting says, and he is quietly skeptical of any conclusion he cannot trace back to something he watched happen. His first drafts run long because he puts everything in, then he cuts hard on the second pass. With clients he is patient and a little dry, the sort who will let an uncomfortable silence sit until somebody fills it."
         },
         {
           "id": "xp:stephanie.campos",
@@ -88,9 +88,10 @@
         }
       ],
       "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0003",
@@ -103,7 +104,7 @@
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+          "persona": "Jennifer structures a problem fast, usually on a whiteboard, and she is comfortable telling a client early that the thing they asked for is not the thing they need. She carries the pricing work and most of the integration engagements, where the real job is getting two groups of people to agree on what a word means. Her memos read the way she talks, plain and slightly clipped, with the awkward finding put plainly instead of buried on the last page. She is generous with the analysts about method and blunt with them about sloppy exhibits."
         }
       ],
       "participants": [
@@ -112,14 +113,14 @@
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+          "persona": "Jennifer structures a problem fast, usually on a whiteboard, and she is comfortable telling a client early that the thing they asked for is not the thing they need. She carries the pricing work and most of the integration engagements, where the real job is getting two groups of people to agree on what a word means. Her memos read the way she talks, plain and slightly clipped, with the awkward finding put plainly instead of buried on the last page. She is generous with the analysts about method and blunt with them about sloppy exhibits."
         },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+          "persona": "Robert works operational reviews from the floor up. He would rather spend a morning walking a warehouse and talking to line supervisors than start from whatever the client's own reporting says, and he is quietly skeptical of any conclusion he cannot trace back to something he watched happen. His first drafts run long because he puts everything in, then he cuts hard on the second pass. With clients he is patient and a little dry, the sort who will let an uncomfortable silence sit until somebody fills it."
         },
         {
           "id": "xp:stephanie.campos",
@@ -133,7 +134,7 @@
           "name": "Michelle Lopez",
           "title": "Office Manager",
           "dept": "Operations",
-          "persona": "Michelle is the Office Manager who keeps the firm running, handling the letterhead, scheduling, and the steady administrative rhythm behind every engagement. She writes crisply and courteously, and hers is the voice a client hears when confirming a meeting or receiving a signed document. Detail-oriented and unflappable, she is the person who makes sure nothing that needs the Managing Partner's signature slips through."
+          "persona": "Michelle keeps the calendar, the letterhead, and the firm's memory of where anything was filed. Nothing goes out unsigned or unlogged on her watch, and she is the one who notices that a draft still says the wrong client name in the footer. She writes short, friendly notes, first names, no ceremony, and she is direct about deadlines because somebody has to be. The consultants treat her scheduling as fixed weather."
         }
       ],
       "engagement_summary": "Operational Review for Johnson and Sons, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -175,9 +176,10 @@
         }
       ],
       "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use closing epigrams or aphorisms; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 3% of the way through the engagement (in the early phase); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0005",
@@ -190,7 +192,7 @@
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+          "persona": "Robert works operational reviews from the floor up. He would rather spend a morning walking a warehouse and talking to line supervisors than start from whatever the client's own reporting says, and he is quietly skeptical of any conclusion he cannot trace back to something he watched happen. His first drafts run long because he puts everything in, then he cuts hard on the second pass. With clients he is patient and a little dry, the sort who will let an uncomfortable silence sit until somebody fills it."
         }
       ],
       "participants": [
@@ -199,14 +201,14 @@
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+          "persona": "Jennifer structures a problem fast, usually on a whiteboard, and she is comfortable telling a client early that the thing they asked for is not the thing they need. She carries the pricing work and most of the integration engagements, where the real job is getting two groups of people to agree on what a word means. Her memos read the way she talks, plain and slightly clipped, with the awkward finding put plainly instead of buried on the last page. She is generous with the analysts about method and blunt with them about sloppy exhibits."
         },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+          "persona": "Robert works operational reviews from the floor up. He would rather spend a morning walking a warehouse and talking to line supervisors than start from whatever the client's own reporting says, and he is quietly skeptical of any conclusion he cannot trace back to something he watched happen. His first drafts run long because he puts everything in, then he cuts hard on the second pass. With clients he is patient and a little dry, the sort who will let an uncomfortable silence sit until somebody fills it."
         },
         {
           "id": "xp:stephanie.campos",
@@ -246,9 +248,10 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; closes with one clear next step. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0006",
@@ -261,7 +264,7 @@
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+          "persona": "Jennifer structures a problem fast, usually on a whiteboard, and she is comfortable telling a client early that the thing they asked for is not the thing they need. She carries the pricing work and most of the integration engagements, where the real job is getting two groups of people to agree on what a word means. Her memos read the way she talks, plain and slightly clipped, with the awkward finding put plainly instead of buried on the last page. She is generous with the analysts about method and blunt with them about sloppy exhibits."
         }
       ],
       "participants": [
@@ -270,14 +273,14 @@
           "name": "Jennifer Fletcher",
           "title": "Senior Consultant",
           "dept": "Consulting",
-          "persona": "Jennifer is the Principal Consultant clients call when a situation is delicate, and she leads the firm's pricing and integration work with a client-first instinct. She writes with warmth and precision, framing a hard conclusion in language an executive can act on without feeling cornered. Inside the firm she is the one who pushes the team to state the recommendation plainly rather than hedge."
+          "persona": "Jennifer structures a problem fast, usually on a whiteboard, and she is comfortable telling a client early that the thing they asked for is not the thing they need. She carries the pricing work and most of the integration engagements, where the real job is getting two groups of people to agree on what a word means. Her memos read the way she talks, plain and slightly clipped, with the awkward finding put plainly instead of buried on the last page. She is generous with the analysts about method and blunt with them about sloppy exhibits."
         },
         {
           "id": "p:robert.miller",
           "name": "Robert Miller",
           "title": "Principal Consultant",
           "dept": "Consulting",
-          "persona": "Robert is the Principal Consultant who carries the analytical backbone of most operational reviews, happiest when he can trace a finding back to how the work actually gets done on the floor. He is methodical and process-minded, and his writing is structured and evidence-first, laying out what he observed before he says what it means. In working sessions he is the steady one, slow to conclude and hard to move once he has the facts lined up."
+          "persona": "Robert works operational reviews from the floor up. He would rather spend a morning walking a warehouse and talking to line supervisors than start from whatever the client's own reporting says, and he is quietly skeptical of any conclusion he cannot trace back to something he watched happen. His first drafts run long because he puts everything in, then he cuts hard on the second pass. With clients he is patient and a little dry, the sort who will let an uncomfortable silence sit until somebody fills it."
         }
       ],
       "engagement_summary": "Operational Review for Johnson and Sons, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -309,9 +312,10 @@
         }
       ],
       "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use closing epigrams or aphorisms; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

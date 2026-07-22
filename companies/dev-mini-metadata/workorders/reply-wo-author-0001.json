@@ -3,7 +3,7 @@
   "work_order_id": "wo:author:0001",
   "generator": {
     "model": "claude-opus-4-8[1m]",
-    "effort": "max"
+    "effort": "xhigh"
   },
   "docs": [
     {
@@ -20,7 +20,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This letter confirms the terms on which Pinebrook Advisory Group will conduct an operational review for {{fact:f:E-2019-001.client}}. We are glad to take on the work, and we think this is the right moment for it. You and I discussed the goal plainly: a clear, practical read on how the operation runs today and where it can run better. What follows sets out the scope, the team, the fee, and the standard terms that govern our work together. If any of it needs adjusting before we begin, tell me and we will sort it out."
+          "text": "This letter is our agreement to carry out an operational review for {{fact:f:E-2019-001.client}}, and if you sign it and return one copy to me we will begin on the date set out below. It records what we will do, who will do it, what it costs, and what each of us owes the other, and it is short because I have never seen a long one prevent a disagreement. If any part of it reads differently from what we discussed, say so before you sign rather than after, since the whole value of a letter like this is that you and I are holding the same one."
         },
         {
           "kind": "heading",
@@ -29,29 +29,20 @@
         },
         {
           "kind": "paragraph",
-          "text": "The review will look at how work actually gets done across your core operating functions, and it will proceed in four straightforward steps. First, we will map your key processes end to end, as they run in practice rather than as any manual describes them. Second, we will observe the work directly and interview the people who perform it, so that what we document is grounded in evidence and not in impression. Third, we will review the operating data you already produce and reconcile it against what we see on the floor. Fourth, we will analyze where time, cost, or quality is being lost and translate that into a short, prioritized set of recommendations you can act on."
+          "text": "The review covers how the work of {{fact:f:E-2019-001.client}} actually gets done, from the point an order arrives through purchasing, scheduling, production, and shipment, together with the reporting and the standing meetings your managers use to steer all of it. We will look for the places where work waits, where it is done twice, and where the numbers your people manage by have stopped describing what happens on the floor, and we will tell you which of those is costing you the most. We are not auditing your accounts, we are not evaluating individual employees, and we will not hand you a recommendation that would require a different company than the one you have."
         },
         {
           "kind": "paragraph",
-          "text": "Our aim is a focused result, not a survey of everything that could be improved. We will start with the functions where you and your team feel the most friction and work outward from there. At the close of the engagement you will receive a written findings report and a set of recommendations, and we will walk your leadership through both in a working session so the conclusions are understood and owned before we hand them over. Matters outside day-to-day operations, such as tax, legal, and formal audit, are not part of this review; where we happen to notice something in those areas, we will flag it for you rather than opine on it."
+          "text": "Our method is ordinary and we have used it for years. We start in your facilities rather than in your data, because a morning spent watching a shift and asking a supervisor what gets in his way is worth more at the outset than a month of analysis built on somebody else's summary, and we then work from the reporting your systems already produce rather than asking your staff to build anything new for us. We will interview across the business, from your leadership down to the people who touch the product, and we will test what we are told against what we watch, because in our experience the two disagree at first and the gap between them is where the money sits. At the end you get a written report with a short set of recommendations, each carrying the change it asks for and the argument for it, and we will sit with your leadership team and take their questions on every one."
         },
         {
           "kind": "heading",
-          "text": "Engagement Team",
+          "text": "The Team",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "I will oversee the engagement personally, as I do for all of our work, and I will stay close enough to it to answer for the result. Jennifer Fletcher, one of our senior consultants, will lead the day-to-day and be your steady point of contact for scheduling, questions, and anything that needs a quick decision. Robert Miller, a principal consultant on our team, will carry the analytical work: the process mapping, the operating data, and the findings that come out of them. The two of them have run this kind of review together before and will draw on the rest of the firm as the work requires. On your side, we understand Stephanie Campos, Chief Financial Officer, will coordinate access to your people and information, which is the single thing that most affects how smoothly a review like this runs."
-        },
-        {
-          "kind": "heading",
-          "text": "Fee and Timing",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for this engagement is a fixed professional fee of {{fact:f:E-2019-001.fee}}, covering all of the work described above. We expect to begin on {{fact:f:E-2019-001.start}} and to complete the review in approximately three months. The fixed fee is not tied to hours; it covers the engagement as scoped, so you know your cost at the outset and it does not move with the effort we put in. If, as the work proceeds, we and you agree that the scope should change in a way that materially affects the fee, we will put that in writing and settle it with you before doing the additional work."
+          "text": "Robert Miller will lead the review and will be in your facilities for most of it. He works from the floor up, he is slow to accept a conclusion he cannot trace back to something he watched happen, and he is content to let a conversation go quiet until the useful thing gets said. Jennifer Fletcher will run the engagement week to week, hold the workplan, and write to you as the work moves; she is plain on paper, and when a finding is going to be uncomfortable she puts it in the first paragraph instead of at the back where you might miss it. Our analysts will do the supporting work under their supervision and will not be in front of you without one of them. My signature is on this letter and I read what leaves this firm, so if at any point the work is not what you were promised, call me and I will deal with it myself."
         },
         {
           "kind": "heading",
@@ -60,7 +51,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "The fixed professional fee of {{fact:f:E-2019-001.fee}} will be invoiced in equal monthly installments over the term of the engagement. Invoices are payable within thirty days of receipt. Reasonable out-of-pocket expenses, if any, will be billed at cost and itemized, and we will clear any expense of consequence with you before incurring it."
+          "text": "Our fee for the review is {{fact:f:E-2019-001.fee}}, fixed for the scope described above, so if the work takes us longer than we have planned that is our problem and not your invoice. We bill in equal monthly installments across the term, the first on commencement, and each invoice is payable within thirty days of receipt. Travel and other out-of-pocket costs are billed at what they cost us and itemized on the invoice, and we will ask you first before we incur anything of consequence. If you want work that falls outside the scope above, we will describe it and price it in writing and you will approve it before we start, because we do not add scope during the work and settle it on an invoice afterward."
         },
         {
           "kind": "heading",
@@ -69,16 +60,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This engagement runs for the term of the review, approximately three months. Either of us may end it earlier on written notice. If that happens, you will owe fees for the work performed through the date of termination, and we will hand over our working materials in usable form."
-        },
-        {
-          "kind": "heading",
-          "text": "Your Cooperation",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The quality and timeliness of our work depend on ready access to your people, records, and operating data, and on the accuracy of the information you provide. We will rely on that information as given and will not independently audit or verify it. If access is delayed or key information proves unavailable, the schedule and, in some cases, the depth of our conclusions may be affected; we will tell you promptly if we see that beginning to happen."
+          "text": "The engagement commences on {{fact:f:E-2019-001.start}} and runs approximately three months, which is the basis on which we have staffed it and priced it. Either of us may end it on thirty days' written notice. If you end it, you owe the installments that have fallen due and the approved costs we have incurred as of that date, and nothing beyond that. If we end it, which we would do only if we could not do the work honestly or were being asked for a conclusion we had not reached, we will return any fee already paid for work not yet performed."
         },
         {
           "kind": "heading",
@@ -87,7 +69,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "We will treat everything we learn about your business as confidential and use it only for this engagement. Our people are bound by the same obligation. In turn, we ask that the analysis and recommendations we prepare for you be kept within your organization, since they are prepared for your use and your circumstances rather than for general reliance. Either of us may of course disclose what the law or a regulator requires."
+          "text": "What you show us stays with us. We will use your information only for this engagement, we will hold it inside the group doing the work, and everyone on our side carries the same obligation I am putting in writing here. We will not name you as a client, in a proposal or anywhere else, without your written permission. We ask the same of you for our working papers, our methods, and our report, which remain ours and are given to you for the use of {{fact:f:E-2019-001.client}} and not for circulation past it."
         },
         {
           "kind": "heading",
@@ -96,7 +78,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Our aggregate liability to {{fact:f:E-2019-001.client}} for any claim arising out of this engagement will be limited to the fees paid to us for the work, and we do not accept liability for indirect or consequential losses. This is not a matter of confidence in the work; it reflects the advisory nature of what we do. The recommendations are ours to make well, but the decisions, and their implementation, remain yours."
+          "text": "We will carry out this work with the care and skill our profession expects, and we stand behind it. We do not control which of our recommendations you adopt or how your organization takes to them, so we do not warrant a saving, a rate, or any other outcome, and you should be wary of a firm that will. Our total liability under this engagement, on any theory, is limited to the fees you have actually paid us for it, and neither of us is liable to the other for indirect or consequential loss. Nothing in this paragraph limits liability for fraud or willful misconduct."
         },
         {
           "kind": "heading",
@@ -105,15 +87,20 @@
         },
         {
           "kind": "paragraph",
-          "text": "This engagement will be governed by the laws of the state in which our firm maintains its principal office, without regard to its conflict-of-laws rules. Any dispute we cannot resolve between us will be handled in the courts of that state."
+          "text": "This letter is the entire agreement between us on this engagement and it replaces anything said or drafted before it. It is governed by the law of the state in which this firm keeps its principal office, and any dispute we cannot settle between ourselves belongs to the courts sitting in that state, to whose jurisdiction we each consent. It may be amended only in writing signed by both of us."
+        },
+        {
+          "kind": "heading",
+          "text": "Acceptance",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "If these terms are acceptable, please sign below and return one copy to us; keep the other for your files. We are glad to be working with you, and we will be ready to start on the date set out above. Thank you for your confidence in the firm."
+          "text": "If this letter matches your understanding, please sign below and return one copy to me. Robert Miller will call your office to fix the kickoff and the first round of interviews, and Jennifer Fletcher will send the data request ahead of that so nothing waits on paperwork once we are on site. We are glad to be doing this work, and we will earn the letterhead it is written on."
         },
         {
           "kind": "paragraph",
-          "text": "Sincerely,"
+          "text": "Very truly yours,"
         },
         {
           "kind": "sigblock",
@@ -129,25 +116,12 @@
       "doc_id": "d:0003",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Engagement Kickoff: Operational Review",
-          "level": 1
+          "kind": "paragraph",
+          "text": "To: Robert Miller\nCc: Michelle Lopez\nFrom: Jennifer Fletcher\nRe: Kickoff, operational review for {{fact:f:E-2019-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "To: Engagement team\nFrom: Jennifer Fletcher\nRe: Operational review for {{fact:f:E-2019-001.client}}"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our operational review for {{fact:f:E-2019-001.client}} is underway as of {{fact:f:E-2019-001.start}}, and I want us aligned before we get deep into the work. The objective is straightforward: give the client a clear, practical picture of how their core operations run today and a short list of changes worth making. Put plainly, they want to know why certain things cost what they cost and take as long as they take, and what to do about it. We are not here to catalog everything that could be better. We are here to find the few things that matter and to say so in language they can act on. If we do this well, the client finishes with a handful of changes they believe in and can start on right away, not a binder that sits on a shelf."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our primary contact is Stephanie Campos, Chief Financial Officer, and she has asked us to look first at the functions where cost and cycle time are hardest to explain. A quick word on how we will split the work. Robert Miller will own the analytical spine of the review: the process mapping, the operating data, and the findings that come out of them. I will keep us connected to the client and make sure our conclusions land well. Michelle Lopez is coordinating scheduling and logistics, so route interview times and site visits through her rather than booking directly with the client."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One thing to keep in mind about this client. The operation has grown faster than its processes, so expect to find capable people working around systems that no longer fit them. Document how the work runs, not how you think it should run, and keep the tone of the interviews plain and respectful. We are mapping the operation, not grading the people in it, and that should be obvious to everyone we sit with."
+          "text": "The letter is signed and the term started {{fact:f:E-2019-001.start}}. This memo sets the objectives and the workstreams so we are both working from one plan. Our sponsor is Stephanie Campos, Chief Financial Officer at {{fact:f:E-2019-001.client}}. She asked for three things and we should write to those three. First, a clear picture of how work actually moves through the business. Second, a short list of the places where it stalls, ranked by what the stall costs. Third, recommendations her operating managers can act on without a translation step. Anything that does not serve one of those is out of scope. If the real problem turns out to sit somewhere we were not hired to look, we raise it with her early and in plain terms."
         },
         {
           "kind": "heading",
@@ -157,16 +131,13 @@
         {
           "kind": "list",
           "items": [
-            "Process mapping. Document the core operating processes end to end, as they actually run, not as the manual describes them.",
-            "Operating data. Pull and review the metrics the client already produces, so our observations rest on evidence rather than on impressions.",
-            "Interviews and observation. Sit with the people who do the work and watch it happen, function by function, before we form a view.",
-            "Synthesis. Turn what we see into a short, prioritized set of findings and recommendations the client can actually use.",
-            "Readout. Prepare the findings and recommendations for a leadership working session at the close of the engagement."
+            "Order intake and scheduling. How an order becomes a commitment and a schedule, who is allowed to change it once it is set, and what a change costs downstream. Robert leads. I will sit in on the scheduling interviews.",
+            "Floor observation. Two full days per area, at shift start wherever we can get access, covering receiving, put-away, picking, and shipping. Robert. No conclusion in this workstream goes in the report unless one of us watched the thing happen.",
+            "Procurement and supplier terms. Lead times, order minimums, and how much of the scheduling problem is bought rather than made. Mine.",
+            "Management reporting. What is measured, what is reviewed, which of the standing meetings actually changes a decision, and where two reports give two answers to the same question. Mine.",
+            "Data and exhibits. Everything we pull from their systems goes into one workbook, with the source system and the date of the pull on each tab. We both work from that workbook and from no other copy. An exhibit that cannot name its tab does not go in front of the client.",
+            "Interim reporting. A short written status to the sponsor at the midpoint, and a note to her in between only when something changes that she would not want to hear about at a meeting. Mine."
           ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "On cadence, plan for a short working session with the client roughly each week once we are into the fieldwork, plus whatever time the interviews require. Keep the client informed as we go. Stephanie Campos does not want to be surprised at the readout, and neither do we, so if you learn something that changes our picture of the operation, raise it early rather than saving it for the report."
         },
         {
           "kind": "heading",
@@ -174,14 +145,24 @@
           "level": 2
         },
         {
-          "kind": "list",
-          "items": [
-            "I will confirm the kickoff meeting with Stephanie Campos and her team this week.",
-            "Robert Miller will draft the initial data request so we can send it ahead of our first working session.",
-            "Michelle Lopez will circulate the interview schedule once the client confirms availability.",
-            "Jennifer and Robert: block the time for the first two working sessions now, before the client's calendar fills up.",
-            "Everyone: capture your observations as you go. We build the findings from evidence, and evidence is easiest to trust when it is written down the day you see it."
-          ]
+          "kind": "paragraph",
+          "text": "Michelle Lopez has the calendar and the travel, and she cannot book anything until she has the site dates, which means your first two weeks. She also holds the engagement file. Everything that goes to the client goes out through her, so there is one record of what was sent and when. Nothing leaves this office over my name that Michelle has not logged."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Access is the thing most likely to cost us time. We need the shift starts, not a tour at ten in the morning, and we need the supervisors for an hour each without their manager in the room. I will ask Stephanie Campos for both directly rather than working it out with each area on the day. If she pushes back on the second one, tell me before you start rearranging the interview list, because it changes what the interviews are worth."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On the client side, I am going to send one consolidated data request instead of a stream of small ones. That is easier for her staff to fill and easier for us to chase, and it gives us a single list to point at when something is late. Assume everything on it takes two weeks to arrive and plan the analysis accordingly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One more thing on tone. We are three days into a three-month engagement and we do not have findings, so we do not talk like we do. If a supervisor asks what we have found, the honest answer is that we are still watching."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Next step: send me your draft of the data request by the end of this week, and I will merge it with mine and get the combined list to Stephanie Campos on Monday morning."
         }
       ]
     },
@@ -191,12 +172,12 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Working Session Minutes: Operational Review",
+          "text": "Minutes: Operational Review Working Session, {{fact:f:E-2019-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Subject: Operational review for {{fact:f:E-2019-001.client}}\nRecorded by: Robert Miller"
+          "text": "Held at the client's offices. Recorded by Robert Miller."
         },
         {
           "kind": "heading",
@@ -218,23 +199,23 @@
         },
         {
           "kind": "paragraph",
-          "text": "The session covered the process maps assembled so far, with most of our time on the order-to-cash flow. We walked it step by step against what we have observed on site and marked each point where the documented process and the actual practice diverge. Several of those gaps are small, a form filled in later than the procedure implies or an approval taken by phone and recorded afterward. A few are larger, most notably a manual reconciliation step between order entry and fulfillment that does not appear in the written process at all. I want to be clear that we did not draw conclusions today. The purpose was to confirm that we are seeing the operation as it actually runs before we start weighing what any of it means."
+          "text": "Stephanie Campos opened by asking where the work stands, and the answer we gave her is that observation in receiving, put-away, and picking is finished, the supervisor interviews are finished, and the order data is in hand and part way through reconciliation, which is far enough along to describe a pattern and not far enough along to put a number in front of her operating managers. She did not ask for a finding today and we did not offer one."
         },
         {
           "kind": "paragraph",
-          "text": "Stephanie Campos walked us through where the monthly operating reports come from and which figures her team trusts more than others. That distinction matters a great deal for the analysis, and we will weight our work accordingly rather than treat every number as equally solid. She noted that the volume figures are reliable while the cycle-time figures are assembled by hand and vary in quality, so we agreed to trace a sample of those cycle-time figures back to source and confirm exactly what they measure."
+          "text": "The substance of the hour was the distance between the schedule the floor works to and the schedule the system holds. Every supervisor we have sat with keeps his own version of the day, on paper or in a spreadsheet, and each of them gave the same reason for it, which is that the system schedule is set before the day's constraints are known and nobody goes back to correct it once the day starts moving. Jennifer Fletcher walked the group through what that does downstream, which is that the dates the sales office promises customers are built on a schedule the floor has already abandoned by mid-morning."
         },
         {
           "kind": "paragraph",
-          "text": "Jennifer Fletcher raised the handoffs between functions as the area clients most often underestimate, and the group agreed those handoffs deserve a closer look in the next round of observation. The point was less about any one function performing poorly than about what falls between them. We flagged two functions where our process maps are still incomplete, and those need to be finished before we can compare across the operation with any confidence."
+          "text": "Stephanie Campos said her operating managers would dispute that characterization. We told her they may well be right in places, and that we will bring the paper schedules and the system extract to the next session and lay them beside each other so the argument happens over one document instead of two impressions."
         },
         {
           "kind": "paragraph",
-          "text": "We spent the back half of the session on the intake side, where orders first enter the system. The team there described a fair amount of rework when an order arrives incomplete, and we want to measure how often that happens before we say anything about its cost. Stephanie Campos offered to pull the exception counts her team already tracks, which gives us a starting point. For the record, our sample of observation is still small; two or three visits to a function are enough to form questions, not to settle them."
+          "text": "Two items came out of the discussion that move our plan slightly. The first is that downtime is recorded in three places under three different definitions, and we cannot reconcile the count without somebody from her staff who knows why the definitions differ. The second is the returns process, which sits outside our scope as written and which keeps coming up in interviews as the reason picking gets interrupted. We asked whether she wanted it looked at. She said to look at it, and to keep it inside the current scope and fee, and Jennifer Fletcher will put the revised boundary in writing so nobody is guessing later about what was agreed in a room."
         },
         {
           "kind": "paragraph",
-          "text": "We closed by confirming what the next working session should cover: the completed maps for the remaining functions, a first look at the cycle-time sample, and the handoffs we most want to observe directly. No decisions were taken today, and none were expected; the value of the session was in aligning on what we are looking at."
+          "text": "Outstanding from our side is nothing. Outstanding from theirs is the maintenance log extract and the promise-date history, both requested earlier this month and neither yet with us."
         },
         {
           "kind": "heading",
@@ -244,37 +225,41 @@
         {
           "kind": "table",
           "header": [
-            "Action",
+            "Item",
             "Owner",
-            "Target"
+            "By"
           ],
           "rows": [
             [
-              "Complete process maps for the two remaining functions",
-              "Robert Miller",
-              "Before the next working session"
+              "Release the maintenance log extract and the promise-date history",
+              "Stephanie Campos",
+              "End of this week"
             ],
             [
-              "Trace the sampled cycle-time figures back to source and confirm what they measure",
-              "Robert Miller",
-              "Before the next working session"
+              "Name a member of finance staff to work the downtime definitions with us",
+              "Stephanie Campos",
+              "End of this week"
             ],
             [
-              "Circulate the interview summary to the client team",
+              "Reconcile the three downtime definitions and document which one we will use",
+              "Robert Miller",
+              "Next working session"
+            ],
+            [
+              "Confirm the returns question and the revised scope boundary in writing",
               "Jennifer Fletcher",
-              "Within one week"
+              "This week"
             ],
             [
-              "Provide the remaining monthly operating reports",
-              "Stephanie Campos",
-              "By the next working session"
-            ],
-            [
-              "Pull the order-intake exception counts already tracked",
-              "Stephanie Campos",
-              "By the next working session"
+              "Assemble the paper schedules and the system extract side by side",
+              "Robert Miller",
+              "Next working session"
             ]
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next working session is set for the week after next at the client's offices, and the one thing that has to be true before it is that the maintenance extract is in our hands, because the downtime reconciliation is now the piece the rest of the operations analysis waits on."
         }
       ]
     },
@@ -284,12 +269,12 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Operational Review",
+          "text": "Operational Review: Status Report",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for: {{fact:f:E-2019-001.client}} leadership\nPrepared by: Jennifer Fletcher, Senior Consultant\nStatus: through the midpoint of the engagement"
+          "text": "Prepared for the leadership of {{fact:f:E-2019-001.client}} by Jennifer Fletcher, Pinebrook Advisory Group."
         },
         {
           "kind": "heading",
@@ -298,103 +283,87 @@
         },
         {
           "kind": "paragraph",
-          "text": "We are about halfway through the operational review for {{fact:f:E-2019-001.client}}, and I am glad to report the work is on track and within budget. The mapping and observation phase is essentially complete, and we have moved into analysis. Nothing we have seen so far changes the shape of the engagement or the timeline we set at the outset, and there are no surprises to report on cost. This report covers what we accomplished this period, what comes next, the early signals worth sharing, and the handful of items worth keeping an eye on."
+          "text": "We are at the midpoint of the review and the work is on schedule. It is also within the fixed fee of {{fact:f:E-2019-001.fee}}, and we do not expect to come back to you for more. Fieldwork in receiving, put-away, picking, and shipping is complete. Supervisor and planner interviews are complete. Analysis is under way, and the early findings are firm enough to describe but not yet firm enough to price, which is the right place to be at this point. One item has been added to scope at your request and it is absorbed in the current fee. Two data items are outstanding, and they are now the only real constraint on the schedule."
         },
         {
           "kind": "heading",
-          "text": "Accomplishments This Period",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The heart of this period was getting our arms around how the operation actually runs, function by function, and grounding that in your own data rather than in assumptions. The interviews were candid and your team was generous with time and access, which is the main reason we are where we are on the schedule."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Completed the process maps for the core operating functions and validated them against on-site observation.",
-            "Finished the first round of interviews with functional leads and front-line staff.",
-            "Reconciled the operating metrics your team produces so the analysis rests on figures you already trust.",
-            "Held a working session with your finance team to confirm which operating figures are reliable and which need tracing back to source.",
-            "Identified the handoffs between functions as an early area of focus, based on what we observed rather than on assumption."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Robert Miller has led the analytical work and is now turning the raw observations into a structured view of where time and cost are being lost across the operation."
-        },
-        {
-          "kind": "heading",
-          "text": "Early Signals",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "It is early to talk about conclusions, and I want to be careful not to get ahead of the analysis. That said, two themes are emerging clearly enough to mention. The first is the handoffs between functions, where work appears to slow and information gets re-entered more than once. The second is the gap between how certain processes are documented and how they are actually run, which makes the operation harder to manage than it needs to be. A third, smaller point is worth noting: a good deal of useful operating knowledge lives in a few individuals' heads rather than in any system, which is a strength today and a quiet risk over time. We will test each of these against the data before we attach any numbers to them, and you will see the substantiated version in the final findings, not before."
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is being delivered against the fixed professional fee of {{fact:f:E-2019-001.fee}}. Our effort to date is tracking within that budget, and because the fee is fixed, your cost does not move with the hours we invest. We are not anticipating any change to scope; if that view changes, we will raise it with you well in advance rather than at the end."
-        },
-        {
-          "kind": "heading",
-          "text": "Upcoming Work",
+          "text": "Completed This Period",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Complete the analysis and quantify the improvement opportunities we have identified.",
-            "Draft a short, prioritized set of recommendations you can act on.",
-            "Review the emerging findings with your leadership before we finalize, so there are no surprises at the end."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next few weeks are the analytical heart of the engagement, and we will keep you close to the work so the findings are familiar by the time you see them formally."
-        },
-        {
-          "kind": "heading",
-          "text": "What We Will Need From You",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A review moves at the speed of the access it gets, and there are a few things from your side that would help us hold to the timeline."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "The outstanding operating reports for the cost analysis, ideally within the coming week.",
-            "Confirmed times for the remaining interviews with functional leads.",
-            "A short review slot with your leadership once the draft findings are ready."
+            "Floor observation across receiving, put-away, picking, and shipping, at both shift starts. Robert Miller led this work and has been on site for most of it.",
+            "Interviews with supervisors, planners, and the sales office, covering every step at which an order is committed, scheduled, or changed.",
+            "Extraction and reconciliation of a full year of order and shipment data, held in a single workbook with the source and pull date recorded on each tab.",
+            "A working session at your offices to review progress, at which the returns process was added to our scope without a change in fee.",
+            "A first side-by-side comparison of the schedule the system holds and the schedule the floor actually works to."
           ]
         },
         {
           "kind": "heading",
-          "text": "Risks and Watch Items",
+          "text": "Early Findings",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "These are directional. We will not stand behind a number until the outstanding data is in and reconciled, and we would ask you not to circulate them as conclusions yet. We set them out now because you should not meet them for the first time in a final report."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The system schedule is set before the day's constraints are known and is not corrected once the day begins. Every supervisor keeps a private version of it. The promise dates your sales office gives customers are built on the version nobody on the floor is using by mid-morning.",
+            "Downtime is recorded in three places under three definitions, so the business has three different answers to the same question and no way to settle which is right.",
+            "Interruptions to picking trace back to the returns process more often than to anything in the picking area itself, which is why we asked to bring returns inside the scope.",
+            "The standing operations meeting reviews a report that two of the people in the room do not use and cannot reproduce. That is a symptom of the definition problem above, not a separate one."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Method Note",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "One note on how we are working, because it affects how you should read what follows. We are not taking a figure from your reporting unless we can trace it to the transaction behind it. Where we cannot, we say so and we keep the figure out. That is slower than the alternative and it is the reason the operations analysis is waiting on an extract rather than proceeding on an estimate."
+        },
+        {
+          "kind": "heading",
+          "text": "Work in the Next Period",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Data availability. A few of the reports we need for the cost analysis are still outstanding, and delays there would push the analysis.",
-            "Scheduling. The remaining interviews depend on your team's availability over the coming weeks.",
-            "Scope. The handoffs between functions may warrant a closer look than originally scoped; we will raise that with you rather than expand the work quietly."
+            "Close the downtime reconciliation as soon as the maintenance extract arrives, and agree one definition with your staff before we publish any figure that uses it.",
+            "Quantify what schedule instability costs in rework, overtime, and expedited freight. This is the number your managers will argue with, so we will show the method beside the result.",
+            "Test the returns process against the picking interruptions it appears to cause.",
+            "Draft the recommendation set and walk it privately past your operating managers before it reaches paper. Robert Miller will run those conversations.",
+            "Deliver the written report and take your leadership team through it at the close of the engagement."
           ]
         },
         {
-          "kind": "paragraph",
-          "text": "We are pleased with where the review stands and confident in the path from here. Please reach out with any questions in the meantime."
+          "kind": "heading",
+          "text": "Risks",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Data. The maintenance log extract and the promise-date history are still outstanding. The operations analysis waits on the first of them. This is the only item on this page that can move the delivery date.",
+            "Definitions. Until one downtime definition is agreed, any figure we publish will be argued on its definition instead of its substance, and the argument will not be a useful one.",
+            "Scope. The returns work is absorbed in the current fee, but it is absorbed by spending time that was held for contingency. A second addition of the same size would not be free.",
+            "Adoption. At least two of the recommendations we can already see will ask your operating managers to give up scheduling discretion they hold today. That is your decision rather than ours, and we will put it to you plainly when the time comes."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Request",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jennifer Fletcher\nSenior Consultant"
+          "text": "The single thing that keeps this review on schedule is the maintenance log extract, which we asked for at the last working session and which the downtime reconciliation cannot start without. Please have it released to us by the end of next week. Robert Miller and I are on site through the coming period and can collect it in person if that is easier for your staff than sending it."
         }
       ]
     }

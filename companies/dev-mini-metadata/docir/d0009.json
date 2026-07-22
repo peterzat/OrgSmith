@@ -3,8 +3,8 @@
   "doc_id": "d:0009",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Engagement Kickoff: Pricing Study",
+      "kind": "paragraph",
+      "text": "To: Jennifer Fletcher, Susan Wiley\nFrom: Robert Miller\nSubject: Pricing study, and how I want it run",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "To: Engagement team\nFrom: Robert Miller\nRe: Pricing study for {{fact:f:E-2020-001.client}}",
+      "text": "We begin on {{fact:f:E-2020-001.start}}, so here is the shape of it. The client has bought a pricing study, but the question underneath the study, whether or not anyone put it this way in the room, is why two accounts buying the same product pay materially different prices and why that difference appears nowhere in the margin reporting that the finance organization actually reads. Everything we do over the next eight months either answers that question or supports the answer, and if a piece of work does neither I would rather we drop it than carry it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Our pricing study for Dean PLC is underway as of {{fact:f:E-2020-001.start}}, and I want the team aligned on what we are trying to learn before we are deep in the data. The objective is narrow and answerable: understand how the client sets price, measure how much of that price survives to the bottom line, and hand back a short, prioritized set of pricing actions. Put plainly, their margins are thinner than the business should support, and the erosion between list price and realized price is not visible in the reporting they have today. Our work is to make it visible and then to say what to do about it. We do that by building the picture from transaction-level evidence first and drawing conclusions second, not the other way around.",
+      "text": "We are not building on their reporting. Their reporting is where the problem has been hiding, and if we layer our analysis on top of it we will reproduce the same distortion in better exhibits. We start from invoice-level transaction records, we reconcile the extract to the revenue the company reports before we draw a single conclusion from it, and if it does not tie we say so to the client in plain terms rather than adjusting quietly until the two numbers agree. A reconciliation that fails early is a good week's work; one that fails in front of a finance executive in month seven is something else.",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Our primary contact is Cynthia Foley, VP Finance, and she is arranging access to the transaction and pricing records we need. A word on how we will divide the work. Susan Wiley will assemble the transaction-level data and check it, line by line, against source; the whole study rests on that foundation, so it has to be right before anything is built on top of it. I will own the price waterfall and the margin analysis that comes out of it. Jennifer Fletcher will keep us connected to the client and see that our findings are framed so leadership can act on them. Route scheduling and client questions through Jennifer rather than contacting the client directly.",
+      "text": "Jennifer Fletcher owns the analysis and the structure of the recommendation. She has carried this work for the firm before and she should decide how the price and margin views get cut. Susan Wiley builds the data set and keeps the assumption log, and I want the assumptions written down where a reviewer can find them without having to ask her for the workbook, because we will be defending them in front of a client who reads carefully and asks about the footnotes. I take the interviews and the client relationship. I intend to be in their distribution centers and sitting with their sales representatives as soon as they will have me, because the reason a discount was granted is never on the invoice, and the people who granted it will tell you if you sit still long enough.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +40,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "One methodological point, since it shapes everything downstream. We build the waterfall from what customers were actually invoiced, not from the list or the standard price. The off-invoice items, the rebates, year-end credits, and freight that never appear on the order, are where realized margin usually goes to hide, so we account for them from the start rather than bolting them on at the end. And we document how a discount is actually granted before we form any view about whether it should have been. Describe the practice as it runs; the judgment comes afterward.",
+      "text": "Cynthia Foley is our sponsor and our single point of contact at {{fact:f:E-2020-001.client}}. Data requests go through her rather than to whoever we happened to meet in an operating meeting, and if a request sits too long we tell her once, in writing, that the schedule depends on it. She has been straight with us in every conversation so far and I expect that to hold, so let us not spend her goodwill on requests we have not thought through.",
       "level": 1,
       "items": [],
       "header": [],
@@ -48,49 +48,28 @@
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Workstreams",
-      "level": 2,
+      "kind": "paragraph",
+      "text": "Two things about how we work together. Nothing goes to the client that has not been read by someone who did not write it, and that includes anything of mine. And if you find something that contradicts what we told them last time, that is the finding rather than an embarrassment, so bring it up while it is still small and cheap to fix.",
+      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
+      "kind": "paragraph",
+      "text": "On cadence, we hold a short internal check-in each week and send a written status to the client at the points we agreed in the letter. I would rather we take a weekly half hour that finishes early than schedule an hour we spend filling. Bring the thing you are stuck on; if there is nothing, say so and we are done.",
       "level": 1,
-      "items": [
-        "Data assembly. Pull the transaction-level records for a recent full year, with list price, invoiced price, discounts, rebates, credits, freight, and unit cost, so realized price can be reconstructed line by line.",
-        "Price waterfall. Build the waterfall from list price to pocket price and quantify what is lost at each step, across products and customers.",
-        "Discounting and approvals. Document how discretionary discounts and off-invoice terms are actually granted and approved, before we judge whether they should be.",
-        "Customer and segment profitability. Compare the net price realized by customers that ought to be priced alike, and find the dispersion the current reporting hides.",
-        "Cost-to-serve. Attach the serving costs, small orders, expedites, and returns, that list-based margin ignores, and test where price falls below the cost of filling the order.",
-        "Synthesis and readout. Turn the findings into a prioritized set of pricing actions for a leadership working session at the close."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Next Steps",
-      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
+      "kind": "paragraph",
+      "text": "First thing, and nothing else starts until it is finished: Susan pulls two years of invoice-level transactions from their billing system and reconciles the total to their reported revenue. Send me the reconciliation itself rather than the conclusion drawn from it, and I will take any gap to Cynthia Foley myself.",
       "level": 1,
-      "items": [
-        "Susan Wiley will draft the data request covering the last full year of transactions and circulate it this week.",
-        "I will define the waterfall structure so the data lands in the right buckets when it arrives.",
-        "Jennifer Fletcher will confirm the kickoff meeting with Cynthia Foley and her finance team.",
-        "Everyone: log the data questions as they come up. A waterfall is only as good as the fields feeding it, and the questions are easiest to answer while we are still in the records."
-      ],
+      "items": [],
       "header": [],
       "rows": [],
       "signers": []

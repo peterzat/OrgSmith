@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session Minutes: Pricing Study",
+      "text": "Working Session Minutes",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Subject: Pricing study for {{fact:f:E-2020-001.client}}\nRecorded by: Susan Wiley",
+      "text": "The session closed one question and opened another. Discounting is not spread evenly across the business. It concentrates in two regions and in one product family, and those three pockets account for most of the gap between list price and realized price. The open question is rebates. Until their treatment is agreed, every margin figure shown today is provisional.",
       "level": 1,
       "items": [],
       "header": [],
@@ -34,10 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Susan Wiley, Analyst, Pinebrook Advisory Group",
         "Robert Miller, Principal Consultant, Pinebrook Advisory Group",
         "Jennifer Fletcher, Senior Consultant, Pinebrook Advisory Group",
-        "Cynthia Foley, VP Finance, Dean PLC"
+        "Susan Wiley, Analyst, Pinebrook Advisory Group",
+        "Cynthia Foley, VP Finance, {{fact:f:E-2020-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -54,7 +54,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The session reviewed the state of the transaction data and the first pass at the price waterfall. We now have the last full year of line-level records loaded, roughly matching the order and invoice counts Cynthia Foley's team gave us as a control total, and I walked the group through what is complete and what is not. List price, invoiced price, and on-invoice discounts are in for essentially all lines, and they reconcile to the monthly sales totals within a small variance I have not yet chased down. The off-invoice items are the real gap: rebates and year-end credits are still being matched back to the customer and, where the records allow, to the line, and until that is done the pocket-price figures at the bottom of the waterfall should be read as provisional. I would rather note that plainly than let the early numbers travel further than they should.",
+      "text": "Jennifer Fletcher presented realized price by product family. The transaction base is reconciled to reported revenue. The remaining difference is small and sits entirely in credit memos. Robert Miller asked that credit memos be shown as their own line rather than netted into revenue. The client agreed. The reconciliation will be reissued in that form.",
       "level": 1,
       "items": [],
       "header": [],
@@ -63,7 +63,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Robert walked the first waterfall and pointed to the spread between list and pocket price, which is wider than the reporting the client uses today would suggest. What drew attention was less the average than the dispersion: customers who look alike on paper are realizing meaningfully different net prices, and we do not yet have a clean explanation for all of it. We talked through the obvious candidates, customer size, how long the account has been on the books, the sales rep who owns it, and the region, and agreed to test each against the data rather than assume which one is driving the gap. Cynthia Foley described how discretionary discounts are approved in practice, which is more informal than the written policy implies, and that description lines up with what the transaction data is showing. Robert was careful to say we are not drawing conclusions yet; the purpose of this stage is to confirm the numbers are trustworthy before we weigh what they mean.",
+      "text": "Discounting took most of the hour. Two regions grant discretionary discounts at roughly twice the rate of the other two. One product family carries most of the remainder. Cynthia Foley said the pattern matches what she has suspected for two years and has never been able to demonstrate from her own reporting. She asked the obvious next question. Is the pattern customer mix or is it sales practice? The current view cannot separate them. Jennifer Fletcher will build the account-level cut that can.",
       "level": 1,
       "items": [],
       "header": [],
@@ -72,7 +72,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "Jennifer Fletcher raised which of the emerging patterns will matter most to leadership, so the analysis stays pointed at decisions the client can actually make. We also flagged two open data items. The cost-to-serve figures, which we need in order to test whether some small orders are priced below the cost of filling them, are only partly available, and we will have to decide how much to reconstruct from what exists. And a sample of the rebate accruals needs tracing back to source before I will rely on them, since the accrual timing does not always line up with the invoices they relate to. Cynthia Foley agreed to help us get both.",
+      "text": "Rebates were discussed at length. Annual volume rebates are accrued centrally and are not allocated back to accounts. Realized price at the largest accounts is therefore overstated in every view produced so far. The effect is largest exactly where the analysis matters most. Cynthia Foley will supply the accrual detail. Susan Wiley will allocate it and will record the allocation basis in the assumption log, since the basis is a judgment and should be visible as one.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Interviews are about half done. Robert Miller has met the regional managers in two of the four regions and has spoken with sales representatives in both. The remaining two regions are scheduled. Site visits remain deferred and the conversations are being held by telephone. Robert Miller noted that the format costs something in candor and has not so far changed what he is hearing, which is that discount authority sits low in the two regions where discounting concentrates.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "No recommendation was discussed. The team and the client agreed that the price structure conversation waits until the margin view is settled. Cynthia Foley asked for a view by sales channel as well as by region. Jennifer Fletcher said the data supports it and will add it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -94,42 +112,58 @@
       "level": 1,
       "items": [],
       "header": [
-        "Action",
+        "No.",
         "Owner",
-        "Target"
+        "Action",
+        "Due"
       ],
       "rows": [
         [
-          "Match the off-invoice rebates and credits to customer and line",
-          "Susan Wiley",
-          "Before the next working session"
-        ],
-        [
-          "Reconcile the remaining variance against the monthly sales totals",
-          "Susan Wiley",
-          "Before the next working session"
-        ],
-        [
-          "Extend the price waterfall once the off-invoice items are mapped",
-          "Robert Miller",
-          "Before the next working session"
-        ],
-        [
-          "Test the dispersion against customer size, tenure, rep, and region",
-          "Robert Miller",
-          "Within two weeks"
-        ],
-        [
-          "Frame the emerging findings for a leadership preview",
-          "Jennifer Fletcher",
-          "By the next working session"
-        ],
-        [
-          "Provide the cost-to-serve and freight detail",
+          "1",
           "Cynthia Foley",
-          "By the next working session"
+          "Supply rebate accrual detail by account for the trailing two years",
+          "Before the next working session"
+        ],
+        [
+          "2",
+          "Susan Wiley",
+          "Allocate rebates to accounts and record the basis in the assumption log",
+          "One week after the file arrives"
+        ],
+        [
+          "3",
+          "Jennifer Fletcher",
+          "Build the account-level cut separating customer mix from sales practice",
+          "Next working session"
+        ],
+        [
+          "4",
+          "Jennifer Fletcher",
+          "Add the view by sales channel",
+          "Next working session"
+        ],
+        [
+          "5",
+          "Susan Wiley",
+          "Reissue the reconciliation with credit memos shown separately",
+          "This week"
+        ],
+        [
+          "6",
+          "Robert Miller",
+          "Complete regional manager and sales interviews in the two remaining regions",
+          "Next working session"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Item 1 gates items 2 and 3. Items 4 through 6 run in parallel. The next working session will be scheduled once the accrual file is in hand.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

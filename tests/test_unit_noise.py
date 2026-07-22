@@ -21,7 +21,7 @@ from orgsmith.render.noise import derive_draft_docir
 from orgsmith.schemas import Block, DocCulture, DocIR, MailCulture, NoiseModel
 from orgsmith.validate.rules import Context, _needs_noise, noise_01
 
-from conftest import REPO, run_authoring, run_enrichment
+from conftest import REPO, base_recipe_text, run_authoring, run_enrichment
 
 pytestmark = pytest.mark.unit
 
@@ -29,8 +29,8 @@ pytestmark = pytest.mark.unit
 def _write_noise_recipe(root, slug="dev-mini", **counts) -> OrgPaths:
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
-    anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    text = base_recipe_text(slug)
+    anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert anchor in text
     counts = counts or {"duplicates": 2, "drafts": 3}
     lines = "".join(
@@ -477,11 +477,11 @@ def test_acl_and_visibility_follow_the_misfiled_location(tmp_path):
 
     dest = tmp_path / "recipes" / "dev-mini"
     dest.mkdir(parents=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text()
     anchor = "  external_people: 3\n"
     assert anchor in text
     text = text.replace(anchor, anchor + "\nacl_posture: departmental\n")
-    mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    mix = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert mix in text
     text = text.replace(mix, mix + "  noise:\n    misfiled: 2\n")
     (dest / "ORG-CHARTER.md").write_text(text)

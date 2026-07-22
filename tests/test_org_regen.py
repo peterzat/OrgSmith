@@ -43,8 +43,17 @@ pytestmark = pytest.mark.org
 
 # acl.json is derived rather than a pure-stage output (CLAUDE.md lists it
 # with evals/ and PERMISSIONS.md as re-emittable), and test_unit_acl.py
-# already diffs its re-derivation.
-DERIVED_LEDGERS = {"acl.json", "distribution_lists.json"}
+# already diffs its re-derivation. distribution_lists.json (M14) and
+# style_specs.json (M15) are written by the same `acl` stage and are derived
+# for the same reason. Excluding them is not a hole: each has a validator
+# rule that recomputes it against the producer's own twin function on every
+# validate (DL-01, STY-01), which covers every committed org rather than
+# only the pin fixture.
+DERIVED_LEDGERS = {
+    "acl.json",
+    "distribution_lists.json",
+    "style_specs.json",
+}
 
 
 def _committed_slugs():
@@ -69,20 +78,19 @@ RECIPES = sorted(p.name for p in (REPO / "recipes").iterdir() if p.is_dir())
 
 # Recipes exempt from the coherence check below, and why each is exempt.
 #
-# M11b shrank this to {"dev-mini"}, as the M11a comment said it must: the six
-# pre-v2.0 recipes it also named were retired by the fleet reset, so every
-# recipe under recipes/ is now a v2.0 fleet recipe and coherent by
-# measurement, except the tracer.
+# EMPTY as of M15, and it should stay that way. M11b shrank this to
+# {"dev-mini"} when the six pre-v2.0 recipes were retired; M15 spent the
+# carve-out's one-time dev-mini regeneration and retuned the recipe
+# (growth_rate 0.12 -> 0.07, expense_ratio 0.78 -> 0.80, roster_churn.hires
+# 0 -> 1), so the tracer's terminal net margin fell from 43.1% to 22.7% and
+# it now passes the check unexempted. Closes BACKLOG
+# dev-mini-margin-incoherent.
 #
-# dev-mini is exempt for a different and permanent-ish reason: SCALE.md
-# separates fixtures (regression oracles) from the reference fleet (breadth),
-# dev-mini is the former, and it is the byte-pinned tracer -- fixing its
-# growth_rate means regenerating it, which no turn has yet chosen to do. Its
-# recipe does post an incoherent ~43% terminal margin; that is recorded
-# rather than silently exempted (BACKLOG dev-mini-margin-incoherent).
-_COHERENCE_EXEMPT = {
-    "dev-mini",
-}
+# The bar for adding a name back: a recipe whose incoherence is the thing it
+# exists to demonstrate. "Regenerating it is expensive" is not that bar -- it
+# is what kept dev-mini here for four milestones, and the exemption outlived
+# every reason given for it.
+_COHERENCE_EXEMPT: set = set()
 FLEET = [s for s in RECIPES if s not in _COHERENCE_EXEMPT]
 
 

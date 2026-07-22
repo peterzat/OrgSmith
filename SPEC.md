@@ -115,7 +115,7 @@ regeneration as the voice proof bed, closing its incoherent margin.
   reference lines are documented as non-calibrated context (annotating
   `external-validity-program`, not closing it).
 
-- [ ] **dev-mini regenerated once, coherent.** Under the carve-out,
+- [x] **dev-mini regenerated once, coherent.** Under the carve-out,
   dev-mini's recipe is retuned so growth, headcount, and span describe one
   firm; the org regenerates wholesale, live through the airlock, with the
   voice knob on and noise off (the tracer stays bare); it validates green,
@@ -123,7 +123,7 @@ regeneration as the voice proof bed, closing its incoherent margin.
   `tests/test_org_regen.py` is emptied and the coherence test passes on
   dev-mini unexempted. Closes `dev-mini-margin-incoherent`.
 
-- [ ] **Tests, docs, and the ledger of record.** Full `bin/test` (all tiers
+- [x] **Tests, docs, and the ledger of record.** Full `bin/test` (all tiers
   plus `flagship`) green, keyless and offline, with the byte pin green at
   every commit including mid-turn; `docs/RECIPE-FORMAT.md` documents the
   new noise and voice knobs; a `noise-kinds-deliberately-excluded`
@@ -203,4 +203,4 @@ regeneration as the voice proof bed, closing its incoherent margin.
 ecology) under the optional `doc_culture.mail` block, proven by the committed
 and boarded email-first pilot `ashcombe-advisory`; all 12 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":13} -->
+<!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":15} -->

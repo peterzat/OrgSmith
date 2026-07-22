@@ -3,8 +3,8 @@
   "doc_id": "d:0003",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Engagement Kickoff: Operational Review",
+      "kind": "paragraph",
+      "text": "To: Robert Miller\nCc: Michelle Lopez\nFrom: Jennifer Fletcher\nRe: Kickoff, operational review for {{fact:f:E-2019-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,34 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "To: Engagement team\nFrom: Jennifer Fletcher\nRe: Operational review for {{fact:f:E-2019-001.client}}",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Our operational review for {{fact:f:E-2019-001.client}} is underway as of {{fact:f:E-2019-001.start}}, and I want us aligned before we get deep into the work. The objective is straightforward: give the client a clear, practical picture of how their core operations run today and a short list of changes worth making. Put plainly, they want to know why certain things cost what they cost and take as long as they take, and what to do about it. We are not here to catalog everything that could be better. We are here to find the few things that matter and to say so in language they can act on. If we do this well, the client finishes with a handful of changes they believe in and can start on right away, not a binder that sits on a shelf.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Our primary contact is Stephanie Campos, Chief Financial Officer, and she has asked us to look first at the functions where cost and cycle time are hardest to explain. A quick word on how we will split the work. Robert Miller will own the analytical spine of the review: the process mapping, the operating data, and the findings that come out of them. I will keep us connected to the client and make sure our conclusions land well. Michelle Lopez is coordinating scheduling and logistics, so route interview times and site visits through her rather than booking directly with the client.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One thing to keep in mind about this client. The operation has grown faster than its processes, so expect to find capable people working around systems that no longer fit them. Document how the work runs, not how you think it should run, and keep the tone of the interviews plain and respectful. We are mapping the operation, not grading the people in it, and that should be obvious to everyone we sit with.",
+      "text": "The letter is signed and the term started {{fact:f:E-2019-001.start}}. This memo sets the objectives and the workstreams so we are both working from one plan. Our sponsor is Stephanie Campos, Chief Financial Officer at {{fact:f:E-2019-001.client}}. She asked for three things and we should write to those three. First, a clear picture of how work actually moves through the business. Second, a short list of the places where it stalls, ranked by what the stall costs. Third, recommendations her operating managers can act on without a translation step. Anything that does not serve one of those is out of scope. If the real problem turns out to sit somewhere we were not hired to look, we raise it with her early and in plain terms.",
       "level": 1,
       "items": [],
       "header": [],
@@ -61,21 +34,13 @@
       "text": "",
       "level": 1,
       "items": [
-        "Process mapping. Document the core operating processes end to end, as they actually run, not as the manual describes them.",
-        "Operating data. Pull and review the metrics the client already produces, so our observations rest on evidence rather than on impressions.",
-        "Interviews and observation. Sit with the people who do the work and watch it happen, function by function, before we form a view.",
-        "Synthesis. Turn what we see into a short, prioritized set of findings and recommendations the client can actually use.",
-        "Readout. Prepare the findings and recommendations for a leadership working session at the close of the engagement."
+        "Order intake and scheduling. How an order becomes a commitment and a schedule, who is allowed to change it once it is set, and what a change costs downstream. Robert leads. I will sit in on the scheduling interviews.",
+        "Floor observation. Two full days per area, at shift start wherever we can get access, covering receiving, put-away, picking, and shipping. Robert. No conclusion in this workstream goes in the report unless one of us watched the thing happen.",
+        "Procurement and supplier terms. Lead times, order minimums, and how much of the scheduling problem is bought rather than made. Mine.",
+        "Management reporting. What is measured, what is reviewed, which of the standing meetings actually changes a decision, and where two reports give two answers to the same question. Mine.",
+        "Data and exhibits. Everything we pull from their systems goes into one workbook, with the source system and the date of the pull on each tab. We both work from that workbook and from no other copy. An exhibit that cannot name its tab does not go in front of the client.",
+        "Interim reporting. A short written status to the sponsor at the midpoint, and a note to her in between only when something changes that she would not want to hear about at a meeting. Mine."
       ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "On cadence, plan for a short working session with the client roughly each week once we are into the fieldwork, plus whatever time the interviews require. Keep the client informed as we go. Stephanie Campos does not want to be surprised at the readout, and neither do we, so if you learn something that changes our picture of the operation, raise it early rather than saving it for the report.",
-      "level": 1,
-      "items": [],
       "header": [],
       "rows": [],
       "signers": []
@@ -90,16 +55,46 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
+      "kind": "paragraph",
+      "text": "Michelle Lopez has the calendar and the travel, and she cannot book anything until she has the site dates, which means your first two weeks. She also holds the engagement file. Everything that goes to the client goes out through her, so there is one record of what was sent and when. Nothing leaves this office over my name that Michelle has not logged.",
       "level": 1,
-      "items": [
-        "I will confirm the kickoff meeting with Stephanie Campos and her team this week.",
-        "Robert Miller will draft the initial data request so we can send it ahead of our first working session.",
-        "Michelle Lopez will circulate the interview schedule once the client confirms availability.",
-        "Jennifer and Robert: block the time for the first two working sessions now, before the client's calendar fills up.",
-        "Everyone: capture your observations as you go. We build the findings from evidence, and evidence is easiest to trust when it is written down the day you see it."
-      ],
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Access is the thing most likely to cost us time. We need the shift starts, not a tour at ten in the morning, and we need the supervisors for an hour each without their manager in the room. I will ask Stephanie Campos for both directly rather than working it out with each area on the day. If she pushes back on the second one, tell me before you start rearranging the interview list, because it changes what the interviews are worth.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "On the client side, I am going to send one consolidated data request instead of a stream of small ones. That is easier for her staff to fill and easier for us to chase, and it gives us a single list to point at when something is late. Assume everything on it takes two weeks to arrive and plan the analysis accordingly.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "One more thing on tone. We are three days into a three-month engagement and we do not have findings, so we do not talk like we do. If a supervisor asks what we have found, the honest answer is that we are still watching.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Next step: send me your draft of the data request by the end of this week, and I will merge it with mine and get the combined list to Stephanie Campos on Monday morning.",
+      "level": 1,
+      "items": [],
       "header": [],
       "rows": [],
       "signers": []

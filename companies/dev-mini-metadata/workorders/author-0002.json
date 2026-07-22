@@ -5,8 +5,8 @@
   "slug": "dev-mini",
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
-  "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Pinebrook Advisory Group is a small management consultancy serving\nmid-market operating companies, five people at the start of the window and\nsix by the end. The firm takes on a handful of engagements a year:\noperational reviews, pricing studies, and post-acquisition integration\nsupport. Its documents are lean and practical: engagement letters on firm\nletterhead, kickoff memos, meeting minutes that name every attendee, and\nstatus reports written for a client executive who skims. The Managing\nPartner signs everything that leaves the building. Tone is plain American\nbusiness English, first names inside the firm, full names and titles when a\nclient is on the page.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0004",
@@ -19,7 +19,7 @@
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
         }
       ],
       "participants": [
@@ -28,7 +28,7 @@
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
         }
       ],
       "engagement_summary": "",
@@ -46,9 +46,10 @@
         }
       ],
       "target_words": 750,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2019. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2019. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here.",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0013",
@@ -61,7 +62,7 @@
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
         }
       ],
       "participants": [
@@ -70,7 +71,7 @@
           "name": "Cynthia Ball",
           "title": "Analyst",
           "dept": "Consulting",
-          "persona": "Cynthia is the Analyst who pairs quantitative work with a knack for turning tangled findings into clean exhibits and tables. She is quick, curious, and comfortable asking the blunt question in a working session that no one else has voiced. Her notes tend to be tight and well-organized, built so a principal can lift them straight into a status report."
+          "persona": "Cynthia is the analyst clients open up to. She has an easy way of asking about how the work actually gets done, and she comes back from a site visit with the detail nobody put in the data room. She turns messy interview notes into clean exhibits quickly and enjoys that part of the job more than the modeling. She is direct in meetings, occasionally more direct than the partners expect from an analyst, and she is rarely wrong when she pushes."
         }
       ],
       "engagement_summary": "",
@@ -88,12 +89,56 @@
         }
       ],
       "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": "Reports to Robert Miller, Principal Consultant. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
-      "doc_id": "d:0021",
+      "doc_id": "d:0017",
+      "title": "Onboarding: Susan Thomas",
+      "genre": "onboarding_record",
+      "date": "2021-05-14",
+      "authors": [
+        {
+          "id": "p:daniel.jones",
+          "name": "Daniel Jones",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:susan.thomas",
+          "name": "Susan Thomas",
+          "title": "Analyst",
+          "dept": "Consulting",
+          "persona": "Susan Thomas wants a defined question before she pulls a single figure, and she will say so. She is fast and precise once the scope is set, and she has a good instinct for which number will actually move the client's decision and which one is decoration. Her writing is short declarative sentences with the caveats stated once and not repeated. She is easily bored by reformatting work and does it anyway without comment."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:daniel.jones",
+          "surface": "Daniel Jones",
+          "kind": "person"
+        },
+        {
+          "entity": "p:susan.thomas",
+          "surface": "Susan Thomas",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Robert Miller, Principal Consultant. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0022",
       "title": "Firm Overview",
       "genre": "company_overview",
       "date": "2022-08-15",
@@ -103,7 +148,7 @@
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
         }
       ],
       "participants": [
@@ -112,7 +157,7 @@
           "name": "Daniel Jones",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "As Managing Partner, Daniel sets the tone for every engagement and puts his name on anything that leaves the office. He writes the way he talks to a client: plain, direct, and confident, with the recommendation up front and the reasoning kept short. Colleagues know him as the partner who reads the room before the numbers and who trims a memo until only the decision-relevant points remain."
+          "persona": "Daniel reads every draft with a pen in his hand and a client executive in mind, and what he mostly does with the pen is cross things out. He wants the recommendation in the first paragraph and the reasoning underneath it, not the other way around, and he has no patience for hedging that exists only to protect the writer. In a room he is warm and unhurried, good at letting a client talk himself into the answer; on paper he is short. Because his signature goes on anything that leaves the firm, he treats the letterhead as a promise and reviews accordingly."
         }
       ],
       "engagement_summary": "",
@@ -138,9 +183,10 @@
         }
       ],
       "target_words": 750,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 3 client engagement(s) across 2019-2021. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, {{fact:f:E-2021-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+      "firm_digest": "As of this document's date the firm has begun 3 client engagement(s) across 2019-2021. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, {{fact:f:E-2021-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here.",
+      "reporting_line": ""
     }
   ],
   "people": [],

@@ -9,6 +9,7 @@
     "p:susan.wiley",
     "p:michelle.lopez",
     "p:cynthia.ball",
+    "p:susan.thomas",
     "x:johnson-and-sons",
     "x:dean-plc",
     "x:reeves-miller-and-thompson",
@@ -92,6 +93,20 @@
       "dst": "x:dev-mini",
       "kind": "works_at",
       "start": "2020-11-01",
+      "end": null
+    },
+    {
+      "src": "p:susan.thomas",
+      "dst": "p:robert.miller",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:susan.thomas",
+      "dst": "x:dev-mini",
+      "kind": "works_at",
+      "start": "2021-05-07",
       "end": null
     },
     {

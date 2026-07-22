@@ -1,6 +1,6 @@
 # Pinebrook Advisory Group LLC — Document Index
 
-22 documents. Everything in this share is synthetic;
+23 documents. Everything in this share is synthetic;
 see the companion `-metadata` directory for ground truth.
 
 ## Engagements/Dean PLC
@@ -42,3 +42,4 @@ see the companion `-metadata` directory for ground truth.
 ## People
 
 - [2020.11.08 - Onboarding - Cynthia Ball.docx](People/2020.11.08%20-%20Onboarding%20-%20Cynthia%20Ball.docx) — 2020-11-08 (onboarding_record)
+- [2021.05.14 - Onboarding - Susan Thomas.docx](People/2021.05.14%20-%20Onboarding%20-%20Susan%20Thomas.docx) — 2021-05-14 (onboarding_record)

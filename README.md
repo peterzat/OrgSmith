@@ -148,31 +148,31 @@ recipe allowed:
 | 9-person civil engineering firm, 1999–2007, every office doc a pre-2007 binary | 40 | [brackenridge-civil](companies/brackenridge-civil/) | [key](companies/brackenridge-civil-metadata/) |
 | 10-person environmental consultancy, 2013–2021, scans and a departmental ACL | 40 | [saltmarsh-environmental](companies/saltmarsh-environmental/) | [key](companies/saltmarsh-environmental-metadata/) |
 | 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) |
-| 6-person consultancy, 2019–2023, the test fixture | 22 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
+| 7-person consultancy, 2019–2023, the test fixture | 23 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
 
 Seven companies, 1999–2025: ~16 MB of browsable share, plus ~5 MB of ground truth beside it.
 
 | | fleet |
 | --- | --- |
 | companies | 7 |
-| people (internal) | 66 |
-| planned documents | 280 (225 model-authored + 55 deterministic workbooks) |
+| people (internal) | 67 |
+| planned documents | 281 (226 model-authored + 55 deterministic workbooks) |
 | engagements | 34 |
-| mean words per authored doc | ~690 |
-| mean length against what the brief asked | 0.998 |
+| mean words per authored doc | ~697 |
+| mean length against what the brief asked | 1.001 |
 
 This is the v2.0 fleet, generated in one arc and frozen. Every org is built
 on the full stack: rosters that hire, promote, and lose people; expense
 lines each computed from what drives them; document volume driven by the
 firm's real activity rather than a fixed skeleton. Every org was authored by
 `claude-opus-4-8[1m]` — the six fleet orgs at effort `xhigh`, `dev-mini` at
-`max` — and **every one of the 225 authored documents lands within 25% of
+`xhigh` — and **every one of the 226 authored documents lands within 25% of
 the words its brief asked for**. Each org records what actually authored it,
 batch by batch, in its `GENERATION-REPORT.md`.
 
-Per company: 6–12 people, 22–53 documents, 3–6 engagements, a 5–9 year span.
+Per company: 7–12 people, 23–53 documents, 3–6 engagements, a 5–9 year span.
 
-By format: 146 `.docx`, 46 `.xlsx`, 34 `.pdf`, 24 `.doc`, 11 `.eml`, 9
+By format: 147 `.docx`, 46 `.xlsx`, 34 `.pdf`, 24 `.doc`, 11 `.eml`, 9
 `.xls`, 8 `.pptx`, 2 `.ppt`.
 
 By genre: 55 financial summaries, 51 sets of meeting minutes, 37 status
@@ -840,7 +840,7 @@ covered by the generic "every file opens in its native reader" rule
 | `northgate-staffing` | open | — | — | — | — | — | ✓ | ✓ | — | ✓ | ✓ | 5/1/2 |
 | `saltmarsh-environmental` | departmental | — | 0.6 | 0.5 | ✓ | ✓ | — | — | ✓ | ✓ | — | 4/1/1 |
 | `verdant-health` | open | — | 0.5 | — | — | — | — | — | ✓ | ✓ | — | 1/1/1 |
-| `dev-mini` | open | — | — | — | — | — | — | — | — | — | — | 0/1/1 |
+| `dev-mini` | open | — | — | — | — | — | — | — | — | — | — | 1/1/1 |
 
 Reading it: **`brackenridge-civil`** is the ugly-format org — `legacy_ratio`
 at 1.0 means *every* office document is a real pre-2007 OLE container (24
@@ -850,8 +850,11 @@ those carry a synthetic OCR layer. **`saltmarsh-environmental`** and
 dated `works_at` edges and era-correct resolution per document date.
 **`meridian-actuarial`** carries both hard-case knobs, so a fee lives only on
 a signature page and a date lives only in a filename. **`dev-mini`** is
-deliberately bare: it is the regression oracle the ~465-test unit tier builds
-on, so it stays small and cheap rather than proving breadth.
+deliberately bare: it is the regression oracle the ~510-test unit tier builds
+on, so it stays small and cheap rather than proving breadth. Its one
+exception is `style_specs`, on since M15 — the per-person voice ledger is
+cheap, and a tracer is the right place to prove it end to end. Noise stays
+off there on purpose; that is `ashcombe-advisory`'s job.
 
 - The full pipeline, end to end, proven on all seven, every one generated on
   the v2.0 stack through the live airlock and byte-pinned.
@@ -979,7 +982,7 @@ gate that blocks unreviewed code.
 
 The committed fleet was authored through the same airlock this repo ships,
 by `claude-opus-4-8[1m]` (the six fleet orgs at `/effort xhigh`, `dev-mini`
-at `max`). Every org's `GENERATION-REPORT.md` records what actually wrote
+at `xhigh`). Every org's `GENERATION-REPORT.md` records what actually wrote
 it, batch by batch — self-reported, and treated as a record rather than an
 oracle for the reason [Round 1
 found](#which-model-should-write-your-documents).

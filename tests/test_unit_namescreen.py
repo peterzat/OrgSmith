@@ -25,7 +25,7 @@ from orgsmith.artifacts import load_charter, load_foundation
 from orgsmith.paths import OrgPaths
 from orgsmith.validate import run_validate
 
-from conftest import REPO, build_pure_stages
+from conftest import REPO, base_recipe_text, build_pure_stages
 
 pytestmark = pytest.mark.unit
 
@@ -118,7 +118,7 @@ def test_custom_index_is_isolated():
 def test_charter_gate_blocks_colliding_name(tmp_path, capsys):
     dest = tmp_path / "recipes" / "dev-mini"
     dest.mkdir(parents=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text()
     assert "Pinebrook Advisory Group LLC" in text
     text = text.replace(
         "Pinebrook Advisory Group LLC", "Morgan Stanley Advisory Group LLC"

@@ -27,6 +27,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl dev-mini`.
 - Firm/Firm Overview 2019 v3.docx
 - Firm/Firm Overview 2022 v3.docx
 - People/2020.11.08 - Onboarding - Cynthia Ball.docx
+- People/2021.05.14 - Onboarding - Susan Thomas.docx
 
 ## Robert Miller (Principal Consultant)
 
@@ -52,6 +53,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl dev-mini`.
 - Firm/Firm Overview 2019 v3.docx
 - Firm/Firm Overview 2022 v3.docx
 - People/2020.11.08 - Onboarding - Cynthia Ball.docx
+- People/2021.05.14 - Onboarding - Susan Thomas.docx
 
 ## Jennifer Fletcher (Principal Consultant)
 
@@ -77,6 +79,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl dev-mini`.
 - Firm/Firm Overview 2019 v3.docx
 - Firm/Firm Overview 2022 v3.docx
 - People/2020.11.08 - Onboarding - Cynthia Ball.docx
+- People/2021.05.14 - Onboarding - Susan Thomas.docx
 
 ## Susan Wiley (Analyst)
 
@@ -105,6 +108,7 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl dev-mini`.
 - Firm/Firm Overview 2019 v3.docx
 - Firm/Firm Overview 2022 v3.docx
 - People/2020.11.08 - Onboarding - Cynthia Ball.docx
+- People/2021.05.14 - Onboarding - Susan Thomas.docx
 
 ## Cynthia Ball (Analyst)
 
@@ -130,3 +134,30 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl dev-mini`.
 - Firm/Firm Overview 2019 v3.docx
 - Firm/Firm Overview 2022 v3.docx
 - People/2020.11.08 - Onboarding - Cynthia Ball.docx
+- People/2021.05.14 - Onboarding - Susan Thomas.docx
+
+## Susan Thomas (Analyst)
+
+- Engagements/Dean PLC/2020.02.07 - Engagement Letter - Dean PLC - EXECUTED.pdf
+- Engagements/Dean PLC/2020.02.20 - Kickoff Memo - Pricing Study.docx
+- Engagements/Dean PLC/2020.06.09 - Status Report - Dean PLC v2 FINAL.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-05-17 - Dean PLC.docx
+- Engagements/Dean PLC/Meeting Minutes 2020-08-15 - Dean PLC.docx
+- Engagements/Johnson and Sons/2019.07.07 - Engagement Letter - Johnson and Sons - EXECUTED.pdf
+- Engagements/Johnson and Sons/2019.07.20 - Kickoff Memo - Operational Review.docx
+- Engagements/Johnson and Sons/2019.09.07 - Status Report - Johnson and Sons v2 FINAL.docx
+- Engagements/Johnson and Sons/Meeting Minutes 2019-08-27 - Johnson and Sons.docx
+- Engagements/Reeves, Miller and Thompson/2021.03.26 - Engagement Letter - Reeves, Miller and Thompson - EXECUTED.pdf
+- Engagements/Reeves, Miller and Thompson/2021.04.08 - Kickoff Memo - Integration Support.docx
+- Engagements/Reeves, Miller and Thompson/2021.07.13 - Status Report - Reeves, Miller and Thompson v2 FINAL.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-06-23 - Reeves, Miller and Thompson.docx
+- Engagements/Reeves, Miller and Thompson/Meeting Minutes 2021-09-21 - Reeves, Miller and Thompson.docx
+- Finance/FY2018 Financial Summary.xlsx
+- Finance/FY2019 Financial Summary.xlsx
+- Finance/FY2020 Financial Summary.xlsx
+- Finance/FY2021 Financial Summary.xlsx
+- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2019 v3.docx
+- Firm/Firm Overview 2022 v3.docx
+- People/2020.11.08 - Onboarding - Cynthia Ball.docx
+- People/2021.05.14 - Onboarding - Susan Thomas.docx

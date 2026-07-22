@@ -15,7 +15,7 @@ from orgsmith.foundation.scaffold import run_scaffold
 from orgsmith.paths import OrgPaths
 from orgsmith.render import run_render
 
-from conftest import REPO, run_authoring, run_enrichment
+from conftest import REPO, base_recipe_text, run_authoring, run_enrichment
 
 pytestmark = pytest.mark.unit
 
@@ -26,8 +26,8 @@ def evals_org(tmp_path_factory):
     root = tmp_path_factory.mktemp("splits-org")
     dest = root / "recipes" / "dev-mini"
     dest.mkdir(parents=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
-    anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    text = base_recipe_text()
+    anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     text = text.replace(anchor, anchor + "  noise:\n    duplicates: 2\n    drafts: 3\n")
     dest.joinpath("ORG-CHARTER.md").write_text(text)
     p = OrgPaths(root=root, slug="dev-mini")

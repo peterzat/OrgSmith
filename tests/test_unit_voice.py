@@ -16,7 +16,7 @@ from orgsmith.review.voice import VOICE_PATTERNS, measure_voice
 from orgsmith.schemas import Block, DocIR
 from orgsmith.state import load_state
 
-from conftest import REPO, run_enrichment
+from conftest import REPO, base_recipe_text, run_enrichment
 
 pytestmark = pytest.mark.unit
 
@@ -86,9 +86,9 @@ def test_author_voice_is_deterministic_and_varies_by_person():
 def _build(root, voice_on: bool) -> OrgPaths:
     dest = root / "recipes" / "dev-mini"
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text()
     if voice_on:
-        anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+        anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
         text = text.replace(anchor, anchor + "  voice_diversify: true\n")
     dest.joinpath("ORG-CHARTER.md").write_text(text)
     p = OrgPaths(root=root, slug="dev-mini")

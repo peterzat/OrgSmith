@@ -11,7 +11,7 @@ import pytest
 from orgsmith.authoring.contexts import _firm_digest
 from orgsmith.review.report import _fee_coverage_lines
 
-from conftest import REPO, build_pure_stages
+from conftest import REPO, base_recipe_text, build_pure_stages
 from orgsmith.charter import run_charter
 from orgsmith.fabric import run_fabric
 from orgsmith.foundation.scaffold import run_scaffold
@@ -59,7 +59,7 @@ def test_firm_digest_empty_book_is_shared_by_both_modes():
 def _build_sample_org(root) -> OrgPaths:
     dest = root / "recipes" / "dev-mini"
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text()
     anchor = "engagements:\n"
     assert anchor in text
     text = text.replace(anchor, anchor + "  book_is_sample: true\n", 1)

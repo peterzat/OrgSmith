@@ -24,7 +24,7 @@ from orgsmith.render.eml import expected_headers, thread_members
 from orgsmith.schemas import DocCulture, MailCulture
 from orgsmith.validate import run_validate
 
-from conftest import REPO, run_authoring, run_enrichment
+from conftest import REPO, base_recipe_text, run_authoring, run_enrichment
 
 pytestmark = pytest.mark.unit
 
@@ -33,18 +33,18 @@ def _build_mail_org(root, eml=8, max_depth=5, extra_culture="", stages=True):
     """A dev-mini copy with engagement mail and a MailCulture block."""
     dest = root / "recipes" / "dev-mini"
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
-    old_mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    text = base_recipe_text()
+    old_mix = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert old_mix in text
     text = text.replace(
         old_mix,
-        f"  format_mix: {{docx: 14, pdf: 3, xlsx: 5, eml: {eml}}}\n"
+        f"  format_mix: {{docx: 15, pdf: 3, xlsx: 5, eml: {eml}}}\n"
         "  mail:\n"
         "    business_hours: [9, 17]\n"
         f"    max_thread_depth: {max_depth}\n"
         f"{extra_culture}",
     )
-    text = text.replace("target_docs: 22", f"target_docs: {22 + eml}")
+    text = text.replace("target_docs: 23", f"target_docs: {23 + eml}")
     (dest / "ORG-CHARTER.md").write_text(text)
     paths = OrgPaths(root=root, slug="dev-mini")
     if stages:

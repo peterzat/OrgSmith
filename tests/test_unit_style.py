@@ -24,7 +24,7 @@ from orgsmith.foundation.style import derive_style_specs
 from orgsmith.paths import OrgPaths
 from orgsmith.validate.rules import Context, _needs_style, sty_01
 
-from conftest import REPO, run_authoring, run_enrichment
+from conftest import REPO, base_recipe_text, run_authoring, run_enrichment
 
 pytestmark = pytest.mark.unit
 
@@ -32,8 +32,8 @@ pytestmark = pytest.mark.unit
 def _build_style_org(root, on=True, stages=True) -> OrgPaths:
     dest = root / "recipes" / "dev-mini"
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
-    anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    text = base_recipe_text()
+    anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert anchor in text
     if on:
         text = text.replace(anchor, anchor + "  style_specs: true\n")

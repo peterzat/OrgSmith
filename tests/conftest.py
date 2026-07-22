@@ -30,13 +30,45 @@ from orgsmith.foundation import run_scaffold  # noqa: E402
 from orgsmith.paths import OrgPaths
 
 
+# Optional knobs a unit fixture must not inherit from the committed recipe.
+#
+# Nearly every unit fixture is the tracer recipe with something added, so a
+# knob turned on in `recipes/dev-mini/` silently turns it on in all of them.
+# M15 turned `style_specs` on there (dev-mini is the voice proof bed), which
+# switched STY-01 from skipping to running in a dozen fixtures that never run
+# the `acl` stage that writes the ledger -- so they failed on a knob nothing
+# in the test asked for.
+#
+# A fixture pins its own knobs. `build_knobbed_stages` sets every one of them
+# explicitly for exactly this reason; this list extends that discipline to the
+# base copy, so a future recipe edit cannot reach into unrelated fixtures.
+# Only optional, default-off knobs belong here.
+_UNINHERITED_KNOBS = ("  style_specs: true\n",)
+
+
+def base_recipe_text(slug: str = "dev-mini") -> str:
+    """The committed recipe's text with the uninherited knobs stripped."""
+    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    for line in _UNINHERITED_KNOBS:
+        text = text.replace(line, "")
+    return text
+
+
+def copy_base_recipe(root: Path, slug: str = "dev-mini") -> Path:
+    """Write the knob-stripped recipe into `root/recipes/<slug>`."""
+    dest = root / "recipes" / slug
+    dest.mkdir(parents=True, exist_ok=True)
+    (dest / "ORG-CHARTER.md").write_text(base_recipe_text(slug))
+    return dest
+
+
 def build_pure_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     """Copy the tracer recipe into `root` and run every pure stage up to
     docplan. No model pass, no network."""
     (root / "recipes").mkdir(parents=True, exist_ok=True)
     dest = root / "recipes" / slug
     if not dest.exists():
-        shutil.copytree(REPO / "recipes" / slug, dest)
+        copy_base_recipe(root, slug)
     paths = OrgPaths(root=root, slug=slug)
     assert run_charter(paths) == 0
     assert run_scaffold(paths) == 0
@@ -72,7 +104,7 @@ def write_hardcase_recipe(
     """dev-mini recipe with hard_cases knobs set; stages not run."""
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text(slug)
     anchor = "  external_people: 3\n"
     assert anchor in text
     block = (
@@ -103,7 +135,7 @@ def build_acl_stages(
 
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text(slug)
     anchor = "  external_people: 3\n"
     assert anchor in text
     (dest / "ORG-CHARTER.md").write_text(
@@ -123,16 +155,16 @@ def write_mix_recipe(root: Path, mix: dict, slug: str = "dev-mini") -> OrgPaths:
     mix sum); stages not run."""
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
-    old_mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
-    assert old_mix in text and "target_docs: 22" in text
+    text = base_recipe_text(slug)
+    old_mix = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
+    assert old_mix in text and "target_docs: 23" in text
     new_mix = (
         "  format_mix: {"
         + ", ".join(f"{k}: {v}" for k, v in mix.items())
         + "}\n"
     )
     text = text.replace(old_mix, new_mix)
-    text = text.replace("target_docs: 22", f"target_docs: {sum(mix.values())}")
+    text = text.replace("target_docs: 23", f"target_docs: {sum(mix.values())}")
     (dest / "ORG-CHARTER.md").write_text(text)
     return OrgPaths(root=root, slug=slug)
 
@@ -158,8 +190,8 @@ def write_culture_recipe(
     graph_targets; stages not run."""
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
-    mix_anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    text = base_recipe_text(slug)
+    mix_anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert mix_anchor in text
     text = text.replace(mix_anchor, mix_anchor + culture_lines)
     if extra_blocks:
@@ -192,7 +224,7 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     which CI cannot render: no LibreOffice)."""
     dest = root / "recipes" / slug
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text(slug)
     anchor = "  external_people: 3\n"
     assert anchor in text
     text = text.replace(anchor, anchor + KNOB_LINES)
@@ -208,11 +240,11 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     old_range = "  date_range: [2019-01-01, 2023-12-31]\n"
     assert old_range in text
     text = text.replace(old_range, "  date_range: [2019-01-01, 2025-12-31]\n")
-    old_mix = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    old_mix = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert old_mix in text
     text = text.replace(
         old_mix,
-        "  format_mix: {docx: 14, pdf: 3, xlsx: 5, pptx: 1, eml: 2}\n"
+        "  format_mix: {docx: 15, pdf: 3, xlsx: 5, pptx: 1, eml: 2}\n"
         "  scanned_ratio: 0.4\n"
         "  ocr_layer_rate: 1.0\n"
         # M12: turn the business-day calendar and the noise model on so CAL-01
@@ -230,10 +262,12 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
         # zero-skip test keys off this org). No mundane mail, so the ledger
         # recomputes with no DL-addressed docs to expand -- enough to run DL-01.
         "    distribution_lists: 1\n"
-        # M15: style specs on so STY-01 finds its knob here too.
+        # M15: style specs on so STY-01 finds its knob here too. Set here
+        # rather than inherited: base_recipe_text strips it from the copy so
+        # unrelated fixtures are not switched on by a recipe edit.
         "  style_specs: true\n",
     )
-    text = text.replace("target_docs: 22", "target_docs: 16")
+    text = text.replace("target_docs: 23", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)
     paths = OrgPaths(root=root, slug=slug)
     assert run_charter(paths) == 0

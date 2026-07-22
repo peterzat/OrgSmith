@@ -20,13 +20,13 @@ from orgsmith.foundation.scaffold import build_foundation
 from orgsmith.paths import OrgPaths
 from orgsmith.schemas import Affiliation, GraphTargets, RosterChurn, dump_json
 
-from conftest import REPO
+from conftest import REPO, base_recipe_text
 
 pytestmark = pytest.mark.unit
 
 
 def _charter(slug, **graph_target_updates):
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text(slug)
     charter = parse_charter_md(text, slug)
     if graph_target_updates:
         gt = charter.graph_targets.model_copy(update=graph_target_updates)
@@ -277,7 +277,7 @@ def aff_render_org(tmp_path_factory):
     root = tmp_path_factory.mktemp("affrender")
     dest = root / "recipes" / slug
     dest.mkdir(parents=True)
-    text = (REPO / "recipes" / slug / "ORG-CHARTER.md").read_text()
+    text = base_recipe_text(slug)
     anchor = "  affiliations_in_docs: true\n"
     assert anchor in text
     text = text.replace(

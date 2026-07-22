@@ -5,7 +5,7 @@
   "slug": "dev-mini",
   "org_name": "Pinebrook Advisory Group LLC",
   "org_type": "management consulting",
-  "narrative": "Pinebrook Advisory Group is a five-person management consultancy serving\nmid-market operating companies. The firm takes on a handful of engagements\na year: operational reviews, pricing studies, and post-acquisition\nintegration support. Its documents are lean and practical: engagement\nletters on firm letterhead, kickoff memos, meeting minutes that name every\nattendee, and status reports written for a client executive who skims.\nThe Managing Partner signs everything that leaves the building. Tone is\nplain American business English, first names inside the firm, full names\nand titles when a client is on the page.",
+  "narrative": "Pinebrook Advisory Group is a small management consultancy serving\nmid-market operating companies, five people at the start of the window and\nsix by the end. The firm takes on a handful of engagements a year:\noperational reviews, pricing studies, and post-acquisition integration\nsupport. Its documents are lean and practical: engagement letters on firm\nletterhead, kickoff memos, meeting minutes that name every attendee, and\nstatus reports written for a client executive who skims. The Managing\nPartner signs everything that leaves the building. Tone is plain American\nbusiness English, first names inside the firm, full names and titles when a\nclient is on the page.",
   "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
   "docs": [],
   "people": [
@@ -47,6 +47,13 @@
     {
       "id": "p:cynthia.ball",
       "name": "Cynthia Ball",
+      "title": "Analyst",
+      "dept": "Consulting",
+      "persona": ""
+    },
+    {
+      "id": "p:susan.thomas",
+      "name": "Susan Thomas",
       "title": "Analyst",
       "dept": "Consulting",
       "persona": ""

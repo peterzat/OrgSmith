@@ -16,7 +16,7 @@ from orgsmith.fabric.engagements import (
     to_business_day,
 )
 
-from conftest import REPO
+from conftest import REPO, base_recipe_text
 from orgsmith.charter import run_charter
 from orgsmith.fabric import run_fabric
 from orgsmith.foundation.scaffold import run_scaffold
@@ -65,8 +65,8 @@ def _build_with_calendar(root, holidays: list[str]) -> OrgPaths:
     """dev-mini through docplan with a declared business-day calendar."""
     dest = root / "recipes" / "dev-mini"
     dest.mkdir(parents=True, exist_ok=True)
-    text = (REPO / "recipes" / "dev-mini" / "ORG-CHARTER.md").read_text()
-    anchor = "  format_mix: {docx: 14, pdf: 3, xlsx: 5}\n"
+    text = base_recipe_text()
+    anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
     assert anchor in text
     block = "  business_calendar:\n    holidays: [%s]\n" % ", ".join(holidays)
     (dest / "ORG-CHARTER.md").write_text(text.replace(anchor, anchor + block))
