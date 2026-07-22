@@ -54,6 +54,11 @@ containment.**
   existing `entry.path` check) so both the render and validate sinks inherit
   the guard, or guard each join at the sink. Refuse absolute and `..`
   components exactly as `entry.path` is refused.
+- **Resolved in `6b67c12`** (the `/codereview` fix loop): `load_manifest`
+  (`orgsmith/artifacts.py:93-95`) now runs `check_relpath` on a manifest
+  entry's `attach_path` beside `entry.path`, so both the render and validate
+  sinks inherit containment. This finding is closed; recorded here as the
+  M14 security surface.
 
 ### Reviewed surface and scope
 

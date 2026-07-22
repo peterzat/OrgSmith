@@ -200,7 +200,7 @@ flagship is M17; the pilot is the same capability at a tenth the scale.
 [`ashcombe-advisory`](companies/ashcombe-advisory/) is the M14 email-first
 pilot, committed beside the fleet: a 12-seat corporate communications and
 investor-relations advisory across 2017–2024, 87 documents, generated through
-the same live airlock on `claude-opus-4-8[1m]` at effort `xhigh`. It is the
+the same live airlock on `claude-opus-4-8` at effort `xhigh`. It is the
 org to read for email realism. Under a new optional `doc_culture.mail` block,
 its engagement mail runs as real threads — **42 authored `.eml`, 53% of its
 authored documents, across 6 threads up to depth 8** — with minute-granularity
@@ -261,8 +261,9 @@ Our own adversarial review board read the exemplar above,
 `northgate-staffing`, and said it better than we could. These are its actual
 committed findings — **16 major across six dimensions**, all in
 `companies/northgate-staffing-metadata/review/findings/`, against a corpus
-that validates clean: 24 rules run, 7 skipped for knobs it leaves off (the two
-M12 additions, CAL-01 and NOISE-01, among them), 0 errors.
+that validates clean: 24 rules run, 10 skipped for knobs it leaves off (the
+M12 additions CAL-01 and NOISE-01 and the M14 mail rules EML-02, EML-03, and
+DL-01 among them), 0 errors.
 
 **Read these as findings about one org, `northgate-staffing`, which is frozen
 and ships every knob off.** As of M12 (see [What is in the
@@ -395,20 +396,16 @@ Email thread mechanics were the largest gap above, and M14 closed the
 *mechanics* half with a committed fixture. The frozen fleet's 11 `.eml` are
 still single messages ("Email 1"): every fleet recipe sets `format_mix.eml`
 at or below its engagement count, so the reply cadence never fired in a
-shipped fleet document. The email-first pilot `ashcombe-advisory` is where it
-does: under a new optional `doc_culture.mail` block, engagement mail runs as
-real threads (`docplan/planner.py`, `render/eml.py`) with minute-granularity
-send times in declared business hours, `In-Reply-To`/`References` chains, RE:
-subjects, a derived quoted-history tail, a deterministic To/Cc split,
-promotion-aware signature blocks, transmittal attachments, and a mundane
-internal-email genre. Its board findings (including where an authored reply's
-tone does not match its rendered recipient) ship beside it in
-`GENERATION-REPORT.md`. What is still open is *volume*: even the pilot is
+shipped fleet document. The email-first pilot
+[`ashcombe-advisory`](#the-m14-email-pilot) is where it does, under the new
+optional `doc_culture.mail` block (`docplan/planner.py`, `render/eml.py`);
+that section lists what the block turns on and links the pilot's board
+findings. What is still open is *volume*: even the pilot is
 document-dominant, and no corpus here approaches an email-dominant one.
 
-**Choose accordingly.** If you need email *volume* this is still the wrong
-tool; if you need thread *mechanics*, the pilot has them. If you need labeled
-hard cases,
+**Choose accordingly.** If you need email or document *volume*, or a realistic
+noise distribution, this is still the wrong tool today; if you need thread
+*mechanics*, the pilot has them. If you need labeled hard cases,
 format heterogeneity, reproducibility, and a corpus you can legally publish,
 it is a good one. See [docs/SCALE.md](docs/SCALE.md) for the size targets
 and the measurements behind them, including why a 2,000-document org at
@@ -439,14 +436,16 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 31-rule validator ties every document back to the
+- After rendering, a 34-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
   else; a filename-only date never appears in document text), access
   grants and PERMISSIONS.md match a recomputation from the recipe's ACL
-  posture, workbook formulas recompute to ledger values, mail headers
-  recompute exactly from the ledgers, scan flags and legacy assignments
+  posture, workbook formulas recompute to ledger values, mail headers,
+  signature blocks, and transmittal attachments recompute exactly from the
+  ledgers and distribution lists expand for visibility, scan flags and
+  legacy assignments
   recompute from the recipe (with raster pages, OCR-layer presence, and
   true-text archives verified), legacy binaries are real OLE containers,
   affiliation-aware client and participant assignments recompute from
@@ -481,7 +480,7 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 relying on for any given claim.
 
 **Oracles — strongest, and where all the facts live.** An oracle recomputes
-the answer from ground truth. The 31-rule validator and the eval suites are
+the answer from ground truth. The 34-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
 is why the airlock exists — the model never sees a value it is placing, so
@@ -532,12 +531,14 @@ provably cannot see.
 
 ### The evidence, concretely
 
-- **483 tests** across the default three tiers (`bin/test`), keyless and
-  offline, plus a fourth `flagship` tier (10 tests) for the large M12 pilot,
-  run on its own so the everyday loop stays fast; the `org` tier validates the
+- **551 tests** across the default three tiers (`bin/test`), keyless and
+  offline (545 pass with six legacy-format tests skipped where LibreOffice is
+  absent, as in CI), plus a fourth `flagship` tier (20 tests) for the two large
+  pilot orgs (`calderwood-partners` and the M14 email pilot `ashcombe-advisory`),
+  run on their own so the everyday loop stays fast; the `org` tier validates the
   seven fleet fixtures, derives every recipe, re-derives every fixture's
   structure byte-identically, and checks each fleet recipe's internal
-  coherence in ~3.6s, while `bin/test flagship` validates the pilot in ~2.3s.
+  coherence in ~3.6s, while `bin/test flagship` validates both pilots in ~4s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
@@ -793,7 +794,7 @@ those carry a synthetic OCR layer. **`saltmarsh-environmental`** and
 dated `works_at` edges and era-correct resolution per document date.
 **`meridian-actuarial`** carries both hard-case knobs, so a fee lives only on
 a signature page and a date lives only in a filename. **`dev-mini`** is
-deliberately bare: it is the regression oracle the ~356-test unit tier builds
+deliberately bare: it is the regression oracle the ~465-test unit tier builds
 on, so it stays small and cheap rather than proving breadth.
 
 - The full pipeline, end to end, proven on all seven, every one generated on
@@ -840,7 +841,7 @@ on, so it stays small and cheap rather than proving breadth.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 31-rule validator, capability
+- The airlock, checkpoint/resume, the 34-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - The quality instrument, which measures the one thing the validator
@@ -881,11 +882,19 @@ generator-wide fix so prose can no longer contradict a ledger reporting line.
 The pilot org **`calderwood-partners`** (218 documents, every knob on)
 proves the stack end to end and is committed and browsable beside the fleet.
 
-**Next: M12b, one flagship org large enough to defeat a context window.**
-The whole committed fleet is ~280 documents; you can fit that in a 1M-token
-context and answer questions about it without retrieving anything, which
-means it cannot prove a retrieval system works. The pilot is the right
-capability at a tenth the scale; the flagship spends the ~1.3 days of
+**The realism wave (M13-M16) is underway.** M13 closed the path-safety and
+letterhead-escaping hygiene; **M14 landed email realism**, with the committed
+email-first pilot `ashcombe-advisory` (real threads, minute-granularity
+timing, quoted history, promotion-aware signatures, transmittal attachments,
+and distribution lists). M15 (organizational noise, persona voice, a
+distributional dashboard) and M16 (regenerate the fleet under the wave's
+knobs, re-freeze, cut a release) follow.
+
+**After the wave: M17, one flagship org large enough to defeat a context
+window.** The whole committed fleet is ~280 documents; you can fit that in a
+1M-token context and answer questions about it without retrieving anything,
+which means it cannot prove a retrieval system works. The pilots are the right
+capabilities at a fraction of the scale; the flagship spends the ~1.3 days of
 authoring the full size costs. See [docs/SCALE.md](docs/SCALE.md) for how big
 that has to be and why resume becomes the only reason it is possible.
 

@@ -10,7 +10,8 @@ hand-authored code). Reviewed against `origin/main`. New: the optional
 promotion-aware signatures, mundane genre, transmittal attachments,
 distribution lists as a derived ledger), EML-02/EML-03/DL-01 validators, and a
 FACT-01/MENT-01 pdf layout-extraction fallback. Tests green at review start:
-`bin/test` 458 passed + 6 skipped (soffice), org 72, flagship 20. Byte pin
+`bin/test` 544 passed + 6 skipped (14 short, 458 unit, 72 org; the 6 skips are
+soffice-gated legacy tests), plus flagship 20. Byte pin
 green fleet-wide + flagship. Three parallel adversarial reviewers plus the
 `/security` scan produced the findings below.
 
@@ -112,8 +113,9 @@ All four BLOCK/WARN findings fixed by /codefix, re-reviewed, and covered:
 
 Byte-safe: committed fixtures don't hit the wall, use only clean dept names,
 and carry honest in-share `attach_path`s, so no committed bytes moved (byte pin
-green fleet-wide + flagship). Full suite green after fixes: `bin/test` 458 + 6
-skipped, org 72, flagship 20. The two NOTEs are left as-is (loud-failing and
+green fleet-wide + flagship). Full suite green after fixes: `bin/test` 545
+passed + 6 skipped (14 short, 459 unit — the +1 is the new regression test —
+72 org), plus flagship 20. The two NOTEs are left as-is (loud-failing and
 unreachable in practice; resource hygiene only).
 
 ### Accepted Risks

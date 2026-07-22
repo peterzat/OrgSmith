@@ -13,11 +13,11 @@ From a clean checkout, on a box with Pango (WeasyPrint's text stack):
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
 bin/test                      # short + unit + org; exit 0
-bin/test flagship             # the large M12 pilot org, on its own
+bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~32s wall and 483 passing (14 short, 397 unit, 72 org) on a box
-with LibreOffice; 477 passing + 6 skipped without it (measured by hiding
+Expect ~35s wall and 551 passing (14 short, 465 unit, 72 org) on a box
+with LibreOffice; 545 passing + 6 skipped without it (measured by hiding
 soffice from `PATH`, which is what CI sees). Both are green states,
 see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
@@ -31,7 +31,7 @@ knobs and their tests -- unit grew 361 -> 397 -- and landed the pilot org
 `calderwood-partners` in its own `flagship` tier, kept out of the default
 `bin/test` because validating its 218 files is ~2.3s on its own.)
 
-The `flagship` tier is opt-in (`bin/test flagship`, 10 passing) and runs in
+The `flagship` tier is opt-in (`bin/test flagship`, 20 passing) and runs in
 CI on its own step; the default `bin/test` excludes it so the everyday loop
 stays fast.
 
@@ -59,9 +59,9 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 14 | < 1s | 0.19s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 397 (391 in CI) | ~20s | ~30s local / ~15s CI |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 465 (459 in CI) | ~20s | ~30s local / ~15s CI |
 | `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 72 | ~8s | 3.6s warm |
-| `flagship` | the large M12 pilot org `calderwood-partners` (218 files) on its own: full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 10 | ~5s | 2.3s |
+| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 20 | ~5s | ~4s |
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
 assert on a shared runner is a flaky test, and this suite has none.
@@ -280,7 +280,7 @@ control, so its false-positive rate is unmeasured (BACKLOG:
 Two targets running different suites, deliberately.
 
 - **CI (`ubuntu-latest`, no LibreOffice)** is the gate: all three tiers on
-  every push and PR. Six legacy tests skip (441 passing + 6 skipped).
+  every push and PR. Six legacy tests skip (545 passing + 6 skipped).
   Legacy *validation* is still covered here, by the org tier reading
   `brackenridge-civil`'s real `.doc`/`.xls`/`.ppt` binaries pure-Python
   (olefile, xlrd) with `soffice` absent -- a stronger check than the
@@ -305,7 +305,7 @@ only ever happens on a box that runs those six tests.
   extractable text. A test asserting what a document *says* is testing a
   replaceable artifact.
 - **No wall-clock asserts.** Budgets are stated and measured, not gated.
-- **No coverage-for-coverage.** The 29-rule validator is the oracle; line
+- **No coverage-for-coverage.** The 34-rule validator is the oracle; line
   coverage over renderers adds no catch-power, and no coverage tool is
   configured on purpose.
 - **Don't re-assert pydantic.** `test_unit_compat.py` pins *inert-default*

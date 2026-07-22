@@ -3,12 +3,14 @@
 What size should a generated org be? Three different answers, because
 there are three different jobs. This document settles the targets and the
 reasoning. **The reference fleet landed at M11 (2026-07-17); the flagship
-is M12 and is not built.**
+is M17 and is not built.** (M12 split: the capability layer landed as M12a,
+the committed `calderwood-partners` pilot, and the window-defeating flagship
+renumbered to M17, after the M13-M16 realism wave.)
 
 **Milestone numbers here follow the M8 renumbering** (SPEC.md states it
 once): the roster/finance/brief work is M8, the document-supply model and
 realistic lengths are M9, parallel authoring and the scale fixes are M10,
-the reference fleet is M11, and the flagship is M12. Earlier drafts of this
+the reference fleet is M11, and the flagship is M17. Earlier drafts of this
 file numbered the fleet M10 and the flagship M11.
 
 **Two measurement bases appear below.** The original reasoning was
@@ -26,7 +28,7 @@ constants.
 | --- | --- | --- | --- |
 | fixtures | ~20 docs | regression oracles | now (`dev-mini`, 22 docs) |
 | reference fleet | ~30-60 per org | prove breadth | **landed M11** (6 orgs, 258 docs) |
-| flagship | one org, large enough to defeat a context window | prove scale | M12 |
+| flagship | one org, large enough to defeat a context window | prove scale | M17 |
 
 These are three jobs, not three points on one line. Conflating them is
 what produced the contradiction this document exists to resolve: an
@@ -106,7 +108,7 @@ The threshold is not a document count. It is total tokens against the largest
 context window a caller might bring, and the honest target is to exceed it by
 enough that the margin survives the next model generation.
 
-**That margin is what M9 bought, and it is why M9 preceded M12.** Measured
+**That margin is what M9 bought, and it is why M9 preceded the flagship.** Measured
 mean across all 81 authored documents at v1.5.0: **236 words**, against briefs
 asking 130-350. Real engagement letters run 800-1500. The model was roughly
 hitting its targets; the targets were wrong. At those lengths a 2,000-document
@@ -130,7 +132,7 @@ hires), so "~2,000 documents" is a recipe of the right shape rather than a
 planner rewrite. `dev-mini` grew from 13 to 22 documents on the same recipe
 purely from the drivers.
 
-One caveat M12 must respect. The 1.85M figure counts **authored** tokens. If a
+One caveat the flagship must respect. The 1.85M figure counts **authored** tokens. If a
 flagship reaches its file count partly through derived noise (duplicates,
 near-duplicates, draft/final chains), those files carry words but not
 independent ones, and an agent that collapses them cheaply gets back under the
