@@ -56,9 +56,9 @@ may be regenerated or extended by M14 and M15 as knobs land; (2) `dev-mini`
 may be regenerated exactly once, in M15; (3) the six remaining v2.0 fleet
 orgs (the exemplar `northgate-staffing` among them), `calderwood-partners`,
 and the email pilot `ashcombe-advisory` may be regenerated exactly once each,
-in M16, under recipes updated to the wave's knobs. Regeneration is always wholesale (delete and re-run the full
-pipeline from the recipe), never an in-place edit of ledgers, manifest, or
-prose. `PINNED = SLUGS` stays enforced and must be green at every commit,
+in M16, under recipes updated to the wave's knobs. Regeneration is always
+wholesale (delete and re-run the full pipeline from the recipe), never an
+in-place edit of ledgers, manifest, or prose. `PINNED = SLUGS` stays enforced and must be green at every commit,
 including mid-wave. Additive evolution is NOT suspended: every wave capability
 still lands as a default-off knob with inert schema defaults and new seed
 streams, proven inert against not-yet-regenerated fixtures before any org

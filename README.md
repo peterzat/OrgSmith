@@ -533,9 +533,10 @@ provably cannot see.
 
 - **551 tests** across the default three tiers (`bin/test`), keyless and
   offline (545 pass with six legacy-format tests skipped where LibreOffice is
-  absent, as in CI), plus a fourth `flagship` tier (20 tests) for the two large
-  pilot orgs (`calderwood-partners` and the M14 email pilot `ashcombe-advisory`),
-  run on their own so the everyday loop stays fast; the `org` tier validates the
+  absent, as in CI), plus a fourth `flagship` tier (20 tests) for the two
+  large pilot orgs (`calderwood-partners` and the M14 email pilot
+  `ashcombe-advisory`), run on their own so the everyday loop stays fast;
+  the `org` tier validates the
   seven fleet fixtures, derives every recipe, re-derives every fixture's
   structure byte-identically, and checks each fleet recipe's internal
   coherence in ~3.6s, while `bin/test flagship` validates both pilots in ~4s.

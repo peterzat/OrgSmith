@@ -108,9 +108,10 @@ The threshold is not a document count. It is total tokens against the largest
 context window a caller might bring, and the honest target is to exceed it by
 enough that the margin survives the next model generation.
 
-**That margin is what M9 bought, and it is why M9 preceded the flagship.** Measured
-mean across all 81 authored documents at v1.5.0: **236 words**, against briefs
-asking 130-350. Real engagement letters run 800-1500. The model was roughly
+**That margin is what M9 bought, and it is why M9 preceded the flagship.**
+Measured mean across all 81 authored documents at v1.5.0: **236 words**,
+against briefs asking 130-350. Real engagement letters run 800-1500. The
+model was roughly
 hitting its targets; the targets were wrong. At those lengths a 2,000-document
 org reached only ~628K tokens (the row this table used to carry): it fits
 inside a 1M window and settles nothing, and a flagship would have needed
@@ -132,8 +133,9 @@ hires), so "~2,000 documents" is a recipe of the right shape rather than a
 planner rewrite. `dev-mini` grew from 13 to 22 documents on the same recipe
 purely from the drivers.
 
-One caveat the flagship must respect. The 1.85M figure counts **authored** tokens. If a
-flagship reaches its file count partly through derived noise (duplicates,
+One caveat the flagship must respect. The 1.85M figure counts **authored**
+tokens. If a flagship reaches its file count partly through derived noise
+(duplicates,
 near-duplicates, draft/final chains), those files carry words but not
 independent ones, and an agent that collapses them cheaply gets back under the
 line. Exact byte-duplicates are the cheap case: they collapse on a hash without
