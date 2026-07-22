@@ -139,6 +139,24 @@ def run_render(paths: OrgPaths) -> int:
                 continue
             basis = doc_state.authored_hash
 
+        # A mail-block reply's body quotes every predecessor, reading each
+        # predecessor's DocIR (_full_mail_body recurses up the thread). Defer
+        # the reply to pending when any predecessor is still unauthored (threads
+        # split across batches), so a partial thread stays browsable instead of
+        # crashing render on a missing DocIR.
+        if entry.render_params.get("send_minute") is not None:
+            pos = int(entry.render_params.get("thread_pos", 0))
+            if pos > 0:
+                from .eml import thread_members
+
+                thread = thread_members(entry, manifest)
+                if thread is not None and any(
+                    state.doc(pred.doc_id).authored_hash is None
+                    for pred in thread[:pos]
+                ):
+                    pending += 1
+                    continue
+
         target = paths.share_dir / entry.path
         if doc_state.rendered_from == basis and target.exists():
             skipped += 1

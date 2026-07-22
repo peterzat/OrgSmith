@@ -444,7 +444,10 @@ class _Planner:
             if cand > cur_date:
                 return cand, hrand.randint(day_lo, day_hi - 1)
             g += 1
-        return cur_date, min(cur_min + 1, day_hi - 1)
+        # Range-end wall: the date cannot advance, so keep the strictly-
+        # increasing invariant with a later minute (past business-hours end if
+        # need be), bounded to a valid minute-of-day (0..1439).
+        return cur_date, min(cur_min + 1, 1439)
 
     def _thread_author(self, eng: Engagement, when: date, pos: int) -> str:
         """A thread alternates its internal sender (senior, then junior) so it

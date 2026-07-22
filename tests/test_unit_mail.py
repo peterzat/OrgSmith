@@ -597,3 +597,41 @@ def test_dl01_skips_visibly_when_no_lists(capsys):
     assert run_validate(committed, only=["DL-01"]) == 0
     out = capsys.readouterr().out
     assert "SKIP DL-01" in out and "no distribution lists" in out
+
+
+# --- regression: partial-thread render (codereview BLOCK) ------------------
+
+
+def test_render_defers_reply_when_a_thread_predecessor_is_unauthored(tmp_path):
+    """A mail-block reply must not crash render when a thread predecessor is
+    unauthored (threads split across batches / a resumed session): the reply is
+    deferred to pending, keeping the org browsable. Without the deferral,
+    _full_mail_body recurses into the missing predecessor DocIR and render dies
+    with FileNotFoundError."""
+    from orgsmith.authoring.ingest import docir_path
+    from orgsmith.state import load_state, save_state
+
+    paths = _build_mail_org(tmp_path, eml=6, max_depth=5)
+    run_enrichment(paths)
+    run_authoring(paths)  # all authored; nothing rendered yet
+
+    by_eng = {}
+    for e in load_manifest(paths):
+        if e.genre == "engagement_email" and "thread_pos" in e.render_params:
+            by_eng.setdefault(e.engagement, []).append(e)
+    thread = next(v for v in by_eng.values() if len(v) >= 2)
+    thread.sort(key=lambda e: int(e.render_params["thread_pos"]))
+    opener = thread[0]
+
+    st = load_state(paths)
+    ds = st.doc(opener.doc_id)
+    ds.authored_hash = None
+    st.docs[opener.doc_id] = ds
+    save_state(paths, st)
+    docir_path(paths, opener.doc_id).unlink()  # its DocIR is gone
+
+    assert run_render(paths) == 0  # deferred, not crashed
+    for e in thread:
+        assert not (paths.share_dir / e.path).exists(), (
+            f"{e.path} rendered despite an unauthored thread opener"
+        )

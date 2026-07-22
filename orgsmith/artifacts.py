@@ -87,6 +87,12 @@ def load_manifest(paths: OrgPaths) -> list[ManifestEntry]:
             # Re-validate at every load so consumers that join entry.path to
             # the filesystem (render, validate) reject tampered manifests.
             problems = check_relpath(entry.path)
+            # A transmittal's attach_path is joined to share_dir by the render
+            # and validate sinks exactly as entry.path is, so it inherits the
+            # same containment guard here (SEC-1).
+            attach_path = entry.render_params.get("attach_path")
+            if attach_path is not None:
+                problems += check_relpath(str(attach_path))
             if problems:
                 raise SystemExit(f"manifest: unsafe path: {problems}")
             entries.append(entry)

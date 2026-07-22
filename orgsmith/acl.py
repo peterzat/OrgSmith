@@ -10,6 +10,8 @@ skip.
 
 from __future__ import annotations
 
+import re
+
 from .artifacts import (
     load_charter,
     load_engagements,
@@ -47,7 +49,10 @@ def derive_distribution_lists(charter, foundation) -> DistributionListsLedger:
     for dept in charter.headcount:  # charter order (first dept holds the CEO)
         members = [p.id for p in active if p.dept == dept]
         if members:
-            local = dept.lower().replace(" ", "-").replace("/", "-")
+            # Sanitize to the DistributionList.id charset (^dl:[a-z0-9.-]+$):
+            # collapse any run of out-of-charset chars (spaces, '&', '/', ...)
+            # to a single hyphen so a dept like "R&D" yields a valid id.
+            local = re.sub(r"[^a-z0-9.-]+", "-", dept.lower()).strip("-")
             candidates.append((f"{dept} Team", local, members))
     lists = [
         DistributionList(

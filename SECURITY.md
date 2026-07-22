@@ -1,82 +1,92 @@
 # Security
 
-## Security Review — 2026-07-21 (scope: M13 path containment and letterhead escaping)
+## Security Review — 2026-07-22 (scope: paths, M14 email realism surface)
 
-**Summary:** M13 closes the two notes carried open into this milestone. Both
-were non-exploitable in any current flow but held only by the good behavior of
-whoever wrote the input, at a data-versus-code boundary that exists on paper
-(orgs are publishable artifacts). Each is now fixed rather than accepted, in
-depth: at the schema, at the sink, and at the render context. No new BLOCK,
-WARN, or NOTE.
+**Summary:** Reviewed the eleven files that carry the M14 email work (thread
+mechanics, MIME transmittal attachments, distribution lists, quoted history).
+One WARN: the new `attach_path` render-param reaches a `share_dir` file read
+(and, in render, an embed into the output `.eml`) without the `check_relpath`
+containment that every other manifest path receives. It is a defense-in-depth
+gap at the same data-versus-code boundary the M13 review closed for
+`state.json`, not a live exploit in the honest pipeline.
 
-### Findings closed
+### Findings
 
-**[CLOSED] `state.json`-derived work-order names reached a file read outside
-`workorders_dir`** (was NOTE, 2026-07-17c, `orgsmith/airlock.py:79`). Neither
-`OrgState.outstanding` values nor `BatchRef.workorder` carried a pattern, so a
-tampered `state.json` (a value the module joins under `workorders_dir`, where
-pathlib discards the base for an absolute operand and `../` traverses out)
-survived validation as a free string and reached `outstanding_work_order` /
-`match_author_batch`. Closed with the same two-layer shape `DocIR.doc_id`
-received:
+**[WARN] `orgsmith/render/__init__.py:316` and `orgsmith/validate/rules.py:1096`
+— manifest `render_params["attach_path"]` joined to `share_dir` without path
+containment.**
 
-- Schema (commit 1adbb5a): both fields are now constrained to
-  `^[A-Za-z0-9_-]+\.json$` (`orgsmith/state.py`, `WorkOrderName`), which admits
-  every name the generator writes and rejects separators, `..`, absolute paths,
-  and control characters at load. No `orgsmith/state@1` bump; all eight
-  committed states load, validate, and round-trip byte-identically
-  (`tests/test_unit_paths.py`).
-- Sink (commit 1adbb5a): `naming.contained_join` guards the join, so a value
-  that reaches the sink anyway (validation bypassed, or a future pattern
-  relaxation) is refused rather than resolving outside `workorders_dir`.
-- Terminal (commit 1adbb5a): the state-derived path interpolations in
-  `airlock.py`'s messages now pass through `strip_control` or `repr`, so a
-  control character in a tampered name cannot rewrite terminal output. Proven by
-  a test driving an ESC-bearing name to a print site.
-
-Supporting hardening (commit 59a17c8): the three doc_id-to-filename sinks
-(`authoring/ingest.py`, `review/corpus.py`, `render/scan.py`) now share one
-guarded helper, `naming.doc_id_filename`, so the containment is uniform rather
-than present at the one sink that remembered to check.
-
-**[CLOSED] Charter-tainted letterhead reached a CSS and an HTML context under
-`autoescape=False`** (was the carried-forward M9 NOTE, `orgsmith/render/pdf.py`).
-The PDF template renders with `autoescape=False` because `body` is pre-built,
-already-escaped HTML, but `letterhead0` and `letterhead_rest` (the charter name
-and domain, tainted via `render/styles.py`) reached a CSS `content:` string and
-two HTML `div` contexts unescaped. Closed (commit 66b87b9) by escaping per
-context in Python before the template runs: `_css_string` for the `@top-left`
-content (backslash-escapes the string delimiter and hex-escapes control
-characters) and `html.escape` for the divs. Both are the identity on all eight
-committed charters (plain ASCII), so committed letterhead output is unchanged; a
-charter name carrying `"`, `<`, or `&` now renders a well-formed PDF showing the
-literal name (`tests/test_unit_paths.py`).
+- Attack vector: OrgSmith treats a generated org (including its `-metadata/`
+  ground truth) as a publishable artifact, so a distributed org's
+  `docplan/manifest.jsonl` is an input the recipient's `render` and `validate`
+  runs trust. Every other share join uses `entry.path`, which
+  `check_relpath` guards at load (`orgsmith/artifacts.py:89`, rejecting `..`
+  and absolute paths). The M14 transmittal path is the one exception: an `eml`
+  entry's `render_params["attach_path"]` is joined and read with no such
+  guard. A crafted or tampered manifest entry with
+  `"attach_path": "/home/victim/.ssh/id_rsa"` (or `"../../../../etc/passwd"`)
+  makes the render stage read that file and embed its bytes verbatim as a MIME
+  attachment in the rendered `.eml` (`orgsmith/render/__init__.py:316`
+  `attach_file = paths.share_dir / str(ap)`, `:324` `attach_file.read_bytes()`,
+  `:342-347` embed via `render_eml`). If the recipient republishes the
+  rendered corpus, that is an exfiltration primitive for any file the
+  generating user can read. `validate`'s EML-03 rule performs the same
+  unguarded read for a byte-compare (`orgsmith/validate/rules.py:1096`
+  `src = ctx.paths.share_dir / str(e.render_params["attach_path"])`, `:1102`
+  `src.read_bytes()`).
+- Evidence: `pathlib` join semantics confirmed — `share_dir / "/etc/passwd"`
+  resolves to `/etc/passwd`, and `share_dir / "../../../../etc/passwd"`
+  resolves out of the share; `check_relpath` rejects both but accepts the
+  honest relative path (`Engagements/<client>/<kickoff>.docx`). Committed
+  honest-flow values are all in-share relative paths, so the current fleet is
+  not affected; the gap is the missing guard, not a tainted fixture.
+- Not reachable from model output or the network. `render_params` is
+  planner-written, never model-authored (the model controls only DocIR, whose
+  `doc_id` is pattern-locked and whose blocks reach message bodies, not
+  headers or paths). This is strictly the tampered-publishable-artifact
+  boundary.
+- Severity note: rated one notch above the analogous M13 `state.json` NOTE
+  because the render sink embeds the traversal-read bytes into a distributable
+  file rather than consuming them internally. Downgrade to NOTE if parity with
+  the prior entry is preferred; the remediation is the same either way.
+- Remediation: run `check_relpath(str(ap))` on `attach_path` where the
+  manifest is loaded (`orgsmith/artifacts.py` `load_manifest`, beside the
+  existing `entry.path` check) so both the render and validate sinks inherit
+  the guard, or guard each join at the sink. Refuse absolute and `..`
+  components exactly as `entry.path` is refused.
 
 ### Reviewed surface and scope
 
-- **The airlock still cannot reach a model or the network.** M13 adds no
-  third-party import to `airlock.py`; it imports `naming` (stdlib-only) for the
-  join guard. Python still never calls a model, and no LLM grades an LLM in any
-  automated tier.
-- **The fix is a validator tightening on `orgsmith/state@1`, not a schema id
-  bump.** It is safe only because the pattern admits every committed value, which
-  the round-trip test enforces over all eight orgs.
-- **CI stays pure Python where it must.** The letterhead identity check is pure
-  Python (no renderer); the hostile-charter render test uses WeasyPrint, which is
-  present in CI (only LibreOffice is absent).
-- **`bin/test` is green on all tiers** (short, unit, org, flagship), keyless and
-  offline, with zero fixture movement (the byte pin holds).
+- **The airlock holds.** No file in scope calls a model or the network; Python
+  still never authors. M14's model-facing change is that reply *bodies* are
+  authored, while threading headers, To/Cc partition, signature blocks, and
+  quoted history are all render-derived from the ledgers (`render/eml.py`
+  `expected_headers` / `mail_signature` / `quote_history`), and ingest still
+  rejects an authored sigblock in `eml`. The single model-output-to-filesystem
+  path (`docir_path`) stays guarded by `naming.doc_id_filename`.
+- **`.eml` files are never transmitted.** They are synthetic corpus artifacts
+  written to disk, so CRLF in a header-bound value (`entry.title` to Subject,
+  a tampered `dl` to To) yields malformed file content, not a mail-delivery
+  injection. Considered and not filed as a finding: there is no MTA sink.
+- **Distribution lists are derived ground truth, not access enforcement.**
+  `derive_distribution_lists` and DL-01 recompute address/members/visibility
+  from charter plus roster; nothing in scope enforces access, so there is no
+  authz bypass surface here.
+- **No secrets, no real PII.** The in-scope files hardcode no credentials; the
+  synthetic names, emails, and domains are the product, not leaked PII.
+- **Dependency/supply-chain and infra dimensions** were out of scope for this
+  path-scoped run (no manifests or configs in the file list).
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-17c, scope paths, commit f538f0d): read `airlock.py` and
-its unit tier as a whole against the module's own invariants; 0 BLOCK / 0 WARN /
-1 NOTE (the state-path containment gap, closed above), and carried forward the
-M9 `render/pdf.py` letterhead NOTE (also closed above). The concurrency guard
-(`touch(exist_ok=False)`) and the `isascii() and isdigit()` serial gate were
-read as correct and are unchanged.*
+*Prior review (2026-07-21, scope M13 path containment and letterhead escaping,
+commit 66b87b9): closed both carried-open notes in depth. `state.json`-derived
+work-order names were contained at schema (`WorkOrderName` pattern), sink
+(`contained_join`), and terminal (`strip_control`); charter-tainted letterhead
+was context-escaped per-context before the `autoescape=False` PDF template
+(`_css_string`, `html.escape`). 0 BLOCK / 0 WARN / 0 NOTE.*
 
-<!-- SECURITY_META: {"date":"2026-07-21","commit":"66b87b9","scope":"m13-path-containment-and-letterhead","scanned_files":["orgsmith/state.py","orgsmith/airlock.py","orgsmith/naming.py","orgsmith/render/pdf.py","orgsmith/render/styles.py","orgsmith/review/corpus.py","orgsmith/render/scan.py","orgsmith/authoring/ingest.py"],"block":0,"warn":0,"note":0} -->
+<!-- SECURITY_META: {"date":"2026-07-22","commit":"92d8acb8dc32bb08e9d4a19ad8fcce5f16c0dc20","scope":"paths","scanned_files":["orgsmith/acl.py","orgsmith/artifacts.py","orgsmith/authoring/contexts.py","orgsmith/docplan/planner.py","orgsmith/docplan/registry.py","orgsmith/evals/emit.py","orgsmith/paths.py","orgsmith/render/__init__.py","orgsmith/render/eml.py","orgsmith/schemas.py","orgsmith/validate/rules.py"],"block":0,"warn":1,"note":0} -->
