@@ -683,10 +683,35 @@ def test_empty_dirs_render_and_recompute(tmp_path):
     for rel in dirs:
         target = p.share_dir / rel
         assert target.is_dir()
-        assert next(target.iterdir(), None) is None
+        # Empty but for the zero-byte git placeholder, without which the
+        # directory would not survive a clone of a committed org.
+        assert [q.name for q in target.iterdir()] == [".gitkeep"]
+        assert (target / ".gitkeep").read_bytes() == b""
         assert rel not in planned  # never shadows a real folder
     # NOISE-01 runs clean, and empty_dirs alone is not "missing noise"
     assert list(noise_01(Context.load(p))) == []
+
+
+def test_empty_dir_placeholder_is_sanctioned_only_where_planned(tmp_path):
+    """MAN-01 tolerates the placeholder in a planned junk directory and
+    nowhere else, so the exception cannot widen into a hole."""
+    from orgsmith.artifacts import load_charter
+    from orgsmith.render.noise import expected_empty_dirs
+    from orgsmith.validate.rules import man_01
+
+    p = _pure(tmp_path, empty_dirs=2)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    assert list(man_01(Context.load(p))) == []
+
+    dirs = expected_empty_dirs(load_charter(p), load_manifest(p))
+    stray = p.share_dir / "Firm" / ".gitkeep"
+    stray.parent.mkdir(parents=True, exist_ok=True)
+    stray.write_bytes(b"")
+    findings = [loc for _, loc in man_01(Context.load(p))]
+    assert "Firm/.gitkeep" in findings
+    assert f"{dirs[0]}/.gitkeep" not in findings
 
 
 def test_noise01_fires_on_missing_or_filled_empty_dir(tmp_path):
@@ -698,7 +723,9 @@ def test_noise01_fires_on_missing_or_filled_empty_dir(tmp_path):
     run_authoring(p)
     assert run_render(p) == 0
     dirs = expected_empty_dirs(load_charter(p), load_manifest(p))
-    (p.share_dir / dirs[0]).rmdir()
+    import shutil
+
+    shutil.rmtree(p.share_dir / dirs[0])
     (p.share_dir / dirs[1] / "stray.txt").write_text("junk")
     findings = [msg for msg, _ in noise_01(Context.load(p))]
     assert any("missing from the share" in m for m in findings)

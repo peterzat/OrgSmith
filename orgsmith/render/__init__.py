@@ -403,10 +403,12 @@ def run_render(paths: OrgPaths) -> int:
         rendered += 1
 
     # --- planned empty directories (M15): the render half of the twin ---
-    from .noise import expected_empty_dirs
+    from .noise import EMPTY_DIR_PLACEHOLDER, expected_empty_dirs
 
     for rel in expected_empty_dirs(charter, manifest):
-        (paths.share_dir / rel).mkdir(parents=True, exist_ok=True)
+        target = paths.share_dir / rel
+        target.mkdir(parents=True, exist_ok=True)
+        (target / EMPTY_DIR_PLACEHOLDER).write_bytes(b"")
 
     if pending == 0:
         state.mark_done("render", inputs_hash=finance_hash)

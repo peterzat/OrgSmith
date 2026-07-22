@@ -465,7 +465,7 @@ def noise_01(ctx: Context):
     with one agreed length, every member predates its final, and no two chain
     members (final included) are byte-identical, so a chain that hash dedupe
     could collapse is tamper evidence."""
-    from ..render.noise import expected_empty_dirs
+    from ..render.noise import EMPTY_DIR_PLACEHOLDER, expected_empty_dirs
 
     noise = ctx.charter.doc_culture.noise
     for rel in expected_empty_dirs(ctx.charter, ctx.manifest):
@@ -475,7 +475,13 @@ def noise_01(ctx: Context):
                 f"planned empty directory {rel!r} is missing from the share",
                 rel,
             )
-        elif next(target.iterdir(), None) is not None:
+            continue
+        # The git placeholder is transport, not content (render.noise); any
+        # other entry means something real landed in a junk directory.
+        contents = [
+            p for p in target.iterdir() if p.name != EMPTY_DIR_PLACEHOLDER
+        ]
+        if contents:
             yield (
                 f"planned empty directory {rel!r} is not empty",
                 rel,
@@ -760,6 +766,15 @@ def man_01(ctx: Context):
     extras = _SHARE_EXTRAS | (
         {"PERMISSIONS.md"} if ctx.acl is not None else set()
     )
+    # One git placeholder per directory the charter's own empty_dirs knob
+    # planned, and nowhere else: the allowance is recomputed from the twin,
+    # so a .gitkeep anywhere the recipe did not plan stays unmanifested.
+    from ..render.noise import EMPTY_DIR_PLACEHOLDER, expected_empty_dirs
+
+    extras |= {
+        f"{rel}/{EMPTY_DIR_PLACEHOLDER}"
+        for rel in expected_empty_dirs(ctx.charter, ctx.manifest)
+    }
     for extra in sorted(on_disk - planned - extras):
         yield ("file in share but not in manifest", extra)
     for missing in sorted(planned - on_disk):

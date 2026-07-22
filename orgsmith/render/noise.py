@@ -21,6 +21,15 @@ _EMPTY_DIR_NAMES = (
     "scratch",
 )
 
+# Git cannot represent an empty directory, so a committed org would lose the
+# junk directories on the first clone and NOISE-01 would then report them
+# missing on the very fixture that planted them. Each planned empty directory
+# therefore carries one zero-byte placeholder: transport, not content. It is
+# the only file the emptiness check and MAN-01 tolerate there, and both derive
+# the allowance from expected_empty_dirs, so the exception cannot widen to a
+# directory the charter never planned.
+EMPTY_DIR_PLACEHOLDER = ".gitkeep"
+
 
 def expected_empty_dirs(charter, manifest) -> list[str]:
     """M15: the empty directories the charter plans, recomputed. The single
