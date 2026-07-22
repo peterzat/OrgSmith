@@ -661,3 +661,50 @@ def test_variety_re_derives_byte_identically(tmp_path):
     for stage in (run_charter, run_scaffold, run_fabric, run_docplan):
         assert stage(q) == 0
     assert a.manifest_jsonl.read_bytes() == q.manifest_jsonl.read_bytes()
+
+
+# --- M15 noise v2: empty directories --------------------------------------
+
+
+def test_empty_dirs_render_and_recompute(tmp_path):
+    from orgsmith.artifacts import load_charter
+    from orgsmith.render.noise import expected_empty_dirs
+
+    p = _pure(tmp_path, empty_dirs=3)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    charter = load_charter(p)
+    manifest = load_manifest(p)
+    dirs = expected_empty_dirs(charter, manifest)
+    assert len(dirs) == 3
+    assert dirs == expected_empty_dirs(charter, manifest)  # deterministic
+    planned = {e.path.rsplit("/", 1)[0] for e in manifest if "/" in e.path}
+    for rel in dirs:
+        target = p.share_dir / rel
+        assert target.is_dir()
+        assert next(target.iterdir(), None) is None
+        assert rel not in planned  # never shadows a real folder
+    # NOISE-01 runs clean, and empty_dirs alone is not "missing noise"
+    assert list(noise_01(Context.load(p))) == []
+
+
+def test_noise01_fires_on_missing_or_filled_empty_dir(tmp_path):
+    from orgsmith.artifacts import load_charter
+    from orgsmith.render.noise import expected_empty_dirs
+
+    p = _pure(tmp_path, empty_dirs=2)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    dirs = expected_empty_dirs(load_charter(p), load_manifest(p))
+    (p.share_dir / dirs[0]).rmdir()
+    (p.share_dir / dirs[1] / "stray.txt").write_text("junk")
+    findings = [msg for msg, _ in noise_01(Context.load(p))]
+    assert any("missing from the share" in m for m in findings)
+    assert any("is not empty" in m for m in findings)
+
+
+def test_empty_dirs_over_demand_fails_at_plan_time(tmp_path):
+    with pytest.raises(SystemExit, match="junk-name slots"):
+        _pure(tmp_path, empty_dirs=500)

@@ -402,6 +402,12 @@ def run_render(paths: OrgPaths) -> int:
         state.docs[entry.doc_id] = doc_state
         rendered += 1
 
+    # --- planned empty directories (M15): the render half of the twin ---
+    from .noise import expected_empty_dirs
+
+    for rel in expected_empty_dirs(charter, manifest):
+        (paths.share_dir / rel).mkdir(parents=True, exist_ok=True)
+
     if pending == 0:
         state.mark_done("render", inputs_hash=finance_hash)
     save_state(paths, state)

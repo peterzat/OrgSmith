@@ -1010,6 +1010,11 @@ class _Planner:
             entries, eligible, seen, derived, next_id, nrng
         )
         next_id = self._plan_stale_templates(seen, derived, next_id, nrng, entries)
+        # Empty dirs plan no manifest entries; recompute here so an
+        # infeasible count fails at plan time, actionably, not at render.
+        from ..render.noise import expected_empty_dirs
+
+        expected_empty_dirs(self.charter, entries + derived)
         return entries + derived
 
     _TEMPLATE_GENRES = (

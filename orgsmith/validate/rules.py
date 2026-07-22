@@ -435,14 +435,39 @@ def noise_01(ctx: Context):
     with one agreed length, every member predates its final, and no two chain
     members (final included) are byte-identical, so a chain that hash dedupe
     could collapse is tamper evidence."""
+    from ..render.noise import expected_empty_dirs
+
+    noise = ctx.charter.doc_culture.noise
+    for rel in expected_empty_dirs(ctx.charter, ctx.manifest):
+        target = ctx.paths.share_dir / rel
+        if not target.is_dir():
+            yield (
+                f"planned empty directory {rel!r} is missing from the share",
+                rel,
+            )
+        elif next(target.iterdir(), None) is not None:
+            yield (
+                f"planned empty directory {rel!r} is not empty",
+                rel,
+            )
     by_id = {e.doc_id: e for e in ctx.manifest}
     derived = [e for e in ctx.manifest if e.authoring == "derived"]
-    if not derived:
-        yield (
-            "noise model is declared but no derived documents were planted; "
-            "the noise ground truth is missing",
-            "docplan/manifest.jsonl",
+    plans_files = any(
+        (
+            noise.duplicates,
+            noise.drafts,
+            noise.version_chains,
+            noise.misfiled,
+            noise.stale_templates,
         )
+    )
+    if not derived:
+        if plans_files:
+            yield (
+                "noise model is declared but no derived documents were "
+                "planted; the noise ground truth is missing",
+                "docplan/manifest.jsonl",
+            )
         return
     for e in derived:
         if e.noise_kind == "stale_template":

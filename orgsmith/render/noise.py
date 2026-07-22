@@ -10,6 +10,51 @@ every placeholder it carries was already the source's, owned by the answer key.
 from __future__ import annotations
 
 from ..schemas import Block, DocIR
+from ..seeds import rng
+
+_EMPTY_DIR_NAMES = (
+    "Old",
+    "Archive",
+    "New folder",
+    "Old Versions",
+    "Backup",
+    "scratch",
+)
+
+
+def expected_empty_dirs(charter, manifest) -> list[str]:
+    """M15: the empty directories the charter plans, recomputed. The single
+    twin shared by render (which creates them) and NOISE-01 (which checks
+    them), so the two cannot drift. Candidates are junk names under the
+    share root or any planned folder, excluding anything that would collide
+    with a manifest path or folder; draws come only from the NEW
+    docplan.noise.dirs stream, so a knob-off charter draws zero values.
+    Fails actionably when the tree cannot host the asked count (docplan
+    calls this at plan time)."""
+    noise = charter.doc_culture.noise
+    n = noise.empty_dirs if noise is not None else 0
+    if n == 0:
+        return []
+    folders = sorted(
+        {e.path.rsplit("/", 1)[0] for e in manifest if "/" in e.path}
+    )
+    taken = {e.path.lower() for e in manifest} | {f.lower() for f in folders}
+    combos = []
+    for parent in ["", *folders]:
+        for name in _EMPTY_DIR_NAMES:
+            path = f"{parent}/{name}" if parent else name
+            if path.lower() not in taken:
+                combos.append(path)
+    if n > len(combos):
+        raise SystemExit(
+            f"docplan: noise wants {n} empty director(ies) but only "
+            f"{len(combos)} junk-name slots exist under the planned tree; "
+            f"lower empty_dirs"
+        )
+    picks = rng(charter.seed, "docplan.noise.dirs").sample(
+        range(len(combos)), n
+    )
+    return sorted(combos[i] for i in picks)
 
 _DRAFT_BANNER = (
     "DRAFT -- superseded by the final version; not for distribution"
