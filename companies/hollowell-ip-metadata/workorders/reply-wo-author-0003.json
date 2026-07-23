@@ -1,7 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0003",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -10,11 +13,139 @@
         {
           "kind": "heading",
           "level": 1,
-          "text": "Meeting Minutes: Patent Portfolio Review for Odonnell Inc"
+          "text": "Patent Portfolio Review: Interim Status Report"
         },
         {
           "kind": "paragraph",
-          "text": "Privileged and confidential. Attorney work product. These minutes are an internal working record of the portfolio review conducted for {{fact:f:E-2019-001.client}}. They are not an opinion and should not be read as one."
+          "text": "Prepared for {{fact:f:E-2019-001.client}}.\nMatter: Patent Portfolio Review.\nReport date: August 27, 2019.\nPrepared by Kelly Snyder, Patent Agent, Prosecution."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Where the review stands"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The portfolio review is roughly halfway through its planned course. The docket is current, every active matter is staffed, and no deadline is unaccounted for. This report covers what we have completed since the last update, what is now underway, and three items that will need a decision from the client."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The purpose of the review is unchanged. We confirm that every active matter is correctly docketed, that the claims still match the client's commercial interest, and that nothing lapses for lack of a docketed deadline. We organize the work by family and by date, and the docket sets the order. When a filing preference and a deadline conflict, we follow the deadline."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Completed since the last report"
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Portfolio inventory. We reconciled the docket against the client's own records and confirmed the count of active families, pending applications, and issued patents under maintenance. Each item now carries a docket entry, a responsible attorney, and its next action date."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Office-action responses. Amanda Schwartz drafted the responses to the office actions that came due in this period. Each was reviewed before filing and filed within its statutory window. Two responses narrowed claims the examiner had rejected over prior art, and none required a request for continued examination."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Family review. Heather Munoz completed a claim-by-claim read of the first group of families. Her notes identify two families whose independent claims may reach beyond what the specification supports. One further family would benefit from a continuation to preserve subject matter the issued claims leave uncovered."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. Title and formalities. We audited the chain of title on every active matter and recorded two assignments that had been executed but never filed. Information disclosure statements are current for all pending applications, and we cleared a small backlog of references that had come in through related prosecution but had not yet been submitted."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. Docket audit. We ran a full audit of the docket against the client's calendar and our own. No deadline appears on one calendar and not the other. Where the two disagreed on a date, we resolved to the earlier one and confirmed it against the official record."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Underway and next on the docket"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The remaining families are queued for the same claim-by-claim read, in the order their next deadlines fall rather than by file number. We expect to finish that read in the back half of the engagement and to report on each family as it is completed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Complete the review of the remaining families and deliver written notes on each."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Prepare the maintenance-fee schedule for the coming year and confirm every window with the client before any fee is paid or allowed to lapse."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Draft the responses to the office actions already on the near-term docket, and calendar the two that permit no extension of time."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. Review the foreign counterparts and flag any national-phase entry or annuity deadline that falls in the coming year."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. Assemble a one-page summary of the portfolio for the client's board, organized by family and current status."
+        },
+        {
+          "kind": "paragraph",
+          "text": "6. Prepare the recommendations on the two broad families so the client can decide with the whole picture in front of it."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Items for the client's attention"
+        },
+        {
+          "kind": "paragraph",
+          "text": "None of the following is urgent as of this report. Each is docketed and staffed. We raise them now because each will need a decision before the review closes."
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Claim scope. Two families carry independent claims that may exceed their support. Heather Munoz will recommend, family by family, whether to narrow by amendment or to hold the claims as filed and defend them if the examiner objects."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. A deadline without margin. One pending application faces a response deadline that allows no extension of time. It is docketed, and Amanda Schwartz is assigned to the response. We flag it only because it has no cushion."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Open confirmations. The client owes us signed confirmation on two inventor assignments. We cannot certify the chain of title, or close those files, until the executed paperwork is on record."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each of these can wait for the board's schedule, provided the decision reaches us before we close the file. We will send a one-line reminder against the docket as each date approaches."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Scope and fees"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review remains within the agreed scope and budget. If any item above grows into work beyond the engagement, we will describe it and price it before starting the work."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next report will follow at the usual interval. Questions on any matter can come to me against its docket number. I will route anything that calls for a partner's judgment to Heather Munoz, and Amanda Schwartz can answer on the status of individual responses."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly Snyder\nPatent Agent, Prosecution"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0013",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Patent Portfolio Review: Meeting Minutes"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Matter: Patent Portfolio Review for {{fact:f:E-2019-001.client}}.\nMeeting date: November 4, 2019.\nLocation: Hollowell Patent Group, by conference call.\nMinutes prepared by Heather Munoz, Partner, Prosecution."
         },
         {
           "kind": "heading",
@@ -27,7 +158,7 @@
             "Heather Munoz, Partner, Prosecution (chair)",
             "Kelly Snyder, Patent Agent, Prosecution",
             "Amanda Schwartz, Associate, Prosecution",
-            "Gary Smith, General Manager, Odonnell Inc"
+            "Gary Smith, General Manager, {{fact:f:E-2019-001.client}}"
           ]
         },
         {
@@ -37,48 +168,99 @@
         },
         {
           "kind": "paragraph",
-          "text": "Heather Munoz opened by setting the scope of the session. The family-level analysis is substantially complete and was not reopened. What remains is the written summary, the recommendations that follow from it, and a short list of files where the record does not yet support a conclusion we are willing to put in writing. The purpose today was to fix the shape of that summary, not to re-argue the claims."
+          "text": "The review is nearly complete. We walked Gary Smith through the findings on the remaining families and set the agenda for close-out. Two decisions stay open, and both are the client's to make."
         },
         {
           "kind": "paragraph",
-          "text": "Kelly Snyder reported on the two families she carries. She asked for the docketed response dates before summarizing, and confirmed each against the file. Her position is that the earlier family reads cleanly on the current product line and that the continuation is the one worth the money, because it is where the claim scope can still move. She noted one prior art reference in the file history that was cited but never distinguished on the record, and recommended that it be addressed in the next response rather than left for an examiner to find twice."
+          "text": "Kelly Snyder summarized the docket. Every active matter is current, and the maintenance-fee schedule for the coming year is drafted with a confirmation date against each window. She also reported on the foreign counterparts. Two national-phase deadlines fall in the coming year, and both are calendared with a reminder set well ahead of the bar date."
         },
         {
           "kind": "paragraph",
-          "text": "Amanda Schwartz walked through the remaining files. She flagged that her reading of the independent claim in the third family depends on a construction of one term that the specification supports but does not define, and said plainly that she is not confident in it. Heather Munoz asked what the claim would have to say for the answer to change. Amanda Schwartz undertook to write that out and circulate it internally before anything reaches the summary."
+          "text": "Amanda Schwartz reported on the office-action responses filed since the last meeting. Two responses narrowed claims over prior art, and one included an examiner interview that cleared a restriction requirement. One application still sits under a response deadline that permits no extension. That response is drafted, docketed on two calendars, and will file ahead of the bar date."
         },
         {
           "kind": "paragraph",
-          "text": "Gary Smith described what the board needs. He asked for the portfolio on one page, with the families grouped by product rather than by filing order, and a plain statement of which filings are carrying weight and which are not. He was clear that he does not want the reasoning in the deck; he wants to be able to point at it if asked. Heather Munoz agreed to that structure, on the condition that the one-page view travel with the memorandum and not on its own, and that the deck carry the same privilege marking as the underlying work."
+          "text": "Heather Munoz presented the family review. Most families are clean. Two carry independent claims that reach beyond the specification, and one would benefit from a continuation to capture subject matter the issued claims leave uncovered. The continuation, if the client wants it, must be filed while a parent application is still pending."
         },
         {
           "kind": "paragraph",
-          "text": "Heather Munoz closed on the limits of the review. The searching done here was directed at the portfolio as filed and prosecuted. It was not a freedom-to-operate exercise, no clearance search was run, and the summary will say so in terms that cannot be misread. Nothing in the deliverable will state that a product does not infringe. Gary Smith acknowledged the distinction and confirmed that no clearance opinion has been requested."
+          "text": "Gary Smith asked whether the two broad families should be narrowed now or defended as filed. I recommended narrowing one family by amendment and holding the other as filed, and I explained the risk on each. Gary Smith agreed to confirm both after the board reviews the one-page summary. We will not act on either family until that confirmation is on record."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Gary Smith asked that the board summary stay to a single page and lead with the portfolio's commercial coverage. Kelly Snyder will prepare it in that form, organized by family, with the open decisions marked."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two items remain open for the client. The first is the narrow-or-hold decision on the two broad families. The second is whether to file the continuation. Both wait on the board's read of the summary."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The remaining work is the close-out package. It comprises written notes on every family, the confirmed maintenance-fee schedule, the foreign-counterpart calendar, and the board summary. We expect to deliver it in the final stretch of the engagement. No next meeting was set; we will schedule a final call once Gary Smith has the board's direction."
         },
         {
           "kind": "heading",
           "level": 2,
-          "text": "Action Items"
+          "text": "Action items"
         },
         {
           "kind": "table",
-          "header": ["Item", "Owner", "Status"],
+          "header": [
+            "No.",
+            "Action",
+            "Owner",
+            "Target"
+          ],
           "rows": [
-            ["Draft the portfolio summary memorandum, organized by family, with the scope limitation stated at the front", "Heather Munoz", "In progress"],
-            ["Confirm docketed response dates for both prosecution families against the file and report any discrepancy same day", "Kelly Snyder", "Open"],
-            ["Draft the response section distinguishing the uncited reference in the file history", "Kelly Snyder", "Open"],
-            ["Circulate the claim construction question internally, with the conditions under which the reading fails", "Amanda Schwartz", "Open"],
-            ["Prepare the one-page board view, grouped by product, to travel with the memorandum", "Amanda Schwartz", "Not started"],
-            ["Confirm board meeting timing and the date by which the deck must be in hand", "Gary Smith", "Open"]
+            [
+              "1",
+              "Deliver written review notes on each remaining family",
+              "Kelly Snyder",
+              "By close-out"
+            ],
+            [
+              "2",
+              "File the response on the no-extension application",
+              "Amanda Schwartz",
+              "Before its deadline"
+            ],
+            [
+              "3",
+              "Prepare the narrow-or-hold recommendation on the two broad families",
+              "Heather Munoz",
+              "This week"
+            ],
+            [
+              "4",
+              "Confirm the narrow-or-hold decision after board review",
+              "Gary Smith",
+              "After board meeting"
+            ],
+            [
+              "5",
+              "Send the one-page portfolio summary to the client's board",
+              "Kelly Snyder",
+              "Next week"
+            ],
+            [
+              "6",
+              "Circulate the confirmed maintenance-fee schedule",
+              "Amanda Schwartz",
+              "With close-out package"
+            ],
+            [
+              "7",
+              "Calendar and confirm the two foreign national-phase deadlines",
+              "Kelly Snyder",
+              "In the coming year"
+            ],
+            [
+              "8",
+              "Advise the client on filing the continuation before the parent issues",
+              "Heather Munoz",
+              "Before close-out"
+            ]
           ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next working session will be docketed once Gary Smith confirms the board timing. Draft circulation to the client will follow internal review and not precede it."
-        },
-        {
-          "kind": "sigblock",
-          "signers": ["p:heather.munoz"]
         }
       ]
     }

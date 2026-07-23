@@ -25,7 +25,7 @@
     ]
   },
   "doc_culture": {
-    "target_docs": 45,
+    "target_docs": 56,
     "date_range": [
       "2018-01-01",
       "2025-12-31"
@@ -35,16 +35,37 @@
       "pdf": 10,
       "xlsx": 7,
       "pptx": 1,
-      "eml": 3
+      "eml": 18
     },
     "scanned_ratio": 0.0,
     "legacy_ratio": 0.0,
     "ocr_layer_rate": 0.0,
-    "business_calendar": null,
+    "business_calendar": {
+      "holidays": [
+        "2018-05-28",
+        "2019-07-04",
+        "2020-09-07",
+        "2021-11-25",
+        "2022-12-26",
+        "2023-05-29",
+        "2024-07-04",
+        "2025-09-01"
+      ]
+    },
     "noise": null,
-    "voice_diversify": false,
-    "mail": null,
-    "style_specs": false
+    "voice_diversify": true,
+    "mail": {
+      "business_hours": [
+        8,
+        18
+      ],
+      "max_thread_depth": 5,
+      "mundane_emails": 4,
+      "attachments": 0,
+      "distribution_lists": 1,
+      "exempt_author_mentions": true
+    },
+    "style_specs": true
   },
   "finance": {
     "base_revenue": 1320000,
@@ -60,7 +81,7 @@
       "Trademark Clearance",
       "Licensing Diligence"
     ],
-    "book_is_sample": false
+    "book_is_sample": true
   },
   "graph_targets": {
     "external_orgs": 5,

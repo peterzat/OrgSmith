@@ -20,9 +20,26 @@ titles:
 
 doc_culture:
   # Recorded from a docplan run: 5 engagements, 8 fiscal years, 4 hires.
-  target_docs: 45
+  # M16 raises eml above the engagement count so client updates run as real
+  # threads against a docket number, not single messages.
+  target_docs: 56
   date_range: [2018-01-01, 2025-12-31]
-  format_mix: {docx: 23, pdf: 10, xlsx: 7, pptx: 1, eml: 3}
+  format_mix: {docx: 23, pdf: 10, xlsx: 7, pptx: 1, eml: 18}
+  # M16: client updates and any minuted call land on business days.
+  business_calendar:
+    holidays: [2018-05-28, 2019-07-04, 2020-09-07, 2021-11-25, 2022-12-26, 2023-05-29, 2024-07-04, 2025-09-01]
+  # M16: a mail demonstrator for the fleet. Short client updates against a
+  # docket number run as threads; a little mundane internal traffic fills the
+  # mailbox, and its authors are exempt from naming themselves in the body.
+  mail:
+    business_hours: [8, 18]
+    max_thread_depth: 5
+    mundane_emails: 4
+    distribution_lists: 1
+    exempt_author_mentions: true
+  # M16: the voice layer, fleet-wide.
+  style_specs: true
+  voice_diversify: true
 
 finance:
   # 8% growth against four net new seats. Measured: 24.8% -> 24.8% net
@@ -33,6 +50,8 @@ finance:
 
 engagements:
   count: 5
+  # M16: the engagement ledger is a representative sample, not the whole book.
+  book_is_sample: true
   services: [Patent Portfolio Review, Freedom-to-Operate Analysis, Prosecution Support, Trademark Clearance, Licensing Diligence]
 
 graph_targets:

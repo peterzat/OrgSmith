@@ -6,371 +6,210 @@
   "org_name": "Hollowell Patent Group PLLC",
   "org_type": "intellectual property law",
   "narrative": "Hollowell Patent Group is a patent boutique founded in 2016 by a partner\nwho left a general-practice firm and took two clients with her. It\nprosecutes and defends portfolios for a medical device manufacturer, a\nuniversity licensing office, and a pair of venture-backed hardware\nstartups. Docketing is the firm's religion: a missed date is the only\nmistake it cannot absorb.\n\nThe share reads like a practice that bills by the matter. Engagement\nletters are explicit about scope, conflicts, and what happens if a client\ndoes not pay. Portfolio reviews are long, structured, and organized by\nfamily. Freedom-to-operate memoranda are hedged with care and marked as\nprivileged. Client updates go out as short emails against a docket\nnumber, and the occasional deck is for a board that wants the portfolio\non one page.\n\nTone is precise, formal, and allergic to overstatement: counsel who\nwrites \"this does not infringe\" without qualification is writing a\nliability. Attorneys use full names and titles in anything a client\nreads. One partner goes by a shortened first name in internal minutes and\nher full legal name on every letter and signature block, which is exactly\nhow a real firm's documents behave and exactly what makes resolving her a\nproblem worth testing.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0040",
-      "title": "Engagement Letter: Licensing Diligence for Price-Henson",
-      "genre": "engagement_letter",
-      "date": "2025-03-04",
+      "doc_id": "d:0049",
+      "title": "Trademark Clearance for Jackson Inc",
+      "genre": "engagement_email",
+      "date": "2024-05-10",
       "authors": [
         {
-          "id": "p:mary.bradley",
-          "name": "Mary Bradley",
-          "title": "Managing Partner",
-          "dept": "Leadership",
-          "persona": "Built the firm around a simple conviction: a boutique survives on the dates it never misses, and everything else is negotiable. Writes in the register of someone who expects her letters to be read back to her under oath, so scope, conflicts, and fee terms are stated plainly and early rather than softened. Runs internal discussion loosely and correspondence tightly, and the gap between how colleagues address her in a conference room and how she signs an engagement letter is deliberate, not casual. Her characteristic edit is to strike an adjective and add a condition."
+          "id": "p:ashley.williams",
+          "name": "Ashley Williams",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
         }
       ],
       "participants": [
         {
-          "id": "p:david.chang",
-          "name": "David Chang",
+          "id": "p:ashley.williams",
+          "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
+          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
         },
         {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
+          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
         },
         {
-          "id": "xp:tiffany.munoz",
-          "name": "Tiffany Munoz",
-          "title": "Chief Financial Officer",
-          "dept": "Price-Henson",
+          "id": "xp:cynthia.hunter",
+          "name": "Cynthia Hunter",
+          "title": "Chief Operating Officer",
+          "dept": "Jackson Inc",
           "persona": ""
         }
       ],
-      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Trademark Clearance for Jackson Inc, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
-          "id": "f:E-2025-001.fee",
-          "hint": "amount of money; place where the figure belongs"
-        },
-        {
-          "id": "f:E-2025-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2025-001.client",
+          "id": "f:E-2024-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:mary.bradley",
-          "surface": "Mary Bradley",
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
           "kind": "person"
         },
         {
-          "entity": "p:david.chang",
-          "surface": "David Chang",
+          "entity": "xp:cynthia.hunter",
+          "surface": "Cynthia Hunter",
           "kind": "person"
         },
         {
-          "entity": "p:richard.henderson",
-          "surface": "Richard Henderson",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:tiffany.munoz",
-          "surface": "Tiffany Munoz",
-          "kind": "person"
-        },
-        {
-          "entity": "x:price-henson",
-          "surface": "Price-Henson",
+          "entity": "x:jackson-inc",
+          "surface": "Jackson Inc",
           "kind": "org"
         }
       ],
-      "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
-      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Cynthia Hunter at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; 'Let me be direct:' and similar throat-clearing. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 27% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0041",
-      "title": "Kickoff Memo: Licensing Diligence for Price-Henson",
-      "genre": "kickoff_memo",
-      "date": "2025-03-17",
-      "authors": [
-        {
-          "id": "p:david.chang",
-          "name": "David Chang",
-          "title": "Patent Agent",
-          "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:david.chang",
-          "name": "David Chang",
-          "title": "Patent Agent",
-          "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
-        },
-        {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
-          "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
-        },
-        {
-          "id": "xp:tiffany.munoz",
-          "name": "Tiffany Munoz",
-          "title": "Chief Financial Officer",
-          "dept": "Price-Henson",
-          "persona": ""
-        }
-      ],
-      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2025-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2025-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:david.chang",
-          "surface": "David Chang",
-          "kind": "person"
-        },
-        {
-          "entity": "p:richard.henderson",
-          "surface": "Richard Henderson",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:tiffany.munoz",
-          "surface": "Tiffany Munoz",
-          "kind": "person"
-        },
-        {
-          "entity": "x:price-henson",
-          "surface": "Price-Henson",
-          "kind": "org"
-        }
-      ],
-      "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
-      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
-    },
-    {
-      "doc_id": "d:0042",
-      "title": "Meeting Minutes: Licensing Diligence for Price-Henson",
+      "doc_id": "d:0050",
+      "title": "Meeting Minutes: Trademark Clearance for Jackson Inc",
       "genre": "meeting_minutes",
-      "date": "2025-05-21",
+      "date": "2024-05-24",
       "authors": [
         {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
+          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
         }
       ],
       "participants": [
         {
-          "id": "p:david.chang",
-          "name": "David Chang",
+          "id": "p:ashley.williams",
+          "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
+          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
         },
         {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
+          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
         },
         {
-          "id": "xp:tiffany.munoz",
-          "name": "Tiffany Munoz",
-          "title": "Chief Financial Officer",
-          "dept": "Price-Henson",
+          "id": "xp:cynthia.hunter",
+          "name": "Cynthia Hunter",
+          "title": "Chief Operating Officer",
+          "dept": "Jackson Inc",
           "persona": ""
         }
       ],
-      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Trademark Clearance for Jackson Inc, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
-          "id": "f:E-2025-001.client",
+          "id": "f:E-2024-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:richard.henderson",
-          "surface": "Richard Henderson",
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
           "kind": "person"
         },
         {
-          "entity": "p:david.chang",
-          "surface": "David Chang",
+          "entity": "p:ashley.williams",
+          "surface": "Ashley Williams",
           "kind": "person"
         },
         {
-          "entity": "xp:tiffany.munoz",
-          "surface": "Tiffany Munoz",
+          "entity": "xp:cynthia.hunter",
+          "surface": "Cynthia Hunter",
           "kind": "person"
         },
         {
-          "entity": "x:price-henson",
-          "surface": "Price-Henson",
+          "entity": "x:jackson-inc",
+          "surface": "Jackson Inc",
           "kind": "org"
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'Let me be direct:' and similar throat-clearing; 'Two asks. First... Second...' as an opener.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0043",
-      "title": "Status Report: Licensing Diligence for Price-Henson",
+      "doc_id": "d:0051",
+      "title": "Status Report: Trademark Clearance for Jackson Inc",
       "genre": "status_report",
-      "date": "2025-06-08",
+      "date": "2024-06-06",
       "authors": [
         {
-          "id": "p:david.chang",
-          "name": "David Chang",
+          "id": "p:ashley.williams",
+          "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
+          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
         }
       ],
       "participants": [
         {
-          "id": "p:david.chang",
-          "name": "David Chang",
+          "id": "p:ashley.williams",
+          "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
+          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
         },
         {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
+          "id": "p:kelly.snyder",
+          "name": "Kelly Snyder",
+          "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
+          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
         }
       ],
-      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "Trademark Clearance for Jackson Inc, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
-          "id": "f:E-2025-001.fee",
+          "id": "f:E-2024-001.fee",
           "hint": "amount of money; place where the figure belongs"
         },
         {
-          "id": "f:E-2025-001.client",
+          "id": "f:E-2024-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:david.chang",
-          "surface": "David Chang",
+          "entity": "p:ashley.williams",
+          "surface": "Ashley Williams",
           "kind": "person"
         },
         {
-          "entity": "p:richard.henderson",
-          "surface": "Richard Henderson",
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
           "kind": "person"
         },
         {
-          "entity": "x:price-henson",
-          "surface": "Price-Henson",
+          "entity": "x:jackson-inc",
+          "surface": "Jackson Inc",
           "kind": "org"
         }
       ],
       "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
-      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
-    },
-    {
-      "doc_id": "d:0045",
-      "title": "Meeting Minutes: Licensing Diligence for Price-Henson",
-      "genre": "meeting_minutes",
-      "date": "2025-08-19",
-      "authors": [
-        {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
-          "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:david.chang",
-          "name": "David Chang",
-          "title": "Patent Agent",
-          "dept": "Prosecution",
-          "persona": "Works the hardware files and has a practical instinct for what a client can actually build around, which makes his portfolio review contributions more strategic than his title suggests. Writes cleanly and a little conversationally in internal minutes, then formally and without a trace of it in anything a client sees. Pushes back on inventors gently and persistently until the disclosure is complete, treating the interview as the real work. Keeps his own parallel notes on every family and refers to them constantly."
-        },
-        {
-          "id": "p:richard.henderson",
-          "name": "Richard Henderson",
-          "title": "Patent Agent",
-          "dept": "Prosecution",
-          "persona": "A technical reader first, an advocate second, and comfortable saying a specification does not support the claim someone wants. Prose is methodical to the point of being agricultural, working element by element, which makes his responses easy to check and hard to skim. Has no interest in the rhetorical parts of the practice and hands anything resembling client persuasion up the chain. Marks every conclusion with what he assumed to reach it."
-        },
-        {
-          "id": "xp:tiffany.munoz",
-          "name": "Tiffany Munoz",
-          "title": "Chief Financial Officer",
-          "dept": "Price-Henson",
-          "persona": ""
-        }
-      ],
-      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2025-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:richard.henderson",
-          "surface": "Richard Henderson",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.chang",
-          "surface": "David Chang",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:tiffany.munoz",
-          "surface": "Tiffany Munoz",
-          "kind": "person"
-        },
-        {
-          "entity": "x:price-henson",
-          "surface": "Price-Henson",
-          "kind": "org"
-        }
-      ],
-      "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 92% of the way through the engagement (in the later phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; 'Let me be direct:' and similar throat-clearing.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

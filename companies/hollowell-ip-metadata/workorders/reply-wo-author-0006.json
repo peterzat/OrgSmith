@@ -1,157 +1,501 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0006",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0023",
+      "doc_id": "d:0030",
       "blocks": [
-        {"kind": "paragraph", "text": "Joseph Palmer\nGeneral Manager\n{{fact:f:E-2021-001.client}}"},
-        {"kind": "paragraph", "text": "Dear Mr. Palmer:"},
-        {"kind": "paragraph", "text": "This letter sets out the terms on which we will represent {{fact:f:E-2021-001.client}} in patent prosecution support for the Keith-Duarte portfolio. Please read it in full before you sign it. If a term here does not match your understanding of what we discussed, mark it and send it back marked. I would rather revise a letter than argue about one."},
-        {"kind": "heading", "text": "Scope of the Engagement", "level": 2},
-        {"kind": "paragraph", "text": "We will act as counsel of record for the applications in the families you identify to us in writing, and for the prosecution work those families generate before the United States Patent and Trademark Office. The work includes intake and review of the transferred files, docketing of every date those files carry, preparation and filing of responses to office actions and to restriction and election requirements, information disclosure statements and the related formalities, and counsel on continuation, divisional, and abandonment decisions as they arise."},
-        {"kind": "paragraph", "text": "The engagement does not include litigation or contested post-grant proceedings, foreign filing beyond instructions to associates you have already engaged, opinions of counsel on infringement or validity, or freedom-to-operate analysis. Each of those is a separate undertaking and takes a separate letter. Scope is what this section says it is, not what the subject matter suggests. If you need something that is not here, ask, and we will amend."},
-        {"kind": "heading", "text": "Approach", "level": 2},
-        {"kind": "paragraph", "text": "Every matter is docketed on intake and confirmed back to you in writing, with the dates we calculated and the papers we calculated them from. Where a deadline can be extended, we will give you the unextended date, the extended date, and the cost of the extension before the earlier one passes. We will not let an unextended date go by on the assumption that an extension will be purchased later. If a file arrives incomplete, we docket to the papers we have and tell you the same week what is missing."},
-        {"kind": "paragraph", "text": "You will have our conclusions in writing. Views offered on a call about how a family looks are working discussion, are not an opinion, and should not be relied on or repeated as one. That is not caution for its own sake. A characterization of scope or validity that travels outside a written analysis is a document we never got the chance to qualify."},
-        {"kind": "heading", "text": "The Team", "level": 2},
-        {"kind": "paragraph", "text": "Heather Munoz, Partner, has overall responsibility for the engagement and is your principal contact. Kelly Snyder, Associate, will take the file histories and the prior-art review; if you receive a question about a sentence an examiner wrote years ago, it will come from her, and it will be worth answering. Joseph Walker, Associate, carries the running docket and the correspondence and will be the name on most of what reaches you. I supervise the engagement and sign anything that commits the firm."},
-        {"kind": "paragraph", "text": "Staffing may change as the work requires. Heather Munoz will tell you before it does, and no one will appear on your matters without her knowing why."},
-        {"kind": "heading", "text": "Fees and Payment", "level": 2},
-        {"kind": "paragraph", "text": "Our fee for the work described above is {{fact:f:E-2021-001.fee}}, and the engagement begins {{fact:f:E-2021-001.start}}. Official fees, search costs, and foreign associate charges are billed as incurred and are not covered by that figure. We invoice monthly, and invoices are payable within thirty days of presentation. If you dispute a charge, tell us inside that period and we will hold it out of the balance until it is resolved."},
-        {"kind": "paragraph", "text": "If an invoice goes unpaid, we will tell you once, plainly. If it stays unpaid, we will stop new work and move to withdraw, subject to our obligations to the Office and to you on any matter with a date pending. Withdrawal does not forgive fees earned or costs advanced before it. I put this in the letter rather than into a later conversation, because the later conversation is worse."},
-        {"kind": "heading", "text": "Term and Termination", "level": 2},
-        {"kind": "paragraph", "text": "The engagement runs from the start date stated above until the work described is complete, unless one of us ends it sooner. You may end it at any time, for any reason, on written notice. We may end it for non-payment, for a conflict that develops and cannot be waived, or where continuing would require us to act against our professional obligations. On termination we return the files and deliver a docket of every open date, and we state in writing the date on which responsibility for those dates passes to you or to successor counsel. There will be no interval in which each of us assumes the other is watching."},
-        {"kind": "heading", "text": "Confidentiality", "level": 2},
-        {"kind": "paragraph", "text": "What you tell us in the course of the representation is confidential, and communications made for the purpose of legal advice are privileged. We will not disclose your information without your consent except where a rule, an order, or our duty of candor to the Office requires it, and where that happens we will tell you what was disclosed and why. Technical disclosures from your engineers are treated the same way. The privilege is yours, not ours. We will not waive it for you, and we will flag anything that puts it at risk."},
-        {"kind": "heading", "text": "Conflicts", "level": 2},
-        {"kind": "paragraph", "text": "We have run this matter against our current and former clients and have identified no conflict. We are a boutique and our clients work in overlapping fields, so a conflict may develop later. If one does, we will tell you as soon as we know, and we will not take a position adverse to you in the subject matter of this engagement. Whether we can continue in that circumstance may depend on a waiver we ask you for in writing, and you are free to decline it."},
-        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
-        {"kind": "paragraph", "text": "Our aggregate liability arising out of this engagement is limited to the fees paid to us under it, except where such a limit cannot be imposed under the rules of professional conduct or applicable law. Nothing here limits liability for fraud or willful misconduct, waives any right you have to raise a matter with a disciplinary authority, or relieves us of the obligation to tell you when we have made an error. We carry professional liability insurance and will furnish the certificate on request. You should know that this paragraph is a term you are free to negotiate. Some clients do."},
-        {"kind": "heading", "text": "Governing Law", "level": 2},
-        {"kind": "paragraph", "text": "This letter is governed by the law of the state in which our office sits and by the rules of professional conduct in force there. Practice before the Office is additionally governed by the applicable federal statutes and regulations, and where those conflict with this letter, they control. Any dispute under this letter will be brought in the courts of that state, and each of us bears its own costs unless a court orders otherwise."},
-        {"kind": "paragraph", "text": "If the foregoing states our agreement, please sign in the space below and return one copy to me. We will not open a matter or docket a date under this letter until the signed copy is back, and until the dates are docketed they are yours to watch rather than ours. That is the only urgency in this letter, and it is a real one. We are glad to be doing this work for Keith-Duarte, and we will do it precisely."},
-        {"kind": "sigblock", "signers": ["p:mary.bradley", "xp:joseph.palmer"]}
+        {
+          "kind": "paragraph",
+          "text": "Joseph Palmer\nGeneral Manager\n{{fact:f:E-2021-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Mr. Palmer:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter sets out the terms on which the firm will provide prosecution support for the patent portfolio of {{fact:f:E-2021-001.client}}, and it records the scope of that work, the people who will carry it, and the commercial terms that govern it. It follows our conversations this summer and the schedule of pending matters your office sent afterward. When you have signed and returned the enclosed copy, this letter becomes the agreement between us and supersedes anything discussed before it."
+        },
+        {
+          "kind": "heading",
+          "text": "The Prosecution Support We Will Provide",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Under this engagement we carry the active prosecution of the Keith-Duarte portfolio: drafting and filing the applications your office directs, preparing and filing responses to office actions as they issue, and keeping each family current so that no filing or response goes past its date. We take the pending matters in the order the docket sets, review each file history against the office record before we act on it, and return to you a short written update against the relevant matter whenever a family moves."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some work sits outside this letter and is available under a separate engagement if you request it. Under this engagement we are not preparing freedom-to-operate or validity opinions, conducting portfolio-wide clearance, or litigating any matter; where the prosecution reaches a question that calls for one of those, we will tell you and stop rather than begin work you have not authorized. Nothing we file or advise under this letter is an opinion that any patent is valid, infringed, or clear to practice, and it should not be read or relied upon as one."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Will Carry the Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The docket is the center of this work, and everything else is arranged around it. We calendar every deadline in the portfolio, confirm each date against the office record, and route nothing out and let no date pass without its clearing docketing first; a date, once confirmed, is not quietly moved. You will hear from us on a regular schedule and again whenever a response comes due, and each update will be tied to the matter it concerns, so that your file runs in order rather than as a single running narrative."
+        },
+        {
+          "kind": "heading",
+          "text": "Who Will Do the Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz, a partner in the prosecution group, leads the engagement and is responsible for what we file and for what we send you. Kelly Snyder, an associate, prepares the office-action responses and keeps the portfolio dockets reconciled against the office record, and Joseph Walker, an associate, works the specifications and file histories on the technical side of each matter. I read what leaves this office before it reaches you, as I do with all client work, and I am the person to call if at any point you are not satisfied with the work or with the people doing it."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for this engagement is {{fact:f:E-2021-001.fee}}, and the basis on which it is set is stated on the signature page you will execute with this letter. Work commences on {{fact:f:E-2021-001.start}}, subject to your signature and to our receiving the portfolio schedule, access to the prosecution files, and confirmation of who at {{fact:f:E-2021-001.client}} holds authority to approve a filing; we will not begin billing before that date."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We invoice monthly for the work of the preceding month, and each invoice is payable within thirty days of its date. If an invoice remains unpaid beyond its terms we may suspend work on the matter after written notice to you, and because the portfolio runs against live dates we will identify any deadline then at risk before we stop, so that a billing dispute never becomes a lost date."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This agreement takes effect on the date you sign below and continues until the prosecution support described here is complete and our final invoice is paid. Either of us may end it earlier on written notice to the other. If the engagement ends before the work is finished, you will owe us for the work performed and the expenses incurred to that point, and we will hand over the file in the state it then stands together with a written note of what remains open and any date we know to be approaching."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold what you give us in confidence and use it only for this engagement, and access within the firm is limited to the people named above and to those whose work on the portfolio requires it. We will not disclose your information outside the firm without your consent, except where a court or another authority with jurisdiction compels it, and in that event we will tell you first if we are free to do so. Our written analysis is prepared as privileged work product for you, and these obligations continue after the engagement ends."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our liability to you arising out of this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, except in the case of our fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss, including lost profits or lost opportunity, whether or not the possibility was known in advance. Our work rests on the accuracy and completeness of the records you and the patent offices provide; where those records are wrong or incomplete, the consequences of the error are not ours to carry, though we will tell you as soon as we have reason to doubt what we have been given."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Before either of us begins a proceeding, we will try to resolve the dispute through discussion between people with authority to settle it. This letter and its signature page are the whole of the agreement on their subject, and either may be changed only in a writing signed by both of us."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms match your understanding, please sign both copies of the signature page, keep one for your file, and return the other to my office. If any term does not, telephone me and we will settle it before you sign. The one thing I need from you to open the work is the signed letter; return it and we will docket the portfolio and take up the first matter due."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:mary.bradley",
+            "xp:joseph.palmer"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0024",
+      "doc_id": "d:0031",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Kelly Snyder, Joseph Walker\nFrom: Heather Munoz\nRe: Prosecution Support for Keith-Duarte -- kickoff, workstreams, and what I want first\nPrivileged and confidential. Attorney work product."},
-        {"kind": "paragraph", "text": "The file opened {{fact:f:E-2021-001.start}} and the first tranche of papers from {{fact:f:E-2021-001.client}} is in. Our objective for the opening weeks is narrow, and I want it kept narrow: get every date in the transferred portfolio docketed, confirmed against the papers it came from, and reconciled with what the prior firm recorded. Nothing else in this memo matters until that is done. We do not yet know this portfolio well enough to have a strategy, and I would rather say so than improvise one."},
-        {"kind": "paragraph", "text": "Joseph Palmer is our client contact and expects to hear from us on a cadence rather than by exception. He is a general manager, not a patent lawyer. Write to him accordingly, which means the answer first and the reasoning after, and it does not mean leaving the reasoning out."},
-        {"kind": "heading", "text": "Workstreams", "level": 2},
-        {"kind": "list", "items": [
-          "Intake and docketing (Joseph Walker). Every matter Keith-Duarte transfers gets docketed on receipt against the papers in the wrapper, not against the prior firm's docket sheet. Where the two disagree, ours governs and theirs is a question. Bring me any disagreement the day you find it.",
-          "File history review (Kelly Snyder). Read the prosecution history of each family before you read the pending claims. I want to know what was argued, what was disclaimed, and what was left on the table, family by family. Do not summarize the claims for me yet; the claims will read differently once you know what was said to get them.",
-          "Formalities (Kelly Snyder, with Joseph Walker). Confirm powers of attorney, correspondence addresses, and assignment recordation for every matter in scope. Inventory the references we have been given against what has actually been submitted. This is the dull work that keeps the interesting work from becoming a problem.",
-          "Correspondence and cadence (Joseph Walker). Draft the confirmation schedule listing every docketed date and the paper each was calculated from. Client updates go out against a docket number and stay short.",
-          "Scope watch (all). This engagement covers prosecution. It does not cover opinions, freedom-to-operate work, or anything adjacent that arrives as a question on a phone call. Route those to me and do not answer them helpfully. An answer given in passing is still an answer, and it will be quoted back without the sentence you would have put around it."
-        ]},
-        {"kind": "heading", "text": "Next Steps", "level": 2},
-        {"kind": "list", "items": [
-          "Joseph Walker: confirmation schedule to me this week, with the docket reconciled against the transferred files before it goes anywhere.",
-          "Kelly Snyder: the first two families read, and a memorandum on what those histories constrain. State what you searched and what you did not, in the memorandum, not in a footnote.",
-          "Heather Munoz: call with Joseph Palmer to set the reporting cadence and to tell him what we found in the transferred docket, whether or not it is a comfortable call.",
-          "All: nothing goes to {{fact:f:E-2021-001.client}} during intake that I have not read first. This is not a comment on your drafting. It is that a client forms its view of a firm in the first month, and I would rather that view be formed on purpose.",
-          "All: log your time daily rather than weekly. The fee on this engagement was quoted against an assumption about the transferred files, and I want to know early if the assumption was wrong."
-        ]},
-        {"kind": "paragraph", "text": "One more thing, and it is the only part of this memo I will not negotiate. We took this file with dates already running on it. If any of you finds a date closer than it should be, you tell me the hour you find it, not at the next meeting and not once you have worked out how it happened. How it happened is a conversation we can have afterward, and we will have it without blame. The date is not a conversation. It is a date."}
+        {
+          "kind": "paragraph",
+          "text": "To: Kelly Snyder and Joseph Walker\nFrom: Heather Munoz, Partner\nRe: Kickoff, prosecution support for the Keith-Duarte portfolio"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The goal on this engagement is narrow. We keep every family in the Keith-Duarte portfolio current, and we let no filing or response pass its date. Everything below serves that."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The client is {{fact:f:E-2021-001.client}}. Their contact is Joseph Palmer, their General Manager, and client questions route through him. The engagement runs from {{fact:f:E-2021-001.start}}, and we are at the front of it now."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One thing to fix before anything else. The docket is the part of this the firm cannot forgive. A date, once confirmed, is not moved to suit a draft, and no matter leaves this office without clearing the desk."
+        },
+        {
+          "kind": "heading",
+          "text": "How the Work Divides",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Owners are set now, so nothing sits between us. Each of you knows the whole of your part; read this before the first response comes due."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Docket and dates. Kelly Snyder pulls every deadline in the portfolio and reconciles it against the office record. Nothing is assumed. Each date is confirmed against the file, not the calendar we inherited.",
+            "Office actions. Kelly Snyder drafts the responses as actions issue, in the order the docket sets. I review each before it files. Nothing goes out on a Friday afternoon without a second read.",
+            "File histories and specifications. Joseph Walker reads into each family, checks the record behind every response, and flags anything in a specification the response has to account for. If the history does not support a position, we do not take it.",
+            "Client updates. Short notes against the matter, sent whenever a family moves. I write the ones the client reads. Keep your notes to me plain and dated, and I will shape what goes out."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Joseph Palmer hears from me, not from the desk, and not from a draft that has not been read. That is how a scope question stays a scope question and does not become a surprise."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things about how we write here. Do not overstate a response. A claim we cannot support in the record is a liability, not a win, and I would rather read a careful hedge than a confident one. Mark privileged work privileged without being asked."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The portfolio we inherited is in decent shape, but the inherited calendar is not the source of truth. The file is. Where the two disagree, the file wins and I want to know."
+        },
+        {
+          "kind": "heading",
+          "text": "First Actions",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly Snyder: build the deadline calendar this week and send me anything due in the next thirty days. Joseph Walker: start on the two families closest to a response date and read their histories first. Both of you: bring me anything unclear before you act on it, not after."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The two families closest to a date come first. Everything else waits behind them until the calendar is built and I have seen it. Do not start a response on a family whose dates we have not confirmed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Log every date you confirm against the source. If a date on the inherited calendar does not match the office record, stop and tell me. That mismatch is exactly the kind of thing we are here to catch."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We meet Friday to confirm the calendar. Bring the dates."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0025",
+      "doc_id": "d:0032",
       "blocks": [
-        {"kind": "paragraph", "text": "Joseph Palmer -- copying Kelly Snyder and Joseph Walker."},
-        {"kind": "paragraph", "text": "Intake is closed. Every matter in the Keith-Duarte portfolio that {{fact:f:E-2021-001.client}} transferred to us is now docketed against the papers in its own wrapper, and the confirmation schedule went to you last week listing each date and what we calculated it from. Two of our dates fall earlier than the ones on the transferred sheet. We are working to ours. If prior counsel disagrees, we would like the basis this month rather than nearer the date."},
-        {"kind": "paragraph", "text": "Kelly Snyder is through the file histories on the first two families and is drafting the memorandum on what the earlier arguments constrain. It will be longer than you want and shorter than the record deserves. Joseph Walker has the office action due in this cycle; you will get the draft response with a short note on the one election question we think is genuinely open, and it is open, not rhetorical."},
-        {"kind": "paragraph", "text": "One ask. We still do not have assignment recordation confirmed for two of the transferred matters. We would rather resolve that now than find it in a diligence request later, when it stops being paperwork and starts being a question about title. If your records show the recordation was made, send us the reel and frame and we will stop asking. If they do not, tell us that instead and we will handle it; an unrecorded assignment is a small problem this month and a larger one at any point after."},
-        {"kind": "paragraph", "text": "Heather Munoz\nPartner"}
+        {
+          "kind": "paragraph",
+          "text": "Dear Joseph,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "I am opening this thread so our updates on the Keith-Duarte prosecution work stay in one place and your file runs in order against each matter. For the record, the working contacts are set: Joseph Palmer, General Manager, on your side, and on ours Kelly Snyder, who prepares the responses and holds the docket, and Joseph Walker, who works the file histories behind them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We have made a start. The portfolio families are pulled and on the docket, and Kelly Snyder is reconciling each file history against the office record before the first responses go out. Two families will need responses first, and those are the ones we are reading now. Nothing in the portfolio is at its date in this window, and I will flag any deadline the moment one comes into view. You will hear from us on a set cadence, and each note will be tied to the family it concerns."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One request before the work goes further. Please confirm who at {{fact:f:E-2021-001.client}} can approve a filing if a response falls due, so we route it correctly the first time. A name and title is enough for now, and you can send it back to me on this thread."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0026",
+      "doc_id": "d:0033",
       "blocks": [
-        {"kind": "paragraph", "text": "Working session, Prosecution Support for Keith-Duarte. Minutes taken by Joseph Walker. Privileged and confidential."},
-        {"kind": "heading", "text": "Attendees", "level": 2},
-        {"kind": "list", "items": [
-          "Heather Munoz, Partner, Prosecution",
-          "Kelly Snyder, Associate, Prosecution",
-          "Joseph Walker, Associate, Prosecution",
-          "Joseph Palmer, General Manager, Keith-Duarte"
-        ]},
-        {"kind": "heading", "text": "Discussion", "level": 2},
-        {"kind": "paragraph", "text": "Heather Munoz opened with the docket, as she has opened every session on this file. All live dates across the portfolio are scheduled with time in hand and none sits inside thirty days. Two dates were re-derived from the wrappers during intake and remain earlier than the dates the prior firm recorded. Joseph Palmer asked whether the discrepancy had been resolved with prior counsel. It has not; they have not answered our letter. Heather Munoz said the firm works to its own dates whether or not it is resolved, and that resolving it is a courtesy to the record rather than a condition of the docket."},
-        {"kind": "paragraph", "text": "Kelly Snyder walked her file history memorandum on the two lead families. Her conclusion, stated with the limits she put on it: the arguments made in the parent applications constrain the claim scope available in the pending continuations more than the transfer summary from prior counsel indicated. She was explicit about what she did not search, which is anything outside the wrappers as received and any foreign counterpart. Joseph Palmer asked whether that meant the portfolio was weaker than he had been told. Heather Munoz declined to put it that way and said the memorandum says what it says; a claim can be narrower than hoped and still be worth prosecuting."},
-        {"kind": "paragraph", "text": "The restriction requirement in the pending device application took most of the hour. Joe walked through the two groups on offer and what electing each one costs. Heather Munoz asked what the claims would have to say for the answer to change. Joe's answer was that if the linking claim survives, the question is moot; if it does not, electing the apparatus group leaves the method claims to a divisional that {{fact:f:E-2021-001.client}} would have to fund. Joseph Palmer asked for the cost of that divisional before he decides, and asked that it arrive as a figure rather than as a range. Joseph Walker agreed to that."},
-        {"kind": "paragraph", "text": "Assignment recordation on the two outstanding matters is closed. Joseph Palmer's team located the recordation and sent the reel and frame; Kelly Snyder confirmed both against the Office's records rather than against the copies provided, which is the only confirmation worth having. Powers of attorney and correspondence addresses were checked in the same pass and are correct across every matter in scope."},
-        {"kind": "paragraph", "text": "On reporting, Joseph Palmer asked whether the monthly report could carry the docket sheet itself rather than a summary of it. Heather Munoz agreed, on one condition: the sheet carries the unextended and the extended date for every matter in separate columns, so that no one reading it mistakes an extension we have not bought for time we already have."},
-        {"kind": "heading", "text": "Action Items", "level": 2},
-        {"kind": "table", "header": ["Action", "Owner", "Timing"], "rows": [
-          ["Revised docket sheet with unextended and extended dates in separate columns", "Joseph Walker", "Before the next monthly report"],
-          ["Cost of the divisional, stated as a figure and not a range", "Joseph Walker", "This week"],
-          ["Memorandum on the linking claim and its effect on the election", "Kelly Snyder", "Within ten days"],
-          ["Election decision confirmed to the firm in writing", "Joseph Palmer", "On receipt of the figure"],
-          ["Second letter to prior counsel on the date discrepancy", "Heather Munoz", "This week"]
-        ]}
+        {
+          "kind": "paragraph",
+          "text": "The portfolio is on schedule, and this session was about keeping it there through the winter filings rather than repairing anything that had slipped; we met to walk the Keith-Duarte families one at a time, confirm the dates coming due, and agree who carries each response, and we came out of it with the calendar unchanged and the next round of office-action work assigned."
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Heather Munoz, Partner, Prosecution",
+            "Kelly Snyder, Associate, Prosecution",
+            "Joseph Walker, Associate, Prosecution (minutes)",
+            "Joseph Palmer, General Manager, {{fact:f:E-2021-001.client}}"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What We Covered",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz opened by reminding us that we are about halfway through the engagement, and that the middle is where a portfolio quietly goes wrong if the docket is not watched, so we spent the first part of the session reconciling Kelly Snyder's calendar against the office record one family at a time and found no surprises, which is the outcome we want and rarely get to report without a caveat. Kelly Snyder walked the responses that have gone out since kickoff and the two that are drafted and waiting on a partner's read, and we agreed that nothing in the current window is at genuine risk, though we flagged one family where an examiner interview would probably save a round of prosecution and asked Heather Munoz to weigh whether it is worth the client's money."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On the technical side, I took the group through what I have found reading behind the responses, and the histories are clean enough that we are not fighting our own file, which matters more the deeper into examination we go; Kelly noted, fairly, that Joe tends to read further into a specification than a response strictly needs, and Heather Munoz's view was that on this portfolio the extra reading is cheap insurance and should continue. Joseph Palmer asked the practical questions a general manager asks, chiefly whether any of this threatens a date his board is watching, and we were able to tell him plainly that it does not, while being careful, as this firm is, not to promise an outcome the examiner still controls."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Before we closed we set the shape of the next stretch, which is mostly steady prosecution with two responses to file and a single decision for the client to make, and Heather Munoz asked that the action items reach Joseph Palmer the same day, so that nothing the client needs to see waits behind a memo that has to be written and circulated first. We also agreed, since we are at the point in a matter where small things start to accumulate, that Kelly Snyder would keep a running list of the open questions rather than let them collect in email, so that the next session starts from a single page instead of four separate threads none of us has read in full."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Item",
+            "Owner",
+            "Due"
+          ],
+          "rows": [
+            [
+              "File the two drafted office-action responses once reviewed",
+              "Kelly Snyder",
+              "Next two weeks"
+            ],
+            [
+              "Read into the newest family in the portfolio and flag what its first response must address",
+              "Joseph Walker",
+              "This month"
+            ],
+            [
+              "Decide whether to request an examiner interview on the flagged family",
+              "Heather Munoz",
+              "This week"
+            ],
+            [
+              "Keep the running list of open questions for the next session",
+              "Kelly Snyder",
+              "Ongoing"
+            ],
+            [
+              "Send these minutes and the open dates to Joseph Palmer",
+              "Joseph Walker",
+              "Today"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The one thing that has to happen before we meet again is Heather Munoz's call on the examiner interview, since both responses and the client's decision hang off it, so that is where we start next time."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0027",
+      "doc_id": "d:0034",
       "blocks": [
-        {"kind": "paragraph", "text": "Prepared by Heather Munoz, Partner. This report covers the current reporting period on the Keith-Duarte prosecution engagement. Privileged and confidential; prepared for the client and its counsel."},
-        {"kind": "heading", "text": "Status Summary", "level": 2},
-        {"kind": "paragraph", "text": "The engagement is on schedule and at roughly its midpoint. Intake, docketing, and reconciliation of the transferred portfolio are complete and behind us, and the substantive prosecution work is now the whole of the effort. No date has been missed and none is presently at risk. Measured against the engagement fee of {{fact:f:E-2021-001.fee}}, our time to date sits somewhat under half. That is where it should be at this point, and it is not a prediction that the second half will cost less than the first. Two items below could move it. Both are flagged here rather than absorbed quietly."},
-        {"kind": "heading", "text": "Accomplishments This Period", "level": 2},
-        {"kind": "paragraph", "text": "The office action responses due in this cycle were prepared, reviewed, and filed. Joseph Walker drafted them and I reviewed them. Neither required an extension and neither used the full response period. That is deliberate. We do not treat an extension fee as a budget line. We treat it as evidence that something went wrong upstream of the deadline."},
-        {"kind": "paragraph", "text": "Kelly Snyder completed the file history review of the two lead families and delivered her memorandum. I will state her finding as she stated it rather than smoothing it: the prosecution arguments made in the parent applications constrain the claim scope available in the pending continuations more than the transfer summary from prior counsel indicated. The memorandum sets out what she searched and what she did not. It is privileged. It should stay inside {{fact:f:E-2021-001.client}} and its counsel, and it should not be forwarded to a customer, an investor, or a prospective acquirer without speaking to me first."},
-        {"kind": "paragraph", "text": "The restriction requirement in the pending device application was answered. We elected the apparatus group, on your written instruction and after the cost of the divisional was put in front of you as a figure. The method claims are preserved for a divisional and are docketed as such. Nothing about that election is irreversible on the current record."},
-        {"kind": "paragraph", "text": "Assignment recordation for the two matters that transferred with gaps has been confirmed against the Office's records. Powers of attorney and correspondence addresses are now correct across every matter in scope. This is unglamorous work and it is the reason nothing has surprised us so far."},
-        {"kind": "heading", "text": "Upcoming Work", "level": 2},
-        {"kind": "paragraph", "text": "The remainder of the engagement is heavier in substance and lighter in administration than the part behind us. We expect responses in the remaining families, a continuation decision on the lead family that will need an answer from you rather than from us, and the divisional filing if you elect to make it. Kelly Snyder will extend the file history review to the families not yet covered. Joseph Walker continues to carry the docket and the correspondence, and the revised docket sheet, with the unextended and extended dates in separate columns, goes out with the next report as requested."},
-        {"kind": "paragraph", "text": "We will also need a decision on the two matters where the claims as pending are, in our current view, narrower than the products they were drafted to cover. That is a business question about whether to spend prosecution effort on scope you may not obtain, and it is yours to answer. We will give you the analysis. We will not make the call, and we would be doing you no favor by pretending the answer is obvious."},
-        {"kind": "heading", "text": "Risks", "level": 2},
-        {"kind": "list", "items": [
-          "The date discrepancy with prior counsel remains unresolved. We have written twice and have had no substantive response. Our docket runs to our own dates, so the exposure is small, but the discrepancy sits on the record and we would prefer it closed rather than explained later.",
-          "The scope finding in the lead family may reduce what the portfolio is worth in a licensing conversation. That is a conclusion about claim scope, not about the technology, and it is not final; the continuation strategy exists precisely to test it. We raise it now because you should not learn it from a diligence request.",
-          "Budget. The divisional, if elected, and a second round of office actions in the remaining families sit outside the level of effort the fee assumed. We will tell you before we cross that line rather than after. Nothing in this report is a request to change the fee."
-        ]},
-        {"kind": "paragraph", "text": "Our view of the engagement has not changed since kickoff. The portfolio is in better administrative order than it was, and the substantive questions are now visible rather than buried in a wrapper. Neither of those is a claim about outcome, and neither should be read as one. If you want any part of this report expanded, or want the underlying memoranda rather than my summary of them, ask me and they will come with the qualifications attached."}
+        {
+          "kind": "heading",
+          "text": "Status Report: Keith-Duarte Prosecution Support",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Heather Munoz, Partner, for {{fact:f:E-2021-001.client}}. This report covers the current period and is written against the portfolio docket, matter by matter."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the Engagement Stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is on schedule and on budget. We are roughly halfway through the work, every family in the portfolio is docketed and current, and no deadline has been missed or is at risk in the near window."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing on the matter needs a decision from you this period. One decision is coming next period, and it is described below so you can see it before it arrives. The rest is routine prosecution, which is where a portfolio should sit at this stage."
+        },
+        {
+          "kind": "heading",
+          "text": "Who Is on the Matter",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The same three people who started the engagement are still on it. Kelly Snyder prepares the responses and holds the docket, and Joseph Walker works the file histories and specifications behind them. I lead the matter and read everything before it reaches you."
+        },
+        {
+          "kind": "paragraph",
+          "text": "This is deliberate. The people who met you at the start are the people doing the work, and that does not change partway through a matter at this firm. If you ever want to talk to any of them directly, tell me and I will set it up."
+        },
+        {
+          "kind": "heading",
+          "text": "What We Completed This Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work this period was steady prosecution, not firefighting. Each item below is filed or done and reflected on the docket. Kelly Snyder and Joseph Walker carried the bulk of it, and I read each response before it went out."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Kelly Snyder filed the office-action responses that were due and reconciled the full portfolio docket against the office record.",
+            "Joseph Walker read the file histories behind each response and confirmed the claim amendments are supported by the specifications.",
+            "We opened the one continuation the portfolio needed and docketed its new dates.",
+            "We corrected two dates on the calendar we inherited that did not match the office record. Neither was at risk, but both are now right.",
+            "Every family now has a confirmed date and an owner, so nothing sits unassigned."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The correction is worth a line. An inherited calendar is a starting point, not a source of truth, so we confirm every date against the file before we rely on it. Both mismatches were small and neither cost you anything. That is the point of doing the reconciliation early rather than discovering it late."
+        },
+        {
+          "kind": "heading",
+          "text": "What Comes Next",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next period is more of the same, with two responses coming due and one decision we will bring to you. The plan is below."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Kelly Snyder will draft and file the two responses now on the calendar.",
+            "Joseph Walker will read into the newest family before its first response is due.",
+            "We will bring you a single decision on whether an examiner interview is worth pursuing on one family, with the cost and the likely benefit laid out so you can choose."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The interview question is the only one that needs you next period. An interview can save a round of prosecution on the flagged family, but it costs time and does not always land. We will send you the case for and against, and a number, before we do anything."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "There is no material risk to report this period. The portfolio runs against live dates, so the standing risk is always a missed deadline, and our answer to it is the docket discipline described above."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If any family draws a response deadline shorter than usual, we will tell you at once rather than wait for the next report. The same holds for anything an examiner raises that changes the shape of a family. You will not learn of a problem from a status report for the first time."
+        },
+        {
+          "kind": "heading",
+          "text": "Budget",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement fee is {{fact:f:E-2021-001.fee}}, and the work is tracking within it. At the halfway point we have used a little under half of that amount, which is where a steady prosecution matter should sit at this stage."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If anything above would take the work beyond the fee, we will tell you and quote it before we begin rather than bill you past the number you agreed to. The examiner interview is the one item that could do that, and we will price it for you as a separate line rather than fold it in."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will send the next report at the usual interval, and the one item that may need you before then is the interview decision, which we will put in front of you as soon as it is ripe. Call me if anything here needs more than a report can give."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0028",
+      "doc_id": "d:0035",
       "blocks": [
-        {"kind": "paragraph", "text": "Closing working session, Prosecution Support for Keith-Duarte. Minutes taken by Joseph Walker. Privileged and confidential."},
-        {"kind": "heading", "text": "Attendees", "level": 2},
-        {"kind": "list", "items": [
-          "Heather Munoz, Partner, Prosecution",
-          "Kelly Snyder, Associate, Prosecution",
-          "Joseph Walker, Associate, Prosecution",
-          "Joseph Palmer, General Manager, Keith-Duarte"
-        ]},
-        {"kind": "heading", "text": "Discussion", "level": 2},
-        {"kind": "paragraph", "text": "Heather Munoz opened by reading the docket, which is how every session on this file has opened and how this one closed. Every date that arrived with the transferred portfolio, and every date the portfolio has generated since, has been answered or is scheduled with time in hand. None was missed. No extension was purchased to cover an oversight. Joseph Palmer asked whether that was normal. Heather Munoz said it is the minimum."},
-        {"kind": "paragraph", "text": "Filings this period. The divisional on the method claims was filed and the filing receipt is in the file. Responses went out in the remaining families under prosecution and none required an extension. Kelly Snyder's file history review now covers every family in scope; the memoranda are indexed by family rather than by date, which is how they will be useful to whoever reads them next, including us."},
-        {"kind": "paragraph", "text": "Transition. The engagement covers the work described in the engagement letter and that work is substantially done. Joseph Walker will deliver the closing docket: every open date, the paper each was calculated from, the unextended and extended columns, and separately the matters where what is owed is a decision rather than a filing. Heather Munoz said the firm will state in writing the date on which responsibility for those dates transfers, and that {{fact:f:E-2021-001.client}} should not treat the docket as watched by us after it. Joseph Palmer asked whether follow-on work would need a new letter. It would."},
-        {"kind": "paragraph", "text": "Open decisions. The two families carrying claims narrower than the products they were drafted to cover are still open. Kelly Snyder set out the options and what each one buys, in order of cost. Heather Munoz declined to recommend one, on the ground that the question is what the portfolio is for, and the firm does not know that better than the client does. Joseph Palmer will take it internally. No docket date turns on the answer, which is the only reason it can wait."},
-        {"kind": "paragraph", "text": "Joseph Palmer asked for the firm's candid assessment of the portfolio. Heather Munoz gave it narrowly: the administrative state is sound, the scope questions are documented rather than buried, and nothing in the file history is left for a stranger to find first. She would not go further than that, and said that she would not. Joseph Palmer observed that he had expected a more encouraging answer. Heather Munoz said an encouraging answer is available from anyone and is worth what it costs."},
-        {"kind": "paragraph", "text": "Kelly Snyder raised one item not on the agenda. The continuation in the lead family carries a date that falls after the engagement's work is delivered, and she wanted it said aloud in front of the client rather than recorded in a schedule and assumed. It appears on the closing docket, flagged as a decision owed rather than a filing scheduled. Heather Munoz said that is exactly the kind of date a portfolio loses in a transition, and that the firm would rather be tedious about it now."},
-        {"kind": "heading", "text": "Action Items", "level": 2},
-        {"kind": "table", "header": ["Action", "Owner", "Timing"], "rows": [
-          ["Closing docket: open dates, source papers, unextended and extended columns", "Joseph Walker", "This week"],
-          ["File history memoranda indexed by family and delivered as a set", "Kelly Snyder", "This week"],
-          ["Written notice of the date responsibility transfers", "Heather Munoz", "With the closing docket"],
-          ["Decision on the two narrow families", "Joseph Palmer", "Internal; no docket date depends on it"],
-          ["Final invoice and reconciliation of official fees advanced", "Heather Munoz", "After the closing docket is delivered"]
-        ]}
+        {
+          "kind": "paragraph",
+          "text": "We are at the end of the engagement, and this session was a closeout rather than a working meeting: we walked the Keith-Duarte portfolio one last time to confirm that every family is where it should be, that nothing is left open without an owner, and that the record we hand back is clean enough for the next person who opens it, and we finished satisfied on all three counts."
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Heather Munoz, Partner, Prosecution",
+            "Kelly Snyder, Associate, Prosecution",
+            "Joseph Walker, Associate, Prosecution (minutes)",
+            "Joseph Palmer, General Manager, {{fact:f:E-2021-001.client}}"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What We Covered",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz took us through the portfolio one family at a time, and the picture is the one we set out to reach: the office-action responses that were live at kickoff are filed and docketed, the families that needed a continuation have it, and there is no deadline in the near window that this engagement leaves unattended. Kelly Snyder confirmed that the docket is fully reconciled against the office record and that every date now on the calendar is recorded with a clear note of what it is and what it needs, so that nothing we were carrying is left to be reconstructed later from memory."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I walked the file histories one last time to be sure the record we are handing back reads cleanly, and it does; the responses track the examiners' rejections without overreaching, the claim amendments are supported by the specifications, and there is nothing in the wrapper a future reader would have to explain away, which is the standard this firm holds itself to on the way out of a matter as much as the way in. Joseph Palmer told us the portfolio is in the shape his board wanted at this stage and asked only that the closing summary be concrete about which applications remain in examination and which are through it, so that his team can brief the board without our having to be in the room."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We agreed that the closeout package will be a short written summary organized the way we ran the work, family by family, with the open dates listed plainly and nothing dressed up as more settled than it is, and Kelly Snyder and I will build it this week for Heather Munoz to read before it reaches the client. We also spent a few minutes on the handoff itself, because a portfolio is only as good as the record the next person inherits, and we made sure the docket carries not just the dates but a plain note beside each one so that whoever opens the file after us does not have to call to learn what a date means."
+        },
+        {
+          "kind": "heading",
+          "text": "Action Items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Item",
+            "Owner",
+            "Due"
+          ],
+          "rows": [
+            [
+              "Assemble the family-by-family closeout summary with all open dates listed",
+              "Kelly Snyder",
+              "This week"
+            ],
+            [
+              "Check every file history once more before the summary is finalized",
+              "Joseph Walker",
+              "This week"
+            ],
+            [
+              "Review the closeout summary before it goes to the client",
+              "Heather Munoz",
+              "Before it sends"
+            ],
+            [
+              "Send the final summary and open-date list to Joseph Palmer",
+              "Heather Munoz",
+              "Once reviewed"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The one thing that has to happen before we close the file is Heather Munoz's read of the summary, so that is the last gate, and once it clears the engagement is complete and the record is the client's to keep."
+        }
       ]
     }
   ]

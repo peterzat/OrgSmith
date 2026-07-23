@@ -1,0 +1,443 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0010",
+  "stage": "author",
+  "slug": "hollowell-ip",
+  "org_name": "Hollowell Patent Group PLLC",
+  "org_type": "intellectual property law",
+  "narrative": "Hollowell Patent Group is a patent boutique founded in 2016 by a partner\nwho left a general-practice firm and took two clients with her. It\nprosecutes and defends portfolios for a medical device manufacturer, a\nuniversity licensing office, and a pair of venture-backed hardware\nstartups. Docketing is the firm's religion: a missed date is the only\nmistake it cannot absorb.\n\nThe share reads like a practice that bills by the matter. Engagement\nletters are explicit about scope, conflicts, and what happens if a client\ndoes not pay. Portfolio reviews are long, structured, and organized by\nfamily. Freedom-to-operate memoranda are hedged with care and marked as\nprivileged. Client updates go out as short emails against a docket\nnumber, and the occasional deck is for a board that wants the portfolio\non one page.\n\nTone is precise, formal, and allergic to overstatement: counsel who\nwrites \"this does not infringe\" without qualification is writing a\nliability. Attorneys use full names and titles in anything a client\nreads. One partner goes by a shortened first name in internal minutes and\nher full legal name on every letter and signature block, which is exactly\nhow a real firm's documents behave and exactly what makes resolving her a\nproblem worth testing.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0010\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0054",
+      "title": "Engagement Letter: Licensing Diligence for Price-Henson",
+      "genre": "engagement_letter",
+      "date": "2025-03-04",
+      "authors": [
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's writing culture and owns the decisions the narrative treats as unabsorbable: scope, conflicts, and when to decline a matter. She insists that anything a client reads carry full names and titles, and she signs client-facing documents formally even where colleagues use a shorter first name for her around the office. Her own prose is spare and deliberate; she edits certainty out of a memo and treats an unqualified sentence as a liability."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        },
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        },
+        {
+          "id": "xp:tiffany.munoz",
+          "name": "Tiffany Munoz",
+          "title": "Chief Financial Officer",
+          "dept": "Price-Henson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2025-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2025-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2025-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
+          "kind": "person"
+        },
+        {
+          "entity": "p:david.chang",
+          "surface": "David Chang",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.henderson",
+          "surface": "Richard Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:tiffany.munoz",
+          "surface": "Tiffany Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:price-henson",
+          "surface": "Price-Henson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0055",
+      "title": "Kickoff Memo: Licensing Diligence for Price-Henson",
+      "genre": "kickoff_memo",
+      "date": "2025-03-17",
+      "authors": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        },
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        },
+        {
+          "id": "xp:tiffany.munoz",
+          "name": "Tiffany Munoz",
+          "title": "Chief Financial Officer",
+          "dept": "Price-Henson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2025-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2025-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:david.chang",
+          "surface": "David Chang",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.henderson",
+          "surface": "Richard Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:tiffany.munoz",
+          "surface": "Tiffany Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:price-henson",
+          "surface": "Price-Henson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0056",
+      "title": "Licensing Diligence for Price-Henson",
+      "genre": "engagement_email",
+      "date": "2025-04-11",
+      "authors": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        },
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        },
+        {
+          "id": "xp:tiffany.munoz",
+          "name": "Tiffany Munoz",
+          "title": "Chief Financial Officer",
+          "dept": "Price-Henson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2025-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:richard.henderson",
+          "surface": "Richard Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:tiffany.munoz",
+          "surface": "Tiffany Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:price-henson",
+          "surface": "Price-Henson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one. Delivery: this message is sent To Tiffany Munoz at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 16% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0057",
+      "title": "Licensing Diligence for Price-Henson",
+      "genre": "engagement_email",
+      "date": "2025-04-14",
+      "authors": [
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        },
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        },
+        {
+          "id": "xp:tiffany.munoz",
+          "name": "Tiffany Munoz",
+          "title": "Chief Financial Officer",
+          "dept": "Price-Henson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2025-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:david.chang",
+          "surface": "David Chang",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:tiffany.munoz",
+          "surface": "Tiffany Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:price-henson",
+          "surface": "Price-Henson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Tiffany Munoz at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. Open with your salutation form \"Hello {first},\" (fill in the recipient's first name) and sign off with \"Thanks\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 18% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0058",
+      "title": "Licensing Diligence for Price-Henson",
+      "genre": "engagement_email",
+      "date": "2025-04-14",
+      "authors": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        },
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        },
+        {
+          "id": "xp:tiffany.munoz",
+          "name": "Tiffany Munoz",
+          "title": "Chief Financial Officer",
+          "dept": "Price-Henson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2025-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:richard.henderson",
+          "surface": "Richard Henderson",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:tiffany.munoz",
+          "surface": "Tiffany Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:price-henson",
+          "surface": "Price-Henson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Tiffany Munoz at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 18% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0059",
+      "title": "Licensing Diligence for Price-Henson",
+      "genre": "engagement_email",
+      "date": "2025-04-14",
+      "authors": [
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:david.chang",
+          "name": "David Chang",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+        },
+        {
+          "id": "p:richard.henderson",
+          "name": "Richard Henderson",
+          "title": "Patent Agent",
+          "dept": "Prosecution",
+          "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+        },
+        {
+          "id": "xp:tiffany.munoz",
+          "name": "Tiffany Munoz",
+          "title": "Chief Financial Officer",
+          "dept": "Price-Henson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Licensing Diligence for Price-Henson, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2025-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:david.chang",
+          "surface": "David Chang",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:tiffany.munoz",
+          "surface": "Tiffany Munoz",
+          "kind": "person"
+        },
+        {
+          "entity": "x:price-henson",
+          "surface": "Price-Henson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Tiffany Munoz at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. Open with your salutation form \"Hello {first},\" (fill in the recipient's first name) and sign off with \"Thanks\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 18% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

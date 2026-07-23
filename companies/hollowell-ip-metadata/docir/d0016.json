@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "Privileged and confidential. Attorney work product. Prepared at the direction of counsel for the purpose of providing legal advice.",
+      "text": "To: Heather Munoz, Kelly Snyder\nFrom: Richard Henderson\nRe: Freedom-to-Operate Analysis for {{fact:f:E-2020-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,16 @@
     },
     {
       "kind": "paragraph",
-      "text": "Working session on the freedom-to-operate analysis for {{fact:f:E-2020-001.client}}. Minutes taken by Heather Munoz.",
+      "text": "This memo sets out how we run the freedom-to-operate analysis for {{fact:f:E-2020-001.client}}. The engagement opened on {{fact:f:E-2020-001.start}}. The job for the first stretch is narrow: fix the subject matter and get the search scope right, so everything built on top of it stands on something solid. We are not drawing conclusions yet, and we should not be. Read this as the plan of record for the matter, and tell me now if any of it does not fit how you expected the work to run.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The reason to be careful at the front is simple. A freedom-to-operate opinion is only as good as the scope it runs against, and a scope that misses a feature produces an opinion that looks complete and is not. So we fix the subject matter in writing first, and we do not start searching until Heather Munoz has approved what we are searching for. Everything after that is search, read, chart, and review, in that order, and the order matters because each step assumes the one before it was done right.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +31,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
+      "text": "How the Work Breaks Down",
       "level": 2,
       "items": [],
       "header": [],
@@ -34,63 +43,18 @@
       "text": "",
       "level": 1,
       "items": [
-        "Heather Munoz, Partner, Prosecution (chair)",
-        "Richard Henderson, Patent Agent, Prosecution",
-        "Kelly Snyder, Associate, Prosecution",
-        "Barbara Blair, Director of Operations, Middleton, Sullivan and Wiley"
+        "Subject matter and search scope. I will fix the exact products and features to be cleared from the descriptions Barbara Blair sends over from {{fact:f:E-2020-001.client}}, and write them up as a defined scope before any searching starts. Kelly Snyder will check that scope against the docket so nothing we agreed to clear is left out of it. If a feature is described too loosely to search, I go back to Barbara Blair for the detail rather than guess at what she meant.",
+        "Searching. I will run the patent and published-application searches against that scope, United States first, and pull the references that read on the identified features. Kelly Snyder maintains the reference set and keeps it current as the searches turn more up. We record the search terms and the classes we ran, so the scope of the searching is on the record and not just in my head.",
+        "Claim reading and charts. I will chart the claims of the references that matter against the product descriptions, element by element, and flag every claim that touches infringement or validity for Heather Munoz rather than characterize it myself. Where a reference is close, it goes to her with the chart, not with my opinion attached to it.",
+        "Analysis and opinion. Heather Munoz reviews the charts family by family, reaches the conclusions, and carries them into the written freedom-to-operate opinion that goes to the client. That call is hers, not ours, and nothing that reads as a conclusion on risk leaves this office under anyone else's name."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Discussion",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "Richard Henderson walked the claim charts for the references he considers material, element by element, and stopped at each element where the agreed description neither plainly meets nor plainly avoids the language. That is the right place to stop and I said so. I asked him the question I always ask, which is what the claim would have to say for his answer to change. On most of the charts he had an answer. On one he did not, and that one is where the remaining work is.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Kelly Snyder had read the prosecution history of the reference giving us trouble and found the amendment nobody had mentioned: the applicant narrowed the element during prosecution and stated a reason for doing it. That is the most useful document in the file. It does not resolve the question, and I am being careful not to write in these minutes that it does. What it does is move the analysis off claim scope and onto what the estoppel reaches, which is a different argument with a different answer.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Barbara Blair asked the question a client is entitled to ask, which is whether we can tell them now that the device is clear. The answer is no, and I told her why rather than simply telling her no. We have charted against a description confirmed for the housing and not for the disposable element. Our cutoff means anything published since is outside this analysis. One construction question is open. Any one of those on its own is enough to keep a conclusion out of my mouth, and we have all three. She took that better than most clients do, and asked instead what would have to happen to close each one, which is the useful version of the question.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "On position: we are at about the middle of this matter and the charting is where I expected it to be. The open construction question is the one thing capable of consuming time we have not planned for. It will be Richard Henderson's assumption log rather than the charts that tells us how much, which is the argument for keeping the log current rather than reconstructing it at the end.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Kelly Snyder asked for the docket dates before she asked anything else, as she does, and she was right to. The checkpoints for the remaining phases are now on the docket and confirmed back to me. Nothing in this matter gets agreed in a meeting and docketed afterward.",
+      "text": "One rule on the client side while the work is open. Anything that goes to {{fact:f:E-2020-001.client}} that touches a conclusion goes through Heather Munoz first. Routine scope and materials questions to Barbara Blair I will handle directly, and I will copy the two of you so the thread stays in one place.",
       "level": 1,
       "items": [],
       "header": [],
@@ -99,7 +63,7 @@
     },
     {
       "kind": "heading",
-      "text": "Action Items",
+      "text": "Where We Start",
       "level": 2,
       "items": [],
       "header": [],
@@ -107,52 +71,30 @@
       "signers": []
     },
     {
-      "kind": "table",
+      "kind": "list",
       "text": "",
       "level": 1,
-      "items": [],
-      "header": [
-        "Item",
-        "Owner",
-        "Status"
+      "items": [
+        "Kelly Snyder: open the matter on the docket and stand up the reference set and the engagement file.",
+        "Me: send Barbara Blair the list of what we need to fix the scope, and turn her descriptions into a written search scope for Heather Munoz to approve before any searching begins.",
+        "Heather Munoz: review and sign off the search scope once it is drafted, so the searching runs against something she has approved rather than against my read alone."
       ],
-      "rows": [
-        [
-          "Confirm in writing that the disposable element is within the agreed device description",
-          "Barbara Blair",
-          "Open; blocking the second half of the charting"
-        ],
-        [
-          "Complete claim charts for the remaining material references",
-          "Richard Henderson",
-          "In progress"
-        ],
-        [
-          "Brief the prosecution history estoppel question on the narrowed element",
-          "Kelly Snyder",
-          "Opened at this meeting"
-        ],
-        [
-          "Fix a construction position for the disputed element, or record why it stays open",
-          "Heather Munoz",
-          "Open"
-        ],
-        [
-          "Docket the checkpoints for the analysis and drafting phases and confirm back",
-          "Kelly Snyder",
-          "Done at this meeting"
-        ],
-        [
-          "Circulate the assumption log with the next set of charts",
-          "Richard Henderson",
-          "Open"
-        ]
-      ],
+      "header": [],
+      "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Nothing in these minutes is a conclusion on infringement. The conclusions will be in the memorandum, stated after what was searched and what was assumed, and not before.",
+      "text": "Keep everything on the docket as we go. Every reference we pull, every chart, and every date tied to this matter belongs in the engagement file and not in anyone's private notes. Kelly Snyder owns that file; route things to her so a single record stays complete.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The first thing that has to happen is the scope. I will have a draft to Heather Munoz once Barbara Blair's descriptions are in, and the searching starts after she approves it.",
       "level": 1,
       "items": [],
       "header": [],

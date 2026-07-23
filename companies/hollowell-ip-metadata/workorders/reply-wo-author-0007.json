@@ -1,141 +1,250 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0007",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0034",
+      "doc_id": "d:0037",
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: David Chang"
+          "text": "Hollowell Patent Group PLLC",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Prepared by Mary Bradley, Managing Partner. For the personnel file and for the new hire's own reference."
+          "text": "Hollowell Patent Group is a patent boutique. We build and defend patent portfolios for companies whose products depend on the claims holding up, and we keep the practice deliberately small, so that the agents and attorneys who take a client's first call are the same people who prosecute that client's applications and answer for them afterward. What follows describes what the firm does, how the work is organized, and the standards the practice holds itself to."
+        },
+        {
+          "kind": "heading",
+          "text": "What the Firm Does",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "David Chang joins us as a Patent Agent in the Prosecution group. He comes in on the hardware side of the practice, which is where the work has been piling up, and he will be carrying live files rather than reading about them from the sidelines. I have told him as much already, so this record only puts it somewhere he can find it later."
+          "text": "The firm's center of gravity is patent prosecution: drafting new applications, filing them, and carrying them through examination, which means writing the office-action responses and claim amendments that answer an examiner's rejections rather than handing a client a filing and stepping away. Most of that work sits in the technologies our clients actually build, which for this firm has meant a steady diet of medical-device and hardware matters, where the claims sit close to the engineering and a drafting choice made early is expensive to unwind years later."
         },
         {
           "kind": "paragraph",
-          "text": "David sits with Prosecution and takes first-chair drafting on new families as they come in, with a partner signing out until both of us have seen enough of the work to stop looking. Inventor interviews are his to run. We do not treat the interview as a formality that precedes the drafting; it is the drafting, done out loud, and a disclosure that comes back thin is a problem to be solved then rather than at the response stage. His docket starts small. It will not stay small."
+          "text": "Three related lines of work run alongside prosecution. We manage portfolios by family and technology, so that decisions to file, maintain, or let a patent lapse are made against the whole rather than one matter at a time; we prepare freedom-to-operate, patentability, and related opinions, qualified to the degree the question and the record actually warrant and marked privileged where they belong; and we produce the structured portfolio reviews and short client updates that keep an owner current on where each family stands. None of these is billed as an add-on to prosecution so much as a different view of the same portfolio, read at a different range."
+        },
+        {
+          "kind": "heading",
+          "text": "How Clients Hear From the Firm",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "First-period logistics and expectations:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Confirm in your first week that every family assigned to you appears on your docket list, and say so the same day if one does not. An entry you never saw is still an entry you missed.",
-            "Read the docketing procedures end to end before you rely on them. You should be able to read a due-date entry, and its calculation, without asking anyone.",
-            "Run the conflicts check before any substantive contact with an inventor or a client contact, including the informal kind.",
-            "Mark privileged work product as privileged when you create it, not when someone asks for it.",
-            "Enter your own time daily, against the matter and the docket number. Reconstructed time is an estimate, and we do not bill estimates.",
-            "Keep whatever parallel notes you keep. Nobody here will ask you to give them up, and I would rather you over-record a family than trust your memory of it."
-          ]
+          "text": "The firm reports the way the work actually moves. Routine updates are short and go out against a docket number, so that a client can file a note and find it again later without reading a page of preamble to recover a single date. Portfolio reviews are the opposite in every respect, long and structured and organized by family, because a portfolio is only legible when the related matters are read together rather than one at a time."
         },
         {
           "kind": "paragraph",
-          "text": "One expectation is not negotiable, and it is the only one worth putting in writing on your second day. We can absorb a weak argument, a rejection we did not expect, a client who disagrees with our read of a claim. We cannot absorb a missed date. If a deadline is at risk, you raise it while it is still a scheduling problem and there are options; you do not raise it afterward, when there is only a disclosure to make. No one at this firm has ever been criticized for flagging a date early, and no one ever will be."
+          "text": "When a board wants the whole picture at once, the firm will put the portfolio on a page, and it will do so without letting a one-page summary imply a certainty the underlying files do not carry. The register changes with the audience, but the discipline behind it does not, and every number, date, and status in a client-facing document traces back to the firm's own records rather than to a drafter's memory."
+        },
+        {
+          "kind": "heading",
+          "text": "Representative Client Work",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Welcome aboard. Questions about scope, conflicts, or anything a client will eventually read come to Mary directly, and they are never an interruption."
+          "text": "The firm's clients are confidential to the matters they belong to, but a few engagements illustrate the shape of a typical relationship more usefully than a description would. The firm's work for {{fact:f:E-2019-001.client}}, for {{fact:f:E-2020-001.client}}, and for {{fact:f:E-2021-001.client}} is representative of the practice: portfolios prosecuted and managed over a span of years, organized by family, and reported against a docket the client can rely on. These are offered as examples of how the firm engages, drawn from its recent work, and not as an accounting of everyone the firm represents."
+        },
+        {
+          "kind": "heading",
+          "text": "The Standards Behind the Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "How the firm takes a matter is part of the service it provides. Every engagement opens with a letter that states in plain terms what the firm will do, what it costs, who does the work, and what happens if an invoice goes unpaid, because a scope question is far less costly to settle at the start of a matter than in the middle of a prosecution. A conflicts check runs before any file is opened, and the firm declines the matters it cannot take cleanly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The practice is careful about certainty. Counsel who tells a client that a product does not infringe, flatly and without qualification, has written a liability rather than an opinion, so the firm's memoranda carry the qualifications the analysis supports and no more confidence than the record will bear."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Underneath all of it is the docket, which the firm treats as the one discipline nothing else can make up for. Nothing goes out and no deadline passes without routing through docketing, a confirmed date is not moved without a reason on the record, and a missed date remains the single mistake this practice does not consider survivable."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A company considering whether to move its patent work to the firm should start with a short conversation rather than a written proposal. The next step is to write to Mary Bradley, Managing Partner, who handles new inquiries herself and will run a conflicts check before the firm opens a file."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0044",
+      "doc_id": "d:0038",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dear Ashley,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Your building access is all set, so you should not have to wait on anyone to get in next week. Facilities has you in the entry system under Ashley Williams, your badge is programmed for the suite and the after-hours door, and the elevator will read it for our floor without a call down to the desk. We had the garage list updated at the same time, so parking is covered as well."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the badge does not read on your first morning, come find me and I will walk it down to facilities with you rather than leave you standing in the lobby. Let me know once you have tried it and I will close the ticket."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thanks"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0039",
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Hollowell Patent Group PLLC: Firm Overview"
+          "text": "New Patent Agent: Matthew Parrish",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Hollowell Patent Group PLLC is a patent boutique. We prepare and prosecute patent applications, manage and defend the portfolios that result, and advise clients on what those portfolios can and cannot be relied on to do. We do not practice outside that. Clients who need a general-practice firm generally have one; clients come to us because they want their patent work done by the people who will still be on the file years from now, and because the file is the whole business here rather than one department of it."
+          "text": "Matthew Parrish joined the prosecution group this week, and I am putting this in the file myself, Mary Bradley, so that the people who will work with him know where he sits and what to expect. He comes to us as a patent agent already carrying a full prosecution docket, at home in office actions and examiner interviews, which is exactly the kind of steady production the group set out to add this year. I expect him on live matters within his first weeks rather than after a long settling-in."
         },
         {
           "kind": "paragraph",
-          "text": "The firm is led by its founding partner, Mary Bradley, Managing Partner, and it was built around a narrow proposition. A portfolio is only as sound as the dates standing behind it. Claims can be amended, arguments can be rewritten, an examiner can be persuaded on a second pass. A date that has run cannot be recovered by anyone, at any price, and no amount of good lawyering afterward puts it back. Everything in our practice, including how we staff files and how we bill them, follows from that."
+          "text": "Matthew Parrish will take office-action responses and run examiner interviews on the hardware and device matters that make up most of the group's book, picking them up mid-file as they come off the docket. His way of working suits the firm: he is economical on the page, tracks every response against its docket number, and writes to the record rather than to the reader, which is the right instinct for a file the next person to open it has to be able to trust. I would rather he pick a matter up in flight than shadow one for a month before touching it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "He reports to Heather Munoz, Partner, who will assign his first matters, set their order against the docket, and read behind him until the firm's conventions come without thinking. When two matters both look urgent and the true priority is not obvious, that judgment is Heather's to make and not his to settle by guessing, and raising it early is precisely what the firm wants from him. Her review in the first months is less about the substance of a response than about tuning it to the firm's voice, and he should treat that as part of the work rather than a comment on it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two habits carry more weight here than any written policy, and he appears to hold both: anything resembling an opinion on validity or infringement goes to a partner before it goes anywhere else, and the docket is the one discipline the practice cannot make up for, so he will spend time with the docketing desk in his first days to see how dates are set, confirmed, and held. His access, his seat with the prosecution group, and his opening assignments are already in place, and he should read a stretch of the group's recent office-action responses before he files one of his own. As a first step, he should see Heather Munoz this week to take his first matters."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0042",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Onboarding Record: David Chang",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Chang starts with the prosecution group this week, and I want the file to carry this from me, Mary Bradley, rather than from a form. He joins as a patent agent grounded in the technical detail of the firm's device and hardware prosecution, the part of the work where a claim has to track what the engineering actually does, and that is a bench the group has wanted to deepen for some time. He will draft and amend claims on the mechanical and device matters as they come off the docket, close to the specifications and the figures, and I expect him useful on live matters early rather than after a long ramp."
+        },
+        {
+          "kind": "paragraph",
+          "text": "He is precise and understated on the page, and his prose is hedged by instinct, which is the register this firm wants in a record an examiner and, years later, a court may both read. Just as important, he keeps to the claims and the record and hands anything resembling an opinion to counsel, because a view on validity or infringement is the firm's to give and to stand behind rather than the agent's to venture, and his instinct to escalate that work instead of settling it himself is exactly the discipline the practice depends on. He should hold to that line even when a client on a call presses him to go a step past what the record will support."
+        },
+        {
+          "kind": "paragraph",
+          "text": "He reports to Heather Munoz, Partner, who will assign his matters, set his priorities against the docket, and read behind him until the firm's conventions are automatic. When two deadlines both look like the nearest one, that call is Heather's rather than a guess made under pressure, and the firm treats raising it early as ordinary rather than as an imposition. She will also be the one to tell him when an amendment is close enough to send and when it needs another pass, and in the first months that judgment is worth more to him than any style guide."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The docket is the discipline the whole practice rests on, so in his first days he will sit with the docketing desk to see how dates are set, confirmed, and never quietly moved, since a missed date is the single mistake this firm cannot absorb. His access, his seat with the prosecution group, and his first assignments are already in place, and he should read a stretch of the group's recent claim amendments before drafting one of his own. As a first step, he should meet with Heather Munoz this week to take his opening matters."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0052",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Sharon,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The building's IT vendor is taking the case-management and docket system down for scheduled maintenance over the holiday, and it will be unreachable for the length of the window. Nothing can be filed or docketed while it is offline, so I am flagging it now rather than after the fact. IT will post the exact hours to the firm this afternoon, and I have asked that the notice name Sharon Woods as the contact for any deadline that could land inside it. Please move anything due that day to before the window opens."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0063",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Firm Overview: Hollowell Patent Group PLLC",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Hollowell Patent Group is a boutique patent firm. The practice keeps its book deliberate and its bench close to the technology, so that the agents and attorneys a client meets at the outset are the same people who carry the client's matters through examination and afterward. We chose that scale on purpose, because a portfolio is best served by people who hold its whole history in their heads rather than by a rotating cast reading in from a file each time. This overview sets out the firm's practice areas, a sample of its client work, and the standards it holds itself to."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Service lines"
+          "text": "Practice Areas",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The firm concentrates on patent prosecution and the work that surrounds it, weighted toward the medical-device and hardware matters where the claims sit close to what a client actually builds. Prosecution is the core, and the other lines exist to keep that core coherent over the life of a portfolio rather than one filing at a time. The list below describes how the firm organizes that work rather than the limits of what it will take on."
         },
         {
           "kind": "list",
           "items": [
-            "Preparation and prosecution. Drafting from disclosure through issuance, including inventor interviews run by the person who will write the application, not by an intake layer that hands off a summary.",
-            "Portfolio strategy and family management. Structured reviews organized by family, with written recommendations on what to continue, what to let lapse, and where a continuation is worth the fee.",
-            "Freedom-to-operate and clearance. Written opinions on what the relevant claims require and where the risk sits, delivered under privilege and marked accordingly.",
-            "Post-grant and contested matters. Defensive work on issued claims, and support to litigation counsel where a client's dispute has moved past our lane.",
-            "Licensing and diligence support. Portfolio-side work for transactions, including responding to the diligence questions a counterparty will ask about your files.",
-            "Docketing and maintenance. Date management as a discipline in its own right, not a clerical residue of the other five."
+            "Prosecution. Drafting and filing new applications and carrying them through examination, including the office-action responses and claim amendments that answer an examiner's rejections.",
+            "Portfolio management. Organizing a client's patents by family and technology, so that decisions to file, maintain, or abandon are made against the whole portfolio rather than one matter at a time.",
+            "Opinions and counseling. Freedom-to-operate, patentability, and related analyses, written with the qualifications the question warrants and marked privileged where they belong.",
+            "Review and reporting. Structured portfolio reviews organized by family, and short updates that put the current state of a portfolio in front of a client or a board without overstating it."
           ]
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "How we work"
+          "text": "Representative Client Work",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We bill by the matter, and we say so at the outset. Our engagement letters are explicit about scope, about conflicts, and about what happens if an invoice goes unpaid. That plainness occasionally costs us a client at the front end. It has never cost us one at the back end, which is where the expensive surprises live."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Portfolio reviews are long and structured, organized by family, and written to be read by someone who was not in the room. Freedom-to-operate memoranda are hedged with care, because the hedges are the analysis. Routine client updates go out as short emails against a docket number, so that a client can search their own inbox and reconstruct a file's history without calling us. When a board wants the portfolio on one page, we will put it on one page, with the qualifications on the page rather than in a footnote nobody reads aloud."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A note on how we write, since clients notice it early. No one at this firm will tell you that a product does not infringe. We will tell you what the claims require, which limitations we think are met and which are not, what a competent adversary would argue against that reading, and what we would want to see before the answer firms up. Counsel who writes an unqualified opinion is not being decisive; they are writing a liability, usually their own and eventually yours."
+          "text": "A handful of engagements show the shape of a typical relationship better than a general description can. The firm's work for {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}, {{fact:f:E-2021-001.client}}, {{fact:f:E-2024-001.client}}, and {{fact:f:E-2025-001.client}} is representative of the practice across recent years: portfolios drafted, prosecuted, and managed by family, and reported against a docket the client can depend on. Each began with an engagement letter and a conflicts check and has been carried by the same small group of agents and attorneys since, which is the pattern the firm aims to repeat rather than the exception it points to. These are illustrative examples of how the firm works, not a roster of everyone it represents."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Representative client work"
+          "text": "Reporting",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our clients include medical device manufacturers, a university licensing office, and venture-backed hardware companies at the stage where the portfolio is still the asset being built. Representative engagements follow. We name them here with permission and describe the work only in general terms."
-        },
-        {
-          "kind": "paragraph",
-          "text": "{{fact:f:E-2019-001.client}} is among our longest-standing clients. The work runs continuously across multiple families, from first disclosure through issuance and into maintenance, with the same attorneys on the families year over year."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For {{fact:f:E-2020-001.client}} we conduct structured portfolio reviews by family and carry the resulting prosecution, including the unglamorous half of the recommendation: the filings that get abandoned on purpose."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Work for {{fact:f:E-2021-001.client}} has centered on clearance and freedom-to-operate analysis ahead of product decisions, with prosecution running alongside it so that the offensive and defensive pictures are drawn by the same hands."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For {{fact:f:E-2024-001.client}} we handle preparation and prosecution across an active docket, with the date management sitting on our side of the line and reported back on a schedule the client set."
-        },
-        {
-          "kind": "paragraph",
-          "text": "{{fact:f:E-2025-001.client}} is our most recent engagement, and the work there is portfolio building in its earliest form: disclosures, interviews, and the sequencing decisions that are cheap now and expensive later."
+          "text": "Clients hear from the firm in the register the work calls for. Routine updates are short and keyed to a docket number, so a client can file one and retrieve it later without wading through preamble to find a single date; portfolio reviews are long and structured and read by family, because the related matters only make sense together; and a board summary will put the whole portfolio on a page without pretending the underlying files are simpler than they are."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Working with us"
+          "text": "How the Firm Engages",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "New matters begin with a conflicts check and an engagement letter that states the scope in terms both sides can hold each other to. If the scope changes, we amend the letter rather than assume. If we cannot take a matter, we say so quickly, and we say why to the extent we are permitted to. We would rather decline a file in a week than carry it badly for a year."
+          "text": "Every matter begins with an engagement letter that states in plain terms what the firm will do, what it costs, who performs the work, and what follows if an invoice goes unpaid, because a scope question is far cheaper to settle at the start than in the middle of a prosecution. The firm runs a conflicts check before it opens any file, and it declines the matters it cannot take cleanly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The firm is careful with certainty in everything a client reads. Counsel who says a product does not infringe, without qualification, has written a liability rather than an opinion, so the firm's memoranda carry the qualifications the analysis supports and no more confidence than the record will bear. A client is better served by an opinion it can act on knowing exactly where its edges are than by a cleaner sentence that will not hold when it is tested."
+        },
+        {
+          "kind": "heading",
+          "text": "The Docket",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The discipline the rest of the practice rests on is the docket. Nothing leaves the firm and no deadline passes without routing through docketing, a date once confirmed is not moved without a reason on the record, and a missed date is the one mistake the firm treats as unrecoverable. Clients tend to feel this less as a policy than as a firm that does not surprise them with a lapsed deadline."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A company weighing a change in patent counsel should begin with a conversation rather than a proposal. The step to take is to reach Mary Bradley, Managing Partner, who meets new inquiries herself and will clear a conflicts check before the firm takes on the matter."
         }
       ]
     }
