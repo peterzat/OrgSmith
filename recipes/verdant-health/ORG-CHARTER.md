@@ -29,6 +29,13 @@ doc_culture:
   # layer at all, so an extractor gets nothing without doing the work.
   scanned_ratio: 0.5
   ocr_layer_rate: 0.0
+  # M16: minuted sessions land on business days (weekends always excluded,
+  # a declared holiday per year across the span).
+  business_calendar:
+    holidays: [2020-05-25, 2021-07-05, 2022-09-05, 2023-11-23, 2024-12-25, 2025-05-26]
+  # M16: the voice layer, fleet-wide.
+  style_specs: true
+  voice_diversify: true
 
 finance:
   # 6% growth against one net new seat over six years. Measured: 24.5% ->
@@ -40,6 +47,8 @@ finance:
 
 engagements:
   count: 4
+  # M16: the engagement ledger is a representative sample, not the whole book.
+  book_is_sample: true
   services: [Service Line Assessment, Physician Compensation Review, Ambulatory Network Study, Revenue Cycle Diagnostic]
 
 graph_targets:

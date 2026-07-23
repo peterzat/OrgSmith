@@ -1,0 +1,111 @@
+{
+  "schema_id": "orgsmith/style-specs@1",
+  "slug": "verdant-health",
+  "specs": [
+    {
+      "person": "p:laura.brown",
+      "voice_register": "warm",
+      "sentence_length": "long",
+      "greeting": "{first},",
+      "closing": "Best regards",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:susan.clark",
+      "voice_register": "plainspoken",
+      "sentence_length": "long",
+      "greeting": "Dear {first},",
+      "closing": "Thanks",
+      "habits": [
+        "opens with the conclusion before the detail",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "'Two asks. First... Second...' as an opener"
+      ]
+    },
+    {
+      "person": "p:daniel.alvarado",
+      "voice_register": "warm",
+      "sentence_length": "short",
+      "greeting": "Hello {first},",
+      "closing": "Best",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:patricia.moore",
+      "voice_register": "warm",
+      "sentence_length": "long",
+      "greeting": "Good morning {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "closes with one clear next step",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:richard.marsh",
+      "voice_register": "plainspoken",
+      "sentence_length": "long",
+      "greeting": "Hi {first},",
+      "closing": "Regards",
+      "habits": [
+        "opens with the conclusion before the detail",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:barbara.freeman",
+      "voice_register": "warm",
+      "sentence_length": "short",
+      "greeting": "Dear {first},",
+      "closing": "Thanks",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:joshua.dougherty",
+      "voice_register": "crisp",
+      "sentence_length": "long",
+      "greeting": "Good morning {first},",
+      "closing": "Regards",
+      "habits": [
+        "closes with one clear next step",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    }
+  ]
+}

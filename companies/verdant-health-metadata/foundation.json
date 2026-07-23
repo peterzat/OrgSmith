@@ -1,0 +1,212 @@
+{
+  "schema_id": "orgsmith/foundation@1",
+  "slug": "verdant-health",
+  "people": [
+    {
+      "id": "p:laura.brown",
+      "name": "Laura Brown",
+      "aliases": [],
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "reports_to": null,
+      "employment": {
+        "start": "2018-02-15",
+        "end": null
+      },
+      "email": "laura.brown@verdanthealthadvisory.com",
+      "phone": "+1 (303) 555-0143",
+      "persona": "Laura sets the firm's register: measured, evidence-led, and allergic to any sentence a general counsel could pick apart. She has spent her career in the unglamorous middle of healthcare operations and treats an overstated conclusion as a liability rather than a flourish. In review she strips recommendations back until the findings actually carry them, and she is the partner clients call when the question is an uncomfortable one.",
+      "title_history": []
+    },
+    {
+      "id": "p:susan.clark",
+      "name": "Susan Clark",
+      "aliases": [],
+      "title": "Principal",
+      "dept": "Advisory",
+      "reports_to": "p:laura.brown",
+      "employment": {
+        "start": "2018-03-15",
+        "end": null
+      },
+      "email": "susan.clark@verdanthealthadvisory.com",
+      "phone": "+1 (617) 555-0106",
+      "persona": "Susan owns the physician-compensation work and is exacting about fair-market-value language, reaching for it only where the analysis has earned it. Her writing is calm and defensible, ordered so a reader meets the finding before the recommendation. Colleagues rely on her to catch the phrase that reads fine internally but would not survive outside counsel.",
+      "title_history": []
+    },
+    {
+      "id": "p:daniel.alvarado",
+      "name": "Daniel Alvarado",
+      "aliases": [],
+      "title": "Principal",
+      "dept": "Advisory",
+      "reports_to": "p:susan.clark",
+      "employment": {
+        "start": "2019-05-29",
+        "end": null
+      },
+      "email": "daniel.alvarado@verdanthealthadvisory.com",
+      "phone": "+1 (312) 555-0178",
+      "persona": "Daniel lives in service-line economics and is happiest reconciling cost accounting until a line item finally tells the truth. He writes plainly and leads with the finding, then labels his recommendations as recommendations rather than smuggling them in as fact. He can be direct, but never a step further than the numbers will support.",
+      "title_history": [
+        {
+          "title": "Senior Consultant",
+          "start": "2019-05-29",
+          "end": "2023-01-27"
+        },
+        {
+          "title": "Principal",
+          "start": "2023-01-28",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p:patricia.moore",
+      "name": "Patricia Moore",
+      "aliases": [],
+      "title": "Analyst",
+      "dept": "Advisory",
+      "reports_to": "p:susan.clark",
+      "employment": {
+        "start": "2018-08-04",
+        "end": "2022-07-19"
+      },
+      "email": "patricia.moore@verdanthealthadvisory.com",
+      "phone": "+1 (206) 555-0138",
+      "persona": "Patricia chases revenue-cycle leakage and has the patience to trace a denied claim through every handoff that touched it. Earlier in her career, she is still learning the firm's compliance-aware register and tends to write tightly, wary of claiming more than she has shown. She is the one who asks the question everyone else assumed was already answered.",
+      "title_history": []
+    },
+    {
+      "id": "p:richard.marsh",
+      "name": "Richard Marsh",
+      "aliases": [],
+      "title": "Engagement Manager",
+      "dept": "Operations",
+      "reports_to": "p:laura.brown",
+      "employment": {
+        "start": "2018-04-15",
+        "end": null
+      },
+      "email": "richard.marsh@verdanthealthadvisory.com",
+      "phone": "+1 (212) 555-0188",
+      "persona": "Richard keeps engagements moving and is the one who wrestles the client's printed-signed-and-scanned paperwork into something the team can actually work from. Pragmatic and unflappable, he translates between consultants and client staff and makes sure full names and titles are used where the relationship calls for it. His notes are brisk and chronological, easy to reconstruct from months later.",
+      "title_history": []
+    },
+    {
+      "id": "p:barbara.freeman",
+      "name": "Barbara Freeman",
+      "aliases": [],
+      "title": "Analyst",
+      "dept": "Advisory",
+      "reports_to": "p:susan.clark",
+      "employment": {
+        "start": "2022-08-16",
+        "end": null
+      },
+      "email": "barbara.freeman@verdanthealthadvisory.com",
+      "phone": "+1 (303) 555-0113",
+      "persona": "Barbara is the quiet, precise analyst whose spreadsheets rarely need a second pass. She prefers to let a clean table make the point and writes sparingly around it, findings first and nothing decorative. Give her a messy data pull and she will return it sorted, footnoted, and defensible.",
+      "title_history": []
+    },
+    {
+      "id": "p:joshua.dougherty",
+      "name": "Joshua Dougherty",
+      "aliases": [],
+      "title": "Analyst",
+      "dept": "Advisory",
+      "reports_to": "p:susan.clark",
+      "employment": {
+        "start": "2022-10-28",
+        "end": null
+      },
+      "email": "joshua.dougherty@verdanthealthadvisory.com",
+      "phone": "+1 (415) 555-0165",
+      "persona": "Joshua is the newest analytical hand, eager and quick, still calibrating the measured tone the firm's audiences expect. He drafts more than is needed and trims it down under review, gradually learning to say only what the evidence supports. He is careful to label a recommendation as such rather than dress it up as a finding.",
+      "title_history": []
+    }
+  ],
+  "external_orgs": [
+    {
+      "id": "x:lopez-mcbride-and-evans",
+      "name": "Lopez, Mcbride and Evans",
+      "org_type": "client"
+    },
+    {
+      "id": "x:johnson-cross-and-gibbs",
+      "name": "Johnson, Cross and Gibbs",
+      "org_type": "client"
+    },
+    {
+      "id": "x:harrison-llc",
+      "name": "Harrison LLC",
+      "org_type": "client"
+    },
+    {
+      "id": "x:sullivan-hall-and-kelly",
+      "name": "Sullivan, Hall and Kelly",
+      "org_type": "client"
+    }
+  ],
+  "external_people": [
+    {
+      "id": "xp:angela.mahoney",
+      "name": "Angela Mahoney",
+      "org": "x:lopez-mcbride-and-evans",
+      "title": "General Manager",
+      "email": "angela.mahoney@lopezmcbrideandevans.com",
+      "affiliations": [
+        {
+          "org": "x:johnson-cross-and-gibbs",
+          "start": null,
+          "end": "2022-12-22"
+        },
+        {
+          "org": "x:lopez-mcbride-and-evans",
+          "start": "2022-12-23",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "xp:laura.phillips",
+      "name": "Laura Phillips",
+      "org": "x:johnson-cross-and-gibbs",
+      "title": "Chief Financial Officer",
+      "email": "laura.phillips@johnsoncrossandgibbs.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:joseph.nichols",
+      "name": "Joseph Nichols",
+      "org": "x:harrison-llc",
+      "title": "Chief Financial Officer",
+      "email": "joseph.nichols@harrisonllc.com",
+      "affiliations": []
+    },
+    {
+      "id": "xp:megan.wells",
+      "name": "Megan Wells",
+      "org": "x:sullivan-hall-and-kelly",
+      "title": "Director of Operations",
+      "email": "megan.wells@sullivanhallandkelly.com",
+      "affiliations": []
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2018-01-15",
+      "summary": "Verdant Health Advisory LLC founded.",
+      "ground_truth_tags": [
+        "founding"
+      ]
+    },
+    {
+      "date": "2019-08-15",
+      "summary": "Firm moved into its current office.",
+      "ground_truth_tags": [
+        "facilities"
+      ]
+    }
+  ]
+}

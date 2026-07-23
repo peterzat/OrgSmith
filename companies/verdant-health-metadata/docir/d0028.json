@@ -1,0 +1,175 @@
+{
+  "schema_id": "orgsmith/docir@1",
+  "doc_id": "d:0028",
+  "blocks": [
+    {
+      "kind": "paragraph",
+      "text": "Minutes of our working session on the revenue cycle diagnostic for Sullivan, Hall and Kelly. Recorded by Daniel Alvarado.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Attendees",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Daniel Alvarado, Principal, Advisory",
+        "Susan Clark, Principal, Advisory",
+        "Megan Wells, Director of Operations, Sullivan, Hall and Kelly"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Discussion",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We have a base we can trust, which was the thing we most needed before drawing any conclusion. The claim and remittance data now reconciles to the ledger {{fact:f:E-2024-001.client}} keeps. From here the work is measurement, not assembly.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The scanned documents cost us a little time, as we expected they would. The contracting office's executed statements reached us as images with no text, so Susan Clark had them read and keyed by hand. It was a small delay and it is behind us now.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The denial pattern is the first thing worth naming, though we are naming it as a finding to confirm and not a conclusion. A large share of denials trace to the front end, to eligibility and authorization, rather than to coding. If that holds, the fix sits earlier in the cycle than the client had expected.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The receivables tell a related story. One commercial payer is running well past its peers on days in AR, and the aging is concentrated there rather than spread across the book. We want to separate slow from denied before we say anything more about it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The write-off data is worth a careful look, and we have started on it. A share of what has been written off was never appealed, and some of that may have been recoverable. We are not ready to put a number on it yet, only to say the category is real.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Charge capture looks cleaner than the denials on first read. The charges we sampled match the documentation, so undercoding may be the smaller problem here. We will still size it before we set it aside.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Megan Wells walked us through how registration actually runs on the floor, which changed how we read the eligibility denials. Some of what looks like a process gap is a system that does not carry an authorization field where the staff would use it. That is a useful distinction, and it points at a different remedy.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We also agreed to hold the scope where it is. There is a temptation to drift into fixing the front end while we are in it, and we are resisting it. The diagnostic tells the client where the losses sit; the remedy is a separate conversation, and we said as much to Megan Wells.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We are keeping recommendations out of these minutes on purpose. They belong in the report, set after the findings that carry them. For now the two open items are the denial causes and the underpayment check, and we hold the next session once both are tested. Nothing agreed here is left to memory; the items below carry an owner against each.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Action Items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [
+        "Item",
+        "Owner",
+        "Status"
+      ],
+      "rows": [
+        [
+          "Confirm the share of denials originating in eligibility and authorization",
+          "Daniel Alvarado",
+          "Open"
+        ],
+        [
+          "Separate slow-paying receivables from denied ones for the outlier payer",
+          "Susan Clark",
+          "In progress"
+        ],
+        [
+          "Key the remaining scanned statements from the contracting office",
+          "Susan Clark",
+          "In progress"
+        ],
+        [
+          "Check paid claims against contracted rates for the top three payers",
+          "Daniel Alvarado",
+          "Open"
+        ],
+        [
+          "Send Sullivan, Hall and Kelly our questions on the registration workflow",
+          "Daniel Alvarado",
+          "Open"
+        ]
+      ],
+      "signers": []
+    }
+  ]
+}

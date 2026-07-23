@@ -1,0 +1,164 @@
+{
+  "schema_id": "orgsmith/engagements@1",
+  "slug": "verdant-health",
+  "engagements": [
+    {
+      "id": "E-2020-001",
+      "title": "Service Line Assessment for Johnson, Cross and Gibbs",
+      "client": "x:johnson-cross-and-gibbs",
+      "start": "2020-08-04",
+      "end": "2021-02-22",
+      "fee": 53000,
+      "internal_participants": [
+        "p:daniel.alvarado",
+        "p:patricia.moore",
+        "p:susan.clark"
+      ],
+      "external_participants": [
+        "xp:angela.mahoney"
+      ],
+      "summary": "Service Line Assessment engagement for Johnson, Cross and Gibbs, running August 2020 through February 2021 at a fixed fee of $53,000.",
+      "facts": [
+        {
+          "id": "f:E-2020-001.fee",
+          "kind": "money",
+          "value": 53000,
+          "rendered": "$53,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.start",
+          "kind": "date",
+          "value": "2020-08-04",
+          "rendered": "August 4, 2020",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2020-001.client",
+          "kind": "text",
+          "value": "Johnson, Cross and Gibbs",
+          "rendered": "Johnson, Cross and Gibbs",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2021-001",
+      "title": "Physician Compensation Review for Johnson, Cross and Gibbs",
+      "client": "x:johnson-cross-and-gibbs",
+      "start": "2021-06-10",
+      "end": "2021-09-12",
+      "fee": 114500,
+      "internal_participants": [
+        "p:patricia.moore",
+        "p:daniel.alvarado"
+      ],
+      "external_participants": [
+        "xp:laura.phillips"
+      ],
+      "summary": "Physician Compensation Review engagement for Johnson, Cross and Gibbs, running June 2021 through September 2021 at a fixed fee of $114,500.",
+      "facts": [
+        {
+          "id": "f:E-2021-001.fee",
+          "kind": "money",
+          "value": 114500,
+          "rendered": "$114,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2021-001.start",
+          "kind": "date",
+          "value": "2021-06-10",
+          "rendered": "June 10, 2021",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2021-001.client",
+          "kind": "text",
+          "value": "Johnson, Cross and Gibbs",
+          "rendered": "Johnson, Cross and Gibbs",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2023-001",
+      "title": "Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "client": "x:lopez-mcbride-and-evans",
+      "start": "2023-02-13",
+      "end": "2023-09-06",
+      "fee": 54500,
+      "internal_participants": [
+        "p:barbara.freeman",
+        "p:joshua.dougherty",
+        "p:daniel.alvarado"
+      ],
+      "external_participants": [
+        "xp:angela.mahoney"
+      ],
+      "summary": "Ambulatory Network Study engagement for Lopez, Mcbride and Evans, running February 2023 through September 2023 at a fixed fee of $54,500.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "kind": "money",
+          "value": 54500,
+          "rendered": "$54,500",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "kind": "date",
+          "value": "2023-02-13",
+          "rendered": "February 13, 2023",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "kind": "text",
+          "value": "Lopez, Mcbride and Evans",
+          "rendered": "Lopez, Mcbride and Evans",
+          "location_policy": "body"
+        }
+      ]
+    },
+    {
+      "id": "E-2024-001",
+      "title": "Revenue Cycle Diagnostic for Sullivan, Hall and Kelly",
+      "client": "x:sullivan-hall-and-kelly",
+      "start": "2024-03-01",
+      "end": "2024-09-13",
+      "fee": 53000,
+      "internal_participants": [
+        "p:susan.clark",
+        "p:daniel.alvarado"
+      ],
+      "external_participants": [
+        "xp:megan.wells"
+      ],
+      "summary": "Revenue Cycle Diagnostic engagement for Sullivan, Hall and Kelly, running March 2024 through September 2024 at a fixed fee of $53,000.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "kind": "money",
+          "value": 53000,
+          "rendered": "$53,000",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2024-001.start",
+          "kind": "date",
+          "value": "2024-03-01",
+          "rendered": "March 1, 2024",
+          "location_policy": "body"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "kind": "text",
+          "value": "Sullivan, Hall and Kelly",
+          "rendered": "Sullivan, Hall and Kelly",
+          "location_policy": "body"
+        }
+      ]
+    }
+  ]
+}

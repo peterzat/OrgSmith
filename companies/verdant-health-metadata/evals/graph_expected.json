@@ -1,0 +1,291 @@
+{
+  "schema_id": "orgsmith/graph-expected@1",
+  "slug": "verdant-health",
+  "entities": [
+    {
+      "id": "x:verdant-health",
+      "canonical": "Verdant Health Advisory LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "p:laura.brown",
+      "canonical": "Laura Brown",
+      "aliases": [
+        "laura.brown@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:susan.clark",
+      "canonical": "Susan Clark",
+      "aliases": [
+        "susan.clark@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:daniel.alvarado",
+      "canonical": "Daniel Alvarado",
+      "aliases": [
+        "daniel.alvarado@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:patricia.moore",
+      "canonical": "Patricia Moore",
+      "aliases": [
+        "patricia.moore@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:richard.marsh",
+      "canonical": "Richard Marsh",
+      "aliases": [
+        "richard.marsh@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:barbara.freeman",
+      "canonical": "Barbara Freeman",
+      "aliases": [
+        "barbara.freeman@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "p:joshua.dougherty",
+      "canonical": "Joshua Dougherty",
+      "aliases": [
+        "joshua.dougherty@verdanthealthadvisory.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "x:lopez-mcbride-and-evans",
+      "canonical": "Lopez, Mcbride and Evans",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:johnson-cross-and-gibbs",
+      "canonical": "Johnson, Cross and Gibbs",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:harrison-llc",
+      "canonical": "Harrison LLC",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "x:sullivan-hall-and-kelly",
+      "canonical": "Sullivan, Hall and Kelly",
+      "aliases": [],
+      "kind": "org",
+      "tags": []
+    },
+    {
+      "id": "xp:angela.mahoney",
+      "canonical": "Angela Mahoney",
+      "aliases": [
+        "angela.mahoney@lopezmcbrideandevans.com"
+      ],
+      "kind": "person",
+      "tags": [
+        "ambiguity:multi-affiliation"
+      ]
+    },
+    {
+      "id": "xp:laura.phillips",
+      "canonical": "Laura Phillips",
+      "aliases": [
+        "laura.phillips@johnsoncrossandgibbs.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:joseph.nichols",
+      "canonical": "Joseph Nichols",
+      "aliases": [
+        "joseph.nichols@harrisonllc.com"
+      ],
+      "kind": "person",
+      "tags": []
+    },
+    {
+      "id": "xp:megan.wells",
+      "canonical": "Megan Wells",
+      "aliases": [
+        "megan.wells@sullivanhallandkelly.com"
+      ],
+      "kind": "person",
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "src": "p:laura.brown",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-02-15",
+      "end": null
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "p:laura.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-03-15",
+      "end": null
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2019-05-29",
+      "end": null
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-08-04",
+      "end": null
+    },
+    {
+      "src": "p:richard.marsh",
+      "dst": "p:laura.brown",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:richard.marsh",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2018-04-15",
+      "end": null
+    },
+    {
+      "src": "p:barbara.freeman",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:barbara.freeman",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2022-08-16",
+      "end": null
+    },
+    {
+      "src": "p:joshua.dougherty",
+      "dst": "p:susan.clark",
+      "kind": "reports_to",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "p:joshua.dougherty",
+      "dst": "x:verdant-health",
+      "kind": "works_at",
+      "start": "2022-10-28",
+      "end": null
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "x:johnson-cross-and-gibbs",
+      "kind": "works_at",
+      "start": null,
+      "end": "2022-12-22"
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "x:lopez-mcbride-and-evans",
+      "kind": "works_at",
+      "start": "2022-12-23",
+      "end": null
+    },
+    {
+      "src": "xp:laura.phillips",
+      "dst": "x:johnson-cross-and-gibbs",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:joseph.nichols",
+      "dst": "x:harrison-llc",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "xp:megan.wells",
+      "dst": "x:sullivan-hall-and-kelly",
+      "kind": "works_at",
+      "start": null,
+      "end": null
+    },
+    {
+      "src": "x:johnson-cross-and-gibbs",
+      "dst": "x:verdant-health",
+      "kind": "client_of",
+      "start": "2020-08-04",
+      "end": null
+    },
+    {
+      "src": "x:lopez-mcbride-and-evans",
+      "dst": "x:verdant-health",
+      "kind": "client_of",
+      "start": "2023-02-13",
+      "end": null
+    },
+    {
+      "src": "x:sullivan-hall-and-kelly",
+      "dst": "x:verdant-health",
+      "kind": "client_of",
+      "start": "2024-03-01",
+      "end": null
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:laura.brown",
+      "persona": "Laura sets the firm's register: measured, evidence-led, and allergic to any sentence a general counsel could pick apart. She has spent her career in the unglamorous middle of healthcare operations and treats an overstated conclusion as a liability rather than a flourish. In review she strips recommendations back until the findings actually carry them, and she is the partner clients call when the question is an uncomfortable one."
+    },
+    {
+      "person_id": "p:susan.clark",
+      "persona": "Susan owns the physician-compensation work and is exacting about fair-market-value language, reaching for it only where the analysis has earned it. Her writing is calm and defensible, ordered so a reader meets the finding before the recommendation. Colleagues rely on her to catch the phrase that reads fine internally but would not survive outside counsel."
+    },
+    {
+      "person_id": "p:daniel.alvarado",
+      "persona": "Daniel lives in service-line economics and is happiest reconciling cost accounting until a line item finally tells the truth. He writes plainly and leads with the finding, then labels his recommendations as recommendations rather than smuggling them in as fact. He can be direct, but never a step further than the numbers will support."
+    },
+    {
+      "person_id": "p:patricia.moore",
+      "persona": "Patricia chases revenue-cycle leakage and has the patience to trace a denied claim through every handoff that touched it. Earlier in her career, she is still learning the firm's compliance-aware register and tends to write tightly, wary of claiming more than she has shown. She is the one who asks the question everyone else assumed was already answered."
+    },
+    {
+      "person_id": "p:richard.marsh",
+      "persona": "Richard keeps engagements moving and is the one who wrestles the client's printed-signed-and-scanned paperwork into something the team can actually work from. Pragmatic and unflappable, he translates between consultants and client staff and makes sure full names and titles are used where the relationship calls for it. His notes are brisk and chronological, easy to reconstruct from months later."
+    },
+    {
+      "person_id": "p:barbara.freeman",
+      "persona": "Barbara is the quiet, precise analyst whose spreadsheets rarely need a second pass. She prefers to let a clean table make the point and writes sparingly around it, findings first and nothing decorative. Give her a messy data pull and she will return it sorted, footnoted, and defensible."
+    },
+    {
+      "person_id": "p:joshua.dougherty",
+      "persona": "Joshua is the newest analytical hand, eager and quick, still calibrating the measured tone the firm's audiences expect. He drafts more than is needed and trims it down under review, gradually learning to say only what the evidence supports. He is careful to label a recommendation as such rather than dress it up as a finding."
+    }
+  ]
+}
