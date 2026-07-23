@@ -1082,6 +1082,18 @@ class _Planner:
                 if p.employment.start <= date
                 and (p.employment.end is None or p.employment.end >= date)
             ]
+            if not employed:
+                first = min(
+                    p.employment.start for p in self.foundation.people
+                )
+                raise SystemExit(
+                    f"docplan: noise wants {noise.stale_templates} stale "
+                    f"template(s) but nobody is employed on {date}, drawn "
+                    f"from the first half of date_range "
+                    f"[{self.range_start}..{self.range_end}]; the roster "
+                    f"does not start until {first} -- set stale_templates "
+                    f"to 0 or start date_range on or after {first}"
+                )
             author = employed[srng.randrange(len(employed))]
             path = f"Templates/{prefix} Template.docx"
             if nrng is not None:

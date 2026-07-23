@@ -486,6 +486,19 @@ def noise_01(ctx: Context):
                 f"planned empty directory {rel!r} is not empty",
                 rel,
             )
+        # The allowance is name-scoped, so bound it by content too: the
+        # placeholder is unmanifested and no manifest-driven rule opens it,
+        # which would make it the one file in the share that could carry
+        # arbitrary bytes unchecked. It is written empty; anything else is
+        # tamper evidence.
+        placeholder = target / EMPTY_DIR_PLACEHOLDER
+        if placeholder.is_file() and placeholder.stat().st_size:
+            yield (
+                f"git placeholder in planned empty directory {rel!r} "
+                f"carries {placeholder.stat().st_size} bytes; the "
+                f"placeholder is transport, not content",
+                f"{rel}/{EMPTY_DIR_PLACEHOLDER}",
+            )
     by_id = {e.doc_id: e for e in ctx.manifest}
     derived = [e for e in ctx.manifest if e.authoring == "derived"]
     plans_files = any(

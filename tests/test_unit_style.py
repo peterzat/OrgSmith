@@ -70,6 +70,32 @@ def test_specs_cover_the_roster_deterministically(style_org):
         assert len(s.habits) == 2 and len(s.banned_tics) == 2
 
 
+def test_habits_are_never_self_contradictory(style_org):
+    """A flat habit pool could hand one person both list-formatting habits
+    (~6% of streams), and _style_guidance joins them verbatim into the brief:
+    "You habitually: avoids lists entirely and writes in paragraphs; prefers
+    numbered lists over bullet points." Drawing at most one habit per
+    exclusion group is what rules that out, so assert the property over many
+    per-person streams rather than over one roster."""
+    from orgsmith.foundation.style import _HABIT_GROUPS
+
+    charter = load_charter(style_org)
+    foundation = load_foundation(style_org)
+    seen = set()
+    for i in range(500):
+        charter.seed = 20260714 + i
+        for s in derive_style_specs(charter, foundation).specs:
+            assert len(set(s.habits)) == 2
+            for group in _HABIT_GROUPS:
+                assert len(set(s.habits) & set(group)) <= 1, (
+                    f"{s.person} drew two habits from one exclusion group: "
+                    f"{s.habits}"
+                )
+            seen.update(s.habits)
+    # The grouping must not strand a habit: every one is still drawable.
+    assert seen == {h for group in _HABIT_GROUPS for h in group}
+
+
 def test_run_acl_writes_the_ledger_and_sty01_passes(style_org):
     on_disk = load_style_specs(style_org)
     assert on_disk is not None

@@ -587,6 +587,29 @@ def test_stale_over_demand_fails_actionably(tmp_path):
         _pure(tmp_path, stale_templates=99)
 
 
+def test_stale_template_fails_actionably_on_an_unstaffed_date(tmp_path):
+    """A recipe whose date_range opens in its founding year has a window
+    before the first hire, and the template date is drawn from the first half
+    of the range, so it can land there. The charter only requires
+    date_range[0].year >= founded, so this is a legal recipe. Seed pinned
+    from a 120-seed sweep in which 12 seeds hit the window; before the guard
+    this left the planner as a raw ValueError from randrange(0)."""
+    dest = tmp_path / "recipes" / "dev-mini"
+    dest.mkdir(parents=True)
+    text = base_recipe_text()
+    anchor = "  format_mix: {docx: 15, pdf: 3, xlsx: 5}\n"
+    assert anchor in text and "founded: 2018\n" in text
+    assert "seed: 20260714\n" in text
+    text = text.replace(anchor, anchor + "  noise:\n    stale_templates: 2\n")
+    text = text.replace("founded: 2018\n", "founded: 2019\n")
+    text = text.replace("seed: 20260714\n", "seed: 20260715\n")
+    dest.joinpath("ORG-CHARTER.md").write_text(text)
+    p = OrgPaths(root=tmp_path, slug="dev-mini")
+    with pytest.raises(SystemExit, match="nobody is employed"):
+        for stage in (run_charter, run_scaffold, run_fabric, run_docplan):
+            assert stage(p) == 0
+
+
 # --- M15 noise v2: filename variety ---------------------------------------
 
 
@@ -730,6 +753,27 @@ def test_noise01_fires_on_missing_or_filled_empty_dir(tmp_path):
     findings = [msg for msg, _ in noise_01(Context.load(p))]
     assert any("missing from the share" in m for m in findings)
     assert any("is not empty" in m for m in findings)
+
+
+def test_noise01_fires_on_a_placeholder_carrying_content(tmp_path):
+    """The .gitkeep allowance is name-scoped in NOISE-01 and MAN-01, and the
+    file is unmanifested, so no manifest-driven rule opens it. Bound it by
+    content too, or it is the one file in the share that can carry arbitrary
+    bytes past the whole validator."""
+    from orgsmith.artifacts import load_charter
+    from orgsmith.render.noise import expected_empty_dirs
+
+    p = _pure(tmp_path, empty_dirs=2)
+    run_enrichment(p)
+    run_authoring(p)
+    assert run_render(p) == 0
+    dirs = expected_empty_dirs(load_charter(p), load_manifest(p))
+    assert list(noise_01(Context.load(p))) == []
+
+    (p.share_dir / dirs[0] / ".gitkeep").write_text("smuggled payload")
+    findings = list(noise_01(Context.load(p)))
+    assert any("carries 16 bytes" in msg for msg, _ in findings)
+    assert [loc for _, loc in findings] == [f"{dirs[0]}/.gitkeep"]
 
 
 def test_empty_dirs_over_demand_fails_at_plan_time(tmp_path):

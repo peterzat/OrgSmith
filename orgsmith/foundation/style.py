@@ -23,13 +23,20 @@ _GREETINGS = (
     "Dear {first},",
 )
 _CLOSINGS = ("Best", "Regards", "Thanks", "Best regards", "Sincerely")
-_HABITS = (
-    "prefers numbered lists over bullet points",
-    "avoids lists entirely and writes in paragraphs",
-    "keeps paragraphs to two or three sentences",
-    "opens with the conclusion before the detail",
-    "closes with one clear next step",
-    "sets context in a sentence before making any request",
+# Grouped, not flat: at most one habit is drawn from any group, so habits
+# that contradict each other can never land on the same person. A flat pool
+# handed ~6% of people both list-formatting habits at once, and the brief
+# joined them verbatim ("avoids lists entirely...; prefers numbered
+# lists..."). Single-member groups are habits nothing else excludes.
+_HABIT_GROUPS = (
+    (
+        "prefers numbered lists over bullet points",
+        "avoids lists entirely and writes in paragraphs",
+    ),
+    ("keeps paragraphs to two or three sentences",),
+    ("opens with the conclusion before the detail",),
+    ("closes with one clear next step",),
+    ("sets context in a sentence before making any request",),
 )
 _TICS = (
     "'Two asks. First... Second...' as an opener",
@@ -55,7 +62,9 @@ def derive_style_specs(charter, foundation) -> StyleSpecsLedger:
                     sentence_length=r.choice(_SENTENCES),
                     greeting=r.choice(_GREETINGS),
                     closing=r.choice(_CLOSINGS),
-                    habits=sorted(r.sample(_HABITS, 2)),
+                    habits=sorted(
+                        [r.choice(g) for g in r.sample(_HABIT_GROUPS, 2)]
+                    ),
                     banned_tics=sorted(r.sample(_TICS, 2)),
                 )
             )
