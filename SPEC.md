@@ -1,278 +1,228 @@
 # SPEC
 
-## Spec — 2026-07-22 — M15: organizational noise v2, persona voice v2, and the two-dashboard split
+## Spec — 2026-07-23 — M16: regenerate the fleet under the wave's knobs, re-freeze, cut the release
 
-**Goal:** Land the wave's noise and voice capability layers plus the
-measurement split that lets M16 show deltas: derived zero-token noise kinds
-(version chains, misfiles, stale templates, filename variety,
-attachment-version mismatch, empty directories), a structured per-person
-style spec driving per-author briefs, deterministic per-author proxy
-metrics, an integrity-vs-realism reporting split with distributional
-numbers published against the still-frozen fleet, and dev-mini's one-time
-regeneration as the voice proof bed, closing its incoherent margin.
+**Goal:** Close the realism wave. Turn the M13-M15 capabilities on across the
+whole committed fleet by regenerating all eight orgs once each under updated
+recipes, prove the two capability-only mail-brief fixes on real fixtures,
+board the regenerated fleet, re-freeze (restore `PINNED = SLUGS` fleet-wide
+and replace the carve-out with M11b-style closure), and cut a versioned
+release with an installable package and a reproducible generation container.
 
 ### Acceptance Criteria
 
-- [x] **Additive and inert by default.** `NoiseModel` gains count fields for
-  the new kinds (version chains, misfiled copies, stale templates, empty
-  directories, attachment-version mismatch) plus a filename-variety switch,
-  all defaulting zero/off on the existing schema ids; the per-person style
-  spec lands under a new default-off knob with inert schema defaults. Every
-  committed org (the seven fleet orgs, `calderwood-partners`,
-  `ashcombe-advisory`) loads, validates, re-serializes, and regenerates
-  byte-identically with the new knobs off; `PINNED = SLUGS` stays green;
-  all committed `foundation.json` files re-serialize byte-identically. In
-  particular `calderwood-partners`, whose committed `{duplicates: 15,
-  drafts: 20}` noise is already on, re-plans a byte-identical manifest, so
-  the new fields cannot perturb the existing draw order. New randomness
-  comes only from new `seeds.py` streams, and a knob-off charter draws zero
-  values from every one of them. Every new validator check skips visibly on
-  a knob-off charter and fails on knob-on-with-artifact-missing.
+- [ ] **Recipes updated to the wave's final knobs.** The six fleet recipes
+  gain the baseline realism layer (`business_calendar`, `book_is_sample`,
+  `style_specs`, `voice_diversify`) plus their demonstrators: real mail
+  threads (`doc_culture.mail`) on `hollowell-ip` and `meridian-actuarial`,
+  and the full organizational-noise suite on the exemplar
+  `northgate-staffing`. `ashcombe-advisory` and `calderwood-partners` gain the
+  baseline knobs they lack (both add `style_specs`; `ashcombe` adds
+  `voice_diversify` and `exempt_author_mentions`). Every updated recipe passes
+  `test_fleet_recipe_growth_headcount_and_span_describe_one_firm` (growth,
+  headcount, and span describe one firm; terminal net margin under the 0.40
+  ceiling) and derives with no error. No recipe brief recites its own genre
+  specifications as firm philosophy (closes `recipe-brief-leaks-genre-spec`).
 
-- [x] **Version chains with divergence.** A knob-on org contains a version
-  chain of length 3 or more in which no two members are byte-identical, so
-  hash dedupe cannot collapse it; every non-final member is labeled derived
-  with its source and kind in the manifest and carries a deterministic date
-  earlier than its source's, inside the recipe's date range.
+- [ ] **All eight orgs regenerated wholesale, live through the airlock.** Each
+  org is deleted and re-run end to end from its recipe via `/forge` on
+  `claude-opus-4-8[1m]` at effort `xhigh` (never an in-place edit of ledgers,
+  manifest, or prose); each validates green (every rule its recipe enables, 0
+  errors), scores 100% on all four eval splits (`core`, `distractors`,
+  `noise`, `full`), and is committed with its `GENERATION-REPORT.md`. The same
+  recipe re-derives each org's structure (`foundation.json`, `ledger/`,
+  `docplan/manifest.jsonl`, charter) byte-identically. `PINNED = SLUGS` is
+  green at every commit, including between orgs mid-wave.
 
-- [x] **Misfiled copies.** A misfiled derived copy sits in a folder other
-  than its source's, including across engagement folders; the manifest owns
-  the location; ACL grants and the visibility suite follow the real
-  location automatically (acl derives from the manifest), so a misfile
-  readable by the wrong team is ground truth, never a validator failure.
+- [ ] **Weekend and holiday meetings gone.** Every regenerated fleet org
+  declares a `business_calendar`; `CAL-01` passes; no `meeting_minutes` and no
+  engagement mail lands on a weekend or a declared holiday. The exemplar's
+  previously-cited Saturday 2016-05-28 and 2023-07-04 client working sessions
+  no longer occur. Closes `docplan-has-no-business-day-calendar` for the
+  regenerated fleet.
 
-- [x] **Stale templates.** Stale templates render as genre-shaped documents
-  with bracketed dummy fields, zero planted facts, and zero planned
-  mentions, labeled derived; they are never a retrieval or extraction
-  answer (they remain visibility answers because they are readable
-  documents, mirroring the mundane-genre precedent).
+- [ ] **Overviews stop overstating the book.** Every regenerated fleet org
+  declares its engagement ledger a sample (`book_is_sample`); no firm overview
+  claims its engagements are the whole business, and no overview contradicts
+  the finance ledger's revenue by an order of magnitude. Closes
+  `engagement-ledger-reads-as-whole-book` for the regenerated fleet.
 
-- [x] **Filename variety.** Noise filenames draw from a variant decoration
-  grammar ("Copy of X", "X (1)", "X_old", "X FINAL FINAL" and the like)
-  under the switch; existing kinds' naming stays byte-unchanged; the
-  knob-on org shows at least three distinct decoration patterns.
+- [ ] **Reporting-line drift cleared in prose.** Regenerated onboarding and
+  org-describing prose names no supervisor the ledger's `reports_to` edge
+  contradicts, verified live on fresh prose by the M12 ingest check
+  (`authoring/ingest.py::_check_reporting_line`). Closes `reporting-line-drift`
+  for the regenerated fleet.
 
-- [x] **Attachment-version mismatch.** At least one knob-on transmittal
-  email attaches a non-final version-chain member while the share holds the
-  final; the attached bytes are byte-identical to the manifested draft
-  member; the manifest owns the mismatch relationship; eval attribution
-  stays exact.
+- [ ] **Voice mitigation fleet-wide, measured never gated.** `style_specs` and
+  `voice_diversify` are on for every regenerated fleet org; per-author proxy
+  metrics and same-genre similarity are reported as ranges in each
+  `GENERATION-REPORT.md` and aggregated in `docs/DISTRIBUTIONS.md`; no voice or
+  realism number gates any test tier (the static no-LLM-grades-LLM guard stays
+  green). `cross-document-voice` stays measured and published as the standing
+  hard problem; the fleet-wide mitigation's effect is recorded as a range, not
+  asserted as a fix.
 
-- [x] **Split hygiene and tamper coverage.** Every new noise kind is
-  excluded from the `core` and `distractors` eval splits and included in
-  `noise` and `full` automatically; NOISE-01 (or a successor rule) covers
-  the new kinds so knob-on with labels missing is a failure; ground truth
-  scores 100% on all four splits; MAN-01, FILE-01, and PROV-01 hold
-  unweakened (every derived file manifested, openable, stamped); empty
-  directories recompute from the charter knob; a count with too few
-  eligible sources fails actionably at plan time (the existing `NoiseModel`
-  idiom), never silently under-plans.
+- [ ] **The two mail-brief fixes proven on regenerated fixtures.** (a) On a
+  regenerated org with mail threads (`ashcombe-advisory`, `hollowell-ip`,
+  `meridian-actuarial`), a client-delivered reply reads in a client-appropriate
+  register: the board reads the regenerated prose and the
+  internal-note-delivered-to-the-client finding does not recur (closes the
+  fixture half of `mail-audience-internal-vs-external`). (b) With
+  `exempt_author_mentions` on (`ashcombe-advisory`), a mundane-email author no
+  longer names themselves in the third person in the body; the render-time
+  signature still names the author and validation still passes (closes the
+  fixture half of `mundane-email-author-self-names`).
 
-- [x] **The zero-token pilot noise append.** `ashcombe-advisory` gains the
-  noise kinds under its updated recipe via a wholesale pipeline re-run that
-  reuses its committed DocIR: no authoring batch is dispatched (`state.json`
-  shows none), derived entries are appended, the org re-renders,
-  re-validates green, scores 100% on all four splits, and is re-pinned. The
-  zero-token claim is stated in its `GENERATION-REPORT.md` and is true.
+- [ ] **The board reads all eight.** `/forge-review` dispatches the
+  six-dimension board across all eight regenerated orgs; findings merge into
+  each org's `GENERATION-REPORT.md`. Every finding quoted anywhere outside the
+  raw `review/findings/` files is hand-verified against a ledger before
+  publication (the wave's standing rule, because `board-negative-control`
+  stays open and the false-positive rate stays unmeasured). The board remains
+  read-only and never authored what it reviewed; the static test proving no
+  automated tier can reach the board stays green.
 
-- [x] **Per-person style spec in the ledgers.** Under the new knob, each
-  roster person carries a structured style spec (register, sentence-length
-  bias, greeting and closing forms, formatting habits, banned tics) drawn
-  deterministically from a new stream and stored in the deterministic
-  ledgers; enrichment `persona` prose remains the model's only free-text
-  field, and the spec is never model-authored.
+- [ ] **Re-freeze.** `PINNED = SLUGS` is enforced fleet-wide with every
+  regenerated org pinned; CLAUDE.md's realism-wave carve-out paragraph is
+  replaced with closure language mirroring M11b (additive evolution restored:
+  any post-wave capability defaults off with inert schema defaults and new
+  `seeds.py` streams, proven inert against the frozen fleet before any org
+  turns it on). The README's fleet numbers, the "which fixture proves what"
+  knob table, the "what is not modeled today" findings, `docs/DISTRIBUTIONS.md`,
+  and TESTING.md's cold-open counts all move together to the regenerated
+  reality, with no stale pre-regeneration number or retired-defect quote
+  surviving anywhere in tree.
 
-- [x] **Per-author brief guidance.** Knob-on briefs carry per-author
-  guidance derived from the style spec, auditable in retained work orders;
-  `voice_diversify` v1 keeps meaning exactly what it means for existing
-  recipes; style guidance composes with M14 signatures: style owns
-  salutation and prose habits, the ledger owns signature facts.
+- [ ] **The wave's deltas are visible in git.** The M15-committed frozen-fleet
+  distributions are compared against the regenerated fleet in
+  `docs/DISTRIBUTIONS.md` as a committed before/after (weekend rate, fee/revenue
+  prose posture, per-author voice ranges, noise proportion), so the effect of
+  turning the wave's knobs on is a diff rather than a claim.
 
-- [x] **The two adopted mail-brief fixes.** (a) An engagement-thread reply
-  brief names the recipient and audience (who the message is To, whether
-  the thread is client-facing), so a client-delivered reply is no longer
-  authored as an internal note; unit-tested against the brief text
-  (capability half of `mail-audience-internal-vs-external`; fixture proof
-  lands at M16's pilot regeneration). (b) Mention planning exempts a
-  mail-block email's author from required body mentions, gated so every
-  committed manifest still re-derives byte-identically; the render-time
-  signature still names the author and validation still passes
-  (capability half of `mundane-email-author-self-names`); unit-tested.
+- [ ] **Release cut.** `pyproject.toml` gains `[build-system]`,
+  `[project.scripts]` (a console entry point for `orgsmith`), and
+  `[project.dependencies]` so `pip install .` succeeds from a clean venv;
+  runtime dependencies are hash-locked (or the residual float is stated
+  explicitly); a container image builds the generation environment
+  (WeasyPrint/Pango plus LibreOffice) and `python -m orgsmith doctor` reports
+  green inside it; a versioned `v2.1` tag with a committed checksum manifest of
+  the eight orgs is created. DOI-backed archival is out (it requires an
+  external service and cannot be done offline) and stays in
+  `packaging-and-archival`. Closes the local half of `packaging-and-archival`.
 
-- [x] **Per-author proxy metrics.** `report` computes deterministic
-  per-author metrics with no model (within-author vs cross-author
-  similarity, author consistency over time), reported as ranges beside the
-  existing pre-registered tic table and labeled measure-never-gate; no new
-  metric gates any test tier.
-
-- [x] **The two-dashboard split with frozen-fleet numbers.**
-  `GENERATION-REPORT.md` and the README present Integrity (validator
-  results, byte pin, evals scoring 100% by construction) and Realism
-  (distributions, similarity, voice ranges, board findings) as separate
-  dashboards with a hard line, no number appearing in the wrong context;
-  the distributional dashboard runs against the still-frozen fleet and its
-  numbers are committed before any regeneration so M16 can show deltas;
-  reference lines are documented as non-calibrated context (annotating
-  `external-validity-program`, not closing it).
-
-- [x] **dev-mini regenerated once, coherent.** Under the carve-out,
-  dev-mini's recipe is retuned so growth, headcount, and span describe one
-  firm; the org regenerates wholesale, live through the airlock, with the
-  voice knob on and noise off (the tracer stays bare); it validates green,
-  scores 100% on all four splits, and is re-pinned; `_COHERENCE_EXEMPT` in
-  `tests/test_org_regen.py` is emptied and the coherence test passes on
-  dev-mini unexempted. Closes `dev-mini-margin-incoherent`.
-
-- [x] **Tests, docs, and the ledger of record.** Full `bin/test` (all tiers
-  plus `flagship`) green, keyless and offline, with the byte pin green at
-  every commit including mid-turn; `docs/RECIPE-FORMAT.md` documents the
-  new noise and voice knobs; a `noise-kinds-deliberately-excluded`
-  BACKLOG.md entry records the four user-accepted exclusions
-  (corrupted/unopenable files, personal material, contradictory
-  corrections, broken cross-document links) with reasons and revisit
-  criteria; `generator-fingerprinting` is annotated (filename grammar and
-  voice-template fingerprints eroded; real defenses stay deferred).
+- [ ] **Tests, docs, cost, and provenance.** Full `bin/test` (short + unit +
+  org + `flagship`) green, keyless and offline, with the byte pin green at
+  every commit including mid-wave; `docs/RECIPE-FORMAT.md` reflects any
+  knob-surface changes; the pre-rename working name appears nowhere
+  (`test_short` green). Each org's `GENERATION-REPORT.md` records the model,
+  effort, and batch count that authored it; the total batch/token cost of the
+  ~600-document regeneration is recorded (README or the reports) as a measured
+  figure once the run completes, not a pre-estimate.
 
 ### Context
 
-- **Consumed from the 2026-07-22 proposal; adopted from the M15 section of
-  `~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`** (the approved
-  M13-M16 realism wave). Read that section for the outcome-by-outcome
-  detail; the criteria above reformulate and consolidate its 11 candidate
-  outcomes plus the dev-mini regen.
+- **Consumed from the 2026-07-23 M15-close proposal**, itself the last turn of
+  the approved M13-M16 realism wave (`~/.claude/plans/we-ve-gotten-to-a-squishy-torvalds.md`).
+  The wave's capabilities all exist and are proven inert (M12-M15); M16 does
+  no new capability work — it turns knobs on via recipe edits and regenerates.
+  The two mail-brief fixes are the one exception: they exist gated and
+  unit-tested since M15 with `exempt_author_mentions: false` everywhere, and
+  their fixture proof was scoped to here.
 
-- **Two decisions taken at adoption.** (1) The two M14 pilot-board
-  mail-brief fixes ride M15 rather than M16: M16 is scoped as
-  regeneration, re-freeze, and release, and the additive rule requires a
-  capability to exist and be proven inert before a regeneration can turn
-  it on, so the capability half lands here and the fixture proof lands
-  with M16's pilot regeneration. Both entries' revisit criteria name M15
-  because the same files are touched (`authoring/contexts.py:389` for the
-  reply guidance, `docplan/planner.py:741` `plan_mentions` for the
-  exemption). (2) The dev-mini regeneration also fixes its incoherent
-  margin, closing `dev-mini-margin-incoherent`, since the carve-out's
-  one-time regen is exactly that entry's cheapest revisit path.
+- **The knob assignment (user decision, 2026-07-23).** Chosen strategy:
+  baseline realism fleet-wide plus targeted demonstrators, so the "each
+  fixture proves a different axis" table stays meaningful rather than every
+  org carrying everything.
 
-- **Out of scope (user-accepted exclusions, logged to BACKLOG per the last
-  criterion):** corrupted or unopenable files (FILE-01 stays a tamper
-  oracle), personal material, contradictory corrections, broken
-  cross-document links. Also out: any post-hoc voice-editing pass, any
-  gate on any voice or realism number, showing workers sibling prose (the
-  M10 wall stays down), and fleet-brief rewrites
-  (`recipe-brief-leaks-genre-spec` stays deferred to M16's recipe
-  updates).
+  | org | business_calendar | book_is_sample | style_specs | voice_diversify | mail threads | noise |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | `brackenridge-civil` | ✓ | ✓ | ✓ | ✓ | — | — |
+  | `hollowell-ip` | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+  | `meridian-actuarial` | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+  | `northgate-staffing` (exemplar) | ✓ | ✓ | ✓ | ✓ | — | ✓ |
+  | `saltmarsh-environmental` | ✓ | ✓ | ✓ | ✓ | — | — |
+  | `verdant-health` | ✓ | ✓ | ✓ | ✓ | — | — |
+  | `ashcombe-advisory` (pilot) | ✓ | ✓ | ✓ (add) | ✓ (add) | ✓ + `exempt_author_mentions` | ✓ (full) |
+  | `calderwood-partners` (pilot) | ✓ | ✓ | ✓ (add) | ✓ | — | dup/drafts |
 
-- **Carve-out mechanics.** `ashcombe-advisory` is the wave workbench: its
-  extension is a wholesale pipeline re-run under an updated recipe with
-  committed DocIR reused, never an in-place edit of ledgers, manifest, or
-  prose. `dev-mini` regenerates exactly once, here. `PINNED = SLUGS` must
-  be green at every commit, including between capability landing and
-  regeneration.
+  `exempt_author_mentions: true` goes wherever a mail block carries
+  `mundane_emails > 0`. The exemplar finally carries organizational noise; the
+  two mail demonstrators (`hollowell`, `meridian`) are where the fleet's
+  engagement mail becomes real threads rather than single "Email 1" messages.
 
-- **Inertness edges the pressure test surfaced.** (1) `calderwood-partners`
-  is the sharpest: its noise knob is already on, so new `NoiseModel` fields
-  must not perturb the existing duplicates/drafts draw order (criterion 1
-  pins its manifest byte-identity explicitly). (2) The mention-planning
-  exemption changes pinned manifest content, so it must be gated such that
-  committed manifests re-derive byte-identically until a recipe opts in.
-  (3) Committed `foundation.json` files are frozen and non-re-emittable;
-  wherever the style spec lives, their bytes cannot change (the M14
-  distribution-lists precedent: a derived ledger is the escape hatch if an
-  inert field cannot hold byte-identity).
+- **The exemplar's identity changes, and the README moves with it.** The
+  README's "what is not modeled today" section quotes `northgate-staffing`'s
+  specific defects at length (the Saturday and July-4 meetings, "$425,500 vs
+  $2,469,000", the "Two asks" and "Workstreams" tics, the reporting-line
+  drift). Regenerating northgate with `business_calendar`, `book_is_sample`,
+  the voice layer, and noise fixes three of those on the exemplar itself, so
+  every one of those quotes goes stale and must be rewritten to the
+  regenerated reality — the board finds new things, and the section says what
+  they are. This is the largest doc-drift surface in the turn (criterion 9).
 
-- **CI has no LibreOffice, no model, no network, no key, no wall clock in
-  any test tier.** All new noise kinds derive and validate pure-Python;
-  fixture-validating tests stay keyless and offline, per CLAUDE.md.
+- **Pressure-test edges.** (1) Prose is model-authored and is *not*
+  byte-pinned — only structure is (`foundation`, `ledger`, `manifest`,
+  charter). Regeneration commits new prose and re-pins the new structure;
+  "regenerates byte-identically" always means structure, never prose. (2)
+  Turning a knob on (a calendar, sample posture, noise) legitimately moves the
+  manifest and ledgers, because it is a wholesale re-run under a *new* recipe;
+  the new committed structure becomes the new pin baseline and re-derives from
+  the new recipe. This is expected, not a pin break. (3) `PINNED = SLUGS` is
+  green *at every commit*: regenerate one org fully (delete, re-run, validate,
+  report, board), commit it, confirm the pin, then move to the next — the
+  working tree may hold a half-regenerated org between commits, but no commit
+  ever ships one. (4) `book_is_sample` fixes the overview *prose posture*; it
+  does not couple `base_revenue` to the engagement book, so
+  `recipe-coherence-test-has-no-floor` stays hypothetical and is not adopted.
+
+- **Board scope (user decision, 2026-07-23): all eight.** The largest board
+  surface yet. `board-negative-control` stays open — boarding a fresh fleet is
+  not a measured false-positive rate — so the standing mitigation holds: every
+  finding carried into any README, report summary, or doc is re-verified
+  against a ledger by hand before it is published. `concurrent-workers-share-one-scratchpad`
+  bites a board dispatched across more than one org at once; `/forge-review` is
+  per-slug, so eight single-org boards is eight isolated runs, not one
+  cross-org dispatch — but each `/forge` and `/forge-review` worker must still
+  namespace its scratch by work order.
+
+- **Release scope (user decision, 2026-07-23): re-freeze plus cut the
+  release.** `pip install .`, hash-locked deps, a generation container, and a
+  `v2.1` tag with checksums (criterion 11). DOI archival is out (offline
+  constraint). `provider-neutral-authoring-driver` stays deferred despite the
+  packaging turn: its own entry scopes it out of the M13-M16 wave, and no
+  external consumer yet exists to shape its adapter surface.
+
+- **Cost.** ~600 documents of live authoring across eight orgs — the largest
+  authoring turn in the project. `/forge` is resumable from `state.json`, so a
+  killed session resumes with no duplicated or lost documents; the wave
+  proceeds org by org, committing each as it lands so the pin stays green and a
+  crash never loses more than one in-flight org.
+
+- **The airlock is untouched.** Python never calls a model or the network; no
+  LLM grades an LLM in any automated tier; the noise stages spend zero tokens
+  by construction. CI has no LibreOffice, no model, no network, no key, no wall
+  clock — every committed fixture (legacy binaries included) validates
+  pure-Python. LibreOffice is required on the *generation* box for
+  `brackenridge-civil`'s legacy binaries and inside the release container;
+  `python -m orgsmith doctor` must report `soffice ok` before its regeneration.
 
 - **House practices (zat.env).** Small committable increments with tests in
-  the same increment; run the relevant tier after each functional change.
-  If two consecutive fix attempts fail, revert and re-evaluate. Never
-  modify a test to accommodate a regression. The airlock is untouched:
-  Python never calls a model or the network, no LLM grades an LLM in any
-  automated tier, and the noise stages spend zero tokens by construction.
+  the same increment; run the relevant tier after each functional change. If
+  two consecutive fix attempts fail, revert and re-evaluate. Never modify a
+  test to accommodate a regression. Do not remove, reword, or reorder
+  acceptance criteria; only check them off when verified.
 
-- **Verification (this turn).** `bin/test` all tiers plus `flagship` green,
-  keyless and offline; knob-off byte-identity proofs per capability before
-  any org turns a knob on; the pilot noise append dispatches zero authoring
-  batches; dev-mini regenerates live end to end, validates green, scores
-  100% on all four splits; the frozen-fleet distributional numbers are
-  committed before any regeneration.
+- **Execution (user directed autonomous implementation + push).** Order:
+  update the eight recipes and confirm each derives and coheres; regenerate
+  org by org (recipe edit → `/forge` → validate → score → report → board →
+  commit, pin green each time); then re-freeze (CLAUDE.md closure, README/docs
+  reconciliation, DISTRIBUTIONS before/after); then cut the release (packaging,
+  container, tag). Final `push` triggers the pre-push `/codereview` gate; run
+  it when it blocks.
 
 ---
-*Prior spec (2026-07-21): M14 — email realism (thread mechanics + mailbox
-ecology) under the optional `doc_culture.mail` block, proven by the committed
-and boarded email-first pilot `ashcombe-advisory`; all 12 criteria met.*
+*Prior spec (2026-07-22): M15 — organizational noise v2, persona voice v2, and
+the two-dashboard split; 15/15 criteria met, dev-mini regenerated once and the
+frozen-fleet distributions committed so this turn can show deltas.*
 
-### Proposal (2026-07-23)
-
-**What happened.** M15 closed 15/15 in 18 commits (`bb2f4ae..e16b0ed`). Six
-noise kinds, filename variety, attachment-version mismatch, and a structured
-per-person style spec all landed as default-off knobs proven inert against
-the frozen fleet before any org turned one on. Two orgs then turned them on:
-`ashcombe-advisory` gained 17 derived documents (87 -> 104) as a pipeline
-re-run over its committed DocIR, spending zero tokens — checked, not claimed:
-`docir/` byte-identical, workorders unchanged, 16 generator batches with none
-outstanding. `dev-mini` regenerated live at `xhigh` under a retuned recipe;
-its terminal net margin fell 43.1% -> 22.7%, `_COHERENCE_EXEMPT` is empty,
-and `dev-mini-margin-incoherent` is closed. Reporting split into Integrity
-and Realism dashboards with frozen-fleet distributions committed first, so
-M16's deltas are visible in git. Suite 551 -> 603; byte pin green at every
-commit.
-
-Three things the turn found that the spec did not anticipate, all fixed at
-the cause: git cannot commit an empty directory (each planned junk directory
-now carries a `.gitkeep`, sanctioned by both halves of the twin and nowhere
-else); `style_specs.json` is an `acl`-stage output, so it joins
-`DERIVED_LEDGERS` and is covered by STY-01's recompute instead; and unit
-fixtures were inheriting optional knobs from the tracer recipe, which turned
-one recipe edit into 51 unrelated test failures (`conftest.base_recipe_text`
-now strips them, so fixtures pin their own knobs).
-
-Two M15 capabilities are deliberately unproven on any fixture: the
-mail-audience brief and the mundane-mail author-mention exemption exist,
-gated and unit-tested, with `exempt_author_mentions: false` everywhere. Their
-fixture proof was scoped to M16 at adoption.
-
-**Questions and directions.** M16 is the wave's last turn: regenerate the six
-remaining fleet orgs, `calderwood-partners`, and `ashcombe-advisory` once
-each under updated recipes, re-freeze, and close the carve-out.
-
-1. **Which knobs does each recipe turn on?** Eight orgs, eight recipes, and
-   every wave knob is currently off in all of them. A fleet where each org
-   demonstrates one thing is a different artifact from one where every org
-   carries everything. This is the turn's main design decision and it should
-   be made explicitly rather than knob by knob.
-2. **What proves the two capability-only fixes?** Both need a regenerated org
-   with the knob on plus something that reads the resulting prose. A client
-   reply authored in an internal register is exactly the failure the board
-   found and no automated tier can see.
-3. **What does re-freeze mean concretely?** CLAUDE.md's carve-out paragraph
-   is to be replaced with closure language mirroring M11b, and the README's
-   fleet numbers, the knob table, `docs/DISTRIBUTIONS.md`, and TESTING.md's
-   cold-open counts all move together.
-4. **Board, and at what scope?** Eight regenerated orgs is the largest board
-   surface yet, and `board-negative-control` is still open: the FP rate is
-   unmeasured and every quoted finding still needs hand-verification.
-5. **Cost.** ~600 documents of live authoring. Worth a batch estimate before
-   the spec is written, not after.
-
-**Revisit candidates.**
-
-- `recipe-brief-leaks-genre-spec` — the entry's criterion ("the next time any
-  fleet recipe's brief is edited") fired in M15 on dev-mini, and M16 rewrites
-  all eight briefs. This is the cheapest moment this fix will ever have.
-- `docplan-has-no-business-day-calendar` — criterion is "the fleet is
-  regenerated for any other reason". The knob and CAL-01 shipped in M12; no
-  fleet recipe declares one, and northgate still dates 36% of its documents
-  on weekends, including two meetings that assert attendance.
-- `reporting-line-drift` — needs correcting rather than only reviving: the
-  entry says "nothing checks the prose agrees with it", which M12 made false
-  (`authoring/ingest.py::_check_reporting_line`). What survives is the
-  committed prose in the frozen fleet, which M16's regeneration clears, at
-  which point the entry closes.
-
-1 more in BACKLOG.md: `recipe-coherence-test-has-no-floor`, whose "the test
-is touched for any other reason" criterion fired when M15 emptied
-`_COHERENCE_EXEMPT`.
-
-<!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":15} -->
+<!-- SPEC_META: {"date":"2026-07-23","title":"M16: regenerate the fleet under the wave's knobs, re-freeze, cut the release","criteria_total":12,"criteria_met":0} -->
