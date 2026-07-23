@@ -203,4 +203,76 @@ regeneration as the voice proof bed, closing its incoherent margin.
 ecology) under the optional `doc_culture.mail` block, proven by the committed
 and boarded email-first pilot `ashcombe-advisory`; all 12 criteria met.*
 
+### Proposal (2026-07-23)
+
+**What happened.** M15 closed 15/15 in 18 commits (`bb2f4ae..e16b0ed`). Six
+noise kinds, filename variety, attachment-version mismatch, and a structured
+per-person style spec all landed as default-off knobs proven inert against
+the frozen fleet before any org turned one on. Two orgs then turned them on:
+`ashcombe-advisory` gained 17 derived documents (87 -> 104) as a pipeline
+re-run over its committed DocIR, spending zero tokens — checked, not claimed:
+`docir/` byte-identical, workorders unchanged, 16 generator batches with none
+outstanding. `dev-mini` regenerated live at `xhigh` under a retuned recipe;
+its terminal net margin fell 43.1% -> 22.7%, `_COHERENCE_EXEMPT` is empty,
+and `dev-mini-margin-incoherent` is closed. Reporting split into Integrity
+and Realism dashboards with frozen-fleet distributions committed first, so
+M16's deltas are visible in git. Suite 551 -> 603; byte pin green at every
+commit.
+
+Three things the turn found that the spec did not anticipate, all fixed at
+the cause: git cannot commit an empty directory (each planned junk directory
+now carries a `.gitkeep`, sanctioned by both halves of the twin and nowhere
+else); `style_specs.json` is an `acl`-stage output, so it joins
+`DERIVED_LEDGERS` and is covered by STY-01's recompute instead; and unit
+fixtures were inheriting optional knobs from the tracer recipe, which turned
+one recipe edit into 51 unrelated test failures (`conftest.base_recipe_text`
+now strips them, so fixtures pin their own knobs).
+
+Two M15 capabilities are deliberately unproven on any fixture: the
+mail-audience brief and the mundane-mail author-mention exemption exist,
+gated and unit-tested, with `exempt_author_mentions: false` everywhere. Their
+fixture proof was scoped to M16 at adoption.
+
+**Questions and directions.** M16 is the wave's last turn: regenerate the six
+remaining fleet orgs, `calderwood-partners`, and `ashcombe-advisory` once
+each under updated recipes, re-freeze, and close the carve-out.
+
+1. **Which knobs does each recipe turn on?** Eight orgs, eight recipes, and
+   every wave knob is currently off in all of them. A fleet where each org
+   demonstrates one thing is a different artifact from one where every org
+   carries everything. This is the turn's main design decision and it should
+   be made explicitly rather than knob by knob.
+2. **What proves the two capability-only fixes?** Both need a regenerated org
+   with the knob on plus something that reads the resulting prose. A client
+   reply authored in an internal register is exactly the failure the board
+   found and no automated tier can see.
+3. **What does re-freeze mean concretely?** CLAUDE.md's carve-out paragraph
+   is to be replaced with closure language mirroring M11b, and the README's
+   fleet numbers, the knob table, `docs/DISTRIBUTIONS.md`, and TESTING.md's
+   cold-open counts all move together.
+4. **Board, and at what scope?** Eight regenerated orgs is the largest board
+   surface yet, and `board-negative-control` is still open: the FP rate is
+   unmeasured and every quoted finding still needs hand-verification.
+5. **Cost.** ~600 documents of live authoring. Worth a batch estimate before
+   the spec is written, not after.
+
+**Revisit candidates.**
+
+- `recipe-brief-leaks-genre-spec` — the entry's criterion ("the next time any
+  fleet recipe's brief is edited") fired in M15 on dev-mini, and M16 rewrites
+  all eight briefs. This is the cheapest moment this fix will ever have.
+- `docplan-has-no-business-day-calendar` — criterion is "the fleet is
+  regenerated for any other reason". The knob and CAL-01 shipped in M12; no
+  fleet recipe declares one, and northgate still dates 36% of its documents
+  on weekends, including two meetings that assert attendance.
+- `reporting-line-drift` — needs correcting rather than only reviving: the
+  entry says "nothing checks the prose agrees with it", which M12 made false
+  (`authoring/ingest.py::_check_reporting_line`). What survives is the
+  committed prose in the frozen fleet, which M16's regeneration clears, at
+  which point the entry closes.
+
+1 more in BACKLOG.md: `recipe-coherence-test-has-no-floor`, whose "the test
+is touched for any other reason" criterion fired when M15 emptied
+`_COHERENCE_EXEMPT`.
+
 <!-- SPEC_META: {"date":"2026-07-22","title":"M15: organizational noise v2, persona voice v2, and the two-dashboard split","criteria_total":15,"criteria_met":15} -->
