@@ -6,7 +6,7 @@
   "org_name": "Saltmarsh Environmental Partners LLC",
   "org_type": "environmental consulting",
   "narrative": "Saltmarsh Environmental Partners is a five-person environmental\nconsultancy on a tidal estuary, founded in 2011. Its clients are a port\nauthority, a county conservation district, and private landowners who\nneed a wetland line drawn before they can build. The work is field-heavy:\ndelineations, Phase I assessments, sediment sampling, and the long tail\nof monitoring that a restoration permit requires.\n\nThe documents reflect a firm that lives between a field notebook and a\nregulator. Scopes of work go out as letters and come back countersigned\nand scanned. Sampling programs produce data workbooks whose totals the\nManaging Principal checks before anything is submitted. Monitoring\nreports are written for an agency reviewer who will read them years\nlater, so they say what was measured, where, and on what date, and they\ndo not editorialize.\n\nTone is plain, technical, and careful. Scientists write in the passive\nwhere the method matters and the actor does not. Nobody oversells a\nfinding; a hedge is a professional obligation here, not a weakness. Staff\nuse first names internally and full names with an agency on the page. One\nlong-standing client contact moved from the conservation district to the\nport authority mid-history, and the documents should show it: the same\nperson, the correct employer for the date on the page.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0022",
@@ -19,7 +19,7 @@
           "name": "Angela Flynn",
           "title": "Managing Principal",
           "dept": "Leadership",
-          "persona": "Angela runs the firm the way she ran field crews: decide early, write it down, and never let a number leave the office unchecked. She reads every deliverable before it goes out and is known for striking adjectives, tightening a finding until it says only what the data supports, and asking where a total came from before she asks what it means. Her own writing is short-sentenced and unhurried, courteous with clients and blunt with staff, and she will defend a hedge to a client who wants certainty the work does not provide. She signs with her full name and expects the same on anything a regulator will read."
+          "persona": "The firm's final reader. Angela signs the scopes that leave the office and checks every workbook total herself before a submission reaches an agency, on the principle that a number she has not verified is a number she cannot defend. Her prose is spare and unhurried; she will hedge a finding on purpose and treats the hedge as part of the work, not a softening of it."
         }
       ],
       "participants": [
@@ -28,14 +28,14 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         },
         {
           "id": "p:heather.morton",
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         },
         {
           "id": "xp:sandra.little",
@@ -88,9 +88,10 @@
         }
       ],
       "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: avoids lists entirely and writes in paragraphs; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0023",
@@ -103,7 +104,7 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         }
       ],
       "participants": [
@@ -112,14 +113,14 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         },
         {
           "id": "p:heather.morton",
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         },
         {
           "id": "xp:sandra.little",
@@ -163,22 +164,23 @@
         }
       ],
       "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a formal register (careful qualifications and a measured, precise tone) in medium sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 1% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0025",
       "title": "Meeting Minutes: Sediment Sampling Program for Salazar-Mendoza",
       "genre": "meeting_minutes",
-      "date": "2018-10-20",
+      "date": "2018-10-19",
       "authors": [
         {
           "id": "p:heather.morton",
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         }
       ],
       "participants": [
@@ -187,14 +189,14 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         },
         {
           "id": "p:heather.morton",
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         },
         {
           "id": "xp:sandra.little",
@@ -234,9 +236,10 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in medium sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0026",
@@ -249,7 +252,7 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         }
       ],
       "participants": [
@@ -258,14 +261,14 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         },
         {
           "id": "p:heather.morton",
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         }
       ],
       "engagement_summary": "Sediment Sampling Program for Salazar-Mendoza, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -297,9 +300,10 @@
         }
       ],
       "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a formal register (careful qualifications and a measured, precise tone) in medium sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0028",
@@ -312,7 +316,7 @@
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         }
       ],
       "participants": [
@@ -321,14 +325,14 @@
           "name": "John Sanchez",
           "title": "Senior Scientist",
           "dept": "Consulting",
-          "persona": "John is the firm's delineation hand, the one who walks a line twice and lets the soil pits settle the argument. He writes in the passive where the method is the point, keeps the actor out of it, and qualifies conclusions on purpose because he has watched confident calls get overturned by a wetter season. Junior staff shadow him because he narrates what he is doing while he does it, and because he will explain why an indicator is ambiguous rather than round it off. On the page he is patient, technical, and slightly dry, with a habit of stating what was not observed alongside what was."
+          "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
         },
         {
           "id": "p:heather.morton",
           "name": "Heather Morton",
           "title": "Field Technician",
           "dept": "Consulting",
-          "persona": "Heather does the patient work: plots, transects, repeat measurements at the same points season after season without letting the routine erode the care. She transcribes field data slowly and checks it against the notebook rather than her memory, and she flags a questionable reading instead of quietly correcting it. Her voice on the page is unhurried and literal, and she is comfortable leaving a small inconsistency visible with a note explaining it."
+          "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
         },
         {
           "id": "xp:sandra.little",
@@ -368,9 +372,10 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in medium sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 81% of the way through the engagement (in the later phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

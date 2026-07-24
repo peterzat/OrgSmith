@@ -27,6 +27,13 @@ doc_culture:
   # OCR layer from the copier, half are images and nothing more.
   scanned_ratio: 0.6
   ocr_layer_rate: 0.5
+  # M16: minuted sessions land on business days (weekends always excluded,
+  # a declared holiday per year across the span).
+  business_calendar:
+    holidays: [2013-05-27, 2014-07-04, 2015-09-07, 2016-11-24, 2017-12-25, 2018-05-28, 2019-07-04, 2020-09-07, 2021-11-25]
+  # M16: the voice layer, fleet-wide.
+  style_specs: true
+  voice_diversify: true
 
 finance:
   # 8% growth against four net new seats. Measured: 24.0% -> 22.8% net
@@ -37,6 +44,8 @@ finance:
 
 engagements:
   count: 5
+  # M16: the engagement ledger is a representative sample, not the whole book.
+  book_is_sample: true
   services: [Wetland Delineation, Phase I Site Assessment, Sediment Sampling Program, Habitat Restoration Monitoring, Stormwater Permit Support]
 
 graph_targets:

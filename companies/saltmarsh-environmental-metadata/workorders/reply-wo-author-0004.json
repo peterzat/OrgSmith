@@ -1,7 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0004",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -9,124 +12,99 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Sandra Little\nDirector of Operations\n{{fact:f:E-2018-001.client}}"
+          "text": "Sandra Little\nDirector of Operations\nSalazar-Mendoza"
         },
         {
           "kind": "paragraph",
-          "text": "Dear Ms. Little:"
+          "text": "Dear Ms. Little,"
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for the walk along the frontage last month and for the older survey material you sent afterward. This letter confirms the terms on which Saltmarsh Environmental Partners LLC will carry out a sediment sampling program for Salazar-Mendoza. It states the scope, the approach, the people who will do the work, the fee, and the standard terms we work under. If it also states your understanding, please sign where indicated and return one copy to me. A countersigned letter is what we treat as authorization. We do not open a job number without one, and we would rather settle the wording now than argue about it after a sample is in a jar."
+          "text": "This letter sets out the terms on which Saltmarsh Environmental Partners will carry out the sediment sampling program we discussed for {{fact:f:E-2018-001.client}}, and it asks for your countersignature so that a signed copy can go into the file before any work begins. I have kept it plain on purpose. Where a clause below reads as boilerplate, it is there because it has earned its place over many engagements, and not because a form demanded it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The program covers the collection and laboratory analysis of sediment at the stations we agreed during our site visit. Samples will be collected under chain of custody, delivered to an accredited laboratory, and analyzed for the parameters set out in our scope discussion. The field method is a settled one, and we will follow it as written rather than improvising on site, so that a reviewer reading the record years from now can see exactly what was done, where, and when."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Results will be compiled in a data workbook, with each result tied to its station, its sample identifier, and the date it was taken. I check the totals in that workbook against the laboratory reports myself before anything is issued, because a figure I have not verified is a figure I would not be able to defend, and the value of this kind of work rests on being able to defend it. The program closes with a summary letter report that states what was measured, where, and when, and stops there. We do not editorialize a finding, and where the data leave a question open we will say so plainly rather than paper over it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "You will work mainly with two of our people. John Sanchez, our Senior Scientist, leads the technical side of the program and is responsible for the sampling design, the laboratory coordination, and the report. Heather Morton, our Field Technician, runs the sampling rounds and keeps the field record, which on a program like this is as much a deliverable as the numbers themselves. I sign what leaves this office and review the workbook before submission, so my name will be on the final report alongside theirs."
+        },
+        {
+          "kind": "paragraph",
+          "text": "You will not have to chase us for status. We will send a short written report at about the midpoint and again as we near the end, and there will be a working session or two along the way with your site contact, so that nothing about access or scheduling has to be settled by email at the last minute. If a result ever looks like it needs your attention before the final report, you will hear it from us when we see it, not at delivery."
+        },
+        {
+          "kind": "paragraph",
+          "text": "At the close of the program you will have three things: the summary report, the data workbook that stands behind it, and the field record for every round. The report is the document you would hand to an agency; the workbook and the field record are what let anyone, including a reviewer years from now, check the report against what was actually done. We keep copies of all three, and all three are yours."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Because the estuary is tidal, the rounds are planned around the water and the weather rather than the calendar, so that each sample is clean and comparable with the last. That sometimes means a round moves by a day or two; when it does, Heather will let your site contact know in advance. None of that changes the fixed fee, and none of it changes the stations or the method, which stay the same from the first round to the last."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The fee for the program is a fixed {{fact:f:E-2018-001.fee}}, which covers the field collection, the laboratory analysis at the agreed parameter list, the data workbook, and the summary report. It does not cover work outside that scope, and if something on the site turns out to call for more than we have described here, I will tell you before we do it rather than after. We are prepared to begin on {{fact:f:E-2018-001.start}}, subject to site access and to conditions on the estuary."
         },
         {
           "kind": "heading",
-          "text": "Scope of Work",
-          "level": 2
+          "level": 2,
+          "text": "Fees and Payment"
         },
         {
           "kind": "paragraph",
-          "text": "The program covers the collection, laboratory analysis, and reporting of sediment from the property frontage and the adjacent intertidal flat. It is organized in four parts: preparation of a sampling and analysis plan; a field mobilization to collect surface grabs and shallow cores at the stations that plan fixes; laboratory analysis of the recovered material under chain of custody; and a data report presenting the results, the quality control outcomes, and a comparison against the screening criteria applicable to the setting."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The sampling and analysis plan will be submitted to {{fact:f:E-2018-001.client}} for review before any field work is scheduled. It will fix station locations and coordinates, sampling depths, the analytical suite, container and preservation requirements, holding times, and the frequency of field duplicates and blanks. Once you accept the plan, it governs the field program. Where the substrate or access forces a change in the field, the change will be recorded in the notebook with the reason for it and carried through into the report. We do not correct a station location quietly and present the result as though nothing happened."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two things are outside this scope, and I would rather name them than let them be assumed. We are not retained to design a remedy, and we are not retained to speak to an agency on your behalf. If the data support either step, we will tell you so and quote it separately."
+          "text": "The fixed fee is invoiced in two parts: half on commencement and the balance on delivery of the summary report. Invoices are due within thirty days. Laboratory analysis is included at the parameter list we agreed; analysis added at your request beyond that list is billed at cost, and only after you have approved the addition in writing."
         },
         {
           "kind": "heading",
-          "text": "Approach",
-          "level": 2
+          "level": 2,
+          "text": "Term and Termination"
         },
         {
           "kind": "paragraph",
-          "text": "Stations will be located by GPS and occupied on foot during workable low-tide exposure, with the boat used where the flat will not carry a crew. Grabs will be taken from the surface interval named in the plan. Cores will be advanced by hand, logged for recovery, and described for texture, color, odor, and any visible sheen or debris before the target interval is cut out and homogenized. Samples will be placed on ice at the point of collection and delivered under chain of custody within the holding times the analytical suite requires."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Laboratory data will be reviewed against the plan's quality control limits before any result is repeated to you. Where a result is qualified, the qualifier travels with it into every table it appears in. That is not a formality. A number that has lost its qualifier is a number nobody can defend."
-        },
-        {
-          "kind": "paragraph",
-          "text": "You should expect a hedge where the data earn one. Sediment chemistry varies over short distances, and a station tells you about a station. The report will say what was measured, where, and on what date, and it will keep what the results show separate from what they suggest. If you need certainty the sampling density does not support, the answer is more stations, not firmer adjectives."
+          "text": "The engagement runs from commencement until the summary report is delivered and accepted. Either of us may end it on fifteen days' written notice. If you end it partway through, you owe us for the fieldwork completed and the laboratory work already committed to that point, and we will hand over the field record and any data in hand so that nothing done so far is lost."
         },
         {
           "kind": "heading",
-          "text": "Project Team",
-          "level": 2
+          "level": 2,
+          "text": "Confidentiality"
         },
         {
           "kind": "paragraph",
-          "text": "John Sanchez, our Senior Scientist, will lead the technical work and will be your day-to-day contact. He writes the sampling and analysis plan and the data report, and he will be in the field for both events. Heather Morton, Field Technician, will run the field program with him, keep the notebook, and transcribe the station data against it. I will serve as Managing Principal on the engagement. I read every deliverable before it leaves this office and I check the totals in the data tables myself. If you ever want a question answered above John's level, call me directly."
+          "text": "We treat the site data, your business information, and the fact of this engagement as confidential, and we do not discuss them outside the firm without your consent. The one exception is a disclosure required by law or by an agency with jurisdiction over the site, and in that event we will tell you what is being disclosed and to whom, so far as we are permitted to."
         },
         {
           "kind": "heading",
-          "text": "Fee and Commencement",
-          "level": 2
+          "level": 2,
+          "text": "Limitation of Liability"
         },
         {
           "kind": "paragraph",
-          "text": "The fee for the scope described above is {{fact:f:E-2018-001.fee}}. That figure covers our labor, field equipment, containers and shipping, the laboratory charges for the suite named in the plan, and the report. It does not cover analyses added after the plan is accepted, a second mobilization made necessary by conditions outside our control, or agency fees. None of those would be incurred without your written authorization first. Work will begin on {{fact:f:E-2018-001.start}}, subject to our receipt of the countersigned copy of this letter and to site access being available."
+          "text": "Our work rests on the conditions found at the sampling stations on the days they were sampled, and sediment conditions can vary across a site and over time. Our liability for the engagement is limited to the amount of the fee, and we are not responsible for decisions others make on the basis of the report beyond what the data in it actually support. This is not a hedge against doing the work carefully; it is a plain recognition of what a sampling program can and cannot tell you."
         },
         {
           "kind": "heading",
-          "text": "Fees and Payment",
-          "level": 2
+          "level": 2,
+          "text": "Governing Law"
         },
         {
           "kind": "paragraph",
-          "text": "We invoice monthly for work performed and costs incurred, and invoices are payable thirty days from their date. Each invoice shows labor by person and hours, and direct costs at cost. If you question a charge, tell us and we will show you where it came from. Amounts unpaid after sixty days may, on written notice, suspend our work; we would rather call you than send that notice."
-        },
-        {
-          "kind": "heading",
-          "text": "Term and Termination",
-          "level": 2
+          "text": "This agreement is governed by the law of the state in which the site sits, and any dispute under it will be resolved there."
         },
         {
           "kind": "paragraph",
-          "text": "The engagement runs from commencement through delivery of the data report. Either of us may terminate it on written notice. If you terminate, you owe us for work performed and for commitments we have already made on your behalf, including laboratory analyses in progress. A sample submitted cannot be unsubmitted. If we terminate, we will deliver the field records and any validated data in hand so that another consultant can pick the work up."
-        },
-        {
-          "kind": "heading",
-          "text": "Confidentiality",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We hold the data and the report confidential and will not release either to a third party without your written direction, except where disclosure is required by law or by an agency with jurisdiction over the site. In that case we will notify you before we release anything, and as early as the requirement allows. We may describe the general nature of the work in a statement of qualifications without naming Salazar-Mendoza or the site."
-        },
-        {
-          "kind": "heading",
-          "text": "Limitation of Liability",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our services will be performed with the care and skill ordinarily used by environmental consultants practicing in this region under similar conditions. No other warranty, express or implied, is made. Conditions between and below sampling stations are inferred from the stations, not observed, and the report will say so. To the fullest extent permitted by law, our aggregate liability to Salazar-Mendoza arising out of this engagement is limited to the fee actually paid to us under it, and neither party is liable to the other for consequential or indirect damages."
-        },
-        {
-          "kind": "heading",
-          "text": "Governing Law",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This engagement is governed by the law of the state in which the site is located, without regard to its conflict of laws rules. Before either of us files anything, we will sit down with a mutually acceptable mediator and try to settle the matter. In my experience that conversation is usually about a table nobody read carefully, and it is cheaper than the alternative."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If the foregoing is acceptable, please sign below and return one copy to my attention. Questions about scope or schedule are best put to John Sanchez; questions about these terms should come to me. We appreciate the opportunity and will be ready to mobilize on receipt of the signed letter."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely,"
+          "text": "If these terms match your understanding, please sign below and return one copy to me, keeping the other for your file. If anything here reads differently from what we discussed, call me before you sign and we will settle it then. I am glad to be doing this work with you, and I think the record it produces will be one you can rely on."
         },
         {
           "kind": "sigblock",
-          "signers": ["p:angela.flynn", "xp:sandra.little"]
+          "signers": [
+            "p:angela.flynn",
+            "xp:sandra.little"
+          ]
         }
       ]
     },
@@ -135,63 +113,55 @@
       "doc_id": "d:0023",
       "blocks": [
         {
+          "kind": "paragraph",
+          "text": "To: Sediment sampling team\nFrom: John Sanchez, Senior Scientist\nRe: Salazar-Mendoza sediment program, getting started"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our aim on this one is simple to state and worth stating plainly: we are building a sediment dataset for {{fact:f:E-2018-001.client}} that will hold up when someone reads it years from now, with every result tied to a station, a sample, and a date. Everything below serves that aim. If a step does not make the record cleaner or more defensible, we should question whether it belongs at all."
+        },
+        {
+          "kind": "paragraph",
+          "text": "This is field-heavy work on a tidal estuary, which means the schedule bends to the water rather than the other way around. I would rather we plan the rounds around the tide from the start than fight the site halfway through. We have done enough of these to know where the friction usually is, and most of it is avoidable with a little order up front."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A word on why we are careful to the point of tedium here. The people who will lean on this dataset are not in the room with us; an agency reviewer, or the next consultant on the site, may open the workbook years out with no one left to ask what a note meant. So we write the record for that reader and not for ourselves, and we make it legible without us."
+        },
+        {
           "kind": "heading",
-          "text": "Memorandum",
-          "level": 1
+          "level": 2,
+          "text": "How the work divides"
         },
         {
           "kind": "list",
           "items": [
-            "To: Heather Morton, Field Technician",
-            "Cc: Angela Flynn, Managing Principal",
-            "From: John Sanchez, Senior Scientist",
-            "Subject: Kickoff, sediment sampling program, Salazar-Mendoza"
+            "Sampling design and station layout, finalized against the site we walked, so that every round samples the same points in the same way.",
+            "Field collection and chain of custody. Heather Morton runs the rounds and keeps the field record, and that record is a deliverable as much as the numbers are.",
+            "Laboratory coordination: sample submission, turnaround, and reconciling what comes back against what we sent.",
+            "The data workbook, where results are entered, tied to their stations, and checked. Totals are verified before anything leaves the office.",
+            "The summary report, which states what was measured, where, and when, and does not reach past the data."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "The letter came back countersigned, so the sediment sampling program for {{fact:f:E-2018-001.client}} is authorized and opens on {{fact:f:E-2018-001.start}}. Nothing has been collected and no station has been fixed. This memo sets the objectives down while they are still cheap to change, and says who is doing what before the tide table starts making the decisions for us."
+          "text": "The order of that list matters less than the discipline behind it. A clean field record makes the workbook straightforward; a clean workbook makes the report nearly write itself. Most of the care belongs at the front end, in the field, where a mistake is cheap to fix and expensive to discover later."
         },
         {
           "kind": "paragraph",
-          "text": "The objective is narrow and is worth keeping narrow. Surface and shallow subsurface sediment at the frontage and the adjacent flat are to be characterized for chemistry and physical character, well enough that the results survive review by somebody who was not there and is reading them in a file three years from now. That means station locations we can defend, handling we can document, and quality control that is visible in the report rather than asserted in a sentence. We have not been asked what to do about the results. If that question is put to us in the field, it gets written in the notebook and answered from the office."
-        },
-        {
-          "kind": "heading",
-          "text": "Workstreams",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Sampling and analysis plan. Drafted here, read by Angela Flynn, then submitted to Salazar-Mendoza for acceptance before anything is scheduled. It fixes stations and coordinates, depths, the analytical suite, containers and preservation, holding times, quality control frequency, and the screening criteria the data will be compared against. Nothing goes in the field until it comes back accepted.",
-            "Access and coordination. Sandra Little is the point of contact for site access, gate and parking arrangements, and any restriction on where a crew may walk. Tide windows are ours to propose; the constraints on them are hers to confirm.",
-            "Field program. Two events, each worked around low-tide exposure. Grabs and shallow cores at the plan stations, GPS on every occupation, photographs at every station, and the notebook written at the station rather than in the truck afterward.",
-            "Sample handling and laboratory. Chain of custody from the moment a container is filled. Holding times govern the schedule, not the other way around; if a window slips far enough to threaten one, the event moves rather than the paperwork.",
-            "Data validation and reporting. Laboratory packages checked against the plan's control limits, qualifiers carried through every table, and a data report that states what was measured, where, and on what date."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Next Steps",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Plan draft to Angela Flynn for review before it goes out. She reads it cold, so the station rationale has to be on the page and not in my head.",
-            "Heather Morton to pull tide predictions for the candidate windows and mark the ones that give a workable exposure with daylight on both sides of the low. Note the marginal ones as marginal; we would rather see them than have them quietly dropped.",
-            "Laboratory capacity and turnaround to be confirmed, and the container order placed once the suite is fixed. No order before the plan is accepted.",
-            "Access walk with Sandra Little once the draft stations are on a figure, so that a station nobody can reach is found on paper instead of at low tide."
-          ]
+          "text": "A note on coordination, since it is where a small team either gains or loses its advantage. Field notes go into the workbook promptly, not at the end of the month; a question about a station or a sample comes to me while the round is still fresh in mind. The dataset is only ever as good as the least careful handoff in it, and on a program that lives this long in the file, the handoffs are worth getting right the first time."
         },
         {
           "kind": "paragraph",
-          "text": "A word on what this job is likely to turn on. The flat here is not uniform, and the older survey material Salazar-Mendoza sent shows fill in at least one area that the plan will have to account for. Stations sited on fill do not tell you about the sediment the program is meant to characterize, and stations sited to avoid fill can be accused of avoiding the interesting ground. The rationale for each station therefore goes in the plan in writing, before we collect anything, so that it reads as a decision rather than as a result. If the substrate at a station turns out to be other than the plan assumed, the station moves, the move is recorded at the station with its reason, and both locations appear in the report."
+          "text": "We begin on {{fact:f:E-2018-001.start}}. Before then, I want the station list and the sampling plan settled, the laboratory lined up for our first submission, and the field kit checked over. Heather and I will walk the round order this week so that the first day on site is spent sampling and not deciding."
         },
         {
           "kind": "paragraph",
-          "text": "Two habits for this job. Write it down when it happens, not that evening over dinner. And if a reading looks wrong, flag it and leave it; do not fix it. An anomaly we can explain is worth a good deal more than a clean sheet we cannot."
+          "text": "Our point of contact at Salazar-Mendoza is Sandra Little, their Director of Operations. She handles site access and scheduling on their end, so if a round has to move for the tide or the weather, she is the one to tell, and to tell early. Let us keep her in the loop the way we would each want to be kept in the loop."
+        },
+        {
+          "kind": "paragraph",
+          "text": "That is the whole of it for now. Bring me anything that looks off on site rather than quietly working around it; on a program like this, the small things caught early are exactly what keep the record clean. — John Sanchez"
         }
       ]
     },
@@ -201,71 +171,86 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Working Session: Sediment Sampling Program",
-          "level": 1
+          "level": 1,
+          "text": "Working Session, Sediment Sampling Program"
         },
         {
           "kind": "paragraph",
-          "text": "Minutes of a working session held at the site office, {{fact:f:E-2018-001.client}} program. Taken from the notebook the same afternoon and checked against it, not against memory."
+          "text": "These are the minutes of a working session held to review progress on the sediment sampling program for {{fact:f:E-2018-001.client}}. This was the first review since the program began, and the purpose of the session was to confirm what the first sampling round produced, settle two open items on site access, and agree the next round. The notes follow the order the session took, and each item is recorded with its owner so that nothing agreed here is left without a name against it."
         },
         {
-          "kind": "heading",
-          "text": "Attendees",
-          "level": 2
+          "kind": "paragraph",
+          "text": "Present:"
         },
         {
           "kind": "list",
           "items": [
-            "John Sanchez, Senior Scientist, Saltmarsh Environmental Partners LLC",
-            "Heather Morton, Field Technician, Saltmarsh Environmental Partners LLC (minutes)",
+            "John Sanchez, Senior Scientist, Saltmarsh Environmental Partners",
+            "Heather Morton, Field Technician, Saltmarsh Environmental Partners",
             "Sandra Little, Director of Operations, Salazar-Mendoza"
           ]
         },
         {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2
+          "kind": "paragraph",
+          "text": "First round completed. The first sampling round was completed at the agreed stations, under chain of custody, and the samples were delivered to the laboratory. One station was sampled a day later than planned because of the tide; the shift was logged, and it does not affect the comparability of the data."
         },
         {
           "kind": "paragraph",
-          "text": "The first field event was reviewed station by station against the accepted plan. All planned stations on the frontage were occupied. Two stations on the outer flat were shifted shoreward: one because the exposure at the low did not last long enough to work it safely, and one because the substrate at the plan location proved to be riprap fill rather than the soft sediment the plan assumed. Both shifts were recorded at the station with the reason and the new coordinates. John Sanchez noted that the shifted pair are still representative of the interval they were meant to represent, but that the report will show both the planned and the occupied locations rather than only the occupied ones."
+          "text": "Field record. Heather Morton confirmed that the field notebook and the station log are current through the first round, with sample times, station identifiers, and field conditions recorded for each point. The record is being kept in the standard format, so that this round and the next will read the same way side by side."
         },
         {
           "kind": "paragraph",
-          "text": "Sample condition on delivery was reviewed. Temperatures on receipt were within the plan's acceptance range for every cooler. Chain of custody was intact and no seal was broken. One container arrived with a cracked lid; it was rejected on receipt and the station will be reoccupied during the second event rather than the result being reported from a compromised container."
+          "text": "Laboratory turnaround. Results for the first round are expected back within the standard turnaround window. John Sanchez noted that once they arrive, each result will be entered against its station and sample identifier and reconciled against the submission record before anything is reported."
         },
         {
           "kind": "paragraph",
-          "text": "The first laboratory data packages have come back for part of the suite. The field duplicate at one frontage station returned a relative percent difference above the plan's control limit for one analyte class. Both results are being carried, qualified, pending the remaining packages. John Sanchez was asked whether the exceedance indicated a handling problem and declined to say so on the evidence in hand: heterogeneous sediment produces this without any error in the field, and a single duplicate does not distinguish the two. If the pattern repeats in the second event's duplicates, the homogenization step will be re-examined. It was noted for the record that nothing else in the packages so far is outside the control limits."
+          "text": "Site access. Access to the two upstream stations has been intermittent. Sandra Little agreed to arrange standing access for the field crew so that a round is not held up at the gate, and to give the crew a direct contact for the days they are on site."
         },
         {
           "kind": "paragraph",
-          "text": "Sandra Little asked whether the results seen to date support any statement about the frontage. The answer was that they do not yet. The suite is incomplete, the second event has not been worked, and a partial data set read early tends to get quoted later without its qualifications attached. She accepted this and asked only that anything that would change the shape of the program be raised as it appears rather than saved for the report."
+          "text": "Field conditions. The crew reported that footing at the two upstream stations is poor at low water, and that those points are safer and cleaner to sample on a rising tide. The round order will be set accordingly, which has the added benefit of keeping the samples comparable from one visit to the next."
         },
         {
           "kind": "paragraph",
-          "text": "Access for the second event was discussed. The gate arrangement that worked for the first event will be repeated. Sandra Little will confirm whether the contractor working the north end will be on site during the candidate windows, since that access road is the only practical way to reach the two shifted stations with equipment."
+          "text": "Data workbook. The workbook has been set up with the full station list and the sample identifiers already in place, so that first-round results can be entered directly on receipt from the laboratory. Totals will be reconciled against the laboratory reports before any figure is shared outside the firm."
         },
         {
-          "kind": "heading",
-          "text": "Action Items",
-          "level": 2
+          "kind": "paragraph",
+          "text": "Next round. The group agreed to schedule the second round around the next suitable tide window rather than to a fixed date, on the same station list and the same method, so that the two rounds remain directly comparable."
         },
         {
           "kind": "table",
-          "header": ["Item", "Owner", "Timing"],
+          "header": [
+            "Action item",
+            "Owner",
+            "Target"
+          ],
           "rows": [
-            ["Circulate the station log for the first event, showing planned and occupied coordinates side by side", "Heather Morton", "This week"],
-            ["Reoccupy the station whose container was rejected on receipt", "Heather Morton", "Second event"],
-            ["Track the remaining laboratory packages and flag any further control limit exceedance on arrival", "John Sanchez", "Ongoing"],
-            ["Confirm contractor presence and north access road availability for the candidate windows", "Sandra Little", "Before windows are fixed"],
-            ["Propose second event tide windows once access is confirmed", "Heather Morton", "Next reporting period"],
-            ["Re-examine the homogenization step if the second event duplicates repeat the exceedance", "John Sanchez", "After second event data"]
+            [
+              "Enter and check first-round results on receipt from the laboratory",
+              "John Sanchez",
+              "On lab return"
+            ],
+            [
+              "Arrange standing site access and a day-of contact for the crew",
+              "Sandra Little",
+              "Before next round"
+            ],
+            [
+              "Confirm the tide window and schedule the second round",
+              "Heather Morton",
+              "This week"
+            ],
+            [
+              "Keep the field record current for each round",
+              "Heather Morton",
+              "Ongoing"
+            ]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "No decisions were taken beyond those recorded above. Corrections to these minutes should come to Heather Morton and will be issued as a marked revision rather than a silent replacement."
+          "text": "The single next step is the second sampling round: once Sandra Little confirms access and the tide window is set, the crew will run it on the same stations and by the same method as the first."
         }
       ]
     },
@@ -275,89 +260,77 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Sediment Sampling Program",
-          "level": 1
+          "level": 1,
+          "text": "Status Report, Sediment Sampling Program"
         },
         {
-          "kind": "list",
-          "items": [
-            "Prepared for: Salazar-Mendoza",
-            "Prepared by: John Sanchez, Senior Scientist",
-            "Field staff: Heather Morton, Field Technician"
-          ]
+          "kind": "paragraph",
+          "text": "The sediment sampling program for {{fact:f:E-2018-001.client}} is on schedule and roughly at its midpoint, and there is nothing on it that needs your attention beyond this note. The fieldwork is running as planned, the early results are in hand and checked, and we remain on track to deliver the summary report as scoped. What follows sets out where we are in a little more detail."
         },
         {
           "kind": "heading",
-          "text": "Status Summary",
-          "level": 2
+          "level": 2,
+          "text": "Accomplishments this period"
         },
         {
           "kind": "paragraph",
-          "text": "The sediment sampling program for {{fact:f:E-2018-001.client}} is on schedule. The sampling and analysis plan is accepted and has governed the work since. The first field event has been completed and its samples are through the laboratory in part. The second field event is planned and awaiting a confirmed access window. No finding is offered in this report. The suite is incomplete and it would be premature, and unhelpful to you later, to characterize the frontage from a partial data set."
+          "text": "Since the program began, the field crew has completed the early rounds on schedule, and the samples have moved through the laboratory without a break in the chain of custody. Heather Morton has kept the field record current round by round, so the station log, the sample times, and the field conditions are all in hand and legible, which is a large part of what makes the eventual report defensible. The data workbook has been built and populated with the results received so far, each tied to its station and sample and reconciled against the laboratory reports."
         },
         {
           "kind": "heading",
-          "text": "Accomplishments This Period",
-          "level": 2
+          "level": 2,
+          "text": "Where things stand"
         },
         {
           "kind": "paragraph",
-          "text": "All planned frontage stations were occupied during the first event and sampled at the intervals the plan specifies. Two outer flat stations were shifted shoreward, one for exposure duration and one because the plan location proved to be riprap fill rather than soft sediment. Planned and occupied coordinates were both recorded and both will appear in the report. The remaining planned stations were occupied as drawn."
+          "text": "We have completed the early sampling rounds at the agreed stations, all under chain of custody, and those samples have been through the laboratory. Heather Morton has run each round at the Salazar-Mendoza stations on the same method, so the data collected so far is directly comparable, which is the property the whole program depends on. Results received to date have been entered against their stations and sample identifiers and reconciled against the laboratory reports."
         },
         {
           "kind": "paragraph",
-          "text": "Cores were logged for recovery and described for texture, color, odor, and visible debris before the target intervals were cut and homogenized. Photographs were taken at every occupation. The station log was transcribed from the field notebook and checked against it by Heather Morton, who identified two coordinate entries that did not reconcile; both were resolved against the notebook and the GPS track, and the correction is noted in the log rather than written over."
+          "text": "One round shifted by a day for the tide, which is ordinary on this estuary and was logged so that the record stays clean. Nothing in the results so far is surprising or out of range for a site like yours. I would not read much into a half-finished dataset, though, and I am not going to characterize the findings until the program is complete and the numbers can be read together."
         },
         {
           "kind": "paragraph",
-          "text": "Samples were delivered under chain of custody within holding times. Cooler temperatures on receipt were within the acceptance range in every case. One container was rejected at the laboratory for a cracked lid; that station will be reoccupied during the second event rather than reported from a compromised sample."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A working session was held with your Director of Operations, at which the first event was reviewed station by station against the accepted plan and the sample condition on receipt was walked through. The station log, the departures from plan, and the access arrangements for the second event were covered there and are not repeated at length here."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Part of the analytical suite has returned. The packages received have been checked against the plan's control limits. One field duplicate exceeded the relative percent difference limit for a single analyte class; both results are being carried with qualifiers pending the balance of the data. Nothing else received to date falls outside the control limits."
+          "text": "On the data itself, I will say only what it can carry at this stage. The results in hand are internally consistent and fall within the range we would expect for a site of this kind, and none of the early rounds turned up anything that would change the plan for the rest of the program. That is a statement about the shape of the data, not a finding, and I would ask you to read it as the former."
         },
         {
           "kind": "heading",
-          "text": "Upcoming Work",
-          "level": 2
+          "level": 2,
+          "text": "Budget"
         },
         {
           "kind": "paragraph",
-          "text": "The second field event will be worked once the access window is confirmed and the tide predictions give workable exposure with daylight on both sides of the low. It will cover the reoccupation described above, the balance of the planned stations, and the duplicate and blank frequency the plan requires. The remaining laboratory packages from the first event are expected during the coming period and will be validated as they arrive rather than in a batch at the end, so that a systematic problem, if there is one, is found while a second event can still respond to it. Report drafting will begin once the first event's data set is complete and validated."
+          "text": "The program is a fixed-fee engagement of {{fact:f:E-2018-001.fee}}, and our effort to date tracks the plan. We have committed roughly half of the fee, in line with being about halfway through the work, and I do not foresee anything in the remaining scope that would change the figure. If something on the site did call for work beyond what we scoped, you would hear it from me before it was done, and not on the final invoice."
         },
         {
           "kind": "heading",
-          "text": "Budget",
-          "level": 2
+          "level": 2,
+          "text": "What comes next"
         },
         {
           "kind": "paragraph",
-          "text": "Costs incurred to date are consistent with the fixed fee of {{fact:f:E-2018-001.fee}} and no change to that figure is anticipated for the scope as accepted. The station reoccupation is absorbed within the second event and carries no additional charge. Should the outstanding data indicate that additional analyses are warranted, they would be scoped and authorized in writing before any cost was incurred, as the engagement letter provides."
+          "text": "The remaining sampling rounds will be run on the same stations and by the same method as the completed ones, scheduled around the tide rather than to fixed dates so that each sample stays clean and comparable. As those results come back, they will be entered and checked the same way, and the data workbook will be built out toward the full set. The summary report is drafted last, once every round is in and the totals have been verified."
+        },
+        {
+          "kind": "paragraph",
+          "text": "There is nothing in the remaining scope that we have not done many times before, and I mention that not to be reassuring but because it is true: the second half of a program like this is mostly a matter of holding to the method that produced the first half. The one thing I will watch is consistency across the full set, so that the last round reads against the first without an asterisk."
         },
         {
           "kind": "heading",
-          "text": "Risks",
-          "level": 2
+          "level": 2,
+          "text": "Risks, and how we are handling them"
         },
         {
           "kind": "paragraph",
-          "text": "Three risks are worth stating plainly, none of them presently material to schedule or fee."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Access timing. The second event depends on a window that is both workable at the low and clear of contractor activity on the north access road. The tide constrains the candidates tightly and a lost window pushes the event to the next set rather than to the next day.",
-            "Weather during the event. A period of freshwater runoff before sampling can change surface conditions on the flat. It would not invalidate the data, but it would be described in the report and would qualify comparisons across the two events.",
-            "Duplicate variability. If the first event's exceedance repeats in the second event's duplicates, the homogenization step will be re-examined. The more likely explanation remains sediment heterogeneity at the station scale, which is a property of the material and not a defect in the work, but the alternative cannot be ruled out from one duplicate and will not be claimed to be."
-          ]
+          "text": "The main variable is the weather and the tide, which can move a round by a day or two. We manage it by planning the rounds around the water rather than fighting it, and by keeping enough margin in the schedule that a short delay does not put the delivery at risk. Laboratory turnaround is the other variable; it has stayed within the normal window so far, and we submit promptly after each round to keep it there."
         },
         {
           "kind": "paragraph",
-          "text": "Nothing observed to date requires a decision from Salazar-Mendoza between now and the second event. Questions on any of the above are welcome before the report is drafted rather than after."
+          "text": "None of these rises to a concern today. I mention them because a status report that lists no risks is usually one that has not looked, and I would rather name the ordinary ones plainly than leave you to wonder whether we had thought about them at all."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will send the next report at about the three-quarter mark, or sooner if anything changes that you should know about before then. In the meantime, if a question occurs to you, the fastest answer is to call me directly. — John Sanchez, Senior Scientist"
         }
       ]
     },
@@ -367,71 +340,86 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Working Session: Sediment Sampling Program, Draft Report Review",
-          "level": 1
+          "level": 1,
+          "text": "Minutes: Sediment Sampling Program, Closeout Review"
         },
         {
           "kind": "paragraph",
-          "text": "Minutes of a working session on the draft data report, {{fact:f:E-2018-001.client}} program. Taken from the notebook and checked against it."
+          "text": "These minutes record a working session held to walk through the closeout of the sediment sampling program for {{fact:f:E-2018-001.client}}. With the field program essentially complete, the session covered the final round, the state of the data workbook, and the steps left before the summary report is submitted. The notes follow the order of the discussion."
         },
         {
-          "kind": "heading",
-          "text": "Attendees",
-          "level": 2
+          "kind": "paragraph",
+          "text": "Present:"
         },
         {
           "kind": "list",
           "items": [
-            "John Sanchez, Senior Scientist, Saltmarsh Environmental Partners LLC",
-            "Heather Morton, Field Technician, Saltmarsh Environmental Partners LLC (minutes)",
+            "John Sanchez, Senior Scientist, Saltmarsh Environmental Partners",
+            "Heather Morton, Field Technician, Saltmarsh Environmental Partners",
             "Sandra Little, Director of Operations, Salazar-Mendoza"
           ]
         },
         {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2
+          "kind": "paragraph",
+          "text": "Final round. The final sampling round has been completed at the agreed stations, under chain of custody, and the samples are now with the laboratory. Every round was run on the same stations and by the same method, so the full dataset is comparable end to end, and the field record is complete and current through the last visit."
         },
         {
           "kind": "paragraph",
-          "text": "Both field events are complete and the analytical data set is complete and validated. The draft data report was circulated in advance of this session and was walked through section by section. The purpose of the session was to take comments on the draft, not to reopen the scope."
+          "text": "Data workbook. Results received to date have been entered against their stations and sample identifiers. The remaining results, from the final round, will be entered on receipt, after which the workbook totals will be reconciled against the laboratory reports and checked. No figure leaves the office until those totals have been verified."
         },
         {
           "kind": "paragraph",
-          "text": "The station tables were reviewed first. Planned and occupied coordinates appear side by side for the two shifted outer flat stations and for the station reoccupied after the container rejection, with the reason for each departure carried in the table rather than in a footnote. Sandra Little asked whether the departures needed that much visibility in a document a reviewer would read years from now. John Sanchez said they did: a reviewer who finds a discrepancy between the plan and the data on his own will distrust everything else in the report, and a departure explained on the page costs a line and buys the rest of the document."
+          "text": "Reconciliation and review. The workbook totals will be reconciled against the laboratory reports and reviewed internally before the report is issued, which is the standard check on any number that goes to a client or an agency. This is the step that most often catches a transposed figure, and it is not skipped for a program running late or a program running early."
         },
         {
           "kind": "paragraph",
-          "text": "The duplicate exceedance from the first event was discussed again in light of the complete data. The second event duplicates were within the plan's control limits for every analyte class, including the class that exceeded in the first event. The homogenization step was re-examined against the field notes and no deviation from the plan was found. The draft attributes the single exceedance to sediment heterogeneity at the station scale, qualifies both results, and states that a handling cause cannot be excluded on one duplicate. Sandra Little asked whether the hedge could be dropped now that the second event was clean. It could not, and John Sanchez said so: the second event does not tell us what happened at a different station in a different month, and the qualifier stays with the result wherever it appears."
+          "text": "Summary report. John Sanchez reported that the summary report is in draft and will be completed once the final results are in and the workbook has been checked. It will state what was measured, where, and when, without reaching past the data, consistent with how the program was scoped at the outset."
         },
         {
           "kind": "paragraph",
-          "text": "Comparison against screening criteria was reviewed as drafted. The comparison is presented per station and per analyte, without aggregation across stations, and the draft states in the text that conditions between and below stations are inferred rather than observed. Sandra Little noted that her board will want a summary sentence. The draft's summary language was read aloud and she accepted it as written."
+          "text": "Archived record. Heather Morton confirmed that the complete field record, covering every round from the first to the last, will be filed alongside the workbook and the report, so that the program can be reconstructed from the record alone if it is ever questioned. The record is current and needs no reworking before it is filed."
         },
         {
           "kind": "paragraph",
-          "text": "Comments on the draft were otherwise editorial: figure legibility at the frontage scale, one mislabeled cross-reference, and consistent use of the station identifiers between the tables and the figures. Sandra Little will send written comments so that they can be logged and dispositioned individually rather than absorbed in conversation. The revised draft goes to Angela Flynn before it goes back out; she reads every deliverable and checks the table totals herself, and comments returned late will wait for that pass rather than skip it."
+          "text": "Submission logistics. Sandra Little confirmed how Salazar-Mendoza would like the final report delivered and who should receive it on their side. She asked for a short walkthrough at delivery, and John Sanchez agreed to provide one."
         },
         {
-          "kind": "heading",
-          "text": "Action Items",
-          "level": 2
+          "kind": "paragraph",
+          "text": "Remaining work. The group noted that the program is in its final stretch, with the fieldwork done and only the reconciliation, the report, and delivery still to come. No new work was identified during the session, and none of the remaining steps depends on further access to the site."
         },
         {
           "kind": "table",
-          "header": ["Item", "Owner", "Timing"],
+          "header": [
+            "Action item",
+            "Owner",
+            "Status / target"
+          ],
           "rows": [
-            ["Send written comments on the draft data report", "Sandra Little", "Within two weeks"],
-            ["Log and disposition each comment with a written response", "John Sanchez", "On receipt of comments"],
-            ["Redraw the frontage figures for legibility at the printed scale", "Heather Morton", "With the revision"],
-            ["Reconcile station identifiers across tables and figures and fix the mislabeled cross-reference", "Heather Morton", "With the revision"],
-            ["Revised draft to Angela Flynn for review before it goes back to the client", "John Sanchez", "Before reissue"],
-            ["Assemble the field records and validated data packages for the project file", "Heather Morton", "With the final report"]
+            [
+              "Enter final-round results and reconcile the workbook totals",
+              "John Sanchez",
+              "On lab return"
+            ],
+            [
+              "Confirm the field record is complete for all rounds",
+              "Heather Morton",
+              "Complete"
+            ],
+            [
+              "Finish the summary report after totals are verified",
+              "John Sanchez",
+              "After reconciliation"
+            ],
+            [
+              "Confirm delivery format and recipients",
+              "Sandra Little",
+              "Done"
+            ]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "No change to scope or fee arises from this session. Corrections to these minutes should come to Heather Morton and will be issued as a marked revision."
+          "text": "The single next step is reconciliation: once the final-round results return from the laboratory, the workbook totals are checked, and the summary report is finished and submitted to Salazar-Mendoza."
         }
       ]
     }

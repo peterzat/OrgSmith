@@ -1,7 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0001",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -9,24 +12,24 @@
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: Mary Foster"
+          "text": "Onboarding Record: Mary Foster",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "For the file. Mary Foster joins us as a Field Technician in the consulting group. We hired her for field work and that is where she will be: delineations, sampling support, and the monitoring plots a permit obliges us to keep visiting long after everyone else involved has moved on to something else. She has done this work before and does not need to be told which end of the auger goes in the ground, so the first period set out below is short and mostly concerns how we do things here rather than how the work is done."
+          "text": "Mary Foster joined us this week as a Field Technician, and I want the record to say plainly that we are glad she did. We are five people who spend more days on the marsh than at a desk, so we hire slowly and expect a new hand to carry real weight inside the first month. Mary will. We watched enough of her sampling before the offer to know she keeps a core and its label straight in conditions that turn most people careless, and that steadiness is the habit the whole job rests on. A sample is only worth taking if the person taking it can be trusted to record it exactly, and she can."
         },
         {
           "kind": "paragraph",
-          "text": "Where she sits. Mary works to me. Day to day she takes her assignments from whoever is leading the engagement she has been put on, and those assignments are settled the week before, not the night before. If the two directions conflict, mine is the tiebreaker, and I would rather hear about the conflict the day it happens than come across it in a deliverable a month later. We are small enough that this arrangement works without anything written down beyond this record. When it stops working, we will change it and say so."
+          "text": "Her place is on the consulting side, out in the field. She will run sediment sampling and the station work that feeds our data workbooks, which puts the numbers a report is built on directly in her hands. That is the part of the work I care about most, because a workbook total I cannot trace back to a clean field record is a total I cannot defend to a reviewer, and the tracing starts with whoever holds the notebook out on the flat. Mary reports to John Sanchez, our Senior Scientist. He will set her stations, walk her first rounds, and read her field notes until the two of them have a rhythm."
         },
         {
           "kind": "paragraph",
-          "text": "First period. Boots, waders, and the rest of the personal equipment are ours to supply; ask for them before the first field day rather than on the morning of it. The health and safety orientation comes before any site visit, without exception. Nobody works a tidal site alone, and nobody stays out to finish a plot on a rising tide. Mary will be issued a field notebook and is expected to fill it: date, conditions, tide state, who was present, what was measured, and what went wrong. Data sheets get transcribed the same week and checked against the notebook, not against memory, because memory of a wet morning in a marsh is worth very little by the following month. Time is coded to the engagement and turned in weekly."
+          "text": "The first weeks are meant to be narrow, on purpose. Before she runs a sampling round on her own, she will shadow a full one, learn how we label and how we keep chain of custody, and get her field notebook into the shape we submit behind. I would rather she spend December making the record exact than covering more ground. Station, depth, condition, time, written down as it happens and not reconstructed after: that discipline is nearly the whole of the job at the start, and it is the part a monitoring report leans on years later, when nobody remembers the day it was gathered."
         },
         {
           "kind": "paragraph",
-          "text": "What I expect. Write it down while it is still in front of you. Keep what you observed separate from what you were told; if a landowner says the ditch has been there since his father's time, that is what the landowner says, and the notebook should make the difference plain on the page. Flag a reading that looks wrong instead of correcting it quietly, because the odd number is the one somebody asks about two years on, and by then the only answer we have is what was written at the time. Nothing leaves this office with a figure in it that has not been checked. That applies to her work the way it applies to mine."
+          "text": "The practical things sit with John. He has the gear assignments, the tide tables, and the standing rule about who knows your plan before you work a channel alone, which we do not bend for anyone. Anything the file here does not answer, she should ask him or ask me. Welcome her when your paths cross. Mary is going to be on the water more than most of us this winter, and the firm is steadier for having her."
         },
         {
           "kind": "paragraph",
@@ -40,66 +43,61 @@
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Saltmarsh Environmental Partners LLC"
+          "text": "Saltmarsh Environmental Partners",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Saltmarsh Environmental Partners is a small environmental consultancy on the estuary. We opened in 2011 to do field-based environmental work well and close to home, and we have held the firm to a size where the people who sign a report are the same people who stood on the site and took the measurements behind it. There are five of us. That is a deliberate limit, not a phase we are trying to grow out of, and it means we take on the work we can do properly and turn the rest away. Most clients come to understand that once they have watched us work a site."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Firm Overview"
+          "text": "The work we do",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Saltmarsh Environmental Partners is an environmental consultancy working on and around a tidal estuary. We draw wetland lines. We find out what a property has been used for and what that use left behind. We sample sediment and water, and we go back to the same plots season after season because a restoration permit says someone has to. The firm is small, and small on purpose: the people who go into the field are the people who write the report, and there is no layer between them and the person who signs it. Most of what we produce is unexciting by design. A delineation that holds, a file a reviewer can follow, a total that traces back to the sheet it came from."
+          "text": "Our work begins in the field and ends on a regulator's desk. We delineate wetlands, drawing and documenting the line a landowner needs before a project can move. We carry out Phase I environmental site assessments, the deed-and-file research into how a parcel was used and what that use may have left in the ground, paired with a walk of the site to test the record against what is actually there. We run sediment sampling programs, staged around the tide rather than the calendar, and we build the data workbooks a submission ultimately rests on. And we handle the long tail of monitoring that a restoration permit requires, the return visits stretched over years that show whether a marsh is coming back the way the permit said it would."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Pamela Brown handles much of our delineation work. She will walk a wetland boundary as many times as it takes before she is willing to commit to a line, and she writes it up densely enough that a colleague could reconstruct the day from her notes alone. That is the standard across the field side: the record is written to be checked, not admired."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "What we do"
+          "text": "Who we work for",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Four service lines, which in practice overlap on most sites:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Wetland delineation. Field determination of the boundary using the accepted method, flagged and documented so that the line can be defended to the agency that has to accept it, and reproduced by somebody else standing in the same spot.",
-            "Phase I environmental site assessment. The records end of the work: use history, aerials, agency files, and interviews, assembled into a finding that says what the record supports and, where it matters, what the record does not reach.",
-            "Sediment and water sampling. Programs designed around the question actually being asked, run with a chain of custody that will survive a reviewer's attention, and reported with the laboratory's qualifiers intact rather than tidied away.",
-            "Post-permit monitoring. Plots and transects revisited on the schedule the permit sets, measured the same way each time, and recorded so that one year can be compared with another without an argument about method."
-          ]
+          "text": "Our clients come from three directions, and each asks something a little different of us. There is a port authority, with land and water to manage and its own regulators to answer to. There is a county conservation district that holds ground in trust and needs it watched honestly rather than optimistically. And there are private landowners, who usually find us because a wetland sits between them and something they want to build, and who need that boundary drawn and defended before they can proceed. The work looks different across the three, but the obligation underneath it does not change. We measure carefully, we report exactly what we found and no more, and we set it down in a form that will still make plain sense to an agency reviewer who opens the file years after we have closed it."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "How we work"
+          "text": "A recent engagement",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our documents have two readers. The first is the client, who has a decision to make and a schedule to keep. The second is an agency reviewer who will open the file some years from now with no memory of the site, the season, or any of us, and who will want to know what was measured, where, on what date, and by whom. We write for the second reader, which mostly serves the first one too. It also means we hedge where the data hedges. A finding that says more than the field work supports is not a service to a client; it is a liability with a signature on it. Clients occasionally want a degree of certainty the work does not provide. We will explain, at whatever length is required, why the qualifier stays in, and we have not yet met the reviewer who was persuaded by an adjective."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Angela Flynn, the firm's Managing Principal, reads every deliverable before it leaves the office and checks where the totals came from before asking what they mean. Pamela Brown handles the records-heavy assessments, the ones where the answer is in old files and aerials rather than out in the marsh, and she will document a gap in the record rather than fill it with a plausible inference. Tammy Parks runs the office, which in this firm means that scopes go out, come back countersigned, get scanned, and can be found again, and that nobody discovers a submittal deadline the week it falls."
+          "text": "One current project gives a fair picture of how we operate. This year we are doing work for {{fact:f:E-2015-001.client}}, and it has run the way we like a project to run: a scope agreed in plain language up front, fieldwork done on the estuary's schedule rather than our own convenience, and every figure checked before a page of it left the office. We offer it as a single illustration of the kind of work we take on, not as a summary of the firm, and as a matter of habit we keep one client's particulars well clear of any conversation with another."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Representative work"
+          "text": "How the office runs",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our current engagement is for {{fact:f:E-2015-001.client}}. The shape of it is the ordinary shape of our work: a scope agreed in writing before anyone goes out, field days planned around tides rather than around calendars, a data record built to be checked, and a report written so that the person who reads it after we are all gone can tell exactly what was done. We are glad to discuss that work, within what the client permits us to say about it."
+          "text": "A firm this size lives or dies on its record-keeping, so we treat that as real work and not overhead. Tammy Parks keeps the correspondence moving, which in our trade means the scopes that go out as letters and come back countersigned and scanned, filed so that we can always say who signed what and on what day it returned. Every workbook total is read and checked before a submission reaches an agency, on the plain principle that a number no one has verified is a number the firm cannot defend. And when a finding warrants a hedge, we write the hedge and stand by it. In this line of work an honest account of what we do not yet know is part of the finding, not an apology for it."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Engaging the firm"
+          "text": "Where to start",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Scopes go out as a letter, in plain terms, with the assumptions stated and the exclusions stated more plainly still. We ask for it countersigned before mobilizing. If the field conditions turn out not to match the assumptions, which on an estuary happens more often than not, we say so at the time and in writing rather than at the end and in an invoice. Fieldwork is scheduled around the estuary, not around a calendar, and we will say at the outset which weeks are workable and why. Small firm, direct line: the person who answers the question is the person who did the work."
+          "text": "If you have a parcel with a wetland question on it, a site whose history you need pinned down before you commit, or a monitoring obligation you would rather hand to people who will actually make the visits, the place to start is a conversation. Angela Flynn will walk you through what the work would involve, what it would cost, and what we would need from you to do it properly."
         }
       ]
     },
@@ -109,24 +107,24 @@
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: James Henderson"
+          "text": "New Staff: James Henderson",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "We have been running our own sampling for some time now and carrying more of the laboratory coordination than a firm this size ought to carry between other duties. That is the reason for this hire. James Henderson joins the consulting group as an Environmental Scientist and takes the sampling programs: design, field execution, custody, and the reporting of what comes back. Welcome. He is not inheriting a mess, but he is inheriting a set of habits that were built by people doing the work in the gaps of other work, and he is expected to say so where they need replacing."
+          "text": "This note goes in the file to mark that James Henderson started with us on Monday as an Environmental Scientist. We do not hire often, and when we do it is because we have seen the work and not just the resume. James came to us out of Phase I assessment work, and what stood out was the discipline of it: findings that state what the record supports and then stop, without reaching for a conclusion the sources cannot hold. That is exactly the temper this firm runs on, and it is harder to teach than most people think."
         },
         {
           "kind": "paragraph",
-          "text": "Where he sits. James reports to me. On an engagement he takes the schedule from whoever is leading it, but the sampling design is his call and I expect him to defend it. If a scope commits us to a program he thinks will not answer the question, the time to say that is before the scope goes out, and he should assume he has standing to say it whether or not anyone asks. He will also be the firm's point of contact with the laboratory, which means the awkward telephone calls about a broken hold or a lost cooler are his to make and not to delegate upward."
+          "text": "He sits on the consulting side. His main charge will be our Phase I environmental site assessments, the deed-and-file research into what a property was used for and what that history might leave in the ground, paired with the site reconnaissance that either backs the record up or complicates it. It is patient, unglamorous work, and it often decides whether a client walks into a purchase with their eyes open. James reports to John Sanchez, our Senior Scientist, who will assign his first assessments and read every draft before it leaves the office."
         },
         {
           "kind": "paragraph",
-          "text": "First period. Health and safety orientation before any site visit; equipment and personal gear come from the office, so ask early. Beyond that, three things in the first weeks. Go through the standing custody forms and tell me what is wrong with them. Walk the laboratory arrangements end to end, including holding times and what we do when a courier misses a window on a Friday, and write down what you find. Sit with a completed monitoring file and read it the way a reviewer would, then tell me what a reviewer would be entitled to ask us that we could not currently answer. None of that is busywork. It is the cheapest time he will ever have to look at our practices from outside them, and it expires the moment he is busy. Time is coded to the engagement and turned in weekly."
+          "text": "A few things I want set down early, because they matter more here than the pace of the work. We write for a reviewer, not a reader, so an assessment should be clean, sourced, and cautious about what it infers. Where the record is thin, say so plainly; a well-placed hedge is a professional obligation in this trade, and I will never fault a finding for admitting the limits of what we know. What I will question, every time, is a conclusion the file underneath it does not carry."
         },
         {
           "kind": "paragraph",
-          "text": "What I expect. Method first, on the page and in the field. If a result arrives too clean, say so and explain why you doubt it rather than letting it into a table unremarked; a flagged result with an explanation is worth more to us than a tidy one we cannot account for. If a result is not usable, that is a sentence in the report, not a problem to be solved by silence. Qualifiers stay attached. Nothing goes out of here with a number in it that has not been checked, and on the sampling side you are now the one checking first and I am the one checking last."
+          "text": "For the first few weeks, John will keep James close to work already underway, so he learns how we source, cite, and archive before he carries an assessment alone. The reference files, the standing checklist we work a Phase I against, and our habits for keeping a clean chain from source to statement are all his to ask about, and he should ask early rather than guess. Say hello when you see him at the far desk. We are glad to have him."
         },
         {
           "kind": "paragraph",
@@ -140,24 +138,28 @@
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: Heather Morton"
+          "text": "Joining Saltmarsh: Heather Morton",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "For the file. Heather Morton joins the consulting group as a Field Technician, starting mid-season, which is not ideal and is how it usually goes. She takes the monitoring work: the plots and transects we revisit on a permit's schedule, the repeat measurements, and the transcription that follows them. It is the least glamorous part of the practice and the part most likely to be read closely by somebody years from now, which is a fair description of why we hired for it deliberately instead of spreading it across whoever was free."
+          "text": "For the record: Heather Morton joined the firm this week as a Field Technician. She is coming onto the monitoring side of the practice, which is the part of our work that never quite ends. When a restoration permit is issued, the obligation to go back and measure runs for years, and someone has to make every one of those visits and make them the same way each time. Heather does that kind of work by temperament rather than by force of will, and after a couple of seasons stretched thin on monitoring, we were glad to find her."
         },
         {
           "kind": "paragraph",
-          "text": "Reporting and assignment. Heather works to Angela Flynn and takes day-to-day direction from whoever is leading the engagement she is assigned to. Because she is starting into a season already underway, her first several field days are paired with someone who has been to the site before, and she is not expected to be productive on those days. She is expected to learn the plots. Where a plot has a history of being measured a particular way, that way continues until we decide otherwise on purpose and record the decision. An improvement introduced quietly mid-record is not an improvement; it is a discontinuity that somebody will have to explain to a reviewer without knowing it happened."
+          "text": "Her charge is the monitoring rounds, the return trips to a restored marsh where the whole value of the visit is that it can be set beside the last one. That means holding a method steady even when it feels repetitive, because the repetition is the point; a data series is worth something only if the person taking it did not quietly change how they took it along the way. Heather understands that already, which is rarer than it sounds. She reports to John Sanchez, our Senior Scientist, who sets the monitoring schedule and reviews her field records."
         },
         {
           "kind": "paragraph",
-          "text": "First period. Health and safety orientation precedes any site visit, and field gear is issued from the office rather than found in the truck. Notebook conventions apply from the first day: date, conditions, tide state, who was present, the instrument used, and anything that did not go as planned. Field data is transcribed within the week and checked against the notebook rather than against recollection, and the notebook stays in the office when it is not in the field. Time is coded to the engagement, weekly. She should expect her first month's sheets to come back to her with questions on them; that is the point of them coming back, and it is not a comment on her work."
+          "text": "One thing I want her to hear from me directly. When something on a site is ambiguous, note the ambiguity; do not resolve it in your head and write down the tidy version. We would far rather carry an honest uncertainty into a report than find out later that a clean-looking record was smoothed over on the flat. On our sites a hedge is not a weakness, and no one here will ever treat it as one. The reviewer who reads these reports years from now is better served by a careful maybe than a confident guess."
         },
         {
           "kind": "paragraph",
-          "text": "Expectations, recorded here so there is no ambiguity later. A questionable reading gets flagged, not fixed. A small inconsistency between the sheet and the notebook stays visible with a note explaining it; it is not reconciled into agreement because agreement looks better. Monitoring is worth what its consistency is worth, and consistency comes from doing the same thing at the same points in the same way when nobody is watching and the tide is going out. Angela Flynn reviews the monitoring record before anything derived from it is submitted."
+          "text": "For her first month, John will pair her with existing rounds, so the way we log a station, a photo point, and a condition becomes second nature before she runs a route alone. The visit schedules, the equipment, and the tide windows we work within are with him, and she should lean on him for anything this note leaves open. Welcome her when your paths cross; she will be out on the marsh more than she is here."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Angela Flynn, Managing Principal"
         }
       ]
     },
@@ -167,80 +169,57 @@
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Saltmarsh Environmental Partners LLC"
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "Firm Overview"
+          "text": "About Saltmarsh Environmental Partners",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "We are an environmental consultancy on a tidal estuary. The work starts where a line has to be drawn on the ground and somebody at an agency has to accept it, and it does not end there: assessments, sampling, and the long tail of monitoring that a restoration permit attaches to a project after everyone has stopped thinking about it. The firm has stayed small, which is a decision rather than a circumstance. The people who go into the field write the reports, and every report is read before it goes out. What we sell is not volume. It is a record that holds up when somebody comes back to it cold."
+          "text": "Saltmarsh Environmental Partners has been working the estuary since 2011. We are an environmental consultancy of five, and we have stayed that size on purpose, because the thing we actually sell is that the people who sign a report are the people who did the fieldwork behind it. That has not changed as the firm has aged, and we do not intend to change it. Clients hire us for judgment on the ground, and that judgment does not scale by adding names to a letterhead. We would rather be the right size for the work than the size a brochure wants us to be."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Delineation and permitting support"
+          "text": "The kind of work",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A wetland boundary determined in the field by the accepted method, flagged, documented, and defensible to the reviewer who has to sign off on it. For a landowner the delineation is a gate: it decides what can be built and where. We treat it accordingly. The line is where the indicators put it, and we will explain to a client at length why we cannot put it somewhere more convenient. Where a determination is genuinely close, the report says it is close and says what would settle it. That candor costs a client nothing at the permitting stage and saves a great deal later, when a line drawn optimistically has to be defended by somebody who was not there."
+          "text": "Ours is field work that answers to a regulator. We delineate wetlands so a landowner knows where the line falls before they design around it. We run Phase I environmental site assessments, tracing what a property was used for and what that past may have left behind. We take sediment samples and build the data workbooks a submission stands on. And we carry the monitoring that a restoration permit requires, the years of return visits that show, season by season, whether a marsh is recovering the way the permit promised. Nearly all of it begins with a day in the field and a notebook that has to be exact, because everything written later traces back to what someone recorded standing in the mud. Much of the work is patient and repetitive by nature, and we have built the firm around people who are steadied rather than bored by that."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Site assessment"
+          "text": "Clients and obligations",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Phase I work, done from the record: use history, aerials, agency files, and interviews with people who were there. The finding leads with the source and follows with the limitation. Where the available record does not support a determination, we say that plainly, because a Phase I that reaches for a conclusion the file will not bear is worse than no Phase I at all."
+          "text": "We work for three kinds of client, and each asks something a little different. A port authority manages land and water and answers to its own regulators, so our job is to hand it a record it can defend. A county conservation district holds ground in the public trust and needs it watched over honestly. And private landowners come to us, most often, because a wetland stands between them and a plan, and they need it drawn and documented before anything moves. Across all three the discipline is identical: measure carefully, state exactly what was found, and write it so that an agency reviewer opening the file years from now can follow every step without us in the room to explain it."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Sampling programs"
+          "text": "Two projects that show the pattern",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Sediment and water sampling designed around the question being asked. Chain of custody is not paperwork here; it is the part of the job most likely to sink a project, and it is treated as such. Results are reported with the laboratory's qualifiers attached. A suspect result gets flagged and explained rather than quietly averaged into a table, and where data is not usable we say so in the report and account for how we know."
+          "text": "A pair of engagements from recent years gives a fair sense of how we operate. Our work for {{fact:f:E-2015-001.client}} ran the way we like a project to run, from a scope set out in plain terms to a data set checked line by line before any of it left the office. The following year our engagement with {{fact:f:E-2016-001.client}} asked much the same of us and got the same care. We put these forward as two illustrations of the work we take on, nothing more. They are not the whole of the book, and we keep one client's particulars well clear of another's."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Monitoring"
+          "text": "Keeping the record straight",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Plots and transects revisited on the schedule the permit sets, measured the same way each season, transcribed against the notebook and not against memory. The value of a monitoring record is entirely in its consistency, which means the discipline is unglamorous and unbroken: the same points, the same method, the same care in year six as in year one, so that a reviewer can compare across years without having to take our word for anything."
+          "text": "A firm this small survives on its record-keeping, so we are exacting about it. Scopes leave the office as letters and come back countersigned and scanned, and we can always say who signed what and when it returned. Every workbook total is checked before a submission reaches an agency, because a number no one has verified is a number the firm cannot stand behind. And when a finding calls for a hedge, we write the hedge and mean it. In this work an honest statement of what we do not yet know is part of the finding, not a softening of it, and a reviewer who trusts our uncertainties will trust our conclusions."
         },
         {
           "kind": "heading",
-          "level": 2,
-          "text": "Representative work"
+          "text": "Getting in touch",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Work for {{fact:f:E-2015-001.client}} and for {{fact:f:E-2016-001.client}} is representative of what we do and of how we do it: a scope agreed in writing and countersigned before anyone mobilizes, field days planned around tides rather than calendars, a data record built to be checked, and reporting that stays inside what was measured. References available, within what each client permits us to say."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "How we write"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Every deliverable has a second reader, and the second reader is the one who matters most to the client's interests in the long run: an agency reviewer opening the file years later with no memory of the site or the season. Such a reader wants to know what was measured, where, on what date, and by whom, and is unmoved by adjectives. So our reports say what was done and what the data supports, and they hedge where the data hedges. Angela Flynn, Managing Principal, reads everything before it leaves the office. Nothing goes out with a number in it that has not been traced back to where it came from."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "Working with the firm"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Scopes go out as letters, with the assumptions stated and the exclusions stated more plainly still, and we ask for them countersigned before we mobilize. When conditions on an estuary fail to match the assumptions, which is regularly, we say so at the time and in writing rather than at the end and in an invoice. The person who answers the telephone about a project is a person who has stood on it, and can tell you what the weather was doing at the time."
+          "text": "If you are facing a wetland line, a site whose history needs pinning down, or a monitoring obligation you would rather hand to people who will make every visit, the sensible first step is a conversation rather than a proposal. Angela Flynn can talk you through what the work would involve, what it would cost, and what we would need from you to do it right."
         }
       ]
     },
@@ -250,24 +229,24 @@
       "blocks": [
         {
           "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: William Schwartz"
+          "text": "Personnel Record: William Schwartz",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "The boat, the meters, and everything that has to be calibrated before a truck leaves the lot now belong to William Schwartz, who joins the consulting group as a Field Technician. Welcome. He is here for the water end of the field work and for the equipment that makes it possible, and I have told him already that I would rather lose a field day than collect something we will not trust. He seemed unsurprised by that, which is part of why we hired him."
+          "text": "This is to note that William Schwartz started with us on Monday as a Field Technician. We were looking for someone who could carry the physical side of a field day without it becoming a production, and after a season of short-handed sampling I am relieved to have him. He came recommended as reliable in the kind of weather that sends other crews home early, and a firm that works the estuary on the tide's clock rather than the office's cannot really afford otherwise."
         },
         {
           "kind": "paragraph",
-          "text": "Where he sits. William works to me and takes his day-to-day assignments from whoever is leading the engagement. On any question of whether a field day is safe or a plan is workable on the water, he decides, and he does not need to negotiate it with the engagement lead or with a client's schedule. If someone leans on him about that, I want to hear it. A plan that cannot be executed in the actual tide and the actual weather is not a plan we agreed to, whatever the letter says. The cost of a moved field day is a moved field day. The cost of a bad one is a number we have to stand behind for years."
+          "text": "William will handle the equipment and the transects, the ground-level mechanics that keep a sampling program moving: gear staged and working, lines run where the plan says they run, stations reached before the water turns them into a different site. On paper he is spare, and I take that as a good sign rather than a gap; a field log wants conditions recorded plainly and nothing added that was not there to begin with. William reports to John Sanchez, our Senior Scientist, who sets the field plan and reviews the day's records."
         },
         {
           "kind": "paragraph",
-          "text": "First period. Health and safety orientation before any site visit; water safety before any work off a boat. In the first weeks: inventory the equipment and tell me what is out of calibration, past its service, or not worth carrying anymore; go through the mobilization checklist and mark what is missing from it; and read a completed sampling file end to end so you can see how the field day turns into a record that outlives it. The inventory in particular is not a formality. Nobody has looked at that shelf with fresh eyes in a long while, and I would rather find out now what is on it than on a morning when we are already on the water."
+          "text": "What I ask of anyone new on the field side is the same, and I will say it to William plainly. The record you keep is the report we write. Station, time, condition, and an honest note of anything that went differently than planned. If a tide or a piece of gear forced a change out on the flat, that belongs in the log while it is fresh, not in somebody's memory a week later when the workbook is being built. The number I cannot check against a field record is a number I will not submit."
         },
         {
           "kind": "paragraph",
-          "text": "What I expect. Say when a plan will not work in the field, and say it early, in the plain terms you used in the interview. Write what happened, what it was measured with, and nothing beyond that; the notebook is a record, not an account of your reasoning. If an instrument drifted, that goes in the notebook the same day, not into somebody's memory of the morning. Nothing leaves this office with a figure in it that has not been checked, and a figure from an instrument nobody calibrated is not a figure at all."
+          "text": "His first weeks will run alongside John and the rest of the field crew, so our logging and chain-of-custody habits settle in before he takes a program on his own. The equipment, the tide tables, and the standing rule about never working a channel without someone knowing the plan are John's to hand over, and they are not up for negotiation. Give him a hand when you see him hauling gear at the dock. Glad to have you aboard, William."
         },
         {
           "kind": "paragraph",

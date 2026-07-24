@@ -3,31 +3,8 @@
   "doc_id": "d:0023",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Memorandum",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "To: Heather Morton, Field Technician",
-        "Cc: Angela Flynn, Managing Principal",
-        "From: John Sanchez, Senior Scientist",
-        "Subject: Kickoff, sediment sampling program, Salazar-Mendoza"
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "The letter came back countersigned, so the sediment sampling program for {{fact:f:E-2018-001.client}} is authorized and opens on {{fact:f:E-2018-001.start}}. Nothing has been collected and no station has been fixed. This memo sets the objectives down while they are still cheap to change, and says who is doing what before the tide table starts making the decisions for us.",
+      "text": "To: Sediment sampling team\nFrom: John Sanchez, Senior Scientist\nRe: Salazar-Mendoza sediment program, getting started",
       "level": 1,
       "items": [],
       "header": [],
@@ -36,7 +13,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "The objective is narrow and is worth keeping narrow. Surface and shallow subsurface sediment at the frontage and the adjacent flat are to be characterized for chemistry and physical character, well enough that the results survive review by somebody who was not there and is reading them in a file three years from now. That means station locations we can defend, handling we can document, and quality control that is visible in the report rather than asserted in a sentence. We have not been asked what to do about the results. If that question is put to us in the field, it gets written in the notebook and answered from the office.",
+      "text": "Our aim on this one is simple to state and worth stating plainly: we are building a sediment dataset for {{fact:f:E-2018-001.client}} that will hold up when someone reads it years from now, with every result tied to a station, a sample, and a date. Everything below serves that aim. If a step does not make the record cleaner or more defensible, we should question whether it belongs at all.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "This is field-heavy work on a tidal estuary, which means the schedule bends to the water rather than the other way around. I would rather we plan the rounds around the tide from the start than fight the site halfway through. We have done enough of these to know where the friction usually is, and most of it is avoidable with a little order up front.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "A word on why we are careful to the point of tedium here. The people who will lean on this dataset are not in the room with us; an agency reviewer, or the next consultant on the site, may open the workbook years out with no one left to ask what a note meant. So we write the record for that reader and not for ourselves, and we make it legible without us.",
       "level": 1,
       "items": [],
       "header": [],
@@ -45,7 +40,7 @@
     },
     {
       "kind": "heading",
-      "text": "Workstreams",
+      "text": "How the work divides",
       "level": 2,
       "items": [],
       "header": [],
@@ -57,34 +52,11 @@
       "text": "",
       "level": 1,
       "items": [
-        "Sampling and analysis plan. Drafted here, read by Angela Flynn, then submitted to Salazar-Mendoza for acceptance before anything is scheduled. It fixes stations and coordinates, depths, the analytical suite, containers and preservation, holding times, quality control frequency, and the screening criteria the data will be compared against. Nothing goes in the field until it comes back accepted.",
-        "Access and coordination. Sandra Little is the point of contact for site access, gate and parking arrangements, and any restriction on where a crew may walk. Tide windows are ours to propose; the constraints on them are hers to confirm.",
-        "Field program. Two events, each worked around low-tide exposure. Grabs and shallow cores at the plan stations, GPS on every occupation, photographs at every station, and the notebook written at the station rather than in the truck afterward.",
-        "Sample handling and laboratory. Chain of custody from the moment a container is filled. Holding times govern the schedule, not the other way around; if a window slips far enough to threaten one, the event moves rather than the paperwork.",
-        "Data validation and reporting. Laboratory packages checked against the plan's control limits, qualifiers carried through every table, and a data report that states what was measured, where, and on what date."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Next Steps",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Plan draft to Angela Flynn for review before it goes out. She reads it cold, so the station rationale has to be on the page and not in my head.",
-        "Heather Morton to pull tide predictions for the candidate windows and mark the ones that give a workable exposure with daylight on both sides of the low. Note the marginal ones as marginal; we would rather see them than have them quietly dropped.",
-        "Laboratory capacity and turnaround to be confirmed, and the container order placed once the suite is fixed. No order before the plan is accepted.",
-        "Access walk with Sandra Little once the draft stations are on a figure, so that a station nobody can reach is found on paper instead of at low tide."
+        "Sampling design and station layout, finalized against the site we walked, so that every round samples the same points in the same way.",
+        "Field collection and chain of custody. Heather Morton runs the rounds and keeps the field record, and that record is a deliverable as much as the numbers are.",
+        "Laboratory coordination: sample submission, turnaround, and reconciling what comes back against what we sent.",
+        "The data workbook, where results are entered, tied to their stations, and checked. Totals are verified before anything leaves the office.",
+        "The summary report, which states what was measured, where, and when, and does not reach past the data."
       ],
       "header": [],
       "rows": [],
@@ -92,7 +64,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "A word on what this job is likely to turn on. The flat here is not uniform, and the older survey material Salazar-Mendoza sent shows fill in at least one area that the plan will have to account for. Stations sited on fill do not tell you about the sediment the program is meant to characterize, and stations sited to avoid fill can be accused of avoiding the interesting ground. The rationale for each station therefore goes in the plan in writing, before we collect anything, so that it reads as a decision rather than as a result. If the substrate at a station turns out to be other than the plan assumed, the station moves, the move is recorded at the station with its reason, and both locations appear in the report.",
+      "text": "The order of that list matters less than the discipline behind it. A clean field record makes the workbook straightforward; a clean workbook makes the report nearly write itself. Most of the care belongs at the front end, in the field, where a mistake is cheap to fix and expensive to discover later.",
       "level": 1,
       "items": [],
       "header": [],
@@ -101,7 +73,34 @@
     },
     {
       "kind": "paragraph",
-      "text": "Two habits for this job. Write it down when it happens, not that evening over dinner. And if a reading looks wrong, flag it and leave it; do not fix it. An anomaly we can explain is worth a good deal more than a clean sheet we cannot.",
+      "text": "A note on coordination, since it is where a small team either gains or loses its advantage. Field notes go into the workbook promptly, not at the end of the month; a question about a station or a sample comes to me while the round is still fresh in mind. The dataset is only ever as good as the least careful handoff in it, and on a program that lives this long in the file, the handoffs are worth getting right the first time.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We begin on {{fact:f:E-2018-001.start}}. Before then, I want the station list and the sampling plan settled, the laboratory lined up for our first submission, and the field kit checked over. Heather and I will walk the round order this week so that the first day on site is spent sampling and not deciding.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our point of contact at Salazar-Mendoza is Sandra Little, their Director of Operations. She handles site access and scheduling on their end, so if a round has to move for the tide or the weather, she is the one to tell, and to tell early. Let us keep her in the loop the way we would each want to be kept in the loop.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "That is the whole of it for now. Bring me anything that looks off on site rather than quietly working around it; on a program like this, the small things caught early are exactly what keep the record clean. — John Sanchez",
       "level": 1,
       "items": [],
       "header": [],

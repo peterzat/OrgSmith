@@ -40,11 +40,23 @@
     "scanned_ratio": 0.6,
     "legacy_ratio": 0.0,
     "ocr_layer_rate": 0.5,
-    "business_calendar": null,
+    "business_calendar": {
+      "holidays": [
+        "2013-05-27",
+        "2014-07-04",
+        "2015-09-07",
+        "2016-11-24",
+        "2017-12-25",
+        "2018-05-28",
+        "2019-07-04",
+        "2020-09-07",
+        "2021-11-25"
+      ]
+    },
     "noise": null,
-    "voice_diversify": false,
+    "voice_diversify": true,
     "mail": null,
-    "style_specs": false
+    "style_specs": true
   },
   "finance": {
     "base_revenue": 1150000,
@@ -60,7 +72,7 @@
       "Habitat Restoration Monitoring",
       "Stormwater Permit Support"
     ],
-    "book_is_sample": false
+    "book_is_sample": true
   },
   "graph_targets": {
     "external_orgs": 5,

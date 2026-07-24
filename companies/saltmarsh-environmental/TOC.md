@@ -7,7 +7,7 @@ see the companion `-metadata` directory for ground truth.
 
 - [2019.01.22 - Engagement Letter - Carter and Sons - EXECUTED.pdf](Engagements/Carter%20and%20Sons/2019.01.22%20-%20Engagement%20Letter%20-%20Carter%20and%20Sons%20-%20EXECUTED.pdf) — 2019-01-22 (engagement_letter)
 - [2019.02.04 - Kickoff Memo - Habitat Restoration Monitoring.docx](Engagements/Carter%20and%20Sons/2019.02.04%20-%20Kickoff%20Memo%20-%20Habitat%20Restoration%20Monitoring.docx) — 2019-02-04 (kickoff_memo)
-- [Meeting Minutes 2019-03-09 - Carter and Sons.docx](Engagements/Carter%20and%20Sons/Meeting%20Minutes%202019-03-09%20-%20Carter%20and%20Sons.docx) — 2019-03-09 (meeting_minutes)
+- [Meeting Minutes 2019-03-08 - Carter and Sons.docx](Engagements/Carter%20and%20Sons/Meeting%20Minutes%202019-03-08%20-%20Carter%20and%20Sons.docx) — 2019-03-08 (meeting_minutes)
 - [2019.03.19 - Status Report - Carter and Sons v2 FINAL.docx](Engagements/Carter%20and%20Sons/2019.03.19%20-%20Status%20Report%20-%20Carter%20and%20Sons%20v2%20FINAL.docx) — 2019-03-19 (status_report)
 
 ## Engagements/Dyer and Sons
@@ -27,7 +27,7 @@ see the companion `-metadata` directory for ground truth.
 
 - [2018.07.16 - Engagement Letter - Salazar-Mendoza - EXECUTED.pdf](Engagements/Salazar-Mendoza/2018.07.16%20-%20Engagement%20Letter%20-%20Salazar-Mendoza%20-%20EXECUTED.pdf) — 2018-07-16 (engagement_letter)
 - [2018.07.29 - Kickoff Memo - Sediment Sampling Program.docx](Engagements/Salazar-Mendoza/2018.07.29%20-%20Kickoff%20Memo%20-%20Sediment%20Sampling%20Program.docx) — 2018-07-29 (kickoff_memo)
-- [Meeting Minutes 2018-10-20 - Salazar-Mendoza.docx](Engagements/Salazar-Mendoza/Meeting%20Minutes%202018-10-20%20-%20Salazar-Mendoza.docx) — 2018-10-20 (meeting_minutes)
+- [Meeting Minutes 2018-10-19 - Salazar-Mendoza.docx](Engagements/Salazar-Mendoza/Meeting%20Minutes%202018-10-19%20-%20Salazar-Mendoza.docx) — 2018-10-19 (meeting_minutes)
 - [2018.11.11 - Status Report - Salazar-Mendoza v2 FINAL.docx](Engagements/Salazar-Mendoza/2018.11.11%20-%20Status%20Report%20-%20Salazar-Mendoza%20v2%20FINAL.docx) — 2018-11-11 (status_report)
 - [Meeting Minutes 2019-01-18 - Salazar-Mendoza.docx](Engagements/Salazar-Mendoza/Meeting%20Minutes%202019-01-18%20-%20Salazar-Mendoza.docx) — 2019-01-18 (meeting_minutes)
 
@@ -35,7 +35,7 @@ see the companion `-metadata` directory for ground truth.
 
 - [2021.03.10 - Engagement Letter - Solis, Allen and Oconnell - EXECUTED.pdf](Engagements/Solis%2C%20Allen%20and%20Oconnell/2021.03.10%20-%20Engagement%20Letter%20-%20Solis%2C%20Allen%20and%20Oconnell%20-%20EXECUTED.pdf) — 2021-03-10 (engagement_letter)
 - [2021.03.23 - Kickoff Memo - Stormwater Permit Support.docx](Engagements/Solis%2C%20Allen%20and%20Oconnell/2021.03.23%20-%20Kickoff%20Memo%20-%20Stormwater%20Permit%20Support.docx) — 2021-03-23 (kickoff_memo)
-- [Meeting Minutes 2021-05-09 - Solis, Allen and Oconnell.docx](Engagements/Solis%2C%20Allen%20and%20Oconnell/Meeting%20Minutes%202021-05-09%20-%20Solis%2C%20Allen%20and%20Oconnell.docx) — 2021-05-09 (meeting_minutes)
+- [Meeting Minutes 2021-05-10 - Solis, Allen and Oconnell.docx](Engagements/Solis%2C%20Allen%20and%20Oconnell/Meeting%20Minutes%202021-05-10%20-%20Solis%2C%20Allen%20and%20Oconnell.docx) — 2021-05-10 (meeting_minutes)
 - [2021.05.22 - Status Report - Solis, Allen and Oconnell v2 FINAL.docx](Engagements/Solis%2C%20Allen%20and%20Oconnell/2021.05.22%20-%20Status%20Report%20-%20Solis%2C%20Allen%20and%20Oconnell%20v2%20FINAL.docx) — 2021-05-22 (status_report)
 
 ## Finance

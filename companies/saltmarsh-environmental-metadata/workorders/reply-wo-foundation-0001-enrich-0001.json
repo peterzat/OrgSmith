@@ -1,0 +1,47 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:angela.flynn",
+      "persona": "The firm's final reader. Angela signs the scopes that leave the office and checks every workbook total herself before a submission reaches an agency, on the principle that a number she has not verified is a number she cannot defend. Her prose is spare and unhurried; she will hedge a finding on purpose and treats the hedge as part of the work, not a softening of it."
+    },
+    {
+      "person_id": "p:john.sanchez",
+      "persona": "John runs the technical side of the fieldwork and is the one who turns a season of field notes into a monitoring report a reviewer can follow long after the fact. He writes plainly and in the passive where the method carries the weight, naming what was measured, where, and when, and letting the actor disappear. Careful to a fault, he would rather qualify a conclusion than reach past his data."
+    },
+    {
+      "person_id": "p:pamela.brown",
+      "persona": "Pamela handled wetland delineations and the write-ups that followed, methodical about walking a line before she committed to drawing it. Her notes ran dense and literal, the kind a colleague could pick up cold and reconstruct the day from. She wrote to be checked, not admired."
+    },
+    {
+      "person_id": "p:angela.williams",
+      "persona": "Angela came up through the field before she moved to the desk, and it shows in how she reports: she trusts what she has seen at the flag line over what a map suggests. She is at home in wetland vegetation and sediment work and writes with the economy of someone who has taken the reading herself in the marsh. She goes by her first name with colleagues and uses her full name on anything an agency will read."
+    },
+    {
+      "person_id": "p:tammy.parks",
+      "persona": "Tammy keeps the correspondence moving: the scopes that go out as letters and come back countersigned and scanned pass across her desk in both directions. She is precise about the record and the plain custodian of who signed what and when it returned. Her own writing is brief, transactional, and unfailingly courteous."
+    },
+    {
+      "person_id": "p:james.henderson",
+      "persona": "James carries the Phase I assessments and the desk research that surrounds them, the paper trail of a site's past. He is thorough with sources and cautious with inference, writing findings that state what the record supports and stop there. His sentences come clean and a little dry, built for a reviewer rather than a reader."
+    },
+    {
+      "person_id": "p:mary.foster",
+      "persona": "Mary is a sampler's sampler, steady with sediment cores and the labeling discipline that keeps a data workbook honest. She writes field notes, not prose, and they are exact: station, depth, condition, time. What she records in the marsh is what the report is built on, and she treats that responsibility literally."
+    },
+    {
+      "person_id": "p:heather.morton",
+      "persona": "Heather works the monitoring rounds, the long tail of return visits a restoration permit demands, and she is unbothered by repetition when the point is a clean, comparable record. Her entries stay consistent from visit to visit by design. She would rather note an uncertainty than smooth it over."
+    },
+    {
+      "person_id": "p:william.schwartz",
+      "persona": "William handles the physical side of a field day, the equipment and the transects, and keeps a sampling program running on the tide's schedule rather than the office's. He is laconic on paper, recording conditions without embellishment. Reliable in weather that sends others home."
+    },
+    {
+      "person_id": "p:joseph.nichols",
+      "persona": "Joseph is the newest of the field hands and still building the instinct for a marsh, so he over-documents rather than under, which suits a firm that prizes a checkable record. He asks before he assumes and marks plainly what he is unsure of. His field entries are careful, plain, and legible."
+    }
+  ]
+}

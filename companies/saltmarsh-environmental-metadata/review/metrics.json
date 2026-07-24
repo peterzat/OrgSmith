@@ -5,436 +5,424 @@
     {
       "doc_id": "d:0003",
       "genre": "onboarding_record",
-      "words": 448,
+      "words": 423,
       "target_words": 450
     },
     {
       "doc_id": "d:0005",
       "genre": "engagement_letter",
-      "words": 1109,
+      "words": 988,
       "target_words": 1100
     },
     {
       "doc_id": "d:0006",
       "genre": "kickoff_memo",
-      "words": 578,
+      "words": 535,
       "target_words": 650
     },
     {
       "doc_id": "d:0007",
       "genre": "company_overview",
-      "words": 734,
+      "words": 765,
       "target_words": 750
     },
     {
       "doc_id": "d:0008",
       "genre": "briefing_deck",
-      "words": 373,
+      "words": 353,
       "target_words": 400
     },
     {
       "doc_id": "d:0009",
       "genre": "meeting_minutes",
-      "words": 635,
+      "words": 517,
       "target_words": 600
     },
     {
       "doc_id": "d:0010",
       "genre": "onboarding_record",
-      "words": 474,
+      "words": 372,
       "target_words": 450
     },
     {
       "doc_id": "d:0011",
       "genre": "status_report",
-      "words": 789,
+      "words": 672,
       "target_words": 850
     },
     {
       "doc_id": "d:0012",
       "genre": "meeting_minutes",
-      "words": 697,
+      "words": 505,
       "target_words": 600
     },
     {
       "doc_id": "d:0014",
       "genre": "engagement_letter",
-      "words": 1219,
+      "words": 1009,
       "target_words": 1100
     },
     {
       "doc_id": "d:0015",
       "genre": "kickoff_memo",
-      "words": 629,
+      "words": 550,
       "target_words": 650
     },
     {
       "doc_id": "d:0016",
       "genre": "meeting_minutes",
-      "words": 742,
+      "words": 582,
       "target_words": 600
     },
     {
       "doc_id": "d:0017",
       "genre": "status_report",
-      "words": 811,
+      "words": 703,
       "target_words": 850
     },
     {
       "doc_id": "d:0018",
       "genre": "onboarding_record",
-      "words": 420,
+      "words": 380,
       "target_words": 450
     },
     {
       "doc_id": "d:0021",
       "genre": "company_overview",
-      "words": 728,
+      "words": 680,
       "target_words": 750
     },
     {
       "doc_id": "d:0022",
       "genre": "engagement_letter",
-      "words": 1201,
+      "words": 1073,
       "target_words": 1100
     },
     {
       "doc_id": "d:0023",
       "genre": "kickoff_memo",
-      "words": 707,
+      "words": 627,
       "target_words": 650
     },
     {
       "doc_id": "d:0024",
       "genre": "onboarding_record",
-      "words": 429,
+      "words": 361,
       "target_words": 450
     },
     {
       "doc_id": "d:0025",
       "genre": "meeting_minutes",
-      "words": 620,
+      "words": 545,
       "target_words": 600
     },
     {
       "doc_id": "d:0026",
       "genre": "status_report",
-      "words": 788,
+      "words": 813,
       "target_words": 850
     },
     {
       "doc_id": "d:0028",
       "genre": "meeting_minutes",
-      "words": 621,
+      "words": 529,
       "target_words": 600
     },
     {
       "doc_id": "d:0029",
       "genre": "engagement_letter",
-      "words": 1188,
+      "words": 1083,
       "target_words": 1100
     },
     {
       "doc_id": "d:0030",
       "genre": "kickoff_memo",
-      "words": 598,
+      "words": 616,
       "target_words": 650
     },
     {
       "doc_id": "d:0031",
       "genre": "meeting_minutes",
-      "words": 619,
+      "words": 588,
       "target_words": 600
     },
     {
       "doc_id": "d:0032",
       "genre": "status_report",
-      "words": 788,
+      "words": 792,
       "target_words": 850
     },
     {
       "doc_id": "d:0033",
       "genre": "onboarding_record",
-      "words": 499,
+      "words": 447,
       "target_words": 450
     },
     {
       "doc_id": "d:0036",
       "genre": "engagement_letter",
-      "words": 1262,
+      "words": 1096,
       "target_words": 1100
     },
     {
       "doc_id": "d:0037",
       "genre": "kickoff_memo",
-      "words": 633,
+      "words": 645,
       "target_words": 650
     },
     {
       "doc_id": "d:0038",
       "genre": "meeting_minutes",
-      "words": 647,
+      "words": 566,
       "target_words": 600
     },
     {
       "doc_id": "d:0039",
       "genre": "status_report",
-      "words": 846,
+      "words": 851,
       "target_words": 850
     },
     {
       "doc_id": "d:0040",
       "genre": "company_overview",
-      "words": 652,
+      "words": 760,
       "target_words": 750
     }
   ],
   "similar_pairs": [
     {
+      "doc_a": "d:0005",
+      "doc_b": "d:0036",
+      "genre": "engagement_letter",
+      "jaccard": 0.199
+    },
+    {
+      "doc_a": "d:0022",
+      "doc_b": "d:0029",
+      "genre": "engagement_letter",
+      "jaccard": 0.171
+    },
+    {
+      "doc_a": "d:0025",
+      "doc_b": "d:0031",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0982
+    },
+    {
       "doc_a": "d:0007",
       "doc_b": "d:0021",
       "genre": "company_overview",
-      "jaccard": 0.0673
+      "jaccard": 0.0864
     },
     {
       "doc_a": "d:0009",
       "doc_b": "d:0012",
       "genre": "meeting_minutes",
-      "jaccard": 0.0519
+      "jaccard": 0.0612
+    },
+    {
+      "doc_a": "d:0011",
+      "doc_b": "d:0039",
+      "genre": "status_report",
+      "jaccard": 0.0607
+    },
+    {
+      "doc_a": "d:0026",
+      "doc_b": "d:0032",
+      "genre": "status_report",
+      "jaccard": 0.0541
     },
     {
       "doc_a": "d:0025",
       "doc_b": "d:0028",
       "genre": "meeting_minutes",
-      "jaccard": 0.0451
+      "jaccard": 0.0539
     },
     {
-      "doc_a": "d:0005",
+      "doc_a": "d:0023",
+      "doc_b": "d:0030",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0491
+    },
+    {
+      "doc_a": "d:0014",
       "doc_b": "d:0022",
-      "genre": "engagement_letter",
-      "jaccard": 0.0335
-    },
-    {
-      "doc_a": "d:0022",
-      "doc_b": "d:0029",
-      "genre": "engagement_letter",
-      "jaccard": 0.0327
-    },
-    {
-      "doc_a": "d:0022",
-      "doc_b": "d:0036",
       "genre": "engagement_letter",
       "jaccard": 0.0325
     },
     {
       "doc_a": "d:0014",
-      "doc_b": "d:0036",
-      "genre": "engagement_letter",
-      "jaccard": 0.0288
-    },
-    {
-      "doc_a": "d:0005",
       "doc_b": "d:0029",
       "genre": "engagement_letter",
-      "jaccard": 0.0285
+      "jaccard": 0.0282
     },
     {
-      "doc_a": "d:0014",
-      "doc_b": "d:0022",
-      "genre": "engagement_letter",
-      "jaccard": 0.027
-    },
-    {
-      "doc_a": "d:0029",
-      "doc_b": "d:0036",
-      "genre": "engagement_letter",
-      "jaccard": 0.0257
-    },
-    {
-      "doc_a": "d:0003",
-      "doc_b": "d:0024",
-      "genre": "onboarding_record",
-      "jaccard": 0.0246
-    },
-    {
-      "doc_a": "d:0005",
-      "doc_b": "d:0036",
-      "genre": "engagement_letter",
-      "jaccard": 0.0244
-    },
-    {
-      "doc_a": "d:0010",
-      "doc_b": "d:0024",
-      "genre": "onboarding_record",
-      "jaccard": 0.0216
-    },
-    {
-      "doc_a": "d:0003",
-      "doc_b": "d:0010",
-      "genre": "onboarding_record",
-      "jaccard": 0.02
+      "doc_a": "d:0028",
+      "doc_b": "d:0031",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0281
     },
     {
       "doc_a": "d:0007",
       "doc_b": "d:0040",
       "genre": "company_overview",
-      "jaccard": 0.0199
+      "jaccard": 0.0208
     },
     {
       "doc_a": "d:0003",
       "doc_b": "d:0018",
       "genre": "onboarding_record",
-      "jaccard": 0.0188
-    },
-    {
-      "doc_a": "d:0014",
-      "doc_b": "d:0029",
-      "genre": "engagement_letter",
-      "jaccard": 0.0179
-    },
-    {
-      "doc_a": "d:0021",
-      "doc_b": "d:0040",
-      "genre": "company_overview",
-      "jaccard": 0.017
+      "jaccard": 0.0192
     },
     {
       "doc_a": "d:0005",
       "doc_b": "d:0014",
       "genre": "engagement_letter",
-      "jaccard": 0.0154
+      "jaccard": 0.0169
     },
     {
-      "doc_a": "d:0025",
-      "doc_b": "d:0038",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0145
+      "doc_a": "d:0003",
+      "doc_b": "d:0024",
+      "genre": "onboarding_record",
+      "jaccard": 0.0168
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0022",
+      "genre": "engagement_letter",
+      "jaccard": 0.0149
+    },
+    {
+      "doc_a": "d:0021",
+      "doc_b": "d:0040",
+      "genre": "company_overview",
+      "jaccard": 0.0142
+    },
+    {
+      "doc_a": "d:0029",
+      "doc_b": "d:0036",
+      "genre": "engagement_letter",
+      "jaccard": 0.0141
+    },
+    {
+      "doc_a": "d:0006",
+      "doc_b": "d:0037",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0139
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0024",
+      "genre": "onboarding_record",
+      "jaccard": 0.0137
     },
     {
       "doc_a": "d:0018",
       "doc_b": "d:0024",
       "genre": "onboarding_record",
-      "jaccard": 0.0143
-    },
-    {
-      "doc_a": "d:0024",
-      "doc_b": "d:0033",
-      "genre": "onboarding_record",
-      "jaccard": 0.012
-    },
-    {
-      "doc_a": "d:0012",
-      "doc_b": "d:0016",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0106
-    },
-    {
-      "doc_a": "d:0009",
-      "doc_b": "d:0016",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0104
-    },
-    {
-      "doc_a": "d:0010",
-      "doc_b": "d:0018",
-      "genre": "onboarding_record",
-      "jaccard": 0.0102
-    },
-    {
-      "doc_a": "d:0012",
-      "doc_b": "d:0025",
-      "genre": "meeting_minutes",
-      "jaccard": 0.01
-    },
-    {
-      "doc_a": "d:0009",
-      "doc_b": "d:0028",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0098
-    },
-    {
-      "doc_a": "d:0009",
-      "doc_b": "d:0025",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0097
-    },
-    {
-      "doc_a": "d:0016",
-      "doc_b": "d:0031",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0097
-    },
-    {
-      "doc_a": "d:0012",
-      "doc_b": "d:0028",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0093
-    },
-    {
-      "doc_a": "d:0028",
-      "doc_b": "d:0038",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0089
-    },
-    {
-      "doc_a": "d:0016",
-      "doc_b": "d:0025",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0082
-    },
-    {
-      "doc_a": "d:0006",
-      "doc_b": "d:0015",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0076
-    },
-    {
-      "doc_a": "d:0016",
-      "doc_b": "d:0028",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0075
+      "jaccard": 0.0136
     },
     {
       "doc_a": "d:0018",
       "doc_b": "d:0033",
       "genre": "onboarding_record",
-      "jaccard": 0.0066
+      "jaccard": 0.0136
     },
     {
-      "doc_a": "d:0025",
-      "doc_b": "d:0031",
+      "doc_a": "d:0009",
+      "doc_b": "d:0028",
       "genre": "meeting_minutes",
-      "jaccard": 0.0065
+      "jaccard": 0.0128
+    },
+    {
+      "doc_a": "d:0014",
+      "doc_b": "d:0036",
+      "genre": "engagement_letter",
+      "jaccard": 0.0121
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0028",
+      "genre": "meeting_minutes",
+      "jaccard": 0.012
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0029",
+      "genre": "engagement_letter",
+      "jaccard": 0.0118
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0025",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0118
+    },
+    {
+      "doc_a": "d:0009",
+      "doc_b": "d:0025",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0116
     },
     {
       "doc_a": "d:0003",
       "doc_b": "d:0033",
       "genre": "onboarding_record",
-      "jaccard": 0.0064
+      "jaccard": 0.0105
     },
     {
-      "doc_a": "d:0012",
-      "doc_b": "d:0031",
+      "doc_a": "d:0022",
+      "doc_b": "d:0036",
+      "genre": "engagement_letter",
+      "jaccard": 0.0103
+    },
+    {
+      "doc_a": "d:0009",
+      "doc_b": "d:0038",
       "genre": "meeting_minutes",
-      "jaccard": 0.0062
+      "jaccard": 0.0095
     },
     {
-      "doc_a": "d:0015",
-      "doc_b": "d:0030",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0058
+      "doc_a": "d:0010",
+      "doc_b": "d:0018",
+      "genre": "onboarding_record",
+      "jaccard": 0.0081
     },
     {
-      "doc_a": "d:0028",
-      "doc_b": "d:0031",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0058
+      "doc_a": "d:0003",
+      "doc_b": "d:0010",
+      "genre": "onboarding_record",
+      "jaccard": 0.0076
+    },
+    {
+      "doc_a": "d:0024",
+      "doc_b": "d:0033",
+      "genre": "onboarding_record",
+      "jaccard": 0.0075
     },
     {
       "doc_a": "d:0010",
       "doc_b": "d:0033",
       "genre": "onboarding_record",
-      "jaccard": 0.0052
+      "jaccard": 0.0074
+    },
+    {
+      "doc_a": "d:0025",
+      "doc_b": "d:0038",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0074
+    },
+    {
+      "doc_a": "d:0011",
+      "doc_b": "d:0032",
+      "genre": "status_report",
+      "jaccard": 0.007
+    },
+    {
+      "doc_a": "d:0028",
+      "doc_b": "d:0038",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0066
     },
     {
       "doc_a": "d:0011",
@@ -443,22 +431,16 @@
       "jaccard": 0.0051
     },
     {
-      "doc_a": "d:0011",
+      "doc_a": "d:0032",
       "doc_b": "d:0039",
       "genre": "status_report",
-      "jaccard": 0.0043
+      "jaccard": 0.0044
     },
     {
-      "doc_a": "d:0009",
-      "doc_b": "d:0031",
-      "genre": "meeting_minutes",
-      "jaccard": 0.0041
-    },
-    {
-      "doc_a": "d:0009",
-      "doc_b": "d:0038",
-      "genre": "meeting_minutes",
-      "jaccard": 0.004
+      "doc_a": "d:0017",
+      "doc_b": "d:0039",
+      "genre": "status_report",
+      "jaccard": 0.0039
     },
     {
       "doc_a": "d:0012",
@@ -467,106 +449,130 @@
       "jaccard": 0.0038
     },
     {
-      "doc_a": "d:0016",
-      "doc_b": "d:0038",
+      "doc_a": "d:0009",
+      "doc_b": "d:0031",
       "genre": "meeting_minutes",
-      "jaccard": 0.0036
-    },
-    {
-      "doc_a": "d:0017",
-      "doc_b": "d:0026",
-      "genre": "status_report",
-      "jaccard": 0.0032
+      "jaccard": 0.0037
     },
     {
       "doc_a": "d:0031",
       "doc_b": "d:0038",
       "genre": "meeting_minutes",
-      "jaccard": 0.0032
+      "jaccard": 0.0035
+    },
+    {
+      "doc_a": "d:0017",
+      "doc_b": "d:0026",
+      "genre": "status_report",
+      "jaccard": 0.0033
     },
     {
       "doc_a": "d:0006",
-      "doc_b": "d:0030",
+      "doc_b": "d:0015",
       "genre": "kickoff_memo",
-      "jaccard": 0.0026
+      "jaccard": 0.0028
+    },
+    {
+      "doc_a": "d:0009",
+      "doc_b": "d:0016",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0028
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0016",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0028
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0031",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0028
     },
     {
       "doc_a": "d:0017",
       "doc_b": "d:0032",
       "genre": "status_report",
-      "jaccard": 0.0025
-    },
-    {
-      "doc_a": "d:0017",
-      "doc_b": "d:0039",
-      "genre": "status_report",
-      "jaccard": 0.0024
-    },
-    {
-      "doc_a": "d:0015",
-      "doc_b": "d:0023",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0023
-    },
-    {
-      "doc_a": "d:0023",
-      "doc_b": "d:0037",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0022
-    },
-    {
-      "doc_a": "d:0011",
-      "doc_b": "d:0032",
-      "genre": "status_report",
-      "jaccard": 0.0019
-    },
-    {
-      "doc_a": "d:0032",
-      "doc_b": "d:0039",
-      "genre": "status_report",
-      "jaccard": 0.0019
-    },
-    {
-      "doc_a": "d:0026",
-      "doc_b": "d:0032",
-      "genre": "status_report",
-      "jaccard": 0.0013
-    },
-    {
-      "doc_a": "d:0026",
-      "doc_b": "d:0039",
-      "genre": "status_report",
-      "jaccard": 0.0012
-    },
-    {
-      "doc_a": "d:0006",
-      "doc_b": "d:0023",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0008
-    },
-    {
-      "doc_a": "d:0015",
-      "doc_b": "d:0037",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0008
-    },
-    {
-      "doc_a": "d:0023",
-      "doc_b": "d:0030",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0008
-    },
-    {
-      "doc_a": "d:0030",
-      "doc_b": "d:0037",
-      "genre": "kickoff_memo",
-      "jaccard": 0.0008
+      "jaccard": 0.0027
     },
     {
       "doc_a": "d:0011",
       "doc_b": "d:0026",
       "genre": "status_report",
-      "jaccard": 0.0006
+      "jaccard": 0.002
+    },
+    {
+      "doc_a": "d:0016",
+      "doc_b": "d:0038",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0018
+    },
+    {
+      "doc_a": "d:0026",
+      "doc_b": "d:0039",
+      "genre": "status_report",
+      "jaccard": 0.0018
+    },
+    {
+      "doc_a": "d:0006",
+      "doc_b": "d:0030",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0017
+    },
+    {
+      "doc_a": "d:0030",
+      "doc_b": "d:0037",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0016
+    },
+    {
+      "doc_a": "d:0006",
+      "doc_b": "d:0023",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0009
+    },
+    {
+      "doc_a": "d:0015",
+      "doc_b": "d:0023",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0009
+    },
+    {
+      "doc_a": "d:0015",
+      "doc_b": "d:0030",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0009
+    },
+    {
+      "doc_a": "d:0016",
+      "doc_b": "d:0025",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0009
+    },
+    {
+      "doc_a": "d:0016",
+      "doc_b": "d:0028",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0009
+    },
+    {
+      "doc_a": "d:0016",
+      "doc_b": "d:0031",
+      "genre": "meeting_minutes",
+      "jaccard": 0.0009
+    },
+    {
+      "doc_a": "d:0015",
+      "doc_b": "d:0037",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0008
+    },
+    {
+      "doc_a": "d:0023",
+      "doc_b": "d:0037",
+      "genre": "kickoff_memo",
+      "jaccard": 0.0008
     }
   ]
 }
