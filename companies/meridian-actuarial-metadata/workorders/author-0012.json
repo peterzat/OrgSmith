@@ -1,0 +1,455 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0012",
+  "stage": "author",
+  "slug": "meridian-actuarial",
+  "org_name": "Meridian Actuarial Advisors LLC",
+  "org_type": "actuarial consulting",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0012\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0064",
+      "title": "Engagement Letter: Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "engagement_letter",
+      "date": "2024-07-15",
+      "authors": [
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2024-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0065",
+      "title": "Kickoff Memo: Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "kickoff_memo",
+      "date": "2024-07-28",
+      "authors": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        },
+        {
+          "id": "p:nicole.hanna",
+          "name": "Nicole Hanna",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "An actuarial associate on the consulting bench, working valuation support and data checks. Her notes are factual and measured, distinguishing what she found from what she assumed. She shares a surname with a colleague elsewhere in the firm and, like the firm itself, treats it as entirely unremarkable."
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        },
+        {
+          "entity": "p:nicole.hanna",
+          "surface": "Nicole Hanna",
+          "kind": "person"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0066",
+      "title": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "engagement_email",
+      "date": "2024-08-22",
+      "authors": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one. Delivery: this message is sent To James Garcia at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 22% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0067",
+      "title": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "engagement_email",
+      "date": "2024-08-23",
+      "authors": [
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To James Garcia at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 23% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0068",
+      "title": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "engagement_email",
+      "date": "2024-08-23",
+      "authors": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To James Garcia at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 23% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0069",
+      "title": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly",
+      "genre": "engagement_email",
+      "date": "2024-08-26",
+      "authors": [
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+        },
+        {
+          "id": "p:michelle.banks",
+          "name": "Michelle Banks",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+        },
+        {
+          "id": "xp:james.garcia",
+          "name": "James Garcia",
+          "title": "Chief Financial Officer",
+          "dept": "Gonzalez, Campbell and Kelly",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2024-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.garcia",
+          "surface": "James Garcia",
+          "kind": "person"
+        },
+        {
+          "entity": "x:gonzalez-campbell-and-kelly",
+          "surface": "Gonzalez, Campbell and Kelly",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To James Garcia at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 26% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

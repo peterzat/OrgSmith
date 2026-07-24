@@ -26,7 +26,7 @@
     ]
   },
   "doc_culture": {
-    "target_docs": 49,
+    "target_docs": 62,
     "date_range": [
       "2016-01-01",
       "2024-12-31"
@@ -36,16 +36,38 @@
       "pdf": 10,
       "xlsx": 9,
       "pptx": 2,
-      "eml": 3
+      "eml": 22
     },
     "scanned_ratio": 0.0,
     "legacy_ratio": 0.0,
     "ocr_layer_rate": 0.0,
-    "business_calendar": null,
+    "business_calendar": {
+      "holidays": [
+        "2016-05-30",
+        "2017-07-04",
+        "2018-09-03",
+        "2019-11-28",
+        "2020-12-25",
+        "2021-05-31",
+        "2022-07-04",
+        "2023-09-04",
+        "2024-11-28"
+      ]
+    },
     "noise": null,
-    "voice_diversify": false,
-    "mail": null,
-    "style_specs": false
+    "voice_diversify": true,
+    "mail": {
+      "business_hours": [
+        8,
+        18
+      ],
+      "max_thread_depth": 5,
+      "mundane_emails": 4,
+      "attachments": 0,
+      "distribution_lists": 1,
+      "exempt_author_mentions": true
+    },
+    "style_specs": true
   },
   "finance": {
     "base_revenue": 1400000,
@@ -62,7 +84,7 @@
       "Funding Policy Study",
       "Reinsurance Pricing Review"
     ],
-    "book_is_sample": false
+    "book_is_sample": true
   },
   "graph_targets": {
     "external_orgs": 6,

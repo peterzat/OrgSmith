@@ -3,8 +3,8 @@
   "doc_id": "d:0016",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Status Report: Reserve Adequacy Review",
+      "kind": "paragraph",
+      "text": "Michelle Hudson\nDirector of Operations\n{{fact:f:E-2017-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,16 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Prepared for {{fact:f:E-2017-001.client}} by Megan Dudley, Actuarial Associate. Covering the period since the last working session.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Status summary",
+      "text": "Re: Engagement to perform a reserve adequacy review for {{fact:f:E-2017-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The review is at its midpoint. It is on scope and within budget. It is not at the point in the plan we expected to reach by now, for a reason documented below that we do not regard as a problem yet. The data reconciliation, which the plan treated as a short front-end task, has run long because the extract supplied for this review draws on a different population than the prior valuation used. Everything downstream of the reconciliation sits behind it. The assumption review has proceeded in parallel and is substantially complete apart from one item.",
+      "text": "Dear Ms. Hudson:",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Stated in the order we prefer to state things. What the data show: the reconciliation is open on one plan, and the exhibits are partially built. What we are assuming: that the population difference resolves into an explained change in the extract logic rather than a change in what is being valued. What we conclude: the engagement can be delivered within the scope and fee of the engagement letter, provided the outstanding data question closes in the near term. The conclusion depends on the assumption, and we will say so again if the assumption stops holding.",
+      "text": "This letter sets out the terms on which our firm will perform a reserve adequacy review for {{fact:f:E-2017-001.client}}. It records what we will do, what we will rely on, and the basis on which we are engaged. We have written the terms plainly, because we would rather you know exactly what you are agreeing to than have to work it out later from the invoices. The work will begin on {{fact:f:E-2017-001.start}}, and the paragraphs below cover the review itself, the people who will do it, the fee, and the standard terms that carry the engagement.",
       "level": 1,
       "items": [],
       "header": [],
@@ -49,7 +40,16 @@
     },
     {
       "kind": "heading",
-      "text": "Accomplishments this period",
+      "text": "The Review and What It Covers",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The purpose of the review is to form an opinion on whether the reserves carried by {{fact:f:E-2017-001.client}} are adequate to meet the obligations they are meant to fund, measured as of a valuation date we will fix with your staff at the outset. The opinion is the deliverable; everything else is in support of it. So there is no ambiguity about scope, the work has five parts.",
       "level": 1,
       "items": [],
       "header": [],
@@ -61,19 +61,19 @@
       "text": "",
       "level": 1,
       "items": [
-        "Received and loaded the in-force extract and the reserve detail by plan.",
-        "Reconciled counts and totals for all plans but one against the prior valuation. David Sherman has documented the reconciliation and quantified the difference in the plan that does not tie.",
-        "Completed the inventory of assumptions in force and identified those changed since the prior valuation. Jennifer Vasquez has located documented basis for all of them except the lapse assumption.",
-        "Built the exhibit workbook shell and populated the tabs for the plans that reconcile. Each exhibit traces to a named input tab holding the extract as received.",
-        "Held a working session with your staff to walk the reconciliation and the assumption inventory, and agreed the treatment of any replacement extract."
+        "A reconciliation of the reserve data you provide against your own financial records, so that the figures we test are the figures you carry.",
+        "A review of the assumptions underlying the current reserves, keeping the assumptions that regulation fixes separate from those that rest on judgment.",
+        "An independent estimate of the required reserves under the standards named below, developed from the data as reconciled rather than as received.",
+        "A comparison of that estimate against the carried reserves, with any difference attributed to its sources rather than reported as a single number.",
+        "A written report that states what the data show, what we assumed, and what we conclude, and keeps those three as three separate matters."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Upcoming work",
+      "kind": "paragraph",
+      "text": "Matters outside this list are outside the engagement. We are not auditing your financial statements, setting your reserves for you, or opining on the adequacy of your rates. If you want any of those, we can scope them separately.",
       "level": 1,
       "items": [],
       "header": [],
@@ -81,23 +81,8 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Close the population question. If a replacement extract is required, reload from a full re-cut rather than a delta file.",
-        "Complete the calculated exhibits and put them through internal review.",
-        "Resolve the basis for the lapse assumption, or establish that no current study supports it and carry that as a finding rather than as a gap.",
-        "Draft the report. Jennifer Vasquez drafts; Robert Lawrence reviews and signs. Drafting does not begin until the exhibits are stable.",
-        "Deliver the workbook and the report and walk them with you before they go anywhere further."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "heading",
-      "text": "Risks",
+      "text": "What We Will Need From You",
       "level": 1,
       "items": [],
       "header": [],
@@ -106,38 +91,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Three, in the order we would rank them.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "The population question stays open. This is the one that matters. Every remaining task sits behind it, and the elapsed time it costs is time your staff spend answering, not time we spend working. If it does not close in the next few weeks, the delivery date becomes a conversation.",
-        "The lapse assumption basis is never located. This does not stop the work. It changes what the report says, and it changes it in a direction that is uncomfortable rather than fatal: we would disclose that the assumption in force is not supported by a current study, and we would state what we did in its place.",
-        "Scope movement. Nothing has moved. We raise it because the fee of {{fact:f:E-2017-001.fee}} is fixed against the scope in the engagement letter, and the requests that erode a scope are individually reasonable ones. A change in the valuation date, or an additional scenario, would be quoted before any work on it begins."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Budget",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Fees incurred to date are consistent with the work performed and remain within the fixed fee of {{fact:f:E-2017-001.fee}} for the engagement as scoped. The reconciliation has taken more hours than planned and the assumption review has taken fewer. There is no request for additional fee in this report and we do not anticipate one on the current scope.",
+      "text": "The review turns on the data, so a few things on your side keep it on schedule. We will need the reserve detail, the financial records the reserves are carried against, and the assumption documentation in effect at the valuation date, and we will send a single itemized request rather than ask for these piecemeal. We also need one person we can put questions to as they come up, since a file usually raises a question that only your staff can settle. The sooner those requests are answered, the sooner we can reconcile against the right records the first time.",
       "level": 1,
       "items": [],
       "header": [],
@@ -146,34 +100,159 @@
     },
     {
       "kind": "heading",
-      "text": "What we would ask of you",
+      "text": "How We Will Work",
       "level": 1,
       "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "An answer on the extract selection criteria. This is the whole critical path and nothing else on this list competes with it.",
-        "A name for the lapse study, if one exists, or confirmation that it does not.",
-        "Continued routing of data questions through the single channel agreed at kickoff. Parallel requests cost more than they save."
-      ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Nothing in this report is a conclusion about reserve adequacy. No conclusion has been reached and none will be until the exhibits are complete and reviewed. Questions on the work can come to me. Questions on scope should go to Robert Lawrence.",
+      "text": "We begin with your data and your own records, not with a template carried in from another client. Our reliance on the data is exactly that, reliance. We will test it for internal consistency and reconcile it to your records, but we do not audit it, and our opinion is conditioned on the data being complete and correct in the respects the report identifies. The review is performed in accordance with the applicable Actuarial Standards of Practice and the Code of Professional Conduct, and the report will name the standards it rests on. Where a figure reflects a judgment rather than a measurement, we will say so and give you the reasoning, rather than ask you to take the number on faith.",
       "level": 1,
       "items": [],
       "header": [],
       "rows": [],
       "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "The Engagement Team",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jennifer Vasquez, a consulting actuary in our practice, owns the relationship and the day-to-day conduct of the work, and she is your point of contact for anything touching scope, schedule, or judgment. David Sherman, a senior analyst, builds and documents the valuation workbook and reconciles the data you send us. Megan Dudley, an actuarial associate, supports the exhibits and the data checks. I review the work and sign the opinion, and the professional responsibility for it is mine. You will hear from Jennifer Vasquez first, and she will coordinate the rest of us.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Fees and Payment",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our fee for the review is a fixed fee of {{fact:f:E-2017-001.fee}}, covering the work described above and the report that concludes it. We will invoice in three installments: a third at the start, a third on delivery of the draft report, and the balance on delivery of the final report. Invoices are due within thirty days. Out-of-pocket costs, if any, are billed at our cost and are expected to be minor. If anything arises that would materially change the fee, we will raise it with you in writing before the cost is incurred, not after.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Term and Termination",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The engagement begins on the date noted above and runs until we deliver the final report, a period we expect to take about seven months. Either of us may end it on written notice. If you end it early, you owe us for the work performed to that point and for costs already committed. If we end it, we will give you enough notice and enough of our working files to let another actuary take up the work without repeating it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Confidentiality",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We will treat the information you give us as confidential and use it only for this engagement. We will not disclose it outside our firm except as you direct in writing or as the law requires, and where the law requires it we will tell you before we respond unless we are barred from doing so. Our working papers remain ours, and we hold them under the same duty of confidence.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Limitation of Liability",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our opinion is prepared for {{fact:f:E-2017-001.client}} and for the use described in the report; it is not to be relied on by anyone else, or for any other purpose, without our written consent. Our liability to you arising out of this engagement, whether framed in contract or in negligence, is limited to the fee paid for the work, except for any liability that cannot be limited by law. We accept no liability to third parties.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Governing Law",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "This agreement is governed by the law of the state in which our principal office sits, and any dispute arising under it belongs to the courts of that state.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "If these terms match your understanding, please sign one copy of this letter where indicated below and return it to us, and keep the other for your file. Your signature is our authority to begin. If anything here reads differently from what we discussed, call me before you sign and we will fix the wording rather than paper over it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Sincerely,",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "sigblock",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": [
+        "p:robert.lawrence",
+        "xp:michelle.hudson"
+      ]
     }
   ]
 }

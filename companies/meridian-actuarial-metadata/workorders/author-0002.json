@@ -6,39 +6,53 @@
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
   "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0002\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0005",
-      "title": "Firm Overview",
-      "genre": "company_overview",
+      "doc_id": "d:0008",
+      "title": "Pension Valuation for Howard and Sons",
+      "genre": "engagement_email",
       "date": "2016-05-17",
       "authors": [
         {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
+          "dept": "Consulting",
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
         }
       ],
       "participants": [
         {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
+          "dept": "Consulting",
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
         },
         {
-          "id": "p:carol.cooper",
-          "name": "Carol Cooper",
-          "title": "Practice Manager",
-          "dept": "Operations",
-          "persona": "Keeps the practice running and treats a deadline as a real object. Her writing is warm but efficient, and she is the firm's memory for what was promised to whom and when it was promised. She has no patience for a document that goes out without a scope paragraph, and she will hold it. Around actuaries she is comfortable admitting she does not follow the mathematics, and equally comfortable pointing out that the sentence they wrote does not parse."
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
+          "dept": "Consulting",
+          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+        },
+        {
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+        },
+        {
+          "id": "xp:elizabeth.horne",
+          "name": "Elizabeth Horne",
+          "title": "Director of Operations",
+          "dept": "Howard and Sons",
+          "persona": ""
         }
       ],
-      "engagement_summary": "",
+      "engagement_summary": "Pension Valuation for Howard and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
           "id": "f:E-2016-001.client",
@@ -47,238 +61,275 @@
       ],
       "mentions": [
         {
-          "entity": "p:robert.lawrence",
-          "surface": "Robert Lawrence",
+          "entity": "p:david.sherman",
+          "surface": "David Sherman",
           "kind": "person"
         },
         {
-          "entity": "p:carol.cooper",
-          "surface": "Carol Cooper",
+          "entity": "p:jeffrey.ochoa",
+          "surface": "Jeffrey Ochoa",
           "kind": "person"
+        },
+        {
+          "entity": "xp:elizabeth.horne",
+          "surface": "Elizabeth Horne",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-and-sons",
+          "surface": "Howard and Sons",
+          "kind": "org"
         }
       ],
-      "target_words": 750,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
-      "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2016. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Elizabeth Horne at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; 'Two asks. First... Second...' as an opener. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 22% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0010",
-      "title": "Onboarding: Jennifer Johnson",
-      "genre": "onboarding_record",
-      "date": "2017-02-05",
+      "title": "Briefing Deck: Pension Valuation for Howard and Sons",
+      "genre": "briefing_deck",
+      "date": "2016-05-21",
       "authors": [
         {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
+          "dept": "Consulting",
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
         }
       ],
       "participants": [
         {
-          "id": "p:jennifer.johnson",
-          "name": "Jennifer Johnson",
-          "title": "Actuarial Associate",
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Works the data end of valuations and has developed a good ear for when a file is wrong before she can prove it is. Her emails are direct and a little clipped, with the question in the first line. She is studying toward credentials and it shows in how carefully she cites which standard a procedure follows. Would rather flag an uncertainty and be told it does not matter than let it through."
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+        },
+        {
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
+          "dept": "Consulting",
+          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+        },
+        {
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+        },
+        {
+          "id": "xp:elizabeth.horne",
+          "name": "Elizabeth Horne",
+          "title": "Director of Operations",
+          "dept": "Howard and Sons",
+          "persona": ""
         }
       ],
-      "engagement_summary": "",
-      "facts": [],
+      "engagement_summary": "Pension Valuation for Howard and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
       "mentions": [
         {
-          "entity": "p:robert.lawrence",
-          "surface": "Robert Lawrence",
+          "entity": "p:jennifer.vasquez",
+          "surface": "Jennifer Vasquez",
           "kind": "person"
         },
         {
-          "entity": "p:jennifer.johnson",
-          "surface": "Jennifer Johnson",
-          "kind": "person"
-        }
-      ],
-      "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
-      "engagement_position": "",
-      "firm_digest": ""
-    },
-    {
-      "doc_id": "d:0019",
-      "title": "Onboarding: Amanda White",
-      "genre": "onboarding_record",
-      "date": "2018-08-13",
-      "authors": [
-        {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:amanda.white",
-          "name": "Amanda White",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Cheerful, quick, and better at the client-facing side than most associates at her stage; she writes the kind of short note that gets an answer the same day. Her drafts need trimming for confidence, since she states conclusions a shade more firmly than the evidence supports, and she takes the correction without complaint. Detail-oriented on reconciliation work and genuinely interested in why a method exists rather than only how to run it."
-        }
-      ],
-      "engagement_summary": "",
-      "facts": [],
-      "mentions": [
-        {
-          "entity": "p:robert.lawrence",
-          "surface": "Robert Lawrence",
+          "entity": "p:david.sherman",
+          "surface": "David Sherman",
           "kind": "person"
         },
         {
-          "entity": "p:amanda.white",
-          "surface": "Amanda White",
+          "entity": "p:jeffrey.ochoa",
+          "surface": "Jeffrey Ochoa",
           "kind": "person"
+        },
+        {
+          "entity": "xp:elizabeth.horne",
+          "surface": "Elizabeth Horne",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-and-sons",
+          "surface": "Howard and Sons",
+          "kind": "org"
         }
       ],
-      "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
-      "engagement_position": "",
-      "firm_digest": ""
+      "target_words": 400,
+      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; 'Two asks. First... Second...' as an opener.",
+      "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0026",
-      "title": "Firm Overview",
-      "genre": "company_overview",
-      "date": "2019-05-17",
+      "doc_id": "d:0011",
+      "title": "Meeting Minutes: Pension Valuation for Howard and Sons",
+      "genre": "meeting_minutes",
+      "date": "2016-06-10",
       "authors": [
         {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
         }
       ],
       "participants": [
         {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
+          "dept": "Consulting",
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+        },
+        {
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
+          "dept": "Consulting",
+          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+        },
+        {
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+        },
+        {
+          "id": "xp:elizabeth.horne",
+          "name": "Elizabeth Horne",
+          "title": "Director of Operations",
+          "dept": "Howard and Sons",
+          "persona": ""
         }
       ],
-      "engagement_summary": "",
+      "engagement_summary": "Pension Valuation for Howard and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
       "facts": [
         {
           "id": "f:E-2016-001.client",
           "hint": "proper name; place where the name belongs"
-        },
-        {
-          "id": "f:E-2017-001.client",
-          "hint": "proper name; place where the name belongs"
-        },
-        {
-          "id": "f:E-2019-001.client",
-          "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:robert.lawrence",
-          "surface": "Robert Lawrence",
-          "kind": "person"
-        }
-      ],
-      "target_words": 750,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
-      "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 3 client engagement(s) across 2016-2019. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, {{fact:f:E-2019-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
-    },
-    {
-      "doc_id": "d:0028",
-      "title": "Onboarding: Linda Hanna",
-      "genre": "onboarding_record",
-      "date": "2020-01-16",
-      "authors": [
-        {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:linda.hanna",
-          "name": "Linda Hanna",
-          "title": "Practice Manager",
-          "dept": "Operations",
-          "persona": "Handles engagement administration and the paper trail behind it, and is quietly meticulous about versions and files. Writes in complete, slightly formal sentences, the kind that read like they were composed once and not revised. She is the person who asks whether the letter says what everyone thinks it says, which has saved the firm real trouble. Shares a surname with a colleague on the consulting side and considers the whole subject unremarkable."
-        }
-      ],
-      "engagement_summary": "",
-      "facts": [],
-      "mentions": [
-        {
-          "entity": "p:robert.lawrence",
-          "surface": "Robert Lawrence",
+          "entity": "p:jeffrey.ochoa",
+          "surface": "Jeffrey Ochoa",
           "kind": "person"
         },
         {
-          "entity": "p:linda.hanna",
-          "surface": "Linda Hanna",
+          "entity": "p:jennifer.vasquez",
+          "surface": "Jennifer Vasquez",
           "kind": "person"
+        },
+        {
+          "entity": "p:david.sherman",
+          "surface": "David Sherman",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:elizabeth.horne",
+          "surface": "Elizabeth Horne",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-and-sons",
+          "surface": "Howard and Sons",
+          "kind": "org"
         }
       ],
-      "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
-      "engagement_position": "",
-      "firm_digest": ""
+      "target_words": 600,
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Do not state the meeting date anywhere in the text, in any format, and do not include a sigblock; this record is dated by its filename only. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'Let me be direct:' and similar throat-clearing; closing epigrams or aphorisms.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0029",
-      "title": "Onboarding: Michelle Banks",
-      "genre": "onboarding_record",
-      "date": "2020-06-20",
+      "doc_id": "d:0012",
+      "title": "Status Report: Pension Valuation for Howard and Sons",
+      "genre": "status_report",
+      "date": "2016-06-24",
       "authors": [
         {
-          "id": "p:robert.lawrence",
-          "name": "Robert Lawrence",
-          "title": "Managing Actuary",
-          "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:michelle.banks",
-          "name": "Michelle Banks",
-          "title": "Actuarial Associate",
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
         }
       ],
-      "engagement_summary": "",
-      "facts": [],
+      "participants": [
+        {
+          "id": "p:jennifer.vasquez",
+          "name": "Jennifer Vasquez",
+          "title": "Consulting Actuary",
+          "dept": "Consulting",
+          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+        },
+        {
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
+          "dept": "Consulting",
+          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+        },
+        {
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+        }
+      ],
+      "engagement_summary": "Pension Valuation for Howard and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
       "mentions": [
         {
-          "entity": "p:robert.lawrence",
-          "surface": "Robert Lawrence",
+          "entity": "p:jennifer.vasquez",
+          "surface": "Jennifer Vasquez",
           "kind": "person"
         },
         {
-          "entity": "p:michelle.banks",
-          "surface": "Michelle Banks",
+          "entity": "p:david.sherman",
+          "surface": "David Sherman",
           "kind": "person"
+        },
+        {
+          "entity": "p:jeffrey.ochoa",
+          "surface": "Jeffrey Ochoa",
+          "kind": "person"
+        },
+        {
+          "entity": "x:howard-and-sons",
+          "surface": "Howard and Sons",
+          "kind": "org"
         }
       ],
-      "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
-      "engagement_position": "",
-      "firm_digest": ""
+      "target_words": 850,
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; 'Two asks. First... Second...' as an opener.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

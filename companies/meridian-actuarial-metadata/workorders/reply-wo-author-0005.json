@@ -1,190 +1,34 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0005",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
-    {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0021",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Barbara Hall\nChief Operating Officer\n{{fact:f:E-2019-001.client}}"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Ms. Hall:"
-        },
-        {
-          "kind": "paragraph",
-          "text": "This letter sets out the terms on which we will perform an experience study of the retirement plan sponsored by {{fact:f:E-2019-001.client}}. It records what we have agreed to do, what we will rely on, the standards the work is performed under, and the commercial terms that govern it. If it reflects your understanding, please countersign and return one copy to me."
-        },
-        {
-          "kind": "heading",
-          "text": "Scope of Work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "An experience study asks a narrow question: over an observation period, did the plan's population behave the way the current assumptions predict it will? We will answer that question one assumption at a time. In scope are the demographic assumptions, meaning mortality among actives, retirees, and beneficiaries, along with retirement, withdrawal, and disability incidence, and the economic assumption for salary increases. For each we will develop exposures and actual-to-expected ratios, divided by age, service, and gender where the counts support the division. For each we will reach one of three conclusions: the experience supports the current assumption; the experience supports a change, and here is the change we recommend; or the experience is too thin to support either conclusion. The third is a legitimate result. Where we reach it we will report it, rather than manufacture a recommendation the data do not carry."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We recommend and you adopt. Nothing in this engagement changes an assumption; that authority sits with you and the plan's trustees, and we will not blur the line. Our deliverables are a report setting out the analysis and our recommendations, and a workbook of the exhibits that support them."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The following are outside scope and are available under separate engagement: the funding valuation itself, and any restatement of the prior valuation on revised assumptions; selection of the investment return assumption, which is properly informed by your investment advisor rather than by us; plan design or cost studies; and any opinion addressed to a party other than {{fact:f:E-2019-001.client}} and the plan's trustees."
-        },
-        {
-          "kind": "heading",
-          "text": "Data and Reliance",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The study relies on information you furnish: participant data as of each valuation date falling in the observation period, the decrement records for the years between them, the plan document together with every amendment in effect during the period, and the prior experience study and its exhibits if one exists. We will reconcile the populations year over year and review what we receive for internal consistency. We will not audit it. Where a data item is unavailable, we will assume, and we will disclose both the assumption and the fact that we made it. Data quality governs this schedule more than anything on our side does. We would rather raise a gap with the Estes Group staff in the first weeks than work around it in the last."
-        },
-        {
-          "kind": "heading",
-          "text": "Approach",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will fix the observation period and the decrements to be studied with your staff before any measurement begins, then build exposures from the data as furnished. Analysis follows: actual against expected for each decrement, with a statement of credibility set beside each result rather than buried behind it. We will walk you through preliminary results before anything is drafted for the trustees. The report will separate what the data show from what we have assumed and from what we conclude, and it will label which is which. That is not a stylistic preference. A reader of an actuarial report is entitled to know where measurement ends and judgment begins."
-        },
-        {
-          "kind": "heading",
-          "text": "Professional Standards",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The work will be performed in accordance with the Actuarial Standards of Practice, including those governing the selection of demographic and economic assumptions and the quality of the data relied upon. I am the actuary responsible for the study. My opinion will be signed and qualified as those standards require, and the qualifications in it are there because they are accurate, not because they are cautious."
-        },
-        {
-          "kind": "heading",
-          "text": "Engagement Team",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "David Sherman, Senior Analyst, will run the study and own the data: reconciliation, exposures, and the actual-to-expected development. Jeffrey Ochoa, Actuarial Analyst, will take the plan provisions and the assumption analysis, and will draft the sections of the report written for readers who do not do this work for a living. Megan Dudley, Actuarial Associate, will build the exhibit workbook. Your staff will hear from David Sherman first and most often, and he is the right person for any question about a file. Questions of judgment come to me."
-        },
-        {
-          "kind": "heading",
-          "text": "Fees and Payment",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for the work described above is {{fact:f:E-2019-001.fee}}, fixed. It covers the report, the exhibit workbook, one round of review comments from your staff, and one presentation of the results. We will commence on {{fact:f:E-2019-001.start}}, and the work runs roughly four months from commencement. We will invoice monthly against progress, and invoices are payable within thirty days of receipt. Work outside the scope described above will not be performed on this fee. We will not begin any such work without your written authorization and a fee agreed in advance. If the data arrive materially incomplete and remediation requires effort we have not contemplated here, you will hear it from us before we incur it, not on an invoice afterward."
-        },
-        {
-          "kind": "heading",
-          "text": "Term and Termination",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement begins on the date stated above and ends on delivery of the final report and workbook. Either of us may terminate on written notice to the other. On termination you will owe fees for work performed through the date of the notice, prorated against the fixed fee, and we will deliver the work product in its then-current condition, marked as a draft. A draft is not an opinion. It may not be relied upon or distributed as one."
-        },
-        {
-          "kind": "heading",
-          "text": "Confidentiality",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Participant data and everything else you furnish are confidential. We will use them only for this engagement, disclose them only to the members of the engagement team named above, and retain them under our record retention policy. This obligation does not extend to information that is already public or that we are required to disclose by law or by the standards of our profession. If we are compelled to disclose, you will hear from us first wherever we are permitted to tell you."
-        },
-        {
-          "kind": "heading",
-          "text": "Limitation of Liability",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our aggregate liability arising out of this engagement, on any theory, is limited to the fees paid to us under it. Neither of us is liable to the other for consequential, incidental, or punitive damages. This paragraph does not limit liability for fraud or willful misconduct, and it does not touch our obligations under the professional standards described above. Those run to our profession and are not ours to contract away."
-        },
-        {
-          "kind": "heading",
-          "text": "Governing Law",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This engagement is governed by the law of the state in which {{fact:f:E-2019-001.client}} maintains its principal office, without regard to its conflict of laws provisions."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If this letter reflects our agreement, please sign both copies where indicated and return one to me. We will be ready to begin on the date stated above. If any paragraph here reads differently on the page than it did in conversation, call me before you sign it. That is a shorter conversation now than later."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely,"
-        },
-        {
-          "kind": "sigblock",
-          "signers": ["p:robert.lawrence", "xp:barbara.hall"]
-        }
-      ]
-    },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0022",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Kickoff Memo: Experience Study",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Hello Michelle,"
         },
         {
           "kind": "paragraph",
-          "text": "To: Jeffrey Ochoa, Megan Dudley\nFrom: David Sherman\nRe: {{fact:f:E-2019-001.client}} experience study, kickoff"
+          "text": "Thank you for sending the reserve detail through last week. David Sherman has it and has already begun reconciling it against the year-end figures you carry, which is exactly the order we hoped to work in. So far it ties out well, with a single grouping question at the summary level that he is still running to ground; it looks like a rounding or aggregation difference and not anything of substance, and we will let you know the moment it is closed."
         },
         {
           "kind": "paragraph",
-          "text": "The letter is countersigned and we are on the clock as of {{fact:f:E-2019-001.start}}. The objective is an experience study of the Estes Group retirement plan: exposures and actual-to-expected ratios for mortality, retirement, withdrawal, and disability, plus the salary increase assumption, over an observation period we settle with the client's staff before we measure anything. Deliverables are a report and an exhibit workbook. Robert reviews and signs. Barbara Hall is the client contact and the only person there who speaks for them on scope."
+          "text": "The one thing that would move us forward now is the assumption documentation for the {{fact:f:E-2017-001.client}} valuation as it stood at the valuation date, since that is what lets us finish the first cut of the exhibits. If the interest and mortality bases live with someone other than you, a pointer is plenty and I will follow up with them directly. Anything that touches how the review is scoped, or which of the board's questions we take on, we are keeping with Jennifer Vasquez, so you hear one considered answer on those rather than three partial ones."
         },
         {
           "kind": "paragraph",
-          "text": "What this is not: it is not a valuation, it is not a restatement of the last valuation on new rates, and it is not a view on the investment return assumption. If any of that gets asked for on a call, the answer is that we will scope it, not that we will take a look."
-        },
-        {
-          "kind": "heading",
-          "text": "Workstreams",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Data. Mine. Participant extracts as of each valuation date in the period, plus the decrement records for the years between. The first job is not building anything, it is proving the extracts are the same population year to year. Often they are not, and a study built on a population that quietly changed shape measures the change and calls it experience. Nobody builds an exposure until the reconciliation is closed.",
-            "Plan provisions. Jeffrey Ochoa. Read the document and every amendment in force during the observation period, not only the ones in force now. If a rate moves partway through the period, an amendment is a likelier explanation than behavior, and we need to know which before we recommend anything.",
-            "Exposures and actual-to-expected. Mine, with Megan Dudley. Central exposure by decrement, by age and service, split by gender where the counts support a split. Where they do not, the exhibit says so instead of splitting anyway and presenting two thin halves as though they were results.",
-            "Exhibits. Megan Dudley. One workbook, one tab per decrement, identical layout on every tab. Nothing hand-keyed. If a number is on an exhibit it traces to the source, and it traces without anyone having to ask her.",
-            "Report. Jeffrey Ochoa drafts the narrative sections, Megan Dudley drafts the exhibit commentary, I take data and methodology. Robert wants measurement, assumption, and conclusion in separate paragraphs. If they come to him braided together he will send them back, and he will be right to."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Next Steps",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Data request to Barbara Hall's staff this week, itemized, with the field definitions attached so nobody on their side is guessing at codes.",
-            "Jeffrey Ochoa pulls the plan document and the full amendment history and flags any gap before we assume the history is complete.",
-            "Observation period fixed with the client in writing before we build a single exposure. Not agreed on a call and remembered differently later.",
-            "Megan Dudley builds the workbook shell off the agreed layout now, so the exhibits are not being invented in the last three weeks.",
-            "No rate leaves this team, in any forum, until the reconciliation is closed and Robert has seen it."
-          ]
+          "text": "For our own file I have logged everything received so far under your name, Michelle Hudson, so that our reliance on each file is documented as we go. If you can send whatever of the assumption set is ready this week, I will confirm each piece the same day it lands, and that is really all we need from your side for now."
         },
         {
           "kind": "paragraph",
-          "text": "One more thing. This client has not had a study done in some years, so a few of these rates will move, and one or two may move enough to be uncomfortable. That is the point of doing the work. What we owe them is the number the data support and a clear account of how we got there. Anything either of you cannot reconcile, bring to me early. Early is a data question. Late is a schedule problem."
+          "text": "Best"
         }
       ]
     },
@@ -193,24 +37,77 @@
       "doc_id": "d:0023",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Barbara Hall, with Jeffrey Ochoa and Megan Dudley copied:"
+          "kind": "heading",
+          "text": "Reserve Adequacy Review: A Briefing on the Work Under Way",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Status on the {{fact:f:E-2019-001.client}} experience study. The extracts for each valuation date in the observation period are in and reconciled against each other. Headcounts tie except in one year, where roughly sixty records leave the population and reappear in the next extract under different identifiers. That reads as a recordkeeper conversion rather than experience. Left alone it would show up as sixty terminations and sixty new hires in the same year and push the withdrawal rate up for no reason at all."
+          "text": "Prepared for {{fact:f:E-2017-001.client}} by Meridian Actuarial Advisors. The engagement opened on {{fact:f:E-2017-001.start}}, and this short briefing sets out what we are doing, who is doing it, and where the work stands now that it is under way."
+        },
+        {
+          "kind": "heading",
+          "text": "The Question We Are Here to Answer",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Whether the reserves {{fact:f:E-2017-001.client}} carries are adequate to meet the obligations they are meant to fund.",
+            "An independent view, formed from your own data as reconciled, not carried in from another engagement.",
+            "A written opinion that keeps what the data show, what we assume, and what we conclude as three separate matters."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What the Review Covers",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Reconciling the reserve data you provide against your own financial records, so the figures we test are the figures you carry.",
+            "Reviewing the assumptions behind the current reserves, keeping those that regulation fixes apart from those that rest on judgment.",
+            "Building an independent estimate of the required reserves and comparing it against the carried figures, with any difference attributed to its sources.",
+            "Outside the work: auditing your statements, setting your reserves for you, or opining on your rates."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "The People on Both Sides",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Vasquez, Consulting Actuary, owns the relationship and the judgment calls on scope.",
+            "David Sherman, Senior Analyst, builds the valuation workbook and reconciles the data as it arrives.",
+            "Megan Dudley, Actuarial Associate, keeps the exhibits, the data checks, and the running request log.",
+            "Michelle Hudson, your Director of Operations, is our single point of contact for the data."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Where the Work Stands Today",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "We are in the early weeks, and the emphasis now is squarely on the data rather than on conclusions.",
+            "The reserve detail has begun to arrive and the reconciliation against your year-end records is under way.",
+            "One grouping question on the summary totals is open and being run to ground; we expect it to close without consequence.",
+            "We are not offering findings yet, because an opinion this early would run ahead of what the work supports."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What Comes Next",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "So the asks are the crosswalk from the old identifiers to the new ones, if the Estes Group recordkeeper kept one, and confirmation of the conversion date. If no crosswalk exists, tell us and we will match those records on date of birth and hire date and disclose that we did it that way. It is a judgment we would rather make in the open than have found in review."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Otherwise we are where we expect to be. Jeffrey Ochoa has the amendment history and has already flagged one change to the early retirement provisions that we will need to hold out separately, and Megan Dudley has the workbook built and waiting on clean exposures. Nothing else needed from you this week. If it is faster to walk your staff through the field definitions on the phone than by mail, say so and I will call them. I wrote the definitions, and I would rather explain them once than reconcile around them twice."
-        },
-        {
-          "kind": "paragraph",
-          "text": "David Sherman"
+          "text": "From here we finish the reconciliation, then move into the assumption review and the independent estimate, and we will send a short status note as each piece lands so you always know where things stand. The single most useful thing from your side is the assumption documentation as it stood at the valuation date; our one clear next step is to get that itemized request to you this week and confirm each item as it comes back."
         }
       ]
     },
@@ -220,55 +117,56 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Working Session: Data Reconciliation and Decrement Scope",
+          "text": "Working Session: Reserve Adequacy Review for {{fact:f:E-2017-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Minutes recorded by Megan Dudley. Subject: {{fact:f:E-2019-001.client}} experience study."
+          "text": "Date: November 14, 2017. Minutes recorded by David Sherman."
         },
         {
           "kind": "heading",
-          "text": "Attendees",
+          "text": "Present",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "David Sherman, Senior Analyst",
-            "Jeffrey Ochoa, Actuarial Analyst",
-            "Megan Dudley, Actuarial Associate",
-            "Barbara Hall, Chief Operating Officer, Estes Group"
+            "David Sherman, Senior Analyst, Meridian Actuarial Advisors (recording)",
+            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors",
+            "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors",
+            "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}"
           ]
         },
         {
           "kind": "heading",
-          "text": "Discussion",
+          "text": "Summary",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "David Sherman opened on the identifier conversion raised earlier this month. Barbara Hall confirmed the conversion date and reported that the recordkeeper produced a crosswalk covering most of the affected records. About forty are not on it and will not be. David Sherman will match those on date of birth and hire date. The match and its basis are to be disclosed in the report rather than absorbed into the exposure quietly. Noted for the record: the unmatched records are a small share of the exposure in that year, and the effect of matching them either way is expected to be immaterial to the withdrawal rate. That expectation is to be tested, not assumed."
+          "text": "The reconciliation of the reserve data is substantially complete and ties to the client's year-end records within the tolerance we set at the outset. The purpose of the session was to confirm that the review can now move from checking the data to testing the assumptions beneath it, and it can."
+        },
+        {
+          "kind": "heading",
+          "text": "Matters Discussed",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jeffrey Ochoa walked the amendment history. The change to the early retirement provisions falls in the middle of the observation period and affects retirement behavior from its effective date forward. Agreed: retirement experience will be studied in two segments, before and after, and shown that way on the exhibit even where the segments are individually thin. Jeffrey Ochoa asked that the distinction be minuted. The segmentation is measurement. Which segment should inform the recommended rate is judgment. The report keeps them in separate paragraphs."
+          "text": "David Sherman walked through the reconciliation. The reserve detail was reconstructed from the files supplied, at the grouped level the client's system produces, and reconciled line by line to the financial records the reserves are carried against. The single grouping difference flagged earlier in the engagement resolved as a rounding artifact at the summary level, where the aggregate total had been rounded independently of the detail beneath it. It has been documented in the working papers, with the source of the difference identified so the point is not reopened later. Our reliance on each file is recorded against the date it arrived and the person who supplied it. No figure is being carried forward that has not been tied out to the client's own records."
         },
         {
           "kind": "paragraph",
-          "text": "Disability incidence was discussed. Events over the period are in the single digits. David Sherman's position was that the data will not support a recommendation and that the study should say so rather than fit a curve to four events. Barbara Hall asked what the trustees would then be expected to do. Answer: leave the assumption where it is, and know why they left it there. Barbara Hall accepted this and asked that it be stated in plain language in the report, not only in the exhibit."
+          "text": "The group agreed that the data is now sufficient to support the next phase, with one exception noted below. David Sherman confirmed that the reconciled detail is internally consistent and that the reserve segments reconcile both to each other and to the year-end totals. Megan Dudley has logged every file against the original request, and the log shows one item outstanding."
         },
         {
           "kind": "paragraph",
-          "text": "Megan Dudley confirmed the workbook layout: one tab per decrement, the same columns on every tab, exposures and actual-to-expected side by side, credibility stated on the tab itself. Barbara Hall asked that the exhibits be readable without the report next to them, since some trustees will read only the exhibits. Agreed."
+          "text": "Jennifer Vasquez led a discussion of the assumptions behind the current reserves. The session kept two categories deliberately apart: the assumptions that regulation fixes, which are not ours to revisit, and those that rest on judgment, which the review will test. That separation was treated as the backbone of the eventual opinion, since the two categories carry very different weight when the firm signs its name to a conclusion. Michelle Hudson confirmed the assumption documentation in effect at the valuation date and undertook to supply the one interest and mortality basis still outstanding. Megan Dudley will maintain the assumption log, tagging each input as measured or assumed, so the eventual report can show which is which without reconstructing it after the fact."
         },
         {
           "kind": "paragraph",
-          "text": "Salary increase data were raised at the end of the session. Barbara Hall noted that pay for one participant group is set on a different cycle than the rest of the population. David Sherman asked for the group to be identified in the data rather than described, so it can be studied separately or excluded on a stated basis instead of being discovered in the middle of the analysis. Barbara Hall will have her staff flag it in the extract."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Timing was discussed briefly. Preliminary results go to Estes Group and are walked through with staff before anything is drafted for the trustees. No date was committed at this session."
+          "text": "On progress against plan, the work is at roughly its midpoint and on the schedule set at the start. The next phase is the independent estimate of the required reserves, which begins once the outstanding basis is received and can proceed on the reconciled data in the meantime. The group also agreed the shape of the report: it will keep what the data show, what was assumed, and what is concluded as three separate parts, and it will name the actuarial standards it rests on. Jennifer Vasquez noted that some of the board's questions will be answerable from the analysis and some will not, and that the report will be explicit about the difference."
         },
         {
           "kind": "heading",
@@ -277,16 +175,37 @@
         },
         {
           "kind": "table",
-          "header": ["Item", "Owner", "Due"],
+          "header": [
+            "Action",
+            "Owner",
+            "Target"
+          ],
           "rows": [
-            ["Send the recordkeeper crosswalk and confirm the conversion date in writing", "Barbara Hall", "This week"],
-            ["Match the unmapped records on date of birth and hire date; document the basis for disclosure", "David Sherman", "Before exposures are finalized"],
-            ["Test the effect of the matching basis on the withdrawal rate for that year", "David Sherman", "Before preliminary results"],
-            ["Split the retirement decrement at the amendment's effective date and rerun", "David Sherman", "Before preliminary results"],
-            ["Draft the credibility note for disability in plain language and circulate for comment", "Jeffrey Ochoa", "Before preliminary results"],
-            ["Confirm no further amendments were adopted during the observation period", "Barbara Hall", "Before the report is drafted"],
-            ["Rebuild the exhibit tabs on the agreed layout and lock the formatting", "Megan Dudley", "With the preliminary exhibits"]
+            [
+              "Supply the interest and mortality basis in effect at the valuation date",
+              "Michelle Hudson",
+              "Nov 21"
+            ],
+            [
+              "Record the resolved grouping difference in the working papers",
+              "David Sherman",
+              "Nov 20"
+            ],
+            [
+              "Maintain the assumption log, separating measured inputs from judgment",
+              "Megan Dudley",
+              "Ongoing"
+            ],
+            [
+              "Settle which of the board's questions the data can answer",
+              "Jennifer Vasquez",
+              "Nov 28"
+            ]
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next session will review the independent estimate once the outstanding basis is in hand."
         }
       ]
     },
@@ -296,12 +215,85 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Experience Study",
+          "text": "Reserve Adequacy Review: Status Report",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for {{fact:f:E-2019-001.client}}. Author: David Sherman, Senior Analyst."
+          "text": "Prepared for {{fact:f:E-2017-001.client}} by Meridian Actuarial Advisors on December 4, 2017. Prepared by Megan Dudley, Actuarial Associate."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the Engagement Stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are at the midpoint of the review, and the character of the work has changed in a way worth naming. For the first stretch our attention was on assembling your data and satisfying ourselves that it was complete and consistent; that stretch is behind us. The reconciliation of your reserve detail against your year-end records is finished, and we have turned to forming our own estimate of the reserves, which is the part the opinion ultimately rests on. Nothing we have seen so far changes the shape of the engagement or the roughly seven-month path we set out at the beginning. Measured against the fixed fee of {{fact:f:E-2017-001.fee}}, a little under half has been earned to date, which tracks the work completed and the schedule we agreed."
+        },
+        {
+          "kind": "heading",
+          "text": "What We Completed This Period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The reconciliation was the substantial piece of this period, and David Sherman carried it. He reconstructed the reserve detail from the files your team supplied and tied it, line by line, to the financial records the reserves are carried against, working at the grouping level your own system produces so the two sets of figures meet directly. A single difference at the summary level, which we flagged early rather than let it sit, turned out to be a rounding artifact where the aggregate total had been rounded on its own; it is now documented and closed, with the source of the difference written down so it will not be reopened. The figures we are testing are therefore the figures you actually carry. That is not a small thing. It means the independent estimate we build from here rests on your own numbers and not on a reconstruction of them, and it lets us state plainly, when the report is written, exactly what we relied on and what we tested ourselves."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Alongside the reconciliation we began separating the assumptions behind the current reserves into two groups: those that regulation fixes, which we take as given, and those that rest on judgment, which are the ones the review actually tests. Keeping those apart from the start matters, because by the end they become two quite different conversations, and it is far easier to hold them separate throughout than to untangle them later. I have kept the assumption log current as we go, marking each input as measured or assumed, so that when the report is written it can show plainly which is which."
+        },
+        {
+          "kind": "heading",
+          "text": "The Work Ahead",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Over the coming weeks the center of gravity moves to the independent estimate of the required reserves and the comparison against the figures you carry. The estimate is built up from the reconciled data segment by segment, so that when we set it beside your carried reserves the two are measured on the same footing. Where the two differ, we will attribute the difference to its sources rather than hand you a single net number that hides more than it tells; a difference traced to a particular assumption is a very different thing from one traced to how a block of obligations was grouped, and the report will keep them distinct. In parallel, Jennifer Vasquez is settling which of the board's questions the data can genuinely answer and which it cannot, so that the report commits only to what the work supports and is candid about the rest. As the estimate takes shape we will start drafting, holding to the structure we have described throughout: what the data show, what we assumed, and what we conclude, kept as three separate matters."
+        },
+        {
+          "kind": "heading",
+          "text": "What Could Affect the Schedule",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The main thing that could move the timeline is, as it has been from the start, the data. One assumption basis as it stood at the valuation date is still outstanding, and the estimate cannot be finalized until it is in hand; we have asked for it and do not expect it to be a difficulty. The other thing worth flagging now, so it is no surprise later, is the comparison itself. If it surfaces a genuine gap between the carried and the required reserves, Jennifer Vasquez will walk it through with your staff before any of us draws a conclusion from it, and we would raise it with you the moment it appears, well ahead of the final report."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The one thing that keeps us on track is that outstanding assumption basis. Once it reaches us we can finalize the independent estimate and give you a first honest read of where the carried reserves stand, and we will send a short note the moment it is in hand."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0027",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Review Session: Reserve Adequacy Review for {{fact:f:E-2017-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Date: February 12, 2018. Minutes recorded by David Sherman."
+        },
+        {
+          "kind": "heading",
+          "text": "In Attendance",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "David Sherman, Senior Analyst, Meridian Actuarial Advisors (recording)",
+            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors",
+            "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors",
+            "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}"
+          ]
         },
         {
           "kind": "heading",
@@ -310,71 +302,63 @@
         },
         {
           "kind": "paragraph",
-          "text": "The study is at roughly its midpoint and is on schedule. Data reconciliation, which is the part of this work that decides whether a schedule holds, is closed but for one documented item. Exposures are built for mortality, retirement, and withdrawal. Analysis has begun. Scope is unchanged, and the work is tracking within the fixed fee of {{fact:f:E-2019-001.fee}}."
+          "text": "The independent estimate is complete and the draft report is with the client for review. The session worked through the client's comments and fixed the remaining steps to a final, signed opinion; none of the comments touched the underlying numbers."
         },
         {
           "kind": "heading",
-          "text": "Accomplishments This Period",
+          "text": "Matters Reviewed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The participant extracts for every valuation date in the observation period have been reconciled year over year. The one break in the reconciliation, an identifier change affecting roughly sixty records in a single year, has been resolved. The crosswalk supplied by Estes Group covered most of them. About forty records were not on it and have been matched on date of birth and hire date. That method is a documented assumption and will be disclosed as one in the report. We tested the withdrawal rate for that year under both the matched and unmatched treatments; the difference is immaterial, which is the answer we wanted and not the answer we assumed."
+          "text": "David Sherman reported that the estimate of the required reserves is finished and reconciles to the data as reconciled earlier in the engagement. The estimate was developed segment by segment from the reconciled detail, and each segment ties back to the carried figures it corresponds to, so the comparison is made on a consistent basis. That comparison shows a modest difference in aggregate, and each component of that difference has been attributed to its source: part traces to a single judgment-based assumption, and the remainder to the grouping of a small block of obligations. Nothing in the estimate rests on a number that has not been tied back to the client's own records, and the attribution is documented so the difference reads as a set of identified causes and not a single unexplained figure."
         },
         {
           "kind": "paragraph",
-          "text": "Jeffrey Ochoa has assembled and read the plan document and the full amendment history for the period. One change to the early retirement provisions falls mid-period. The retirement decrement is now being studied in two segments, before and after its effective date, which is the only defensible way to look at it: behavior after an amendment is a response to different terms and averaging across the change would measure neither set of terms."
+          "text": "Michelle Hudson presented the client's comments on the draft report. The comments concerned presentation and the rationale for one judgment-based assumption; they did not question the measured inputs, and the group treated that as the important point. Jennifer Vasquez confirmed which of the comments the report will take up and which reflect a matter of professional judgment the firm will not move off. On the presentation points, the report will be adjusted to make the exhibits easier to follow. On the assumption, the firm's view stands, and Jennifer Vasquez will set out the reasoning plainly in the text, so the reader can see the basis for the judgment and weigh it, whether or not they share it. Megan Dudley will fold the agreed presentation edits into the exhibits and reconcile them once more against the estimate."
         },
         {
           "kind": "paragraph",
-          "text": "Exposures are complete for mortality, retirement, and withdrawal, and the actual-to-expected development for mortality is under way. Megan Dudley has built the exhibit workbook on the layout agreed with your staff, one tab per decrement with the credibility statement carried on the tab rather than left to the report. The working session with your staff was held this month and the record of it, with its action items, has been circulated."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One item from that session is worth repeating here. Your staff identified a participant group whose pay is set on a different cycle than the rest of the population. It will be flagged in the extract, and the salary increase analysis will either study that group separately or exclude it on a stated basis. Either treatment is defensible. Averaging it in without saying so would not be, and finding it late would have cost us a rerun."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For completeness on what we have relied upon: the extracts, the decrement records, and the plan document with amendments, all as furnished by your staff. We have reconciled them and reviewed them for internal consistency. We have not audited them, and the report will say so in those words."
+          "text": "On the report as a whole, the group confirmed it holds to its structure: what the data show, what was assumed, and what is concluded remain three separate parts, and the actuarial standards the opinion rests on are named. The reliance language was reviewed and agreed, so the report is clear about what the firm relied on from the client and what it independently tested. With the estimate settled and the comments resolved, the work is in its final stretch and on the schedule agreed at the start. The remaining steps are mechanical: incorporate the edits, complete a final reconciliation of the exhibits, and prepare the signed opinion."
         },
         {
           "kind": "heading",
-          "text": "Upcoming Work",
+          "text": "Actions Agreed",
           "level": 2
         },
         {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "Target"
+          ],
+          "rows": [
+            [
+              "Fold the client's presentation comments into the exhibits",
+              "Megan Dudley",
+              "Feb 19"
+            ],
+            [
+              "Set out the rationale for the flagged assumption in the text",
+              "Jennifer Vasquez",
+              "Feb 21"
+            ],
+            [
+              "Reconcile the final exhibits to the estimate a last time",
+              "David Sherman",
+              "Feb 23"
+            ],
+            [
+              "Confirm the client's remaining questions are resolved",
+              "Michelle Hudson",
+              "Feb 20"
+            ]
+          ]
+        },
+        {
           "kind": "paragraph",
-          "text": "Next is the actual-to-expected development for retirement and withdrawal, in each case with a credibility assessment stated alongside the ratio rather than implied by it, followed by the salary increase analysis. Jeffrey Ochoa then drafts the narrative and the recommendations, and the exhibits are finalized. We will walk your staff through preliminary results before anything is drafted for the trustees; we would rather you see a number for the first time in a working session than in a board packet. The signing actuary reviews the full report and the exhibits before either leaves this office."
-        },
-        {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Three, stated plainly, none of which currently threatens the schedule."
-        },
-        {
-          "kind": "paragraph",
-          "text": "First, the unmapped records. The match we made on date of birth and hire date is reasonable and it is documented, but it remains an assumption. If your recordkeeper can still produce identifiers for those records, the assumption goes away and the report is cleaner for it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Second, disability. Events over the observation period are too few to support a recommendation, and we do not expect that to change in the remaining data. The study will report that the experience is not credible and will recommend no change to the assumption. That is a result rather than a gap in the work, and it is easier to hear now than in front of the trustees."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Third, thin cells generally. Once the retirement decrement is split at the amendment, some age bands will hold few events. Where that happens we will present the segments and state the credibility rather than blend them into a single rate that looks more certain than it is. Some readers prefer the blended rate because it looks tidier. It is also wrong, and we will not produce it."
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Effort through this period is consistent with the plan for a study at this stage. We see nothing ahead that would take the work outside the fixed fee of {{fact:f:E-2019-001.fee}}, and no out-of-scope work has been requested or performed. If that changes, you will hear it from us before the effort is incurred."
+          "text": "The next session will review the final draft ahead of sign-off."
         }
       ]
     }

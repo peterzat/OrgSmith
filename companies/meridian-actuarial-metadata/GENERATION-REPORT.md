@@ -2,7 +2,7 @@
 
 Derived artifact: re-emit with `python -m orgsmith report meridian-actuarial`. Never edit by hand. Nothing here gates anything; it is what the quality instrument measured and what the review board said, for a human to read.
 
-49 documents planned; 40 carry authored prose.
+72 documents planned; 63 carry authored prose.
 
 ## Provenance
 
@@ -19,9 +19,13 @@ Generator, per batch (self-reported at ingest; not verifiable):
 | wo:author:0007 | claude-opus-4-8[1m] | xhigh |
 | wo:author:0008 | claude-opus-4-8[1m] | xhigh |
 | wo:author:0009 | claude-opus-4-8[1m] | xhigh |
+| wo:author:0010 | claude-opus-4-8[1m] | xhigh |
+| wo:author:0011 | claude-opus-4-8[1m] | xhigh |
+| wo:author:0012 | claude-opus-4-8[1m] | xhigh |
+| wo:author:0013 | claude-opus-4-8[1m] | xhigh |
 | wo:foundation:0001 | claude-opus-4-8[1m] | xhigh |
 
-Model cost: 40 of 49 documents were authored by a model, across 10 work order(s).
+Model cost: 63 of 72 documents were authored by a model, across 14 work order(s).
 
 The other 9 cost zero model tokens: 9 static (rendered from the deterministic ledgers) and 0 derived (copied or transformed from committed DocIR by the noise stages). Derived documents are added by re-running the pipeline, never by dispatching an authoring batch.
 
@@ -29,7 +33,7 @@ The other 9 cost zero model tokens: 9 static (rendered from the deterministic le
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 24 rules run, 0 error(s), 0 warning(s); skipped by charter knob: CAL-01, NOISE-01, AFF-01, AFF-02, EML-02, EML-03, DL-01, STY-01, SCAN-01, SCAN-02, LEG-01.
+Validator: 29 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, AFF-01, AFF-02, SCAN-01, SCAN-02, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score meridian-actuarial --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -39,13 +43,34 @@ Measurement and judgment: lengths, similarity, voice ranges, and the board's opi
 
 ### Length against brief
 
-40 authored documents, 26993 words, mean 675.
+63 authored documents, 28968 words, mean 460.
 
-Every document is within 75%-150% of the words its brief asked for.
+Off brief (outside 75%-150% of target):
+
+| doc | genre | words | target | ratio |
+| --- | --- | ---: | ---: | ---: |
+| d:0007 | engagement_email | 83 | 250 | 0.33 |
+| d:0006 | engagement_email | 105 | 250 | 0.42 |
+| d:0005 | engagement_email | 106 | 250 | 0.42 |
+| d:0004 | engagement_email | 118 | 250 | 0.47 |
+| d:0035 | engagement_email | 144 | 250 | 0.58 |
+| d:0033 | engagement_email | 153 | 250 | 0.61 |
+| d:0032 | engagement_email | 157 | 250 | 0.63 |
+| d:0034 | engagement_email | 160 | 250 | 0.64 |
+| d:0021 | engagement_email | 178 | 250 | 0.71 |
+| d:0043 | onboarding_record | 336 | 450 | 0.75 |
 
 ### Same-genre similarity
 
-No same-genre pair reaches 0.15 4-gram Jaccard (highest: 0.1262).
+Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement, not a verdict: real firms reuse templates. The board judges which of these read as reuse.
+
+| doc a | doc b | genre | jaccard |
+| --- | --- | --- | ---: |
+| d:0025 | d:0048 | status_report | 0.2981 |
+| d:0030 | d:0064 | engagement_letter | 0.2463 |
+| d:0002 | d:0030 | engagement_letter | 0.2339 |
+| d:0030 | d:0044 | engagement_letter | 0.1657 |
+| d:0002 | d:0064 | engagement_letter | 0.1528 |
 
 ### Fee coverage
 
@@ -53,21 +78,21 @@ No same-genre pair reaches 0.15 4-gram Jaccard (highest: 0.1262).
 
 Documented fees are 1.6% of lifetime revenue.
 
-The recipe does not declare the engagement book a sample, so the overview may present it as the firm's whole client list. A large fee/revenue gap here reads as the contradiction the board found (engagement-ledger-reads-as-whole-book).
+The recipe declares the engagement book a sample (engagements.book_is_sample), so the firm overview presents these engagements as representative rather than complete. The gap between fees and revenue is expected and coherent.
 
 ### Cross-document voice
 
-Pre-registered voice patterns over 40 authored documents. This is a RANGE across strict and loose readings, not a single count: no ledger owns whether two sentences are the same figure, so the strict rows disagree and the plain words sweep up ordinary English. Nothing here gates.
+Pre-registered voice patterns over 63 authored documents. This is a RANGE across strict and loose readings, not a single count: no ledger owns whether two sentences are the same figure, so the strict rows disagree and the plain words sweep up ordinary English. Nothing here gates.
 
 | pattern | reading | occurrences | docs |
 | --- | --- | ---: | ---: |
-| `antithesis-strict-now-than-later` | rather ... now/early ... than ... later/late (the temporal contrast, strictly read) | 1 | 1 |
-| `antithesis-strict-now-than` | rather ... (now\|early\|first) ... than (the contrast without its second pole) | 5 | 4 |
-| `antithesis-loose-rather-word-than` | rather <word> ... than (any near-adjacent rather/than pairing) | 22 | 14 |
-| `antithesis-plain-rather-than` | the plain words 'rather than' (sweeps up ordinary English) | 88 | 33 |
-| `two-asks-opener` | 'Two asks. First ... Second ...' engagement-email opener | 1 | 1 |
-| `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 7 | 6 |
-| `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 8 | 8 |
+| `antithesis-strict-now-than-later` | rather ... now/early ... than ... later/late (the temporal contrast, strictly read) | 0 | 0 |
+| `antithesis-strict-now-than` | rather ... (now\|early\|first) ... than (the contrast without its second pole) | 1 | 1 |
+| `antithesis-loose-rather-word-than` | rather <word> ... than (any near-adjacent rather/than pairing) | 12 | 12 |
+| `antithesis-plain-rather-than` | the plain words 'rather than' (sweeps up ordinary English) | 64 | 39 |
+| `two-asks-opener` | 'Two asks. First ... Second ...' engagement-email opener | 0 | 0 |
+| `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 0 | 0 |
+| `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 1 | 1 |
 
 ### Per-author similarity proxies
 
@@ -75,13 +100,15 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 | author | docs | within mean (min-max) | cross mean | early/late |
 | --- | ---: | --- | ---: | ---: |
-| p:david.sherman | 6 | 0.0041 (0.0000-0.0287) | 0.0029 | 0.0052 |
-| p:jeffrey.ochoa | 3 | 0.0037 (0.0023-0.0060) | 0.0034 | 0.0033 |
-| p:jennifer.vasquez | 6 | 0.0068 (0.0000-0.0272) | 0.0024 | 0.0127 |
-| p:karen.harris | 2 | 0.0056 (0.0056-0.0056) | 0.0019 | 0.0056 |
-| p:megan.dudley | 5 | 0.0113 (0.0000-0.0356) | 0.0024 | 0.0255 |
-| p:michelle.banks | 3 | 0.0063 (0.0000-0.0177) | 0.0027 | 0.0126 |
-| p:robert.lawrence | 15 | 0.0120 (0.0000-0.1262) | 0.0014 | 0.0589 |
+| p:amanda.white | 1 | - | 0.0000 | - |
+| p:david.sherman | 12 | 0.0031 (0.0000-0.0504) | 0.0020 | 0.0041 |
+| p:jeffrey.ochoa | 6 | 0.0075 (0.0000-0.0833) | 0.0031 | 0.0044 |
+| p:jennifer.johnson | 1 | - | 0.0001 | - |
+| p:jennifer.vasquez | 8 | 0.0065 (0.0000-0.0588) | 0.0025 | 0.0074 |
+| p:karen.harris | 5 | 0.0117 (0.0010-0.0427) | 0.0028 | 0.0138 |
+| p:megan.dudley | 9 | 0.0046 (0.0000-0.0285) | 0.0021 | 0.0168 |
+| p:michelle.banks | 6 | 0.0062 (0.0000-0.0368) | 0.0018 | 0.0034 |
+| p:robert.lawrence | 15 | 0.0249 (0.0000-0.2463) | 0.0013 | 0.1383 |
 
 ### Review board
 

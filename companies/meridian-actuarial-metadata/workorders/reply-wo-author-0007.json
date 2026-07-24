@@ -1,51 +1,113 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0007",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0036",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Onboarding Record: Karen Harris",
-          "level": 1
+          "kind": "paragraph",
+          "text": "To: Barbara Hall\nCc: Jeffrey Ochoa, Megan Dudley"
         },
         {
           "kind": "paragraph",
-          "text": "Filed by Robert Lawrence, Managing Actuary. For the personnel file and the Consulting group's records."
+          "text": "Good morning Barbara,"
         },
         {
           "kind": "paragraph",
-          "text": "Karen Harris starts with us today as an Actuarial Associate in the Consulting group. She arrives at a point where the book of work is growing faster than the staff is, which is a good problem to have and one she is part of the answer to. She is welcome here, and I would rather say so in writing than assume it was understood."
+          "text": "The census extract your office sent over loaded without trouble, and the active count ties to your summary. We can build the study on this file. A small number of records need a definition from your side before we rely on them, and I have set those out below."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Megan Dudley reconciled the file against the Estes Group payroll register yesterday, and the two agree line for line except for one group. A handful of participants carry a status code we cannot read with confidence. A study is only as sound as the census beneath it, so we would like the reading confirmed before we treat those records as final. The {{fact:f:E-2019-001.client}} data are otherwise clean."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Before we close out the census, could your office confirm the following:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Whether the flagged status code marks deferred vested participants or terminations with no vested benefit.",
+            "Whether the mid-year rehires should keep their original hire dates, or the later ones, for the service count."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing on the assumptions is settled, and you will see that work before any result depends on it. Jeffrey Ochoa is building the model in parallel, so these two confirmations are the only items holding up the next step. Once they are settled, Megan Dudley closes the census and we move on to the experience counts."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0037",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Megan Dudley, Actuarial Associate",
+            "David Sherman, Senior Analyst",
+            "Jeffrey Ochoa, Actuarial Analyst",
+            "Barbara Hall, Chief Operating Officer, Estes Group"
+          ]
         },
         {
           "kind": "heading",
-          "text": "Role and Reporting",
+          "text": "Notes from the session",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Karen sits in Consulting and reports to me. Her work is valuation support to begin with: census reconciliation, exhibit preparation, and the checking passes that stand behind an exhibit before anyone signs anything. She will also carry a share of the routine client correspondence about data files and data requests. That is not clerical work. The quality of a valuation is largely set at the point where the data comes in the door, and the person who asks the plan administrator a precise question is doing actuarial work whether or not it looks like it from the outside."
-        },
-        {
-          "kind": "heading",
-          "text": "First Period",
-          "level": 2
+          "text": "We met to bring Barbara Hall current on where the experience study stands and to work through the handful of questions that had come up as we assembled the data. Most of the hour went to the census, which is the part of the work everything else rests on, and the balance to a shared understanding of what the study will and will not be able to tell the board once it is finished."
         },
         {
           "kind": "paragraph",
-          "text": "Her first week is administrative: accounts and access, the file structure, the standards library, and a walk through a completed working paper file so she can see what a finished job looks like before she is asked to build one. Through her first month she shadows the valuation work rather than owning a piece of it, and I have asked her to spend that month reading rather than producing. After that she takes exhibits of her own with a reviewer over them, and the reviewer stays over them for a good while. Nothing leaves here with one set of eyes on it, and that is a rule about the work, not about her."
-        },
-        {
-          "kind": "heading",
-          "text": "Expectations",
-          "level": 2
+          "text": "David Sherman walked us through the reconciliation. The membership file now ties to the Estes Group payroll records within a small and explainable margin, and the exposures we need in order to count who was at risk of retiring, terminating, or dying in each year of the study period are nearly built. He was candid that a study reads only as well as the data underneath it, and that a few records still carry status codes we want confirmed before we treat the counts as final. None of this is unusual for a first study, and none of it changes the shape of the work; it simply means we hold a small number of participants open a little longer."
         },
         {
           "kind": "paragraph",
-          "text": "What we expect of her is what we expect of everyone. Keep what the data show, what was assumed, and what we conclude in separate sentences, and do not let one borrow authority from another. Raise an anomaly early and in plain language rather than resolving it quietly and mentioning it later. Say you do not know when you do not know; it costs nothing here and it is considerably cheaper than the alternative. Karen has a good instinct for what a trustee will actually look at on a page, which is not a common thing to arrive with, and I would sooner sharpen that than train it out of her."
+          "text": "Jeffrey Ochoa then explained, for Barbara's benefit, how an experience study actually works. For each assumption the plan relies on, we compare what the {{fact:f:E-2019-001.client}} membership actually did over the study period against what the current assumptions predicted, and the relationship between the two is what tells us whether an assumption still fits. He was careful to frame this as measurement rather than judgment. We are counting actual against expected now; whether to recommend a change, and how large a change the data can support, comes later and belongs to the signing actuary."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We also settled, at least in outline, which assumptions the study will speak to. Retirement and termination are where the membership gives us the most to work with, so they will carry the most weight. Mortality we will look at with the plan's size in mind, expecting to lean on a published table adjusted for whatever partial signal the data provide rather than on the plan's own experience alone. Salary increases we will study from the payroll history David has already assembled. Barbara did not need the technical detail, but she wanted to know where our judgment would enter, and we were straight with her that it enters at the end, once the counting is done and we can see which assumptions the data actually quarrel with."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Barbara also raised the questions the board is likely to raise, which was useful to hear this early. She asked whether an earlier benefit change might distort the retirement pattern we are studying, and whether the smaller membership groups would carry enough experience to support any conclusion about them. We agreed that both concerns are real, that we would flag the affected years rather than blend them silently, and that where a group is too thin to stand on its own we will say so plainly instead of dressing up a weak result."
+        },
+        {
+          "kind": "heading",
+          "text": "What we each agreed to do",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": ["Owner", "Action", "Timing"],
+          "rows": [
+            ["David Sherman", "Close out the census once Estes Group confirms the flagged status codes.", "Before the next working session"],
+            ["Jeffrey Ochoa", "Complete the actual-to-expected counts for retirement and termination across the study period.", "Next two weeks"],
+            ["Megan Dudley", "Circulate these minutes and gather the open data questions for the client in one place.", "This week"],
+            ["Barbara Hall", "Confirm the flagged status codes and check the timing of the earlier benefit change against Estes Group's records.", "As available"]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our next step is a simple one. Once Barbara confirms the open status codes, David closes the census and Jeffrey runs the first full set of actual-against-expected counts, and that is what we will walk through together when we next meet."
         }
       ]
     },
@@ -54,138 +116,96 @@
       "doc_id": "d:0038",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Meridian Actuarial Advisors LLC",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Prepared by: David Sherman, Senior Analyst\nEngagement: Experience Study for Estes Group"
         },
         {
           "kind": "heading",
-          "text": "Firm Overview",
+          "text": "Where the study stands",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Meridian Actuarial Advisors is a consulting actuarial practice. We measure benefit obligations, we test whether the money set aside to meet them is sufficient, and we put our names on the opinion that says so. Our clients are public pension boards, a life insurer, and multiemployer benefit funds. In every case the work ends in a document that somebody else has to be able to rely on, and we write it accordingly."
+          "text": "The study is on schedule and within budget, and the work has moved past the data phase into measurement. We have a reconciled membership file, the exposures needed to count experience year by year are built, and we have begun setting what the {{fact:f:E-2019-001.client}} membership actually did against what the plan's current assumptions predicted. No result is final, and none should be read as a recommendation yet. At this stage we are counting, not concluding."
         },
         {
           "kind": "paragraph",
-          "text": "We are a small practice and we intend to stay a practice rather than become an institution. The people who do the analysis are the people who present it. A client who calls us gets the actuary who ran the numbers, not an account manager who will find out and call back."
+          "text": "Nothing seen so far suggests the study will be other than routine. The data are sound enough to build on, the open items are the ordinary ones a first study turns up, and the schedule leaves room for the review the results will need before anyone signs them. We would tell you if that read changed; as of this report it has not."
         },
         {
           "kind": "heading",
-          "text": "Service Lines",
+          "text": "Completed this period",
           "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The period went mostly to putting the data beyond argument and building the machinery that turns it into experience counts. In order:"
         },
         {
           "kind": "list",
           "items": [
-            "Funding valuations of defined benefit pension plans, with the supporting exhibits, the gain and loss analysis, and the disclosure schedules an auditor will ask for.",
-            "Reserve adequacy review for life and annuity business, including asset adequacy testing and review of the assumptions underlying the reserves.",
-            "Experience studies: what the plan population actually did, measured against what the assumptions said it would do, and a recommendation on which assumptions should change.",
-            "Retiree medical and other postemployment benefit valuations, including trend assumptions and the accounting disclosures that follow from them.",
-            "Board and trustee support: education sessions, plain presentation of results, and answers to the questions actually asked."
+            "Megan Dudley reconciled the membership file against the plan's payroll and prior records, and it now ties within a small, documented margin.",
+            "We built the exposure tables that count, for each year of the study period, who was at risk of retiring, terminating, or dying, so that every rate we later report rests on a denominator a reader can trace.",
+            "Jeffrey Ochoa completed the first pass of the retirement and termination counts and began setting them against the counts expected under the current assumptions.",
+            "We assembled the salary history needed to study pay increases from the same payroll records, rather than a separate file, so the two cannot drift apart."
           ]
         },
         {
           "kind": "heading",
-          "text": "Representative Work",
+          "text": "Data and our reliance on it",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "For {{fact:f:E-2016-001.client}} we performed a funding valuation of the sponsored defined benefit pension plan: reconciliation of the participant census against the prior valuation, development of the liabilities on the plan's funding basis, an attribution of the change in funded position to its sources, and a recommendation on the contribution. The engagement produced a report, a workbook of exhibits behind every number in it, and the schedules the sponsor's auditors required."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For {{fact:f:E-2017-001.client}} we conducted a reserve adequacy review. The question there was narrower and harder: whether the reserves held would be sufficient under a range of scenarios rather than under one set of assumptions, and what the answer depended on. We reported the measurement, the assumptions, and our conclusion as three separate things, which is how a reader can tell which of them to argue with."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For {{fact:f:E-2019-001.client}} we completed an experience study comparing several years of plan experience against the assumptions in force. Some assumptions were left alone. Where the data supported a change we recommended one and showed the effect on the liability; where the data were thin we said the data were thin and recommended waiting. A study that recommends changing everything it looked at is usually a study that mistook noise for a signal."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For {{fact:f:E-2020-001.client}} we valued a retiree medical program. Medical trend is the assumption that drives that result and it is the assumption nobody can know, so we set out what we assumed, showed what the obligation would be if we were wrong in either direction, and left the board in a position to weigh that themselves rather than take our word for it."
+          "text": "A study of this kind is only as sound as the census beneath it, and we treat the data accordingly. We do not audit what the plan provides; we reconcile it, check it against the prior records and the payroll, and document what we relied on. A small number of participant records still carry status codes we have asked the client to confirm. Until they are confirmed, we are holding those participants out of the counts rather than guessing at their status. This is the same discipline we apply to every figure in the study: what the data show, what we have assumed, and what we conclude are kept apart, so a reader can always see which of the three a number rests on. The count of held records is too small to move the study, but we would report it to you all the same."
         },
         {
           "kind": "heading",
-          "text": "How We Work",
+          "text": "The work ahead",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our work is performed under the applicable Actuarial Standards of Practice and the Code of Professional Conduct, and our reports say plainly which standards apply to them. We rely on data supplied by the client and by the plan's administrators and record holders. We test that data for reasonableness and internal consistency, we tell you what we tested and what we did not, and we do not audit it. Where a reliance is material to the result, the report says so on its face rather than in a footnote."
+          "text": "The second half of the study is measurement first and judgment after it:"
         },
         {
-          "kind": "paragraph",
-          "text": "Our reports separate measurement from judgment. What the data show is one paragraph. What was assumed is the next. What the actuary concludes is the third. Trustees are asked to make decisions on our work, and they cannot do that if the number and the opinion about the number arrive fused together."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We qualify what should be qualified. A hedge in an actuarial report is not hesitation; it is the accurate width of the answer. An estimate presented without its uncertainty is not more useful than one presented with it, only more comfortable, and the comfort is borrowed against somebody else's balance sheet."
+          "kind": "list",
+          "items": [
+            "Complete the actual-to-expected counts for every decrement the study covers, adding mortality and disability to retirement and termination.",
+            "Weigh each result for credibility, since several of the smaller membership groups will not carry enough experience to support a firm conclusion on their own.",
+            "Draft, for the signing actuary's review, the assumptions the data support changing and those it does not. The recommendation is the actuary's to make and to sign; our task is to lay the evidence in front of it.",
+            "Prepare the exhibits and the written study so that a reader can trace each recommended rate back to the counts behind it."
+          ]
         },
         {
           "kind": "heading",
-          "text": "Presentation",
+          "text": "Fees",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our board decks are plain: one chart to a slide, the point of the slide written on it, and nothing on the page that is not load-bearing. Between formal deliverables we are reachable by email and we answer questions about data and assumptions as they come up rather than saving them for a meeting. Nobody has ever complained that a valuation report was too easy to follow."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Inquiries about the firm or about a proposed engagement may be directed to Robert Lawrence, Managing Actuary."
-        }
-      ]
-    },
-    {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0044",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Onboarding Record: Nicole Hanna",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Prepared by Robert Lawrence, Managing Actuary. Copy to the personnel file."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Nicole Hanna joins the Consulting group today as an Actuarial Associate. She is early in the practice and we hired her that way on purpose. The mechanical work of a valuation is learned by doing it under someone who has done it, and there is a limit to how much of that can be skipped."
+          "text": "The study is being performed for the fixed fee of {{fact:f:E-2019-001.fee}}, and the work billed to date is consistent with that budget. We do not foresee anything that would require a change to it. Should the open data questions grow into something larger than the routine cleanup we expect, we would come to you for agreement before taking on the extra work."
         },
         {
           "kind": "heading",
-          "text": "Role and Reporting",
+          "text": "Risks we are watching",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Nicole reports to me and works across the consulting engagements as the schedule requires; she is not assigned to one client. Her first responsibilities are the mechanical passes: census reconciliation, tie-outs between the workbook and the report, and the checks that confirm an exhibit says what the exhibit behind it says. Work of that kind is the foundation the rest of the report stands on, and it is given to the newest person here because it is where the newest person learns what the numbers are made of, not because it is unimportant."
+          "text": "Three things could affect the timing or the reach of the study. None is serious as matters stand:"
         },
         {
-          "kind": "heading",
-          "text": "First Period",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The first week is accounts, access, the standards library, and the working paper conventions, which are not optional and are not a matter of taste. She should read two or three completed files end to end before she touches a live one. Through her first month she works alongside the associates on current engagements with everything she produces reviewed line by line, and I would rather she ask three questions than guess once. Her drafts will be marked up heavily and that is not a verdict on her; the review is heavy here for everybody, and the day it stops being heavy is the day to worry."
-        },
-        {
-          "kind": "heading",
-          "text": "Expectations",
-          "level": 2
+          "kind": "list",
+          "items": [
+            "The open status codes. If the client's confirmation is slow, the final counts wait on it, though the exposure work continues in the meantime.",
+            "Credibility of the smaller groups. Where a group is too small to speak for itself, we will say so plainly instead of presenting a thin result as if it were firm. This narrows what the study can conclude for those groups; it does not delay the study.",
+            "The membership's overall size. For assumptions such as mortality, the plan's own experience will likely need to be read alongside a published table rather than on its own, and we will be explicit wherever we have done so."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Two things I will keep saying to her until they are habit. First, the sentence that reports a number and the sentence that judges it are different sentences, and they belong in different paragraphs; a draft that blends them will come back. Second, when a figure will not reconcile, say so while it will not reconcile, not after it has been resolved by someone else. An error found early is a data question. The same error found late is a correction to a signed report, and I have written that letter and would prefer not to write it again."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Nicole Hanna asks the follow-up question that shows she understood the first answer, which is the trait I look for and the one that is hardest to teach. Nothing else in this record matters as much as that."
+          "text": "We will send the next report once the actual-to-expected counts are complete across all decrements, at which point we can show you where the data and the current assumptions agree and where they part. Until then I remain the point of contact for the study, and a note to me reaches the whole team."
         }
       ]
     }

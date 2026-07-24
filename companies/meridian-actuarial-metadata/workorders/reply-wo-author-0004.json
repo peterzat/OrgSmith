@@ -1,90 +1,297 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0004",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0016",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Michelle Hudson\nDirector of Operations\n{{fact:f:E-2017-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Engagement to perform a reserve adequacy review for {{fact:f:E-2017-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Hudson:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter sets out the terms on which our firm will perform a reserve adequacy review for {{fact:f:E-2017-001.client}}. It records what we will do, what we will rely on, and the basis on which we are engaged. We have written the terms plainly, because we would rather you know exactly what you are agreeing to than have to work it out later from the invoices. The work will begin on {{fact:f:E-2017-001.start}}, and the paragraphs below cover the review itself, the people who will do it, the fee, and the standard terms that carry the engagement."
+        },
+        {
+          "kind": "heading",
+          "text": "The Review and What It Covers",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The purpose of the review is to form an opinion on whether the reserves carried by {{fact:f:E-2017-001.client}} are adequate to meet the obligations they are meant to fund, measured as of a valuation date we will fix with your staff at the outset. The opinion is the deliverable; everything else is in support of it. So there is no ambiguity about scope, the work has five parts."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "A reconciliation of the reserve data you provide against your own financial records, so that the figures we test are the figures you carry.",
+            "A review of the assumptions underlying the current reserves, keeping the assumptions that regulation fixes separate from those that rest on judgment.",
+            "An independent estimate of the required reserves under the standards named below, developed from the data as reconciled rather than as received.",
+            "A comparison of that estimate against the carried reserves, with any difference attributed to its sources rather than reported as a single number.",
+            "A written report that states what the data show, what we assumed, and what we conclude, and keeps those three as three separate matters."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Matters outside this list are outside the engagement. We are not auditing your financial statements, setting your reserves for you, or opining on the adequacy of your rates. If you want any of those, we can scope them separately."
+        },
+        {
+          "kind": "heading",
+          "text": "What We Will Need From You",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review turns on the data, so a few things on your side keep it on schedule. We will need the reserve detail, the financial records the reserves are carried against, and the assumption documentation in effect at the valuation date, and we will send a single itemized request rather than ask for these piecemeal. We also need one person we can put questions to as they come up, since a file usually raises a question that only your staff can settle. The sooner those requests are answered, the sooner we can reconcile against the right records the first time."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Will Work",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "We begin with your data and your own records, not with a template carried in from another client. Our reliance on the data is exactly that, reliance. We will test it for internal consistency and reconcile it to your records, but we do not audit it, and our opinion is conditioned on the data being complete and correct in the respects the report identifies. The review is performed in accordance with the applicable Actuarial Standards of Practice and the Code of Professional Conduct, and the report will name the standards it rests on. Where a figure reflects a judgment rather than a measurement, we will say so and give you the reasoning, rather than ask you to take the number on faith."
+        },
+        {
+          "kind": "heading",
+          "text": "The Engagement Team",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez, a consulting actuary in our practice, owns the relationship and the day-to-day conduct of the work, and she is your point of contact for anything touching scope, schedule, or judgment. David Sherman, a senior analyst, builds and documents the valuation workbook and reconciles the data you send us. Megan Dudley, an actuarial associate, supports the exhibits and the data checks. I review the work and sign the opinion, and the professional responsibility for it is mine. You will hear from Jennifer Vasquez first, and she will coordinate the rest of us."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the review is a fixed fee of {{fact:f:E-2017-001.fee}}, covering the work described above and the report that concludes it. We will invoice in three installments: a third at the start, a third on delivery of the draft report, and the balance on delivery of the final report. Invoices are due within thirty days. Out-of-pocket costs, if any, are billed at our cost and are expected to be minor. If anything arises that would materially change the fee, we will raise it with you in writing before the cost is incurred, not after."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement begins on the date noted above and runs until we deliver the final report, a period we expect to take about seven months. Either of us may end it on written notice. If you end it early, you owe us for the work performed to that point and for costs already committed. If we end it, we will give you enough notice and enough of our working files to let another actuary take up the work without repeating it."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will treat the information you give us as confidential and use it only for this engagement. We will not disclose it outside our firm except as you direct in writing or as the law requires, and where the law requires it we will tell you before we respond unless we are barred from doing so. Our working papers remain ours, and we hold them under the same duty of confidence."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our opinion is prepared for {{fact:f:E-2017-001.client}} and for the use described in the report; it is not to be relied on by anyone else, or for any other purpose, without our written consent. Our liability to you arising out of this engagement, whether framed in contract or in negligence, is limited to the fee paid for the work, except for any liability that cannot be limited by law. We accept no liability to third parties."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "This agreement is governed by the law of the state in which our principal office sits, and any dispute arising under it belongs to the courts of that state."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms match your understanding, please sign one copy of this letter where indicated below and return it to us, and keep the other for your file. Your signature is our authority to begin. If anything here reads differently from what we discussed, call me before you sign and we will fix the wording rather than paper over it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:robert.lawrence",
+            "xp:michelle.hudson"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0017",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "To: Jennifer Vasquez, Consulting Actuary; David Sherman, Senior Analyst"
+        },
+        {
+          "kind": "paragraph",
+          "text": "From: Megan Dudley, Actuarial Associate"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Reserve adequacy review for {{fact:f:E-2017-001.client}}: where we are starting"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is open as of {{fact:f:E-2017-001.start}}, and I wanted to put down in one place what we are setting out to do, so that we are all working from the same picture through these first weeks. The object of the review is a defensible opinion on whether the reserves {{fact:f:E-2017-001.client}} carries are adequate for the obligations behind them. Everything we do over the next several months is in service of that one question, and it helps to keep it in view while the work is still mostly setup."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first thing in front of us is the data. David Sherman will take the reserve files as they arrive and reconcile them against the client's own records before any of it feeds an exhibit, and he will write down what he is relying on rather than carry it in his head. Nothing gets built on a figure we have not tied out. If something in the files looks off, we flag it early and in writing, because a question raised now is far cheaper than a correction discovered later in the report."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Alongside that, we start pulling apart the assumptions behind the current reserves, keeping the ones that regulation fixes separate from the ones that rest on judgment, since those turn into two different conversations by the end. Jennifer Vasquez will steer the judgment calls and decide which of the client's questions the data can actually answer and which it cannot, and I will keep the working assumptions documented as we go, so the report can show plainly what we measured and what we assumed. Those are the two columns that keep an opinion like this honest, and it is easier to keep them apart from the start than to separate them afterward."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our point of contact at the client is Michelle Hudson, their Director of Operations, and the data requests run through her. I will keep a simple log of what we have asked for, what has arrived, and what is still outstanding, and I will circulate it so none of us has to guess where a file is. Anything that touches scope or fee goes back to Jennifer Vasquez rather than out from us directly, so the client hears one voice on those questions and not three."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A word on how the review reads when it is done, because it shapes how we work now. The report will separate what the data show from what we assumed and from what we conclude, and it will name the Actuarial Standards of Practice it rests on. That structure is easier to build into the workpapers from the first week than to impose at the end, so as we go, please tag anything that is a judgment as a judgment and anything that is measured as measured. On timing, we have about seven months, and the front of that is the reconciliation; the analysis and the writing only move as fast as the data lets them, which is another reason to get the request out clean and early."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For this week, the one thing I need from each of us is our part of the initial data request for Michelle Hudson, so we can send it as a single list rather than in pieces. Send me your items by Thursday and I will assemble the request for Jennifer Vasquez to review before it goes out."
+        }
+      ]
+    },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0018",
       "blocks": [
         {
-          "kind": "heading",
-          "level": 1,
-          "text": "Reserve Adequacy Review — Working Session Minutes"
+          "kind": "paragraph",
+          "text": "Hello Michelle,"
         },
         {
           "kind": "paragraph",
-          "text": "Working session held at the offices of {{fact:f:E-2017-001.client}} to review the state of the reserve adequacy analysis ahead of the final report. The draft report and the current exhibit set had been circulated in advance. Minutes recorded by David Sherman and reviewed by Jennifer Vasquez before distribution."
+          "text": "I am opening this thread so our notes on the {{fact:f:E-2017-001.client}} reserve adequacy review stay together in one place as the work gets going. For the file, the contacts are set: on your side, Michelle Hudson, Director of Operations, as our point of contact for the data; and on ours, Jennifer Vasquez, who leads the engagement and is the person to come to on scope or judgment, and David Sherman, who reconciles the reserve files as they arrive."
         },
         {
-          "kind": "heading",
-          "level": 2,
-          "text": "Attendees"
+          "kind": "paragraph",
+          "text": "We have made a start on the setup, and nothing here needs anything from you today; I mostly want you looking at the same picture we are. The one thing that will move us forward is the reserve data itself. Over the next few days we will send a single, itemized request rather than a trickle of small ones, so you and your team can pull it in one pass."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Once you have that list, the most useful next step would be a short call to walk through anything on it that is ambiguous at your end, so we reconcile against the right records the first time. I will send the request shortly and suggest a couple of times."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0019",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Good morning Michelle,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Short version: I can start the reconciliation as soon as I have three files, and one figure in what you have already sent does not tie out, so I want to settle it before it reaches an exhibit."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The three files I need are these."
         },
         {
           "kind": "list",
           "items": [
-            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors",
-            "David Sherman, Senior Analyst, Meridian Actuarial Advisors",
-            "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors",
-            "Michelle Hudson, Director of Operations, Miller, Cook and Snyder"
+            "The reserve detail behind the summary you sent, at the seriatim or grouped level, whichever your system produces.",
+            "The year-end financial figures the reserves are carried at, so I can reconcile to your own records rather than to a total.",
+            "The assumption set {{fact:f:E-2017-001.client}} had in effect at the valuation date, in whatever form it was documented."
           ]
         },
         {
-          "kind": "heading",
-          "level": 2,
-          "text": "Data and Reconciliation"
+          "kind": "paragraph",
+          "text": "The line that does not tie is the aggregate reserve on the summary tab; it sits a little above the sum of the detail beneath it. It is most likely a grouping or rounding difference, but I will not carry it forward until I know which. For the working papers I am logging each file against the request and the date it arrives, and the request is addressed to you, Michelle Hudson, so please route the files back to me and copy Megan Dudley, who keeps our running log. Anything on scope, or on the shape of the opinion, is Jennifer Vasquez's call rather than mine."
         },
         {
           "kind": "paragraph",
-          "text": "David Sherman reported that the replacement extract reconciles to the population used in the prior review once a duplicated block of records is removed. The duplication was introduced on the client side during the export and is not a data quality problem in the administration system itself. Michelle Hudson confirmed that understanding. Sherman noted that the reconciliation is a check on counts and totals, not an audit of the underlying records, and that the report will say so in the reliance section."
+          "text": "Best"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0020",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Hello Michelle,"
         },
         {
           "kind": "paragraph",
-          "text": "Megan Dudley rebuilt the affected exhibits against the corrected extract. She reported that the exhibit set is otherwise stable and that no further changes are expected to the summary schedules. One exhibit remains open pending the assumption discussion below. Dudley asked whether the prior-period comparatives should be restated on the corrected basis; the session agreed they should, and that the restatement be footnoted rather than made silently."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "Assumptions"
+          "text": "Thank you, and please do not feel you have to send everything at once. To keep it simple on your side, I have pulled it all into the single request I promised, so you are working from one list instead of several. It covers the reserve detail, the year-end figures David Sherman will reconcile against your records, and the assumption documentation for the {{fact:f:E-2017-001.client}} valuation. For our file I have you, Michelle Hudson, down as the one contact for the data, so sending it to me is enough and you need not copy the whole team."
         },
         {
           "kind": "paragraph",
-          "text": "Jennifer Vasquez walked through the change to the lapse assumption. The change is supported by the firm's own experience study of the block, which shows persistency running better than the assumption in place at the last review. Vasquez was explicit that this is a judgment resting on a limited number of exposure years: the experience is what it is, the assumption is what we have chosen to make of it, and the two should not be confused when the results are described internally. The effect on the indicated reserve is favorable in direction, and the report will quantify it and show the result on both the old and the new assumption so that the reader can see the sensitivity rather than take the number on faith."
+          "text": "On the single line David flagged, I would not read anything into it yet. Differences of that kind are ordinary this early, and surfacing it now is exactly what we want, rather than finding it later in a footnote. If it turns out to be a real difference, Jennifer Vasquez will walk it through with you before any of us draws a conclusion from it, though I do not expect it to come to that."
         },
         {
           "kind": "paragraph",
-          "text": "Michelle Hudson asked whether the change would need to be revisited if the next year of experience runs the other way. Vasquez answered that it would, and that the report will say the assumption is subject to review as experience emerges. She declined to characterize the result as an improvement in the block's condition; the analysis addresses the adequacy of the reserves under the stated conditions and does not speak to profitability, and she asked that the distinction be preserved in any summary prepared for management."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "Scope and Reporting"
+          "text": "If it is easiest, send whatever is ready first and the rest as it comes; I will confirm each piece as it lands so you always know where things stand. The one item that helps most this week is the reserve detail, since that is what frees David Sherman to begin."
         },
         {
           "kind": "paragraph",
-          "text": "Hudson raised a request from her side for a short summary section written for a non-technical reader. Vasquez agreed to include one, on the condition that it carry the same qualifications as the body of the report and not stand on its own if it is circulated. The work continues to be performed in accordance with the applicable Actuarial Standards of Practice, and the scope of the engagement is unchanged from the engagement letter. No extension of scope was requested and none was agreed."
+          "text": "Best"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0021",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Good morning Michelle,"
         },
         {
           "kind": "paragraph",
-          "text": "The session agreed that the remaining work is drafting and review rather than analysis. Meridian will complete the internal review of the draft, deliver the report and the exhibit workbook together, and hold a short call with Miller, Cook and Snyder to walk the results before the report is distributed further inside the client."
+          "text": "To save a round trip: when you pull the reserve detail, two things about the format will let it reconcile on the first pass rather than the second."
         },
         {
-          "kind": "heading",
-          "level": 2,
-          "text": "Action Items"
-        },
-        {
-          "kind": "table",
-          "header": ["Item", "Owner", "Timing"],
-          "rows": [
-            ["Restate prior-period comparatives on the corrected extract and footnote the restatement", "Megan Dudley", "Before the draft goes to internal review"],
-            ["Close the open exhibit on the revised lapse assumption; show old and new bases", "Megan Dudley", "Before the draft goes to internal review"],
-            ["Document the extract reconciliation and the duplicated-block correction in the reliance section", "David Sherman", "With the draft"],
-            ["Draft the non-technical summary section, carrying the report's qualifications", "Jennifer Vasquez", "With the draft"],
-            ["Confirm the client contact list for distribution of the final report", "Michelle Hudson", "Before delivery"],
-            ["Schedule the walkthrough call ahead of internal distribution", "Jennifer Vasquez", "After the draft clears review"]
+          "kind": "list",
+          "items": [
+            "Please export it at the same grouping level as your year-end financial figures, so the two tie to each other directly. If the systems group differently, a key that maps one to the other is enough and I can do the rest.",
+            "Include the valuation-date totals as your system reports them, unrounded, so the small difference I flagged earlier resolves cleanly against the source."
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "That is all I need to close out the open line and start the substantive work on the {{fact:f:E-2017-001.client}} reserves. Megan Dudley keeps the running log, so a copy to her when you send keeps our record straight; and if any of this touches how the question is framed rather than how it is measured, that is Jennifer Vasquez's call. I will note the tie-out in the working papers under your name, Michelle Hudson, so our reliance on the file is documented."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best"
         }
       ]
     }

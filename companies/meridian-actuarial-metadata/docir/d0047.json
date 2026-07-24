@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Kickoff Memorandum",
+      "text": "Working Session: Retiree Medical Valuation for {{fact:f:E-2020-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "To: Michelle Banks, Nicole Hanna\nFrom: Karen Harris\nCopy: Robert Lawrence\nRe: Reinsurance pricing review, {{fact:f:E-2024-001.client}} — engagement commenced {{fact:f:E-2024-001.start}}",
+      "text": "Date: September 29, 2020. Minutes recorded by Jennifer Vasquez.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,25 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Objective",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "We are to say whether the rates and allowances Gonzalez, Campbell and Kelly pays on its ceded business are consistent with the experience of that business and with terms available now, and to lay out the options at the next renewal. The client's own view is that the program has drifted; that is a hypothesis we are testing, not a conclusion we are documenting. Robert Lawrence signs the report, so the standard for what goes in it is his: what the experience shows, what we assumed, what we conclude, in that order and not blended. Nothing we write should imply more precision than the exposure supports.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Workstreams",
+      "text": "Present",
       "level": 2,
       "items": [],
       "header": [],
@@ -52,11 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Treaty review — Karen Harris. Read the treaties, amendments, and side letters and produce a one-page summary per treaty: what is ceded, on what basis, rates, allowances, retention, recapture, and rate-adjustment rights. This is the foundation for everything else and it comes first.",
-        "Data intake and reconciliation — Nicole Hanna. Take delivery of the ceded records and the in-force extract, reconcile counts and amounts between them, and log every discrepancy with its disposition. Do not fix a discrepancy silently. Log it, then ask.",
-        "Experience study — Michelle Banks. Compile ceded mortality over the available observation period against the treaty basis, with exposure and credibility reported alongside every result. Working papers should let Robert Lawrence retrace the calculation without asking you a question.",
-        "Assumption basis — Michelle Banks, reviewed by Karen Harris. Set down the mortality, lapse, and expense assumptions we will price against, and mark each one as supported by client experience or taken from an external source because the experience will not carry it.",
-        "Pricing comparison and exhibits — Karen Harris. Price the ceded business on the agreed basis, compare treaty by treaty to what is paid, and build the exhibit workbook. One exhibit per question. No decoration."
+        "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors (recording)",
+        "Jeffrey Ochoa, Actuarial Analyst, Meridian Actuarial Advisors",
+        "Amanda White, Actuarial Associate, Meridian Actuarial Advisors",
+        "Jason Wagner, General Manager, {{fact:f:E-2020-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -64,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Working Practices",
+      "text": "Purpose",
       "level": 2,
       "items": [],
       "header": [],
@@ -73,16 +54,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "James Garcia is the client contact and the route for anything that changes scope, schedule, or the shape of the deliverable. Data requests and scheduling go through me to his staff; I would rather send one consolidated request than four ad hoc ones, so route what you need through me and I will batch it. If a request is urgent, say so and I will send it on its own.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Everything that supports a number in the report lives in the working papers, filed as you go, not assembled at the end. Michelle Banks knows the standard we hold to here; Nicole Hanna, use her files from the last valuation as the model. If you are unsure whether a step is worth documenting, document it. The cost of writing a line you did not need is much lower than the cost of reconstructing a step in November.",
+      "text": "The session confirmed that the engagement can move from assembling data to setting assumptions. The census and plan documents are reconciled. No obligation figures were presented; it is too early for them.",
       "level": 1,
       "items": [],
       "header": [],
@@ -91,7 +63,7 @@
     },
     {
       "kind": "heading",
-      "text": "Next Steps",
+      "text": "Data",
       "level": 2,
       "items": [],
       "header": [],
@@ -99,22 +71,132 @@
       "signers": []
     },
     {
-      "kind": "list",
+      "kind": "paragraph",
+      "text": "Amanda White reported that the census and the plan documents reconcile to the client's own records within the tolerance set at the outset. The reconciliation was run at the grouping the client's system produces, so the two sets of figures meet directly. One coding question on a small group of early retirees resolved as a plan-eligibility distinction, not a data error, and it is documented in the working papers. Reliance on each file is logged against the date it was received and the person who supplied it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "One item remains open on the data. The final retiree contribution schedule has not arrived, and the current draft carries a placeholder for it. Amanda White will close that item once the client sends the adopted schedule. Nothing measured so far depends on it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Assumptions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jeffrey Ochoa walked through the assumption basis the measurement requires. The discount rate, the health care cost trend, and the mortality basis were each discussed on their own footing. The group kept two categories apart: assumptions the accounting standard constrains, and assumptions that rest on judgment. That separation was treated as the backbone of the eventual report, since the two categories carry different weight when the firm signs its name.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The trend assumption drew the most discussion. Jeffrey Ochoa noted that the obligation is more sensitive to the health care cost trend than to any other single input, and that the report will show that sensitivity rather than bury it in a single figure. The mortality basis will use a published table with a recognized improvement scale, documented so the reader can see what was chosen and why. No values were settled at the session; they will be set and supported before the next meeting.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jason Wagner confirmed the plan provisions in effect at the measurement date and the retiree contribution schedule as it currently stands. He noted that the board has discussed a change to the contribution structure but has not adopted it. The group agreed the valuation measures the plan as it stands, and that any amendment would be priced and measured separately.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jennifer Vasquez set out which of management's questions the measurement will answer and which it will not. The obligation and its sensitivity to the trend assumption are answerable. A forecast of future contribution rates is not, and the report will say so plainly rather than imply a precision the work does not support.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Schedule",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The engagement is at roughly its midpoint and on the schedule set at the start. The data stretch is closing and the measurement stretch is opening. The one dependency that could move the timeline is the outstanding contribution schedule, and the group agreed it is not a concern yet.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Action Items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
       "text": "",
       "level": 1,
-      "items": [
-        "I have asked the client for the treaty file and the ceded records. Nicole Hanna: acknowledge receipt the day they land and start the reconciliation; do not wait for the full set to begin on what has arrived.",
-        "Michelle Banks and I meet Thursday to agree the observation period and the segmentation before any exposure is compiled.",
-        "Treaty summaries circulated within two weeks. We review them with the client's staff before the pricing work starts.",
-        "Robert Lawrence will want the assumption basis in front of him before it is used, not after. Plan on that review, do not schedule around it."
+      "items": [],
+      "header": [
+        "Action",
+        "Owner",
+        "Target"
       ],
-      "header": [],
-      "rows": [],
+      "rows": [
+        [
+          "Finalize the reconciled census and close the eligibility coding question",
+          "Amanda White",
+          "Oct 9"
+        ],
+        [
+          "Set the discount rate and trend basis with Jennifer Vasquez and document the support",
+          "Jeffrey Ochoa",
+          "Oct 16"
+        ],
+        [
+          "Confirm which management questions the report will and will not answer",
+          "Jennifer Vasquez",
+          "Oct 12"
+        ],
+        [
+          "Send the adopted plan document and the final contribution schedule",
+          "Jason Wagner",
+          "Oct 7"
+        ]
+      ],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Questions to me. It is early enough that asking one costs nothing.",
+      "text": "The next session will review the first obligation figures once the assumptions are set.",
       "level": 1,
       "items": [],
       "header": [],

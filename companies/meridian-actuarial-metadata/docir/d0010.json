@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Onboarding Record: Jennifer Johnson",
+      "text": "Pension Valuation for {{fact:f:E-2016-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -12,8 +12,22 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Jennifer Johnson joins the firm as an Actuarial Associate in the consulting practice. This record is for the personnel file and for her own, so that what was said to her on arrival is written down somewhere other than in my memory.",
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Engagement start: {{fact:f:E-2016-001.start}}",
+        "Prepared by Jennifer Vasquez, Consulting Actuary",
+        "Purpose: measure the plan's funded position and the contribution for the year ahead",
+        "For the {{fact:f:E-2016-001.client}} board and staff"
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "What the valuation covers",
       "level": 1,
       "items": [],
       "header": [],
@@ -21,8 +35,23 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "She will work the data end of valuations. That means intake of client census and asset files, reasonableness and consistency testing, reconciliation to the prior measurement, and the exhibits that come out of the reconciliation. It is the part of the work that people outside the profession assume is clerical, and it is where the errors that matter actually live: a valuation is a very precise arithmetic performed on whatever was in the file. She sits with the consulting staff and reports to me for the present. That reporting line is a function of the size of the practice and not of her seniority, and she should read nothing into it when it changes.",
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "We measure the actuarial accrued liability and the normal cost under the plan's funding method.",
+        "We report the funded ratio and a recommended contribution for the coming year.",
+        "We reconcile this year's results to the prior valuation, so any change is explained and not just stated.",
+        "We document every assumption and every data source that stands behind the numbers.",
+        "Where the data cannot answer a question, we say so rather than estimate around it."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "How the work is staffed",
       "level": 1,
       "items": [],
       "header": [],
@@ -30,8 +59,23 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Her workstation, network account, and access to the engagement files should be in place before she sits down; if they are not, the fault is ours and she should say so rather than wait. The practice manager will take her through timekeeping, benefits enrollment, and the firm's support for exams in her first week. She is to read the engagement letter for any client whose data she touches before she touches it. Client data stays in the office. It does not go home on a drive, and it is not discussed outside the firm, including with people who already know what we are working on.",
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "David Sherman reconciles the census and documents the data we rely on.",
+        "Jeffrey Ochoa builds the valuation model and ties each result back to the assumption that drives it.",
+        "Jennifer Vasquez signs the opinion and owns the judgment calls.",
+        "Elizabeth Horne is our point of contact for data and plan questions.",
+        "We confirm decisions in writing, so no one is working from an old version."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "What you will receive",
       "level": 1,
       "items": [],
       "header": [],
@@ -39,8 +83,22 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Two expectations, and they are the ones I state to everyone. Document as you go: a working paper a reviewer cannot retrace is not finished, whatever number sits at the bottom of it. And flag what you are unsure of. I would rather hear about ten uncertainties that turn out not to matter than meet the eleventh in front of a board. No one here has been criticized for raising a question early. Everything Jennifer Johnson produces will be reviewed by a credentialed actuary before it leaves the office, which is not a comment on her work; it is how the work is done.",
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "A workbook of exhibits: the liabilities, the assets, and the resulting funded position.",
+        "A report that interprets the exhibits and states our opinion plainly.",
+        "A short summary the board can read without the detail behind it.",
+        "The full set of assumptions and data sources, laid out for review."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Where we are now",
       "level": 1,
       "items": [],
       "header": [],
@@ -48,10 +106,38 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Prepared by Robert Lawrence, Managing Actuary, for the personnel file.",
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "The participant census is in and being reconciled to last year's file.",
+        "The year-end asset statement and one plan-provision question are still open with your team.",
+        "The assumptions are carried from the last study and will be reviewed before any results.",
+        "No results yet; the work at this point is settling the inputs."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Next steps",
       "level": 1,
       "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Send the year-end asset statement.",
+        "Confirm the disability provision, so the valuation matches the plan document.",
+        "We finish the census reconciliation and load the reviewed assumptions.",
+        "We bring preliminary results back to you before anything is treated as final."
+      ],
       "header": [],
       "rows": [],
       "signers": []

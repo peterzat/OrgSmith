@@ -1,0 +1,172 @@
+From: David Sherman <david.sherman@meridianactuarial.com>
+To: Barbara Hall <barbara.hall@estesgroup.com>
+Cc: Jeffrey Ochoa <jeffrey.ochoa@meridianactuarial.com>,
+ Megan Dudley <megan.dudley@meridianactuarial.com>
+Subject: RE: Experience Study for Estes Group
+Date: Thu, 07 Mar 2019 12:36:00 +0000
+Message-ID: <d0036.meridian-actuarial@meridianactuarial.com>
+In-Reply-To: <d0035.meridian-actuarial@meridianactuarial.com>
+References: <d0032.meridian-actuarial@meridianactuarial.com>
+ <d0033.meridian-actuarial@meridianactuarial.com>
+ <d0034.meridian-actuarial@meridianactuarial.com>
+ <d0035.meridian-actuarial@meridianactuarial.com>
+X-OrgSmith-Synthetic: true
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+To: Barbara Hall
+Cc: Jeffrey Ochoa, Megan Dudley
+
+Good morning Barbara,
+
+The census extract your office sent over loaded without trouble, and the acti=
+ve count ties to your summary. We can build the study on this file. A small n=
+umber of records need a definition from your side before we rely on them, and=
+ I have set those out below.
+
+Megan Dudley reconciled the file against the Estes Group payroll register yes=
+terday, and the two agree line for line except for one group. A handful of pa=
+rticipants carry a status code we cannot read with confidence. A study is onl=
+y as sound as the census beneath it, so we would like the reading confirmed b=
+efore we treat those records as final. The Estes Group data are otherwise cle=
+an.
+
+Before we close out the census, could your office confirm the following:
+
+  - Whether the flagged status code marks deferred vested participants or ter=
+minations with no vested benefit.
+  - Whether the mid-year rehires should keep their original hire dates, or th=
+e later ones, for the service count.
+
+Nothing on the assumptions is settled, and you will see that work before any =
+result depends on it. Jeffrey Ochoa is building the model in parallel, so the=
+se two confirmations are the only items holding up the next step. Once they a=
+re settled, Megan Dudley closes the census and we move on to the experience c=
+ounts.
+
+Best
+
+
+--=20
+David Sherman
+Senior Analyst
++1 (312) 555-0179
+
+On 2019-03-06, Megan Dudley wrote:
+> To: Barbara Hall
+> Cc: David Sherman, Jeffrey Ochoa
+>
+> Hello Barbara,
+>
+> The pay file came through, thank you, and it opens without trouble. That co=
+vers what Jeffrey Ochoa needs for the salary-increase side, so he can start t=
+here while I work the rest.
+>
+> The one piece still open is the withdrawal detail. The contribution history=
+ you sent is complete, but the file does not separate a member who left and t=
+ook a refund from one who left the balance in the fund, and that distinction =
+is exactly what the termination experience turns on. If your system can expor=
+t the withdrawal transactions with a reason code, that would settle it cleanl=
+y for the Estes Group study.
+>
+> Send it whenever it is convenient, and I will reconcile it against the cens=
+us the same day, so we can close the Estes Group data and move to the tabulat=
+ion.
+>
+> Best
+>
+>
+> --
+> Megan Dudley
+> Actuarial Associate
+> +1 (206) 555-0146
+>
+> On 2019-03-06, David Sherman wrote:
+> > To: Barbara Hall
+> > Cc: Jeffrey Ochoa, Megan Dudley
+> >
+> > Good morning Barbara,
+> >
+> > That answers it, thank you. The records with a termination date and no co=
+mmencement are deferred benefits, so we will count them as your office does, =
+and the member data for the Estes Group study is now closed on our end.
+> >
+> > The next piece we need is on the financial side. To set the salary-increa=
+se experience against the assumption, Jeffrey Ochoa needs the pay records for=
+ the study period, and Megan Dudley needs the contribution and withdrawal det=
+ail to tie out the fund's cash flow. Whatever format your system exports is f=
+ine; we would rather reconcile from your native report than ask your staff to=
+ reshape it for us.
+> >
+> > There is no rush on this before next week. Once it is in hand, we begin t=
+abulating the Estes Group experience and can give you a first read on where t=
+he current assumptions are holding and where they are not.
+> >
+> > Best
+> >
+> >
+> > --
+> > David Sherman
+> > Senior Analyst
+> > +1 (312) 555-0179
+> >
+> > On 2019-03-05, Megan Dudley wrote:
+> > > To: Barbara Hall
+> > > Cc: David Sherman, Jeffrey Ochoa
+> > >
+> > > Hello Barbara,
+> > >
+> > > Thank you for clarifying the status codes so quickly. With that in hand=
+, the member file reconciles to your summary line for line, and we can treat =
+the active and deferred groups as settled.
+> > >
+> > > One more thing would help us before we start tabulating. A handful of r=
+ecords show a termination date but no benefit commencement, and we want to be=
+ sure we count them the way your office intends rather than guessing. Could y=
+ou tell us whether those members are still owed a deferred benefit or whether=
+ they took their money out? David Sherman flagged them yesterday, and Jeffrey=
+ Ochoa would rather build the assumption around the real answer than around o=
+urs.
+> > >
+> > > If you can point us to whoever keeps the payment records at Estes Group=
+, we will take the detail up with them directly and keep the Estes Group stud=
+y moving.
+> > >
+> > > Best
+> > >
+> > >
+> > > --
+> > > Megan Dudley
+> > > Actuarial Associate
+> > > +1 (206) 555-0146
+> > >
+> > > On 2019-03-04, David Sherman wrote:
+> > > > To: Barbara Hall
+> > > > Cc: Jeffrey Ochoa, Megan Dudley
+> > > >
+> > > > Good morning Barbara,
+> > > >
+> > > > We have started the Estes Group experience study, and the first data =
+extract your office sent is loading cleanly. Jeffrey Ochoa has the model shel=
+l up, and I am reconciling the member counts against last year's records. Bef=
+ore we go further, there are two points on the data where I need your help.
+> > > >
+> > > >   - The member file uses a status code we cannot read with confidence=
+. Could you confirm how it distinguishes active members from those who have t=
+erminated with a deferred benefit?
+> > > >   - The observation window is not stated in the extract. Please confi=
+rm the first and last plan years you want the experience drawn from, so we me=
+asure against the period you intend.
+> > > >
+> > > > Once we have those two answers, the census for the Estes Group study =
+is settled on our end, and Megan Dudley can begin the reconciliation in earne=
+st. Neither point is urgent this week.
+> > > >
+> > > > Best
+> > > >
+> > > >
+> > > > --
+> > > > David Sherman
+> > > > Senior Analyst
+> > > > +1 (312) 555-0179

@@ -20,9 +20,26 @@ titles:
 
 doc_culture:
   # Recorded from a docplan run: 6 engagements, 9 fiscal years, 5 hires.
-  target_docs: 49
+  # M16 raises eml above the engagement count so the data-and-assumptions
+  # back-and-forth with the client's staff runs as real threads.
+  target_docs: 62
   date_range: [2016-01-01, 2024-12-31]
-  format_mix: {docx: 26, pdf: 10, xlsx: 9, pptx: 2, eml: 3}
+  format_mix: {docx: 26, pdf: 10, xlsx: 9, pptx: 2, eml: 22}
+  # M16: valuation review calls and engagement mail land on business days.
+  business_calendar:
+    holidays: [2016-05-30, 2017-07-04, 2018-09-03, 2019-11-28, 2020-12-25, 2021-05-31, 2022-07-04, 2023-09-04, 2024-11-28]
+  # M16: a mail demonstrator for the fleet. Short emails about data files and
+  # assumptions run as threads; a little mundane internal traffic fills the
+  # mailbox, and its authors are exempt from naming themselves in the body.
+  mail:
+    business_hours: [8, 18]
+    max_thread_depth: 5
+    mundane_emails: 4
+    distribution_lists: 1
+    exempt_author_mentions: true
+  # M16: the voice layer, fleet-wide.
+  style_specs: true
+  voice_diversify: true
 
 finance:
   # 10% growth against five net new seats: the fastest grower in the fleet,
@@ -34,6 +51,8 @@ finance:
 
 engagements:
   count: 6
+  # M16: the engagement ledger is a representative sample, not the whole book.
+  book_is_sample: true
   services: [Pension Valuation, Reserve Adequacy Review, Experience Study, Retiree Medical Valuation, Funding Policy Study, Reinsurance Pricing Review]
 
 graph_targets:

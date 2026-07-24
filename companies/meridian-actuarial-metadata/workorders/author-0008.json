@@ -6,20 +6,63 @@
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
   "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0008\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0008\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0040",
-      "title": "Engagement Letter: Funding Policy Study for Wells, Walsh and Martinez",
-      "genre": "engagement_letter",
-      "date": "2023-04-06",
+      "doc_id": "d:0042",
+      "title": "Onboarding: Linda Hanna",
+      "genre": "onboarding_record",
+      "date": "2020-01-16",
       "authors": [
         {
           "id": "p:robert.lawrence",
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:linda.hanna",
+          "name": "Linda Hanna",
+          "title": "Practice Manager",
+          "dept": "Operations",
+          "persona": "Runs the operational side of client engagements and much of the firm's correspondence with client staff. Her email is brisk and well organized, focused on files, dates, and who owes what to whom. She shares a surname with a colleague in another part of the firm and never remarks on it, the way people at a small shop simply do not."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "p:linda.hanna",
+          "surface": "Linda Hanna",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Robert Lawrence, Managing Actuary. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0043",
+      "title": "Onboarding: Michelle Banks",
+      "genre": "onboarding_record",
+      "date": "2020-06-20",
+      "authors": [
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
       "participants": [
@@ -28,38 +71,11 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:lisa.hubbard",
-          "name": "Lisa Hubbard",
-          "title": "Chief Operating Officer",
-          "dept": "Wells, Walsh and Martinez",
-          "persona": ""
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
         }
       ],
-      "engagement_summary": "Funding Policy Study for Wells, Walsh and Martinez, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2023-001.fee",
-          "hint": "amount of money; place where the figure belongs"
-        },
-        {
-          "id": "f:E-2023-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2023-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
+      "engagement_summary": "",
+      "facts": [],
       "mentions": [
         {
           "entity": "p:robert.lawrence",
@@ -70,40 +86,26 @@
           "entity": "p:michelle.banks",
           "surface": "Michelle Banks",
           "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:lisa.hubbard",
-          "surface": "Lisa Hubbard",
-          "kind": "person"
-        },
-        {
-          "entity": "x:wells-walsh-and-martinez",
-          "surface": "Wells, Walsh and Martinez",
-          "kind": "org"
         }
       ],
-      "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
-      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jennifer Vasquez, Consulting Actuary. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
-      "doc_id": "d:0041",
-      "title": "Kickoff Memo: Funding Policy Study for Wells, Walsh and Martinez",
-      "genre": "kickoff_memo",
-      "date": "2023-04-19",
+      "doc_id": "d:0051",
+      "title": "Building access",
+      "genre": "internal_email",
+      "date": "2021-08-16",
       "authors": [
         {
-          "id": "p:michelle.banks",
-          "name": "Michelle Banks",
-          "title": "Actuarial Associate",
+          "id": "p:david.sherman",
+          "name": "David Sherman",
+          "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
         }
       ],
       "participants": [
@@ -112,194 +114,164 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:lisa.hubbard",
-          "name": "Lisa Hubbard",
-          "title": "Chief Operating Officer",
-          "dept": "Wells, Walsh and Martinez",
-          "persona": ""
+          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
         }
       ],
-      "engagement_summary": "Funding Policy Study for Wells, Walsh and Martinez, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2023-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2023-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
+      "engagement_summary": "",
+      "facts": [],
       "mentions": [
         {
           "entity": "p:michelle.banks",
           "surface": "Michelle Banks",
           "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:lisa.hubbard",
-          "surface": "Lisa Hubbard",
-          "kind": "person"
-        },
-        {
-          "entity": "x:wells-walsh-and-martinez",
-          "surface": "Wells, Walsh and Martinez",
-          "kind": "org"
         }
       ],
-      "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
-      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: internal only -- every recipient is a colleague, so an internal register is right. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: opens with the conclusion before the detail; prefers numbered lists over bullet points. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Best\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0042",
-      "title": "Meeting Minutes: Funding Policy Study for Wells, Walsh and Martinez",
-      "genre": "meeting_minutes",
-      "date": "2023-06-08",
+      "doc_id": "d:0052",
+      "title": "Onboarding: Karen Harris",
+      "genre": "onboarding_record",
+      "date": "2021-11-02",
       "authors": [
         {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
       "participants": [
         {
-          "id": "p:michelle.banks",
-          "name": "Michelle Banks",
+          "id": "p:karen.harris",
+          "name": "Karen Harris",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:lisa.hubbard",
-          "name": "Lisa Hubbard",
-          "title": "Chief Operating Officer",
-          "dept": "Wells, Walsh and Martinez",
-          "persona": ""
+          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
         }
       ],
-      "engagement_summary": "Funding Policy Study for Wells, Walsh and Martinez, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2023-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
+      "engagement_summary": "",
+      "facts": [],
       "mentions": [
         {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
         },
         {
-          "entity": "p:michelle.banks",
-          "surface": "Michelle Banks",
+          "entity": "p:karen.harris",
+          "surface": "Karen Harris",
           "kind": "person"
-        },
-        {
-          "entity": "xp:lisa.hubbard",
-          "surface": "Lisa Hubbard",
-          "kind": "person"
-        },
-        {
-          "entity": "x:wells-walsh-and-martinez",
-          "surface": "Wells, Walsh and Martinez",
-          "kind": "org"
         }
       ],
-      "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jennifer Vasquez, Consulting Actuary. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
-      "doc_id": "d:0043",
-      "title": "Status Report: Funding Policy Study for Wells, Walsh and Martinez",
-      "genre": "status_report",
-      "date": "2023-06-22",
+      "doc_id": "d:0054",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2022-05-16",
       "authors": [
         {
-          "id": "p:michelle.banks",
-          "name": "Michelle Banks",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
       "participants": [
         {
-          "id": "p:michelle.banks",
-          "name": "Michelle Banks",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Careful to the point of slow, which the seniors regard as the correct failure mode. She documents her steps as she goes so a reviewer can retrace them, and her working papers are the ones people ask to see as examples. Her prose is plain and hedged, and she distinguishes what she measured from what she assumed almost by reflex. Speaks up rarely in meetings but is usually right when she does."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
-      "engagement_summary": "Funding Policy Study for Wells, Walsh and Martinez, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "",
       "facts": [
         {
-          "id": "f:E-2023-001.fee",
-          "hint": "amount of money; place where the figure belongs"
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
         },
         {
-          "id": "f:E-2023-001.client",
+          "id": "f:E-2017-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2020-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:michelle.banks",
-          "surface": "Michelle Banks",
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "x:wells-walsh-and-martinez",
-          "surface": "Wells, Walsh and Martinez",
-          "kind": "org"
         }
       ],
-      "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
-      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2016-2020, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, {{fact:f:E-2019-001.client}}, {{fact:f:E-2020-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0061",
+      "title": "Onboarding: Nicole Hanna",
+      "genre": "onboarding_record",
+      "date": "2023-08-02",
+      "authors": [
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:nicole.hanna",
+          "name": "Nicole Hanna",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "An actuarial associate on the consulting bench, working valuation support and data checks. Her notes are factual and measured, distinguishing what she found from what she assumed. She shares a surname with a colleague elsewhere in the firm and, like the firm itself, treats it as entirely unremarkable."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nicole.hanna",
+          "surface": "Nicole Hanna",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jennifer Vasquez, Consulting Actuary. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     }
   ],
   "people": [],

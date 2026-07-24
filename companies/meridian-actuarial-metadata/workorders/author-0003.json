@@ -6,64 +6,35 @@
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
   "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0011",
-      "title": "Engagement Letter: Reserve Adequacy Review for Miller, Cook and Snyder",
-      "genre": "engagement_letter",
-      "date": "2017-08-18",
+      "doc_id": "d:0009",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2016-05-17",
       "authors": [
         {
           "id": "p:robert.lawrence",
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "Signs the opinions and behaves like a man who knows his name is on them. Writes in short, load-bearing sentences and strips adjectives out of anyone's draft that reaches him, but leaves the qualifiers alone; he will argue that a hedge in an actuarial report is not weakness, it is accuracy. Prefers to say what the data show, then what was assumed, then what he concludes, and he will restructure a paragraph that blurs those together. In front of a board he is unhurried and slightly dry, and he answers the question that was asked rather than the one he prepared for."
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
       "participants": [
         {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        },
-        {
-          "id": "p:jennifer.vasquez",
-          "name": "Jennifer Vasquez",
-          "title": "Consulting Actuary",
-          "dept": "Consulting",
-          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:michelle.hudson",
-          "name": "Michelle Hudson",
-          "title": "Director of Operations",
-          "dept": "Miller, Cook and Snyder",
-          "persona": ""
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
-      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "",
       "facts": [
         {
-          "id": "f:E-2017-001.fee",
-          "hint": "amount of money; place where the figure belongs"
-        },
-        {
-          "id": "f:E-2017-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2017-001.client",
+          "id": "f:E-2016-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
@@ -72,125 +43,44 @@
           "entity": "p:robert.lawrence",
           "surface": "Robert Lawrence",
           "kind": "person"
-        },
-        {
-          "entity": "p:megan.dudley",
-          "surface": "Megan Dudley",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michelle.hudson",
-          "surface": "Michelle Hudson",
-          "kind": "person"
-        },
-        {
-          "entity": "x:miller-cook-and-snyder",
-          "surface": "Miller, Cook and Snyder",
-          "kind": "org"
         }
       ],
-      "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
-      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2016, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0012",
-      "title": "Kickoff Memo: Reserve Adequacy Review for Miller, Cook and Snyder",
-      "genre": "kickoff_memo",
-      "date": "2017-08-31",
+      "doc_id": "d:0014",
+      "title": "Onboarding: Jennifer Johnson",
+      "genre": "onboarding_record",
+      "date": "2017-02-05",
       "authors": [
         {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
       "participants": [
-        {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        },
-        {
-          "id": "p:jennifer.vasquez",
-          "name": "Jennifer Vasquez",
-          "title": "Consulting Actuary",
-          "dept": "Consulting",
-          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:michelle.hudson",
-          "name": "Michelle Hudson",
-          "title": "Director of Operations",
-          "dept": "Miller, Cook and Snyder",
-          "persona": ""
-        },
         {
           "id": "p:jennifer.johnson",
           "name": "Jennifer Johnson",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the data end of valuations and has developed a good ear for when a file is wrong before she can prove it is. Her emails are direct and a little clipped, with the question in the first line. She is studying toward credentials and it shows in how carefully she cites which standard a procedure follows. Would rather flag an uncertainty and be told it does not matter than let it through."
+          "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
         }
       ],
-      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2017-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2017-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
+      "engagement_summary": "",
+      "facts": [],
       "mentions": [
         {
-          "entity": "p:megan.dudley",
-          "surface": "Megan Dudley",
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michelle.hudson",
-          "surface": "Michelle Hudson",
-          "kind": "person"
-        },
-        {
-          "entity": "x:miller-cook-and-snyder",
-          "surface": "Miller, Cook and Snyder",
-          "kind": "org"
         },
         {
           "entity": "p:jennifer.johnson",
@@ -198,338 +88,193 @@
           "kind": "person"
         }
       ],
-      "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
-      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
-    },
-    {
-      "doc_id": "d:0013",
-      "title": "RE: Reserve Adequacy Review for Miller, Cook and Snyder",
-      "genre": "engagement_email",
-      "date": "2017-09-25",
-      "authors": [
-        {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        },
-        {
-          "id": "p:jennifer.vasquez",
-          "name": "Jennifer Vasquez",
-          "title": "Consulting Actuary",
-          "dept": "Consulting",
-          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:michelle.hudson",
-          "name": "Michelle Hudson",
-          "title": "Director of Operations",
-          "dept": "Miller, Cook and Snyder",
-          "persona": ""
-        }
-      ],
-      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2017-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:megan.dudley",
-          "surface": "Megan Dudley",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michelle.hudson",
-          "surface": "Michelle Hudson",
-          "kind": "person"
-        },
-        {
-          "entity": "x:miller-cook-and-snyder",
-          "surface": "Miller, Cook and Snyder",
-          "kind": "org"
-        }
-      ],
-      "target_words": 250,
-      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock.",
-      "engagement_position": "This document is dated about 14% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
-    },
-    {
-      "doc_id": "d:0014",
-      "title": "Briefing Deck: Reserve Adequacy Review for Miller, Cook and Snyder",
-      "genre": "briefing_deck",
-      "date": "2017-10-16",
-      "authors": [
-        {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        },
-        {
-          "id": "p:jennifer.vasquez",
-          "name": "Jennifer Vasquez",
-          "title": "Consulting Actuary",
-          "dept": "Consulting",
-          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:michelle.hudson",
-          "name": "Michelle Hudson",
-          "title": "Director of Operations",
-          "dept": "Miller, Cook and Snyder",
-          "persona": ""
-        }
-      ],
-      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2017-001.start",
-          "hint": "calendar date; place where the date belongs"
-        },
-        {
-          "id": "f:E-2017-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:megan.dudley",
-          "surface": "Megan Dudley",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michelle.hudson",
-          "surface": "Michelle Hudson",
-          "kind": "person"
-        },
-        {
-          "entity": "x:miller-cook-and-snyder",
-          "surface": "Miller, Cook and Snyder",
-          "kind": "org"
-        }
-      ],
-      "target_words": 400,
-      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock.",
-      "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jennifer Vasquez, Consulting Actuary. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
       "doc_id": "d:0015",
-      "title": "Meeting Minutes: Reserve Adequacy Review for Miller, Cook and Snyder",
-      "genre": "meeting_minutes",
-      "date": "2017-11-14",
+      "title": "Office logistics",
+      "genre": "internal_email",
+      "date": "2017-02-14",
       "authors": [
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
         }
       ],
       "participants": [
         {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
+          "id": "p:carol.cooper",
+          "name": "Carol Cooper",
+          "title": "Practice Manager",
+          "dept": "Operations",
+          "persona": "Keeps engagements moving: letters out the door, data requests tracked, deliverables scheduled against the clients' board calendars. Her administrative email is crisp and unhedged, a deliberate contrast to the heavily qualified prose of the actuarial work. She can tell you the status of any open engagement without having to look it up."
+        },
+        {
+          "id": "p:jennifer.johnson",
+          "name": "Jennifer Johnson",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        },
-        {
-          "id": "p:jennifer.vasquez",
-          "name": "Jennifer Vasquez",
-          "title": "Consulting Actuary",
-          "dept": "Consulting",
-          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
-        },
-        {
-          "id": "xp:michelle.hudson",
-          "name": "Michelle Hudson",
-          "title": "Director of Operations",
-          "dept": "Miller, Cook and Snyder",
-          "persona": ""
+          "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
         }
       ],
-      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2017-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
+      "engagement_summary": "",
+      "facts": [],
       "mentions": [
         {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
+          "entity": "p:carol.cooper",
+          "surface": "Carol Cooper",
           "kind": "person"
         },
         {
-          "entity": "p:megan.dudley",
-          "surface": "Megan Dudley",
+          "entity": "p:jennifer.johnson",
+          "surface": "Jennifer Johnson",
           "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michelle.hudson",
-          "surface": "Michelle Hudson",
-          "kind": "person"
-        },
-        {
-          "entity": "x:miller-cook-and-snyder",
-          "surface": "Miller, Cook and Snyder",
-          "kind": "org"
         }
       ],
-      "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: addressed to an internal distribution list; every reader is a colleague, so an internal register is right. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: opens with the conclusion before the detail; prefers numbered lists over bullet points. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Best\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
-      "doc_id": "d:0016",
-      "title": "Status Report: Reserve Adequacy Review for Miller, Cook and Snyder",
-      "genre": "status_report",
-      "date": "2017-12-04",
+      "doc_id": "d:0028",
+      "title": "Onboarding: Amanda White",
+      "genre": "onboarding_record",
+      "date": "2018-08-13",
       "authors": [
         {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
         }
       ],
       "participants": [
         {
-          "id": "p:megan.dudley",
-          "name": "Megan Dudley",
+          "id": "p:amanda.white",
+          "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles the workbook mechanics and the exhibit build with a tidiness that borders on stubborn; she will not hand over a file with a stray tab in it. Asks precise questions and asks them early, which the actuaries have learned to appreciate. Her written voice is neutral and short, closer to a checklist than a memo, and she is comfortable saying she does not know something yet. Learning to draft the narrative sections, and her early attempts are more confident than the seniors would let stand."
-        },
-        {
-          "id": "p:jennifer.vasquez",
-          "name": "Jennifer Vasquez",
-          "title": "Consulting Actuary",
-          "dept": "Consulting",
-          "persona": "Carries her own client relationships and writes the reports that interpret the exhibits. Her prose is more conversational than the managing actuary's without ever getting loose: she will spend a full paragraph explaining why an assumption changed and what it does and does not imply. Trustees like her because she answers plainly and admits the limits of the work in the same breath. She is protective of scope language in engagement letters and has been known to redline a client's edit back out."
-        },
-        {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "Runs valuations end to end and knows where every number in a workbook came from. His emails are terse, lowercase, and mostly about data files: what arrived, what was missing, what he reconciled against last time. He is the one who notices when a client's extract is quietly a different population than the prior one, and he says so before anyone builds on it. In review he is blunt about his own work, which is why his work is trusted."
+          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
         }
       ],
-      "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amanda.white",
+          "surface": "Amanda White",
+          "kind": "person"
+        }
+      ],
+      "target_words": 450,
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": "Reports to Jennifer Vasquez, Consulting Actuary. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
+    },
+    {
+      "doc_id": "d:0039",
+      "title": "Firm Overview",
+      "genre": "company_overview",
+      "date": "2019-05-17",
+      "authors": [
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+        }
+      ],
+      "engagement_summary": "",
       "facts": [
         {
-          "id": "f:E-2017-001.fee",
-          "hint": "amount of money; place where the figure belongs"
+          "id": "f:E-2016-001.client",
+          "hint": "proper name; place where the name belongs"
         },
         {
           "id": "f:E-2017-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
       "mentions": [
         {
-          "entity": "p:megan.dudley",
-          "surface": "Megan Dudley",
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "x:miller-cook-and-snyder",
-          "surface": "Miller, Cook and Snyder",
-          "kind": "org"
         }
       ],
-      "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
-      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "target_words": 750,
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "",
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2016-2019, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, {{fact:f:E-2019-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0040",
+      "title": "Scheduling next week",
+      "genre": "internal_email",
+      "date": "2019-05-17",
+      "authors": [
+        {
+          "id": "p:jennifer.johnson",
+          "name": "Jennifer Johnson",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [
+        {
+          "entity": "p:jeffrey.ochoa",
+          "surface": "Jeffrey Ochoa",
+          "kind": "person"
+        }
+      ],
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: internal only -- every recipient is a colleague, so an internal register is right. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; the 'rather X now than Y later' antithesis. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Thanks\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

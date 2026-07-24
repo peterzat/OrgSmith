@@ -3,17 +3,8 @@
   "doc_id": "d:0031",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Kickoff Memo: Retiree Medical Valuation",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "To: Jennifer Vasquez, Amanda White\nFrom: Jeffrey Ochoa\ncc: Robert Lawrence, Linda Hanna\nRe: Retiree medical valuation for {{fact:f:E-2020-001.client}}, engagement kickoff",
+      "text": "To: Jeffrey Ochoa, Megan Dudley\nFrom: David Sherman\nRe: Estes Group experience study",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +13,16 @@
     },
     {
       "kind": "heading",
-      "text": "Objectives",
+      "text": "What We Are Doing",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "This memo sets the plan for the {{fact:f:E-2019-001.client}} experience study and assigns the work. The goal is a report the board can act on: a review of the plan's recent retirement, termination, disability, mortality, and salary experience against the assumptions now in force, with recommendations where the two diverge. The deliverables are that report and a workbook of exhibits that supports every rate in it. The study is a look-back over the observation period the client confirms, so the first job is to fix that window and the population inside it before any rate is computed.",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The letter is countersigned and the engagement commences {{fact:f:E-2020-001.start}}. Linda Hanna has the executed copy on file and has opened the engagement in the usual way; anything that changes scope goes through her before it goes anywhere else. What we owe Martinez LLC is a measurement of the obligation for retiree medical benefits, an exhibit workbook that shows how the number was built, a report that interprets it, and the disclosure schedules their financial statements need. Robert Lawrence signs the report. Everything below exists so that when it reaches him there is nothing in it he has to take on faith.",
+      "text": "We do this the way we do every study. What the experience shows, what the plan assumes, and what we recommend are three separate things, and they stay separate in the workbook and in the report. If a rate surprises us, we find the reason before it reaches a page. A number we cannot explain is not a finding; it is an open question, and it stays open until it is answered.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +40,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "One thing worth saying at the start. Retiree medical is not a pension valuation with different tables. The obligation is driven by per-capita claims costs and by a trend assumption that compounds over decades, and both of those come out of client data that was never assembled for our purpose. Most of the risk on this engagement is in the first six weeks, in what the data turn out to be. Plan accordingly.",
+      "text": "Barbara Hall, the Chief Operating Officer at Estes Group, is our point of contact. Data requests and scheduling go through her office. Any client-facing question goes through me before it goes to her, so that we speak with one voice on scope and timing.",
       "level": 1,
       "items": [],
       "header": [],
@@ -49,7 +49,16 @@
     },
     {
       "kind": "heading",
-      "text": "Workstreams",
+      "text": "Assignments",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Here is how the work divides:",
       "level": 1,
       "items": [],
       "header": [],
@@ -61,11 +70,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "Data request and reconciliation. I own this. The request goes out this week and asks for the retiree and dependent census, the eligible active population with hire and birth dates, the claims experience by tier for as many years as they can produce, the current premium and retiree contribution schedules, and the plan document with every amendment in force. Amanda White logs what arrives against what was asked for, including anything that arrives in a different shape than requested.",
-        "Plan provisions summary. Amanda White owns this. Read the plan document and the summary plan description, write down what the benefit actually is, and flag every place the two documents disagree with each other or with what the client tells us in conversation. Do not resolve the disagreements. Record them.",
-        "Per-capita claims cost development. I own this. Nothing starts here until the census is reconciled. If the claims data will not support a credible cost curve by age and tier, we will say so and use a published curve with the reliance disclosed, and that is a decision Jennifer Vasquez makes, not one we drift into.",
-        "Assumption inventory. Jennifer Vasquez owns this. Trend, discount rate, retirement, mortality, participation, spousal coverage. For each one, what basis exists on file and what the company has previously adopted. Inventory only at this stage. Recommendations come later and go to Robert Lawrence before they go to the client.",
-        "Workbook architecture. Amanda White and me. Input tabs separate from calculation tabs, every exhibit traceable back to a named input, no hard-coded numbers anywhere in the calculation. We build the shell now, while there is time to build it properly."
+        "Data. I will reconstruct the member census and the plan's financial records, reconcile both, and document our reliance. I tie the counts to the prior study and to the client's own summaries, and I flag any gap before anything is tabulated.",
+        "Modeling. Jeffrey Ochoa builds the study model and runs the observed experience against the current assumptions. He sets no result as final until it is reviewed, and he traces any surprising rate back to the data behind it.",
+        "Exhibits and checks. Megan Dudley prepares the experience exhibits and the data checks beneath the modeling. She raises anything that does not reconcile rather than carrying it forward, and her questions are welcome the moment she has them."
       ],
       "header": [],
       "rows": [],
@@ -73,53 +80,34 @@
     },
     {
       "kind": "heading",
-      "text": "Working Rules",
-      "level": 1,
+      "text": "What Gates the Work",
+      "level": 2,
       "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Client data questions go to Jason Wagner through me, in one message per week where possible, not from three of us on three days.",
-        "Nothing reaches the client described as a result until Jennifer Vasquez has seen it. A draft number that escapes is a number we spend a month walking back.",
-        "Label measurement and judgment as we go, in the working papers, not at the end. If a cell contains something we assumed, the tab says so.",
-        "If an extract looks like a different population than the one described to us, stop and raise it before anyone builds on it."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Next Steps",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Issue the data request and confirm receipt with Jason Wagner.",
-        "Stand up the workbook shell and the input tabs.",
-        "Circulate the plan provisions summary once the document set arrives.",
-        "Team check-in every other week until the data are reconciled, then weekly."
-      ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Ask me anything that is unclear now rather than working around it quietly. It is early enough that questions are cheap.",
+      "text": "Two things gate the rest. The first is complete member and financial data from Estes Group. The second is a clean confirmation of the plan provisions the current assumptions rest on. Until both are in hand, we tabulate nothing and treat every assumption as provisional. Data quality is the usual risk on a first study for a client; expect the census to need a pass for status codes and for members whose records do not agree with the summary. On the financial side, the contribution and withdrawal history has to distinguish a refunded member from one who left a balance in the fund, because the termination experience turns on that split. We raise anything unclear with Barbara Hall's office early rather than carry it into the model.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Where We Start",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Work begins on {{fact:f:E-2019-001.start}}. The data request goes to Barbara Hall's office that week; it will list the member fields and the financial records we need and the format we want them in. Jeffrey Ochoa drafts the assumption inventory for review before any assumption is treated as settled. Megan Dudley sets up the exhibit shells so that the numbers drop into a form we can check as they arrive. In the first two weeks I expect us to load the census, tie it to the prior study, and open a short list of data questions for the client; I will keep that list on our running thread so nothing waits on a request no one has sent. We hold the study until the data and the plan provisions are both confirmed.",
       "level": 1,
       "items": [],
       "header": [],

@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Minutes: Working Session, Reinsurance Pricing Review",
+      "text": "Retiree Medical Valuation: Status Report",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Client: {{fact:f:E-2024-001.client}}. Prepared by Michelle Banks. These minutes record what was discussed and agreed. Where a figure is mentioned below it is preliminary and subject to the reconciliation and review described.",
+      "text": "Prepared for {{fact:f:E-2020-001.client}} by Meridian Actuarial Advisors on October 22, 2020. Prepared by Jeffrey Ochoa, Actuarial Analyst.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,29 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Karen Harris, Actuarial Associate",
-        "Michelle Banks, Actuarial Associate",
-        "James Garcia, Chief Financial Officer, Gonzalez, Campbell and Kelly"
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Discussion",
+      "text": "Where Things Stand",
       "level": 2,
       "items": [],
       "header": [],
@@ -53,43 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Karen Harris reviewed the status of the treaty summaries, which are complete and have been with the client's staff for comment. One drafting question is open: the rate-adjustment provision in the principal treaty appears to permit the reinsurer to propose a rate change on notice, subject to the cedent's right to recapture. James Garcia's understanding matches ours in substance. He noted that the provision has not been exercised and that no one presently at the firm was involved in negotiating it. We agreed the summary should record the provision as written and should not characterize what either party would do under it, because we do not know.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "I reported on the experience study. Exposure has been compiled for the observation period and reconciled to the in-force extract; the reconciliation closes on count and is within a tolerance we regard as acceptable on amount, with the residual traced to two blocks that were transferred mid-period and are recorded differently in the two systems. That is a recording difference, not a data defect, and it is documented in the working papers. Actual-to-expected has been calculated at the level of the whole ceded block. It has not been calculated by age band or duration, and I said that I do not yet know whether exposure will support that segmentation. Karen Harris asked what the whole-block result is. I gave it, with the caveat that a single ratio over a block this size tells you the direction and not much more, and that I would rather it not travel to the client's board in that form.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "James Garcia asked whether the result so far means the program is mispriced. It does not mean that. It means the experience over this period differs from the basis the rates were set on, in one direction. Whether that difference is credible, whether it persists, and whether it is worth anything at renewal are three separate questions and we have not answered any of them. He accepted that and asked instead what would make the answer more or less certain. Exposure, mostly, and time. Where the block will not carry a segmentation on its own experience, we will have to blend to an external basis, and we will show which assumptions are ours and which are borrowed.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "On data, two items remain outstanding: the reinsurer's rate confirmations for the two renewals in the observation period, and the expense allocation the client uses for the ceded business. James Garcia will chase the first with the broker. The second, he said, may not exist in a form we can use, in which case we will assume one and say we assumed it.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Karen Harris raised the shape of the eventual presentation. The client's board will see the findings; the working assumption is one chart per slide and the exhibits in the workbook behind it. No decision was needed today and none was taken.",
+      "text": "The engagement is at its midpoint and on the schedule we set at the start. The character of the work has changed in a way worth naming. For the first stretch our attention was on your data, on assembling it and satisfying ourselves that it was complete and consistent, and that stretch is behind us. We have turned to the measurement itself, which is the part the opinion ultimately rests on. Nothing we have seen so far changes the shape of the engagement or the roughly eight-month path we laid out at the beginning. Measured against the fixed fee of {{fact:f:E-2020-001.fee}}, a little under half has been earned to date, which tracks the work completed and the schedule we agreed.",
       "level": 1,
       "items": [],
       "header": [],
@@ -98,7 +40,7 @@
     },
     {
       "kind": "heading",
-      "text": "Action Items",
+      "text": "What We Completed This Period",
       "level": 2,
       "items": [],
       "header": [],
@@ -106,52 +48,71 @@
       "signers": []
     },
     {
-      "kind": "table",
-      "text": "",
+      "kind": "paragraph",
+      "text": "The reconciliation was the substantial piece of this period, and Amanda White carried it. She reconstructed the census and the plan detail from the files your office supplied and reconciled them, line by line, to the records you carry, working at the grouping your own system produces so the two sets of figures meet directly. A coding question on a small group of early retirees, which we flagged early rather than let it sit, turned out to be a plan-eligibility distinction and not a data error. It is now documented and closed, with the source of the difference written down so it will not be reopened. The figures we measure are therefore the figures you actually carry. That is not a small thing. It means the obligation we build from here rests on your own records and not on a reconstruction of them, and it lets us state plainly, when the report is written, exactly what we relied on and what we tested ourselves.",
       "level": 1,
       "items": [],
-      "header": [
-        "Action",
-        "Owner",
-        "By"
-      ],
-      "rows": [
-        [
-          "Chase the reinsurer's rate confirmations for both renewals in the observation period",
-          "James Garcia",
-          "Next week"
-        ],
-        [
-          "Confirm whether a usable expense allocation for the ceded business exists; if not, say so",
-          "James Garcia",
-          "Two weeks"
-        ],
-        [
-          "Test whether exposure supports segmentation by age band and duration; report the answer either way",
-          "Michelle Banks",
-          "Two weeks"
-        ],
-        [
-          "Document the mid-period transfer recording difference in the reconciliation working paper",
-          "Michelle Banks",
-          "This week"
-        ],
-        [
-          "Finalize treaty summaries once the client's comments are in; record the rate-adjustment provision as written",
-          "Karen Harris",
-          "Next week"
-        ],
-        [
-          "Circulate the draft assumption basis for review before any pricing is run on it",
-          "Michelle Banks",
-          "Three weeks"
-        ]
-      ],
+      "header": [],
+      "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Next working session to be scheduled once the assumption basis has been reviewed. Corrections to these minutes to Michelle Banks.",
+      "text": "Alongside the reconciliation we began setting the assumptions the measurement requires, and we keep them on separate footings. The discount rate, the health care cost trend, and the mortality basis are each stated and supported on their own, and we mark which rest on regulation and which rest on judgment. Keeping those apart from the start matters, because by the end they become two different conversations, and it is far easier to hold them separate throughout than to untangle them later. Amanda White is keeping the assumption log current as we go, so that when the report is written it can show plainly which input is measured and which is assumed.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "The Work Ahead",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Over the coming weeks the center of gravity moves to the measurement of the obligation and the workbook of exhibits that carries it, from the census through to the accounting figures your statements disclose. The exhibits are built so that each figure can be traced back to its source rather than presented as a single total to be taken on trust. As they take shape, Jennifer Vasquez is settling which of management's questions the measurement can genuinely answer and which it cannot, so the report commits only to what the work supports and is candid about the rest. We will begin drafting as the figures firm up, holding to the structure we keep throughout: what the data show, what we assumed, and what we conclude, kept as three separate matters.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The fee also covers one presentation of the results to your management. We will schedule that once the report is in near-final form, so the conversation is about findings rather than drafts.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "What Could Move the Schedule",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The main thing that could move the timeline is, as it has been from the start, the data. The adopted plan document and the final retiree contribution schedule are the last items outstanding, and the measurement cannot be finalized until they are in hand. We have asked for them and do not expect a difficulty. The other thing worth naming now, so it is no surprise later, is the measurement itself. If the obligation lands materially away from what your current accrual suggests, Jennifer Vasquez will walk it through with your staff before any of us draws a conclusion from it, and we would raise it with you the moment it appears, well ahead of the final report.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The one item that keeps us on track is the outstanding plan document set. Once it reaches us we can finalize the assumptions and give you a first honest read of the obligation. We will send a short note the moment it is in hand, and we will flag any surprise to you as soon as we see it rather than saving it for the report.",
       "level": 1,
       "items": [],
       "header": [],

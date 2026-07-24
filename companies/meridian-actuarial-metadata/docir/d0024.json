@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session: Data Reconciliation and Decrement Scope",
+      "text": "Working Session: Reserve Adequacy Review for {{fact:f:E-2017-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Minutes recorded by Megan Dudley. Subject: {{fact:f:E-2019-001.client}} experience study.",
+      "text": "Date: November 14, 2017. Minutes recorded by David Sherman.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
+      "text": "Present",
       "level": 2,
       "items": [],
       "header": [],
@@ -34,10 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "David Sherman, Senior Analyst",
-        "Jeffrey Ochoa, Actuarial Analyst",
-        "Megan Dudley, Actuarial Associate",
-        "Barbara Hall, Chief Operating Officer, Estes Group"
+        "David Sherman, Senior Analyst, Meridian Actuarial Advisors (recording)",
+        "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors",
+        "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors",
+        "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -45,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Discussion",
+      "text": "Summary",
       "level": 2,
       "items": [],
       "header": [],
@@ -54,7 +54,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "David Sherman opened on the identifier conversion raised earlier this month. Barbara Hall confirmed the conversion date and reported that the recordkeeper produced a crosswalk covering most of the affected records. About forty are not on it and will not be. David Sherman will match those on date of birth and hire date. The match and its basis are to be disclosed in the report rather than absorbed into the exposure quietly. Noted for the record: the unmatched records are a small share of the exposure in that year, and the effect of matching them either way is expected to be immaterial to the withdrawal rate. That expectation is to be tested, not assumed.",
+      "text": "The reconciliation of the reserve data is substantially complete and ties to the client's year-end records within the tolerance we set at the outset. The purpose of the session was to confirm that the review can now move from checking the data to testing the assumptions beneath it, and it can.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Matters Discussed",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "David Sherman walked through the reconciliation. The reserve detail was reconstructed from the files supplied, at the grouped level the client's system produces, and reconciled line by line to the financial records the reserves are carried against. The single grouping difference flagged earlier in the engagement resolved as a rounding artifact at the summary level, where the aggregate total had been rounded independently of the detail beneath it. It has been documented in the working papers, with the source of the difference identified so the point is not reopened later. Our reliance on each file is recorded against the date it arrived and the person who supplied it. No figure is being carried forward that has not been tied out to the client's own records.",
       "level": 1,
       "items": [],
       "header": [],
@@ -63,7 +81,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Jeffrey Ochoa walked the amendment history. The change to the early retirement provisions falls in the middle of the observation period and affects retirement behavior from its effective date forward. Agreed: retirement experience will be studied in two segments, before and after, and shown that way on the exhibit even where the segments are individually thin. Jeffrey Ochoa asked that the distinction be minuted. The segmentation is measurement. Which segment should inform the recommended rate is judgment. The report keeps them in separate paragraphs.",
+      "text": "The group agreed that the data is now sufficient to support the next phase, with one exception noted below. David Sherman confirmed that the reconciled detail is internally consistent and that the reserve segments reconcile both to each other and to the year-end totals. Megan Dudley has logged every file against the original request, and the log shows one item outstanding.",
       "level": 1,
       "items": [],
       "header": [],
@@ -72,7 +90,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Disability incidence was discussed. Events over the period are in the single digits. David Sherman's position was that the data will not support a recommendation and that the study should say so rather than fit a curve to four events. Barbara Hall asked what the trustees would then be expected to do. Answer: leave the assumption where it is, and know why they left it there. Barbara Hall accepted this and asked that it be stated in plain language in the report, not only in the exhibit.",
+      "text": "Jennifer Vasquez led a discussion of the assumptions behind the current reserves. The session kept two categories deliberately apart: the assumptions that regulation fixes, which are not ours to revisit, and those that rest on judgment, which the review will test. That separation was treated as the backbone of the eventual opinion, since the two categories carry very different weight when the firm signs its name to a conclusion. Michelle Hudson confirmed the assumption documentation in effect at the valuation date and undertook to supply the one interest and mortality basis still outstanding. Megan Dudley will maintain the assumption log, tagging each input as measured or assumed, so the eventual report can show which is which without reconstructing it after the fact.",
       "level": 1,
       "items": [],
       "header": [],
@@ -81,25 +99,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Megan Dudley confirmed the workbook layout: one tab per decrement, the same columns on every tab, exposures and actual-to-expected side by side, credibility stated on the tab itself. Barbara Hall asked that the exhibits be readable without the report next to them, since some trustees will read only the exhibits. Agreed.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Salary increase data were raised at the end of the session. Barbara Hall noted that pay for one participant group is set on a different cycle than the rest of the population. David Sherman asked for the group to be identified in the data rather than described, so it can be studied separately or excluded on a stated basis instead of being discovered in the middle of the analysis. Barbara Hall will have her staff flag it in the extract.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Timing was discussed briefly. Preliminary results go to Estes Group and are walked through with staff before anything is drafted for the trustees. No date was committed at this session.",
+      "text": "On progress against plan, the work is at roughly its midpoint and on the schedule set at the start. The next phase is the independent estimate of the required reserves, which begins once the outstanding basis is received and can proceed on the reconciled data in the meantime. The group also agreed the shape of the report: it will keep what the data show, what was assumed, and what is concluded as three separate parts, and it will name the actuarial standards it rests on. Jennifer Vasquez noted that some of the board's questions will be answerable from the analysis and some will not, and that the report will be explicit about the difference.",
       "level": 1,
       "items": [],
       "header": [],
@@ -121,47 +121,41 @@
       "level": 1,
       "items": [],
       "header": [
-        "Item",
+        "Action",
         "Owner",
-        "Due"
+        "Target"
       ],
       "rows": [
         [
-          "Send the recordkeeper crosswalk and confirm the conversion date in writing",
-          "Barbara Hall",
-          "This week"
+          "Supply the interest and mortality basis in effect at the valuation date",
+          "Michelle Hudson",
+          "Nov 21"
         ],
         [
-          "Match the unmapped records on date of birth and hire date; document the basis for disclosure",
+          "Record the resolved grouping difference in the working papers",
           "David Sherman",
-          "Before exposures are finalized"
+          "Nov 20"
         ],
         [
-          "Test the effect of the matching basis on the withdrawal rate for that year",
-          "David Sherman",
-          "Before preliminary results"
-        ],
-        [
-          "Split the retirement decrement at the amendment's effective date and rerun",
-          "David Sherman",
-          "Before preliminary results"
-        ],
-        [
-          "Draft the credibility note for disability in plain language and circulate for comment",
-          "Jeffrey Ochoa",
-          "Before preliminary results"
-        ],
-        [
-          "Confirm no further amendments were adopted during the observation period",
-          "Barbara Hall",
-          "Before the report is drafted"
-        ],
-        [
-          "Rebuild the exhibit tabs on the agreed layout and lock the formatting",
+          "Maintain the assumption log, separating measured inputs from judgment",
           "Megan Dudley",
-          "With the preliminary exhibits"
+          "Ongoing"
+        ],
+        [
+          "Settle which of the board's questions the data can answer",
+          "Jennifer Vasquez",
+          "Nov 28"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The next session will review the independent estimate once the outstanding basis is in hand.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]
