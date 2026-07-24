@@ -1,53 +1,174 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0008",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0042",
       "blocks": [
-        {"kind": "heading", "level": 1, "text": "Onboarding Record: Mary Parker"},
-        {"kind": "paragraph", "text": "Prepared by Kelly Chavez, Managing Director. Retained in the employee file."},
-        {"kind": "paragraph", "text": "Mary Parker starts with us this week as a Research Associate on the search bench. I want to say the unglamorous part first, because everyone here learns it eventually and I would rather she hear it from me: research is not the room where the search gets sold, it is the room where the search gets won or lost. The specification a client reads, the slate they argue over, the reason a particular name is on the page at all, all of it begins as somebody sitting down and reading carefully. That somebody is now, in part, Mary."},
-        {"kind": "paragraph", "text": "She sits with the research team and reports to me on paper. Day to day she will take direction from whichever consultant owns the search in front of her, which means she will have three people asking for things at once and will have to decide which one is actually urgent. My guidance is to ask. Nobody here has ever been thought less of for asking a clarifying question up front, and we have all lost a week to the revision that a question would have prevented. If two consultants both insist their thing is urgent and cannot be talked out of it, that is not hers to referee. Send it to me."},
-        {"kind": "paragraph", "text": "The first month is deliberately unbalanced toward reading. Mary Parker should work through the back catalog of position specifications and slate summaries before she drafts one, so that the firm's voice is in her ear rather than in a style guide. After that she picks up drafting on live work, one search at a time, with a consultant reading behind her. Laptop and file access are set up. She should expect to be in the room for client calls early, listening rather than presenting, because you cannot write a specification for a client you have never heard talk about the job."},
-        {"kind": "paragraph", "text": "One rule she will not be reminded of twice, because it is the rule the firm is built on. Candidates are described by their seat, never by their name, in anything that circulates beyond the consultant running the search. A person who talks to us is taking a risk with their current employer, and our discretion is the only thing we can offer them that a larger firm cannot. It costs nothing to hold to and everything to break once. Welcome, Mary. I expect the specifications to read better within the quarter, and I have told the consultants to expect it too."}
+        {
+          "kind": "heading",
+          "text": "Welcome to Northgate, Mary",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "It is a genuine pleasure to have you with us. We keep a small tradition here. When someone joins the firm, one of us writes them a short note to mark the first week and to say, plainly, how we like to begin. So consider this one yours. We are glad you are here, Mary Parker, and we are confident the research bench is exactly where you belong."
+        },
+        {
+          "kind": "paragraph",
+          "text": "You come to us as a Research Associate, in our search practice, on the research bench that every assignment quietly leans on. Ours is a correspondence business by nature; the formal documents are only the scaffolding around a long thread of candidate conversations. What holds all of that upright is the research beneath it, and that is your ground now. Your work is to keep our candidate research honest: to cross-check the market maps, to test what a fast sourcing pass turns up, and to catch the one detail that a hurried first look slid past. A market map is only as good as the person willing to doubt it, and that person, from this week, is you."
+        },
+        {
+          "kind": "paragraph",
+          "text": "You will report to Sandra Fuentes, our Principal, who runs the search practice day to day. She will set your first assignments and be your first call whenever a search raises a question. And there is one habit we ask you to carry from your very first day. We describe candidates by their current seat, never by their name, in anything that leaves the room. Discretion is not a courtesy in our line of work; it is the reason good people trust us enough to talk at all. You will have it by heart inside a week."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A few things to get you settled in these first days:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Spend your opening days with the research team and walk the shared market maps together, so the tools feel like yours before the real work lands.",
+            "Sit in on a live search with Sandra, to see the shape of an assignment from the inside before one is your own.",
+            "Ask for the underlying files whenever a summary looks a shade too clean. That instinct is exactly the one we hired."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Here is your one first task, and it is a gentle one. Find me on your second morning and we will walk the current searches together, so you can see where your research is going to land. We tend to move quickly once someone is settled, so do not be surprised if the work finds you before the second week is out. Welcome aboard."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Warmly,\nKelly Chavez\nManaging Director"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0044",
       "blocks": [
-        {"kind": "heading", "level": 1, "text": "Northgate Talent Partners LLC: Firm Overview"},
-        {"kind": "paragraph", "text": "Northgate Talent Partners is a retained executive search firm. We place senior operators and board directors at mid-market companies. We work on a small number of searches at a time, and the consultant who sits with you in the first meeting is the consultant who calls you every week until the seat is filled. There is no version of this firm in which a client meets a senior name during the pitch and then never hears from her again."},
-        {"kind": "paragraph", "text": "Mid-market leadership hiring is not a smaller version of large-cap hiring. The candidate a mid-market company needs is usually someone who has run something bigger and wants a shorter distance between a decision and its consequences, or someone who has run something adjacent and is ready to run the whole thing. Neither of those people is answering a posting. They are found, and then they are persuaded, and the persuading takes months of correspondence that never appears in any document. What follows is what the documents cover."},
-        {"kind": "heading", "level": 2, "text": "Service Lines"},
-        {"kind": "list", "items": [
-          "Retained executive search. Chief executive, president, and senior functional leadership for privately held and sponsor-backed mid-market companies.",
-          "Board and director search. Independent and non-executive directors, including mandates scoped to a specific committee need.",
-          "Research and market mapping. A structured read of who is actually available in a market, delivered before a search is opened. It has more than once persuaded a client not to open one."
-        ]},
-        {"kind": "heading", "level": 2, "text": "How We Work"},
-        {"kind": "paragraph", "text": "Every engagement begins with a position specification, and we spend longer on it than clients expect. It is where a board discovers that three of its members want three different people. We would rather find that out in writing, in week two, than in a final interview six months later. The specification is drafted by our research bench and edited by the consultant who owns the search, and it does not go out until the client can read it and recognize their own company in it."},
-        {"kind": "paragraph", "text": "From there the work is correspondence: a long, careful thread with people who mostly are not looking. We report on a fixed rhythm whether or not the news is good. Our research bench, Mary Parker and Larry Russell, does the mapping and drafting that stands behind every slate, and clients see their work long before they meet them. When a slate is thin, the client is told it is thin. A padded slate wastes the client's calendar and insults the two candidates who actually belong on it. Occasionally a thin slate means the specification is wrong rather than the market is empty, and that conversation is uncomfortable and worth having early."},
-        {"kind": "paragraph", "text": "We are a retained firm, which means the client is buying the search rather than the outcome, and we think the client should understand exactly what that buys before signing anything. The fee schedule, the reporting rhythm, and what happens if the search is paused or the seat is filled internally are all set out in the search agreement, in plain terms, before any work begins. Nobody should be reading their own engagement terms for the first time in month three."},
-        {"kind": "paragraph", "text": "Discretion is not a courtesy here, it is the product. In anything that circulates beyond the consultant running the search, candidates are described by their current scope and seat rather than by name. The people we most want to reach are the ones with the most to lose by being seen in a process, and they talk to us because the firm has never given them a reason not to."},
-        {"kind": "heading", "level": 2, "text": "Representative Client Work"},
-        {"kind": "paragraph", "text": "The firm has been retained for five engagements to date. Our first client was {{fact:f:E-2015-001.client}}, and the work since has been for {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, {{fact:f:E-2018-001.client}}, and most recently {{fact:f:E-2019-001.client}}. That is a deliberately short list. We take the number of searches we can staff properly, which is fewer than we are asked to take, and repeat business has mattered more to us than volume."},
-        {"kind": "paragraph", "text": "References from any of the above are available on request, and we would encourage you to ask them the uncomfortable questions rather than the polite ones: whether we told them something they did not want to hear, and how early. If you are weighing a search and are not yet certain you need one, that is a conversation worth having before you are certain. Kelly Chavez, Managing Director, takes those calls directly."}
+        {
+          "kind": "heading",
+          "text": "Northgate Talent Partners",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are a retained executive search firm, and we have built the whole of the practice on a simple belief: that this is a relationship business first and a document business second. We help mid-market companies, and one regional health system we have been proud to serve, find the senior operators and board directors who will carry them into their next stage. When a board decides that its next hire is the one that matters most, that is the moment we are built for."
+        },
+        {
+          "kind": "heading",
+          "text": "The work we do",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A retained search means we work only for you on the assignment, and we stay with it until the seat is filled. It is patient, careful work. The real product is not a stack of paper; it is a long, discreet thread of conversations with people who are, for the most part, not looking to move. The formal documents matter, and we do them well, but they are the scaffolding around that thread. Everything we produce is in service of one thing: bringing you a person your board will be glad to have hired three years from now."
+        },
+        {
+          "kind": "heading",
+          "text": "How an assignment runs",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Every search we run moves through the same clear stages, and we like our clients to know the shape of it from the start:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "We agree a position specification with you and your board, so that we are all searching for the same person.",
+            "We map the market, build a long list from that map, and approach prospects with care and discretion.",
+            "We interview and assess in depth, then bring you a short candidate slate described by fit and evidence, not by name alone.",
+            "We stay with you through client interviews, references, and the offer, and we do not step back until your new leader has accepted and started."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Discretion runs through all of it. A search puts two anxious parties in our care at once, a client who cannot afford to get the hire wrong and a candidate who cannot afford to be seen looking, and our whole method is built to keep faith with both. We describe prospects to a client by their current seat and record rather than by name, and we hold those names close until both sides are ready to meet. It is the reason the best people, the ones already in a good chair and not advertising a wish to leave it, are willing to take our call at all."
+        },
+        {
+          "kind": "heading",
+          "text": "Why boards work with us",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are not the firm to call for volume, and we do not pretend to be. We take a small number of assignments and give each of them our full attention. A board comes to us when the seat is one that will shape the next several years, when the field is thin and has to be found rather than screened, and when the process has to stay quiet. On those searches, our fixed fee is agreed at the outset and does not move as the search does, so the cost is known before the first call is made. What a client is buying is judgment and patience, and the steadiness to keep two nervous parties calm while the right conversation slowly comes together."
+        },
+        {
+          "kind": "heading",
+          "text": "Some of the searches we have run",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are fortunate in our clients. What follows is a representative handful, offered as examples of the kind of company that trusts us with a search, and not as a full account of our book; we hold a great many of our relationships in confidence, as our clients would expect us to:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "{{fact:f:E-2015-001.client}}",
+            "{{fact:f:E-2016-001.client}}",
+            "{{fact:f:E-2017-001.client}}",
+            "{{fact:f:E-2018-001.client}}",
+            "{{fact:f:E-2019-001.client}}"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each of these began the same way, with a board that wanted to get one important hire exactly right, and each is a relationship we still value. We name them here with their goodwill, and we describe the searches themselves no further; the trust that lets us do this work runs in both directions."
+        },
+        {
+          "kind": "heading",
+          "text": "The people you will work with",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The firm is led by Kelly Chavez, our Managing Director, who still sets the tone for how the office writes and for how it holds the two anxious parties every search carries at once, the client and the candidate. Behind every assignment is a research bench that does the deep, unhurried sourcing the work depends on. Larry Russell is the patient sourcer among them, the one we hand the long-lead mandate where the right person has to be coaxed into a conversation. Mary Parker keeps that research honest, cross-checking the market maps and catching the detail a first pass misses. They describe candidates by their seat, never by their name, in anything that travels, because discretion is the condition that lets good people talk to us at all."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If your board is weighing a search that has to go right, the next step is an easy one. Call us, and let us spend an hour understanding what you actually need before anyone talks about candidates. That first conversation is where every good search begins."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0046",
       "blocks": [
-        {"kind": "heading", "level": 1, "text": "Onboarding Record: Heather Meyer"},
-        {"kind": "paragraph", "text": "Heather Meyer joins the firm today as a Research Associate in the search practice. Access, hardware, and the shared drive are done, so this note is about the part that is not logistics. She is walking into live work rather than a quiet stretch, which is the honest thing to say up front: there will be no month of orientation, and she will be drafting against a real deadline sooner than is comfortable. That is not ideal and it is also how everyone here started. The compensating promise is that nothing she drafts in the first stretch reaches a client without a consultant reading it first, so the cost of getting it wrong early is a conversation, not an embarrassment."},
-        {"kind": "paragraph", "text": "Heather sits on the research bench and reports to me, though in practice her week is set by whichever consultant owns the search she is on. She has already shown the instinct that takes other people a year, which is describing a candidate by their seat without being told to. Good. That habit is the firm, and I would rather teach the drafting to someone who already has the discretion than the reverse. The rest of the craft, the mapping, the specification, knowing when a slate is finished, is learnable. The discretion is closer to temperament, and she arrived with it."},
-        {"kind": "paragraph", "text": "For the first period the expectation is straightforward. Read the back catalog, because the firm's voice is learned by ear and not from instruction, and the specifications from our early searches are the best teachers we have. Sit in on client calls and listen. She will be tempted to contribute in the first few and should resist it, not because her read is wrong but because the useful thing early is hearing how a client describes a job they have not yet thought through. Draft when asked, and hand it over before it is perfect, since a consultant reading a rough draft on Tuesday is worth more than a polished one on Friday."},
-        {"kind": "paragraph", "text": "One correction in advance, offered now so it does not have to be offered later. Heather Meyer asks permission for a number of things she is entitled to simply decide. Decide them. If the call turns out to be wrong, that is mine to answer for, not hers, and we will fix it in the next draft. The judgment we are hiring for does not develop in someone who is waiting to be told. Welcome aboard."},
-        {"kind": "paragraph", "text": "Recorded by Kelly Chavez, Managing Director, for the employee file."}
+        {
+          "kind": "heading",
+          "text": "Joining our research bench",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Welcome, Heather. We are so glad to have you. When someone new joins the bench, one of us takes a moment to put the welcome in writing, and this one is mine. Heather Meyer joins us as a Research Associate, in our search practice, on the research team that quietly holds up every assignment we run. It is a good bench, and it is better with you on it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Ours is a correspondence business at heart. The real work is a long thread of conversations with people who are, more often than not, not looking to move, which means someone has to find them first, sideways, from a direction they never saw coming. That is the part of the craft we are told you love, and it happens to be the part we lean on most. You will report to Sandra Fuentes, our Principal, who runs the search practice day to day. She will hand you your first assignments and be your first call whenever a search raises a question."
+        },
+        {
+          "kind": "paragraph",
+          "text": "There is one firm habit worth learning before any other. In everything that circulates, we describe a candidate by their current role, never by their name. A passive candidate is trusting us with a conversation they have had with no one else, sometimes not even at home, and that trust is the whole of our business. Guard it as though the search depended on it, because it always does. It is the first thing everyone here learns, and the last thing any of us would ever bend."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For your first weeks the only real expectation is that you find your feet. Sit with the research team, follow a live search from the inside, and let yourself be curious out loud about why we do things the way we do. The digging you are known for will have all the room it needs soon enough. Your first step, though, is a small one. Come find me at the end of your first week and tell me one thing that surprised you about how we run a search. There are no wrong answers, and the odd ones are usually the most useful. I always learn something from that conversation, and it is the best way I know to begin. Welcome aboard."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Warmly,\nKelly Chavez\nManaging Director"
+        }
       ]
     }
   ]

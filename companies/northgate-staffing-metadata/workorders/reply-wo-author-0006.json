@@ -1,184 +1,490 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0006",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0027",
       "blocks": [
-        {"kind": "paragraph", "text": "Jason Vasquez"},
-        {"kind": "paragraph", "text": "General Manager"},
-        {"kind": "paragraph", "text": "{{fact:f:E-2018-001.client}}"},
-        {"kind": "paragraph", "text": "Re: Retained Search, Head of Operations"},
-        {"kind": "paragraph", "text": "Dear Jason,"},
-        {"kind": "paragraph", "text": "Thank you for asking us to find your next Head of Operations. This letter sets out what we will do, who will do it, and what it costs, and once you sign it below it is the agreement between {{fact:f:E-2018-001.client}} and Northgate Talent Partners LLC. I have kept it short. If anything in it does not match what we agreed on the phone, tell me before you sign it rather than after."},
-        {"kind": "heading", "text": "Scope of the Search", "level": 2},
-        {"kind": "paragraph", "text": "The assignment is a retained search for a Head of Operations at Davis and Sons, reporting to you. We will not approach the market until you and I have agreed a written position specification. That document will state the mandate, the first-year priorities, the compensation range you are prepared to pay, and the two or three things that would rule out an otherwise strong candidate. Drafting it takes about two weeks of back and forth and it is worth every day of it. Most searches that go wrong go wrong here, because the client and the consultant were describing different jobs to each other and neither of them noticed until a finalist turned up in the room."},
-        {"kind": "paragraph", "text": "The search is exclusive to the firm for its term. You are engaging us, not a listing service, and the retainer buys a systematic canvass of the market rather than whoever happens to be looking this month. We will approach people who are employed and content, which is most of the people worth having, and that is slow work by design. Expect a considered slate of finalists rather than a stream of resumes. If you have internal candidates or people you have already met, tell us now and we will assess them alongside the market at no additional fee. It is far cheaper to include them at the start than to discover them late."},
-        {"kind": "heading", "text": "Approach", "level": 2},
-        {"kind": "paragraph", "text": "Our method is unremarkable and we run it the same way every time:"},
-        {"kind": "list", "items": [
-          "Position specification, agreed with you and signed off before any outreach begins.",
-          "Market mapping: a written universe of the companies and functions where this person is likely to sit today.",
-          "Approach and screening: confidential conversations conducted by our consultants, not by a researcher reading from a script.",
-          "Slate presentation: written candidate summaries and our own assessment, delivered in person.",
-          "Client interviews, referencing, and support through offer, acceptance, and resignation."
-        ]},
-        {"kind": "paragraph", "text": "Two points on that list matter more than the rest. First, we describe candidates to you by their current role and responsibilities, and their names do not go into anything that circulates until they have told us they may. Discretion is the whole business. A candidate exposed to their employer because of us is a candidate we will never place again, and word travels faster in this market than any of us would like. Second, we present a slate rather than a single name, and we present it in person, so that you can argue with us while we are in the room to answer."},
-        {"kind": "heading", "text": "Your Team", "level": 2},
-        {"kind": "paragraph", "text": "I will lead the engagement, and you will see me at the specification meeting and at the slate presentation. James Grant will run it day to day and he is the person you should call. Jim has been with the firm since the start and knows this market better than I do; he also has the useful habit of telephoning rather than writing, so do not be surprised to get a call about something I would have put in a note. Nicole Donovan will do the research and build the market map. She is the reason our candidate descriptions are accurate about scope and title, which sounds like a small thing until you have watched a search fall apart because someone's job had been described a level higher than it actually sat."},
-        {"kind": "heading", "text": "Fee and Commencement", "level": 2},
-        {"kind": "paragraph", "text": "The fee for this assignment is {{fact:f:E-2018-001.fee}}, fixed for the term of the search regardless of the compensation the successful candidate ultimately negotiates. We do not work on contingency and we do not take a percentage of the hire's package, because that arrangement puts our interest and yours on opposite sides of the table at the exact moment you are trying to close. The engagement commences on {{fact:f:E-2018-001.start}}, and we plan on roughly five months from commencement to a signed acceptance, assuming your interview slots are available when we need them. That last condition is not boilerplate. A slow client calendar is the most common reason a good candidate goes somewhere else."},
-        {"kind": "heading", "text": "Fees and Payment", "level": 2},
-        {"kind": "paragraph", "text": "The fee is invoiced in three installments: at commencement, on presentation of the slate, and on acceptance of an offer. Invoices are payable within thirty days of receipt. Reasonable out-of-pocket expenses, meaning travel to interviews and candidate travel where you ask us to arrange it, are billed at cost against receipts. We will tell you before we incur anything out of the ordinary."},
-        {"kind": "heading", "text": "Term and Termination", "level": 2},
-        {"kind": "paragraph", "text": "The engagement runs from commencement until the position is filled or until either of us ends it. Either party may terminate on written notice. If you terminate, you owe the installments already invoiced and nothing beyond them. If we terminate, which we would do only if the assignment turns out to be one we cannot honestly complete, we will refund any installment covering work not performed. For the term of this engagement and for one year after it ends, we will not recruit from your company."},
-        {"kind": "heading", "text": "Confidentiality", "level": 2},
-        {"kind": "paragraph", "text": "What you tell us about the business, the role, and the reason it is open stays inside the engagement team. The same protection runs the other way: what a candidate tells us in confidence is theirs, and we will not repeat it to you unless they permit it. Neither party will use the other's name in marketing without written consent, which means Davis and Sons does not appear on our client list unless you tell us it may."},
-        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
-        {"kind": "paragraph", "text": "We will conduct the search with the care and skill you are entitled to expect from us. We do not guarantee an outcome and we cannot warrant the future performance of a person you choose to hire; that decision is yours and the risk in it stays with you. Our aggregate liability arising out of this engagement is limited to the fees actually paid to us under it, and neither party is liable to the other for indirect or consequential loss."},
-        {"kind": "heading", "text": "Governing Law", "level": 2},
-        {"kind": "paragraph", "text": "This letter and any dispute arising out of it are governed by the laws of the state in which our principal office is located, without regard to its conflict of laws provisions. It is the entire agreement between us on this assignment and it supersedes anything either of us said before it."},
-        {"kind": "paragraph", "text": "If this reflects our understanding, please sign both copies and return one to me; the second is yours to keep. Jim will call to schedule the specification meeting as soon as the signed copy is back, and I would rather he did not have to wait on it. If you want anything in here changed, call me directly and we will change it or explain why we cannot."},
-        {"kind": "paragraph", "text": "Sincerely,"},
-        {"kind": "sigblock", "signers": ["p:kelly.chavez", "xp:jason.vasquez"]}
+        {
+          "kind": "paragraph",
+          "text": "Jason Vasquez\nGeneral Manager\nDavis and Sons"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Jason,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for choosing us to lead your search for a Head of Operations at Davis and Sons. This letter sets down the terms of that engagement, so that everything between us is plain from the start. We treat a retained search as a partnership, and we like to begin by putting the whole of it in writing. Please read what follows with care. If a single line does not match what we agreed, call me before you sign."
+        },
+        {
+          "kind": "heading",
+          "text": "The Search We Will Run for You",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "You are looking for a Head of Operations who can take hold of the daily running of {{fact:f:E-2018-001.client}} and give you the room to lead. Our work is to find that person, to test them fully, and to bring you a short slate you can act on with confidence. We run the search on a retained basis. That means we work only for you on this mandate, and we give it our full attention until the seat is filled. Discretion sits underneath all of it. We describe the people we approach by their current role and record, never by name, in anything that leaves our office, and we hold every name in confidence until both sides are ready to meet."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The assignment moves through a few clear stages. I want you to know their shape before we begin, so that nothing about the work comes as a surprise."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "First, we agree the position specification with you, so that we are all searching for the same person.",
+            "Second, we map the market for that person, build a considered long list, and approach each prospect with care.",
+            "Third, we interview and assess in depth, then bring you a short slate described by fit and evidence rather than by name alone.",
+            "Fourth, we stay beside you through your own interviews, the references, and the offer, and we do not step back until your Head of Operations has accepted and started."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "The People Who Will Look After You",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will hold the engagement myself and remain your point of contact for as long as you want one. James Grant, one of our senior consultants, will lead the assignment day to day. He works the market at the most senior level, and his judgment on finalists is as sound as any I know. Nicole Donovan, our research associate, will build the candidate profiles and keep every thread moving, so that nothing on the search goes quiet on you. You will find all three of us easy to reach, and easy to talk plainly with."
+        },
+        {
+          "kind": "heading",
+          "text": "Our Fee, and When We Start",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "For a retained search of this kind we work to a fixed professional fee of {{fact:f:E-2018-001.fee}}, which covers the assignment in full, from the specification through to a completed placement. The fee is settled at the outset and does not move as the search moves. It is not tied to the pay of the person we place. You know the cost of the work from the first day. We are ready to begin on {{fact:f:E-2018-001.start}}, once this letter is signed and returned, and we will hold that date open for you."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The rest of this letter sets out the standard terms on which we work. None of it should surprise you. I would still ask you to read it in full, so that we start on the same page."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We bill the fixed fee in three parts, each tied to a milestone: on your signing of this letter, on delivery of the short slate, and on your chosen candidate's acceptance of an offer. Our invoices are due on receipt. Reasonable direct costs that we arrange at your request, such as candidate travel, are billed to you at cost and shown in full. We clear anything out of the ordinary with you before we commit to it."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement runs from the day you sign until the search is done and our final invoice is settled. Either of us may end it earlier, in writing. We ask only for a short conversation first, so that nothing ends on a misunderstanding. If you close the search early for a reason unrelated to our work, we bill for the stage in hand and no more. If a Head of Operations we place leaves you within the first year for a reason within our control, we will reopen the search once at no further fee."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We treat all that you share with us, and all that we learn along the way, as confidential, and we use it only for this search. Inside our office, only the people named above and those whose work requires it will see it. We extend the same care to the candidates. We do not disclose a prospect's interest to anyone outside your side of the table without their knowledge, and we describe them by their role until you are ready to meet. Discretion is not a courtesy in our trade. It is the reason good people are willing to talk to us at all."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We give the search our best professional judgment. The choice of whom to hire is finally yours, and we cannot warrant how any person will perform once in the seat. Our liability to you under this engagement, whether put in contract or in negligence, will not exceed the total fees you pay us under it, save in the case of our own fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Should any dispute arise, we will each make a genuine effort to settle it in conversation before either of us looks to another forum."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms read as we agreed, please sign both copies below, keep one for your file, and send the other back to me. That one step is all we need to begin. If anything here gives you pause, call me first, and we will settle it before you sign. We are glad to be doing this with you, Jason, and we mean to do it well."
+        },
+        {
+          "kind": "paragraph",
+          "text": "With warm regards,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:kelly.chavez",
+            "xp:jason.vasquez"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0028",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Nicole Donovan"},
-        {"kind": "paragraph", "text": "From: James Grant"},
-        {"kind": "paragraph", "text": "Re: Kickoff, Head of Operations search for {{fact:f:E-2018-001.client}}"},
-        {"kind": "paragraph", "text": "Nicole, following on from the call this morning, and putting it in writing because Kelly will ask me whether I did. The letter is signed, the engagement commenced on {{fact:f:E-2018-001.start}}, and we are on the clock. The objective is one hire: a Head of Operations for {{fact:f:E-2018-001.client}}, reporting to Jason Vasquez, with a signed acceptance inside five months. Everything below hangs off that single sentence, and if a piece of work does not serve it, we are not doing it. Nothing has been said to the market yet and I want to keep it that way until the specification is agreed. The order of operations is not negotiable here; it is what I told Jason on the phone and it is what Kelly wrote into the letter."},
-        {"kind": "heading", "text": "Workstreams", "level": 2},
-        {"kind": "list", "items": [
-          "Position specification. I draft it, you check the scope and the titles, Kelly reads it before it goes over. I want sign-off in writing rather than on a call. The last time we took a verbal on a spec we rewrote the thing twice and the client remembered it differently than we did both times.",
-          "Market map. Yours. The universe of companies where this person sits today, by segment, with the function and the likely title inside each one. Written down, not in your head. I want to be able to argue with it.",
-          "Approach and screening. Mine, with you on the first pass of the obvious ones. No scripts. If someone is worth calling, they are worth me calling.",
-          "Client management. Also mine. Jason is straightforward to deal with, but he goes quiet when things are busy at his end, so I will keep the cadence rather than wait on him to surface.",
-          "Documentation. You own the file. Every conversation logged the same day it happens, and candidates described by their current role in anything that leaves this office."
-        ]},
-        {"kind": "heading", "text": "Next Steps", "level": 2},
-        {"kind": "list", "items": [
-          "Specification meeting on site at Davis and Sons. I will get an hour with Jason and with whoever this person will actually work alongside. Come to that one. You hear things in those rooms that I miss because I am talking.",
-          "First cut of the map two weeks from the specification meeting, not two weeks from today. The clock on your piece starts when we know what we are looking for.",
-          "Compensation. We need a range we believe before we call anyone. Jason gave Kelly a number over the phone and I am not confident it survives contact with his board, so I want it confirmed in the specification and not in an email.",
-          "File and client folder set up today if you can manage it.",
-          "Reference plan. Not yet, but think about it now. By the time we need references we will need them fast, and I do not want to be inventing the approach while a finalist waits."
-        ]},
-        {"kind": "paragraph", "text": "On the client side, a word about how this one is likely to run. Jason Vasquez is the decision maker and he says so, which is more than you get most places, but the people around him will have opinions and some of those opinions will arrive late. That is normal and it is survivable as long as we surface them at the specification stage rather than at the slate. So in that meeting, listen for who talks about the job as though they have already imagined a particular person in it. That is the one who derails a finalist in week fourteen, and I would rather know their name now."},
-        {"kind": "paragraph", "text": "One other thing, and it matters more than the list does. The person we place here is somebody's number two somewhere right now, two years into a job, and not unhappy. That means the first call matters more than the tenth, because by the tenth we are calling people because they are on a list rather than because they are right. Do not let me get there. If the map says someone, tell me why in one sentence. If you cannot do it in one sentence, they are not on the map."},
-        {"kind": "paragraph", "text": "Jim"}
+        {
+          "kind": "heading",
+          "text": "Kickoff Memo: Head of Operations Search for Davis and Sons",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Nicole Donovan\nFrom: James Grant\nRe: How we will run the Head of Operations search"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our charge on this assignment is straightforward to state and demanding to execute well, which is to place a Head of Operations at {{fact:f:E-2018-001.client}} whom their General Manager will be glad to have hired a year from now. We confirmed the engagement with Jason Vasquez, the General Manager at Davis and Sons, and we begin the work on {{fact:f:E-2018-001.start}}, so before either of us makes a first approach I want the two of us aligned on the objective, on who owns which part of the search, and on the moves we make first. The mandate is a retained search for an operator who can hold the daily running of a business at this scale, not a caretaker of a going concern, and the discretion the firm is known for applies from the outset, which means we describe every prospect by their current seat and record and hold their names close until both sides want to meet."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The specification is not yet written, and settling it with Jason Vasquez is the first real task, but the shape of the role is already clear from what the client has told us, which is that Davis and Sons wants a Head of Operations who has run the operating core of a business of this size, who can bring order to reporting and process without smothering the place, and who will be a genuine partner to the General Manager rather than a deputy who waits to be told. We are searching, in other words, for judgment and drive in equal measure, and the market for that profile is not large, so the mapping has to be careful and the outreach patient."
+        },
+        {
+          "kind": "heading",
+          "text": "How the assignment breaks down",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Specification and calibration: I will draft the position specification and settle it with Jason Vasquez, so that we search against one agreed brief and not two private ones.",
+            "Market map and long list: I will lead the mapping at the senior-operator level, working the sectors where a Head of Operations of this profile is actually found, and building the long list from that map rather than from any list we already hold.",
+            "Research and candidate profiles: Nicole Donovan will build the tight profiles we circulate, framing each prospect by role and record, and will keep every candidate thread current so that no promising conversation goes quiet while we are busy elsewhere.",
+            "Client contact and logistics: I will hold the relationship with Jason Vasquez directly, and we will keep the paperwork and the scheduling orderly so that our attention stays on the candidates and on the client."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Where we begin",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Because the specification gates everything that follows, that is where the work starts, and I will have a first draft of it in front of Jason Vasquez within the week so that we are not sitting idle while the client reads. Nicole, once that draft is with the client, please open the market map in parallel and begin assembling the research bench, and set a standing check-in for the two of us so that nothing on the search waits on a calendar. If you see a reason the plan above will not hold, tell me now, before the search is underway, so that we fix it while it is still cheap to fix."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0029",
       "blocks": [
-        {"kind": "paragraph", "text": "Jason, Nicole,"},
-        {"kind": "paragraph", "text": "Writing rather than calling, since you said you are in meetings all week and I would rather you had this in front of you. The specification for {{fact:f:E-2018-001.client}} is signed, the map is at first draft, and the universe is larger than I expected. It will come down hard once Nicole has cut the companies where the operations function is too small to have produced the person you want."},
-        {"kind": "paragraph", "text": "Approaches started this week. There is nothing to show you yet, and I would not want to show you anything yet; at this stage a name is only a name. A couple of the conversations have gone well enough that I would call them live, both people sitting in the number two seat where they are, which is exactly what we said we were looking for."},
-        {"kind": "paragraph", "text": "Two asks. First, the compensation range in the spec is the one you gave Kelly. I need to know it holds at the top end if the right person is at the top end, and I would rather you tested that now than when we have a finalist in hand. Second, block interview time well before we need it and have Nicole hold the days. We lose more people to a client who took three weeks to find an hour than to anything else in this process."},
-        {"kind": "paragraph", "text": "For the file, this thread now stands as the record of what Jason Vasquez asked for and what Nicole Donovan and I committed to in return, which saves all three of us a memo. Copy Nicole on anything to do with scheduling for Davis and Sons so it does not sit in my inbox while I am on the road."},
-        {"kind": "paragraph", "text": "James Grant"}
+        {
+          "kind": "paragraph",
+          "text": "Hello Jason,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "A short note on where the Head of Operations search stands before the weekend, so that you have the shape of it in hand. Since we agreed the specification, we have been mapping the market for the role at {{fact:f:E-2018-001.client}}, working the sectors where an operator of this profile is actually found, and the long list is coming together well. Nicole Donovan has begun the first candidate profiles, each drawn by current role and record rather than by name, so that nothing about a prospect's interest in the seat travels before it should."
+        },
+        {
+          "kind": "paragraph",
+          "text": "There is one thing I would ask of you before we go further, which is a short read from your side on two priorities in the specification, so that I am not sending the team against a brief that has quietly shifted since we last spoke. So that discretion holds on the search, I would also suggest that we route every candidate document to you, Jason Vasquez, as the single point of contact at Davis and Sons, and I will keep the thread orderly from our end."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I remain your day-to-day contact on this, James Grant, with Nicole Donovan on the research bench, and I will send you a proposed date for our first review of the field as soon as the long list is closed. Ten minutes by phone works if that is easier than writing the two priorities out."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0030",
       "blocks": [
-        {"kind": "paragraph", "text": "Working session on the Head of Operations search for {{fact:f:E-2018-001.client}}, held at the client's offices. The purpose was to review the state of the approach list and to agree what the client will see when the slate is presented."},
-        {"kind": "heading", "text": "Attendees", "level": 2},
-        {"kind": "list", "items": [
-          "James Grant, Senior Consultant",
-          "Nicole Donovan, Research Associate",
-          "Jason Vasquez, General Manager, Davis and Sons"
-        ]},
-        {"kind": "heading", "text": "Discussion", "level": 2},
-        {"kind": "paragraph", "text": "Mr. Grant opened by restating the mandate: one hire, a Head of Operations reporting to Mr. Vasquez, on a search running roughly five months end to end. He noted that we are near the middle of that span. No candidate is identified by name in this record, in keeping with the firm's standing practice on a live search."},
-        {"kind": "paragraph", "text": "The market map is complete and has been cut twice against the signed specification. The working universe now covers the segments agreed at kickoff, and the approach list drawn from it is at a size we can actually work rather than a size that flatters the research. Mr. Grant has had first conversations across most of that list. A handful he characterized as live. Two he described as being polite, and I share that read on both; neither has asked a question about the role that a genuinely interested person would have asked by now."},
-        {"kind": "paragraph", "text": "The live candidates were reviewed in current-role terms. They comprise a deputy running operations at a substantially larger business, a plant-level general manager with multi-site responsibility, and a supply chain director whose remit is narrower than the mandate but who is, on Mr. Grant's assessment, the strongest operator of the group. Mr. Vasquez asked whether the last of these should be discounted for scope. Mr. Grant's position was that scope can be added to a person and judgment cannot, and that he would make the argument properly at the slate rather than settle it in this session."},
-        {"kind": "paragraph", "text": "Mr. Vasquez confirmed that the compensation range in the specification holds at its upper end for the right candidate, and said he would rather have that tested now than after someone has been through a full interview cycle. He asked that the slate be presented in person rather than sent ahead, which matches our practice and was already the plan. Scheduling was raised again. Mr. Vasquez will hold interview time and confirm the specific days to me in writing. Mr. Grant repeated his view that a slow calendar loses more candidates than a weak offer does, and Mr. Vasquez did not disagree with him."},
-        {"kind": "paragraph", "text": "One process note, recorded at Mr. Grant's request. Two people on the approach list have asked that nothing identifying them go in writing to Davis and Sons before they have decided whether to enter the process. That is our practice regardless of the request, but it was worth the client hearing it said aloud: the summaries at the slate will describe candidates by their current responsibilities, and names follow once each candidate has released them to us."},
-        {"kind": "heading", "text": "Action Items", "level": 2},
-        {"kind": "table",
-         "header": ["Action", "Owner", "Timing"],
-         "rows": [
-           ["Complete the remaining first approaches on the working list", "James Grant", "Next two weeks"],
-           ["Draft written candidate summaries in current-role form", "Nicole Donovan", "With the slate"],
-           ["Confirm blocked interview days in writing", "Jason Vasquez", "This week"],
-           ["Confirm the upper end of the compensation range with the board", "Jason Vasquez", "Before the slate"],
-           ["Log this session's read on candidate interest to the engagement file", "Nicole Donovan", "Same day"]
-         ]},
-        {"kind": "paragraph", "text": "Next working session to be scheduled at the client's convenience. Minutes recorded by Nicole Donovan."}
+        {
+          "kind": "heading",
+          "text": "Meeting Minutes: Head of Operations Search for Davis and Sons",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The team met to review the completed market map for the Head of Operations search at {{fact:f:E-2018-001.client}} and to agree which prospects move into first-round interviews. The map is finished. Interviews of the leading prospects begin next week."
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "James Grant, Senior Consultant",
+            "Nicole Donovan, Research Associate",
+            "Jason Vasquez, General Manager, Davis and Sons"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "The market map and the field",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Grant presented the completed map. It covers the sectors agreed at kickoff and yields a long list of prospects across them. The field is strongest in the two sectors nearest the client's own and thinner in the third."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prospects were discussed by current role and record, not by name, in keeping with the firm's practice while a search is live. James Grant walked the list one sector at a time. No prospect was set aside for any reason other than a weaker fit against the specification."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The team then worked through which prospects advance. Fit against the agreed specification was the only test applied. The thinner third sector was left open in case a late name surfaces."
+        },
+        {
+          "kind": "paragraph",
+          "text": "From the long list the team agreed a shortened group to carry into the first round. Outreach to that group has begun. Several prospects have confirmed their interest in a first conversation, and the rest will be approached over the coming week."
+        },
+        {
+          "kind": "heading",
+          "text": "Assessment and the next stage",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Grant will take the first-round interviews of the most senior prospects himself, given his experience with senior-operator mandates. Nicole Donovan will hold the candidate threads current while the round runs and finish the profiles the client will see. The two will compare read-outs before any name goes to the client."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The client will see nothing until the field has been interviewed. Names stay in confidence until both sides are ready to meet. This holds for every prospect on the list."
+        },
+        {
+          "kind": "heading",
+          "text": "What the client asked for",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jason Vasquez set out how Davis and Sons wants the process run from here. He asked for a short slate rather than a long one, for each candidate to be presented by evidence of what they have built, and for the room to meet finalists without the timetable forcing a decision. The team confirmed the approach already matches those preferences."
+        },
+        {
+          "kind": "heading",
+          "text": "Action items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Owner",
+            "Action",
+            "By"
+          ],
+          "rows": [
+            [
+              "James Grant",
+              "Begin first-round interviews with the leading prospects and record read-outs for the team",
+              "Next week"
+            ],
+            [
+              "Nicole Donovan",
+              "Complete the candidate profiles for the shortlisted prospects and keep the threads current",
+              "This week"
+            ],
+            [
+              "Nicole Donovan",
+              "Continue outreach to the remaining shortlisted prospects and confirm their interviews",
+              "Over the coming week"
+            ],
+            [
+              "Jason Vasquez",
+              "Confirm who at Davis and Sons will sit on the client interview panel",
+              "Before interviews conclude"
+            ],
+            [
+              "James Grant",
+              "Propose a date for the next joint review once the first-round read-outs are in",
+              "After the first round"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first round of interviews governs the schedule from here. The team will reconvene with the client once the read-outs are in hand. Names stay in confidence in the meantime."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0031",
       "blocks": [
-        {"kind": "heading", "text": "Status Summary", "level": 2},
-        {"kind": "paragraph", "text": "The search for a Head of Operations at Davis and Sons is on schedule at the midpoint. The position specification is signed, the market map is complete, and first approaches are done across the working list. We are assembling the slate now and will present it in person, with the written summaries handed over in the room rather than sent ahead of it. No offer has been made and none should be expected at this stage. This is the stretch of a search where nothing visible happens for a couple of weeks and then all of it happens at once."},
-        {"kind": "heading", "text": "This Period", "level": 2},
-        {"kind": "list", "items": [
-          "Position specification agreed with {{fact:f:E-2018-001.client}} and signed off before any outreach.",
-          "Market map completed by Nicole Donovan and cut twice against the specification.",
-          "First approaches completed across the working list, conducted by me rather than by a researcher.",
-          "Working session held with your team to review the approach list and agree the shape of the slate.",
-          "Written candidate summaries drafted in current-role form, names withheld pending each candidate's release."
-        ]},
-        {"kind": "paragraph", "text": "The useful news from this period is not the number of conversations, it is the read underneath them. There is a real market for this role. The people who fit it are employed, they were not looking when we found them, and every one of them had to be talked into a first conversation. That is what a retained assignment buys, and it is worth saying plainly at the halfway mark: a contingency shop would have put resumes on your desk inside a week and none of them would have been these people."},
-        {"kind": "paragraph", "text": "A word on what the map bought us, since you are paying for it. Nicole Donovan built the universe from the specification rather than from a database, which meant a slower start and a much shorter list at the end. The companies on it were chosen because their operations function is large enough and complex enough to have produced somebody who can do your job, and the ones that fell out fell out for stated reasons that are written down. If you want to see the reasoning, ask her at the slate session. She will show you, and she will be right."},
-        {"kind": "heading", "text": "Engagement Budget", "level": 2},
-        {"kind": "paragraph", "text": "Nothing has changed on the commercial side. The engagement fee stands at {{fact:f:E-2018-001.fee}} as set out in the engagement letter, fixed for the term and not indexed to whatever the successful candidate ends up negotiating. The first installment has been invoiced. The second falls due on presentation of the slate and the balance on acceptance of an offer. Out-of-pocket expenses to date are modest and consist of travel to your offices and to candidate meetings. Nothing out of the ordinary has been incurred and nothing is anticipated. If that changes, you will hear it from me before it reaches an invoice rather than on one."},
-        {"kind": "heading", "text": "Upcoming Work", "level": 2},
-        {"kind": "list", "items": [
-          "Complete the referencing groundwork on the likely finalists, without approaching any current employer.",
-          "Present the slate in person, with Nicole Donovan attending to answer on scope and background.",
-          "Support your interview cycle: brief each candidate before they see you and debrief them afterward, and tell you what they actually said rather than what they told you.",
-          "Manage the offer and resignation stage if and when we get there."
-        ]},
-        {"kind": "heading", "text": "Risks", "level": 2},
-        {"kind": "paragraph", "text": "Calendar. This is the real one and I am not going to dress it up. The strongest people on our list are being courted elsewhere, which is what strong people are always doing, and the interview time you hold over the next few weeks is what decides whether they stay in our process or someone else's. I would rather ask you for time now and hand it back unused than go looking for it later."},
-        {"kind": "paragraph", "text": "Compensation. The range in the specification is the range you gave us, and the market is testing its upper end rather than its middle. That is not a surprise and it is not yet a problem. It becomes a problem if the number needs a conversation with your board at the exact moment we have a finalist waiting on an answer."},
-        {"kind": "paragraph", "text": "Scope. One candidate we rate highly sits a notch below the mandate on breadth. If your team screens on the organization chart rather than on judgment, that conversation ends early and I believe it would be the wrong call. We will make the argument once, in the slate session, and after that it is your decision and we will back it."},
-        {"kind": "paragraph", "text": "Confidentiality. Unchanged and holding. Nobody on the list has been exposed, and nothing identifying any of them has gone in writing to Davis and Sons."},
-        {"kind": "paragraph", "text": "None of the four is a reason to change course, and I would tell you if one were. A search at the midpoint should have exactly this shape: the work is done, the people are found, and everything that remains is timing and nerve."},
-        {"kind": "paragraph", "text": "As always, call rather than write if any of this needs a conversation. Nicole Donovan is copied and has the file if I am on the road."},
-        {"kind": "paragraph", "text": "Prepared by James Grant, Senior Consultant"}
+        {
+          "kind": "heading",
+          "text": "Status Report: Head of Operations Search for Davis and Sons",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by James Grant, Senior Consultant, for the leadership of Davis and Sons on the Head of Operations search for {{fact:f:E-2018-001.client}}."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the search stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The search is on schedule and now at its midpoint. The market has been mapped, the first round of interviews is complete, a strong group of prospects has emerged, and the work ahead is to narrow that group to the short slate your side will meet. We are working within the fixed fee of {{fact:f:E-2018-001.fee}} agreed at the outset, which covers the assignment in full, and the engagement remains on budget and on time."
+        },
+        {
+          "kind": "heading",
+          "text": "What we have done this period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Since the last report the team has closed the market map and moved the search into interviews, which is the point at which a retained search stops being a matter of names on a page and becomes a matter of judgment about people. I have led the first-round interviews of the most senior prospects myself and recorded read-outs for the team, and that first pass has already thinned the field to the operators who genuinely fit what {{fact:f:E-2018-001.client}} needs of a Head of Operations rather than those who merely look the part on paper."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nicole Donovan has built the candidate profiles that sit behind each interview, framing every prospect by current role and record, and has kept the candidate threads current so that no promising conversation has cooled while the round has run. Her profiles are close enough to final that they will drop into the slate summary with little further work, which keeps the search moving at the pace the assignment needs."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The specification we settled at the start has held steady through the period, which has kept the search orderly and the team calibrated against a single brief, and we have measured every prospect against it at each step so that the field we are building genuinely answers what Davis and Sons set out to hire. Throughout, we have held to the discretion the assignment demands: prospective candidates have been discussed only by their current role and record, none has been named in anything that circulates, and no candidate's interest in the seat has traveled beyond the few people who need to know it."
+        },
+        {
+          "kind": "heading",
+          "text": "What comes next",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Over the coming weeks the team will complete the remaining first-round interviews, test the strongest prospects more deeply against the specification, and assemble the short slate for your review, and each candidate on that slate will come to you described by the evidence of what they have built and by their fit with the operating core of the business. We will hold every name in confidence until both sides are ready to meet, which is the discretion that lets people in current seats talk to us at all. Once your side has met the slate, we will move with you into references and stay beside you through to an accepted offer, so that our work ends at the placement and not at the introduction."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and how we are holding them",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two risks are worth naming, and neither is pressing. The first is timing on the candidates' side, because the strongest prospects for a role of this kind are people who are not looking to move, and one or two may need longer to decide than a fixed schedule would prefer, which we manage by keeping them warm and honest about where they stand rather than forcing a pace that would lose them. The second is the depth of the field in one of the three market sectors, which came in thinner than the other two, and which we have covered by weighting the outreach toward the sectors where a Head of Operations of this profile is more likely to be found. Nothing about the cost or the timetable of the engagement has changed since we began, and the search remains firmly within the fee we agreed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The search is healthy, the field is real, and we are on course to bring you a slate you can act on with confidence. The one thing I need from your side now is a provisional date to meet that slate, which I will confirm the moment the field is firm."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0033",
       "blocks": [
-        {"kind": "paragraph", "text": "Closing working session on the Head of Operations search for {{fact:f:E-2018-001.client}}, held by telephone. The purpose was to confirm the position is filled, to record what remains outstanding, and to agree the close-out of the engagement file."},
-        {"kind": "heading", "text": "Attendees", "level": 2},
-        {"kind": "list", "items": [
-          "James Grant, Senior Consultant",
-          "Nicole Donovan, Research Associate",
-          "Jason Vasquez, General Manager, Davis and Sons"
-        ]},
-        {"kind": "heading", "text": "Discussion", "level": 2},
-        {"kind": "paragraph", "text": "Mr. Grant confirmed that the offer has been accepted and that the candidate has resigned his current position. The accepted candidate is the plant-level general manager with multi-site responsibility who was presented on the original slate. He was not the candidate the client favored after first interview, a point Mr. Vasquez raised himself and said he was glad to have been argued with about. Notice period and start arrangements sit between the candidate and Davis and Sons and are not recorded here."},
-        {"kind": "paragraph", "text": "A short discussion followed on the finalist who withdrew. The withdrawal came late in the process and Mr. Grant handled it by telephone rather than by note, which Mr. Vasquez said he appreciated hearing. The stated reason was a counter-offer. My own read, recorded for the file, is that the counter-offer was the occasion rather than the cause, and that the length of the interview cycle did more damage than any of us wanted to say at the time. Mr. Grant did not disagree. It is worth carrying into the next assignment with this client."},
-        {"kind": "paragraph", "text": "Mr. Vasquez asked about our position after the placement. Mr. Grant restated what the engagement letter says: the fee is fixed and its balance falls due on acceptance, and the firm will not recruit from Davis and Sons for the term of this engagement and for a year after it ends. Mr. Vasquez then asked whether we would take a second search. Mr. Grant said that was a conversation for Kelly and that he would arrange it rather than answer for her."},
-        {"kind": "paragraph", "text": "Mr. Grant then asked me to record something for the file that he said he would otherwise forget to say. The placement came off a slate rather than off a single introduction, and it came off the part of the slate the client had not expected to hire from. He credited the map for that: the accepted candidate sat in a segment the client had not named at kickoff, and he was on the list because the research put him there and not because anybody in this firm already knew him. I record it as he said it. He also asked that the client be told plainly that the search ran to its planned length and did not run over, which Mr. Vasquez acknowledged."},
-        {"kind": "paragraph", "text": "On close-out, I will hold the candidate file for the period our retention practice requires and dispose of it after that. The market map stays with the firm. Nothing identifying an unsuccessful candidate goes to the client, now or later, and Mr. Vasquez confirmed he had never asked for any of it."},
-        {"kind": "heading", "text": "Action Items", "level": 2},
-        {"kind": "table",
-         "header": ["Action", "Owner", "Timing"],
-         "rows": [
-           ["Issue the final invoice on acceptance, per the engagement letter", "Nicole Donovan", "This week"],
-           ["Confirm the candidate's start arrangements directly with the client", "James Grant", "On the candidate's notice"],
-           ["Write to the candidates who were not selected", "James Grant", "Before the file closes"],
-           ["Close the engagement file and archive the market map", "Nicole Donovan", "On final invoice"],
-           ["Arrange a conversation with the client on further work", "James Grant", "In the new year"]
-         ]},
-        {"kind": "paragraph", "text": "No further session scheduled. Minutes recorded by Nicole Donovan."}
+        {
+          "kind": "heading",
+          "text": "Meeting Minutes: Head of Operations Search for Davis and Sons",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The team met with the client to review references on the leading finalist for the Head of Operations search at {{fact:f:E-2018-001.client}} and to agree the final steps to an offer. The references are complete. The client is ready to move to an offer."
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "James Grant, Senior Consultant",
+            "Nicole Donovan, Research Associate",
+            "Jason Vasquez, General Manager, Davis and Sons"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "References and the finalist",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Grant presented the reference findings on the finalist. The references were consistent and strong. Nothing in them gave the client pause."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The finalist emerged from the short slate the client met in the prior stage. Two candidates were carried to the end. The second remains a strong operator and will be thanked and kept warm in case the offer does not close."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The finalist was discussed by current role and record, as every prospect has been throughout the search. The client confirmed the finalist matches the specification agreed at the start. No open question remained on fit."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The reference conversations covered direct reports, a former supervisor, and a peer from the candidate's current seat. Each was reached with the candidate's consent. The team read back the substance of each conversation without naming the referees."
+        },
+        {
+          "kind": "heading",
+          "text": "The client's decision",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jason Vasquez confirmed that Davis and Sons is ready to extend an offer to the finalist. He asked the team to manage the offer and the candidate's transition with the discretion the search has kept throughout. The team agreed to handle the approach and to hold the candidate's name in confidence until the offer is accepted."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The team reviewed the shape of the offer with the client, so that the terms are settled before they reach the candidate. The compensation range was confirmed against what the search set out at the start. The client will put the final terms in writing, and the team will carry them to the finalist."
+        },
+        {
+          "kind": "heading",
+          "text": "Transition and start",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The team reviewed the steps between an accepted offer and a first day. Nicole Donovan will assemble the placement file and the documentation the client keeps for its records. James Grant will stay close to the finalist through the notice period so that nothing unsettles the move."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The client asked that the transition stay quiet until the finalist has resigned the current seat. The team agreed. No announcement goes out before the candidate is ready."
+        },
+        {
+          "kind": "heading",
+          "text": "Action items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Owner",
+            "Action",
+            "By"
+          ],
+          "rows": [
+            [
+              "James Grant",
+              "Prepare the offer terms with the client and open the offer conversation with the finalist",
+              "This week"
+            ],
+            [
+              "Nicole Donovan",
+              "Finalize the placement file and the candidate documentation for the client",
+              "This week"
+            ],
+            [
+              "Jason Vasquez",
+              "Confirm the offer terms and the intended start date with Davis and Sons leadership",
+              "Before the offer goes out"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The offer is the last step in the search. The team will confirm the placement with the client once the finalist has accepted."
+        }
       ]
     }
   ]

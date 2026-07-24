@@ -24,6 +24,28 @@ doc_culture:
   target_docs: 53
   date_range: [2015-01-01, 2023-12-31]
   format_mix: {docx: 24, pdf: 10, xlsx: 8, pptx: 2, eml: 5}
+  # M16: minuted sessions and engagement mail land on business days. The
+  # board found this firm's Saturday 2016-05-28 and 2023-07-04 client
+  # sessions; a declared holiday per year (plus the always-excluded
+  # weekends) is why they no longer occur.
+  business_calendar:
+    holidays: [2015-05-25, 2016-07-04, 2017-09-04, 2018-11-22, 2019-12-25, 2020-05-25, 2021-07-05, 2022-09-05, 2023-07-04, 2023-11-23]
+  # M16: the voice layer, fleet-wide. Each person carries a structured style
+  # spec and the brief bans the template constructions the board named.
+  style_specs: true
+  voice_diversify: true
+  # M16: the exemplar finally carries organizational noise -- a real share is
+  # mostly junk. Derived with no model pass: exact copies, drafts, diverging
+  # version chains, one misfile, a dead template, empty directories, and
+  # decorated junk filenames.
+  noise:
+    duplicates: 2
+    drafts: 2
+    version_chains: 2
+    misfiled: 1
+    stale_templates: 1
+    empty_dirs: 2
+    filename_variety: true
 
 finance:
   # 10% growth against five net new seats. Measured: 20.1% -> 22.4% net
@@ -34,6 +56,10 @@ finance:
 
 engagements:
   count: 6
+  # M16: the engagement ledger is a representative sample, not the whole book.
+  # Closes the board's finding that the overview claimed five engagements were
+  # "the whole business" while the financials post ~40x the fee total.
+  book_is_sample: true
   services: [CFO Search, VP Engineering Search, Board Director Search, Head of Operations Search, General Counsel Search, Compensation Benchmarking]
 
 graph_targets:

@@ -6,7 +6,7 @@
   "org_name": "Northgate Talent Partners LLC",
   "org_type": "executive search",
   "narrative": "Northgate Talent Partners is a retained executive search firm founded in\n2013, placing senior operators and board directors at mid-market\ncompanies and one regional health system. Search is a correspondence\nbusiness: the firm's real work product is a long thread of candidate\nconversations, and the formal documents are the scaffolding around it.\n\nThat shape is the point of this recipe. More of the share is email than\nanywhere else in the fleet: engagement confirmations, candidate slate\nupdates, scheduling, and the careful note that goes out when a finalist\nwithdraws. The formal artifacts are there too, and they matter: a\nretained search agreement with its fee schedule, a position specification\nper search, a candidate slate summary, and the quarterly numbers.\n\nTone is warm but professional, and more conversational than the rest of\nthis fleet, because a search consultant is managing two anxious parties\nat once. Consultants use first names with clients they have known for\nyears and full names when writing about a candidate. Discretion is\nconstant: candidates are described by their current role rather than\nnamed in anything that circulates widely. Two people on the roster share\na surname, and one goes by a nickname in internal notes.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0007\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0007\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0035",
@@ -19,7 +19,7 @@
           "name": "Kelly Chavez",
           "title": "Managing Director",
           "dept": "Leadership",
-          "persona": "Kelly runs the firm the way she runs a search: decide early, tell people the truth, and never let a client be surprised. Her writing is short and unhedged, first names with anyone she has worked with more than once, and she will state the uncomfortable thing in the second sentence rather than bury it. She reserves formality for the documents that bind the firm, where her tone tightens noticeably. When a search is drifting she writes the note herself instead of asking the consultant to."
+          "persona": "Kelly built the firm around the belief that retained search is a relationship business first and a document business second, and she still sets the tone for how the office writes to clients. With the executives she has partnered with over many engagements she drops into first names and an easy, direct warmth; when a search turns delicate she is the one who chooses each word. She is protective of the firm's discretion and expects everyone to describe candidates by their seat, not their name, in anything that travels."
         }
       ],
       "participants": [
@@ -28,21 +28,21 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
         },
         {
           "id": "p:sandra.fuentes",
           "name": "Sandra Fuentes",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+          "persona": "Sandra carries her own searches end to end and owns the client relationship on each, which shows in prose that is warm but exact. She is at her best writing the hard note, the one that goes out when a finalist steps away, and she manages the anxieties of hiring committee and candidate at the same time without letting either feel handled. Colleagues lean on her when a slate summary has to say something difficult gracefully."
         },
         {
           "id": "xp:amy.alvarez",
@@ -100,9 +100,10 @@
         }
       ],
       "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: closes with one clear next step; prefers numbered lists over bullet points. Never use 'Let me be direct:' and similar throat-clearing; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0036",
@@ -115,7 +116,7 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         }
       ],
       "participants": [
@@ -124,21 +125,21 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
         },
         {
           "id": "p:sandra.fuentes",
           "name": "Sandra Fuentes",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+          "persona": "Sandra carries her own searches end to end and owns the client relationship on each, which shows in prose that is warm but exact. She is at her best writing the hard note, the one that goes out when a finalist steps away, and she manages the anxieties of hiring committee and candidate at the same time without letting either feel handled. Colleagues lean on her when a slate summary has to say something difficult gracefully."
         },
         {
           "id": "xp:amy.alvarez",
@@ -187,9 +188,10 @@
         }
       ],
       "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 3% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0037",
@@ -202,7 +204,7 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         }
       ],
       "participants": [
@@ -211,21 +213,21 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
         },
         {
           "id": "p:sandra.fuentes",
           "name": "Sandra Fuentes",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+          "persona": "Sandra carries her own searches end to end and owns the client relationship on each, which shows in prose that is warm but exact. She is at her best writing the hard note, the one that goes out when a finalist steps away, and she manages the anxieties of hiring committee and candidate at the same time without letting either feel handled. Colleagues lean on her when a slate summary has to say something difficult gracefully."
         },
         {
           "id": "xp:amy.alvarez",
@@ -270,9 +272,10 @@
         }
       ],
       "target_words": 250,
-      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock.",
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; a 'Workstreams' heading followed by 'Next Steps'. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
       "engagement_position": "This document is dated about 24% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0038",
@@ -285,7 +288,7 @@
           "name": "Sandra Fuentes",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+          "persona": "Sandra carries her own searches end to end and owns the client relationship on each, which shows in prose that is warm but exact. She is at her best writing the hard note, the one that goes out when a finalist steps away, and she manages the anxieties of hiring committee and candidate at the same time without letting either feel handled. Colleagues lean on her when a slate summary has to say something difficult gracefully."
         }
       ],
       "participants": [
@@ -294,21 +297,21 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
         },
         {
           "id": "p:sandra.fuentes",
           "name": "Sandra Fuentes",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+          "persona": "Sandra carries her own searches end to end and owns the client relationship on each, which shows in prose that is warm but exact. She is at her best writing the hard note, the one that goes out when a finalist steps away, and she manages the anxieties of hiring committee and candidate at the same time without letting either feel handled. Colleagues lean on her when a slate summary has to say something difficult gracefully."
         },
         {
           "id": "xp:amy.alvarez",
@@ -353,9 +356,10 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use a 'Workstreams' heading followed by 'Next Steps'; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0039",
@@ -368,7 +372,7 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         }
       ],
       "participants": [
@@ -377,21 +381,21 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole handles the research where titles carry real weight and a sloppy description of someone's scope would be noticed immediately, and she is fastidious about getting those right. Her drafts are measured and slightly formal, and she checks a term rather than guess at it. She is unusually good at reading whether a candidate is genuinely interested or being polite, and she says so in her notes without dressing it up."
+          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Jim came up inside the firm and never lost the habit of picking up the phone before writing anything down, so his emails read like the second half of a conversation you did not hear the start of. He signs internal notes as Jim, though his name appears in full on anything a client or candidate sees, and he uses first names with the clients he has known longest. He is a relationship consultant more than a process one, prone to a digression about someone's old boss, and he is the one who talks a nervous finalist back to the table. Colleagues rely on him for the read on whether a client will actually hire."
+          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
         },
         {
           "id": "p:sandra.fuentes",
           "name": "Sandra Fuentes",
           "title": "Principal",
           "dept": "Search",
-          "persona": "Sandra owns the search practice and the standards that go with it, and most of the consultants and associates route their work through her. She writes in careful, complete paragraphs, and is the firm's strictest voice on discretion: she will describe a candidate by their seat and their market rather than name them, and she edits other people's drafts to do the same. Her warmth is real but arrives after the substance, usually in a closing line. She is the one who asks what the client actually needs, as opposed to what the position specification says."
+          "persona": "Sandra carries her own searches end to end and owns the client relationship on each, which shows in prose that is warm but exact. She is at her best writing the hard note, the one that goes out when a finalist steps away, and she manages the anxieties of hiring committee and candidate at the same time without letting either feel handled. Colleagues lean on her when a slate summary has to say something difficult gracefully."
         }
       ],
       "engagement_summary": "General Counsel Search for Howard, Carlson and Tran, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -428,9 +432,10 @@
         }
       ],
       "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

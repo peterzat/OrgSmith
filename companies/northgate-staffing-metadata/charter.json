@@ -41,11 +41,33 @@
     "scanned_ratio": 0.0,
     "legacy_ratio": 0.0,
     "ocr_layer_rate": 0.0,
-    "business_calendar": null,
-    "noise": null,
-    "voice_diversify": false,
+    "business_calendar": {
+      "holidays": [
+        "2015-05-25",
+        "2016-07-04",
+        "2017-09-04",
+        "2018-11-22",
+        "2019-12-25",
+        "2020-05-25",
+        "2021-07-05",
+        "2022-09-05",
+        "2023-07-04",
+        "2023-11-23"
+      ]
+    },
+    "noise": {
+      "duplicates": 2,
+      "drafts": 2,
+      "version_chains": 2,
+      "misfiled": 1,
+      "stale_templates": 1,
+      "empty_dirs": 2,
+      "attachment_mismatch": 0,
+      "filename_variety": true
+    },
+    "voice_diversify": true,
     "mail": null,
-    "style_specs": false
+    "style_specs": true
   },
   "finance": {
     "base_revenue": 1250000,
@@ -62,7 +84,7 @@
       "General Counsel Search",
       "Compensation Benchmarking"
     ],
-    "book_is_sample": false
+    "book_is_sample": true
   },
   "graph_targets": {
     "external_orgs": 6,

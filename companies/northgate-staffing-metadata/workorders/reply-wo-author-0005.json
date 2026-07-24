@@ -1,7 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0005",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -9,72 +12,94 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Jennifer Frazier, Chief Operating Officer, Sanchez-Baker"
+          "text": "Jennifer Frazier, Chief Operating Officer, {{fact:f:E-2017-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Re: Retained Search for a Director of the Board"
+          "text": "Dear Ms. Frazier,"
         },
         {
           "kind": "paragraph",
-          "text": "Dear Ms. Frazier:"
-        },
-        {
-          "kind": "paragraph",
-          "text": "This letter confirms the terms on which Northgate Talent Partners LLC will conduct a retained search for a new independent director of the board of {{fact:f:E-2017-001.client}}. We are ready to begin on {{fact:f:E-2017-001.start}}, and we expect the search to run about four months from that point. Where this letter is brief, it is because the point is simple. Where it is exact, it is because it binds us both."
+          "text": "Thank you for entrusting us with this search. We are glad to set down in writing the assignment we discussed, so that both sides begin from the same understanding. You have asked us to find and help you appoint a new independent director to your board. It is work we care about, and we will carry it with the discretion it deserves."
         },
         {
           "kind": "heading",
-          "text": "Scope of the Engagement",
+          "text": "The search we have agreed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The search is for one director. Our first work is not sourcing; it is agreement on what you are hiring for. We will meet with you and with the directors who will vote on the appointment, and we will produce a written position specification covering the mandate of the seat, the experience the board is short of today, the committee work the director will be asked to carry, and the standards against which candidates will be measured. That document comes back to you for approval before any candidate is approached. Boards that skip this step spend the last month of a search relitigating the first week of it."
+          "text": "You have asked us to identify and recruit an independent director for {{fact:f:E-2017-001.client}}, someone whose judgment will strengthen the board on the matters most in front of you. We will build a considered picture of the field, approach the strongest prospects with care, and bring you a short, well-qualified slate to interview. Throughout, we will describe candidates by the seats they hold rather than by name, and nothing about the search will travel more widely than it must. Our work does not end at the introduction; we stay with you through the interviews, the references, and the appointment itself."
         },
         {
           "kind": "paragraph",
-          "text": "With the specification approved, we will map the market of qualified directors, develop a long list, and approach candidates on a confidential basis. You will receive a written slate of candidates the firm is prepared to stand behind, each assessed against the specification and against our own view of fit, rather than a stack of resumes with a covering note. We will manage the interview calendar, take up references on any candidate your board intends to appoint, and stay with the search through the decision and the acceptance. Our work is not finished when the slate is delivered. It is finished when a director is seated."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two practical notes on how we work. We do not present a candidate we have not met ourselves, and we do not pad a slate to make it look like a market. If the qualified population for this seat proves to be small, you will see it at its true size and hear plainly what the market for this profile is, rather than be handed the appearance of choice. Second, the board's own availability will govern the calendar more than anything the firm does. Slates go stale. The candidates we bring you will be in play elsewhere, and the search will need decisions at the pace we agree at kickoff."
+          "text": "Our method is unhurried and thorough. We map the relevant market, weigh each prospect against the specification we settle with you, and reference the finalists properly before any offer is made. Where a strong director is not looking to move, we still make the approach; the best board members are seldom the ones who put themselves forward. You will hear from us on a steady rhythm, not only when there is a milestone to report. A short, strong slate serves you better than a long one, and it is what we aim for."
         },
         {
           "kind": "heading",
-          "text": "The Search Team",
+          "text": "What the search will ask of you",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "James Grant, Senior Consultant, will lead the search and will be your day-to-day contact; he holds the pen on anything that reaches a candidate. Jeffrey Patterson, Research Consultant, will draft the position specification and build the market map. Jason Bell, Research Associate, will run sourcing and first contact. I will review the slate before it reaches you and I will attend the board presentation myself. If the search is not going the way this letter describes it, you will hear that from me, early, and in plain words."
+          "text": "A search goes best when the client stays close to it. We will ask for an early conversation to agree the specification, prompt feedback as we present candidates, and a single point of contact on your side, which we understand will be you. When we reach interviews, your board's availability tends to set the pace, and we will plan around it, with Jeffrey handling the diaries so that you do not have to. None of this is heavy; a search of this length asks for a few hours of the board's attention at the right moments, no more."
         },
         {
           "kind": "heading",
-          "text": "Fees and Payment",
+          "text": "The people who will do the work",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our fee for the engagement is {{fact:f:E-2017-001.fee}}, fixed for the scope described above. We bill it in three equal installments: the first at the start of work, the second on delivery of the slate, and the third on the appointment or on the close of the search, whichever comes first. The fee is not contingent on an appointment. You are retaining the firm for the work, and the work is done whether or not your board elects to seat one of the candidates we bring you. Invoices are payable within thirty days of receipt. Reasonable out-of-pocket expenses, principally travel and any candidate travel we arrange at your request, are billed at cost and separately from the fee; no expense of consequence will be incurred without your approval in advance."
+          "text": "You will be in steady hands. James Grant, our Senior Consultant, will lead the assignment and will be your point of contact on the assessment of candidates; board mandates are his particular strength. Jason Bell, our Research Associate, will run the market mapping and the research bench, and he has a good eye for the strong director who is not on the obvious list. Jeffrey Patterson, our Research Consultant, will manage the candidate conversations and the scheduling, and will make sure no thread goes quiet. I will stay close to the work myself, and I am always glad to take your call."
         },
         {
           "kind": "heading",
-          "text": "Off-Limits and Replacement",
+          "text": "How we will keep you informed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "For twelve months following the close of the search we will not recruit the director we place, and we will not approach an executive of {{fact:f:E-2017-001.client}} on behalf of another client. If the director we place resigns or is removed for cause within twelve months of election, we will conduct one replacement search for the same seat at expenses only. A firm unwilling to write that clause is telling you something."
+          "text": "You will not have to chase us for news. We will send a short written update on a regular cadence, and we will call the moment something needs your judgment, not wait for the next note. When we present the slate, you will have a written read on each candidate, framed by the seat held and measured against the specification we set together. Between updates, Jeffrey Patterson is your point of contact for anything that will not keep."
         },
         {
           "kind": "heading",
-          "text": "Term and Termination",
+          "text": "Our fee and the timetable",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The engagement runs from the start date set out above until the search is closed, either by an appointment or by your instruction. Either of us may end it on written notice. If you terminate, you owe the installments already invoiced together with a pro rata share of the current one for work performed to the date of notice, and nothing further. If we conclude that the search cannot be completed against the specification as approved and the board is not prepared to revise it, we will tell you so and stop, rather than continue to bill against work that will not produce a director."
+          "text": "This is a retained assignment, at a fixed fee of {{fact:f:E-2017-001.fee}}. That figure covers the whole of the search: the research, the approaches, the assessment, and the reference work behind a finalist. We expect the work to run about four months from the day we begin, which will be {{fact:f:E-2017-001.start}}. Searches of this kind sometimes move faster and occasionally take a little longer, and we will tell you plainly if the timetable shifts."
+        },
+        {
+          "kind": "heading",
+          "text": "How the fee is billed",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We bill the retainer in three parts, so that our invoicing follows the progress of the work:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "One third on our commencement of the search,",
+            "A second third when we present the qualified slate for your interviews, and",
+            "The final third on the appointment of a director."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Reasonable out-of-pocket expenses, such as travel to meet a candidate on your behalf, are billed at cost and itemized, and we will clear anything unusual with you before we incur it. Invoices are payable within thirty days of receipt."
+        },
+        {
+          "kind": "heading",
+          "text": "The term, and how either of us may end it",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement runs until a director is appointed or until we close the search by agreement. Either of us may end it on reasonable written notice. Should you decide to stop the search before it is complete, you will owe us only for the work done to that point and the fees already invoiced, and nothing more. If a concern ever arises on your side, we would want to hear it early and work it through with you."
         },
         {
           "kind": "heading",
@@ -83,37 +108,36 @@
         },
         {
           "kind": "paragraph",
-          "text": "What we learn about your business, your board, and your succession thinking stays with the search team and is disclosed to no one else. The obligation runs the other way as well, and that is the more delicate half. The people we approach are sitting executives and sitting directors, and most of them will have told no one at their own company that they took our call. In anything that circulates beyond the decision-makers on your side, candidates are described by their current role rather than named. We ask that your board observe the same practice, and that materials we send you are not forwarded outside the group that will vote. A leaked slate does not merely embarrass this firm. It costs the candidate something neither of us can give back."
+          "text": "Discretion is the heart of how we work. We will hold in confidence all that you share with us about the board, the company, and your reasons for the search, and we will protect the identity of every candidate with equal care. We ask the same of you in return, that the names we bring you stay within the small circle of people who need them. This protects the candidates who trust us with their interest, and it protects the search itself."
         },
         {
           "kind": "heading",
-          "text": "Limitation of Liability",
+          "text": "The limits of our responsibility",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We will perform the search with the care and skill customary in our profession, and we take the assessments in our slate seriously. We do not warrant the future performance of any director your board appoints; that appointment is the board's decision, made on its own judgment and its own interviews as much as on our work. Our aggregate liability arising out of this engagement, on any theory, is limited to the fees actually paid to us under it, and neither of us will be liable to the other for indirect or consequential damages. Nothing in this paragraph limits liability that cannot be limited by law."
+          "text": "We will bring our full judgment and effort to the assignment, and we choose our words about a candidate with care. We cannot, however, guarantee the future performance of any director you appoint, and our liability to you is limited to the fees paid under this engagement. Where a failing is genuinely ours, we will make it good, and we would not hide behind this clause."
         },
         {
           "kind": "heading",
-          "text": "Governing Law",
+          "text": "Governing law",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This letter is the entire agreement between us with respect to the search and supersedes anything discussed before it. It may be amended only in writing signed by both of us, and it is governed by the laws of the state in which our firm maintains its principal office, without regard to its conflict-of-laws rules."
+          "text": "This letter, and the engagement it describes, are governed by the laws of the state in which our firm is established. Anything not addressed here we will resolve as we resolve most things, by talking it through in good faith."
         },
         {
           "kind": "paragraph",
-          "text": "If this letter reflects our understanding, please sign below and return one copy to my attention. We will begin on the date set out above, and I will introduce the team to you before the first board meeting."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely,"
+          "text": "If this reflects our understanding, the next step is a simple one. If anything in these terms would sit better a different way, tell me before you sign; otherwise please countersign below and return one copy to me. On receipt we will schedule the kickoff and begin the market work. I am delighted that you have chosen us, and I look forward to getting started."
         },
         {
           "kind": "sigblock",
-          "signers": ["p:kelly.chavez", "xp:jennifer.frazier"]
+          "signers": [
+            "p:kelly.chavez",
+            "xp:jennifer.frazier"
+          ]
         }
       ]
     },
@@ -122,65 +146,88 @@
       "doc_id": "d:0020",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Memorandum",
-          "level": 1
-        },
-        {
           "kind": "paragraph",
-          "text": "To: James Grant, Jeffrey Patterson"
-        },
-        {
-          "kind": "paragraph",
-          "text": "From: Jason Bell"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Re: Kickoff, Board Director Search for Sanchez-Baker"
-        },
-        {
-          "kind": "paragraph",
-          "text": "The firm is retained by {{fact:f:E-2017-001.client}} to place one independent director on the board. Work begins {{fact:f:E-2017-001.start}} and the search is scheduled to run about four months. The seat belongs to the board, not to management, which changes who we have to satisfy and how the calendar works. James Grant leads and owns the client relationship. Jeffrey Patterson owns the position specification and the market map. I own sourcing and first contact. Jennifer Frazier, Chief Operating Officer at Sanchez-Baker, is our day-to-day contact and controls board scheduling, which is going to matter more than anything else on this list."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The objective is one director elected to the board inside the term of the engagement, chosen from a slate we can defend name by name. Everything below serves that and nothing else. Two measures I care about: how many of the people we want to talk to will take the call, and how long the board takes to answer once they have. The first is our problem. The second is the one that sinks searches, and it is the one we have the least control over, so we start managing it now rather than in the last month."
+          "text": "To: Search team, James Grant and Jeffrey Patterson. From: Jason Bell. Re: kickoff of the board director search for {{fact:f:E-2017-001.client}}."
         },
         {
           "kind": "heading",
-          "text": "Workstreams",
+          "text": "Objective",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We have been retained to identify and recruit an independent director for the client's board. The search runs about four months. This memo records where we start and who owns what. The deliverable is a slate, not a single name. The board chooses; we find and qualify the field."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The brief is a board seat, not an executive hire. That changes the field. We are looking for judgment, sector credibility, and the standing to be heard in the room, more than day-to-day availability."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The sectors to map are the ones the board named as priorities. Within them, we look first at sitting non-executive directors and recently retired senior operators, and second at strong functional leaders ready for a first board seat. Jason Bell will draw the field from public filings, board rosters, and our own network."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our client contact is Jennifer Frazier, Chief Operating Officer. All client communication routes through her unless she directs otherwise. The engagement began on {{fact:f:E-2017-001.start}}."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Reporting cadence is a short weekly note to the client and this internal thread kept current. Jeffrey owns the client scheduling. Jason owns the research updates. James owns anything that touches the specification or assessment."
+        },
+        {
+          "kind": "heading",
+          "text": "What a good outcome looks like",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A good outcome is a short slate of three or four genuine prospects the board is glad to interview. Each name has to be a real candidate, not a name to fill the list. We aim for a small, strong slate, not a long one. If the specification holds through the first approaches without rework, the calibration was right. If prospects push back on the profile, we adjust the specification at once and re-map."
+        },
+        {
+          "kind": "heading",
+          "text": "Lines of work",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Specification. Jeffrey Patterson drafts it after the board interviews, not before. Nothing goes out until the board signs it off. Draft to James Grant first.",
-            "Market map. Sitting and recently retired directors, plus operators with board-ready profiles in adjacent sectors. Jeffrey Patterson builds it; I feed him names as they surface from calls.",
-            "Sourcing and first contact. Mine. I work the phone. Assume most of the useful names come from people who are not themselves candidates, which is the part that does not show up on a list.",
-            "Client management and calendar. James Grant. Board availability across the summer is the risk on this search, and Jennifer Frazier is the only person who can fix it.",
-            "Off-limits. Confirm with Jennifer Frazier which companies are out of bounds before I start calling into them. Easier to ask now than to unwind an approach later.",
-            "Discretion. No candidate named in anything that circulates. Current role only, in every document that leaves the team, including our own notes.",
-            "Slate assembly and presentation. James Grant and Jeffrey Patterson, working from my contact notes on every candidate we approach."
+            "Market map and long list. Owner: Jason Bell. Build the field of prospective directors from current and recent board and senior operating roles.",
+            "Specification. Owner: James Grant, with the client. Agree the profile, the priorities, and any firm requirements before outreach opens.",
+            "Candidate approaches and care. Owner: Jeffrey Patterson. Manage first contact, interest, and scheduling; keep every thread current.",
+            "Assessment and references. Owner: James Grant. Test the advancing candidates against the specification and lead the reference work.",
+            "Client updates. Owner: Jeffrey Patterson. Send a short weekly note to the client and keep this internal thread current."
           ]
         },
         {
           "kind": "heading",
-          "text": "Next Steps",
+          "text": "Timeline",
           "level": 2
         },
         {
-          "kind": "list",
-          "items": [
-            "Board interviews to be scheduled through Jennifer Frazier. Ask for the chair and the directors who will vote, not the whole board. A room of nine produces a specification nobody wrote.",
-            "Jeffrey Patterson to circulate a specification outline before those interviews, so we ask the right questions in the room rather than reconstruct them from memory afterward.",
-            "I start calls this week. Not waiting for the map to be finished. The map gets better from the calls, not the other way round.",
-            "James Grant to get a read on what this board will actually approve, and on whether it has approved anything like it before. That is not in the letter and we should not learn it from a rejection.",
-            "Every approach logged the day it happens. If it is not in the log, I did not make the call, and by August none of us will remember."
-          ]
+          "kind": "paragraph",
+          "text": "We are early. The first weeks are market work and specification. The middle weeks are approaches and first conversations. The back weeks are assessment, references, and interviews. We hold to that sequence unless the client's needs move it. We are in the first block now. No approaches go out until the specification is confirmed."
+        },
+        {
+          "kind": "heading",
+          "text": "Discipline",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "One thing worth saying at the start. Sanchez-Baker has told us the seat is open. The board has not yet told itself what the seat is for, and until it does, any name we put forward is a guess wearing a resume. That is normal at kickoff and it is the entire reason the specification comes first. Expect someone to ask for names in week two. Push back. Questions to me or to James Grant, and if it is about the calendar, it is James Grant."
+          "text": "One standing rule. We describe candidates by their current seat, never by name, in anything that circulates. The strongest prospects are often people who are not looking to move, so first approaches are discreet and go out only once the specification is set."
+        },
+        {
+          "kind": "heading",
+          "text": "Immediate steps",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "First actions are set. Jason Bell opens the market map now. James Grant drafts the specification for the client call. Jeffrey Patterson holds two interview windows in reserve so we are not chasing diaries later. Early feedback matters more than usual here, so we calibrate the specification hard in the first two weeks and adjust the map fast if the client's read differs from ours. By the internal review, the long list should sit at a workable size, roughly two to three dozen names, before any narrowing begins."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We regroup at the end of the first fortnight to review the long list. Flag anything that needs the client before then. Keep the client thread and this one current; a search stalls when a note sits unanswered."
         }
       ]
     },
@@ -190,23 +237,23 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Jennifer Frazier, copy to Jeffrey Patterson and James Grant."
+          "text": "Good morning Jennifer,"
         },
         {
           "kind": "paragraph",
-          "text": "Quick update ahead of our call, with one ask at the bottom. The specification is approved and has not moved since, which makes the approaches cleaner than they usually are at this stage. Jeffrey Patterson has the market map at the point where it is useful rather than merely long. We are working through the priority names now and I have made first contact with a good share of them."
+          "text": "A short update on the board search for {{fact:f:E-2017-001.client}}. The market map is built, and we have begun reading the strongest prospects against the specification we agreed. We approach a first group of prospective directors this week. Two prospects I did not expect have already surfaced, which is the part of this work I enjoy most. The specification is holding well against the market, which is a good sign this early, and as throughout we describe candidates by their current seat, not by name. None of the strongest names has ruled itself out."
         },
         {
           "kind": "paragraph",
-          "text": "Two things worth knowing early. Interest is real, but the profile question is not settled. The people who match the specification most exactly are already sitting on two boards and are the hardest to move; the people with the most capacity are a step earlier in their careers than the specification implies. James Grant and I would rather test that with you now than surface it in a slate. Nothing here is off track for {{fact:f:E-2017-001.client}} at this point. It is the ordinary shape of the market for a seat like this one."
+          "text": "The team on this is steady. I am your day-to-day contact on the research, Jason Bell, with James Grant leading the assessment and Jeffrey Patterson keeping the candidate conversations and scheduling in hand. No thread is going quiet, and you will have a fuller written status from us shortly. If a name ever needs your steer, James will bring it to you himself."
         },
         {
           "kind": "paragraph",
-          "text": "The ask: we need the directors who will vote available for candidate conversations, not only for the interviews at the end. The candidates worth having are asking who they would be sitting with, and that question gets answered by a person or it gets answered by silence. If Sanchez-Baker can give us dates now, I will build the calendar around them."
+          "text": "One ask, so that we do not lose time later. When the slate is ready, your board's interview availability will set our pace. Could you hold two provisional windows over the coming weeks? I will have Jeffrey firm them up as candidates confirm, and he will work through you alone, Jennifer Frazier, so that nothing about the search travels wider than it should. Even rough placeholders help; we can confirm the times later as candidates lock in."
         },
         {
           "kind": "paragraph",
-          "text": "Jason Bell"
+          "text": "Sincerely,"
         }
       ]
     },
@@ -216,65 +263,94 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Minutes of Working Session",
+          "text": "Working Session, Board Director Search for {{fact:f:E-2017-001.client}}",
           "level": 1
         },
         {
+          "kind": "paragraph",
+          "text": "The purpose of this session was to review progress on the board director search since kickoff, to calibrate the specification against what the early market work has surfaced, and to agree the sequence of steps that will carry us toward a qualified slate; these minutes record, in order, who attended, what was discussed, and what each of us undertook to do."
+        },
+        {
           "kind": "heading",
-          "text": "Attendees",
+          "text": "Present",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "James Grant, Senior Consultant, Northgate Talent Partners (chair, minutes)",
-            "Jeffrey Patterson, Research Consultant, Northgate Talent Partners",
-            "Jason Bell, Research Associate, Northgate Talent Partners",
-            "Jennifer Frazier, Chief Operating Officer, Sanchez-Baker"
+            "James Grant, Senior Consultant",
+            "Jason Bell, Research Associate",
+            "Jeffrey Patterson, Research Consultant",
+            "Jennifer Frazier, Chief Operating Officer"
           ]
         },
         {
           "kind": "heading",
-          "text": "Discussion",
+          "text": "Progress since kickoff",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Purpose of the session was to review the long list against the approved specification and to decide who we approach. Jeffrey Patterson opened with the map. The useful result was not the size of the list but its shape: it sorts into three groups and only two of them are worth our time. Sitting directors at larger companies match the specification exactly and will be the hardest to move, largely because their calendars are already spoken for. Operators one step short of a first board seat have the capacity and the appetite, and will require the board to carry a small amount of risk. The third group, the professional director set who will take any seat offered, we agreed to leave where we found it. Jennifer Frazier did not need persuading on that point."
+          "text": "Jason Bell presented the state of the market map, which now covers the relevant field of prospective directors drawn from current and recent board and senior operating roles across the sectors we agreed to prioritize, and he noted that the long list has reached a workable size without yet having been narrowed, so that no prospect has been set aside prematurely. He added that two prospects had surfaced whom none of us had expected, which he took as a sign that the map is reaching beyond the obvious names."
         },
         {
           "kind": "paragraph",
-          "text": "The conversation then turned to what {{fact:f:E-2017-001.client}} is actually solving for with this appointment. Jennifer Frazier was direct about it: the board wants operating experience from a company that has crossed the size Sanchez-Baker is crossing now, and it wants someone who will ask management hard questions without turning every meeting into a review. Jason Bell reported from first contact that the second group responds to precisely that framing, while the first group asks about committee load before anything else. That split is useful. It should shape how we write the approach, not only whom we call."
+          "text": "Jennifer Frazier gave the client's read on the profile, emphasizing that the board values sector credibility and the standing to be heard in the room over a simple count of prior directorships, and she asked that we give weight to candidates whose experience speaks to the board's current priorities, a point that we agreed to fold directly into the specification. She also confirmed that the board would prefer a genuinely independent voice to a familiar one, which narrows the field in a useful way."
         },
         {
           "kind": "paragraph",
-          "text": "One caution from the chair. We spent part of the session on individual names, and at this stage I would rather we did less of that. Approaches are underway and candidates are in conversation. A name spoken of warmly in a working session has a way of becoming an expectation by the time the slate lands, without anyone having agreed to it. Nothing in this record identifies a candidate: current role only, as the engagement letter provides, and I would ask that the same discipline hold in whatever goes back to the board."
+          "text": "On the specification itself, we recorded the profile as it now stands: an independent director with credibility in the relevant sector, the standing to be heard in the room, freedom from conflict with the company, and the time to serve as a working member of the board rather than a name on the letterhead."
         },
         {
           "kind": "paragraph",
-          "text": "On timing, we are entering the stretch where the calendar rather than the market decides the outcome. Jennifer Frazier will confirm which directors sit on the interview panel and will hold time for them. Jeffrey Patterson raised references early, as he tends to, and he is right to. For a board seat the references worth having are people who have sat in a boardroom with the candidate, and those cannot be arranged discreetly at short notice. We start that groundwork now rather than at the end."
+          "text": "On the question of pace, we set out the ordinary rhythm of a search of this kind, in which the long list is refined into a shorter roster of genuine prospects, those prospects are approached and assessed in sequence, and only a small, well-qualified group is brought forward for interview; we are presently at the refining stage, well short of finalists, and we were candid that the calibration now underway is what most determines the quality of the slate later on."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We reviewed, in turn, the discipline that governs how this search is conducted: every candidate is described by the seat presently held rather than by name in any material that circulates, and the first approaches, which Jeffrey Patterson is managing, will be made discreetly to those who are not themselves seeking a move, since the strongest board members are seldom those who put themselves forward."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We closed the discussion by fixing the shape of the next review, at which Jason Bell will bring the refined long list, James Grant will bring the revised specification for confirmation, and Jennifer Frazier will bring the board's read on interview timing, so that the session can move us cleanly from research into approaches without a further round of calibration."
         },
         {
           "kind": "heading",
-          "text": "Action Items",
+          "text": "Actions agreed",
           "level": 2
         },
         {
           "kind": "table",
-          "header": ["Action", "Owner", "By when"],
+          "header": [
+            "Owner",
+            "Action",
+            "By when"
+          ],
           "rows": [
-            ["Confirm the directors sitting on the interview panel and hold time for them", "Jennifer Frazier", "Before the next session"],
-            ["Continue approaches across the two priority groups; log every response the day it happens", "Jason Bell", "Ongoing"],
-            ["Recut the map against the operating-experience test the board set today", "Jeffrey Patterson", "Next week"],
-            ["Confirm the off-limits list against the board's own affiliations", "Jennifer Frazier", "Next week"],
-            ["Begin discreet groundwork on boardroom references for the likely candidates", "Jeffrey Patterson", "Ongoing"],
-            ["Reset the board's expectation on slate size and the true depth of this market", "James Grant", "At the next board update"],
-            ["Circulate the weekly approach summary by current role only, no names", "Jason Bell", "Weekly"]
+            [
+              "James Grant",
+              "Revise the position specification to reflect the client's weighting and circulate it for confirmation",
+              "This week"
+            ],
+            [
+              "Jason Bell",
+              "Refine the long list against the sharpened specification and prepare a first cut for internal review",
+              "Within the fortnight"
+            ],
+            [
+              "Jeffrey Patterson",
+              "Open discreet approaches to the priority prospects and hold provisional interview windows",
+              "On approval of the specification"
+            ],
+            [
+              "Jennifer Frazier",
+              "Confirm the revised specification and the board's interview availability",
+              "Ahead of the next review"
+            ]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Next working session to be scheduled through Jennifer Frazier. Minutes recorded by James Grant; corrections to me within the week or the record stands."
+          "text": "Our single next step is the confirmation of the revised specification; once Jennifer Frazier returns it, we will open the priority approaches and set the date on which we present the first cut of the slate for review."
         }
       ]
     },
@@ -283,52 +359,91 @@
       "doc_id": "d:0023",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Prepared by Jason Bell, Research Associate. Reviewed by James Grant, Senior Consultant."
+          "kind": "heading",
+          "text": "Board Director Search for {{fact:f:E-2017-001.client}}: Status at the Midpoint",
+          "level": 1
         },
         {
           "kind": "heading",
-          "text": "Status Summary",
+          "text": "Summary",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The search for a director of the board of {{fact:f:E-2017-001.client}} is at its midpoint and is on schedule. The position specification is approved and has not moved since approval. The market map is complete and has been recut once against the operating-experience test the board set at the working session last month. Approaches are underway across both priority groups, first conversations are done with the majority of the priority names, and panel interviews are being scheduled now. We expect to present a slate on the timeline agreed at kickoff. Nothing in this report asks the board for a decision it has not already been asked for."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The one thing worth flagging at the halfway mark is that the search has consumed its easy half. The work behind us was ours to control: writing the specification, building the map, making the calls. The work ahead runs on the board's calendar and on candidates who have their own reasons and their own timing. Searches of this kind are not usually lost in the sourcing. They are lost in the four weeks between a slate landing and a board answering it. We would rather say that now, while it is an observation, than later, when it would be an excuse."
+          "text": "The search is on track and roughly at its midpoint. The market work is complete. The long list has been refined to a working roster of genuine prospects, and first approaches are underway. Nothing at this stage gives cause for concern, and we expect to hold the timetable we set. Since our last note, the map has closed and outreach has begun. The move from research to candidate contact is the main change to report."
         },
         {
           "kind": "heading",
-          "text": "Accomplishments This Period",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Specification approved and used unchanged in every approach since. Jeffrey Patterson's draft needed one round, which for a board specification is one round.",
-            "Market map complete, then recut once against the operating-experience test. The third-group names came out by agreement rather than being left in to pad the count.",
-            "First contact made across both priority groups. The operator group responds at the better rate of the two, consistent with what we reported last month.",
-            "Interview panel confirmed and time held. This was the item most likely to cost the search a month, and it did not.",
-            "Confidentiality holding. No candidate has been named in any document circulating outside the search team; candidates appear by current role only, including in our own working papers.",
-            "Reference groundwork started early on the likely candidates. For a board seat the references worth having are people who have sat in a boardroom with the candidate, and they take time to arrange without drawing attention."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Upcoming Work",
+          "text": "Progress this period",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "First-round panel interviews. James Grant attends each one.",
-            "Slate assembly. Jeffrey Patterson and James Grant write the assessments; every candidate on the slate will have been met by the firm before it reaches the board.",
-            "Slate presentation to the board, on the timeline set at kickoff. James Grant will ask for a decision date in the room rather than leave the board to find one later.",
-            "References on any candidate the board intends to appoint, once the panel has narrowed the field and not before. Approaching a candidate's boardroom references early is how a search becomes public.",
-            "Support through offer and acceptance, including the conversation with a candidate's own chair where one is needed. Jeffrey Patterson will hold the withdrawal note in reserve; if a finalist steps back, the client hears it from us the same day and hears what happens next in the same message."
+            "Position specification agreed with you and stable since.",
+            "Market map complete across the priority sectors.",
+            "Long list refined to a working roster of genuine prospects.",
+            "First discreet approaches opened; early interest encouraging."
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Grant led the specification and the assessment framework. Jason Bell built the market map and the long list. Jeffrey Patterson is managing the approaches and the candidate conversations, and is keeping every thread current. Every prospect we approach is logged, with their current seat and their read on a possible move, so the roster stays current from one week to the next."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Response to the first approaches has been better than typical for a board mandate. Several of the strongest prospects have agreed to an exploratory conversation, and none of the names we most wanted has declined. That is a good position at the halfway mark. We will keep the pressure on outreach so the momentum holds into the second half."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The field breaks into three groups. There are sitting non-executive directors at comparable companies, recently retired senior operators with the standing for a board seat, and a smaller set of strong first-time directors with deep functional experience. We are weighting the first two, in line with the specification. The third group is thinner but worth carrying, since a first-time director with the right functional depth can be the freshest voice in the room. As always, we describe each candidate by the seat now held rather than by name."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The specification is doing its job. It asks for judgment, credibility in the relevant sector, and the standing to be heard in a boardroom, ahead of a long directorship record. It sets no hard bar on prior board count. It does ask that a candidate be free of conflict with the company and able to give the time a working director needs. We have held it as written, and it is keeping the roster focused."
+        },
+        {
+          "kind": "heading",
+          "text": "The weeks ahead",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next phase turns the roster into a slate. We will complete the priority approaches, hold first conversations, and assess those who advance against the specification. We expect to present a short, qualified slate for your interviews in the back half of the engagement."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Assessment is structured, not impressionistic. Each advancing candidate is measured against the same specification, on the record, so that the comparison you see is a fair one. You will have our written read on every name we put forward, framed by the seat held."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Reference work follows selection, it does not precede it. We check each finalist properly, and discreetly, before any offer is discussed, since none of these candidates has spoken to a current employer."
+        },
+        {
+          "kind": "paragraph",
+          "text": "So that we do not lose time when the slate is ready, it will help to hold provisional interview windows now. Jeffrey Patterson will coordinate the dates as candidates confirm."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and watch items",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two items warrant attention, neither serious. First, board searches turn on the availability of people who are not looking to move, so a strong prospect may step aside on timing even when the fit is right. We manage this by carrying enough depth in the roster that no single withdrawal sets us back. We are carrying more names in the priority tier than the slate will need, for exactly this reason."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Second, interview scheduling across a full board is the most common cause of delay late in a search. Reserving windows now is the surest guard against it. We see no risk to confidentiality; the search is holding tightly."
+        },
+        {
+          "kind": "heading",
+          "text": "What will help from you",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things from your side will keep the closing weeks clean. First, hold the provisional interview windows we have asked for; late scheduling is the usual cause of slippage. Second, when you are ready, confirm the compensation and time expectations for the seat, so that we can be straight with candidates from the first serious conversation."
         },
         {
           "kind": "heading",
@@ -337,21 +452,15 @@
         },
         {
           "kind": "paragraph",
-          "text": "The engagement is a fixed fee of {{fact:f:E-2017-001.fee}}, billed in three equal installments, of which the first has been invoiced. The second is triggered by delivery of the slate rather than by a date, so it will fall where the work falls. Effort to date is consistent with the fee and there is no change in scope to report or to anticipate. Out-of-pocket expenses remain within the ordinary range for a search of this kind, and none of consequence has been incurred without approval. If the board revises the specification in a way that reopens the market, that is a scope conversation, and James Grant will raise it before any work is done against it rather than after."
+          "text": "The engagement is a retained assignment at a fixed fee of {{fact:f:E-2017-001.fee}}, which covers the search in full, from the research through the reference work behind a finalist. We are within that fee. We expect no charges beyond it, save the itemized expenses set out in our agreement."
         },
         {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
+          "kind": "paragraph",
+          "text": "We will send the next written status at the three-quarter mark, or sooner if the slate firms up before then. Between reports, Jeffrey Patterson is your point of contact for anything time-sensitive."
         },
         {
-          "kind": "list",
-          "items": [
-            "Board calendar. The panel dates are held, but summer holds are the first thing to move. If a date slips, candidates who are in play with other boards do not wait for us. James Grant re-confirms the panel ahead of each interview.",
-            "Profile tension. The candidates who match the specification exactly are the hardest to move; the ones with real capacity are a step earlier. The slate will reflect both. If the board is unwilling to consider the second group, then the market for this seat is thinner than the specification implies, and that conversation should happen before the slate rather than during it.",
-            "Discretion. Every additional person inside Sanchez-Baker who knows the search is running is another route by which a candidate's name reaches their own board. That has not happened. Keeping it that way means materials do not travel beyond the directors who will vote.",
-            "Late withdrawal. On a board search it is ordinary for a strong candidate to step back near the end, for reasons that have nothing to do with the client. We plan for it by keeping the slate live rather than collapsing to a single name early."
-          ]
+          "kind": "paragraph",
+          "text": "Our single priority before the next report is to complete the priority approaches and firm up the interview windows. We will send the qualified slate as soon as the first conversations are done."
         }
       ]
     }
