@@ -36,6 +36,10 @@ doc_culture:
     mundane_emails: 8
     attachments: 2
     distribution_lists: 3
+    # M16: mundane-email authors no longer name themselves in the body; the
+    # render-time signature block names them. Closes the pilot board's
+    # author-self-names finding at this regeneration.
+    exempt_author_mentions: true
   # Organizational noise (M15), appended to the committed corpus with the
   # DocIR reused and zero authoring tokens: derived copies, drafts, version
   # chains with divergence, misfiles, dead templates, junk directories, one
@@ -50,6 +54,10 @@ doc_culture:
     empty_dirs: 3
     attachment_mismatch: 1
     filename_variety: true
+  # M16: the voice layer joins the workbench. Each person carries a structured
+  # style spec and the brief bans the template constructions the board named.
+  style_specs: true
+  voice_diversify: true
 
 finance:
   # 8% growth against three net new seats over eight years; a coherent

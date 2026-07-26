@@ -2,16 +2,43 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "ashcombe-advisory",
   "dimension": "finance_realism",
-  "generator": {"model": "claude-opus-4-8", "effort": "xhigh"},
+  "generator": {"model": "claude-fable-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
       "id": "rf:finance-realism-1",
       "dimension": "finance_realism",
+      "severity": "major",
+      "docs": ["d:0050", "d:0051", "d:0052", "d:0054"],
+      "summary": "The Kirby-Taylor numbers thread contradicts itself: the fact sheet is declared final and twice-checked on June 3, the same quarterly figures are re-requested the same day, and a discrepancy against the public record surfaces three days later in figures already declared reconciled.",
+      "evidence": "d:0050 (Jun 3, Melissa Zimmerman): 'The fact sheet is final. With the quarterly figures you sent now folded in and reconciled ... I have checked the totals twice against your filings so there is nothing in it I cannot stand behind.' d:0051 (same day, Laura Bradley): 'Melissa Zimmerman is building the fact sheet and needs your most recent quarterly figures to lock it.' d:0052 (Jun 6, Melissa again): 'The trailing-quarter revenue line in the Kirby-Taylor file reads a shade higher than the figure ... reported publicly ... Laura Bradley is holding the fact sheet until this is settled.' d:0054 (Jun 9) then locks it a second time. Crossed mail could excuse Email 5, but Emails 4 and 6 are the same author reconciling the same numbers twice with opposite results."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-realism-2",
+      "dimension": "finance_realism",
       "severity": "minor",
-      "docs": ["d:0018", "d:0038", "d:0061"],
-      "summary": "Fixed engagement fees barely move with scope or duration: the longest, most senior programs are priced at roughly half the monthly rate of the shortest ones, inverting how professional-services fees usually scale.",
-      "evidence": "Ledger fees (engagements.json) cluster tightly regardless of term: Corporate Positioning $59,000, Investor Relations Program $47,000, Crisis Communications $46,500, Media Relations $46,000, Reputation Audit $45,500, with Executive Messaging $102,000 the lone outlier. The letters state the terms and teams: d:0018 'runs approximately nine months' as a partner-led IR program (Michael Morris, Partner, plus a senior associate and an analyst) at $47,000, about $5,200/month; d:0038 'runs approximately eight months' of crisis communications at $46,500, about $5,800/month; while d:0061 'runs about five months' at $102,000, about $20,000/month. A nine-month partner-led IR program and an eight-month crisis engagement priced below a four-month reputation audit, and crisis work (the premium line) billed at ~$5,800/month, read as a single default project price rather than scope-based pricing to a reader who knows the market. (Distinct from the report's fee-to-revenue metric, which addresses the aggregate sample gap, not per-engagement pricing.)"
+      "docs": ["d:0018", "d:0038", "d:0045", "d:0061", "d:0075"],
+      "summary": "Four of the six engagement fees form an exact $500 ladder ($45,500 / $46,000 / $46,500 / $47,000) across seven years and four service lines, and the pricing runs inverted, with crisis communications the cheapest work in the book per month.",
+      "evidence": "Ledger fees: E-2018 $47,000 (8.6 mo, ~$5.5k/mo), E-2021 $46,500 (7.9 mo, ~$5.9k/mo), E-2022 $46,000 (4.0 mo), E-2024 $45,500 (3.8 mo), consecutive $500 steps; against E-2023 $102,000 (4.7 mo, ~$21.6k/mo) for executive messaging. The crisis letter (d:0038) prices an open-ended commitment, 'call on us as the matter demands without watching a clock,' at roughly a quarter of the executive-messaging monthly rate, and fees drift downward from $59,000 (2017) to $45,500 (2024) through the inflation years while the ledger's revenue nearly doubles."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-realism-3",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0015", "d:0024", "d:0042", "d:0056"],
+      "summary": "The budget section is the one part of the status reports that collapses to a single voice: four different authors across five years state the fee position in the same first-person sentence.",
+      "evidence": "'tracking within its fixed fee of {{fact}}, and the first half came in on the effort we scoped' appears verbatim in d:0015 (Valenzuela, 2017), d:0024 (Morris, 2018), d:0042 (Carter, 2021), and d:0056 (Bradley, 2022). Interpreting the metric-flagged d:0015/d:0024 pair: it reads as a generator habit rather than a firm template, because both writers offer the identical hypothetical, 'such as materials for an event that was not in the original plan,' as their own personal judgment ('I will flag it and price it with you'), not as boilerplate."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-realism-4",
+      "dimension": "finance_realism",
+      "severity": "note",
+      "docs": [],
+      "summary": "Money never misbehaves anywhere in the corpus: after each letter is signed, the fee reappears only as 'tracking within its fixed fee', and no invoice sent, payment made or chased, scope change priced, or fee pushback occurs in eight years of correspondence.",
+      "evidence": "Every sampled status report (d:0015, d:0024, d:0029, d:0042, d:0056, d:0073, d:0086) reports the budget on plan and inside the fee; every letter promises invoices 'payable within thirty days' yet no email or minute ever mentions an actual invoice, a late payment, or an out-of-scope request that materialized. The letters all anticipate commercial friction ('if the shape of the work changes materially, we will raise the fee with you') that never once arrives."
     }
   ]
 }

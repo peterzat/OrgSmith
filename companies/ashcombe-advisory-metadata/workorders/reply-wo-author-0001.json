@@ -1,0 +1,114 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0001",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0002",
+      "blocks": [
+        {"kind": "paragraph", "text": "Mary Frank\nDirector of Operations\n{{fact:f:E-2017-001.client}}"},
+        {"kind": "paragraph", "text": "Dear Ms. Frank:"},
+        {"kind": "paragraph", "text": "This letter sets out the terms on which our firm will act for {{fact:f:E-2017-001.client}} on the corporate positioning work we discussed, and it stands as our agreement once you have signed it. We have tried to write it plainly, so that it reads as a record of what we said to one another and not as a document to be decoded."},
+        {"kind": "paragraph", "text": "Please read it against that conversation. If any part of it sits differently from how you remember the discussion, say so before you sign, and we will put it right."},
+        {"kind": "heading", "text": "Scope of the Engagement", "level": 2},
+        {"kind": "paragraph", "text": "We will help {{fact:f:E-2017-001.client}} settle on a clear and defensible account of itself for the audiences whose view of the company counts most, and give you the language to carry that account through the announcements and conversations ahead. Our task is to see that what is already true about the company is understood by the people who need to understand it, and that the account holds steady wherever it is heard."},
+        {"kind": "paragraph", "text": "In practice that means the core positioning and the messages that express it, the written materials that carry those messages into the world, and our counsel through the announcements that will test them over the term. It does not extend to the running of the company or to decisions that are properly yours; where our advice touches those, it stays advice."},
+        {"kind": "paragraph", "text": "Our method is unhurried and, we hope, familiar in feel. We begin by listening, to you and to the people inside and outside the company who already hold a view of it, and we set a small number of core messages down in writing before we build anything on top of them."},
+        {"kind": "paragraph", "text": "From there we prepare the materials that carry those messages, and we stay close through the moments that test them. When the ground shifts, as it will over five months, we come back to you and adjust the account with you, never around you."},
+        {"kind": "heading", "text": "The Team", "level": 2},
+        {"kind": "paragraph", "text": "Daniel Valenzuela will lead the work day to day and will be your first point of contact for anything of substance. He keeps a deliberately small book of clients so that the one in front of him has his full attention, and he is the person to bring a decision to when it needs to move."},
+        {"kind": "paragraph", "text": "Michelle Rose will shape the messaging and the drafts and keep the moving parts legible as they multiply. She has a careful ear for how a company already speaks, and she will see that the language we propose sounds like {{fact:f:E-2017-001.client}} and not like us. Between them you will always know what has changed and what is still open."},
+        {"kind": "paragraph", "text": "I will keep a hand on the work myself, particularly on the announcements that carry the most weight, and nothing sensitive will go out under our name without my having read it. You are welcome to come to me directly at any point, though more often Daniel will be the faster route to an answer."},
+        {"kind": "heading", "text": "Fees and Payment", "level": 2},
+        {"kind": "paragraph", "text": "Our fee for the engagement is {{fact:f:E-2017-001.fee}}, covering the work described above through its expected close. We will invoice against that amount as the work proceeds, and our invoices are payable within thirty days of receipt."},
+        {"kind": "paragraph", "text": "The fee covers our people and their time. It does not cover out-of-pocket costs such as travel, print production, or third-party services, which we will agree with you before anything of consequence is incurred. If the shape of the work changes materially, we will raise the fee with you and settle it before that work begins."},
+        {"kind": "heading", "text": "Term and Termination", "level": 2},
+        {"kind": "paragraph", "text": "The engagement begins {{fact:f:E-2017-001.start}} and is expected to run for about five months. We will treat it as finished when the work is genuinely done, not simply when the calendar says so."},
+        {"kind": "paragraph", "text": "Either of us may bring it to a close on fourteen days' written notice. If you end it, you will owe us for work properly done up to that point and for costs already committed on your behalf, and nothing more."},
+        {"kind": "heading", "text": "Confidentiality", "level": 2},
+        {"kind": "paragraph", "text": "Everything we learn about {{fact:f:E-2017-001.client}} in the course of the work we will hold in confidence and use only for the purpose of the engagement. That obligation binds our whole team, survives the end of the engagement, and covers the fact of our involvement as much as its substance. We ask the same of you in respect of the methods and materials we share with you."},
+        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
+        {"kind": "paragraph", "text": "We will do the work with the care and skill you are entitled to expect, and we stand behind it. We do not, however, control how third parties, the press and the markets among them, will finally respond, and so our liability to you for the engagement is limited to the fees paid under it, save where the law does not permit such a limit."},
+        {"kind": "heading", "text": "Governing Law", "level": 2},
+        {"kind": "paragraph", "text": "This agreement is governed by the law of the state in which our firm is established, and any dispute under it will be resolved in that state's courts. Should any single provision be found unenforceable, the rest of the letter stands unaffected."},
+        {"kind": "paragraph", "text": "If this reflects our understanding, please sign and return one copy and keep the other for your files. Once we have it back, Daniel Valenzuela will be in touch to arrange the first conversations. We are glad to be working with you, and it is in careful hands."},
+        {"kind": "sigblock", "signers": ["p:julie.hill", "xp:mary.frank"]}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0003",
+      "blocks": [
+        {"kind": "paragraph", "text": "To: Corporate Positioning engagement team\nFrom: Daniel Valenzuela\nRe: Kickoff, Corporate Positioning for {{fact:f:E-2017-001.client}}"},
+        {"kind": "paragraph", "text": "We are under way on the corporate positioning work for {{fact:f:E-2017-001.client}}, with our start set at {{fact:f:E-2017-001.start}}. The aim is a clear, defensible account of the company for the audiences that matter to it, and the language to carry that account through the announcements ahead. This memo sets out how the work divides and what each of us picks up first, so nobody waits on a hand-off that was never assigned."},
+        {"kind": "paragraph", "text": "A word on how we will run it. We keep the account small and written down early, we route everything client-facing through one contact, and we log what we send so the record stays in order as the volume grows. None of that is new to us, but it is worth stating once at the start."},
+        {"kind": "heading", "text": "How the work divides", "level": 2},
+        {"kind": "list", "items": [
+          "Discovery. Daniel Valenzuela and Christopher Walton run the opening interviews, inside the company and with the outside voices that already hold a view of it, and bring back what we hear in a form the rest of us can use.",
+          "Core messaging. Michelle Rose turns the discovery into a first set of written messages, kept small enough to hold and to repeat without drift.",
+          "Sensitive language. Christopher Walton reviews anything bound for the press or the markets before it leaves the building, so the delicate lines are weighed twice.",
+          "Client coordination. Mary Frank is our point of contact at the company; approvals and scheduling on their side route through her, and we do not go around her.",
+          "Files and logistics. Lisa Flores stands up and keeps the engagement files and the correspondence record; Pamela Rojas holds the calendar and the meeting logistics."
+        ]},
+        {"kind": "heading", "text": "First steps", "level": 2},
+        {"kind": "list", "items": [
+          "1. Pamela Rojas books the kickoff call with Mary Frank this week and sends the invite to the team.",
+          "2. Daniel Valenzuela circulates the interview list for the company's sign-off before we approach anyone outside it.",
+          "3. Michelle Rose drafts the messaging outline from the kickoff conversation, so we have something concrete to react to.",
+          "4. Lisa Flores opens the engagement folder and the correspondence file, so nothing we produce lives only in an inbox."
+        ]},
+        {"kind": "paragraph", "text": "The first thing that has to happen is the kickoff call, and the rest keys off the date Pamela Rojas sets. Send me anything you want raised there by the end of the week, and flag now anything you are unsure of, so we settle it before we sit down with the client."}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0004",
+      "blocks": [
+        {"kind": "paragraph", "text": "Dear Mary,"},
+        {"kind": "paragraph", "text": "I am opening this thread so our updates on the {{fact:f:E-2017-001.client}} positioning work stay in one place, and I have attached the kickoff memo so the plan is in front of you as we go. For the file, the working contacts are set: Mary Frank on your side, and on ours Michelle Rose, who is drafting the core messaging, with me handling the engagement day to day."},
+        {"kind": "paragraph", "text": "We have made a start. Michelle Rose is turning the kickoff conversation into a first set of messages, and we expect a draft to you late this week. You will hear from us on a steady cadence from here, and each note will be tied to the piece of work it concerns, so the thread stays easy to follow."},
+        {"kind": "paragraph", "text": "One thing would help before that draft hardens: your read on which audience comes first. If the operations story and the investor story pull in different directions, tell me now and we will build to it. A short call works if that is easier than writing it out."},
+        {"kind": "paragraph", "text": "Regards"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0005",
+      "blocks": [
+        {"kind": "paragraph", "text": "Hello Mary,"},
+        {"kind": "paragraph", "text": "Following Daniel Valenzuela's note, the first {{fact:f:E-2017-001.client}} messaging draft is nearly done. I will have it to you by Friday."},
+        {"kind": "paragraph", "text": "One point to settle first. I have left the investor-relations line as a placeholder for this round, since I am not sure it belongs here yet or in the next pass. I want your read on it before the wording sets."},
+        {"kind": "paragraph", "text": "For the file, final approval on the messaging sits with you, Mary Frank. I will send the draft Friday and flag that one line for your call."},
+        {"kind": "paragraph", "text": "Thanks"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0006",
+      "blocks": [
+        {"kind": "paragraph", "text": "Dear Mary,"},
+        {"kind": "paragraph", "text": "Agreed on holding the investor-relations line for now. Michelle Rose will keep it marked in the draft so it is easy to pick up once you have decided."},
+        {"kind": "paragraph", "text": "Here is how I would take the {{fact:f:E-2017-001.client}} messaging from here:"},
+        {"kind": "list", "items": [
+          "1. Michelle Rose sends you the first draft on Friday, with the investor-relations line flagged.",
+          "2. We hold a short call early next week to walk through it together.",
+          "3. We settle the held line on that call and lock the rest."
+        ]},
+        {"kind": "paragraph", "text": "Sign-off on the final wording stays with you, Mary Frank. Send me two or three windows for a call next week and I will confirm one."},
+        {"kind": "paragraph", "text": "Regards"}
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0008",
+      "blocks": [
+        {"kind": "paragraph", "text": "Hello Mary,"},
+        {"kind": "paragraph", "text": "The first {{fact:f:E-2017-001.client}} messaging draft is with you now. It follows the frame Daniel Valenzuela set out, and the investor-relations line is held where we left it."},
+        {"kind": "paragraph", "text": "I kept the wording close to how the company already speaks, so it reads in your voice and not ours. Mark any changes straight onto the draft and send it back, and I can turn edits the same day."},
+        {"kind": "paragraph", "text": "Noted for the file that final approval is yours, Mary Frank. Once your edits are in, we will set the short call to close out the held line."},
+        {"kind": "paragraph", "text": "Thanks"}
+      ]
+    }
+  ]
+}

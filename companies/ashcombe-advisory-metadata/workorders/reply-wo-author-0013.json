@@ -1,271 +1,107 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0013",
-  "generator": {
-    "model": "claude-opus-4-8",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0068",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Jennifer Herrera,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Got everything your team sent over, and there is nothing outstanding on your side for the moment. Amy Carter is drafting the first cut of the core messages for the {{fact:f:E-2023-001.client}} leadership voice against those inputs, and I would rather she land it right than land it fast, so look for a version worth your time early next week."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One thing that would help now: point me to anyone besides you who needs to read language before it goes out. If we know that from the first draft we route it correctly instead of circling back, and if it is only you for the moment, tell me and we keep the loop tight."
-        },
-        {
-          "kind": "paragraph",
-          "text": "John Macias"
-        }
+        {"kind": "paragraph", "text": "Good morning Jennifer,"},
+        {"kind": "paragraph", "text": "Thank you for the note, and for the time on the call last week. That conversation settled which audience we lead with, and it has already sharpened the first set of core messages for {{fact:f:E-2023-001.client}}. Amy Carter has the draft in hand and will work your marks in as they come."},
+        {"kind": "paragraph", "text": "The next piece is the round of short interviews with your executives, so the language sits on how they actually speak rather than on our guess at it. Before I propose times, it would help to know which two or three people you would like us to sit with, and roughly when they tend to be free over the coming fortnight."},
+        {"kind": "paragraph", "text": "Send me the names and I will come back the same day with a few windows that fit their diaries. For the file, sign-off on the Suarez-Jones messaging stays with you, Jennifer Herrera, so nothing firms up without your word."},
+        {"kind": "paragraph", "text": "Regards"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0069",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Jennifer Herrera,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thank you, that settles who holds sign-off. I am partway through checking each claim in the draft against the source documents your finance team provided, and most of them reconcile cleanly. A couple of the numbers on the {{fact:f:E-2023-001.client}} revenue history do not yet tie back to a source I can cite, and I would rather confirm those with you than carry a figure I cannot stand behind."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Could you tell me whether those two lines should quote the audited numbers or the internally reported ones? Once I know which basis you want used, I can close out the fact check and pass a clean draft to John Macias for his read before anything reaches you."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Best,\nAmy Carter"
-        }
+        {"kind": "paragraph", "text": "Jennifer,"},
+        {"kind": "paragraph", "text": "Following John Macias's note, I wanted to close the loop on the draft itself. The revised first set of core messages for {{fact:f:E-2023-001.client}} is ready on our side, and I will send it in a form you can mark up directly, with the two or three lines that turn on the audience question flagged so they are easy to find."},
+        {"kind": "paragraph", "text": "So the interviews and the draft do not cross, I have held the executive language loosely where I expect their own words to change it. If you can point me to the people John will be sitting with, I will make sure the questions we bring line up with the messages the Suarez-Jones executives will end up carrying."},
+        {"kind": "paragraph", "text": "I will get the marked draft to you this week either way. If reading it cold is awkward, a short call works just as well, and I will set one up around your schedule. For our file, final sign-off on the wording stays with you, Jennifer Herrera."},
+        {"kind": "paragraph", "text": "Regards"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0070",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Jennifer Herrera,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Quick add to Amy Carter's note before you reply. While you settle which figures we quote, I want to get a working session on the calendar so we can pressure-test the full message set with you in the room rather than trade it over email."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A few things to make that hour count:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Send two or three windows late this month that suit your calendar; thirty minutes is plenty on our end.",
-            "Bring whoever owns the {{fact:f:E-2023-001.client}} board narrative, since that is the audience this language has to survive.",
-            "No prep needed beyond the two numbers Amy Carter flagged; we walk in with the draft."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "John Macias"
-        }
+        {"kind": "paragraph", "text": "Good morning Jennifer,"},
+        {"kind": "paragraph", "text": "Thank you, that helps. Between your note and Amy Carter's, I think we have what we need to move. The names you sent let me shape the interviews for {{fact:f:E-2023-001.client}} around the people whose voice carries the message furthest, and Amy's marked draft will reach you this week to read alongside them."},
+        {"kind": "paragraph", "text": "On the short call Amy raised, I think it is worth doing ahead of the interviews, so we walk in aligned. If a half hour early next week suits you, tell me which day sits best and I will build everything else around it."},
+        {"kind": "paragraph", "text": "I will send three interview windows for each of your executives by tomorrow and hold them for your word. Nothing on the Suarez-Jones side is booked until you confirm, Jennifer Herrera."},
+        {"kind": "paragraph", "text": "Regards"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0071",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Jennifer Herrera,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "That works, and thank you for turning it around so quickly. I will quote the audited numbers for the two revenue lines and note the basis in the margin, so there is no question later about where either figure came from."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Ahead of the session John Macias is setting up, I will circulate the current message draft and a short agenda a couple of days out, so you can read it cold before we sit down. If any of the {{fact:f:E-2023-001.client}} positioning strikes you wrong on that first pass, mark it up and we will start the session there."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Amy Carter"
-        }
+        {"kind": "paragraph", "text": "Jennifer,"},
+        {"kind": "paragraph", "text": "The marked draft of the first set of core messages for {{fact:f:E-2023-001.client}} is on its way to you now, a little ahead of where I promised. As I mentioned, the lines that shift with the audience question are flagged in the margin, so you can go straight to the two or three that will matter most."},
+        {"kind": "paragraph", "text": "I have left room in the wording for what John Macias hears in the interviews, so please read it as a working draft and not a finished one. If anything reads false to how your leadership actually speaks, mark it freely; that is the most useful thing you can send back."},
+        {"kind": "paragraph", "text": "For our record, final sign-off stays with you, Jennifer Herrera. Send it over with your notes whenever it suits, and I will turn them the same day so the Suarez-Jones messaging is ready before the interviews begin."},
+        {"kind": "paragraph", "text": "Regards"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0072",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Meeting Minutes -- Executive Messaging for {{fact:f:E-2023-001.client}}",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Working session to review the draft message framework and agree what a client-ready version still needs. Minutes prepared by Amy Carter."
-        },
-        {
-          "kind": "heading",
-          "text": "Attendees",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "John Macias, Associate, engagement lead",
-            "Amy Carter, Communications Associate",
-            "Jennifer Herrera, VP Finance, {{fact:f:E-2023-001.client}}"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The session opened on the draft core-message set. John Macias walked Jennifer Herrera through the three leadership lines as drafted and the reasoning behind the order they sit in. Jennifer Herrera agreed with the first two without change and pushed on the third, which she felt leaned harder on scale than the board would find credible. The group agreed to recast that line around the operating record and let the scale figures support it rather than carry it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Amy Carter reported that the fact check against the source documents is substantially complete. The two figures on the {{fact:f:E-2023-001.client}} revenue history that had been open were confirmed on the audited basis during the session, and Amy Carter will note that basis in the margin of the framework so the source is never in question. One proof point behind the second line still needs a confirming source; Jennifer Herrera undertook to pull it from her operations team."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The group also talked through the settings where the language will first be tested and who the real audience is in each. Jennifer Herrera noted that the {{fact:f:E-2023-001.client}} board is the audience the third line has to survive, and that anything reading as promotional would cost more credibility than it bought. Amy Carter captured that as a working test for the material: each claim carries its own proof point, and any line that cannot be backed comes out rather than gets softened. John Macias asked that the next draft set each proof point beside its line so the two are read together."
-        },
-        {
-          "kind": "paragraph",
-          "text": "On approvals, Jennifer Herrera confirmed she holds final sign-off on any language that leaves the company and named no additional internal reviewer at this stage. The group agreed the sequence for the coming weeks: settle the framework, build the supporting material around it, and hold a second review before anything is used in a setting that carries weight. John Macias flagged that the value of the work is a steady voice that survives repetition, so the group agreed not to widen the message set but to deepen the material behind the three lines already agreed."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Before closing, the group set the working cadence for the next stretch. Amy Carter will keep one live version of the framework and the material in the shared engagement file, so there is a single source everyone works from and no draft goes missing in a personal inbox. John Macias will carry a short status to Jennifer Herrera on a regular rhythm, so the client hears of any change from the firm rather than around it. Jennifer Herrera asked that anything intended for a public setting reach her with enough lead time to read it cold, and the group agreed to build that reading window into the schedule rather than treat it as an afterthought. No item was left without an owner, and the list below records what each person is holding."
-        },
-        {
-          "kind": "heading",
-          "text": "Action Items",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": [
-            "Owner",
-            "Action",
-            "Target"
-          ],
-          "rows": [
-            [
-              "Amy Carter",
-              "Recast the third leadership line around the operating record and note the audited basis for the two revenue figures in the margin",
-              "Next week"
-            ],
-            [
-              "Jennifer Herrera",
-              "Confirm the outstanding proof point with the {{fact:f:E-2023-001.client}} operations team",
-              "Before the next review"
-            ],
-            [
-              "John Macias",
-              "Circulate the revised framework and schedule the second review session",
-              "Following week"
-            ],
-            [
-              "Amy Carter",
-              "Begin drafting the supporting material behind the three agreed lines",
-              "On framework sign-off"
-            ]
-          ]
-        }
+        {"kind": "heading", "text": "Working Session Minutes", "level": 1},
+        {"kind": "paragraph", "text": "Engagement: Executive Messaging for {{fact:f:E-2023-001.client}}. Recorded by Amy Carter. This note captures what we discussed, what we agreed, and who carries each piece forward."},
+        {"kind": "heading", "text": "Present", "level": 2},
+        {"kind": "list", "items": [
+          "Amy Carter, Communications Associate, Ashcombe Advisory Partners",
+          "John Macias, Associate, Ashcombe Advisory Partners",
+          "Jennifer Herrera, VP Finance, Suarez-Jones"
+        ]},
+        {"kind": "heading", "text": "What we covered", "level": 2},
+        {"kind": "paragraph", "text": "We met to take stock of the executive messaging work at its midpoint and to agree what carries us through the coming weeks. The room was small and the conversation direct, which is how this engagement has run from the start."},
+        {"kind": "paragraph", "text": "John Macias reported that the round of executive interviews is complete. He walked us through what the leadership's own language had changed, and two of the core messages have already been reshaped around how the executives actually speak. The group agreed the set now sits closer to the company's own voice, which was the whole point of the exercise."},
+        {"kind": "paragraph", "text": "Jennifer Herrera then took us through her team's marks on the first set. Most were small matters of tone, but two touched the investor-facing line we had flagged at the outset. We talked through how to hold the meaning while easing the claim, and settled on wording in the room. I will circulate that wording for a final read before it is fixed."},
+        {"kind": "paragraph", "text": "We also looked ahead to the client-facing materials that will carry the messages outward. Those are still early by design. We agreed to keep them light until the core set is locked, so the finished pieces are built once rather than remade around a late change."},
+        {"kind": "paragraph", "text": "On cadence, we agreed the current rhythm is working: short notes tied to the piece of work they concern, a standing thread for the messaging, and a working session like this one when a decision needs the whole group in a room. Jennifer Herrera asked that we keep her copied on anything that touches timing, and we will."},
+        {"kind": "heading", "text": "Where we landed", "level": 2},
+        {"kind": "paragraph", "text": "The core messages are close to final, pending the last read on the two reworked lines. The materials wait on that lock. We set the next checkpoint as a working review of the refined set with the wider Suarez-Jones leadership, ahead of any further build."},
+        {"kind": "paragraph", "text": "We noted one open risk, and it is a mild one. The investor-facing lines are the most likely to draw a late change, so we are holding a little room for one more pass on them before the set is fixed. Nothing about the timeline concerns us at this point."},
+        {"kind": "heading", "text": "Actions", "level": 2},
+        {"kind": "table",
+         "header": ["Owner", "Action", "By when"],
+         "rows": [
+           ["Amy Carter", "Circulate the agreed wording on the two investor-facing lines for a final read", "This week"],
+           ["John Macias", "Fold the interview language into the two revised core messages", "This week"],
+           ["Jennifer Herrera", "Confirm the attendees for the leadership review", "Before the next session"],
+           ["John Macias", "Draft the outline for the client-facing materials", "Ahead of the review"]
+         ]}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0073",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Status Report -- Executive Messaging for {{fact:f:E-2023-001.client}}",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Prepared by John Macias for the {{fact:f:E-2023-001.client}} leadership team. This report covers the work through the midpoint of the engagement and sets out what is done, what is next, and where the risks sit."
-        },
-        {
-          "kind": "heading",
-          "text": "Summary",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is on track and roughly at its midpoint. The core message framework is settled: three leadership lines, each carrying its own proof point, agreed with your team in the working session and now the fixed reference for everything we draft. Settling that framework was the gate the rest of the work waited on, and closing it has let us move from the harder question of what to say to the more mechanical one of building the material that carries it. Nothing on the critical path is behind. The one open data point flagged at the last review has been confirmed, the fact check against your source documents is complete, and the two revenue figures that were unresolved are now cited on the audited basis. In short, the foundation is in place, and the second half of the engagement is about production and rehearsal rather than decisions."
-        },
-        {
-          "kind": "heading",
-          "text": "Accomplishments This Period",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The period since kickoff has been about getting the framework right and the facts under it solid, on the principle that everything downstream leans on both. Concretely, this period we have:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Closed the message framework after the working session, recasting the third line around the operating record so it reads as credible to the {{fact:f:E-2023-001.client}} board rather than as a claim about size.",
-            "Completed the fact check on your source documents. Amy Carter confirmed the two revenue figures on the audited basis and noted that basis in the framework, so no claim now rests on a number we cannot cite.",
-            "Resolved the outstanding proof point behind the second line using the confirming source your operations team provided.",
-            "Begun the supporting material behind the three agreed lines, with each claim drafted beside its proof point so the two are always read together.",
-            "Set a working test for everything that follows: any line that cannot be backed comes out rather than gets softened."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is a fixed fee of {{fact:f:E-2023-001.fee}}, and the work to date sits well within that plan. We bill against the fixed fee rather than hours, so the cost does not move with the number of drafts or calls; the figure agreed at the outset is the figure you pay. Approved out-of-pocket costs, should any arise, are passed through at cost and listed line by line. Nothing in the work so far puts the budget under pressure, and we do not foresee anything in the back half that would."
-        },
-        {
-          "kind": "heading",
-          "text": "Upcoming Work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next stretch is production and rehearsal. Amy Carter will finish the supporting material so that every leadership line has a complete set of backing behind it, drafted to the same standard the framework set. Once the material is drafted we will hold a second review with your team before any of it is used in a setting that carries weight, so nothing goes out that you have not seen. From there the work shifts from the page to the people: the language only holds up if your leaders sound the same from one appearance to the next, so we will spend time preparing them to use it rather than just handing it over. In parallel we will map the first public settings where the messages will actually be tested, so that when the moment comes the words have already been rehearsed against it and nobody meets an audience cold. None of this reopens the framework; it builds on the version already agreed."
-        },
-        {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Review timing. The schedule assumes your team can turn the second review inside a normal window. A long gap there is the single thing most likely to compress the back half, so we would rather book that review now than chase it later.",
-            "Late changes to the message set. The value of this work is a voice that holds up under repetition, so reopening the three agreed lines late would cost more than it returns. We would treat any such change as a deliberate decision, not a quiet edit.",
-            "External timing. Where a message is tied to an announcement your side controls, we take our cue from you on timing; a date that moves on your end moves the rehearsal that depends on it."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "I will keep this report on the same rhythm through the second half of the engagement. The pattern that has worked so far, settle the hard questions early and then build steadily against them, is the one we intend to hold to. Anything that needs a decision from your side, John Macias will bring to you directly and early rather than let it sit, because on this kind of work late notice is the expensive kind."
-        }
+        {"kind": "heading", "text": "Status Report", "level": 1},
+        {"kind": "paragraph", "text": "Engagement: Executive Messaging for {{fact:f:E-2023-001.client}}. Prepared by John Macias."},
+        {"kind": "heading", "text": "Where the work stands", "level": 2},
+        {"kind": "paragraph", "text": "We are roughly at the midpoint of the engagement, and the work is on track. The core messages are drafted, tested against the leadership's own words, and close to final. Both sides are pulling the same way, and the correspondence has stayed clean, which is what keeps a job like this from drifting."},
+        {"kind": "paragraph", "text": "The short version is that the hard part, agreeing what the company should say and in what voice, is largely behind us. What remains is to lock the wording and build the materials that carry it. That is the steadier half of the work."},
+        {"kind": "paragraph", "text": "On the commercials, the engagement runs on a fixed fee of {{fact:f:E-2023-001.fee}}, and we are tracking within it. A little under half of the fee is committed against the work done to date. That is where we would want to be at this stage, with the more predictable phase still ahead of us."},
+        {"kind": "heading", "text": "Since the last report", "level": 2},
+        {"kind": "paragraph", "text": "We completed the round of executive interviews and used them to sharpen the core set. Two of the messages changed in a real way once we heard how the leadership actually speaks. Both are stronger for it, and both read now as the company's own rather than ours."},
+        {"kind": "paragraph", "text": "Amy Carter took your team's marks on the first set and reworked the investor-facing lines, holding the meaning while easing the claims that felt a shade too firm. We reviewed the refined set with the Suarez-Jones leadership at our last working session, and the feedback was light. We settled the two lines that mattered most in the room."},
+        {"kind": "paragraph", "text": "The review itself was a good sign. Your leadership pushed on exactly the lines we expected them to push on, and left the rest largely alone. When a client's marks land where you thought they would, it usually means the underlying account is sound, and we took it that way."},
+        {"kind": "paragraph", "text": "We have also opened the client-facing materials that will carry the messages outward. Those are early and deliberately so. We are keeping them light until the core set is locked, so nothing has to be remade around a late change to the wording."},
+        {"kind": "paragraph", "text": "On our side, Amy Carter has kept the correspondence and the version history in order throughout, so the current draft is always the one you are reading and nothing lives only in an inbox. It is unglamorous work, and it is the reason a job this heavy on email has stayed legible."},
+        {"kind": "heading", "text": "The weeks ahead", "level": 2},
+        {"kind": "paragraph", "text": "The immediate step is to lock the core messages. One round of marks is outstanding, and once those are in, the set is final. Amy Carter and I can close that out the same week the marks come back."},
+        {"kind": "paragraph", "text": "From there we build the materials in earnest and prepare your executives to carry the language into their own conversations, the announcements and investor briefings where it has to hold. I expect this half of the engagement to move at a steadier pace than the first, now that the foundation is set."},
+        {"kind": "paragraph", "text": "In practical terms, the coming weeks will hold less of the open-ended work of the first half and more of the concrete: a fixed set of messages, a defined set of materials, and a plan to hand the language to the people who will speak it. We will keep the same cadence of short notes tied to each piece, so you can follow the work without having to ask where it stands."},
+        {"kind": "heading", "text": "What I am watching", "level": 2},
+        {"kind": "paragraph", "text": "Two things, both small. The investor-facing lines are the most likely to draw a late change, so I am keeping room for one more pass on them before we fix the set. And because the materials depend on a locked core set, any slip on the wording will push the build behind it. Neither worries me at this point. I am simply keeping an eye on both."},
+        {"kind": "paragraph", "text": "The one thing I need from your side is the final round of marks on the refined messages. Send those back whenever they are ready, and we will lock the set within the week. I will send the next report at the three-quarter mark, or sooner if anything of note moves before then."}
       ]
     }
   ]

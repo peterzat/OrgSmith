@@ -2,52 +2,70 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "ashcombe-advisory",
   "dimension": "cross_document_voice",
-  "generator": {"model": "claude-opus-4-8", "effort": "xhigh"},
+  "generator": {"model": "claude-fable-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:voice-1",
-      "dimension": "cross_document_voice",
-      "severity": "blocker",
-      "docs": ["d:0003", "d:0020", "d:0063", "d:0076"],
-      "summary": "Four kickoff memos attributed to four different advisors are one templated hand, down to a first-person aphorism reproduced word for word across two of them.",
-      "evidence": "d:0003 (Daniel Valenzuela) and d:0020 (Michael Morris) each contain, verbatim, 'A problem raised on the day it appears is a scheduling note; the same problem raised a week later is an apology.' All four open the same paragraph with 'the value of a [positioning engagement / investor relations program / audit] leaks out through small inconsistencies [/ sloppiness] more than through any single misstep [/ wrong call]' and close with 'Keep the client-facing channel ... anything going to [contact] or anyone else at [client] comes through me.' A first-person memo about 'how I want this one run' is not a circulated template; two different named authors do not independently write the identical maxim."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:voice-2",
+      "id": "rf:xvoice-1",
       "dimension": "cross_document_voice",
       "severity": "major",
       "docs": [],
-      "summary": "The 'I/we would rather X than Y' antithesis is a single writer's reflex worn by every persona, including the ones the roster casts as brisk, dry, or logistics-only, so it reads as one hand rather than a house style.",
-      "evidence": "Managing partner Julie Hill: 'we would rather miss a news cycle than put out a sentence that has not been approved' (d:0032). Dry, evidence-first analyst Kimberly Le: 'I would rather choose between real options than talk myself into one early' (d:0084). Brisk, unfussy associate John Macias: 'I would rather she land it right than land it fast' (d:0068). Michelle Rose: 'I would rather ask him once than twice' (d:0081). The construction appears 36 times in the sampled prose alone; GENERATION-REPORT pre-registers the antithesis pattern and counts it (32 loose, 106 plain across 23/49 docs) but renders no verdict. The verdict: the reflex is uniform where the personas predict it should not be, which is the mark of one author, not a firm."
+      "summary": "Every author from Managing Partner to Office Manager writes in one literary register, built on the balanced antithesis and the aphoristic closing turn, so the corpus reads as one stylist wearing thirteen names.",
+      "evidence": "Hill: 'adjust the account with you, never around you' (d:0002). Macias: 'so the language sits on how they actually speak rather than on our guess at it' (d:0068). Le: 'a warm approach draws more candor than a cold one' (d:0085). Zimmerman: 'I would rather carry whichever you consider final than a number a reporter could check against the record' (d:0052). Even the office manager's badge-access note: 'I will take it up with the management office directly instead of leaving you waiting at the door' (d:0030)."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:voice-3",
+      "id": "rf:xvoice-2",
       "dimension": "cross_document_voice",
       "severity": "major",
-      "docs": ["d:0057", "d:0078", "d:0044", "d:0063"],
-      "summary": "Nearly every author lands a paragraph on a polished antithetical maxim, a flourish uniform across personas who are cast as not writing that way.",
-      "evidence": "A mundane holiday-coverage internal note by Christopher Walton closes 'a client waiting three days on a reply they think is urgent is what turns a quiet weekend loud' (d:0057). The dry analyst Kimberly Le: 'the kind of gap that reads as evasiveness from the outside even when it is only disorganization on the inside' (d:0078). Nancy Suarez, in minutes: 'a page people actually read beats a binder they file' (d:0044). John Macias: 'Late notice is the expensive kind.' (d:0063). The epigrammatic closer is the same instrument in every hand, from a logistics email to an analyst's note, which no real fifteen-person bench would share."
+      "docs": ["d:0003", "d:0039", "d:0046", "d:0063", "d:0076"],
+      "summary": "Five kickoff memos by five different authors across seven years reuse the same signature first-person asides; these are personal framing sentences, not form fields, so it reads as one generator rather than a memo template.",
+      "evidence": "'so nobody waits on a hand-off that was never assigned' (d:0003 Valenzuela 2017; verbatim d:0046 Bradley 2022; 'never made' variants d:0063 Macias, d:0076 Rose). 'None of that is new to us, but it is worth stating once at the start' (d:0003; near-verbatim d:0046, d:0063, d:0076). 'we log what we send so the record stays in order as the volume grows' (d:0003 and d:0046, verbatim). All five open the how-we-run section 'A word (first) on how we...' (d:0003, d:0039, d:0046, d:0063, d:0076)."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:voice-4",
+      "id": "rf:xvoice-3",
       "dimension": "cross_document_voice",
       "severity": "major",
-      "docs": ["d:0014", "d:0023", "d:0055", "d:0024", "d:0042", "d:0056"],
-      "summary": "Meeting minutes and status reports by different authors share identical section openers that the same-genre similarity metric did not surface.",
-      "evidence": "Minutes open 'The session took stock of the [work/program] at [its] midpoint' in d:0014 (Michelle Rose), d:0023 (Michelle Black), and d:0055 (Melissa Zimmerman). Status-report risk sections open on a two-item list whose second pole is always the same: 'Two things are worth watching. The first is ... The second is timing.' in d:0024 (Michael Morris), and 'Two risks are worth naming plainly. The first is ... The second is timing.' in d:0042 (Amy Carter) and d:0056 (Laura Bradley). The same-genre Jaccard table flagged only engagement letters and one kickoff pair, so these cross-author structural clones are exactly what the metric missed and the board is for."
+      "docs": ["d:0004", "d:0021", "d:0040", "d:0047", "d:0064", "d:0077"],
+      "summary": "All six engagements' opening client emails, by six different authors from 2017 to 2024, run the same script: open the thread to keep updates in one place, log the contacts for the file, report 'we have made a start', promise a steady cadence, ask one question, offer a short call.",
+      "evidence": "'each note will be tied to the piece of work it concerns, so the thread stays easy to follow' appears verbatim in d:0004 (Valenzuela, 2017) and d:0064 (Macias, 2023). 'A short call works if that is easier than writing it out' closes d:0004, d:0040 (Carter), and d:0064, three authors. All six open with 'I am opening/starting this thread' or 'I wanted to open a thread' ... 'in one place'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:voice-5",
+      "id": "rf:xvoice-4",
       "dimension": "cross_document_voice",
-      "severity": "minor",
-      "docs": ["d:0010", "d:0021", "d:0040", "d:0047", "d:0064"],
-      "summary": "The engagement emails, the firm's most persona-driven writing, share a cloned request-and-schedule scaffold across authors.",
-      "evidence": "'Send me a couple of windows that work ... and I will set it up' recurs near-verbatim in d:0010 (Daniel Valenzuela), d:0021 (Michael Morris), and d:0040 (Amy Carter). Each pairs it with the same body-opening ask ('The one thing that would help now', 'The one ask for now', 'Two things would help before we go further', 'What would help most right now', 'Two things I need from you before we go further') in d:0004/d:0021/d:0040/d:0047/d:0064. The scaffolding is authored body prose, not the appended signature or quoted tail, and it is the same across advisors the charter says 'write plainly and quickly' in their own voices."
+      "severity": "major",
+      "docs": ["d:0015", "d:0022", "d:0024", "d:0042", "d:0056"],
+      "summary": "First-person status-report narration recurs verbatim across different authors writing to different clients, past what a house report skeleton would explain; the metric flagged only d:0015/d:0024, but the pattern spans four authors.",
+      "evidence": "'The one thing I need from you next is your team's comments on the core narrative draft. With those in hand(,) the second half moves quickly' closes both d:0015 (Valenzuela, for Barrera) and d:0024 (Morris, for Castaneda) word for word. 'Three things are worth naming now, while each is still easy to manage/small... each has a plan sitting against it' opens the risk section in d:0015, d:0042 (Carter), and d:0056 (Bradley). The risk label 'A live announcement in the window' recurs in d:0015, d:0022, d:0024 across two engagements."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xvoice-5",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0005", "d:0047", "d:0052", "d:0065", "d:0068"],
+      "summary": "Every author works the client approver's full name into the email body with the same notarial 'For the file / For the record' device, addressing the correspondent by their own full name mid-message; the fact placement is mandated, but the identical workaround across eight authors is the voice leak.",
+      "evidence": "'For the file, final approval on the messaging sits with you, Mary Frank' (d:0005, Rose). 'For the record, I will treat approvals as yours to give, Sandra Mcdaniel' (d:0047, Bradley). 'For the record I have Sandra Mcdaniel as the sign-off on the financial lines' (d:0052, Zimmerman). 'For the file, sign-off on the Suarez-Jones messaging stays with you, Jennifer Herrera' (d:0068, Macias), each written to that same person."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xvoice-6",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0007", "d:0015", "d:0022", "d:0073"],
+      "summary": "Distinctive personal asides recur nearly verbatim across different authors in unrelated genres years apart, which the same-genre similarity metric is structurally blind to.",
+      "evidence": "'It is unglamorous work, and we are rather proud of how well we do it' (d:0007, Hill, 2017 firm overview) against 'It is unglamorous work, and it is the reason a job this heavy on email has stayed legible' (d:0073, Macias, 2023 status report). 'read like the company speaking and not like an agency writing on its behalf' (d:0015, Valenzuela status report) against 'reads as the company speaking and not as an agency writing on its behalf' (d:0022, Morris briefing deck)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xvoice-7",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": [],
+      "summary": "The high-overlap pairs the metric flagged within Julie Hill's own genres read as legitimate self-template reuse, and the surface voice layer does differentiate: greetings, closings, and list habits track the style specs, and meeting minutes are the one genre with genuinely distinct voices.",
+      "evidence": "Engagement letters d:0002/d:0045/d:0061/d:0075 and onboarding records d:0034/d:0036/d:0060 are all authored by Hill, boilerplate genres a real principal would recycle. Macias opens 'Good morning Jennifer,' (d:0064), Zimmerman writes listless long paragraphs (d:0048), Morris numbers his lists (d:0024). Black's conversational minutes ('We were glad of that.', d:0027) against Suarez's procedural ones ('Nancy Suarez chaired and kept these minutes.', d:0041) are the corpus at its most multi-voiced."
     }
   ]
 }

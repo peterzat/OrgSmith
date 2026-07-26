@@ -5,56 +5,136 @@
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graphacl-internal-note-to-client",
+      "id": "rf:graph-acl-1",
       "dimension": "graph_acl_naturalness",
-      "severity": "blocker",
+      "severity": "major",
       "docs": [
-        "d:0064"
+        "d:0004",
+        "d:0049",
+        "d:0068",
+        "d:0079"
       ],
-      "summary": "The Suarez-Jones kickoff email is an internal-only planning note but is delivered to the client as the primary recipient.",
-      "evidence": "d:0064 is addressed To: Jennifer Herrera <jennifer.herrera@suarezjones.com> (the client's VP Finance), yet the body opens 'Amy,' and reads as John Macias briefing his colleague: 'nothing slips between us ... before it goes anywhere near the client, so we are not sending Jennifer Herrera anything we have not both read.' The client is the To: recipient of a message about what to withhold from her."
+      "summary": "Client contacts never author a single email: all four preserved 8-message engagement threads are exclusively outbound, strictly alternating two internal authors while the client's replies happen off-screen.",
+      "evidence": "Barrera 'Email 1' through 'Email 8' alternate Valenzuela/Rose with Mary Frank silent throughout, and each message acknowledges an unseen reply: 'Thank you for turning the quarterly figures around so quickly' (d:0049), 'Thank you for the note, and for the time on the call last week' (d:0068). No message from any client address exists anywhere in the corpus, in a firm whose charter line is that it 'lives in its clients' inboxes'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graphacl-fullname-surface",
+      "id": "rf:graph-acl-2",
       "dimension": "graph_acl_naturalness",
       "severity": "major",
       "docs": [
         "d:0005",
         "d:0008",
+        "d:0052",
+        "d:0071",
+        "d:0082",
         "d:0030",
-        "d:0033",
-        "d:0037",
-        "d:0068"
+        "d:0057"
       ],
-      "summary": "Across the mailbox, correspondents and the sender's own self are named by full first-and-last name where real email uses a first name or a pronoun, a mention-planting seam.",
-      "evidence": "Senders name themselves in the third person: d:0030 (from Sandra Mcdonald) 'I have listed Sandra Mcdonald so their notices come to me'; d:0033 (from Julie Hill) 'reach Julie Hill by phone'; d:0037 (from John Macias) 'Route anything you cannot resolve to John Macias'. Recipients are named in the third person inside replies to them: d:0008 (Michelle Rose to Mary Frank) 'The draft went to Mary Frank first thing Friday'. Threads open on first-name terms ('Mary,', 'Amy,') then re-salute the same person by full name mid-thread: d:0068 'Jennifer Herrera,'."
+      "summary": "Nearly every email names its own recipient by full name in the second person, a 'for the file / for the record' tic that recites the participant ledger where a human would say 'you'.",
+      "evidence": "'final approval on the messaging sits with you, Mary Frank' (d:0005); all eight Kirby-Taylor emails ('For the record I have Sandra Mcdaniel as the sign-off', d:0052); seven of eight Suarez-Jones emails ('final sign-off stays with you, Jennifer Herrera', d:0071); all eight Gallegos emails ('Please send whatever exists, Robert Smith, however rough', d:0082); internal mail too: 'added you to the weekend entry roster under Michelle Rose', written to Michelle Rose (d:0030)."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graphacl-recipient-scope",
+      "id": "rf:graph-acl-3",
       "dimension": "graph_acl_naturalness",
       "severity": "major",
       "docs": [
-        "d:0057",
-        "d:0062",
-        "d:0087"
+        "d:0068",
+        "d:0070",
+        "d:0072",
+        "d:0085"
       ],
-      "summary": "The To: line of the mundane internal emails does not match the audience the body is written for.",
-      "evidence": "d:0087 (To: Nancy Suarez and Julie Hill only) is a firm-wide parking notice: 'Julie Hill asked me to make sure this reached everyone before the weekend, so please forward it to anyone I have missed.' d:0062 (To: all-staff) says 'Once you've locked the date I'll write the group,' implying this is not the group email, though it is addressed to the whole firm. d:0057 (To: John Macias alone) is a holiday-coverage broadcast that names its single recipient as the coverage contact."
+      "summary": "Beyond the six single points of contact, no client-side human is ever named in eight years of communications work: executives are interviewed, spokespeople briefed, and boards consulted strictly anonymously.",
+      "evidence": "'Send me the names and I will come back the same day' (d:0068), then 'The names you sent let me shape the interviews' (d:0070) -- the names never appear in any document. Spokesperson briefings, leadership reviews ('Confirm the attendees for the leadership review', d:0072) and board reactions recur with no person attached; d:0085 even builds the anonymity in-world: 'views are attributed to the audit rather than to named individuals'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graphacl-unused-lists",
+      "id": "rf:graph-acl-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0038",
+        "d:0045",
+        "d:0061",
+        "d:0075"
+      ],
+      "summary": "Every client counterpart carries an operations or finance title; a corporate-communications advisory never once corresponds with a communications, IR, marketing, or legal contact on any client side.",
+      "evidence": "The ten external people are three Directors of Operations, four VPs Finance, a COO, a CFO, and a General Manager. A crisis-communications engagement runs entirely through the client's Director of Operations (d:0038), a media-relations program is approved by a Director of Operations (d:0045), and executive messaging and a reputation audit are led by VPs of Finance (d:0061, d:0075)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-5",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0003",
+        "d:0038",
+        "d:0041",
+        "d:0046"
+      ],
+      "summary": "The partner oversight every letter promises never appears in any interaction record: outside one 2018 engagement, no partner or senior advisor attends a meeting, joins a thread, or clears a statement anywhere in the corpus.",
+      "evidence": "d:0038 (Julie Hill): 'I will keep this account in my own hands... On the statements that carry the most weight, nothing will go out without my sign-off'; the same engagement's minutes record the complete path without her: 'Every statement this period cleared through Nancy Suarez to Megan Sutton, and turnaround stayed under an hour' (d:0041). Christopher Walton, assigned in 2017 to review 'anything bound for the press or the markets' (d:0003), never appears on client work again, including the crisis engagement squarely in his stated specialty."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-6",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0038"
+      ],
+      "summary": "The ACL is one flat grid, every active employee holding identical access to all 104 files, even though the crisis letter promises need-to-know internal handling for that very engagement.",
+      "evidence": "acl.json (posture 'open') grants all 15 current staff every document: the Lee, Rice and Adams crisis folder, the firm financial summaries, and the HR onboarding records alike. d:0038 states 'we will also be careful with our own internal handling, keeping the account on a need-to-know footing within the firm'. The only variation in the entire ledger is departed Michelle Black at zero documents."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-7",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [],
+      "summary": "Distribution lists mirror the charter's three departments mechanically, giving a 12-person firm a 'Leadership Team' list with exactly one member; two of the three lists are never used by any email.",
+      "evidence": "distribution_lists.json: dl:leadership members = [p:julie.hill] alone. Only all-staff@ashcombeadvisory.com ever appears in mail render params (3 messages); leadership@ and advisory@ appear in no document."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-8",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [
+        "d:0028",
+        "d:0029",
+        "d:0045"
+      ],
+      "summary": "The name pool produced confusable near-collisions, sharpest an internal Office Manager Sandra Mcdonald and client contact Sandra Mcdaniel, both handling records and approvals in the same years.",
+      "evidence": "Sandra Mcdonald, 'handling the transmittal of working documents' (d:0028), against Sandra Mcdaniel, Director of Operations and approvals contact at Kirby-Taylor (d:0045). The 26-name cast also holds two Michelles, two Julies, a Melissa Zimmerman/Melissa Russo pair, and employee Nancy Suarez alongside client firm Suarez-Jones."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-9",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [
+        "d:0033",
+        "d:0037",
+        "d:0087"
+      ],
+      "summary": "Mundane office mail is authored by roster roulette: the Managing Partner sends the IT-maintenance notice, an analyst the parking update, an associate the timesheet reminder, while the Office Manager whose persona owns the mundane internal mail authors nothing.",
+      "evidence": "Manifest authorship: 'IT maintenance window' by p:julie.hill (d:0033), 'Parking update' by p:kimberly.le (d:0087), 'Timesheet reminder' by p:john.macias, sent to his boss the Partner (d:0037). Pamela Rojas, Office Manager, 'the reason meetings happen and messages reach the right desk', authors zero of 104 documents."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-10",
       "dimension": "graph_acl_naturalness",
       "severity": "note",
       "docs": [],
-      "summary": "Of the three distribution lists in the ledger, only all-staff@ is ever a recipient; the other two carry no traffic and one has a single member.",
-      "evidence": "all-staff@ashcombeadvisory.com appears as a recipient on 3 emails; advisory@ashcombeadvisory.com (11 members) and leadership@ashcombeadvisory.com are never addressed anywhere in the corpus, and dl:leadership is a distribution list with exactly one member (Julie Hill)."
+      "summary": "Six of eighteen external graph entities are quota-filled orphans with no documentary presence at all.",
+      "evidence": "Williams-Vasquez and Johnson, Clark and Anderson (with contacts Melissa Russo and Amanda Flynn), plus second contacts Deborah Martin (CFO, Barrera Group) and Michael Bridges (VP Finance, Castaneda), appear in foundation.json and graph.json but in zero of the 104 manifest mention lists. Barrera's CFO is absent even from the thread that chases confirmation of financial figures."
     }
   ],
   "generator": {
-    "model": "claude-opus-4-8",
+    "model": "claude-fable-5",
     "effort": "xhigh"
   }
 }

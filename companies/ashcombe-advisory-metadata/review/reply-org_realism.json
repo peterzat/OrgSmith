@@ -2,34 +2,52 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "ashcombe-advisory",
   "dimension": "org_realism",
-  "generator": {"model": "claude-opus-4-8", "effort": "xhigh"},
+  "generator": {"model": "claude-fable-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-1",
+      "id": "rf:org_realism-1",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": ["d:0059", "d:0018", "d:0061", "d:0086"],
-      "summary": "Every client is named like a professional-services partnership, contradicting the firm's own description of its clients as public and pre-IPO operating companies.",
-      "evidence": "The firm overview (d:0059) says 'Our clients are mid-market public companies and firms on their way to going public,' yet the entire book is named in law-firm style: Castaneda, Adams and Davis; Lee, Rice and Adams; Gallegos, Pope and Marsh; Kirby-Taylor; Suarez-Jones. d:0018 runs an 'investor relations program' for 'Castaneda, Adams and Davis' and d:0086 reads 'the analyst notes, and the transcripts of your own calls' for 'Gallegos, Pope and Marsh.' Firms named 'X, Y and Z' do not hold earnings calls, carry analyst coverage, or IPO."
+      "docs": ["d:0002", "d:0038", "d:0007", "d:0032", "d:0059"],
+      "summary": "The firm's marketing overviews name engagement clients, including the crisis client, as case studies, directly contradicting its own engagement letters' promise that the fact of the engagement stays confidential.",
+      "evidence": "d:0002 promises confidentiality 'covers the fact of our involvement as much as its substance'; d:0038 goes further, 'keeping the account on a need-to-know footing within the firm'. Yet d:0059 advertises 'we advised {{fact:f:E-2021-001.client}} through a period of heightened scrutiny', and d:0007/d:0032/d:0059 name every ledgered client as an illustration. No communications firm names its crisis client in a brochure."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-2",
+      "id": "rf:org_realism-2",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": ["d:0045", "d:0038", "d:0002", "d:0061"],
-      "summary": "Across all six documented clients the sole counterpart is an Operations or Finance officer; no client has a communications, IR, or marketing lead, even for the media-relations and crisis engagements.",
-      "evidence": "The Media Relations Program (d:0045) is sponsored by 'Sandra Mcdaniel, Director of Operations'; Crisis Communications (d:0038) by 'Megan Sutton, Director of Operations'; Corporate Positioning (d:0002) by 'Mary Frank, Director of Operations'; the rest by COO or VP Finance (d:0061). Not one of the eight external clients has a Head of Communications, Head of IR, or CMO. A communications firm whose every buyer is Operations or Finance, including one buying a media-relations program, reads as contacts drawn from a generic officer pool rather than the function that would actually retain the service."
+      "docs": [],
+      "summary": "Every engagement thread is two firm authors in perfect A/B alternation with zero client messages on file, a mechanical rhythm no real mailbox has.",
+      "evidence": "Kirby-Taylor d:0047-d:0054 alternates Bradley/Zimmerman 8 for 8; Suarez-Jones d:0064-d:0071 alternates Macias/Carter; Gallegos d:0077-d:0084 alternates Rose/Le; Barrera d:0004-d:0013 alternates Valenzuela/Rose. Each even-numbered mail opens by citing the other's note ('Following Daniel Valenzuela's note', 'Picking up John Macias's note', 'To add to Michelle Rose's note'). No client reply appears in any engagement folder even though the firm keeps thanking them for one, e.g. d:0049 'Thank you for turning the quarterly figures around so quickly'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-3",
+      "id": "rf:org_realism-3",
       "dimension": "org_realism",
       "severity": "minor",
-      "docs": ["d:0041", "d:0072"],
-      "summary": "The advisory hierarchy is a flat spoke: the one Partner carries all eleven advisory reports while the Senior Advisor, Advisor, and Senior Associate supervise no one, and the highest-stakes engagements are led by associate-level staff.",
-      "evidence": "In foundation.json every Advisory member reports directly to Michael Morris (Partner); Christopher Walton (Senior Advisor), Daniel Valenzuela (Advisor), and Laura Bradley (Senior Associate) each have zero reports. The Crisis Communications team (d:0041) is 'Amy Carter, Communications Associate / Nancy Suarez, Communications Associate' with no advisor or partner, and Executive Messaging (d:0072) is led by 'John Macias, Associate, engagement lead.' This cuts against the firm's self-description of a bench of advisors who each 'carry two or three client relationships.'"
+      "docs": ["d:0007", "d:0038", "d:0041", "d:0044"],
+      "summary": "The crisis engagement, the gravest matter in the book, is run by the firm's two most junior associates while the senior bench the overview advertises never appears in it, part of a 2021-2024 pattern where partners and advisors vanish from client work.",
+      "evidence": "d:0007: 'Christopher Walton carries our most delicate reputational work.' Yet the crisis letter d:0038 staffs it with 'Amy Carter will run the work day to day' plus Nancy Suarez, five months into her first year (foundation start 2021-02-01, engagement start 2021-07-23), and both minutes (d:0041, d:0044) list only the two associates and the client, no partner, despite Julie Hill's 'I will keep this account in my own hands.' Post-2018, no Partner, Senior Advisor, or Advisor appears in any ledgered engagement; the largest fee in the book ($102,000, E-2023-001) is led by Associate John Macias."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-4",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0015", "d:0024", "d:0029", "d:0042", "d:0056", "d:0073", "d:0086", "d:0007", "d:0032", "d:0059"],
+      "summary": "File naming is mechanically uniform where a real share drifts: all seven status reports across 2017-2024 are 'v2 FINAL' and all three firm overviews are 'v3'.",
+      "evidence": "Every status report path ends '- Status Report - <client> v2 FINAL.docx' (seven engagements, eight years, seven different authors, always exactly v2 FINAL); the overviews are 'Firm Overview 2017 v3.docx', 'Firm Overview 2020 v3.docx', 'Firm Overview 2023 v3.docx'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-5",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0007", "d:0011"],
+      "summary": "The 2017 firm overview presents the Barrera engagement as a completed, successful case study one month into its five-month term, while the live thread shows the first messaging draft still in revision that same week.",
+      "evidence": "d:0007 (dated 2017-03-17): 'We gave careful attention to who needed to hear a message... The result was quiet, which in our line of work is usually the point.' The ledger runs E-2017-001 from 2017-02-15 to 2017-07-10, and d:0011 (2017-03-24) says 'The revised draft is ready for your read... Two lines still need a figure from your side to stand up.'"
     }
   ]
 }

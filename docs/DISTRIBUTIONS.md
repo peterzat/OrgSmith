@@ -4,16 +4,16 @@ Derived artifact: re-emit with `python -m orgsmith distributions`. Never edit by
 
 | org | people | span (yrs) | docs | derived | .eml | max thread depth | weekend | docs / person-yr | mean words |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| ashcombe-advisory | 16 | 8.0 | 104 | 17 | 45 | 8 | 12% | 0.81 | 365 |
+| ashcombe-advisory | 16 | 8.0 | 104 | 17 | 45 | 8 | 12% | 0.81 | 367 |
 | brackenridge-civil | 9 | 9.0 | 40 | 0 | 0 | 0 | 40% | 0.49 | 699 |
 | calderwood-partners | 25 | 15.0 | 218 | 35 | 38 | 1 | 17% | 0.58 | 589 |
 | dev-mini | 7 | 5.0 | 23 | 0 | 0 | 0 | 35% | 0.66 | 745 |
-| hollowell-ip | 10 | 8.0 | 45 | 0 | 3 | 1 | 27% | 0.56 | 691 |
-| meridian-actuarial | 12 | 9.0 | 49 | 0 | 3 | 1 | 22% | 0.45 | 675 |
-| northgate-staffing | 12 | 9.0 | 53 | 0 | 5 | 1 | 36% | 0.49 | 662 |
-| saltmarsh-environmental | 10 | 9.0 | 40 | 0 | 0 | 0 | 25% | 0.44 | 725 |
-| verdant-health | 7 | 6.0 | 31 | 0 | 0 | 0 | 29% | 0.74 | 728 |
-| **fleet** | 108 | 8.7 | 603 | 52 | 94 | 8 | 22% | 0.58 | 601 |
+| hollowell-ip | 10 | 8.0 | 64 | 0 | 22 | 5 | 16% | 0.80 | 481 |
+| meridian-actuarial | 12 | 9.0 | 72 | 0 | 26 | 5 | 14% | 0.67 | 460 |
+| northgate-staffing | 12 | 9.0 | 66 | 13 | 6 | 1 | 30% | 0.61 | 590 |
+| saltmarsh-environmental | 10 | 9.0 | 40 | 0 | 0 | 0 | 18% | 0.44 | 659 |
+| verdant-health | 7 | 6.0 | 31 | 0 | 0 | 0 | 19% | 0.74 | 697 |
+| **fleet** | 108 | 8.7 | 658 | 65 | 137 | 8 | 19% | 0.63 | 551 |
 
 ## Reference lines (non-calibrated)
 

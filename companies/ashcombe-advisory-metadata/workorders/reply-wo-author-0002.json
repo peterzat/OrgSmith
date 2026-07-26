@@ -1,182 +1,87 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
-  "generator": {
-    "model": "claude-opus-4-8",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0007",
       "blocks": [
-        {
-          "kind": "heading",
-          "level": 1,
-          "text": "Firm Overview"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Ashcombe Advisory Partners is a corporate communications and investor relations advisory. We help mid-market public companies, and companies on the way to becoming public, decide what to say, when to say it, and to whom, and then we help them say it well. The firm was founded in 2014 on a plain premise: most companies do not have a communications problem so much as a clarity problem, and clarity is something you can work at. Clients tend to come to us at the moments that matter most, when a number has to be explained, a decision announced, or a reputation defended, and those are the moments this firm was built for."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "What we do"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our practice runs along three lines. The first is positioning and messaging: settling the story a company is telling the market, testing whether it holds up under a hard question, and putting it into language a reader actually believes. The second is announcement management, which is the ordinary run of news a public or pre-IPO company has to disclose on a schedule it does not fully control: earnings, financings, leadership changes, and transactions. The third is reputation, which is the slower work of building goodwill before you need it and the faster work of protecting it when something goes wrong."
-        },
-        {
-          "kind": "paragraph",
-          "text": "In practice a single client usually draws on all three, and an engagement moves between them as the year does. What we are asked to produce is rarely a document for its own sake. It is a decision made, a draft approved, a statement cleared, or a call made on time. The concrete services beneath those three lines are these."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Investor relations support, from earnings scripts and Q&A preparation to the quarterly cadence of updates that keeps a shareholder base informed",
-            "Announcement planning and drafting, including the sequencing of who hears what, and in what order, on the day",
-            "Positioning and message development for companies entering the public markets or repositioning themselves within them",
-            "Issues and reputation management, including preparation for the questions a company hopes it will never be asked",
-            "Day-to-day counsel to executives and boards on how a given decision is likely to read once it is out"
-          ]
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "How we work"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Every engagement opens the same way, with a signed letter that sets out the scope and a short kickoff memo that names who does what. After that, the work lives in the inbox. Ashcombe is a correspondence firm by design. A messaging decision gets made in a thread, an announcement gets approved in a thread, and a timeline gets managed in a thread, because that is where our clients actually work, and because a clear written record is worth more than a polished deck no one reads twice. We keep our own writing short. A note that goes to a client answers the question in its first line, and when it cannot, it says plainly what is still open and who owns the next move."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We do not hold the facts our clients own. Numbers, dates, and named commitments belong to the company and its counsel, and our job is to frame them, not to supply them. Nothing leaves this office for the market that the client has not read and signed off, and we would rather miss a news cycle than put out a sentence that has not been approved. That discipline is slower on a given afternoon and far cheaper over a year."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "Representative work"
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagements we point to are representative of the kind of work we take on rather than a full account of the firm's clients. Our work with {{fact:f:E-2017-001.client}} is a fair example: a mid-market company that needed its story told consistently across a crowded stretch of announcements, where the value we added was less any single statement than the discipline of saying the same true thing every time it came up. That is usually where we are most useful. Companies rarely fail to communicate for lack of words. They fail because the words drift, meeting to meeting, until no two people describe the business the same way."
-        },
-        {
-          "kind": "heading",
-          "level": 2,
-          "text": "The firm"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Ashcombe is deliberately small. A managing partner leads a bench of advisors and analysts, each of whom carries two or three client relationships at a time, supported by an operations team that keeps the schedules, the files, and the mailbox in order. We staff engagements with people whose names the client will learn, and the advisor who wins the work is the advisor who does it. That puts a real limit on how fast we can grow, and we have decided we would rather grow at the pace of the work than ahead of it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If there is a house style here, it is plainness. We would rather a client sound like itself, clearly, than like every other company in its sector. Anyone thinking about working with us should expect direct advice, a fast reply, and a firm that will tell them when it thinks they are wrong."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Julie Hill, Managing Partner"
-        }
+        {"kind": "heading", "text": "Ashcombe Advisory Partners", "level": 1},
+        {"kind": "paragraph", "text": "We help companies say difficult things well. That is the plainest description of the firm, and after several years of the work we have not found a better one. Ashcombe Advisory Partners has advised on corporate communications and investor relations since we opened our doors in 2014, working mostly with mid-market public companies and the private firms preparing to join them. The common thread among our clients is not their industry but the moment they are in, a point where the words they choose carry unusual weight."},
+        {"kind": "paragraph", "text": "Our clients come to us when a message matters more than usual. An announcement is due, a quarter needs explaining, or a piece of unwelcome news has to reach the market in the right words and the right order. We are the people a company calls to get the wording right before it goes out, and to think carefully through who should hear it first, and how, and when."},
+        {"kind": "heading", "text": "The work we do", "level": 2},
+        {"kind": "paragraph", "text": "Most of what we produce for a client is correspondence. A well-judged email, sent to the right person at the right hour, does more for a company's standing than a thick deck ever will, and the discipline of the firm shows in how those everyday messages read. We draft the language, route the approvals, and keep the timeline of an announcement moving without letting anything slip. It is unglamorous work, and we are rather proud of how well we do it."},
+        {"kind": "paragraph", "text": "Around that daily work sits a smaller body of formal advice. We shape the positioning a company leads with, counsel a board before it speaks, and write the handful of documents that have to be exactly right. We keep those deliberately few, because the firm's character is in how it corresponds, not in how much it commits to paper. A firm that writes less, and means every word, is an easier one to trust."},
+        {"kind": "heading", "text": "Where we help", "level": 2},
+        {"kind": "paragraph", "text": "Our practice runs along a few clear lines, and most engagements draw on more than one of them."},
+        {"kind": "list", "items": [
+          "Positioning and messaging, so a company knows what it stands for before the market thinks to ask.",
+          "Announcements and the timing of disclosure, from a routine result to news that will move a share price.",
+          "Investor relations, the steady work of keeping the people who own a company properly informed.",
+          "Reputation and issues, where a single careless line can undo years of goodwill and discretion is most of the assignment."
+        ]},
+        {"kind": "heading", "text": "One engagement, by way of illustration", "level": 2},
+        {"kind": "paragraph", "text": "Our work with {{fact:f:E-2017-001.client}} is a fair example of how we operate. We gave careful attention to who needed to hear a message, and in what order, before any of it became public, and we kept the drafting close so that nothing left the firm without a considered read. The result was quiet, which in our line of work is usually the point. We offer it as one illustration among our engagements, not as the whole of what we do, and we are careful to keep one client's business well away from another's."},
+        {"kind": "heading", "text": "How we work", "level": 2},
+        {"kind": "paragraph", "text": "Two people set the standard for that care. Julie Hill leads the firm and keeps the most sensitive announcements in her own hands, on the simple principle that a market-moving line deserves a partner's read before anyone sends it. Christopher Walton carries our most delicate reputational work, and he is the one who will slow a thread down on purpose when speed would be the real mistake."},
+        {"kind": "paragraph", "text": "Below them the firm runs lean, and by design. A bench of advisors and analysts each carry a few client relationships at once, supported by a small operations team that keeps the schedules, the files, and the mailbox in order. Nobody here is more than a step from the work, which is part of why the answers come back quickly. It is a deliberately quiet way to operate, and our clients tend to prefer it that way."},
+        {"kind": "heading", "text": "If you have news coming", "level": 2},
+        {"kind": "paragraph", "text": "If you have an announcement on the horizon, or a quarter that will be harder to explain than most, the useful next step is a conversation. Call us, and we will listen first, then tell you plainly what we would say and when we would say it."}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0016",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "A few housekeeping notes before the long weekend. We are closing at noon on Friday and reopening Wednesday, so set your out-of-office replies and clear anything time-sensitive before you leave. Michelle Rose is refreshing the emergency contact sheet this week; if your details have changed, get them to her by Thursday. And the shared refrigerator gets emptied Friday afternoon, so take home anything you want to keep."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Coverage over the break, in case something comes up: Michael Morris is first point of contact for office and building matters, Michelle Rose is watching the general mailbox, and Julie Hill is reachable by phone for anything that genuinely cannot wait. Otherwise, enjoy the time off, everyone."
-        }
+        {"kind": "paragraph", "text": "All,"},
+        {"kind": "paragraph", "text": "We are closing at one tomorrow so everyone can get a head start on the holiday, and the office will be dark on the Fourth. Coverage next week is light with people away, so I want the essentials handled before we all scatter."},
+        {"kind": "paragraph", "text": "Michelle Rose has the mailbox and any drafts that land Wednesday and Thursday, and Michael Morris will be in both days if anything needs a partner's eye. If you are out and expecting something time-sensitive, tell Michelle before you go so nothing sits unanswered."},
+        {"kind": "paragraph", "text": "Let me know by the end of today if your coverage does not hold, and enjoy the long weekend."},
+        {"kind": "paragraph", "text": "Thanks"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0019",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "I am out most of Tuesday and Wednesday next week for a family thing, so I want coverage sorted before I go dark. Michael Morris, could you keep half an eye on my inbox those two days? Nothing should catch fire, but I would rather you had anything urgent flagged than come back to it cold."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Pamela Rojas, two scheduling asks. Please hold Thursday afternoon open on my calendar so I can dig out from under the backlog, and when you book the small conference room for that block, put the reservation under Christopher Walton so facilities has a name to match. Thanks, both."
-        }
+        {"kind": "paragraph", "text": "Hi Michael,"},
+        {"kind": "paragraph", "text": "I am out Wednesday and Thursday next week and want to hand off cleanly before I go, so nothing waits on me while I am gone. Pamela Rojas has us both on the coverage sheet, and she has you down as Michael Morris against my Wednesday client call, which is the only thing on my calendar that genuinely cannot wait for my return."},
+        {"kind": "paragraph", "text": "Everything else can hold until Friday. If something urgent does come in, it can come to you, and I will leave notes so you are not reading it cold."},
+        {"kind": "paragraph", "text": "Confirm with Pamela that Wednesday works on your end, and I will have the file on your desk before I leave Tuesday."},
+        {"kind": "paragraph", "text": "Sincerely"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0025",
       "blocks": [
-        {
-          "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: Amy Carter"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Amy Carter joins Ashcombe Advisory Partners this week as a Communications Associate, and this record is for her file and for the people she will be working alongside. Amy sits with the advisory team, where she will support the drafting and approval work that carries most of our client engagements: assembling messaging documents, tracking versions and comments as a draft moves toward sign-off, and keeping the paper trail on an announcement straight from first outline to final release. It is careful, detailed work, and from what we saw of her in hiring, careful and detailed is exactly how she operates."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Amy reports to Michael Morris, Partner, who will set her assignments and review her drafts before anything reaches a client. That is the right place for her to learn the work. Michael carries some of the firm's more sensitive accounts, and there is no better way to understand how we handle a delicate announcement than to watch one handled well. She should feel free to bring questions to anyone on the team, but Michael owns her workload and her development, and he is the person to go to when priorities collide."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For the first few weeks the emphasis is on learning how we work rather than on turning out volume. Amy should read the engagement letter and kickoff memo for any client whose files she touches before she touches them, so she understands the scope she is working inside. Client information stays inside the firm, without exception: what we are working on, for whom, and when it will be announced are not topics for outside the office, including with people who already seem to know. Her workstation, email, and file access should be ready on day one, and if anything is missing she should say so rather than wait it out."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two things I ask of everyone who joins, and I will say them to Amy directly as well. Check your facts against the source before they go into a draft, every time, because a confident sentence built on a wrong number is worse than no sentence at all. And ask the question you think is too basic to ask; the associate who asks it early saves us all the version that has to be walked back later. Welcome aboard, Amy. We are glad to have you. Prepared by Julie Hill, Managing Partner, for the personnel file."
-        }
+        {"kind": "heading", "text": "Welcome to the firm: Amy Carter", "level": 1},
+        {"kind": "paragraph", "text": "It is a pleasure to welcome Amy Carter to Ashcombe Advisory Partners. We take real care over who we bring on, because the work turns on judgment as much as on speed, and in Amy we were confident we had found both. She arrives with a reputation for keeping a difficult thread calm and moving, which is precisely the temperament this firm runs on. We are glad she said yes, and we suspect you will be too once you have worked a week alongside her."},
+        {"kind": "paragraph", "text": "Amy joins us as a Communications Associate in the advisory practice, where she will support several engagements at once. Her job is to keep the drafting and coordination moving, so that an advisor who is heads-down on one client is never the reason another goes quiet, and to summarize where a conversation stands cleanly enough that the next person can pick it up cold. It is a role that touches nearly everything the firm does, and the people who do it well become the memory of a thread. She reports to Michael Morris, who carries the heaviest book in the firm and will be her first read on any client work she takes on."},
+        {"kind": "paragraph", "text": "A word on how we correspond, since it is most of what we do here. We answer the message in front of us, we keep our replies short and to the point, and we route anything sensitive to a partner before it leaves the building. Amy will find the rhythm of that quickly, and the one thing we ask early is that she treat a close call as a reason to check rather than to guess. None of the standard is meant to slow her down; it is there so that every message carries the firm's judgment behind it."},
+        {"kind": "paragraph", "text": "For the practical side of the first weeks, her desk is with the advisory bench, the shared mailbox is where most of the day happens, and our operations team will have her set up on the calendar and the files by the end of the first day. Julie Hill likes to sit down with everyone new inside their first fortnight, and she will find time on the calendar before long. Until then, Amy's first task is simply to shadow Michael on a live engagement and learn how the firm sounds on the page. Welcome aboard, Amy."}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0028",
       "blocks": [
-        {
-          "kind": "heading",
-          "level": 1,
-          "text": "Onboarding Record: Sandra Mcdonald"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sandra Mcdonald joins the firm this week as a Client Coordinator on the operations team, and I want this on record for her file and for everyone she will be working with. Sandra takes on the day-to-day machinery that keeps a correspondence firm running: the shared mailbox, the calendar, the filing of what comes in and goes out, and the steady chasing of the replies and confirmations a busy office otherwise loses track of. It is not glamorous work and it is entirely load-bearing. When it is done well, as I expect it to be, nobody notices; when it is done badly, everybody does."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sandra reports to Lisa Flores, Director of Operations, who runs the operations function and will set her priorities and show her how we like things kept. Operations sits at the center of this firm rather than off to one side, because so much of what we do comes down to making sure the right message reaches the right person at the right time. Sandra should look to Lisa for direction and for the answer to anything about how a process is meant to run here."
-        },
-        {
-          "kind": "paragraph",
-          "text": "In the first weeks the goal is to learn the rhythm of the office. Sandra should get familiar with how the mailbox is triaged, how engagements are filed, and who owns what, and she should not hesitate to ask when a convention is not obvious; a good deal of how we work is habit rather than written rule. Her workstation, email, and access to the shared files should be in place on her first day, and if anything is missing she should flag it straight away rather than build a workaround around it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One standing expectation, the same one everyone here works to: keep a clean record of what was asked and what is still outstanding. A note that quietly goes unanswered is the thing that turns into a problem three weeks later, and the coordinator who sends the patient reminder is worth a great deal to this firm. Discretion matters just as much; a good part of what crosses the mailbox is confidential, and it stays inside the office. Welcome, Sandra. We are pleased you are here. Prepared by Julie Hill, Managing Partner, for the personnel file."
-        }
+        {"kind": "heading", "text": "New to the firm: Sandra Mcdonald", "level": 1},
+        {"kind": "paragraph", "text": "We are glad to have Sandra Mcdonald with us. A small firm lives or dies on whether the paperwork is in order and the right version reaches the right hands, and that is exactly the discipline she brings. She has spent her career close to the records, the sort of person who can tell you where a document is without opening a drawer, and her arrival takes real weight off the rest of the office."},
+        {"kind": "paragraph", "text": "Sandra joins Operations as a Client Coordinator. Her work is the records side of the practice: filing engagement paperwork, keeping the versions straight, and handling the transmittal of working documents so that the right draft reaches the right desk without a wrong copy slipping through. She reports to Lisa Flores, our Director of Operations, who runs that side of the house and will set her priorities through the first weeks. Between them they hold the ground that lets the advisors stay with their clients rather than hunting for a file."},
+        {"kind": "paragraph", "text": "Because so much of what we do leaves the office as correspondence, the filing behind it has to be exact, and Sandra's eye for that is a good part of why we wanted her. She will notice when a document is a signature short or has landed in the wrong folder, and we would far rather she raise it early than let it pass down the line. That instinct is welcome here, so she should never feel she is being a nuisance by flagging something that looks off. An orderly file is not a small thing at a firm whose whole product is correspondence, and getting it right is quietly one of the most important jobs in the building."},
+        {"kind": "paragraph", "text": "For the first weeks, Sandra will sit with Operations, and Lisa will walk her through how the engagement files are kept and where the current versions live. There is a settled way we name and store things, and once she has it in hand she should feel free to tighten anything that has drifted. Julie Hill will make a point of welcoming her in person once she is settled and has the lay of the place. Her first task is simply to sit with Lisa and walk the engagement files end to end, so she knows where everything lives before the pace picks up. Welcome aboard, Sandra."}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0030",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Building management is refreshing the access list for our floor this month and has asked us to confirm everyone's badge before the end of July. Michelle Rose, your card is one of a handful that expires this cycle, so I have already put in the renewal for you. You should not notice any gap, but keep your temporary fob in your bag for a few days in case the new one is slow to activate."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The building also wants a single office contact on the account, and I have listed Sandra Mcdonald so their notices come to me rather than getting scattered across the team. If your badge stops working at any point, come straight to me and I will sort it out with them."
-        }
+        {"kind": "paragraph", "text": "Dear Michelle,"},
+        {"kind": "paragraph", "text": "Your after-hours access to the building has now been approved, and building management has added you to the weekend entry roster under Michelle Rose, so your existing badge should carry you through the lobby doors outside of office hours as well as during them."},
+        {"kind": "paragraph", "text": "Please try the badge at the side entrance before you rely on it for a weekend, and if it does not read on the first pass, let me know and I will take it up with the management office directly instead of leaving you waiting at the door."},
+        {"kind": "paragraph", "text": "Regards"}
       ]
     }
   ]

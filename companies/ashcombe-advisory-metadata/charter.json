@@ -67,7 +67,7 @@
       "attachment_mismatch": 1,
       "filename_variety": true
     },
-    "voice_diversify": false,
+    "voice_diversify": true,
     "mail": {
       "business_hours": [
         8,
@@ -77,9 +77,9 @@
       "mundane_emails": 8,
       "attachments": 2,
       "distribution_lists": 3,
-      "exempt_author_mentions": false
+      "exempt_author_mentions": true
     },
-    "style_specs": false
+    "style_specs": true
   },
   "finance": {
     "base_revenue": 2200000,

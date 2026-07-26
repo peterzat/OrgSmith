@@ -7,38 +7,79 @@
       "schema_id": "orgsmith/review-finding@1",
       "id": "rf:narrative-1",
       "dimension": "narrative_consistency",
-      "severity": "blocker",
+      "severity": "major",
       "docs": [
-        "d:0064",
-        "d:0065",
-        "d:0066",
-        "d:0067",
-        "d:0005",
-        "d:0006",
-        "d:0048",
         "d:0049",
         "d:0050",
-        "d:0078",
-        "d:0079",
-        "d:0080"
+        "d:0051"
       ],
-      "summary": "In four of the six engagement threads, emails written as internal staff-to-staff handoffs are delivered to the client, so the client's own inbox carries the firm's private deliberation, including a message that says the client must not see it.",
-      "evidence": "Suarez-Jones Email 1 (d:0064) is rendered To: Jennifer Herrera <jennifer.herrera@suarezjones.com> (the client), yet the body opens 'To: Amy Carter' / 'Amy,' and states 'before it goes anywhere near the client, so we are not sending Jennifer Herrera anything we have not both read' -- a note sent to Jennifer Herrera that discusses withholding it from Jennifer Herrera, with a second contradictory To: line inside the body. The same internal-routed-to-client pattern recurs: Kirby-Taylor Email 3 (d:0049), To: Sandra Mcdaniel, reads 'Right. I will chase Sandra Mcdaniel today for the Kirby-Taylor spokesperson list'; Gallegos Email 3 (d:0079), To: Robert Smith, reads 'I will chase the materials with Robert Smith today'; Barrera Email 3 (d:0006), To: Mary Frank, reads 'hold the investor line for the second round. Mary Frank was clear at kickoff that she wants the Barrera Group story to land on operations first.' A reader who opens any of these .eml files sees the To: header naming the client and a body that treats that same client as an absent third party. The Suarez-Jones thread proves it is a defect and not the genre: the model authored those four openers as internal ('walk it together', 'in your inbox', figures to 'mark unverified') but the thread routed them all to the client. Open the .eml, compare the To: line to the body, and the illusion is gone in seconds."
+      "summary": "The Kirby-Taylor thread resets mid-stream: email 5 asks the client to send the quarterly figures that email 3 already acknowledged receiving and email 4, sent the same day, had already folded into a finished fact sheet.",
+      "evidence": "d:0050 (Jun 3): \"The fact sheet is final. With the quarterly figures you sent now folded in and reconciled ... I have checked the totals twice\"; d:0051 (also Jun 3): \"Melissa Zimmerman is building the fact sheet and needs your most recent quarterly figures to lock it. If you can send those our way ...\"; d:0049 (May 31) had already said \"Thank you for turning the quarterly figures around so quickly.\""
     },
     {
       "schema_id": "orgsmith/review-finding@1",
       "id": "rf:narrative-2",
       "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0077",
+        "d:0079",
+        "d:0081",
+        "d:0082"
+      ],
+      "summary": "The Gallegos, Pope and Marsh thread replays its own opening stage: after interviews are penciled in and the coverage read is finished, later emails restart the coverage read, ask the client for interview names as if none existed, and put the not-yet-drafted interview guide back on the to-do list.",
+      "evidence": "d:0077 (Mar 11): \"Kimberly Le has finished the first pass through the recent coverage\"; d:0079 (Mar 13): \"I have three of the internal interviews penciled in for next week\"; d:0081 (Mar 15): \"We are into the coverage now\" and asks for \"the names of the people you would want us to hear from\"; d:0082 (Mar 18): \"I will hold the first interviews until that material and your sign-off on the contact list are both with us.\""
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-3",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0067",
+        "d:0068"
+      ],
+      "summary": "In the Suarez-Jones thread the client call flips across a weekend from upcoming to already held: Friday's email places it next week, Monday's email thanks the client for it last week.",
+      "evidence": "d:0067 (Fri Aug 4): \"so you have it in hand before the call next week\"; d:0068 (Mon Aug 7): \"thank you ... for the time on the call last week. That conversation settled which audience we lead with.\""
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-4",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": [],
+      "summary": "Three of the four multi-email engagement threads sampled (Kirby-Taylor, Suarez-Jones, Gallegos) contradict their own earlier messages, while the longform documents around them (kickoffs, minutes, status reports) stay mutually consistent; the continuity failures are concentrated in mid-thread email, as if each reply were written without the thread's accumulated state.",
+      "evidence": "See rf:narrative-1 through rf:narrative-3; by contrast the Barrera thread (d:0004 through d:0013) advances cleanly from draft to figures to clean version, and every minutes/status pair agrees with its thread's endpoint."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-5",
+      "dimension": "narrative_consistency",
       "severity": "minor",
       "docs": [
-        "d:0030"
+        "d:0076",
+        "d:0078",
+        "d:0081",
+        "d:0085"
       ],
-      "summary": "An internal note refers to its own sender by full name in the third person, so the writer appears to be talking about someone else.",
-      "evidence": "The building-access email (d:0030) is From: Sandra Mcdonald, yet its body reads 'The building also wants a single office contact on the account, and I have listed Sandra Mcdonald so their notices come to me.' Sandra listing 'Sandra Mcdonald' and then routing the notices to 'me' is the writer naming herself in the third person; a real sender writes 'I have listed myself.' The same authoring habit that names the recipient in the third person in the engagement threads shows up here pointed at the sender."
+      "summary": "The Gallegos coverage review's span shifts between documents: the kickoff memo and the analyst's first report say two years, later mail and the working-session minutes say eighteen months.",
+      "evidence": "d:0076: \"pulling the coverage from the last two years\"; d:0078: \"I have read the last two years of trade and financial press\"; d:0081: \"pulled the last eighteen months of press and analyst notes\"; d:0085: \"the coverage read of the past eighteen months.\""
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-6",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0007",
+        "d:0009"
+      ],
+      "summary": "The 2017 firm overview, written one month into the five-month Barrera engagement, narrates it in the past tense as a quietly concluded success, while the contemporaneous engagement documents show the first messaging draft still in review and nothing yet public.",
+      "evidence": "d:0007 (2017-03-17): \"We gave careful attention to who needed to hear a message, and in what order, before any of it became public ... The result was quiet, which in our line of work is usually the point\"; d:0009 (2017-03-23) still instructs \"Nothing investor-facing circulates until the internal narrative is settled.\""
     }
   ],
   "generator": {
-    "model": "claude-opus-4-8",
+    "model": "claude-fable-5",
     "effort": "xhigh"
   }
 }
