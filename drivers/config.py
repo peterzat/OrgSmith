@@ -22,8 +22,19 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlparse
 
 DEFAULT_EFFORT = "high"
+
+# Outbound requests may only go to an http(s) endpoint. base_url is operator-set
+# (env or the user's providers.env), so this is defense in depth, not a guard
+# against untrusted input: it refuses a stray file:/ftp:/gopher: scheme before it
+# reaches urllib, so a config typo fails loud instead of hitting a local file.
+ALLOWED_URL_SCHEMES = ("http", "https")
+
+
+def base_url_scheme_ok(url: str | None) -> bool:
+    return bool(url) and urlparse(url).scheme in ALLOWED_URL_SCHEMES
 
 
 @dataclass(frozen=True)
@@ -200,8 +211,11 @@ def missing_requirements(provider: Provider) -> list[str]:
     ready. Used by `--check` to fail loud when a provider is chosen but not
     fully configured."""
     missing: list[str] = []
-    if base_url_for(provider) is None:
+    base = base_url_for(provider)
+    if base is None:
         missing.append(f"base_url ({provider.base_url_env})")
+    elif not base_url_scheme_ok(base):
+        missing.append(f"base_url must be http/https ({provider.base_url_env})")
     if model_for(provider) is None:
         missing.append(f"model ({provider.model_env})")
     if provider.key_required and key_for(provider) is None:

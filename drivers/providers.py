@@ -20,7 +20,7 @@ import sys
 import urllib.error
 import urllib.request
 
-from .config import Provider, base_url_for, key_for
+from .config import Provider, base_url_for, base_url_scheme_ok, key_for
 
 ANTHROPIC_VERSION = "2023-06-01"
 DEFAULT_MAX_TOKENS = 8192
@@ -65,6 +65,12 @@ def call_provider(
     base_url = base_url_for(provider)
     if not base_url:
         _log(f"[{provider.name}] no base_url ({provider.base_url_env}); skipping")
+        return None
+    if not base_url_scheme_ok(base_url):
+        _log(
+            f"[{provider.name}] refusing non-http(s) base_url "
+            f"({provider.base_url_env}); skipping"
+        )
         return None
     base_url = base_url.rstrip("/")
 

@@ -283,3 +283,32 @@ def test_orgsmith_never_imports_the_out_of_airlock_driver():
                 f"{path.relative_to(REPO)} imports {name!r}; orgsmith/ must "
                 f"never import the out-of-airlock drivers package"
             )
+
+
+def test_driver_authoring_prompt_stays_in_sync_with_the_skill():
+    """The BYO driver's writing-quality system prompt and the forge-author
+    skill's authoring rules must not drift: a configured API model and a forked
+    Claude Code worker are held to the same load-bearing rules. Both are prose
+    in different files, so this pins the core rule signatures that must appear
+    in both, the way the board-dimension test pins the skill to the schema."""
+    driver = (REPO / "drivers" / "forge_external.py").read_text("utf-8")
+    skill = (REPO / ".claude" / "skills" / "forge-author" / "SKILL.md").read_text(
+        "utf-8"
+    )
+    canonical = (
+        "{{fact:",
+        "verbatim",
+        "postdate",
+        "exact names and titles",
+        "template feel",
+        "modern AI-assistant tone",
+    )
+    for phrase in canonical:
+        assert phrase in driver, (
+            f"drivers/forge_external.py dropped the authoring rule signature "
+            f"{phrase!r}; the driver prompt and forge-author guidance drifted"
+        )
+        assert phrase in skill, (
+            f".claude/skills/forge-author/SKILL.md dropped the authoring rule "
+            f"signature {phrase!r}; the driver prompt and skill guidance drifted"
+        )

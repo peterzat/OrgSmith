@@ -119,6 +119,36 @@ def test_local_requires_base_url_but_not_key():
     assert not any("api key" in m for m in missing)
 
 
+def test_scheme_allowlist_accepts_http_and_https():
+    assert config.base_url_scheme_ok("http://localhost:11434/v1")
+    assert config.base_url_scheme_ok("https://api.openai.com/v1")
+
+
+@pytest.mark.parametrize(
+    "bad", ["ftp://x/v1", "file:///etc/passwd", "localhost:11434/v1", "", None]
+)
+def test_scheme_allowlist_rejects_non_http(bad):
+    assert not config.base_url_scheme_ok(bad)
+
+
+def test_missing_requirements_flags_bad_scheme(monkeypatch):
+    p = PROVIDERS["local"]
+    monkeypatch.setenv(p.base_url_env, "ftp://example/v1")
+    monkeypatch.setenv(p.model_env, "m")
+    assert any("http/https" in m for m in config.missing_requirements(p))
+
+
+def test_call_provider_refuses_non_http_scheme(monkeypatch):
+    p = PROVIDERS["local"]  # key-optional, so the scheme is the only gate
+    monkeypatch.setenv(p.base_url_env, "file:///etc/passwd")
+
+    def boom(req, timeout=None):
+        raise AssertionError("urlopen must not be called for a rejected scheme")
+
+    monkeypatch.setattr(urllib.request, "urlopen", boom)
+    assert providers.call_provider(p, system="s", user="u", model="m") is None
+
+
 # --- prompt assembly --------------------------------------------------------
 
 

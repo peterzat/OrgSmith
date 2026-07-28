@@ -66,8 +66,8 @@ Writing quality:
   {{fact:<id>}} exactly, with the id verbatim including its prefix. You never
   know the underlying value; never write a number, date, or name where a
   placeholder belongs. Write so the substituted value reads naturally.
-- People are only those named in the briefs, with their exact names and
-  titles. Invent no people, organizations, addresses, amounts, or dates.
+- People are only those named in the briefs, with their exact names and titles.
+  Invent no people, organizations, addresses, amounts, or dates.
 - Every surface string in a brief's `mentions` list must appear verbatim in
   that document's text (sigblock signers cover themselves).
 - Respect the genre structure each brief's `guidance` describes.
