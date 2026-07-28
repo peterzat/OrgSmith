@@ -16,20 +16,21 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~35s wall and 551 passing (14 short, 465 unit, 72 org) on a box
-with LibreOffice; 545 passing + 6 skipped without it (measured by hiding
+Expect ~50s wall and 606 passing (14 short, 518 unit, 74 org) on a box
+with LibreOffice; 600 passing + 6 skipped without it (measured by hiding
 soffice from `PATH`, which is what CI sees). Both are green states,
 see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
-the tracer -- `dev-mini` grew from 13 to 22 documents -- so every
-dev-mini-based fixture, and the LibreOffice legacy fixture most of all,
-does proportionally more work than the pre-M9 numbers. M11b replaced the
+the tracer -- `dev-mini` grew from 13 to 22 documents. M11b replaced the
 six pre-v2.0 fixtures with five larger ones and restored the byte pin
-fleet-wide, so the org tier now re-derives seven orgs rather than two: it
-grew 61 -> 72 even as six fixtures left. M12 added the capability-layer
-knobs and their tests -- unit grew 361 -> 397 -- and landed the pilot org
-`calderwood-partners` in its own `flagship` tier, kept out of the default
-`bin/test` because validating its 218 files is ~2.3s on its own.)
+fleet-wide. The M13-M16 realism wave then regenerated the whole fleet under
+the wave's knobs -- a business-day calendar, a sample-book posture, the
+style/voice layer, and, per recipe, real mail threads and organizational
+noise -- and re-froze it, so the org tier now re-derives all eight fleet
+orgs plus `dev-mini` and grew to 74. The two largest, `calderwood-partners`
+and `ashcombe-advisory`, stay in their own opt-in `flagship` tier, kept out
+of the default `bin/test` because validating their ~320 files is ~4s on its
+own.)
 
 The `flagship` tier is opt-in (`bin/test flagship`, 20 passing) and runs in
 CI on its own step; the default `bin/test` excludes it so the everyday loop

@@ -127,93 +127,97 @@ from being one.
 
 ### What ships today
 
-All seven fleet orgs are committed and public in [`companies/`](companies/):
+All eight fleet orgs are committed and public in [`companies/`](companies/):
 every `<slug>/` is a real file share you can click through and every
-`<slug>-metadata/` is its answer key, sitting right next to it. An eighth
-committed org, the M12 pilot [`calderwood-partners`](companies/calderwood-partners/),
-sits beside them and is described [below](#the-m12-pilot). **If you are
-here to eyeball the output, read
+`<slug>-metadata/` is its answer key, sitting right next to it. A ninth
+committed org, the test fixture [`dev-mini`](companies/dev-mini/), sits beside
+them. **If you are here to eyeball the output, read
 [`northgate-staffing`](companies/northgate-staffing/) and stop** — the rest of
 the table is here to show the axes the generator moves along (era, sector, ACL
-posture, format mix), not to be read end to end.
+posture, format mix, mail, noise), not to be read end to end.
 
 Document spans below are the real dates on the files, not the window the
 recipe allowed:
 
 | company | docs | share | answer key |
 | --- | --- | --- | --- |
-| **the exemplar** — 12-person executive search firm, 2015–2023, the largest here | 53 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
-| 12-person actuarial consultancy, 2016–2024, a roster that grows | 49 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
-| 10-person patent boutique, 2018–2025 | 45 | [hollowell-ip](companies/hollowell-ip/) | [key](companies/hollowell-ip-metadata/) |
+| **the exemplar** — 12-person executive search firm, 2015–2023, business calendar, sample book, the full noise suite | 66 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
+| 25-person management consultancy, 2008–2022, the largest here, duplicate/draft noise | 218 | [calderwood-partners](companies/calderwood-partners/) | [key](companies/calderwood-partners-metadata/) |
+| 16-person comms advisory, 2017–2024, the email pilot: real threads plus the full noise suite | 104 | [ashcombe-advisory](companies/ashcombe-advisory/) | [key](companies/ashcombe-advisory-metadata/) |
+| 12-person actuarial consultancy, 2016–2024, a roster that grows, real mail threads | 72 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
+| 10-person patent boutique, 2018–2025, real mail threads | 64 | [hollowell-ip](companies/hollowell-ip/) | [key](companies/hollowell-ip-metadata/) |
 | 9-person civil engineering firm, 1999–2007, every office doc a pre-2007 binary | 40 | [brackenridge-civil](companies/brackenridge-civil/) | [key](companies/brackenridge-civil-metadata/) |
 | 10-person environmental consultancy, 2013–2021, scans and a departmental ACL | 40 | [saltmarsh-environmental](companies/saltmarsh-environmental/) | [key](companies/saltmarsh-environmental-metadata/) |
 | 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) |
 | 7-person consultancy, 2019–2023, the test fixture | 23 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
 
-Seven companies, 1999–2025: ~16 MB of browsable share, plus ~5 MB of ground truth beside it.
+Eight fleet companies (plus `dev-mini`), 1999–2025: ~32 MB of browsable share, plus ~13 MB of ground truth beside it.
 
 | | fleet |
 | --- | --- |
-| companies | 7 |
-| people (internal) | 67 |
-| planned documents | 281 (226 model-authored + 55 deterministic workbooks) |
-| engagements | 34 |
-| mean words per authored doc | ~697 |
-| mean length against what the brief asked | 1.001 |
+| companies | 8 (+ `dev-mini`) |
+| people (internal) | 101 |
+| planned documents | 635 (497 model-authored + 73 deterministic workbooks + 65 derived noise) |
+| engagements | 59 |
+| mean words per authored doc | ~540 |
+| mean length against what the brief asked | ~1.0 |
 
-This is the v2.0 fleet, generated in one arc and frozen. Every org is built
-on the full stack: rosters that hire, promote, and lose people; expense
-lines each computed from what drives them; document volume driven by the
-firm's real activity rather than a fixed skeleton. Every org was authored by
-`claude-opus-4-8[1m]` — the six fleet orgs at effort `xhigh`, `dev-mini` at
-`xhigh` — and **every one of the 226 authored documents lands within 25% of
-the words its brief asked for**. Each org records what actually authored it,
-batch by batch, in its `GENERATION-REPORT.md`.
+This is the fleet after the M13-M16 realism wave: each org was regenerated once,
+wholesale, under recipes with the wave's knobs turned on (a business-day
+calendar, a sample-book prose posture, a per-author style/voice layer, and,
+where the recipe declares them, real mail threads and organizational noise),
+then re-frozen. Every org is built on the full stack: rosters that hire,
+promote, and lose people; expense lines each computed from what drives them;
+document volume driven by the firm's real activity rather than a fixed skeleton.
+Every org was authored by `claude-opus-4-8[1m]` at effort `xhigh`, and **every
+authored document lands close to the words its brief asked for**. Each org
+records what actually authored it, batch by batch, in its `GENERATION-REPORT.md`,
+and ships its six-dimension adversarial board findings beside it.
 
-Per company: 7–12 people, 23–53 documents, 3–6 engagements, a 5–9 year span.
+Per company: 7–25 people, 31–218 documents, 4–22 engagements, a 5–15 year span.
 
-By format: 147 `.docx`, 46 `.xlsx`, 34 `.pdf`, 24 `.doc`, 11 `.eml`, 9
-`.xls`, 8 `.pptx`, 2 `.ppt`.
+By format: 329 `.docx`, 137 `.eml`, 69 `.xlsx`, 68 `.pdf`, 24 `.doc`, 20
+`.pptx`, 9 `.xls`, 2 `.ppt`.
 
-By genre: 55 financial summaries, 51 sets of meeting minutes, 37 status
-reports, 34 engagement letters, 34 kickoff memos, 29 onboarding records, 19
-firm overviews, 11 email threads, 10 briefing decks.
+By genre: 121 engagement emails, 105 sets of meeting minutes, 84 status
+reports, 78 financial summaries, 71 kickoff memos, 69 engagement letters, 64
+onboarding records, 28 firm overviews, 22 briefing decks, 16 internal emails.
 
-#### The M12 pilot
+#### The largest org: calderwood-partners
 
-[`calderwood-partners`](companies/calderwood-partners/) is not part of the
-frozen v2.0 fleet; it is the M12 pilot, generated to prove the capability
-layer end to end and committed beside the fleet. It is the largest committed
-org: **218 documents** (168 model-authored, 15 static workbooks, 35 derived
-noise) for a 22-person management consulting firm across 2008–2022, generated
-through the same live airlock on `claude-opus-4-8[1m]` at effort `xhigh`. It
-turns on every M12 knob at once, so it is the org to read for what the
-capability layer does rather than what the fleet demonstrates: a business-day
-calendar, an engagement book declared a sample, deterministic duplicates and
-drafts, and the voice mitigation. Its measurements are in its
+[`calderwood-partners`](companies/calderwood-partners/) began as the M12
+capability pilot and is now a regenerated member of the fleet (M16). It is the
+largest committed org: **218 documents** (168 model-authored, 15 static
+workbooks, 35 derived noise) for a 22-person, 25-seat management consulting firm
+across 2008–2022, generated through the live airlock on `claude-opus-4-8[1m]` at
+effort `xhigh`. It is the org to read for scale and for the duplicate/draft
+noise distribution: a business-day calendar, an engagement book declared a
+sample, deterministic duplicates and drafts, and the style/voice layer. Its
+measurements and six-dimension board findings are in its
 [`GENERATION-REPORT.md`](companies/calderwood-partners-metadata/GENERATION-REPORT.md),
-and it validates clean (28 rules run, 0 errors). The full window-defeating
-flagship is M17; the pilot is the same capability at a tenth the scale.
+and it validates clean (29 rules run, 0 errors). The full window-defeating
+flagship is M17; this is the same capability at a tenth the scale.
 
 #### The M14 email pilot
 
-[`ashcombe-advisory`](companies/ashcombe-advisory/) is the M14 email-first
-pilot, committed beside the fleet: a 12-seat corporate communications and
-investor-relations advisory across 2017–2024, 104 documents, generated through
-the same live airlock on `claude-opus-4-8` at effort `xhigh`. It is the
-org to read for email realism. Under a new optional `doc_culture.mail` block,
-its engagement mail runs as real threads — **42 authored `.eml`, 53% of its
-authored documents, across 6 threads up to depth 8** — with minute-granularity
-send times in declared business hours, `In-Reply-To`/`References` chains, RE:
-subjects, derived quoted-history tails, a deterministic To/Cc split,
-promotion-aware signature blocks, two transmittal emails carrying a kickoff
-memo as a byte-identical MIME attachment, a mundane internal-email genre, and
-three distribution lists. It validates clean (29 rules run, 0 errors) and
-scores 100% on all four eval splits. Its board findings ship in its
-[`GENERATION-REPORT.md`](companies/ashcombe-advisory-metadata/GENERATION-REPORT.md) —
-read the recipient/audience finding: some replies were authored in an internal
-register but are delivered to the client, a realism gap logged for the wave's
-regeneration turn.
+[`ashcombe-advisory`](companies/ashcombe-advisory/) began as the M14
+email-first pilot and is now a regenerated member of the fleet (M16): a 16-seat
+corporate communications and investor-relations advisory across 2017–2024, 104
+documents, generated through the live airlock on `claude-opus-4-8[1m]` at effort
+`xhigh`. It is the org to read for email realism. Under the optional
+`doc_culture.mail` block, its engagement mail runs as real threads — **45
+`.eml`, the largest mail presence in the fleet, across 6 threads up to depth
+8** — with minute-granularity send times in declared business hours,
+`In-Reply-To`/`References` chains, RE: subjects, derived quoted-history tails, a
+deterministic To/Cc split, promotion-aware signature blocks, transmittal emails
+carrying a kickoff memo as a byte-identical MIME attachment, a mundane
+internal-email genre, and three distribution lists. It validates clean (30 rules
+run, 0 errors) and scores 100% on all four eval splits. Its six-dimension board
+findings ship in its
+[`GENERATION-REPORT.md`](companies/ashcombe-advisory-metadata/GENERATION-REPORT.md).
+The regeneration turned on `exempt_author_mentions`, so a mundane-email author
+no longer names themselves in the third person; the recipient full-name device
+that this required in the body remains a fleet-wide realism gap (above).
 
 It is also the M15 noise workbench. **17 of its 104 documents are derived**
 and cost zero model tokens: two exact duplicates, three drafts, three version
@@ -236,9 +240,10 @@ A real ten-person professional-services firm over eight years does not
 produce 40 documents. It produces, very roughly:
 
 - **Email in the tens of thousands.** Ten people sending even 20 messages a
-  working day is ~400,000 messages over eight years. The frozen v2.0 fleet
-  ships **11 `.eml` files**, all single messages: email volume and thread
-  mechanics were the largest fidelity gap. M14 addressed the *mechanics* (not
+  working day is ~400,000 messages over eight years. The fleet now ships **137
+  `.eml` files** with real multi-message threads on three orgs (up to depth 8):
+  email volume and thread mechanics were the largest fidelity gap. M14 addressed
+  the *mechanics* (not
   the volume) with a committed email-first pilot, `ashcombe-advisory`: real
   threads with minute-granularity timing, `In-Reply-To`/`References` chains,
   quoted history, a To/Cc split, promotion-aware signatures, transmittal
@@ -266,9 +271,10 @@ produce 40 documents. It produces, very roughly:
   words; the pre-v2.0 fleet's authored mean was **236 words** against briefs
   asking 130–350. The model was roughly hitting its targets; the targets
   were wrong. M9 made length a per-genre property of the genre registry and
-  raised engagement letters to 1,100. The v2.0 fleet authors at **mean ~690
-  words** with clause-bearing letters, and this is now the one gap on this
-  list that is closed.
+  raised engagement letters to 1,100. The fleet now authors clause-bearing
+  engagement letters at **1,000–1,300 words**; the overall authored mean is
+  **~540 words**, pulled down deliberately by the short email threads the
+  realism wave added, and this length gap is closed.
 
 There is no honest way to call 40 documents a sample of that. What it is: a
 corpus where **every** hard case you care about is present, labeled, and
@@ -280,115 +286,116 @@ under two seconds, with an exact answer key — instead of failing silently on
 ### What is not modeled today
 
 Our own adversarial review board read the exemplar above,
-`northgate-staffing`, and said it better than we could. These are its actual
-committed findings — **16 major across six dimensions**, all in
-`companies/northgate-staffing-metadata/review/findings/`, against a corpus
-that validates clean: 24 rules run, 10 skipped for knobs it leaves off (the
-M12 additions CAL-01 and NOISE-01 and the M14 mail rules EML-02, EML-03, and
-DL-01 among them), 0 errors.
+`northgate-staffing`, and said it better than we could. As of the M13-M16
+realism wave, that exemplar is **regenerated with the wave's knobs turned on**
+(business calendar, sample-book posture, the per-author voice layer, and the
+full organizational-noise suite), so this section is no longer a list of knobs
+left off. It is what the board found once the knobs were on. The current
+findings are **6 major, 1 minor, 1 note across six dimensions**, all in
+`companies/northgate-staffing-metadata/review/findings/`, against a corpus that
+validates clean: 27 rules run, 8 skipped for knobs it still leaves off, 0
+errors.
 
-**Read these as findings about one org, `northgate-staffing`, which is frozen
-and ships every knob off.** As of M12 (see [What is in the
-box](#what-is-in-the-box-today)), three of the findings below are no longer
-generator limits: they are recipe choices `northgate-staffing` declines to
-turn on, and the M12 pilot `calderwood-partners` turns them on. This section
-promised, before M12, that when a limit here became a recipe choice it would
-say which. It does now:
+**First, what the wave closed on the exemplar itself.** The defects this
+section used to quote at length are gone from `northgate-staffing`, fixed by
+regenerating it rather than by our say-so:
 
-- **The weekend meetings are a recipe choice now** (`doc_culture.business_calendar`).
-  A recipe that declares a calendar dates minutes and engagement mail on
-  business days; validator rule CAL-01 enforces it. `northgate` declares none,
-  so its Saturday session stands.
-- **The fee/revenue gap is a recipe choice now** (`engagements.book_is_sample`).
-  A recipe that declares its engagement ledger a sample writes the overview as
-  representative rather than as the whole business, so the paperwork and the
-  financials describe one firm. It does not derive revenue from the book (the
-  two are still independent by design); it stops the prose claiming completeness.
-- **The reporting-line drift is fixed in the generator for every org, not as a
-  knob.** Onboarding prose that names a supervisor the ledger's `reports_to`
-  edge contradicts is now rejected at ingest. `northgate` keeps its committed
-  drift because its prose is frozen, but no org authored after M12 can carry it.
+- **The weekend and holiday meetings are gone** (`doc_culture.business_calendar`).
+  The recipe now declares a calendar; validator rule CAL-01 keeps every
+  `meeting_minutes` and engagement email on a business day. The previously-cited
+  Saturday 2016-05-28 and 2023-07-04 (US Independence Day) client working
+  sessions **no longer occur** — those dates appear nowhere in the corpus.
+- **The overview no longer overstates the book** (`engagements.book_is_sample`).
+  Where the 2021 overview once called five engagements "a deliberately short
+  list" of the firm's entire client base, it now reads "a representative
+  handful, offered as examples... and not as a full account of our book." The
+  underlying fee/revenue gap is unchanged by design (the knob fixes prose
+  posture, not the ledger: documented fees are still ~2.4% of lifetime
+  revenue), but no document now claims the sample is the whole business.
+- **The reporting-line drift is gone**, fixed in the generator for every org.
+  Onboarding prose that names a supervisor the ledger's `reports_to` edge
+  contradicts is rejected at ingest (`authoring/ingest.py::_check_reporting_line`),
+  verified live on the freshly authored prose.
+- **The blatant template tics are gone.** The `Two asks. First… Second…`
+  opener and the `Workstreams`→`Next Steps`→epigram kickoff skeleton the board
+  used to count on every author do not appear in the regenerated exemplar; the
+  `style_specs` + `voice_diversify` layer removed the named constructions.
 
-Two remain limits rather than choices. The **empty engagement book** (the firm
-grows staff it has no work for) is a missing coupling between `roster_churn.hires`
-and `engagements.count`, not a number, and M12 did not add it. The **voice
-collapse** has a cheap M12 mitigation (`doc_culture.voice_diversify`, a
-per-author register plus a banned-construction list) that measurably moved the
-named tics on the pilot, but no single number is its size and it stays the
-genuinely hard one. (Our recipe coherence test still checks only a 40%
-net-margin ceiling with no floor, so an absurdly poor firm passes it; that is
-recorded in `BACKLOG.md`, `recipe-coherence-test-has-no-floor`.) The pilot's
-voice measurement is one data point on a different recipe from
-`northgate-staffing`, not an effect size: the named tics fell (`Two asks`
-appears in 2 of the pilot's 36 emails against 4 of northgate's 5; the
-`Workstreams` template in 2 of 26 kickoff memos against all 6; the strict
-"rather X now than Y later" antithesis at 0), while the plain words "rather
-than" stay common because they are ordinary English, which is the instrument's
-own point. Read the pilot's `GENERATION-REPORT.md` for the full pattern table.
+**Then, what the board found once those were fixed.** With the loud, checkable
+defects closed, the board had to find subtler things, and the residue is more
+honest about where the generator actually stands:
 
-- **The firm's own paperwork says it has five clients. Its books say
-  otherwise.** "The firm has been retained for five engagements to date...
-  That is a deliberately short list," says the 2021 firm overview — five
-  fees totalling $425,500 — while the FY2021 financial summary shipping in
-  the same corpus posts **$2,469,000 for that one year**, and lifetime
-  revenue reaches $20.7M. Two of the six reviewers drew this contradiction
-  independently, on different dimensions, and a third independently reached
-  the premise under it. It is real: fees are **1.6% to 5.1% of revenue in
-  every org in this fleet**.
-- **Meetings that could not have happened.** Minutes record a client working
-  session on **Saturday 2016-05-28**, and another on **2023-07-04, US
-  Independence Day**, with the client's General Manager attending. Neither
-  remarks on it. The cause: 36% of documents land on a weekend, because the
-  planner draws dates with no business-day calendar.
-- **Every genre collapses to one template across authors.** Four of five
-  engagement emails, by four different people, contain the literal string
-  "Two asks. First… Second…". All six kickoff memos carry a "Workstreams"
-  heading, then "Next Steps," then a closing epigram — six authors who never
-  saw each other's work. The board also counts the "I would rather X now than
-  Y later" antithesis at **34 occurrences across 26 of 44 documents**, every
-  author, every year. Treat that number as its judgment, not as arithmetic —
-  the figure is semantic, and what you count decides what you get. Over the
-  same 44 documents: strict readings that require the temporal contrast land
-  in the **single digits** and disagree with each other depending on how the
-  contrast is drawn, while the plain words `rather than` appear **146 times
-  across 43 of 44 documents**, once per 200 words. Only that last one is
-  reproducible without being told the pattern, and it sweeps up ordinary
-  English. No ledger adjudicates between them, which is the finding underneath
-  the finding: the defect is real at every reading, and its size is opinion.
-- **The org grows staff it has no work for.** The engagement book is empty
-  for 1,299 days while three people are hired into it, one onboarded with
-  "She is walking into live work rather than a quiet stretch."
-- **The people graph drifts from the ledger it describes.** Two onboarding
-  records tell the hire she reports to the Managing Director; `foundation.json`
-  reports her to the Principal, who is unnamed in both documents.
+- **Cross-document voice is still the hard one, and it has no scheduled fix.**
+  The named tics are gone, but same-genre documents by *different* authors
+  still emerge as near-clones under synonym substitution, which is exactly the
+  failure the same-genre n-gram metric cannot see. On the exemplar the board
+  reads a "one thing" closer that isolates the next action in a lapidary final
+  sentence across genres and authors, and five executive-search status reports
+  that collapse to one template across five first-person "I" authors (the pair
+  d:0008 and d:0031 among them). This is the whole reason the board exists:
+  every document is authored by a fresh worker that never saw a sibling, so no
+  author can self-check for it, and it is the one finding class present in
+  **every org in the fleet**.
+- **A fact-layer contradiction, faithfully rendered.** The firm's 2015 overview
+  (d:0006) says Office Manager "James Weiss... around here he is simply Jim,
+  which keeps him straight from the other James on the roster." Nine days
+  later, the CFO-search minutes (d:0007) say "James Grant, whom the team calls
+  Jim." The nickname meant to disambiguate the two Jameses lands on both. The
+  cause is in the ground truth, not the prose: `foundation.json` carries the
+  alias `Jim` on James Grant while James Weiss's persona text claims it, so the
+  generator faithfully rendered a source that contradicts itself. Four of the
+  six reviewers caught it independently. This is a new class of finding the
+  wave surfaced: not sloppy prose, but a structured layer that disagrees with
+  itself, which the prose then reports accurately.
+- **The people-graph filler shows a seam.** To satisfy a minimum-mentions
+  target, a kickoff memo can name and task a colleague who is not an engagement
+  participant, and the participant-scoped ACL then denies that same person read
+  access to the very document that tasks them. It reads as two mechanisms
+  (mention quota, access derivation) derived independently and never reconciled.
 
-**This is where the generator stands today, and the roadmap is scoped
-directly from this list.** Two of these are already logged with the
-arithmetic that proves them (`BACKLOG.md`:
-`engagement-ledger-reads-as-whole-book`,
-`docplan-has-no-business-day-calendar`). Note what the board is *not*
-saying: the findings against the org this one replaced — a roster where nobody is ever
-hired or promoted, engagement letters with no termination or liability
-clause, a staffing graph where every engagement has the same three people,
-and expense lines frozen as a fixed share of revenue — are **gone**, fixed
-in the generator by M8 and M9 as default behavior rather than opt-in knobs.
-The board had to find new things to hate, and did.
+**One fleet-wide artifact the wave introduced, recorded not fixed.** The ingest
+mention check requires an email author to spell the recipient's full legal name
+in the body (a first-name greeting alone will not satisfy it), so the mail
+demonstrators put it there. On `hollowell-ip` the device is a `To:/Cc:` banner
+at the top of the message body, and the `.eml` renderer emits it **on top of
+the real headers** — a duplicated recipient block on 9 of 18 engagement emails,
+visible the instant the message opens (its document_plausibility board finding,
+a blocker). It passes validation (the actual `.eml` headers recompute correctly;
+the duplicate is in the body prose). A proper fix (the renderer strips authored
+header-lines from `.eml` bodies, or the authoring guidance forbids them, then
+re-render the mail orgs) is its own unit of work, out of scope for the
+regenerate-and-re-freeze wave that produced this fleet.
+
+**What we think is important about this exemplar.** The point of regenerating
+`northgate-staffing` under the newest version of the framework is not that the
+board fell silent — it did not. It is *which* findings survived. Everything the
+generator can settle by construction — a business-day calendar, a sample-book
+prose posture, reporting lines that match the graph, the named template
+constructions — the wave settled, cleanly and measurably, by turning a knob and
+regenerating. What is left is the class of problem no ledger can adjudicate:
+whether thirteen documents read as thirteen hands or one, and whether the
+firm's own structured facts agree with each other before the prose ever renders
+them. That is the honest frontier. A synthetic-org generator earns trust by
+making its remaining failures smaller and more specific over time, and the
+exemplar's residue is now a voice problem and a fact-consistency problem rather
+than a calendar bug and an overstated brochure. The roadmap is scoped directly
+from what is left.
 
 Read the board sceptically, including here — it is the weakest instrument in
 this repo, it has been caught publishing a checkable falsehood, and its
 false-positive rate is unmeasured ([what this does not
 prove](#what-this-does-not-prove)). Every finding quoted above was re-verified
-against a ledger before it was published, **except the one that cannot be**:
-no ledger owns whether two sentences are the same rhetorical figure, so the
-board's count of 34 is labelled as its judgment and bracketed by what the same
-corpus yields under a strict and a loose reading. That is the rule working
-rather than an exception to it — a finding that resists checking gets said out
-loud instead of rounded up into a fact.
+against a ledger or the rendered artifact before it was published: the "Jim"
+collision against `foundation.json` and the two documents, the duplicated
+header against the rendered `.eml`, the calendar fix against the manifest. The
+one thing no ledger can settle — whether two sentences are the same voice — is
+labelled as the board's judgment, not rounded up into a fact.
 
-**You can check that rather than take it: every org above ships its own
-board findings and its own numbers.** All seven are built on the whole v2.0
-stack — rosters that grow, one person leaving and being backfilled, people
-promoted, expense lines each computed from what drives them.
+**You can check that rather than take it: all eight orgs ship their own board
+findings and their own numbers**, in each `GENERATION-REPORT.md`. The
+regenerated fleet's documented fees run **1.1% to 3.5% of lifetime revenue**;
+every overview now declares its book a sample, so the paperwork and the
+financials describe one firm even where the gap persists.
 
 That last part is where the fix bit hardest, and it is worth knowing why.
 Fixing the lockstep finance made every recipe's *own* incoherence visible:
@@ -414,20 +421,21 @@ chains were on this list until M12 scoped them in: a flagship meant to test
 retrieval needs a realistic denominator, and today every committed document is
 deliberate. Not built yet; it is scope, not a feature.
 
-Email thread mechanics were the largest gap above, and M14 closed the
-*mechanics* half with a committed fixture. The frozen fleet's 11 `.eml` are
-still single messages ("Email 1"): every fleet recipe sets `format_mix.eml`
-at or below its engagement count, so the reply cadence never fired in a
-shipped fleet document. The email-first pilot
-[`ashcombe-advisory`](#the-m14-email-pilot) is where it does, under the new
-optional `doc_culture.mail` block (`docplan/planner.py`, `render/eml.py`);
-that section lists what the block turns on and links the pilot's board
-findings. What is still open is *volume*: even the pilot is
-document-dominant, and no corpus here approaches an email-dominant one.
+Email thread mechanics were the largest gap above; M14 built the *mechanics*
+and the M13-M16 wave turned them on across the fleet. Real threads (multi-turn
+`.eml` with `In-Reply-To`/`References`, `RE:` subjects, To/Cc split, alternating
+senders, promotion-aware signatures) now ship under the optional
+`doc_culture.mail` block on the two mail demonstrators `hollowell-ip` and
+`meridian-actuarial` (22 and 26 `.eml`, max thread depth 5 apiece) plus the
+email-first pilot [`ashcombe-advisory`](#the-m14-email-pilot) (45 `.eml`, depth
+8). What is still open is *volume*: even the pilot is document-dominant, and no
+corpus here approaches an email-dominant one. The wave also surfaced a rendering
+artifact on `hollowell-ip` (a duplicated recipient block in 9 emails, above),
+recorded not fixed.
 
 **Choose accordingly.** If you need email or document *volume*, or a realistic
 noise distribution, this is still the wrong tool today; if you need thread
-*mechanics*, the pilot has them. If you need labeled hard cases,
+*mechanics*, three orgs now carry them. If you need labeled hard cases,
 format heterogeneity, reproducibility, and a corpus you can legally publish,
 it is a good one. See [docs/SCALE.md](docs/SCALE.md) for the size targets
 and the measurements behind them, including why a 2,000-document org at
@@ -491,6 +499,26 @@ re-run `/forge <slug>`, and it resumes exactly where it stopped with no
 duplicated or lost documents. Structure is fully seeded; the same recipe
 regenerates the same org (ids, names, tree, numbers), with only the
 model-authored prose varying.
+
+**What it costs to generate, roughly.** Only the authoring passes spend model
+tokens; the deterministic stages (charter, foundation, fabric, docplan, render,
+assemble, validate) and the noise stages spend zero by construction. The
+exemplar `northgate-staffing` is 44 model-authored documents (~26,000 words)
+across 11 batches: one persona-enrichment pass plus ten authoring work orders,
+each a fresh-context worker that reads its work order and the schema contract,
+authors four to six documents with extended reasoning, and self-checks. Measured
+against this fleet's runs, a batch consumes on the order of 90k-130k tokens end
+to end, roughly 80% input (the work order, ledger context, and sibling documents
+read for voice) and 20% output (extended-reasoning plus the DocIR deliverable).
+At retail Claude Opus rates ($15/M input, $75/M output) that is about $2.50-$3.50
+a batch, so **on the order of $30 to author the exemplar**, call it $25-$40. Two
+things move it: prompt-caching the shared schema and ledger context across a
+batched run cuts the input half materially, and the figure is dominated by
+extended-reasoning output at the `xhigh` effort we author on. The adversarial
+board is a separate spend of similar size (six reviewers each read the whole
+corpus once) and is review, not generation. Across the eight-org, ~600-document
+fleet the generation cost scales with authored-document count, from ~15 batches
+for the smallest orgs to ~37 for `calderwood-partners`.
 
 ## Why we think the output is any good
 
@@ -592,9 +620,10 @@ separate boxes makes it hard to quote one as the other.
   large pilot orgs (`calderwood-partners` and the M14 email pilot
   `ashcombe-advisory`), run on their own so the everyday loop stays fast;
   the `org` tier validates the
-  seven fleet fixtures, derives every recipe, re-derives every fixture's
-  structure byte-identically, and checks each fleet recipe's internal
-  coherence in ~3.6s, while `bin/test flagship` validates both pilots in ~4s.
+  eight fleet fixtures (plus `dev-mini`), derives every recipe, re-derives every
+  fixture's structure byte-identically, and checks each fleet recipe's internal
+  coherence in ~5s, while `bin/test flagship` re-validates the two largest,
+  `calderwood-partners` and `ashcombe-advisory`, in ~4s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
@@ -770,9 +799,9 @@ Five rules have survived every milestone so far and govern new work:
 
 ## Quick start
 
-**Just want the data?** Clone the repo. The seven companies under
-`companies/` are ready to use, with their answer keys beside them. No venv,
-no model, no API key.
+**Just want the data?** Clone the repo. The eight companies (plus `dev-mini`)
+under `companies/` are ready to use, with their answer keys beside them. No
+venv, no model, no API key.
 
 To validate, score, or generate:
 
@@ -832,15 +861,22 @@ recipe and fails the org on a mismatch — `ACL-01/02/03`, `LEG-01`,
 covered by the generic "every file opens in its native reader" rule
 (`FILE-01`) rather than by a deck-specific recompute.
 
-| org | ACL | legacy | scans | OCR | sig-page fee | filename date | surname | nickname | multi-affil | decks | mail | hires/departs/promos |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `brackenridge-civil` | open | **1.0** | 0.5 | 0.5 | — | — | — | — | — | ✓ | — | 3/1/1 |
-| `hollowell-ip` | departmental | — | — | — | ✓ | — | — | ✓ | — | ✓ | ✓ | 4/1/1 |
-| `meridian-actuarial` | departmental | — | — | — | ✓ | ✓ | ✓ | — | — | ✓ | ✓ | 5/1/2 |
-| `northgate-staffing` | open | — | — | — | — | — | ✓ | ✓ | — | ✓ | ✓ | 5/1/2 |
-| `saltmarsh-environmental` | departmental | — | 0.6 | 0.5 | ✓ | ✓ | — | — | ✓ | ✓ | — | 4/1/1 |
-| `verdant-health` | open | — | 0.5 | — | — | — | — | — | ✓ | ✓ | — | 1/1/1 |
-| `dev-mini` | open | — | — | — | — | — | — | — | — | — | — | 1/1/1 |
+Since the M13-M16 realism wave, every fleet org also declares a business-day
+calendar, a sample-book prose posture, and the per-author style/voice layer;
+those are fleet-wide, so they are not columns here. The columns are what still
+*differs* between orgs.
+
+| org | ACL | legacy | scans | OCR | sig-page fee | filename date | surname | nickname | multi-affil | decks | mail | noise | hires/departs/promos |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `ashcombe-advisory` | open | — | — | — | — | — | — | ✓ | — | ✓ | ✓ | ✓ | 3/1/2 |
+| `brackenridge-civil` | open | **1.0** | 0.5 | 0.5 | — | — | — | — | — | ✓ | — | — | 3/1/1 |
+| `calderwood-partners` | departmental | — | 0.3 | 0.5 | ✓ | ✓ | ✓ | ✓ | — | ✓ | — | ✓ | 12/2/3 |
+| `hollowell-ip` | departmental | — | — | — | ✓ | — | — | ✓ | — | ✓ | ✓ | — | 4/1/1 |
+| `meridian-actuarial` | departmental | — | — | — | ✓ | ✓ | ✓ | — | — | ✓ | ✓ | — | 5/1/2 |
+| `northgate-staffing` | open | — | — | — | — | — | ✓ | ✓ | — | ✓ | — | ✓ | 5/1/2 |
+| `saltmarsh-environmental` | departmental | — | 0.6 | 0.5 | ✓ | ✓ | — | — | ✓ | ✓ | — | — | 4/1/1 |
+| `verdant-health` | open | — | 0.5 | — | — | — | — | — | ✓ | ✓ | — | — | 1/1/1 |
+| `dev-mini` | open | — | — | — | — | — | — | — | — | — | — | — | 1/1/1 |
 
 Reading it: **`brackenridge-civil`** is the ugly-format org — `legacy_ratio`
 at 1.0 means *every* office document is a real pre-2007 OLE container (24
@@ -849,15 +885,18 @@ those carry a synthetic OCR layer. **`saltmarsh-environmental`** and
 **`verdant-health`** are where a contact changes employer mid-history, with
 dated `works_at` edges and era-correct resolution per document date.
 **`meridian-actuarial`** carries both hard-case knobs, so a fee lives only on
-a signature page and a date lives only in a filename. **`dev-mini`** is
-deliberately bare: it is the regression oracle the ~510-test unit tier builds
-on, so it stays small and cheap rather than proving breadth. Its one
-exception is `style_specs`, on since M15 — the per-person voice ledger is
-cheap, and a tracer is the right place to prove it end to end. Noise stays
-off there on purpose; that is `ashcombe-advisory`'s job.
+a signature page and a date lives only in a filename. **`hollowell-ip`**,
+**`meridian-actuarial`**, and **`ashcombe-advisory`** are where engagement mail
+runs as real threads (the `doc_culture.mail` block); the exemplar
+**`northgate-staffing`**, **`calderwood-partners`**, and **`ashcombe-advisory`**
+carry the organizational-noise suite (duplicates, drafts, misfiles). **`dev-mini`**
+is deliberately bare: it is the regression oracle the ~510-test unit tier builds
+on, so it stays small and cheap rather than proving breadth. Its one exception
+is `style_specs`, on since M15 — the per-person voice ledger is cheap, and a
+tracer is the right place to prove it end to end.
 
-- The full pipeline, end to end, proven on all seven, every one generated on
-  the v2.0 stack through the live airlock and byte-pinned.
+- The full pipeline, end to end, proven on all eight, every one generated on
+  the full stack through the live airlock and byte-pinned.
 - Access-control ground truth: the recipe's `acl_posture` derives
   `ledger/acl.json` (exactly which internal people may read which
   documents: matter teams plus the CEO-equivalent for engagement folders,
@@ -981,8 +1020,8 @@ adversarial code review with builder/verifier separation, and a pre-push
 gate that blocks unreviewed code.
 
 The committed fleet was authored through the same airlock this repo ships,
-by `claude-opus-4-8[1m]` (the six fleet orgs at `/effort xhigh`, `dev-mini`
-at `xhigh`). Every org's `GENERATION-REPORT.md` records what actually wrote
+by `claude-opus-4-8[1m]` (all eight fleet orgs and `dev-mini` at `/effort
+xhigh`). Every org's `GENERATION-REPORT.md` records what actually wrote
 it, batch by batch — self-reported, and treated as a record rather than an
 oracle for the reason [Round 1
 found](#which-model-should-write-your-documents).

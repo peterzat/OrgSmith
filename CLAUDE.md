@@ -48,24 +48,29 @@ README.md for the product shape and SPEC.md for the current unit of work.
   anywhere in the repo (enforced by a short-tier test; see
   `tests/test_short.py` for the check).
 
-## Frozen-fixture carve-out, realism wave (M13-M16), opened 2026-07-21
+## Frozen-fixture carve-out, realism wave (M13-M16): CLOSED as of M16 (2026-07-28)
 
-The frozen-fixtures rule is suspended in the following scoped way and no
-other: (1) the email pilot org `ashcombe-advisory` is a wave workbench and
-may be regenerated or extended by M14 and M15 as knobs land; (2) `dev-mini`
-may be regenerated exactly once, in M15; (3) the six remaining v2.0 fleet
-orgs (the exemplar `northgate-staffing` among them), `calderwood-partners`,
-and the email pilot `ashcombe-advisory` may be regenerated exactly once each,
-in M16, under recipes updated to the wave's knobs. Regeneration is always
-wholesale (delete and re-run the full pipeline from the recipe), never an
-in-place edit of ledgers, manifest, or prose. `PINNED = SLUGS` stays enforced and must be green at every commit,
-including mid-wave. Additive evolution is NOT suspended: every wave capability
-still lands as a default-off knob with inert schema defaults and new seed
-streams, proven inert against not-yet-regenerated fixtures before any org
-turns it on. The carve-out closes when M16's re-freeze criterion lands, at
-which point this paragraph is replaced by closure language mirroring M11b.
-This supersedes the BACKLOG decision `fleet-regenerates-under-the-new-knobs`
-(2026-07-17) by user decision; that entry's own revisit criteria have fired.
+The realism-wave carve-out is **closed**. All eight fleet orgs plus `dev-mini`
+were regenerated wholesale under the wave's knobs and re-frozen: the fixtures
+are frozen again, `PINNED = SLUGS` is enforced fleet-wide
+(`tests/test_org_regen.py`), and it was green at every mid-wave commit. Additive
+evolution is **restored** exactly as at M11b: any post-wave capability lands as
+a default-off recipe knob with inert schema defaults on the existing
+`orgsmith/<kind>@<ver>` schema ids, drawing randomness only from NEW `seeds.py`
+streams, proven inert against the frozen fleet (loads, validates clean, and
+re-derives byte-identical structure) before any org turns it on. The per-stream
+seed discipline was never relaxed. `evals/`, `acl.json`, `GENERATION-REPORT.md`,
+`review/`, and PERMISSIONS.md remain derived and may always be re-emitted;
+regenerating a committed org's ledgers, manifest, or authored prose again
+requires a fresh, user-approved carve-out.
+
+Known residual, recorded not fixed (board is read-only; fixing needs a new
+carve-out): in the two mail demonstrators, forge-author workers put an email
+recipient's full name in the message body to satisfy the ingest mention check,
+and on `hollowell-ip` a `To:/Cc:` body banner renders as a duplicated header on
+9 of 18 engagement emails (its document_plausibility board finding). A proper
+fix (renderer strips authored header-lines from `.eml` bodies, or the authoring
+guidance forbids them, then re-render the mail orgs) is its own unit of work.
 
 ## Environment
 

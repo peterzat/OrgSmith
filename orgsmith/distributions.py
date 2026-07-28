@@ -20,6 +20,24 @@ from .artifacts import load_charter, load_foundation, load_manifest
 from .paths import OrgPaths
 from .review.corpus import load_authored, prose_text, word_count
 
+# The M15-committed frozen-fleet baseline (git 82a23b4), captured BEFORE the
+# M13-M16 realism wave regenerated the fleet under the wave's knobs. Frozen
+# here as constants so M16's effect is a committed before/after diff rather
+# than a claim (SPEC M16, "the wave's deltas are visible in git"). Per org:
+# (docs, derived, eml, weekend_frac, mean_words); plus the fleet aggregate.
+WAVE_BASELINE_M15 = {
+    "ashcombe-advisory": (87, 0, 42, 0.11, 365),
+    "brackenridge-civil": (40, 0, 0, 0.40, 699),
+    "calderwood-partners": (218, 35, 38, 0.17, 589),
+    "dev-mini": (22, 0, 0, 0.36, 717),
+    "hollowell-ip": (45, 0, 3, 0.27, 691),
+    "meridian-actuarial": (49, 0, 3, 0.22, 675),
+    "northgate-staffing": (53, 0, 5, 0.36, 662),
+    "saltmarsh-environmental": (40, 0, 0, 0.25, 725),
+    "verdant-health": (31, 0, 0, 0.29, 728),
+    "**fleet**": (585, 35, 91, 0.22, 606),
+}
+
 
 def committed_slugs(root: Path) -> list[str]:
     """Every org that is committed beside its recipe, sorted."""
@@ -78,6 +96,52 @@ def _row(d: dict) -> str:
     )
 
 
+def _delta(before: float, after: float, pct: bool = False) -> str:
+    if pct:
+        return f"{before:.0%} → {after:.0%}"
+    return f"{before:.0f} → {after:.0f}"
+
+
+def _wave_before_after(rows: list[dict]) -> list[str]:
+    """The M15 frozen baseline against the current derivation, per org, on the
+    metrics the realism wave moved. `before` is the WAVE_BASELINE_M15 constant;
+    `after` is computed live, so this stays a committed diff, not a claim."""
+    out = [
+        "## Realism wave: before / after (M15 frozen fleet → M16 regenerated)",
+        "",
+        "The `before` column is the M15-committed baseline "
+        "(`WAVE_BASELINE_M15`, git 82a23b4), captured before any org was "
+        "regenerated; `after` is derived live from the current fleet. The wave "
+        "turned on a business-day calendar (which pulls weekend-dated meetings "
+        "and mail down), real mail threads on the demonstrators (which raises "
+        "`.eml` and, being short, lowers mean words), and the noise suite on "
+        "the exemplar and the two large orgs (which raises `derived`). "
+        "Fee/revenue prose posture also moved but is not a distribution: every "
+        "regenerated overview now declares its engagement book a sample, so "
+        "documented fees reading as ~1-3% of revenue no longer contradict the "
+        "prose. Per-author voice ranges are per-org, in each "
+        "`GENERATION-REPORT.md`; `cross-document-voice` stays the standing hard "
+        "problem, measured never gated.",
+        "",
+        "| org | weekend | .eml | derived (noise) | mean words |",
+        "| --- | --- | ---: | ---: | ---: |",
+    ]
+    by_slug = {d["slug"]: d for d in rows}
+    for slug, base in WAVE_BASELINE_M15.items():
+        now = by_slug.get(slug)
+        if now is None:
+            continue
+        b_docs, b_derived, b_eml, b_wknd, b_words = base
+        out.append(
+            f"| {slug} | {_delta(b_wknd, now['weekend_frac'], pct=True)} | "
+            f"{_delta(b_eml, now['eml'])} | "
+            f"{_delta(b_derived, now['derived'])} | "
+            f"{_delta(b_words, now['mean_words'])} |"
+        )
+    out.append("")
+    return out
+
+
 def render_distributions(root: Path) -> str:
     rows = [
         org_distributions(OrgPaths(root=root, slug=slug))
@@ -125,6 +189,7 @@ def render_distributions(root: Path) -> str:
         *[_row(d) for d in rows],
         _row(agg),
         "",
+        *_wave_before_after(rows + [agg]),
         "## Reference lines (non-calibrated)",
         "",
         "Order-of-magnitude context restated from the README's \"Where that "
