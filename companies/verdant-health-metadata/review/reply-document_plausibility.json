@@ -1,0 +1,26 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "verdant-health",
+  "dimension": "document_plausibility",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:doc-plausibility-1",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": ["d:0027"],
+      "summary": "The Sullivan kickoff memo attributes the scanned consents to 'the health system's contracting office,' an entity never introduced, even though the client Sullivan, Hall and Kelly is the only organization in scope and is referred to as 'their' in the same sentence.",
+      "evidence": "d:0027: 'Sullivan, Hall and Kelly runs a modern billing system and their extracts should reach us clean ... The exception is the health system's contracting office, which prints, signs, and scans.' No health system other than the client is ever named, so 'the health system's' reads as a third party rather than 'their.' The parallel status report d:0029 renders the identical fact correctly as 'the executed statements and consents that your contracting office prints and scans,' which exposes d:0027 as an un-localized charter phrase."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:doc-plausibility-2",
+      "dimension": "document_plausibility",
+      "severity": "note",
+      "docs": ["d:0019", "d:0026"],
+      "summary": "The one flagged same-genre pair (the Lopez and Sullivan engagement letters) reads as authentic template reuse by one signing partner, not as generator monotony; no defect claimed.",
+      "evidence": "Both open near-identically (d:0019 'Our aim is not to paper the relationship but to make certain...'; d:0026 'Our purpose in writing is not to paper the relationship but to make certain...'), share 'the edges of the work sit on the page ... in anyone's memory,' and carry an identical state-bar fee-dispute clause. Engagement letters are the most templated genre a firm produces, both are signed by Laura Brown, and the firm's two earlier engagement letters (d:0002, d:0010) use a different structure and warmer register, so this pair reads as a standardized later template rather than a generator with one idea."
+    }
+  ]
+}

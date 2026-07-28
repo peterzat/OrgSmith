@@ -1,0 +1,32 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "graph_acl_naturalness",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0007"
+      ],
+      "summary": "The nickname 'Jim' is attached to two different people: the firm overview assigns it to Office Manager James Weiss (framing it as the disambiguator between the roster's two Jameses), while the meeting minutes assign the same nickname to Principal James Grant.",
+      "evidence": "d:0006: 'James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.' d:0007, nine days later: 'James Grant, whom the team calls Jim, agreed to take the first-round interviews.' In a 12-person firm this self-defeats the stated disambiguation, and the alias ledger confirms the mis-wiring (James Grant carries alias 'Jim'; James Weiss's alias list is empty)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "note",
+      "docs": [],
+      "summary": "Every client-side sponsor the firm interfaces with holds one of only two titles, split in a clean chronological block, which reads as an assigned pool rather than an organic book of relationships.",
+      "evidence": "The sole sponsor at each of the six clients is Chief Operating Officer for 2015/2016/2017 (Jason Myers in d:0002, Michael Martin in d:0010, Jennifer Frazier in d:0019) and General Manager for 2018/2019/2023 (Jason Vasquez in d:0027, Amy Alvarez in d:0035, David Mcgee in d:0048). No CEO, board chair, or head of HR ever sponsors a search, and a board-director search (Sanchez-Baker) runs through a COO rather than the board itself."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

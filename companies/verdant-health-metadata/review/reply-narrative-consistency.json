@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "verdant-health",
+  "dimension": "narrative_consistency",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-consistency-1",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": ["d:0002", "d:0009", "d:0010", "d:0011", "d:0013"],
+      "summary": "Susan Clark, established as the firm's physician-compensation and fair-market-value specialist, does not appear on the one engagement that is a Physician Compensation Review; it is led instead by the service-line economist Daniel Alvarado with analyst Patricia Moore.",
+      "evidence": "d:0002 introduces Susan Clark as the Principal who 'will take up any question that touches physician compensation, and she is careful with fair-market-value language,' and in d:0009 she completes the 2020 FMV review and flags an arrangement. But the 2021 Physician Compensation Review names her nowhere: d:0010 has 'Daniel Alvarado, a senior consultant who spends his working life in the economics of clinical service lines, will lead the compensation analysis,' and the team in d:0011/d:0013 is only Daniel and Patricia. No document contradicts a stated fact, so this reads as a defensible staffing choice rather than a continuity break; recorded as an observation, not a defect."
+    }
+  ]
+}

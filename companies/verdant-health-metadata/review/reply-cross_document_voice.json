@@ -1,0 +1,35 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "verdant-health",
+  "dimension": "cross_document_voice",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0003", "d:0020", "d:0027"],
+      "summary": "The kickoff memos are one template worn by different authors: Barbara Freeman's (d:0020) and Susan Clark's (d:0027) are near-verbatim despite being written by different people for different engagements a year apart, which reads as one generator rather than two colleagues.",
+      "evidence": "Same charge-opener across three authors: d:0003 'We are engaged to tell [client] which of its service lines earn their keep... and to do it with numbers that hold up'; d:0020 '...which of its service lines are earning their keep, and to do it with numbers that tie back to their ledger rather than float beside it'; d:0027 '...where its revenue cycle is losing money it should be keeping, and to do it with figures that reconcile to its own general ledger rather than sit beside it.' d:0020 and d:0027 then share the same 'A word on tone'/'A word on register, since we will be in front of their ... operations people' paragraph; the same 'please route [client-facing questions/anything client-facing] through me, so she hears one voice from us'; and the same closer, 'The value this month is in the definitions, not the arithmetic. I will keep this memo current if anything shifts' vs 'The value in these first weeks is in the definitions and the reconciliation and not in the arithmetic, and I will keep this memo current if any of it shifts.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0022", "d:0029"],
+      "summary": "The two 2023/2024 status reports, authored by different people (Barbara Freeman on d:0022, Susan Clark on d:0029), are the same document section for section, so the promised author differentiation collapses into a shared skeleton.",
+      "evidence": "Verbatim shared sentence opening the risks section of both: 'Three items could still move the findings, and we want them on your radar.' Same 'What We Need From You' opener: 'Two things from your team would keep us on the current pace, and neither is urgent this week' (d:0022) / '...neither is urgent this week, so we set them out now while there is time to gather them' (d:0029). Same third risk bullet: 'Our conclusions describe the network as your data describes it to us. A material gap in the source data is a limit on the finding, and we will say so plainly' (d:0022) vs 'Our conclusions describe the cycle as your data describes it to us, so a material gap in the source data is a limit on the finding, which we will state plainly rather than paper over' (d:0029). The 'Where the Work Stands', 'Completed This Period', 'The Period Ahead', and 'Budget' sections track the same way."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-3",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": ["d:0019", "d:0026"],
+      "summary": "The one pair the similarity metric flagged, the Lopez and Sullivan engagement letters, reads as legitimate template reuse, not a defect, because both carry Laura Brown's signature; the real voice problem is the cross-author clones above, which synonym substitution hides from the 4-gram measure.",
+      "evidence": "Both signed by p:laura.brown and both open 'not to paper the relationship but to make certain [we begin] ... already agreed on its shape', share 'So that the edges of the work sit on the page ... in anyone's memory', and share 'what you engage[ing] is our care and our judgment, ... exercised and set out with their limits, and that is precisely/exactly what we undertake to give you.' A single signatory reusing a standard engagement letter across years is realistic firm behavior, so this pair is recorded as reuse rather than charged as a defect."
+    }
+  ]
+}

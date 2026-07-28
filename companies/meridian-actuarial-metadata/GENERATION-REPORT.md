@@ -112,4 +112,16 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 ### Review board
 
-No board findings ingested. Run `/forge-review meridian-actuarial` to dispatch the review board; the metrics above stand on their own without it.
+9 findings from the review board.
+
+| id | dimension | severity | docs | summary |
+| --- | --- | --- | --- | --- |
+| rf:xvoice-1 | cross_document_voice | major | corpus | The firm's measurement/assumption/conclusion credo is narrated in near-identical triadic wording in almost every document, across all six genres and every author, including short engagement emails and meeting minutes where a real writer would not pause to recite the firm's writing philosophy. |
+| rf:xvoice-2 | cross_document_voice | major | corpus | Beyond the credo, a small bank of signature aphorisms recurs verbatim across different authors and genres, including two distinct personas emitting identical sentences, reading as one writer's phrasebook rather than twelve independent hands. |
+| rf:xvoice-3 | cross_document_voice | major | d:0012, d:0072 | The two midpoint status reports d:0012 (Vasquez, 2016) and d:0072 (Harris, 2024) are the same document with domain nouns swapped, yet fall below the report's same-genre similarity threshold, so only a voice read catches the template collapse. |
+| rf:document-plausibility-thread-state-regression | document_plausibility | major | d:0008, d:0022, d:0036 | In three of the four five-message engagement threads, the final email restarts the data-intake narrative, contradicting the resolved state the earlier messages in the same strictly-linear In-Reply-To chain had already established; read top to bottom the thread's state snaps backward at the last message. |
+| rf:graph-acl-1 | graph_acl_naturalness | major | d:0003, d:0045, d:0065 | Each kickoff memo that has to give a non-engagement colleague a second mention puts that person on the memo's To-line and assigns them engagement work, but the who-can-read-what ground truth grants them no access to any document of that engagement, including the memo addressed to them. |
+| rf:narrative-consistency-thread-regression | narrative_consistency | major | d:0069, d:0070, d:0007, d:0008, d:0034, d:0036 | In three of the four multi-message engagement email threads, the final message reverts the data-intake state to an earlier point, re-raising items the thread had already closed and describing already-reconciled data as freshly arrived, so the thread stops progressing at its last reply. |
+| rf:org-realism-1 | org_realism | major | corpus | The firm's measurement/assumption/conclusion credo is not just embodied but explicitly restated in near-identical words in almost every document across every genre, which reads as a generator returning to one idea rather than a firm with a house discipline. |
+| rf:org-realism-2 | org_realism | major | d:0025, d:0048 | Two midpoint status reports for different clients, engagement types, and authors are near-clones that share whole distinctive sentences verbatim, reading as one generated template rather than a firm's reused format. |
+| rf:org-realism-3 | org_realism | major | d:0019, d:0020, d:0021, d:0022, d:0046 | Engagement emails repeatedly address the recipient by full legal name inside the body, as a reliance-documentation device, which no one does when writing to that person. |

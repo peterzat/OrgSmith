@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "saltmarsh-environmental",
+  "dimension": "graph_acl_naturalness",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0040"],
+      "summary": "The 2021 firm overview's client showcase names the same client, Dyer and Sons, twice consecutively, because two of the five engagements it lists to demonstrate client range share that one client.",
+      "evidence": "d:0040, 'A sample of the work': \"...our work for {{fact:f:E-2015-001.client}}, {{fact:f:E-2016-001.client}}, {{fact:f:E-2018-001.client}}, {{fact:f:E-2019-001.client}}, and {{fact:f:E-2021-001.client}}.\" The first two placeholders both resolve to Dyer and Sons (engagements E-2015-001 Wetland Delineation and E-2016-001 Phase I both carry client x:dyer-and-sons), so the sentence renders 'our work for Dyer and Sons, Dyer and Sons, Salazar-Mendoza, Carter and Sons, and Solis, Allen and Oconnell' — an adjacent duplicate no one writing a client-range showcase by hand would leave in."
+    }
+  ]
+}

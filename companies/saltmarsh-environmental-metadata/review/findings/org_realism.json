@@ -1,0 +1,48 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "saltmarsh-environmental",
+  "dimension": "org_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-headcount-five",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0021",
+        "d:0040",
+        "d:0033"
+      ],
+      "summary": "The firm overviews assert a fixed five-person headcount as a deliberate, unchanging identity, but the roster grows to nine active staff by 2021 and the corpus's own onboarding records document that growth.",
+      "evidence": "d:0040 (2021): 'There are five of us.' d:0021 (2018): 'We are an environmental consultancy of five, and we have stayed that size on purpose ... That has not changed as the firm has aged, and we do not intend to change it.' Yet by 2021 nine people are active (Flynn, Sanchez, Williams, Parks, Foster, Henderson, Morton, Schwartz, Nichols); the onboarding records for Heather Morton (2016), William Schwartz (2018, d:0024), and Joseph Nichols (2019, d:0033) announce five hires against a single departure (Pamela Brown, 2015). The firm was 7 when d:0021 claims five and 9 when d:0040 claims five."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-duplicate-client",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0040"
+      ],
+      "summary": "The 2021 firm overview's representative-client showcase names the same client twice because two sampled engagements share it, so the list reads 'Dyer and Sons, Dyer and Sons, Salazar-Mendoza, ...'.",
+      "evidence": "d:0040: 'Among the engagements that fairly represent that range is our work for {{fact:f:E-2015-001.client}}, {{fact:f:E-2016-001.client}}, {{fact:f:E-2018-001.client}}, {{fact:f:E-2019-001.client}}, and {{fact:f:E-2021-001.client}}.' Per ledger/engagements.json, both E-2015-001.client and E-2016-001.client render to 'Dyer and Sons', so a five-name breadth list repeats one client adjacently."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-agency-clients-absent",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0007",
+        "d:0021",
+        "d:0040"
+      ],
+      "summary": "Every firm overview foregrounds two public-agency client types (a port authority, a county conservation district) that never appear, and d:0040 claims its all-private example set represents 'a mix of public agencies and private landowners.'",
+      "evidence": "d:0040: 'we have done ... for a mix of public agencies and private landowners ... Among the engagements that fairly represent that range is our work for [Dyer and Sons, Salazar-Mendoza, Carter and Sons, Solis, Allen and Oconnell].' All are private firms, each represented by a corporate officer (a CFO or a Director of Operations); no port authority or conservation district appears in any engagement, contact, or org. (The recipe's book_is_sample explains a partial book, but not the affirmative claim that these named private examples represent a public/private mix.)"
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

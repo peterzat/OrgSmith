@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "narrative_consistency",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-consistency-jim-nickname",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": ["d:0006", "d:0007"],
+      "summary": "The nickname \"Jim\" is attached to two different people across the corpus: the Firm Overview gives it to Office Manager James Weiss and says it is what keeps him distinct from the other James, while the CFO-search meeting minutes give the same nickname to Senior Consultant James Grant.",
+      "evidence": "d:0006: \"James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.\" d:0007: \"On the division of the next stage of work, James Grant, whom the team calls Jim, agreed to take the first-round interviews...\" The overview's stated purpose for the nickname (to distinguish Weiss from Grant) is contradicted by the minutes calling Grant himself Jim."
+    }
+  ]
+}

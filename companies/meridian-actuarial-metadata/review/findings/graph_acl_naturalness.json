@@ -1,0 +1,24 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "meridian-actuarial",
+  "dimension": "graph_acl_naturalness",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0003",
+        "d:0045",
+        "d:0065"
+      ],
+      "summary": "Each kickoff memo that has to give a non-engagement colleague a second mention puts that person on the memo's To-line and assigns them engagement work, but the who-can-read-what ground truth grants them no access to any document of that engagement, including the memo addressed to them.",
+      "evidence": "d:0065 is addressed 'To: Michelle Banks, Nicole Hanna' and tasks 'Nicole Hanna runs valuation support and the data checks. She ties the counts and the cash flows back to the client's own summaries', yet the Gonzalez engagement's participants and every Gonzalez ACL grant are only Harris, Banks and Lawrence, so Nicole (whose only other appearance is her own onboarding, d:0061) can open none of it. The same shape recurs with Carol Cooper in d:0003 and Linda Hanna in d:0045: addressed and assigned a role, but holding no grant to their engagement's folder."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

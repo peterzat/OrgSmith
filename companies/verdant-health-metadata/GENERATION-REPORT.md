@@ -83,4 +83,15 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 ### Review board
 
-No board findings ingested. Run `/forge-review verdant-health` to dispatch the review board; the metrics above stand on their own without it.
+8 findings from the review board.
+
+| id | dimension | severity | docs | summary |
+| --- | --- | --- | --- | --- |
+| rf:cross-voice-1 | cross_document_voice | major | d:0003, d:0020, d:0027 | The kickoff memos are one template worn by different authors: Barbara Freeman's (d:0020) and Susan Clark's (d:0027) are near-verbatim despite being written by different people for different engagements a year apart, which reads as one generator rather than two colleagues. |
+| rf:cross-voice-2 | cross_document_voice | major | d:0022, d:0029 | The two 2023/2024 status reports, authored by different people (Barbara Freeman on d:0022, Susan Clark on d:0029), are the same document section for section, so the promised author differentiation collapses into a shared skeleton. |
+| rf:doc-plausibility-1 | document_plausibility | minor | d:0027 | The Sullivan kickoff memo attributes the scanned consents to 'the health system's contracting office,' an entity never introduced, even though the client Sullivan, Hall and Kelly is the only organization in scope and is referred to as 'their' in the same sentence. |
+| rf:org-realism-1 | org_realism | minor | d:0002, d:0010, d:0011 | The firm's named physician-compensation and fair-market-value specialist is absent from the same client's dedicated Physician Compensation Review, which is led instead by the service-line economics consultant. |
+| rf:org-realism-2 | org_realism | minor | d:0027, d:0029 | The Sullivan revenue-cycle kickoff blames scanned paperwork on 'the health system's contracting office,' an entity never introduced to the engagement, while the client status report attributes the identical documents to the client's own office. |
+| rf:cross-voice-3 | cross_document_voice | note | d:0019, d:0026 | The one pair the similarity metric flagged, the Lopez and Sullivan engagement letters, reads as legitimate template reuse, not a defect, because both carry Laura Brown's signature; the real voice problem is the cross-author clones above, which synonym substitution hides from the 4-gram measure. |
+| rf:doc-plausibility-2 | document_plausibility | note | d:0019, d:0026 | The one flagged same-genre pair (the Lopez and Sullivan engagement letters) reads as authentic template reuse by one signing partner, not as generator monotony; no defect claimed. |
+| rf:narr-consistency-1 | narrative_consistency | note | d:0002, d:0009, d:0010, d:0011, d:0013 | Susan Clark, established as the firm's physician-compensation and fair-market-value specialist, does not appear on the one engagement that is a Physician Compensation Review; it is led instead by the service-line economist Daniel Alvarado with analyst Patricia Moore. |

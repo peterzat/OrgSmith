@@ -99,4 +99,15 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 ### Review board
 
-No board findings ingested. Run `/forge-review northgate-staffing` to dispatch the review board; the metrics above stand on their own without it.
+8 findings from the review board.
+
+| id | dimension | severity | docs | summary |
+| --- | --- | --- | --- | --- |
+| rf:cross-voice-closer-1 | cross_document_voice | major | d:0007, d:0011, d:0022, d:0038, d:0039, d:0049 | Documents across every genre and ostensible author close by isolating 'the single/one thing' that governs what happens next, a structural tic no set of fresh, sibling-blind authors would independently share; it even survives into the registers that otherwise read as distinct voices. |
+| rf:cross-voice-nickname-1 | cross_document_voice | major | d:0006, d:0007 | The corpus contradicts itself on which of the two men named James is nicknamed 'Jim': the firm overview gives the nickname to James Weiss (Office Manager), the Roach minutes to James Grant (Senior Consultant), so a reader tracking the roster hits a plain contradiction the disambiguation was meant to prevent. |
+| rf:cross-voice-status-1 | cross_document_voice | major | d:0008, d:0031, d:0015, d:0023, d:0039 | The five executive-search status reports collapse onto one template despite carrying five different first-person authors; the flagged pair d:0008 (Sandra) and d:0031 (James) are near-identical paragraph for paragraph, and all five open their risk section with the same frame naming the same two risks, which reads as one generator wearing name tags rather than a firm reusing author-neutral boilerplate. |
+| rf:graph-acl-1 | graph_acl_naturalness | major | d:0006, d:0007 | The nickname 'Jim' is attached to two different people: the firm overview assigns it to Office Manager James Weiss (framing it as the disambiguator between the roster's two Jameses), while the meeting minutes assign the same nickname to Principal James Grant. |
+| rf:narrative-consistency-jim-nickname | narrative_consistency | major | d:0006, d:0007 | The nickname "Jim" is attached to two different people across the corpus: the Firm Overview gives it to Office Manager James Weiss and says it is what keeps him distinct from the other James, while the CFO-search meeting minutes give the same nickname to Senior Consultant James Grant. |
+| rf:org-realism-jim-1 | org_realism | major | d:0006, d:0007 | The internal nickname "Jim" is attached to two different colleagues named James, and the document that introduces it presents the nickname as the device that keeps the two Jameses apart, so the second use directly contradicts it. |
+| rf:cross-voice-kickoff-1 | cross_document_voice | minor | d:0003, d:0011, d:0028, d:0036, d:0044 | Four kickoff memos by four different consultants, plus the firm overview, share the same signature opener and the same specification-gates-everything line, so a phrase meant to sound like an individual's framing reads as a house macro pasted by everyone. |
+| rf:graph-acl-2 | graph_acl_naturalness | note | corpus | Every client-side sponsor the firm interfaces with holds one of only two titles, split in a clean chronological block, which reads as an assigned pool rather than an organic book of relationships. |

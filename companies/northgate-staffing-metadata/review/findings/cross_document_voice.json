@@ -1,0 +1,69 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "cross_document_voice",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-closer-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0007",
+        "d:0011",
+        "d:0022",
+        "d:0038",
+        "d:0039",
+        "d:0049"
+      ],
+      "summary": "Documents across every genre and ostensible author close by isolating 'the single/one thing' that governs what happens next, a structural tic no set of fresh, sibling-blind authors would independently share; it even survives into the registers that otherwise read as distinct voices.",
+      "evidence": "d:0007 'The single item that governs the schedule from here is the first round of interviews, and every date that follows depends on when those conclude.'; d:0011 'The single thing that has to happen first is the market map. Everything we do after it depends on it'; d:0022 'Our single next step is the confirmation of the revised specification'; d:0038 'Our one priority before we next meet is to move the two leading prospects... Everything after that... follows from how those first approaches land.'; d:0039 'The single thing to watch between now and the next report is how the first assessments land.'; and even the otherwise-distinct benchmarking kickoff d:0049 'Everything we do over the coming months serves that single end.' Same closing move recurs in the letters (d:0002 'That single step is all we need to begin'), status reports (d:0008, d:0031 'The one thing I need from you now is a provisional date'), and minutes (d:0030)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-status-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0008",
+        "d:0031",
+        "d:0015",
+        "d:0023",
+        "d:0039"
+      ],
+      "summary": "The five executive-search status reports collapse onto one template despite carrying five different first-person authors; the flagged pair d:0008 (Sandra) and d:0031 (James) are near-identical paragraph for paragraph, and all five open their risk section with the same frame naming the same two risks, which reads as one generator wearing name tags rather than a firm reusing author-neutral boilerplate.",
+      "evidence": "Risk-section openers, near-verbatim across authors: d:0008 'Two risks are worth naming, neither of them pressing.'; d:0031 'Two risks are worth naming, and neither is pressing.'; d:0015 'Two risks deserve mention, neither of them pressing.'; d:0023 'Two items warrant attention, neither serious.'; d:0039 'Three risks are worth naming, none of them pressing, all of them managed.' In every case the risks are the same pair (strongest candidates are not looking to move; scheduling/notice/thin-segment). d:0008 and d:0031 also share an identical first-person closer: 'The one thing I need from you[r side] now is a provisional date to meet that slate, which I will confirm the moment the field is firm.' A shared firm template would not be voiced in the first person 'I'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-kickoff-1",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0003",
+        "d:0011",
+        "d:0028",
+        "d:0036",
+        "d:0044"
+      ],
+      "summary": "Four kickoff memos by four different consultants, plus the firm overview, share the same signature opener and the same specification-gates-everything line, so a phrase meant to sound like an individual's framing reads as a house macro pasted by everyone.",
+      "evidence": "'...whom their board will be glad to have hired three years from now' (d:0003, Sandra) / '...that [client] is glad to have hired a year from now' (d:0011, Jeffrey) / '...whom their General Manager will be glad to have hired a year from now' (d:0028, James) / '...whom their board will still be glad to have hired three years on' (d:0036, Nicole) / and the firm overview d:0044 '...bringing you a person your board will be glad to have hired three years from now.' The kickoffs also reuse 'the specification gates everything else, that is where we start' (d:0003), 'Because the specification gates everything that follows, that is where the work starts' (d:0028), 'The specification gates everything else, so that is where we start' (d:0036)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-nickname-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0007"
+      ],
+      "summary": "The corpus contradicts itself on which of the two men named James is nicknamed 'Jim': the firm overview gives the nickname to James Weiss (Office Manager), the Roach minutes to James Grant (Senior Consultant), so a reader tracking the roster hits a plain contradiction the disambiguation was meant to prevent.",
+      "evidence": "d:0006 'James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.'; d:0007 'James Grant, whom the team calls Jim, agreed to take the first-round interviews of the most senior prospects himself.' Only one James can be 'Jim' if the point is to keep them straight. The foundation carries the same split (james.weiss's persona says he is Jim, while the alias sits on james.grant), which is exactly the fact a sibling-blind author cannot self-check."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

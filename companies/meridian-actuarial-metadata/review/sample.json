@@ -1,0 +1,556 @@
+{
+  "schema_id": "orgsmith/review-sample@1",
+  "slug": "meridian-actuarial",
+  "docs": [
+    {
+      "doc_id": "d:0002",
+      "path": "Engagements/Howard and Sons/2016.04.07 - Engagement Letter - Howard and Sons - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2016-04-07",
+      "stratum": "longform",
+      "words": 994
+    },
+    {
+      "doc_id": "d:0003",
+      "path": "Engagements/Howard and Sons/2016.04.20 - Kickoff Memo - Pension Valuation.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2016-04-20",
+      "stratum": "longform",
+      "words": 510
+    },
+    {
+      "doc_id": "d:0004",
+      "path": "Engagements/Howard and Sons/2016.05.16 - Email 1 - Pension Valuation - Howard and Sons.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2016-05-16",
+      "stratum": "planted-facts",
+      "words": 118
+    },
+    {
+      "doc_id": "d:0005",
+      "path": "Engagements/Howard and Sons/2016.05.17 - Email 2 - Pension Valuation - Howard and Sons.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2016-05-17",
+      "stratum": "planted-facts",
+      "words": 106
+    },
+    {
+      "doc_id": "d:0006",
+      "path": "Engagements/Howard and Sons/2016.05.17 - Email 3 - Pension Valuation - Howard and Sons.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2016-05-17",
+      "stratum": "planted-facts",
+      "words": 105
+    },
+    {
+      "doc_id": "d:0007",
+      "path": "Engagements/Howard and Sons/2016.05.17 - Email 4 - Pension Valuation - Howard and Sons.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2016-05-17",
+      "stratum": "planted-facts",
+      "words": 83
+    },
+    {
+      "doc_id": "d:0008",
+      "path": "Engagements/Howard and Sons/2016.05.17 - Email 5 - Pension Valuation - Howard and Sons.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2016-05-17",
+      "stratum": "planted-facts",
+      "words": 195
+    },
+    {
+      "doc_id": "d:0009",
+      "path": "Firm/Firm Overview 2016 v3.docx",
+      "genre": "company_overview",
+      "format": "docx",
+      "date": "2016-05-17",
+      "stratum": "longform",
+      "words": 673
+    },
+    {
+      "doc_id": "d:0010",
+      "path": "Engagements/Howard and Sons/2016.05.21 - Briefing Deck - Howard and Sons.pptx",
+      "genre": "briefing_deck",
+      "format": "pptx",
+      "date": "2016-05-21",
+      "stratum": "longform",
+      "words": 330
+    },
+    {
+      "doc_id": "d:0011",
+      "path": "Engagements/Howard and Sons/Meeting Minutes 2016-06-10 - Howard and Sons.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2016-06-10",
+      "stratum": "longform",
+      "words": 481
+    },
+    {
+      "doc_id": "d:0012",
+      "path": "Engagements/Howard and Sons/2016.06.24 - Status Report - Howard and Sons v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2016-06-24",
+      "stratum": "longform",
+      "words": 788
+    },
+    {
+      "doc_id": "d:0014",
+      "path": "People/2017.02.05 - Onboarding - Jennifer Johnson.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2017-02-05",
+      "stratum": "longform",
+      "words": 381
+    },
+    {
+      "doc_id": "d:0016",
+      "path": "Engagements/Miller, Cook and Snyder/2017.08.18 - Engagement Letter - Miller, Cook and Snyder - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2017-08-18",
+      "stratum": "longform",
+      "words": 1093
+    },
+    {
+      "doc_id": "d:0017",
+      "path": "Engagements/Miller, Cook and Snyder/2017.08.31 - Kickoff Memo - Reserve Adequacy Review.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2017-08-31",
+      "stratum": "longform",
+      "words": 588
+    },
+    {
+      "doc_id": "d:0018",
+      "path": "Engagements/Miller, Cook and Snyder/2017.09.25 - Email 1 - Reserve Adequacy Review - Miller, Cook and Snyder.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2017-09-25",
+      "stratum": "planted-facts",
+      "words": 200
+    },
+    {
+      "doc_id": "d:0019",
+      "path": "Engagements/Miller, Cook and Snyder/2017.09.27 - Email 2 - Reserve Adequacy Review - Miller, Cook and Snyder.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2017-09-27",
+      "stratum": "planted-facts",
+      "words": 212
+    },
+    {
+      "doc_id": "d:0020",
+      "path": "Engagements/Miller, Cook and Snyder/2017.09.27 - Email 3 - Reserve Adequacy Review - Miller, Cook and Snyder.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2017-09-27",
+      "stratum": "planted-facts",
+      "words": 225
+    },
+    {
+      "doc_id": "d:0021",
+      "path": "Engagements/Miller, Cook and Snyder/2017.09.28 - Email 4 - Reserve Adequacy Review - Miller, Cook and Snyder.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2017-09-28",
+      "stratum": "planted-facts",
+      "words": 178
+    },
+    {
+      "doc_id": "d:0022",
+      "path": "Engagements/Miller, Cook and Snyder/2017.09.28 - Email 5 - Reserve Adequacy Review - Miller, Cook and Snyder.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2017-09-28",
+      "stratum": "planted-facts",
+      "words": 245
+    },
+    {
+      "doc_id": "d:0023",
+      "path": "Engagements/Miller, Cook and Snyder/2017.10.16 - Briefing Deck - Miller, Cook and Snyder.pptx",
+      "genre": "briefing_deck",
+      "format": "pptx",
+      "date": "2017-10-16",
+      "stratum": "longform",
+      "words": 412
+    },
+    {
+      "doc_id": "d:0024",
+      "path": "Engagements/Miller, Cook and Snyder/Meeting Minutes 2017-11-14 - Miller, Cook and Snyder.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2017-11-14",
+      "stratum": "longform",
+      "words": 596
+    },
+    {
+      "doc_id": "d:0025",
+      "path": "Engagements/Miller, Cook and Snyder/2017.12.04 - Status Report - Miller, Cook and Snyder v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2017-12-04",
+      "stratum": "longform",
+      "words": 788
+    },
+    {
+      "doc_id": "d:0027",
+      "path": "Engagements/Miller, Cook and Snyder/Meeting Minutes 2018-02-12 - Miller, Cook and Snyder.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2018-02-12",
+      "stratum": "longform",
+      "words": 535
+    },
+    {
+      "doc_id": "d:0028",
+      "path": "People/2018.08.13 - Onboarding - Amanda White.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2018-08-13",
+      "stratum": "longform",
+      "words": 377
+    },
+    {
+      "doc_id": "d:0030",
+      "path": "Engagements/Estes Group/2019.01.25 - Engagement Letter - Estes Group - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2019-01-25",
+      "stratum": "longform",
+      "words": 1215
+    },
+    {
+      "doc_id": "d:0031",
+      "path": "Engagements/Estes Group/2019.02.07 - Kickoff Memo - Experience Study.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2019-02-07",
+      "stratum": "longform",
+      "words": 618
+    },
+    {
+      "doc_id": "d:0032",
+      "path": "Engagements/Estes Group/2019.03.04 - Email 1 - Experience Study - Estes Group.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-03-04",
+      "stratum": "planted-facts",
+      "words": 157
+    },
+    {
+      "doc_id": "d:0033",
+      "path": "Engagements/Estes Group/2019.03.05 - Email 2 - Experience Study - Estes Group.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-03-05",
+      "stratum": "planted-facts",
+      "words": 153
+    },
+    {
+      "doc_id": "d:0034",
+      "path": "Engagements/Estes Group/2019.03.06 - Email 3 - Experience Study - Estes Group.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-03-06",
+      "stratum": "planted-facts",
+      "words": 160
+    },
+    {
+      "doc_id": "d:0035",
+      "path": "Engagements/Estes Group/2019.03.06 - Email 4 - Experience Study - Estes Group.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-03-06",
+      "stratum": "planted-facts",
+      "words": 144
+    },
+    {
+      "doc_id": "d:0036",
+      "path": "Engagements/Estes Group/2019.03.07 - Email 5 - Experience Study - Estes Group.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-03-07",
+      "stratum": "planted-facts",
+      "words": 229
+    },
+    {
+      "doc_id": "d:0037",
+      "path": "Engagements/Estes Group/Meeting Minutes 2019-03-19 - Estes Group.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2019-03-19",
+      "stratum": "longform",
+      "words": 657
+    },
+    {
+      "doc_id": "d:0038",
+      "path": "Engagements/Estes Group/2019.03.30 - Status Report - Estes Group v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2019-03-30",
+      "stratum": "longform",
+      "words": 808
+    },
+    {
+      "doc_id": "d:0039",
+      "path": "Firm/Firm Overview 2019 v3.docx",
+      "genre": "company_overview",
+      "format": "docx",
+      "date": "2019-05-17",
+      "stratum": "longform",
+      "words": 675
+    },
+    {
+      "doc_id": "d:0040",
+      "path": "Firm/Mail/2019.05.17 - Scheduling next week.eml",
+      "genre": "internal_email",
+      "format": "eml",
+      "date": "2019-05-17",
+      "stratum": "stratum internal_email/eml/2010s",
+      "words": 111
+    },
+    {
+      "doc_id": "d:0042",
+      "path": "People/2020.01.16 - Onboarding - Linda Hanna.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2020-01-16",
+      "stratum": "longform",
+      "words": 363
+    },
+    {
+      "doc_id": "d:0043",
+      "path": "People/2020.06.20 - Onboarding - Michelle Banks.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2020-06-20",
+      "stratum": "longform",
+      "words": 336
+    },
+    {
+      "doc_id": "d:0044",
+      "path": "Engagements/Martinez LLC/2020.06.21 - Engagement Letter - Martinez LLC - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2020-06-21",
+      "stratum": "longform",
+      "words": 1111
+    },
+    {
+      "doc_id": "d:0045",
+      "path": "Engagements/Martinez LLC/2020.07.04 - Kickoff Memo - Retiree Medical Valuation.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2020-07-04",
+      "stratum": "longform",
+      "words": 669
+    },
+    {
+      "doc_id": "d:0046",
+      "path": "Engagements/Martinez LLC/2020.07.29 - Email 1 - Retiree Medical Valuation - Martinez LLC.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2020-07-29",
+      "stratum": "planted-facts",
+      "words": 209
+    },
+    {
+      "doc_id": "d:0047",
+      "path": "Engagements/Martinez LLC/Meeting Minutes 2020-09-29 - Martinez LLC.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2020-09-29",
+      "stratum": "longform",
+      "words": 608
+    },
+    {
+      "doc_id": "d:0048",
+      "path": "Engagements/Martinez LLC/2020.10.22 - Status Report - Martinez LLC v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2020-10-22",
+      "stratum": "longform",
+      "words": 779
+    },
+    {
+      "doc_id": "d:0049",
+      "path": "Engagements/Martinez LLC/Meeting Minutes 2020-12-28 - Martinez LLC.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2020-12-28",
+      "stratum": "longform",
+      "words": 563
+    },
+    {
+      "doc_id": "d:0051",
+      "path": "Firm/Mail/2021.08.16 - Building access.eml",
+      "genre": "internal_email",
+      "format": "eml",
+      "date": "2021-08-16",
+      "stratum": "stratum internal_email/eml/2020s",
+      "words": 114
+    },
+    {
+      "doc_id": "d:0052",
+      "path": "People/2021.11.02 - Onboarding - Karen Harris.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2021-11-02",
+      "stratum": "longform",
+      "words": 377
+    },
+    {
+      "doc_id": "d:0054",
+      "path": "Firm/Firm Overview 2022 v3.docx",
+      "genre": "company_overview",
+      "format": "docx",
+      "date": "2022-05-16",
+      "stratum": "longform",
+      "words": 826
+    },
+    {
+      "doc_id": "d:0056",
+      "path": "Engagements/Wells, Walsh and Martinez/2023.04.06 - Engagement Letter - Wells, Walsh and Martinez - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2023-04-06",
+      "stratum": "longform",
+      "words": 1082
+    },
+    {
+      "doc_id": "d:0057",
+      "path": "Engagements/Wells, Walsh and Martinez/2023.04.19 - Kickoff Memo - Funding Policy Study.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2023-04-19",
+      "stratum": "longform",
+      "words": 569
+    },
+    {
+      "doc_id": "d:0058",
+      "path": "Engagements/Wells, Walsh and Martinez/2023.05.15 - Email 1 - Funding Policy Study - Wells, Walsh and Martinez.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2023-05-15",
+      "stratum": "planted-facts",
+      "words": 223
+    },
+    {
+      "doc_id": "d:0059",
+      "path": "Engagements/Wells, Walsh and Martinez/Meeting Minutes 2023-06-08 - Wells, Walsh and Martinez.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2023-06-08",
+      "stratum": "longform",
+      "words": 553
+    },
+    {
+      "doc_id": "d:0060",
+      "path": "Engagements/Wells, Walsh and Martinez/2023.06.22 - Status Report - Wells, Walsh and Martinez v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2023-06-22",
+      "stratum": "longform",
+      "words": 755
+    },
+    {
+      "doc_id": "d:0061",
+      "path": "People/2023.08.02 - Onboarding - Nicole Hanna.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2023-08-02",
+      "stratum": "longform",
+      "words": 359
+    },
+    {
+      "doc_id": "d:0064",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.07.15 - Engagement Letter - Gonzalez, Campbell and Kelly - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2024-07-15",
+      "stratum": "longform",
+      "words": 1072
+    },
+    {
+      "doc_id": "d:0065",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.07.28 - Kickoff Memo - Reinsurance Pricing Review.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2024-07-28",
+      "stratum": "longform",
+      "words": 626
+    },
+    {
+      "doc_id": "d:0066",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.08.22 - Email 1 - Reinsurance Pricing Review - Gonzalez, Campbell and Kelly.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-08-22",
+      "stratum": "planted-facts",
+      "words": 263
+    },
+    {
+      "doc_id": "d:0067",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.08.23 - Email 2 - Reinsurance Pricing Review - Gonzalez, Campbell and Kelly.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-08-23",
+      "stratum": "planted-facts",
+      "words": 215
+    },
+    {
+      "doc_id": "d:0068",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.08.23 - Email 3 - Reinsurance Pricing Review - Gonzalez, Campbell and Kelly.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-08-23",
+      "stratum": "planted-facts",
+      "words": 211
+    },
+    {
+      "doc_id": "d:0069",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.08.26 - Email 4 - Reinsurance Pricing Review - Gonzalez, Campbell and Kelly.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-08-26",
+      "stratum": "planted-facts",
+      "words": 188
+    },
+    {
+      "doc_id": "d:0070",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.08.27 - Email 5 - Reinsurance Pricing Review - Gonzalez, Campbell and Kelly.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-08-27",
+      "stratum": "planted-facts",
+      "words": 206
+    },
+    {
+      "doc_id": "d:0071",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/Meeting Minutes 2024-09-13 - Gonzalez, Campbell and Kelly.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2024-09-13",
+      "stratum": "longform",
+      "words": 498
+    },
+    {
+      "doc_id": "d:0072",
+      "path": "Engagements/Gonzalez, Campbell and Kelly/2024.09.25 - Status Report - Gonzalez, Campbell and Kelly v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2024-09-25",
+      "stratum": "longform",
+      "words": 807
+    }
+  ],
+  "thin_strata": []
+}

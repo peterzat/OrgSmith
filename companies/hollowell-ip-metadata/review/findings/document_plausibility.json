@@ -1,0 +1,30 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "hollowell-ip",
+  "dimension": "document_plausibility",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:doc-plausibility-1",
+      "dimension": "document_plausibility",
+      "severity": "blocker",
+      "docs": [
+        "d:0017",
+        "d:0018",
+        "d:0019",
+        "d:0020",
+        "d:0021",
+        "d:0056",
+        "d:0057",
+        "d:0058",
+        "d:0059"
+      ],
+      "summary": "Nine engagement emails retype the recipient list as literal 'To:/Cc:' text at the very top of the message body, directly beneath the .eml's own To/Cc headers, a templating artifact no genuine email carries.",
+      "evidence": "The rendered Middleton Email 1 shows headers 'To: Barbara Blair <...>  Cc: Kelly Snyder <...>, Heather Munoz <...>', then the body opens with the lines 'To: Barbara Blair' / 'Cc: Kelly Snyder, Heather Munoz' before 'Hello Barbara,'. Price-Henson Emails 1-4 duplicate the same way ('To: Tiffany Munoz' / 'Cc: Richard Henderson'). The Odonnell, Keith-Duarte, and Jackson threads have no such body block, so the same firm's mail is internally inconsistent and the affected messages read as machine-assembled."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

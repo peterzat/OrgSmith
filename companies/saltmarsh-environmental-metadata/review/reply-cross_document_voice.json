@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "saltmarsh-environmental",
+  "dimension": "cross_document_voice",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0023", "d:0030", "d:0022", "d:0032"],
+      "summary": "Documents attributed to different authors share distinctive, non-slogan sentences near-verbatim, so a cross-document read exposes one generator hand behind supposedly independent writers.",
+      "evidence": "The kickoff memo d:0023 (from John Sanchez) and the kickoff memo d:0030 (from William Schwartz) both carry the identical clause 'with no one left to ask what a note meant', each followed by 'So we write the record ... [we make it legible without us / so it reads without us]', and each closes with 'the first day on site is spent [sampling/measuring] and not deciding.' The tell crosses into client-facing prose too: 'You will not have to chase us for status' appears verbatim in d:0022 (engagement letter, Flynn) and d:0032 (status report, Schwartz). These are literary turns, not firm slogans, so two fresh writers would not land on them independently."
+    }
+  ]
+}

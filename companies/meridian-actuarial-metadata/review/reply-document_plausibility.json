@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "meridian-actuarial",
+  "dimension": "document_plausibility",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:document-plausibility-thread-state-regression",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": ["d:0008", "d:0022", "d:0036"],
+      "summary": "In three of the four five-message engagement threads, the final email restarts the data-intake narrative, contradicting the resolved state the earlier messages in the same strictly-linear In-Reply-To chain had already established; read top to bottom the thread's state snaps backward at the last message.",
+      "evidence": "Howard: email 4 (d:0007, 17:57) states 'the census for the Howard and Sons plan is complete and reconciled'; email 5 (d:0008), replying one minute later at 17:58, opens 'Thanks for the census extract... David Sherman is reconciling it against last year's file now... A couple of items are still open on your side.' Miller: email 4 (d:0021, Thu 09-28 16:46) still says 'when you pull the reserve detail'; email 5 (d:0022, same day 17:31) opens 'Thank you for sending the reserve detail through last week. David Sherman has it and has already begun reconciling it' -- the file said outstanding 45 minutes earlier is now thanked for as arriving 'last week'. Estes: email 2 (d:0033) 'Thank you for clarifying the status codes... we can treat the active and deferred groups as settled' and email 3 (d:0034) 'the member data for the Estes Group study is now closed on our end'; email 5 (d:0036) reopens it -- 'A handful of participants carry a status code we cannot read with confidence... could your office confirm... Whether the flagged status code marks deferred vested participants or terminations... Once they are settled, Megan Dudley closes the census.' By contrast the Gonzalez thread (d:0066 through d:0070) progresses coherently, so this is a defect in the thread assembly, not a house style."
+    }
+  ]
+}

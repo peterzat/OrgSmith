@@ -1,0 +1,36 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "verdant-health",
+  "dimension": "org_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-1",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0010",
+        "d:0011"
+      ],
+      "summary": "The firm's named physician-compensation and fair-market-value specialist is absent from the same client's dedicated Physician Compensation Review, which is led instead by the service-line economics consultant.",
+      "evidence": "The 2020 engagement letter to Johnson, Cross and Gibbs (d:0002) tells the client 'Susan Clark, a Principal in our advisory practice, will take up any question that touches physician compensation, and she is careful with fair-market-value language.' A year later the dedicated Physician Compensation Review for that same client (d:0010, d:0011) is staffed by 'Daniel Alvarado ... will lead the compensation analysis' and 'Patricia Moore ... will assemble the underlying compensation data,' with Laura Brown as oversight and Susan Clark nowhere on the team."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-2",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0027",
+        "d:0029"
+      ],
+      "summary": "The Sullivan revenue-cycle kickoff blames scanned paperwork on 'the health system's contracting office,' an entity never introduced to the engagement, while the client status report attributes the identical documents to the client's own office.",
+      "evidence": "The kickoff for Sullivan, Hall and Kelly (d:0027) reads 'Sullivan, Hall and Kelly runs a modern billing system and their extracts should reach us clean ... The exception is the health system's contracting office, which prints, signs, and scans.' No health system is a party to this engagement, and Sullivan is never called one. The status report to the client (d:0029) instead calls the same scans 'the executed statements and consents that your contracting office prints and scans' -- so whose office it is shifts between the two documents."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

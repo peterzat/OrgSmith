@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "hollowell-ip",
+  "dimension": "narrative_consistency",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-consistency-1",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": ["d:0004", "d:0011", "d:0013"],
+      "summary": "The Odonnell portfolio-review engagement carves office-action work out of scope in the letter, kickoff, and deck, then the status report and closing minutes report drafting and FILING office-action responses (and an examiner interview) as completed engagement work while still claiming to be within scope.",
+      "evidence": "Engagement letter d:0004: 'we are not prosecuting new applications, responding to office actions, filing continuations'; the kickoff d:0005 and deck d:0009 repeat it ('no new filings and no office-action responses under this engagement'). Yet status report d:0011 lists as completed work: 'Office-action responses. Amanda Schwartz drafted the responses to the office actions that came due in this period. Each was reviewed before filing and filed within its statutory window,' and in the same report asserts 'The review remains within the agreed scope and budget.' Closing minutes d:0013 continue it: 'Amanda Schwartz reported on the office-action responses filed since the last meeting ... one included an examiner interview that cleared a restriction requirement.' The engagement's four sibling matters (Middleton, Jackson, Price-Henson) rigorously defer such work to 'a separate engagement,' so this reads as the review-vs-prosecution scope being lost, not house style."
+    }
+  ]
+}

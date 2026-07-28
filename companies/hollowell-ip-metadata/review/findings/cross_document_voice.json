@@ -1,0 +1,51 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "hollowell-ip",
+  "dimension": "cross_document_voice",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-email-openers",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0017",
+        "d:0032",
+        "d:0045",
+        "d:0056"
+      ],
+      "summary": "The first client email of all five engagements opens with the same 'I am opening this thread so ... stay in one place' sentence, though each was written by a different person.",
+      "evidence": "d:0006 (Snyder) 'I am opening this thread so our updates ... stay in one place and the record runs in order against the matter'; d:0017 (Henderson) 'I am starting this thread so you have our status ... in one place as the work moves'; d:0032 (Munoz) 'I am opening this thread so our updates ... stay in one place and your file runs in order'; d:0045 (Williams) 'I am opening this thread so that our updates ... stay in one place as the work moves'; d:0056 (Chang) 'I am opening this thread so you have our status ... in one place as the review moves'. d:0006 and d:0032 go further and duplicate nearly the whole message, e.g. both close the middle paragraph 'I will flag any deadline the moment one comes into view. You will hear from us on a set cadence, and each note will be tied to the family it concerns.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-kickoff-scope",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0016",
+        "d:0044",
+        "d:0055"
+      ],
+      "summary": "The three opinion-type kickoff memos, each by a different agent, reach for the same verbatim scope-scaffolding sentences rather than expressing the shared method in independent words.",
+      "evidence": "'so everything built on top of it stands on something solid' (d:0016, Henderson) and 'so that everything we build on top of it stands on something solid' (d:0055, Chang); 'A freedom-to-operate opinion is only as good as the scope it runs against' (d:0016) and 'A diligence report is only as good as the scope it runs against' (d:0055); the closer 'The first thing that has to happen is the scope' appears verbatim in d:0016 (Henderson) and d:0044 (Williams), and as 'The scope statement is the gate' in d:0055 (Chang)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-minutes",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0010",
+        "d:0061"
+      ],
+      "summary": "Meeting minutes taken by two different people six years apart share verbatim narrative sentences that are prose, not form fields, so the match reads as one generator rather than two minute-takers.",
+      "evidence": "d:0010 (Munoz, 2019) 'Until the continuation chain is confirmed, its recorded priority date stays marked unconfirmed on the master list, and no conclusion for that family rests on it' vs d:0061 (Henderson, 2025) 'Until the chain is confirmed, the recorded date stays marked unconfirmed on the master list, and no conclusion for that family rests on it'. Both also use 'The docket carried the meeting/session' and 'any date in question is raised the day it is found, not [at / held for] the next scheduled [review / check]'."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

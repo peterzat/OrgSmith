@@ -1,0 +1,47 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "meridian-actuarial",
+  "dimension": "org_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [],
+      "summary": "The firm's measurement/assumption/conclusion credo is not just embodied but explicitly restated in near-identical words in almost every document across every genre, which reads as a generator returning to one idea rather than a firm with a house discipline.",
+      "evidence": "The same meta-statement recurs in ~29 of 33 sampled prose docs: engagement letters ('We keep three things apart: what the data show, what we have assumed, and what we conclude from the two' d:0054; 'keeps those three as three separate matters' d:0016), kickoff memos, status reports, meeting minutes ('the line the firm keeps between what the data measure, what we assume, and what we conclude' d:0071), onboarding letters ('Keep measurement, assumption, and conclusion in separate sentences' d:0028), and firm overviews. A real firm structures its reports this way (realistic) but would not announce the credo verbatim in every kickoff, status update, minutes, and welcome note."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-2",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0025",
+        "d:0048"
+      ],
+      "summary": "Two midpoint status reports for different clients, engagement types, and authors are near-clones that share whole distinctive sentences verbatim, reading as one generated template rather than a firm's reused format.",
+      "evidence": "d:0025 (Miller reserve review, 2017, prepared by Megan Dudley): 'That is not a small thing. It means the independent estimate we build from here rests on your own numbers and not on a reconstruction of them, and it lets us state plainly, when the report is written, exactly what we relied on and what we tested ourselves.' d:0048 (Martinez retiree-medical, 2020, prepared by Jeffrey Ochoa) carries the identical sentence with only 'independent estimate'->'obligation' and 'numbers'->'records' swapped. Both also share the 'the character of the work has changed in a way worth naming' opener and the 'Measured against the fixed fee ..., a little under half has been earned to date' line. A firm template would reuse structure, not a subjective aside like 'That is not a small thing' across two authors."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-3",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0019",
+        "d:0020",
+        "d:0021",
+        "d:0022",
+        "d:0046"
+      ],
+      "summary": "Engagement emails repeatedly address the recipient by full legal name inside the body, as a reliance-documentation device, which no one does when writing to that person.",
+      "evidence": "d:0020 (To: Michelle Hudson): 'For our file I have you, Michelle Hudson, down as the one contact for the data.' d:0021 (To Michelle Hudson): 'I will note the tie-out in the working papers under your name, Michelle Hudson.' d:0022 (To Michelle Hudson): 'I have logged everything received so far under your name, Michelle Hudson.' d:0046 (To Jason Wagner): 'we log everything you send against your name, Jason Wagner, and the date it arrives.' Restating the recipient's full name to their face recurs across every engagement's email thread; a real writer says 'you' or a first name."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

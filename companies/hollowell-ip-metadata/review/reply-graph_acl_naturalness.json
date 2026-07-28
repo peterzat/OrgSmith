@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "hollowell-ip",
+  "dimension": "graph_acl_naturalness",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0044"],
+      "summary": "The Jackson Inc trademark-clearance kickoff assigns core searching to Matthew Parrish, who is not on the matter team and has no access to the matter folder.",
+      "evidence": "d:0044 is addressed 'To: Kelly Snyder, Matthew Parrish' and tasks him with substantive work: 'Matthew Parrish will take the state and common-law searches so we cover more ground in parallel' and 'Matthew Parrish, start reading into the goods-and-services classes.' But engagement E-2024-001 lists only Ashley Williams and Kelly Snyder as internal participants, Matthew has no ACL grant under 'Engagements/Jackson Inc/', and he appears in no other Jackson document. The person assigned the clearance searches cannot open the matter file that assigns them."
+    }
+  ]
+}

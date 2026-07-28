@@ -1,0 +1,23 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "org_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-jim-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0007"
+      ],
+      "summary": "The internal nickname \"Jim\" is attached to two different colleagues named James, and the document that introduces it presents the nickname as the device that keeps the two Jameses apart, so the second use directly contradicts it.",
+      "evidence": "d:0006 (Firm Overview): \"James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.\" d:0007 (RMH meeting minutes): \"James Grant, whom the team calls Jim, agreed to take the first-round interviews of the most senior prospects himself.\""
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

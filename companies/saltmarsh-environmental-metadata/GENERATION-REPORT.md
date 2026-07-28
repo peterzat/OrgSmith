@@ -89,4 +89,16 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 ### Review board
 
-No board findings ingested. Run `/forge-review saltmarsh-environmental` to dispatch the review board; the metrics above stand on their own without it.
+9 findings from the review board.
+
+| id | dimension | severity | docs | summary |
+| --- | --- | --- | --- | --- |
+| rf:cross-voice-1 | cross_document_voice | major | d:0023, d:0030, d:0022, d:0032 | Documents attributed to different authors share distinctive, non-slogan sentences near-verbatim, so a cross-document read exposes one generator hand behind supposedly independent writers. |
+| rf:fin-realism-1 | finance_realism | major | d:0003, d:0007, d:0021, d:0040, d:0035 | The firm insists across its records that it is five people, but its own financials (revenue past $2.1M, compensation past $1.23M) are the payroll and billings of a firm roughly twice that size. |
+| rf:graph-acl-1 | graph_acl_naturalness | major | d:0040 | The 2021 firm overview's client showcase names the same client, Dyer and Sons, twice consecutively, because two of the five engagements it lists to demonstrate client range share that one client. |
+| rf:narrative-consistency-1 | narrative_consistency | major | d:0021, d:0040 | The firm overviews insist on a static five-person headcount and deny any growth, contradicting the firm's own roster and onboarding records, which show it grew to nine employees over the span. |
+| rf:narrative-consistency-2 | narrative_consistency | major | d:0040, d:0021 | Two of the five engagements are for the same client (Dyer and Sons), so the firm-overview client showcase presents that client as two distinct clients, listing 'Dyer and Sons' twice consecutively in the 2021 overview's representative-client list. |
+| rf:org-realism-duplicate-client | org_realism | major | d:0040 | The 2021 firm overview's representative-client showcase names the same client twice because two sampled engagements share it, so the list reads 'Dyer and Sons, Dyer and Sons, Salazar-Mendoza, ...'. |
+| rf:org-realism-headcount-five | org_realism | major | d:0021, d:0040, d:0033 | The firm overviews assert a fixed five-person headcount as a deliberate, unchanging identity, but the roster grows to nine active staff by 2021 and the corpus's own onboarding records document that growth. |
+| rf:docplaus-1 | document_plausibility | minor | d:0014 | The Phase I engagement letter carries two adjacent, redundantly titled fee sections where the firm's four other engagement letters use a single fee treatment. |
+| rf:org-realism-agency-clients-absent | org_realism | minor | d:0007, d:0021, d:0040 | Every firm overview foregrounds two public-agency client types (a port authority, a county conservation district) that never appear, and d:0040 claims its all-private example set represents 'a mix of public agencies and private landowners.' |

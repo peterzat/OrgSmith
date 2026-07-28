@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "saltmarsh-environmental",
+  "dimension": "finance_realism",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-realism-1",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": ["d:0003", "d:0007", "d:0021", "d:0040", "d:0035"],
+      "summary": "The firm insists across its records that it is five people, but its own financials (revenue past $2.1M, compensation past $1.23M) are the payroll and billings of a firm roughly twice that size.",
+      "evidence": "d:0040 (2021): 'There are five of us.' d:0021 (2018): 'an environmental consultancy of five, and we have stayed that size on purpose ... That has not changed as the firm has aged.' d:0007 (2015) and d:0003 (2014) repeat 'five people.' Yet the FY2020 Financial Summary (d:0035, from the ledger) books $2,119,000 revenue and $1,231,300 Compensation. Five people cannot be that payroll: ~$246k comp and ~$424k revenue per head, both about double sector norms for a field-heavy environmental consultancy (a principal, a senior scientist, field techs, one office manager). The figures fit ~9-10 staff, which matches the actual roster, but flatly contradict the size the firm keeps claiming."
+    }
+  ]
+}

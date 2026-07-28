@@ -1,0 +1,22 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "saltmarsh-environmental",
+  "dimension": "document_plausibility",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0014"
+      ],
+      "summary": "The Phase I engagement letter carries two adjacent, redundantly titled fee sections where the firm's four other engagement letters use a single fee treatment.",
+      "evidence": "A 'Fee and Schedule' heading ('We will carry out the assessment for a fixed fee of {{fact:f:E-2016-001.fee}}...') is immediately followed by a 'Fees and Payment' heading ('We invoice the fixed fee in two parts...'); d:0005, d:0022, d:0029 and d:0036 each state the fee once, so the doubled heading reads as template assembly."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

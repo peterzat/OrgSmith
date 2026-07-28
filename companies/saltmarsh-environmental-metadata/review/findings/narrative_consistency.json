@@ -1,0 +1,35 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "saltmarsh-environmental",
+  "dimension": "narrative_consistency",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-consistency-1",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0021",
+        "d:0040"
+      ],
+      "summary": "The firm overviews insist on a static five-person headcount and deny any growth, contradicting the firm's own roster and onboarding records, which show it grew to nine employees over the span.",
+      "evidence": "d:0021 (2018): 'We are an environmental consultancy of five, and we have stayed that size on purpose ... That has not changed as the firm has aged, and we do not intend to change it.' d:0040 (2021): 'There are five of us.' But per foundation.json the firm had seven current employees at the June 2018 overview date and nine at the June 2021 date (Flynn, Sanchez, Williams, Parks, Foster, Henderson, Morton, Schwartz, Nichols), driven by five documented hires (onboarding records d:0003, d:0010, d:0018, d:0024, d:0033) against a single departure (Pamela Brown). A reader who counts the staff named in the corpus finds nine, not five."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-consistency-2",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0040",
+        "d:0021"
+      ],
+      "summary": "Two of the five engagements are for the same client (Dyer and Sons), so the firm-overview client showcase presents that client as two distinct clients, listing 'Dyer and Sons' twice consecutively in the 2021 overview's representative-client list.",
+      "evidence": "Both E-2015-001.client and E-2016-001.client resolve to 'Dyer and Sons' (ledger/engagements.json). d:0040's showcase renders as 'our work for Dyer and Sons, Dyer and Sons, Salazar-Mendoza, Carter and Sons, and Solis, Allen and Oconnell' -- an adjacent duplicate in a list meant to represent 'that range' of clients. d:0021 makes the same slip more subtly: it offers the two Dyer engagements as 'two illustrations' and closes 'we keep one client's particulars well clear of another's,' framing one client as two."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

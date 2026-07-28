@@ -1,0 +1,41 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "meridian-actuarial",
+  "dimension": "cross_document_voice",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xvoice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [],
+      "summary": "The firm's measurement/assumption/conclusion credo is narrated in near-identical triadic wording in almost every document, across all six genres and every author, including short engagement emails and meeting minutes where a real writer would not pause to recite the firm's writing philosophy.",
+      "evidence": "Same triad, one phrasing, many hands and genres: d:0002 engagement letter (Lawrence) 'We keep three things apart in everything we deliver: what the data show, what we have assumed, and what we conclude'; d:0011 meeting minutes (Ochoa) 'What the data show, what we have assumed, and what we will ultimately conclude are three different things'; d:0045 kickoff memo (Ochoa) 'We keep what the data show, what we assume, and what we conclude in separate places'; d:0064 engagement letter (Lawrence) 'they stay separate on the page'; d:0072 status report (Harris) 'what the experience measures, what we assume ... and what we conclude ... We keep them apart on purpose.' The charter asks the firm to structure results this way; the tell is that independent fresh authors all reach for the same sentence to say it, in documents where it has no function."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xvoice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [],
+      "summary": "Beyond the credo, a small bank of signature aphorisms recurs verbatim across different authors and genres, including two distinct personas emitting identical sentences, reading as one writer's phrasebook rather than twelve independent hands.",
+      "evidence": "'... only as sound as the [records/census] beneath it' spans four genres: d:0002 and d:0044 and d:0056 (engagement letters), d:0028 (onboarding), d:0036 (engagement email), d:0038 (status report). 'A number we cannot explain is not a finding; it is an open question, and it stays open until it is answered' appears verbatim in d:0031 (kickoff, David Sherman) and d:0065 (kickoff, Karen Harris); the twin 'so that we speak with one voice on scope and timing' is verbatim in those same two, and 'one considered answer ... three partial ones' recurs in d:0022, d:0045, d:0046. Different named authors, identical sentences."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:xvoice-3",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0012",
+        "d:0072"
+      ],
+      "summary": "The two midpoint status reports d:0012 (Vasquez, 2016) and d:0072 (Harris, 2024) are the same document with domain nouns swapped, yet fall below the report's same-genre similarity threshold, so only a voice read catches the template collapse.",
+      "evidence": "Both open by framing the midpoint and promising to 'separate plainly what is [finished/settled] from what still calls for [a decision/judgment]'; both carry a 'three things easy to run together ... We keep them apart on purpose' paragraph; both list 'three [risks] worth naming', the first shown 'under more than one' rate and the second 'a considered choice, and the report will say so'; and both close identically: d:0012 'None of these threatens the schedule, and the scope has held steady from the start. The best time to raise a question about an assumption is before the results are built on it', d:0072 'None of these threatens the schedule, and the scope has held steady from the start. The best time to weigh an assumption is before the indication rests on it.' The report's same-genre table flags only d:0025/d:0048, not this pair, so the metric misses it."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

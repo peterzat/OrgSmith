@@ -1,0 +1,495 @@
+{
+  "schema_id": "orgsmith/review-sample@1",
+  "slug": "hollowell-ip",
+  "docs": [
+    {
+      "doc_id": "d:0002",
+      "path": "Firm/Mail/2019.01.01 - Office logistics.eml",
+      "genre": "internal_email",
+      "format": "eml",
+      "date": "2019-01-01",
+      "stratum": "stratum internal_email/eml/2010s",
+      "words": 93
+    },
+    {
+      "doc_id": "d:0004",
+      "path": "Engagements/Odonnell Inc/2019.05.03 - Engagement Letter - Odonnell Inc - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2019-05-03",
+      "stratum": "longform",
+      "words": 1272
+    },
+    {
+      "doc_id": "d:0005",
+      "path": "Engagements/Odonnell Inc/2019.05.16 - Kickoff Memo - Patent Portfolio Review.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2019-05-16",
+      "stratum": "longform",
+      "words": 632
+    },
+    {
+      "doc_id": "d:0006",
+      "path": "Engagements/Odonnell Inc/2019.06.10 - Email 1 - Patent Portfolio Review - Odonnell Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-06-10",
+      "stratum": "planted-facts",
+      "words": 189
+    },
+    {
+      "doc_id": "d:0007",
+      "path": "Firm/Firm Overview 2019 v3.docx",
+      "genre": "company_overview",
+      "format": "docx",
+      "date": "2019-06-12",
+      "stratum": "longform",
+      "words": 704
+    },
+    {
+      "doc_id": "d:0008",
+      "path": "Engagements/Odonnell Inc/2019.06.13 - Email 2 - Patent Portfolio Review - Odonnell Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2019-06-13",
+      "stratum": "planted-facts",
+      "words": 115
+    },
+    {
+      "doc_id": "d:0009",
+      "path": "Engagements/Odonnell Inc/2019.07.05 - Briefing Deck - Odonnell Inc.pptx",
+      "genre": "briefing_deck",
+      "format": "pptx",
+      "date": "2019-07-05",
+      "stratum": "longform",
+      "words": 295
+    },
+    {
+      "doc_id": "d:0010",
+      "path": "Engagements/Odonnell Inc/Meeting Minutes 2019-08-06 - Odonnell Inc.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2019-08-06",
+      "stratum": "longform",
+      "words": 570
+    },
+    {
+      "doc_id": "d:0011",
+      "path": "Engagements/Odonnell Inc/2019.08.27 - Status Report - Odonnell Inc v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2019-08-27",
+      "stratum": "longform",
+      "words": 815
+    },
+    {
+      "doc_id": "d:0012",
+      "path": "People/2019.10.24 - Onboarding - Richard Henderson.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2019-10-24",
+      "stratum": "longform",
+      "words": 468
+    },
+    {
+      "doc_id": "d:0013",
+      "path": "Engagements/Odonnell Inc/Meeting Minutes 2019-11-04 - Odonnell Inc.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2019-11-04",
+      "stratum": "longform",
+      "words": 552
+    },
+    {
+      "doc_id": "d:0015",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.05.02 - Engagement Letter - Middleton, Sullivan and Wiley - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2020-05-02",
+      "stratum": "longform",
+      "words": 1118
+    },
+    {
+      "doc_id": "d:0016",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.05.15 - Kickoff Memo - Freedom-to-Operate Analysis.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2020-05-15",
+      "stratum": "longform",
+      "words": 661
+    },
+    {
+      "doc_id": "d:0017",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.06.09 - Email 1 - Freedom-to-Operate Analysis - Middleton, Sullivan and Wiley.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2020-06-09",
+      "stratum": "planted-facts",
+      "words": 210
+    },
+    {
+      "doc_id": "d:0018",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.06.11 - Email 2 - Freedom-to-Operate Analysis - Middleton, Sullivan and Wiley.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2020-06-11",
+      "stratum": "planted-facts",
+      "words": 109
+    },
+    {
+      "doc_id": "d:0019",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.06.12 - Email 3 - Freedom-to-Operate Analysis - Middleton, Sullivan and Wiley.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2020-06-12",
+      "stratum": "planted-facts",
+      "words": 105
+    },
+    {
+      "doc_id": "d:0020",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.06.15 - Email 4 - Freedom-to-Operate Analysis - Middleton, Sullivan and Wiley.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2020-06-15",
+      "stratum": "planted-facts",
+      "words": 101
+    },
+    {
+      "doc_id": "d:0021",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.06.16 - Email 5 - Freedom-to-Operate Analysis - Middleton, Sullivan and Wiley.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2020-06-16",
+      "stratum": "planted-facts",
+      "words": 193
+    },
+    {
+      "doc_id": "d:0022",
+      "path": "Engagements/Middleton, Sullivan and Wiley/Meeting Minutes 2020-08-21 - Middleton, Sullivan and Wiley.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2020-08-21",
+      "stratum": "longform",
+      "words": 545
+    },
+    {
+      "doc_id": "d:0023",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2020.09.17 - Status Report - Middleton, Sullivan and Wiley v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2020-09-17",
+      "stratum": "longform",
+      "words": 764
+    },
+    {
+      "doc_id": "d:0024",
+      "path": "Engagements/Middleton, Sullivan and Wiley/Meeting Minutes 2020-11-20 - Middleton, Sullivan and Wiley.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2020-11-20",
+      "stratum": "longform",
+      "words": 553
+    },
+    {
+      "doc_id": "d:0026",
+      "path": "Engagements/Middleton, Sullivan and Wiley/2021.01.15 - Status Report - Middleton, Sullivan and Wiley v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2021-01-15",
+      "stratum": "longform",
+      "words": 738
+    },
+    {
+      "doc_id": "d:0028",
+      "path": "People/2021.01.25 - Onboarding - Joseph Walker.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2021-01-25",
+      "stratum": "longform",
+      "words": 416
+    },
+    {
+      "doc_id": "d:0029",
+      "path": "People/2021.02.10 - Onboarding - Ashley Williams.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2021-02-10",
+      "stratum": "longform",
+      "words": 405
+    },
+    {
+      "doc_id": "d:0030",
+      "path": "Engagements/Keith-Duarte/2021.08.01 - Engagement Letter - Keith-Duarte - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2021-08-01",
+      "stratum": "longform",
+      "words": 1076
+    },
+    {
+      "doc_id": "d:0031",
+      "path": "Engagements/Keith-Duarte/2021.08.14 - Kickoff Memo - Prosecution Support.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2021-08-14",
+      "stratum": "longform",
+      "words": 540
+    },
+    {
+      "doc_id": "d:0032",
+      "path": "Engagements/Keith-Duarte/2021.09.08 - Email 1 - Prosecution Support - Keith-Duarte.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2021-09-08",
+      "stratum": "planted-facts",
+      "words": 205
+    },
+    {
+      "doc_id": "d:0033",
+      "path": "Engagements/Keith-Duarte/Meeting Minutes 2021-10-13 - Keith-Duarte.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2021-10-13",
+      "stratum": "longform",
+      "words": 587
+    },
+    {
+      "doc_id": "d:0034",
+      "path": "Engagements/Keith-Duarte/2021.10.29 - Status Report - Keith-Duarte v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2021-10-29",
+      "stratum": "longform",
+      "words": 770
+    },
+    {
+      "doc_id": "d:0035",
+      "path": "Engagements/Keith-Duarte/Meeting Minutes 2022-01-11 - Keith-Duarte.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2022-01-11",
+      "stratum": "longform",
+      "words": 548
+    },
+    {
+      "doc_id": "d:0037",
+      "path": "Firm/Firm Overview 2022 v3.docx",
+      "genre": "company_overview",
+      "format": "docx",
+      "date": "2022-06-11",
+      "stratum": "longform",
+      "words": 778
+    },
+    {
+      "doc_id": "d:0039",
+      "path": "People/2023.01.14 - Onboarding - Matthew Parrish.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2023-01-14",
+      "stratum": "longform",
+      "words": 422
+    },
+    {
+      "doc_id": "d:0042",
+      "path": "People/2024.03.02 - Onboarding - David Chang.docx",
+      "genre": "onboarding_record",
+      "format": "docx",
+      "date": "2024-03-02",
+      "stratum": "longform",
+      "words": 435
+    },
+    {
+      "doc_id": "d:0043",
+      "path": "Engagements/Jackson Inc/2024.03.30 - Engagement Letter - Jackson Inc - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2024-03-30",
+      "stratum": "longform",
+      "words": 1267
+    },
+    {
+      "doc_id": "d:0044",
+      "path": "Engagements/Jackson Inc/2024.04.12 - Kickoff Memo - Trademark Clearance.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2024-04-12",
+      "stratum": "longform",
+      "words": 553
+    },
+    {
+      "doc_id": "d:0045",
+      "path": "Engagements/Jackson Inc/2024.05.07 - Email 1 - Trademark Clearance - Jackson Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-05-07",
+      "stratum": "planted-facts",
+      "words": 202
+    },
+    {
+      "doc_id": "d:0046",
+      "path": "Engagements/Jackson Inc/2024.05.08 - Email 2 - Trademark Clearance - Jackson Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-05-08",
+      "stratum": "planted-facts",
+      "words": 175
+    },
+    {
+      "doc_id": "d:0047",
+      "path": "Engagements/Jackson Inc/2024.05.09 - Email 3 - Trademark Clearance - Jackson Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-05-09",
+      "stratum": "planted-facts",
+      "words": 193
+    },
+    {
+      "doc_id": "d:0048",
+      "path": "Engagements/Jackson Inc/2024.05.10 - Email 4 - Trademark Clearance - Jackson Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-05-10",
+      "stratum": "planted-facts",
+      "words": 153
+    },
+    {
+      "doc_id": "d:0049",
+      "path": "Engagements/Jackson Inc/2024.05.10 - Email 5 - Trademark Clearance - Jackson Inc.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2024-05-10",
+      "stratum": "planted-facts",
+      "words": 214
+    },
+    {
+      "doc_id": "d:0050",
+      "path": "Engagements/Jackson Inc/Meeting Minutes 2024-05-24 - Jackson Inc.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2024-05-24",
+      "stratum": "longform",
+      "words": 679
+    },
+    {
+      "doc_id": "d:0051",
+      "path": "Engagements/Jackson Inc/2024.06.06 - Status Report - Jackson Inc v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2024-06-06",
+      "stratum": "longform",
+      "words": 772
+    },
+    {
+      "doc_id": "d:0052",
+      "path": "Firm/Mail/2024.12.30 - IT maintenance window.eml",
+      "genre": "internal_email",
+      "format": "eml",
+      "date": "2024-12-30",
+      "stratum": "stratum internal_email/eml/2020s",
+      "words": 95
+    },
+    {
+      "doc_id": "d:0054",
+      "path": "Engagements/Price-Henson/2025.03.04 - Engagement Letter - Price-Henson - EXECUTED.pdf",
+      "genre": "engagement_letter",
+      "format": "pdf",
+      "date": "2025-03-04",
+      "stratum": "longform",
+      "words": 1256
+    },
+    {
+      "doc_id": "d:0055",
+      "path": "Engagements/Price-Henson/2025.03.17 - Kickoff Memo - Licensing Diligence.docx",
+      "genre": "kickoff_memo",
+      "format": "docx",
+      "date": "2025-03-17",
+      "stratum": "longform",
+      "words": 547
+    },
+    {
+      "doc_id": "d:0056",
+      "path": "Engagements/Price-Henson/2025.04.11 - Email 1 - Licensing Diligence - Price-Henson.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2025-04-11",
+      "stratum": "planted-facts",
+      "words": 224
+    },
+    {
+      "doc_id": "d:0057",
+      "path": "Engagements/Price-Henson/2025.04.14 - Email 2 - Licensing Diligence - Price-Henson.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2025-04-14",
+      "stratum": "planted-facts",
+      "words": 141
+    },
+    {
+      "doc_id": "d:0058",
+      "path": "Engagements/Price-Henson/2025.04.14 - Email 3 - Licensing Diligence - Price-Henson.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2025-04-14",
+      "stratum": "planted-facts",
+      "words": 151
+    },
+    {
+      "doc_id": "d:0059",
+      "path": "Engagements/Price-Henson/2025.04.14 - Email 4 - Licensing Diligence - Price-Henson.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2025-04-14",
+      "stratum": "planted-facts",
+      "words": 131
+    },
+    {
+      "doc_id": "d:0060",
+      "path": "Engagements/Price-Henson/2025.04.16 - Email 5 - Licensing Diligence - Price-Henson.eml",
+      "genre": "engagement_email",
+      "format": "eml",
+      "date": "2025-04-16",
+      "stratum": "planted-facts",
+      "words": 236
+    },
+    {
+      "doc_id": "d:0061",
+      "path": "Engagements/Price-Henson/Meeting Minutes 2025-05-21 - Price-Henson.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2025-05-21",
+      "stratum": "longform",
+      "words": 565
+    },
+    {
+      "doc_id": "d:0062",
+      "path": "Engagements/Price-Henson/2025.06.08 - Status Report - Price-Henson v2 FINAL.docx",
+      "genre": "status_report",
+      "format": "docx",
+      "date": "2025-06-08",
+      "stratum": "longform",
+      "words": 812
+    },
+    {
+      "doc_id": "d:0063",
+      "path": "Firm/Firm Overview 2025 v3.docx",
+      "genre": "company_overview",
+      "format": "docx",
+      "date": "2025-06-10",
+      "stratum": "longform",
+      "words": 760
+    },
+    {
+      "doc_id": "d:0064",
+      "path": "Engagements/Price-Henson/Meeting Minutes 2025-08-19 - Price-Henson.docx",
+      "genre": "meeting_minutes",
+      "format": "docx",
+      "date": "2025-08-19",
+      "stratum": "longform",
+      "words": 566
+    }
+  ],
+  "thin_strata": [
+    "internal_email/eml/2010s"
+  ]
+}
