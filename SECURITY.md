@@ -2,103 +2,68 @@
 
 ## Security Review — 2026-07-28 (scope: paths)
 
-**Summary:** Reviewed the new bring-your-own-token authoring driver
-(`drivers/config.py`, `drivers/providers.py`, `drivers/forge_external.py`), the
-first out-of-airlock code that reads API keys, makes network requests, and
-processes model output. No BLOCK, no WARN. The one NOTE (a configurable
-`base_url` with no scheme allowlist) is RESOLVED this turn: an `http(s)`-only
-allowlist now runs before every request. Key handling, subprocess use, and
-model-output validation are all sound. Zero open findings.
+**Summary:** Re-reviewed the three out-of-airlock driver files
+(`drivers/config.py`, `drivers/providers.py`, `drivers/forge_external.py`) over
+the delta since the last security baseline (`cf9ee69`..`9927e03`). The only
+security-relevant change is the `base_url` http(s) scheme allowlist that
+resolves the prior standing NOTE; the `forge_external.py` change is a whitespace
+reflow of the system-prompt string with no logic impact. No BLOCK, no WARN, no
+NOTE. Zero open findings.
 
 ### Findings
 
-- **[NOTE — RESOLVED 2026-07-28] providers.py:38-43, 121-123, 148-149 (via
-  config.py:177-178) — outbound request base_url has no scheme allowlist.** `base_url_for` returns
-  whatever is in `ORGSMITH_<PROVIDER>_BASE_URL` (or the hardcoded https default),
-  and `_post_json` hands `f"{base_url}/chat/completions"` (or `/messages`)
-  straight to `urllib.request.urlopen`, which also handles `file://`, `ftp://`,
-  etc. Today this is not an attack vector: `base_url` is set only from the
-  process environment or the user's own `~/.config/orgsmith/providers.env`, and
-  no work-order content, model output, or other untrusted input flows into it,
-  so an actor who could change `base_url` already controls the environment. This
-  is recorded as defense in depth: if a future change ever lets untrusted input
-  influence the endpoint, an `http(s)`-only guard should be in place first.
-  - Attack vector: none reachable in the current design (self-configuration
-    only). Filed as NOTE, not WARN, for that reason.
-  - Remediation: in `base_url_for` (or `call_provider`) reject any base_url whose
-    scheme is not `http`/`https` before the request, and keep `http` for the
-    local/self-hosted case.
-  - **Resolution (2026-07-28):** `config.base_url_scheme_ok` enforces an
-    `http(s)`-only allowlist; `missing_requirements` reports a bad scheme so
-    `--check` fails loud, and `call_provider` returns `None` before opening a
-    connection. Covered by `test_call_provider_refuses_non_http_scheme` and the
-    `test_scheme_allowlist_*` unit tests. `http` is retained for the local case.
+No security issues identified in the reviewed scope.
 
-### Reviewed surface and scope
+### Verified this turn
 
-- **Key handling never exposes a secret.** Keys are read from the environment
-  (`key_for`, config.py:190-191), seeded optionally from a gitignored
-  `providers.env` that lives outside the repo. `--check` prints key *presence*
-  only, never the value (forge_external.py:367-368). Every `_log` line carries
-  the env-var *name*, not the value (providers.py:63, 67, and the shape helpers).
-  `load_provider_env` returns the applied mapping "for logging/tests" but the
-  caller discards it (forge_external.py:410), so values are never printed. Keys
-  travel only in the `Authorization: Bearer`/`x-api-key` headers
-  (providers.py:112, 141), never in argv, a file, or the prompt. Git history of
-  all three files is one commit with no secret-pattern hits; `providers.env` and
-  `drivers/providers.env` are both gitignored; `providers.env.example` ships only
-  commented `sk-...`-style placeholders.
-- **No command injection.** `run_cli` builds a fixed argv list and calls
-  `subprocess.run` with no `shell=True` (forge_external.py:164-169); the verb is
-  a driver-owned literal and the slug/paths become single argv elements that
-  cannot break out to a shell. `reply_path` is derived from the work-order `id`
-  (forge_external.py:188), which comes from orgsmith's own deterministic emission
-  (trusted airlock core), not from the model reply.
-- **Model output reaches no dangerous sink unvalidated.** The provider reply is
-  parsed by `extract_json` (a single O(n) brace scanner honoring string
-  literals, forge_external.py:102-138 — no regex, no ReDoS, input bounded by
-  `max_tokens`), then schema-validated with `deliverable_cls.model_validate`
-  *before* it is written to disk and *before* `orgsmith ... --ingest` re-validates
-  it inside the airlock (forge_external.py:217-225). A `None` adapter result is a
-  hard stop, not a silent skip (forge_external.py:201-205). The model never
-  influences a file path or a command.
-- **TLS verification is intact.** `urllib.request.urlopen` verifies https
-  certificates by default and the code adds no override (no
-  `ssl._create_unverified_context`, `CERT_NONE`, `check_hostname=False`, or
-  custom `context=`). All four named-provider defaults are https.
-- **Fail-open adapters do not leak internals.** `call_provider` catches
-  network/HTTP/parse errors and logs one line with the provider name, status
-  code, and the provider's own error `message` (providers.py:81-103); no Python
-  traceback, no key, no local path. The repair-loop `feedback` sent back to the
-  provider is orgsmith's ingest-rejection text over *synthetic* org data (the
-  whole product is fictional organizations), which the user has explicitly opted
-  to send to their chosen endpoint, so it is not a data-exposure finding.
-- **No new dependencies, no PII.** The driver imports stdlib plus the existing
-  `pydantic` and the pure `orgsmith.schemas`; nothing to pin or CVE-check. No
-  auth/session surface (local CLI). No real names, emails, or phone numbers in
-  the three files; the only proper nouns are provider hostnames and env-var
-  names.
+- **The `base_url` scheme allowlist (the prior NOTE's fix) is sound and
+  enforced at the sink.** `config.base_url_scheme_ok` (config.py:36-37) accepts
+  only `http`/`https` via `urlparse().scheme`; empirically it rejects `file:`,
+  `ftp:`, `gopher:`, empty, `None`, and protocol-relative (`//host`), and
+  correctly normalizes case and leading-whitespace. It runs at the real request
+  boundary in `call_provider` (providers.py:69-74) before any `_post_json` /
+  `urllib.request.urlopen` call, and there is no code path to `_post_json` that
+  skips it. It also feeds `missing_requirements` (config.py:214-218) so `--check`
+  reports NOT READY with a non-zero exit (forge_external.py:370-373) and the drive
+  path refuses (forge_external.py:433-444). The appended `/chat/completions` /
+  `/messages` suffix cannot change the already-validated scheme.
+- **The endpoint is still operator-controlled only, so this remains defense in
+  depth.** `base_url_for` (config.py:188-189) reads solely
+  `ORGSMITH_<PROVIDER>_BASE_URL` or a hardcoded https default; no work-order
+  content or model output reaches it.
+- **No secret leak, in tree or history.** Pattern scan of the last five commits
+  touching these files is clean. `providers.env` and `drivers/providers.env` are
+  gitignored (.gitignore:20-21); the only tracked env artifact is
+  `providers.env.example`, all lines commented, shipping only truncated
+  `sk-...`-style placeholders. Keys are read from the environment
+  (`key_for`, config.py:201-202), sent only in `Authorization: Bearer` /
+  `x-api-key` headers, and never logged. The new refuse-scheme log line
+  (providers.py:70-73) prints the env-var name, not the value or key. `--check`
+  prints key presence only (forge_external.py:367-368); `load_provider_env`'s
+  applied-value mapping is discarded by the caller (forge_external.py:410).
+- **No command injection, no model-output-to-sink, TLS intact.** `run_cli`
+  builds a fixed argv with no `shell=True` (forge_external.py:164-169);
+  `reply_path` derives from the airlock-emitted work-order `id`
+  (forge_external.py:187-188), not model output. The reply is parsed by the O(n)
+  brace scanner `extract_json` then `model_validate`'d before disk and re-validated
+  by `orgsmith --ingest` (forge_external.py:207-225). No TLS override anywhere.
+- **No new dependencies, no PII.** Stdlib plus existing `pydantic` /
+  `orgsmith.schemas`. Proper nouns are provider hostnames and env-var names only.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-28, scope paths, commit eff521e0): reviewed the .eml
-renderer, the v0 validator catalog, and the checksum-manifest generator;
-0 BLOCK / 0 WARN / 1 NOTE.*
+*Prior review (2026-07-28, scope paths, commit cf9ee69): first review of the
+new bring-your-own-token authoring driver (the same three files), the first
+out-of-airlock code to read keys, make network requests, and process model
+output; 0 BLOCK / 0 WARN / 1 NOTE. The one NOTE (configurable `base_url` with no
+scheme allowlist) is resolved as of this turn's `base_url_scheme_ok` guard. Key
+handling, fixed-argv subprocess use, and pre-ingest model-output validation were
+all found sound. In the same window the long-standing `ManifestEntry.path`
+traversal NOTE was closed as not reachable (`load_manifest` runs
+`naming.check_relpath` at load, refusing absolute or `..`-bearing paths before any
+rule resolves them).*
 
-**Standing NOTE closed 2026-07-28 (`ManifestEntry.path` traversal): not
-reachable, the boundary is already guarded.** Prior reviews recorded that the
-validator resolves `ManifestEntry.path` against the share tree. Re-examined this
-turn: `load_manifest` (`orgsmith/artifacts.py:101-109`) runs
-`naming.check_relpath` on both `entry.path` and the transmittal `attach_path`
-and raises `SystemExit("unsafe path")` at load, before any rule resolves them, so
-an absolute (`/etc/passwd`) or `..`-bearing path never reaches the filesystem
-join. `check_relpath` (`naming.py:44-47`) rejects an empty component (a leading
-`/`) and any `..` segment. The guard has been in place since M15 and is pinned by
-`test_load_manifest_rejects_tampered_path` (parametrized over `/etc/passwd` and
-`../outside-share.docx`). The NOTE was a schema-level observation that missed the
-load-time boundary check; no code change is needed and it is now closed.
-
-<!-- SECURITY_META: {"date":"2026-07-28","commit":"cf9ee69687a13955284f7ccb714c46d42559b43c","scope":"paths","scanned_files":["drivers/config.py","drivers/forge_external.py","drivers/providers.py"],"block":0,"warn":0,"note":0} -->
+<!-- SECURITY_META: {"date":"2026-07-28","commit":"9927e03b33306854ea716f2f4b08a2fe7d6ec04c","scope":"paths","scanned_files":["drivers/config.py","drivers/forge_external.py","drivers/providers.py"],"block":0,"warn":0,"note":0} -->
