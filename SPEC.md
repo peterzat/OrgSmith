@@ -147,9 +147,50 @@ rather than consuming Claude Code usage.
   highlight last; then push. The final push triggers the pre-push `/codereview`
   gate; run it when it blocks.
 
+- **Turn closed 2026-07-28 (7/8), user decision.** Criterion 5's live
+  end-to-end run against a real provider key was consciously skipped, not
+  attempted: it needs a paid credential and cannot run in CI. Everything up to
+  the live provider call is unit-tested; the documented manual scratch-root
+  smoke (`docs/BYO-AUTHORING.md`) remains the way to close it. Shipped and
+  pushed (`4fdce04`, `cf9ee69`, `856489a`); codereview + security clean
+  (0 BLOCK, 0 WARN, 1 defense-in-depth NOTE).
+
 ---
 *Prior spec (2026-07-23): M16 — regenerated the eight-org fleet under the realism
 wave's knobs, re-froze (`PINNED = SLUGS` fleet-wide), and cut the v2.1.0 release;
 12/12 criteria met.*
+
+### Proposal (2026-07-28)
+
+**What happened.** Bring-your-own-token authoring shipped (`4fdce04`, `cf9ee69`,
+`856489a`), closing the deferred `provider-neutral-authoring-driver` backlog item. A
+new out-of-airlock `drivers/` package drives OrgSmith's two model passes through a
+configured provider (OpenAI, Anthropic, Google, OpenRouter, or any
+OpenAI-compatible/local endpoint): a config/registry, two stdlib-HTTP adapters
+(fail-open), a WorkOrder -> provider -> Deliverable loop with generator stamping and a
+bounded repair loop, a standalone generation loop, a `--check` preflight, and a
+`/forge` BYO branch. Off by default; the airlock is untouched (`orgsmith/` unchanged,
+the one-way dependency enforced by a new short-tier test). Codereview and security
+clean (0 BLOCK, 0 WARN, 1 defense-in-depth NOTE). 7/8 criteria: the live end-to-end
+run against a real key was consciously skipped (CI stays keyless), so the driver is
+proven up to the provider call but never exercised end to end against a real model.
+
+**Questions and directions.**
+- **Close the BYO loop for real.** The one open criterion: run the driver end to end
+  on a scratch `dev-mini` against a free or local provider (a free Gemini/OpenRouter
+  tier, or Ollama), confirm it produces a valid org, and record the result. Small and
+  concrete, and it converts "proven up to the call" into "proven." Open question: does
+  a non-Claude model actually satisfy ingest's placeholder/mention/hard-case checks,
+  and how many repair rounds does it take?
+- **M17, the window-defeating flagship.** Still the big roadmap item, deferred again
+  this turn. BYO now makes it cheaper: the ~2,000-document org could author on a
+  cheaper or free provider. What recipe shape and cost envelope, and does the driver's
+  serial loop need a parallel window (K>1) first?
+- **BYO hardening follow-ups.** The security NOTE (an `http(s)`-only scheme allowlist
+  on `base_url`); a shared authoring-prompt asset both the skill and driver read, with
+  a drift test; a MODEL-AB round using the driver to vary the model independent of the
+  harness.
+- **Carried from M16.** The mail full-name-in-body device (meridian/ashcombe) and
+  `board-negative-control` (still no measured board false-positive rate).
 
 <!-- SPEC_META: {"date":"2026-07-28","title":"Bring-your-own-token authoring mode (provider-neutral driver)","criteria_total":8,"criteria_met":7} -->
