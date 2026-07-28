@@ -1,130 +1,63 @@
 # CODEREVIEW
 
-## Review — 2026-07-23 (commit: 014c138)
+## Review — 2026-07-28 (commit: dcd8c91)
 
-**Summary:** Full review of the M15 turn: 18 commits, 39 non-fixture files
-(+2964 / -169) plus 115 regenerated fixture files, covering organizational
-noise v2 (six derived kinds, filename variety, attachment-version mismatch),
-persona voice v2 (per-person style specs), the Integrity/Realism reporting
-split, the zero-token `ashcombe-advisory` noise append, and the one-time
-`dev-mini` regeneration. The prior review's `reviewed_up_to` (199f8eb) sits
-behind `origin/main`, so every file in the push scope was reviewed at full
-depth rather than as a refresh.
+**Summary:** Full review of the M16 push (11 commits, `origin/main`..HEAD): the
+eight-org fleet regenerated wholesale under the realism wave's knobs and
+re-frozen, boarded across six dimensions, the CLAUDE.md carve-out closed, and
+the docs (README, TESTING, DISTRIBUTIONS, BACKLOG) reconciled to the regenerated
+reality. The diff is dominated by generated fixtures under `companies/` (1524
+files); the only executable code change is `orgsmith/distributions.py`.
 
 **External reviewers:** None configured.
 
 ### Findings
 
-**[WARN] orgsmith/foundation/style.py:27-28 — `_HABITS` can draw two
-mutually exclusive habits for the same person, and does so in a committed
-ledger.**
+No BLOCK or WARN issues.
 
-  Evidence: `derive_style_specs` calls `r.sample(_HABITS, 2)` over a flat
-  pool that contains both `"prefers numbered lists over bullet points"` and
-  `"avoids lists entirely and writes in paragraphs"`. Both can be drawn for
-  one person. Measured over 4000 per-person streams: 6.3%. It is present in
-  the fixture committed this turn —
-  `companies/dev-mini-metadata/ledger/style_specs.json`, `p:michelle.lopez`
-  carries both. `_style_guidance` (`authoring/contexts.py:280`) joins the
-  habits verbatim into the brief, so an affected author is told "You
-  habitually: avoids lists entirely and writes in paragraphs; prefers
-  numbered lists over bullet points." No brief in this turn actually shipped
-  the contradiction — michelle.lopez authored no dev-mini document — which
-  is luck, not design. M16 authors ~600 documents across eight orgs.
-
-  Suggested fix: group the pool so mutually exclusive habits cannot co-occur
-  (draw at most one from a list-formatting group), and re-emit
-  `style_specs.json` for dev-mini (derived; excluded from the ledger byte pin
-  and recomputed by STY-01, so re-emission is the sanctioned path). Add a
-  unit test asserting no drawn pair is contradictory across many seeds.
-
-**[WARN] orgsmith/docplan/planner.py:1085 — stale-template author selection
-crashes with a raw `ValueError` when nobody is employed on the drawn date.**
-
-  Evidence: `author = employed[srng.randrange(len(employed))]` indexes a
-  list filtered by `p.employment.start <= date`, with no emptiness guard.
-  The date is drawn from the first half of `date_range`, but the earliest
-  roster start is `_mid_month(founded, 2)` (`foundation/scaffold.py:143`),
-  so any recipe whose `date_range` begins in its founding year has a window
-  where `employed` is empty. `date_range[0].year >= founded` is the only
-  charter constraint, so this is a legal recipe. Reproduced: with
-  `founded: 2019`, `date_range: [2019-01-01, 2023-12-31]`,
-  `stale_templates: 2`, a 120-seed sweep gives 98 successes, 12 actionable
-  `SystemExit`s, and **10 raw `ValueError: empty range for randrange()`**.
-  This path constructs `ManifestEntry` directly rather than through `_add`,
-  so it never reaches `_add`'s employment guard; every sibling over-demand
-  case in the same diff (`_plan_chains`, `_plan_misfiles`,
-  `expected_empty_dirs`) raises an actionable `SystemExit` instead.
-
-  Suggested fix: draw the template date only from dates where someone is
-  employed, or raise `SystemExit` naming the knob and the empty window, in
-  the idiom the neighbouring planners already use. Add a regression test
-  pinning one of the reproducing seeds.
-
-**[WARN] orgsmith/validate/rules.py:482, 775 — the `.gitkeep` allowance is
-name-scoped, not content-scoped, so arbitrary bytes in a planned empty
-directory pass the full validator.** (Raised as NOTE by `/security`;
-upgraded here because this diff introduced the exception and the gap is in
-the repo's headline claim.)
-
-  Evidence: NOISE-01 filters the directory listing by `p.name !=
-  EMPTY_DIR_PLACEHOLDER` and MAN-01 adds `"<planned dir>/.gitkeep"` to
-  sanctioned extras. Neither constrains size or bytes, and because the file
-  is unmanifested no manifest-driven rule opens it. NOISE-01 and MAN-01 are
-  the only rules that walk the share tree. The README sells "tamper evidence
-  by construction" and CLAUDE.md requires knob-on-with-artifact-missing to
-  fail; a sanctioned file whose contents nothing checks is the one place in
-  the share where that no longer holds. The three committed placeholders in
-  `ashcombe-advisory` are 0 bytes, so no fixture is affected today.
-
-  Suggested fix: assert the placeholder is zero bytes in NOISE-01 (one
-  line), with a unit test writing content into one and expecting a finding.
-
-**[NOTE] orgsmith/review/report.py:63, 290, 314 — three table cells bypass
-`_cell`.** (From `/security`.)
-
-  Evidence: `state.generators` keys, `entry.authors[0]`, and the joined
-  `ReviewFinding.docs` reach a markdown row without `strip_control` and pipe
-  escaping, and none carries a schema pattern. Not model-reachable (ingest
-  pins generator keys to a Python-generated `wo:<stage>:NNNN` and rejects a
-  `docs` entry that is not a manifest doc_id) and not network-reachable; the
-  exposure is a hand-tampered `-metadata` directory. Left as-is per the
-  NOTE convention.
+- The one code change, `orgsmith/distributions.py`, adds a frozen
+  `WAVE_BASELINE_M15` constant and a `_wave_before_after` renderer that emits a
+  committed M15→M16 before/after table. Correctness verified: the 5-tuple order
+  in the constant matches the unpacking, `by_slug` keys on the same `slug`
+  values the rows carry (including `**fleet**`), and orgs absent from either
+  side are safely skipped. No new I/O or input surface.
+- Security (`/security orgsmith/distributions.py`, this run): 0 findings. The
+  markdown-injection path into the derived dashboard is unreachable — the only
+  variable cell is `charter.slug` (pattern-locked `^[a-z0-9][a-z0-9-]*$`), every
+  other cell is numeric, and authored prose reaches the table only through an
+  integer word count.
+- The regenerated fixtures are validated by the org tier (per-org validators,
+  0 errors) and the fleet byte pin (`PINNED = SLUGS`), both green; the recipe
+  knob additions (business calendar, sample book, style/voice, mail, noise) pass
+  the recipe-coherence test. These are generated, not hand-written, and are
+  covered by the test suite rather than line review.
+- NOTE (not a diff defect, recorded for the human): criterion 1's clause "no
+  recipe brief recites its own genre specifications" is **not** met — the recipe
+  briefs still carry genre-spec prose (stored in `charter.json` as `narrative`),
+  so `recipe-brief-leaks-genre-spec` stays open in BACKLOG. The regenerated
+  overviews happen not to parrot it. Closing it needs a brief rewrite plus
+  regeneration.
+- NOTE (documented, recorded not fixed): `hollowell-ip`'s document_plausibility
+  board found a blocker — 9 of 18 engagement emails render a duplicated `To:/Cc:`
+  block because the mention check drove workers to put the recipient full name in
+  the body. The board is read-only and the fixture prose is frozen; a renderer or
+  authoring-guidance fix plus re-render is a separate unit of work (noted in
+  CLAUDE.md and the README).
 
 ### Fixes Applied
 
-All three WARN fixed by `/codefix` in `014c138`, each with a regression test.
-The NOTE was left as-is per convention.
-
-- **[WARN] `orgsmith/foundation/style.py`** — the flat `_HABITS` pool became
-  `_HABIT_GROUPS`; at most one habit is drawn per exclusion group, the
-  list-formatting pair being the one real group.
-  `companies/dev-mini-metadata/ledger/style_specs.json` re-emitted (the only
-  committed org with the knob on); `p:michelle.lopez` no longer carries the
-  contradictory pair. Test `test_habits_are_never_self_contradictory` asserts
-  the property over 3500 per-person streams **and** that the grouping strands
-  no habit, so a fix that merely deleted an option would fail it.
-- **[WARN] `orgsmith/docplan/planner.py`** — emptiness guard raising
-  `SystemExit` that names `stale_templates`, the drawn date, the range, and
-  the first roster start. Behaviour-preserving for every existing fixture:
-  the guard fires only where `randrange(0)` already crashed, so no RNG stream
-  moves. Test pins seed `20260715`.
-- **[WARN] `orgsmith/validate/rules.py`** — NOISE-01 now also asserts the
-  placeholder is zero bytes and reports its size. Test writes 16 bytes into
-  one and asserts the placeholder is the sole finding, so it cannot pass by
-  tripping the pre-existing "not empty" check instead.
-
-Tests: baseline 14 / 509+6 / 74 / 20 → 14 / **512**+6 / 74 / 20. No
-regressions; `PINNED = SLUGS` green throughout.
+None.
 
 ### Accepted Risks
 
 None.
 
----
-*Prior review (2026-07-22b, commit 199f8eb, light): M14 documentation
-accuracy pass over four markdown files. No issues found; one editorial defect
-introduced by the pass itself (four over-wrapped prose lines) was corrected
-before the marker was written.*
+### Test Baseline
 
-<!-- REVIEW_META: {"date":"2026-07-23","commit":"014c138","reviewed_up_to":"014c138122d6cf91da64143b9957721a81fe8267","base":"origin/main","tier":"full","block":0,"warn":3,"note":1} -->
+Full default suite green: 606 passing (14 short, 518 unit, 74 org), keyless and
+offline; byte pin green at every mid-wave commit. Flagship tier 20 passing.
+
+---
+*Prior review (2026-07-23, commit 014c138): full review of the M15 turn, 0 BLOCK / 3 WARN / 1 NOTE; that review's code is not present in this push's diff.*
+
+<!-- REVIEW_META: {"date":"2026-07-28","commit":"dcd8c91","reviewed_up_to":"dcd8c910da0f046796f5f1f38d519d1ca02cb4c1","base":"origin/main","tier":"full","block":0,"warn":0,"note":2} -->
