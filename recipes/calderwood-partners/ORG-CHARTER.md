@@ -86,13 +86,11 @@ calendar, an engagement book presented as a sample rather than the whole
 firm, machine-derived noise, and an authoring brief that pushes against the
 house voice.
 
-Its documents are the ordinary paper trail of a consulting engagement.
-Engagement letters set scope, fees, and terms. Kickoff memos frame the
-first weeks of work. Working sessions produce minutes; the client executive
-gets periodic status reports; a briefing deck lands partway through. Between
-formal deliverables the team and the client exchange short emails about data
-requests and scheduling, and a live thread runs a day or two between
-replies.
+Its paperwork is the ordinary output of a consulting engagement, unshowy
+and practical, written for a client executive who wants the decision before
+the detail. Between formal deliverables the team and the client exchange
+short emails about data requests and scheduling, and a live thread can run a
+day or two between replies.
 
 The firm's own writing is plain and businesslike, and deliberately varied:
 different hands write differently, engagements are described as

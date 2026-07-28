@@ -80,13 +80,11 @@ fleet: it starts at six seats and opens five more over nine years,
 because that is what a book of work compounding at ten percent a year
 actually requires.
 
-Its documents are the paper trail of a regulated opinion. Engagement
-letters are precise about scope, data reliance, and the standards the
-work is performed under. Valuation results arrive as a workbook of
-exhibits and a report that interprets them. Board presentations are plain
-decks with a chart per slide and no decoration. Between formal
-deliverables, the actuaries and the client's staff exchange short emails
-about data files and assumptions.
+Its work carries the discipline of a regulated opinion: precise about
+scope, data reliance, and the standards a piece of work is performed
+under, plain and undecorated, and careful to separate what the data show
+from what was assumed. Between formal deliverables, the actuaries and the
+client's staff exchange short emails about data files and assumptions.
 
 Tone is careful and heavily qualified, because an actuary who overstates
 a number is exposed. Writing distinguishes measurement from judgment

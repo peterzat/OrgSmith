@@ -61,9 +61,8 @@ Pinebrook Advisory Group is a small management consultancy serving
 mid-market operating companies, five people at the start of the window and
 six by the end. The firm takes on a handful of engagements a year:
 operational reviews, pricing studies, and post-acquisition integration
-support. Its documents are lean and practical: engagement letters on firm
-letterhead, kickoff memos, meeting minutes that name every attendee, and
-status reports written for a client executive who skims. The Managing
-Partner signs everything that leaves the building. Tone is plain American
+support. Its paperwork is lean and practical, written for a client executive who
+skims and put out on firm letterhead, and the Managing Partner signs off
+on anything that leaves the building. Tone is plain American
 business English, first names inside the firm, full names and titles when a
 client is on the page.
