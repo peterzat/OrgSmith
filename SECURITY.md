@@ -2,93 +2,89 @@
 
 ## Security Review — 2026-07-28 (scope: paths)
 
-**Summary:** Reviewed the .eml renderer (`orgsmith/render/eml.py`), the v0
-validator catalog (`orgsmith/validate/rules.py`), and the checksum-manifest
-generator (`tools/checksums.py`). No BLOCK, no WARN. One NOTE: the validator
-resolves the unconstrained `ManifestEntry.path` string against the share tree,
-a path-traversal gap with no reachable harmful sink under the airlock. All
-three files are offline, keyless, and network-free.
+**Summary:** Reviewed the new bring-your-own-token authoring driver
+(`drivers/config.py`, `drivers/providers.py`, `drivers/forge_external.py`), the
+first out-of-airlock code that reads API keys, makes network requests, and
+processes model output. No BLOCK, no WARN. One NOTE: outbound requests target a
+configurable `base_url` with no scheme allowlist (defense-in-depth only, no
+reachable attack vector). Key handling, subprocess use, and model-output
+validation are all sound.
 
 ### Findings
 
-- **[NOTE] rules.py (many sites, e.g. :66, :705, :726, :792) — tampered
-  manifest path resolved against the filesystem without a relative-path
-  constraint.** `ManifestEntry.path` is an unconstrained `str` (schemas.py:781,
-  a comment says "share-relative" but nothing enforces it), and every rule
-  resolves it with `ctx.paths.share_dir / e.path`. Because `pathlib`'s `/`
-  lets an absolute right-hand operand replace the base and `..` segments
-  escape, a `manifest.jsonl` line with `path: "/etc/passwd"` or a `../` prefix
-  makes the validators stat and open a file outside the share tree.
-  - Attack vector: an actor who can edit committed `-metadata/docplan/manifest.jsonl`
-    (the same tamper capability the validator exists to detect) plants a
-    traversal or absolute path; the next `validate` run reads that file.
-  - Why it is only a NOTE (no reachable harmful sink): (1) no rule uses
-    `e.path` for a write; (2) no finding echoes the read file's *contents* —
-    findings carry only ledger-derived expected surfaces (`fact_01`
-    rules.py:714, `ment_01` :830) plus parser error strings, so an out-of-tree
-    read is not exfiltrated; (3) the airlock means no network channel to
-    exfiltrate to; (4) `man_01` (rules.py:807-810) flags any planned path that
-    is not a share-relative on-disk file as "manifest doc missing from share",
-    so the traversal fails validation loudly rather than passing silently.
-  - Remediation: constrain the field at the boundary — a `Field(pattern=...)`
-    on `ManifestEntry.path` (or a check in `load_manifest`, artifacts.py:94)
-    that rejects a leading `/` and any `..` segment — so a traversal path is
-    refused at load time instead of being resolved against the filesystem.
+- **[NOTE] providers.py:38-43, 121-123, 148-149 (via config.py:177-178) —
+  outbound request base_url has no scheme allowlist.** `base_url_for` returns
+  whatever is in `ORGSMITH_<PROVIDER>_BASE_URL` (or the hardcoded https default),
+  and `_post_json` hands `f"{base_url}/chat/completions"` (or `/messages`)
+  straight to `urllib.request.urlopen`, which also handles `file://`, `ftp://`,
+  etc. Today this is not an attack vector: `base_url` is set only from the
+  process environment or the user's own `~/.config/orgsmith/providers.env`, and
+  no work-order content, model output, or other untrusted input flows into it,
+  so an actor who could change `base_url` already controls the environment. This
+  is recorded as defense in depth: if a future change ever lets untrusted input
+  influence the endpoint, an `http(s)`-only guard should be in place first.
+  - Attack vector: none reachable in the current design (self-configuration
+    only). Filed as NOTE, not WARN, for that reason.
+  - Remediation: in `base_url_for` (or `call_provider`) reject any base_url whose
+    scheme is not `http`/`https` before the request, and keep `http` for the
+    local/self-hosted case.
 
 ### Reviewed surface and scope
 
-- **eml.py header injection has no dangerous sink.** Header values flow from
-  the ledgers into `EmailMessage` under `policy.SMTP` (`expected_headers`
-  eml.py:77-138, `render_eml` :199-205). Even a tampered `title` (Subject),
-  `people[...]["email"]` (From/To), or `domain` (Message-ID) carrying control
-  characters cannot escalate: these .eml files are synthetic fixtures written
-  to disk, never handed to an MTA or any network transport (airlock), and
-  EML-01 (rules.py:1176) recomputes every header from the ledger via the same
-  helper, so a tampered header that diverges from the ledger is a validation
-  failure. No SMTP-injection reachability.
-- **Model-authored prose reaches no injection sink in scope.** The .eml body
-  is set through `msg.set_content` (eml.py:205), which encodes the part and
-  cannot fold authored text up into the header block; `strip_leading_header_block`
-  uses a simple anchored regex (eml.py:27-29) with no catastrophic
-  backtracking. In rules.py, extracted document text is only string-compared
-  against expected surfaces (`surface_in_text` uses `re.escape`, schemas.py:885);
-  there is no `eval`, shell, SQL, or template sink.
-- **Validator findings are printed, not embedded, within scope.** `run_validate`
-  prints findings as text or JSON (validate/__init__.py:64-72). The markdown
-  embedding of finding strings into `GENERATION-REPORT.md` happens in
-  `review/report.py` (out of scope here and already a standing NOTE from prior
-  reviews about `_cell` escaping), not in the three reviewed files.
-- **checksums.py is injection-free.** `subprocess.run` is called with a fixed
-  argument list (no `shell=True`) over a hardcoded `ORGS` allowlist
-  (checksums.py:19-31); it reads only `git ls-files`-tracked paths and writes a
-  table of hardcoded slugs, integer counts, and hex digests (checksums.py:64-67),
-  none of which are attacker-controlled free text. No command or markdown
-  injection.
-- **No secrets, no real PII.** None of the three files call a model or the
-  network. Content is clean (the one secret-pattern grep hit was the word
-  "tokens" in an eml.py docstring), git history is structural, and the only
-  proper nouns are the synthetic org slugs and `PRODUCT_NAME`, which are the
-  product.
-- **Dimensions considered and not reported.** Third-party parsers in rules.py
-  (python-docx, openpyxl, python-pptx, pypdf, pikepdf, xlrd, olefile) parse
-  committed fixtures; an XXE or zip-bomb payload would require the same
-  committed-fixture write access as the tamper model, the airlock blocks any
-  external-DTD/network exfiltration, and no finding echoes parsed content — so
-  the residual impact is below the reporting bar and parser-config certainty
-  is under the 80% threshold. Dependency-manifest and infrastructure
-  dimensions were out of scope for this path-scoped run (no manifests, CI
-  configs, or Dockerfiles in the file list).
+- **Key handling never exposes a secret.** Keys are read from the environment
+  (`key_for`, config.py:190-191), seeded optionally from a gitignored
+  `providers.env` that lives outside the repo. `--check` prints key *presence*
+  only, never the value (forge_external.py:367-368). Every `_log` line carries
+  the env-var *name*, not the value (providers.py:63, 67, and the shape helpers).
+  `load_provider_env` returns the applied mapping "for logging/tests" but the
+  caller discards it (forge_external.py:410), so values are never printed. Keys
+  travel only in the `Authorization: Bearer`/`x-api-key` headers
+  (providers.py:112, 141), never in argv, a file, or the prompt. Git history of
+  all three files is one commit with no secret-pattern hits; `providers.env` and
+  `drivers/providers.env` are both gitignored; `providers.env.example` ships only
+  commented `sk-...`-style placeholders.
+- **No command injection.** `run_cli` builds a fixed argv list and calls
+  `subprocess.run` with no `shell=True` (forge_external.py:164-169); the verb is
+  a driver-owned literal and the slug/paths become single argv elements that
+  cannot break out to a shell. `reply_path` is derived from the work-order `id`
+  (forge_external.py:188), which comes from orgsmith's own deterministic emission
+  (trusted airlock core), not from the model reply.
+- **Model output reaches no dangerous sink unvalidated.** The provider reply is
+  parsed by `extract_json` (a single O(n) brace scanner honoring string
+  literals, forge_external.py:102-138 — no regex, no ReDoS, input bounded by
+  `max_tokens`), then schema-validated with `deliverable_cls.model_validate`
+  *before* it is written to disk and *before* `orgsmith ... --ingest` re-validates
+  it inside the airlock (forge_external.py:217-225). A `None` adapter result is a
+  hard stop, not a silent skip (forge_external.py:201-205). The model never
+  influences a file path or a command.
+- **TLS verification is intact.** `urllib.request.urlopen` verifies https
+  certificates by default and the code adds no override (no
+  `ssl._create_unverified_context`, `CERT_NONE`, `check_hostname=False`, or
+  custom `context=`). All four named-provider defaults are https.
+- **Fail-open adapters do not leak internals.** `call_provider` catches
+  network/HTTP/parse errors and logs one line with the provider name, status
+  code, and the provider's own error `message` (providers.py:81-103); no Python
+  traceback, no key, no local path. The repair-loop `feedback` sent back to the
+  provider is orgsmith's ingest-rejection text over *synthetic* org data (the
+  whole product is fictional organizations), which the user has explicitly opted
+  to send to their chosen endpoint, so it is not a data-exposure finding.
+- **No new dependencies, no PII.** The driver imports stdlib plus the existing
+  `pydantic` and the pure `orgsmith.schemas`; nothing to pin or CVE-check. No
+  auth/session surface (local CLI). No real names, emails, or phone numbers in
+  the three files; the only proper nouns are provider hostnames and env-var
+  names.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-07-28, scope paths, commit f3fbef62): reviewed
-`orgsmith/distributions.py`, the M15 distributional dashboard; 0 BLOCK / 0 WARN
-/ 0 NOTE. Markdown injection into the derived dashboard was unreachable — the
-only variable cell is the pattern-locked `charter.slug`, every other cell is
-numeric, and authored prose reaches the table only through an integer word
-count.*
+*Prior review (2026-07-28, scope paths, commit eff521e0): reviewed the .eml
+renderer, the v0 validator catalog, and the checksum-manifest generator;
+0 BLOCK / 0 WARN / 1 NOTE. The standing NOTE (out of scope here) is that
+`ManifestEntry.path` in `orgsmith/validate/rules.py` is resolved against the
+share tree without a relative-path constraint, a traversal gap with no reachable
+harmful sink under the airlock (no write, no content echo, no network, and
+`man_01` flags a non-share path loudly).*
 
-<!-- SECURITY_META: {"date":"2026-07-28","commit":"eff521e04c75df5ac839bf8da48cd0ea94608ec8","scope":"paths","scanned_files":["orgsmith/render/eml.py","orgsmith/validate/rules.py","tools/checksums.py"],"block":0,"warn":0,"note":1} -->
+<!-- SECURITY_META: {"date":"2026-07-28","commit":"cf9ee69687a13955284f7ccb714c46d42559b43c","scope":"paths","scanned_files":["drivers/config.py","drivers/forge_external.py","drivers/providers.py"],"block":0,"warn":0,"note":1} -->
