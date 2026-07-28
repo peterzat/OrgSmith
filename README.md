@@ -812,6 +812,16 @@ python3 -m venv .venv
 bin/test                                        # short + unit + org tiers, offline
 ```
 
+**Install the package.** As of v2.1.0 the tool is pip-installable with a console
+entry point: `pip install .` from a clean venv builds the `orgsmith` package and
+puts `orgsmith` on your PATH (so `orgsmith doctor`, `orgsmith validate <slug>`,
+etc. work without the repo root). `requirements.lock` pins the exact tested
+dependency set (versions, not hashes; the residual float is stated there). For a
+reproducible generation environment including LibreOffice, `docker build -t
+orgsmith .` builds the [Dockerfile](Dockerfile) and `docker run --rm orgsmith`
+runs `orgsmith doctor` green. `CHECKSUMS.md` carries a SHA-256 rollup of the
+eight committed orgs.
+
 ```bash
 python -m orgsmith validate northgate-staffing       # every rule its recipe enables
 python -m orgsmith report northgate-staffing         # corpus metrics -> GENERATION-REPORT.md

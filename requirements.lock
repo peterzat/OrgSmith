@@ -1,0 +1,25 @@
+# Exact runtime dependency versions this release (v2.1.0) was generated and
+# validated against. Regenerate with: .venv/bin/pip freeze | grep -iE '<pkg>'.
+#
+# Residual float, stated explicitly (SPEC M16, criterion 11): these are
+# version pins, NOT hash pins. We do not carry --hash entries, so a supply-chain
+# guarantee is out of scope for this offline release; `pip install -r
+# requirements.lock` reproduces the tested version set but trusts the index.
+# pyproject.toml carries >= lower bounds for ordinary `pip install .`; this file
+# is for reproducing the exact environment behind the committed fleet.
+pydantic==2.13.4
+Jinja2==3.1.6
+Faker==40.31.0
+python-docx==1.2.0
+python-pptx==1.0.2
+XlsxWriter==3.2.9
+PyYAML==6.0.3
+pypdf==6.14.2
+weasyprint==69.0
+olefile==0.47
+xlrd==2.0.2
+openpyxl==3.1.5
+pikepdf==10.10.0
+pypdfium2==5.11.0
+Pillow==12.3.0
+numpy==2.2.6
