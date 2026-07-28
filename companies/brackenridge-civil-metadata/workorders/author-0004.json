@@ -6,7 +6,7 @@
   "org_name": "Brackenridge Civil Group Inc",
   "org_type": "civil engineering",
   "narrative": "Brackenridge Civil Group is a small civil engineering practice in a\ncounty seat, founded in 1996 and working for municipal public works\ndepartments, a regional water authority, and two private developers. Its\nwork is site grading, stormwater, roadway, and utility design: drawings\ngo out under a sealed cover sheet, and the paperwork that surrounds them\nis typed in Word and printed for the job file.\n\nIt is a firm of its era, and the file share shows it. Proposals and\ndesign memoranda are Word documents saved to a lettered project folder.\nExecuted agreements come back countersigned by fax, get scanned on the\nflatbed by the office administrator, and land in the share as crooked,\nspeckled images. Progress meetings with the county produce minutes that\nlist every attendee by full name and agency. The annual numbers live in\none spreadsheet the Principal Engineer keeps himself.\n\nWriting is late-1990s American professional-services prose: complete\nsentences, courteous but not warm, no buzzwords that would postdate the\ndocument. Engineers refer to clients by agency name and to each other by\nfull name in anything that leaves the office. The Principal Engineer\nsigns every agreement and every letter to a public body. Nobody writes\n\"reach out\"; they write \"we will contact\".",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0018",
@@ -19,7 +19,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -28,21 +28,21 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         },
         {
           "id": "p:jeffrey.perez",
           "name": "Jeffrey Perez",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Details and quantity takeoffs, checked once and then checked again from the other direction, because he does not like being the reason a bid comes in wrong. He talks constantly across the office and writes nothing the same way he speaks: on paper he is stiff, formal, and about half as long as he needs to be. Asks the engineers what a detail is for, not just what it should look like."
+          "persona": "Jeffrey Perez does the utility and stormwater drafting and is the technician the engineers hand a redline to when a set has to turn quickly. He is steady and unhurried, checking his callouts against the design memorandum rather than trusting memory. He rarely writes beyond a transmittal, and when he does it is terse and to the point."
         },
         {
           "id": "p:pamela.warren",
           "name": "Pamela Warren",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Grading and roadway design, and a habit of writing down her assumptions where a reviewer can find them, because a reviewer eventually will. Her design memoranda run long and are organized under headings; she answers municipal review comments in the order they were issued, one paragraph each, never arguing when a plain answer will do. She is patient on the telephone with agency staff and courteous in a way that does not invite familiarity."
+          "persona": "Pamela Warren handles the stormwater and utility side of the practice and does the close coordination with the regional water authority's reviewers. She is patient through revision cycles and writes her memoranda to survive a skeptical read, citing the governing standard before the design choice. Her letters are formal and a little dry, never warm and never careless."
         },
         {
           "id": "xp:david.dyer",
@@ -100,9 +100,10 @@
         }
       ],
       "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0019",
@@ -115,7 +116,7 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         }
       ],
       "participants": [
@@ -124,21 +125,21 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         },
         {
           "id": "p:jeffrey.perez",
           "name": "Jeffrey Perez",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Details and quantity takeoffs, checked once and then checked again from the other direction, because he does not like being the reason a bid comes in wrong. He talks constantly across the office and writes nothing the same way he speaks: on paper he is stiff, formal, and about half as long as he needs to be. Asks the engineers what a detail is for, not just what it should look like."
+          "persona": "Jeffrey Perez does the utility and stormwater drafting and is the technician the engineers hand a redline to when a set has to turn quickly. He is steady and unhurried, checking his callouts against the design memorandum rather than trusting memory. He rarely writes beyond a transmittal, and when he does it is terse and to the point."
         },
         {
           "id": "p:pamela.warren",
           "name": "Pamela Warren",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Grading and roadway design, and a habit of writing down her assumptions where a reviewer can find them, because a reviewer eventually will. Her design memoranda run long and are organized under headings; she answers municipal review comments in the order they were issued, one paragraph each, never arguing when a plain answer will do. She is patient on the telephone with agency staff and courteous in a way that does not invite familiarity."
+          "persona": "Pamela Warren handles the stormwater and utility side of the practice and does the close coordination with the regional water authority's reviewers. She is patient through revision cycles and writes her memoranda to survive a skeptical read, citing the governing standard before the design choice. Her letters are formal and a little dry, never warm and never careless."
         },
         {
           "id": "xp:david.dyer",
@@ -187,9 +188,10 @@
         }
       ],
       "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0020",
@@ -202,7 +204,7 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         }
       ],
       "participants": [
@@ -211,21 +213,21 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         },
         {
           "id": "p:jeffrey.perez",
           "name": "Jeffrey Perez",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Details and quantity takeoffs, checked once and then checked again from the other direction, because he does not like being the reason a bid comes in wrong. He talks constantly across the office and writes nothing the same way he speaks: on paper he is stiff, formal, and about half as long as he needs to be. Asks the engineers what a detail is for, not just what it should look like."
+          "persona": "Jeffrey Perez does the utility and stormwater drafting and is the technician the engineers hand a redline to when a set has to turn quickly. He is steady and unhurried, checking his callouts against the design memorandum rather than trusting memory. He rarely writes beyond a transmittal, and when he does it is terse and to the point."
         },
         {
           "id": "p:pamela.warren",
           "name": "Pamela Warren",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Grading and roadway design, and a habit of writing down her assumptions where a reviewer can find them, because a reviewer eventually will. Her design memoranda run long and are organized under headings; she answers municipal review comments in the order they were issued, one paragraph each, never arguing when a plain answer will do. She is patient on the telephone with agency staff and courteous in a way that does not invite familiarity."
+          "persona": "Pamela Warren handles the stormwater and utility side of the practice and does the close coordination with the regional water authority's reviewers. She is patient through revision cycles and writes her memoranda to survive a skeptical read, citing the governing standard before the design choice. Her letters are formal and a little dry, never warm and never careless."
         },
         {
           "id": "xp:david.dyer",
@@ -274,22 +276,23 @@
         }
       ],
       "target_words": 400,
-      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock.",
+      "guidance": "Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0022",
       "title": "Meeting Minutes: Stormwater Management Plan for Johnson PLC",
       "genre": "meeting_minutes",
-      "date": "2004-08-29",
+      "date": "2004-08-30",
       "authors": [
         {
           "id": "p:pamela.warren",
           "name": "Pamela Warren",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Grading and roadway design, and a habit of writing down her assumptions where a reviewer can find them, because a reviewer eventually will. Her design memoranda run long and are organized under headings; she answers municipal review comments in the order they were issued, one paragraph each, never arguing when a plain answer will do. She is patient on the telephone with agency staff and courteous in a way that does not invite familiarity."
+          "persona": "Pamela Warren handles the stormwater and utility side of the practice and does the close coordination with the regional water authority's reviewers. She is patient through revision cycles and writes her memoranda to survive a skeptical read, citing the governing standard before the design choice. Her letters are formal and a little dry, never warm and never careless."
         }
       ],
       "participants": [
@@ -298,21 +301,21 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         },
         {
           "id": "p:jeffrey.perez",
           "name": "Jeffrey Perez",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Details and quantity takeoffs, checked once and then checked again from the other direction, because he does not like being the reason a bid comes in wrong. He talks constantly across the office and writes nothing the same way he speaks: on paper he is stiff, formal, and about half as long as he needs to be. Asks the engineers what a detail is for, not just what it should look like."
+          "persona": "Jeffrey Perez does the utility and stormwater drafting and is the technician the engineers hand a redline to when a set has to turn quickly. He is steady and unhurried, checking his callouts against the design memorandum rather than trusting memory. He rarely writes beyond a transmittal, and when he does it is terse and to the point."
         },
         {
           "id": "p:pamela.warren",
           "name": "Pamela Warren",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Grading and roadway design, and a habit of writing down her assumptions where a reviewer can find them, because a reviewer eventually will. Her design memoranda run long and are organized under headings; she answers municipal review comments in the order they were issued, one paragraph each, never arguing when a plain answer will do. She is patient on the telephone with agency staff and courteous in a way that does not invite familiarity."
+          "persona": "Pamela Warren handles the stormwater and utility side of the practice and does the close coordination with the regional water authority's reviewers. She is patient through revision cycles and writes her memoranda to survive a skeptical read, citing the governing standard before the design choice. Her letters are formal and a little dry, never warm and never careless."
         },
         {
           "id": "xp:david.dyer",
@@ -357,9 +360,10 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
-      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in short sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; the 'rather X now than Y later' antithesis.",
+      "engagement_position": "This document is dated about 41% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0023",
@@ -372,7 +376,7 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         }
       ],
       "participants": [
@@ -381,21 +385,21 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         },
         {
           "id": "p:jeffrey.perez",
           "name": "Jeffrey Perez",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Details and quantity takeoffs, checked once and then checked again from the other direction, because he does not like being the reason a bid comes in wrong. He talks constantly across the office and writes nothing the same way he speaks: on paper he is stiff, formal, and about half as long as he needs to be. Asks the engineers what a detail is for, not just what it should look like."
+          "persona": "Jeffrey Perez does the utility and stormwater drafting and is the technician the engineers hand a redline to when a set has to turn quickly. He is steady and unhurried, checking his callouts against the design memorandum rather than trusting memory. He rarely writes beyond a transmittal, and when he does it is terse and to the point."
         },
         {
           "id": "p:pamela.warren",
           "name": "Pamela Warren",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Grading and roadway design, and a habit of writing down her assumptions where a reviewer can find them, because a reviewer eventually will. Her design memoranda run long and are organized under headings; she answers municipal review comments in the order they were issued, one paragraph each, never arguing when a plain answer will do. She is patient on the telephone with agency staff and courteous in a way that does not invite familiarity."
+          "persona": "Pamela Warren handles the stormwater and utility side of the practice and does the close coordination with the regional water authority's reviewers. She is patient through revision cycles and writes her memoranda to survive a skeptical read, citing the governing standard before the design choice. Her letters are formal and a little dry, never warm and never careless."
         }
       ],
       "engagement_summary": "Stormwater Management Plan for Johnson PLC, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -432,9 +436,10 @@
         }
       ],
       "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],

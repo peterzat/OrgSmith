@@ -3,8 +3,8 @@
   "doc_id": "d:0032",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Memorandum",
+      "kind": "paragraph",
+      "text": "To: The engagement team",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "To: Jason Jordan, Design Technician\nFrom: Linda George, Project Engineer\nRe: Utility Relocation Design for Franklin-Snyder, project kickoff\ncc: Mark Todd, Principal Engineer",
+      "text": "From: Linda George, Project Engineer",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The agreement is executed and we start on {{fact:f:E-2006-001.start}}. What we owe {{fact:f:E-2006-001.client}} at the end is a permit and bid set for the relocations in the Franklin-Snyder corridor: plan and profile, details, specifications, and quantities. Everything below serves that. The schedule is three months and it is not generous, so the order of work matters more than usual.",
+      "text": "Re: Kickoff, Utility Relocation Design for Franklin-Snyder",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The objective is narrow and worth stating plainly, because a relocation job drifts if it is not. We are not redesigning the corridor and we are not solving the client's easement problems. We are moving three owners' facilities out of the way of improvements that are already laid out, drawing the result to each owner's own standards, and handing over a set a contractor can bid without calling us. Anything that does not serve that is not in the fee.",
+      "text": "We have begun the utility relocation design for {{fact:f:E-2006-001.client}}, and our object is a single, buildable relocation design that clears the utility owners and the regional water authority on the first review, so that Franklin-Snyder can move the lines and open its site on the schedule it has set. Everything that follows serves that object, and I want us working from one picture of it before any sheet is drawn.",
       "level": 1,
       "items": [],
       "header": [],
@@ -39,9 +39,18 @@
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Workstreams",
-      "level": 2,
+      "kind": "paragraph",
+      "text": "We have about three months, which is adequate for a relocation of this size only if we hold the sequence and avoid rework, because the surest way to lose the time is to design a line against a record we have not verified and then redraw it when the field proves the record wrong, and that is the one thing this memo is meant to keep us from doing.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The work started on {{fact:f:E-2006-001.start}}, and it divides into four workstreams that must proceed in order, since each rests on the one before it and a mistake carried forward is far more costly to correct than one caught at its source.",
+      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
@@ -52,21 +61,27 @@
       "text": "",
       "level": 1,
       "items": [
-        "Records and existing conditions. Request record drawings from each facility owner in the first week. These take longer to arrive than anyone expects, so the requests go out before we draw anything. Log what we asked for and the date, and log what comes back.",
-        "Field review. Once the survey is loaded, we walk the corridor against the records and mark what does not match. I want us both out there for the first pass. Anything we cannot confirm from the surface gets flagged on the drawings as unverified rather than shown as fact.",
-        "Base sheet setup. Sheet borders, layer standards, and the survey control set up once, correctly, before layout begins. Jason Jordan owns this and nobody else moves a layer.",
-        "Relocation layout and profiles. Water first, since the conflicts there drive the sanitary alignment, then sanitary, then dry utilities. Profiles as we go, not at the end.",
-        "Erosion and sediment control. My work. It follows the layout and I do not want it started until the alignments have settled.",
-        "Specifications and quantities. Assembled from the drawings at the back end, but the specification sections we know we need should be pulled and listed now.",
-        "Owner coordination. Each facility owner has its own standards for its own plant and we conform to them. Their comments come to me."
+        "Existing utilities and conflicts. I will assemble the record drawings, the survey, and the field locates, and I will fix where the water main, the sanitary sewer, and the overhead lines actually lie before we design anything to move them.",
+        "Relocation design. From that base I will lay out a new alignment and profile for each line that must move, clear of the proposed improvements and clear of the other utilities, and I will set the tie-ins where each relocated line rejoins the system.",
+        "Owner and agency coordination. I will carry the coordination with the regional water authority for the water main and with the serving companies for the electric and telephone lines, so that each relocation is designed to the standard its owner will accept.",
+        "Sheets and drafting. Jason Jordan will prepare the plan and profile sheets, the relocation details, and the easement exhibits from my direction, and he will check every callout against the design memoranda so the set tells one consistent story."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
+      "kind": "paragraph",
+      "text": "The regional water authority owns the water main, and its relocation is the line that will most shape our schedule, because its review is the one we least control; for that reason I intend to open the conversation with the authority's staff while the alignment is still on paper and easy to change, instead of presenting them a finished design and hoping it passes. The serving electric and telephone companies will each hold us to their own standards, and I have asked for those standards so that we design to them from the start.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "heading",
-      "text": "Next Steps",
+      "text": "Where we begin",
       "level": 2,
       "items": [],
       "header": [],
@@ -74,23 +89,8 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "This week: records requests out to all facility owners; I will draft the letters and Jason Jordan will assemble the exhibit for each.",
-        "This week: survey loaded and checked against control. Report any discrepancy to me before you build on it.",
-        "Next week: field review, both of us, one day if the weather holds.",
-        "Following week: base sheets complete and the first water alignment in progress.",
-        "Progress meeting with Mark Green and his staff once the field review is done, so we go into that meeting with something to say. I will schedule it."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "Two things to keep in front of you. First, anything that comes back from a facility owner that changes scope, cost, or schedule goes to Mark Todd and to me before it goes anywhere else; it is not ours to absorb quietly. Second, this is a fixed fee, so hours we spend redrawing what we drew wrong come out of the firm. Get the records in, confirm them in the field, then draw. In that order.",
+      "text": "Our first effort goes to the existing utilities, and we will not lay out a single relocation until we agree that we know what is in the ground, because a relocation designed against a wrong record is worse than none at all. I will circulate the base once the locates are in, and we will confirm the conflicts together before Jason Jordan turns any sheet. Mark Green, the Chief Financial Officer at Franklin-Snyder, is the owner's contact for site access and for the developer's decisions, and I will route the owner's questions through him so that we speak to the client with one voice.",
       "level": 1,
       "items": [],
       "header": [],
@@ -99,16 +99,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "One administrative note. I keep my own notes of every meeting with the client and the facility owners, in addition to whatever minutes are taken. That is not a comment on anyone's minutes. It is that a recollection differing from mine once cost this office a week, and it will not do so again.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Ask me if anything here is unclear. I would rather answer a question now than find the answer on a sheet later.",
+      "text": "Bring me any assumption you have to make and I will see it filed, so that the next person designs from what we know and not from memory. Let us meet at the end of the week to walk the conflicts once the first locates are back.",
       "level": 1,
       "items": [],
       "header": [],

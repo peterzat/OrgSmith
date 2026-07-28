@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "brackenridge-civil",
+  "dimension": "org_realism",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-realism-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": ["d:0009", "d:0012", "d:0010", "d:0013"],
+      "summary": "The Esparza-Lamb engagement's client design meetings and progress reports are conducted entirely by Design Technicians with no engineer present, unlike every later engagement, which is implausible for a firm whose drawings only leave under the Principal Engineer's seal.",
+      "evidence": "The design-coordination and pre-issue meetings (d:0009, d:0012) both list attendees as only 'Linda Nguyen, Design Technician / Jason Jordan, Design Technician / Debra Vasquez, Vice President of Finance' and resolve design questions there ('it was agreed that the supplemental shot would be requested'); the client progress report d:0013 is signed solely by 'Linda Nguyen, Design Technician' and commits the fee. By contrast the Johnson (d:0022), Evans-Lee (d:0028), Franklin-Snyder (d:0033), and Peck-Jennings (d:0038) progress meetings each have a Project Engineer (Warren or George) present and leading."
+    }
+  ]
+}

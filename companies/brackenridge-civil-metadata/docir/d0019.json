@@ -3,44 +3,80 @@
   "doc_id": "d:0019",
   "blocks": [
     {
+      "kind": "paragraph",
+      "text": "To: The design and engineering team",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "From: Charles Olson",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Re: Kickoff, Stormwater Management Plan for Johnson PLC",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We are underway on the stormwater management plan for {{fact:f:E-2004-001.client}}, and I want us all working from the same picture. Our aim is a clean, buildable plan that clears the regional water authority's review on the first pass. Everything below serves that.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We started this engagement on {{fact:f:E-2004-001.start}}. David Dyer, the General Manager at Johnson PLC, is our contact for site information and for anything we need from the owner. Please bring owner questions to me, so we speak to him with one voice.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The design has to fit the development Johnson PLC has in mind, not a generic layout. So we will keep the owner's site plan in front of us and design to it. If the site plan shifts, I need to hear it early, because it moves our numbers and can move the schedule. Nothing we do downstream is safe if the base and the layout are not settled first.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "A stormwater plan is only as good as the base it sits on. So our first effort goes to the survey and the drainage areas, and we will not model anything until we agree those are right. The rest of the work follows cleanly once the base is sound.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We have about five months, which is comfortable for a plan this size if we keep the base clean and avoid rework. The way to lose that time is to model early and redraw late. We will not do that.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "heading",
-      "text": "Memorandum",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "To: Pamela Warren, Project Engineer; Jeffrey Perez, Design Technician",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "From: Charles Olson, Design Technician",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Subject: Kickoff, Stormwater Management Plan for {{fact:f:E-2004-001.client}}",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Objective",
+      "text": "How the work divides",
       "level": 2,
       "items": [],
       "header": [],
@@ -49,26 +85,8 @@
     },
     {
       "kind": "paragraph",
-      "text": "The agreement is signed and we are under way as of {{fact:f:E-2004-001.start}}. What we owe is a sealed plan set with the stormwater report behind it, transmitted to the reviewing authority, plus written answers to the first round of comments. The engagement letter is in the job folder. Read the scope paragraph in it before you open a drawing. It is a lump sum, and the scope is the fence around it.",
+      "text": "Here is who carries what. It follows the way we usually split a plan like this.",
       "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Nothing gets drawn this month. The first weeks are for finding out what is actually on the ground and what the ordinance is going to make us do about it. I would rather spend two weeks on that now than move a detention pond in the fall.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Workstreams",
-      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -79,21 +97,27 @@
       "text": "",
       "level": 1,
       "items": [
-        "Site reconnaissance. Mine. I will walk the property next week and photograph the outfall, the receiving ditch, and both culverts shown on the survey. The survey is clean, which is what bothers me about it. Anything that does not match, I will mark on a print and put in the folder.",
-        "Hydrology. Pamela Warren has the drainage area delineation and the pre-development and post-development runoff computations, for the design storms the ordinance names. Assumptions go in the report where a reviewer can find them, not on the back of a calc sheet.",
-        "Conveyance and detention. Pamela Warren sizes the pipe, the pond, and the outlet structure, and not until the reconnaissance is back. We are not sizing anything off the survey alone.",
-        "Grading and drainage sheets. Mine. I do not start the sheets until the pond has a volume on it.",
-        "Details and quantities. Jeffrey Perez takes the detail sheet and the takeoff. The details wait on the outlet structure and the takeoff waits on the grading, so his early time goes to the erosion and sedimentation control sheets.",
-        "Erosion and sedimentation control. Jeffrey Perez to start from our standard sheets and adjust once we know where the limits of disturbance sit.",
-        "Submittal and comments. Pamela Warren assembles the package and tracks the comment responses."
+        "Existing conditions and drainage areas: Charles Olson. I will set up the base sheet and pull the survey and topographic data into it.",
+        "Drainage design and detention: Pamela Warren. Pamela leads the hydrology and hydraulics, the detention sizing, and the water quality design, and she carries the coordination with the regional water authority.",
+        "Utility and stormwater drafting: Jeffrey Perez. Jeffrey takes the redlines and turns the sheets, checking his callouts against the design memoranda.",
+        "Erosion and sediment control: shared, with Pamela setting the approach and Jeffrey drafting the sheets."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
+      "kind": "paragraph",
+      "text": "Pamela owns the water authority relationship, so route review questions to her. She has taken plans through that review before, and she knows what they look for.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "heading",
-      "text": "Next Steps",
+      "text": "Where we begin",
       "level": 2,
       "items": [],
       "header": [],
@@ -101,23 +125,8 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Site visit next week. Jeffrey Perez to come out for a half day and see the ground before he details anything on it.",
-        "Pamela Warren to telephone David Dyer and ask for the property file his office holds: the old grading permit, whatever exists on the culverts, and the geotechnical report if one was ever done. If Johnson PLC does not have it, we need to know that now and not in September.",
-        "David Dyer has asked for a briefing at his office next month. Pamela Warren and I will put a short deck together after the reconnaissance and the delineation are done. Nothing goes in it that we cannot show a source for.",
-        "Job meeting in this office Friday mornings, fifteen minutes, standing.",
-        "The lettered folder is set up. Everything goes in it. Nothing lives on anybody's desk."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "One more thing. The receiving ditch is downstream of a property we do not control. If it turns out to be silted in, that is not our design problem, but it is our schedule problem, and I want it written down the week we see it rather than the week the reviewer asks. Put the note in the file when you see the condition, not when somebody makes it an issue.",
+      "text": "First we settle the base. I will circulate the existing-conditions sheet once the survey is in, and we will confirm the drainage areas together before anyone builds a model.",
       "level": 1,
       "items": [],
       "header": [],
@@ -126,7 +135,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "On the schedule generally: five months sounds like a long time and it is not. Two of those months belong to the reviewing authority and we do not get to spend them. What we actually have is the front end, and the front end is where a wrong assumption is cheap. Anything that looks off to either of you, say so in the Friday meeting while it still costs an hour to fix.",
+      "text": "From there Pamela builds the model, and we hold a short design review before we commit to detention sizes. Jeffrey will hold the drafting until that review, so we are not redrawing sheets we could have drawn once.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Where it helps, Pamela will talk the approach through with the water authority's reviewers before we finalize it. A short conversation up front lets us fold their concerns into the design while it is still easy to change. That is how we clear the review on the first pass.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We are keeping the design memoranda current as we go, so Jeffrey always drafts from the latest direction and not from memory. Please write down any assumption you make and file it, so the next person sees it. Let us talk this Friday if any of this needs adjusting.",
       "level": 1,
       "items": [],
       "header": [],

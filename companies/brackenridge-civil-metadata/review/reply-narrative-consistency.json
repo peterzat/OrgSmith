@@ -1,0 +1,26 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "brackenridge-civil",
+  "dimension": "narrative_consistency",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-1",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": ["d:0040", "d:0021", "d:0018", "d:0025", "d:0036"],
+      "summary": "The firm-overview brochures describe three named past engagements as work in disciplines the engagements were not, contradicting each engagement's own letter and file.",
+      "evidence": "The 2007 overview (d:0040) says of Johnson PLC 'we handled the roadway and utility design', of Evans-Lee 'we prepared a drainage study and designed the improvements that followed from it', and of Peck-Jennings 'we are carrying the stormwater and roadway design now'. But Johnson PLC's letter (d:0018) is 'a complete stormwater management plan' (drainage, detention, water quality), Evans-Lee's letter (d:0025) is a 'Roadway Widening Study' that states 'We will not prepare construction drawings under this agreement', and Peck-Jennings's letter (d:0036) is a 'bridge deck rehabilitation design'. The 2004 overview (d:0021) repeats the Johnson mislabel: 'we handled the roadway and utility design'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-2",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0013", "d:0005"],
+      "summary": "The Esparza-Lamb final status report claims a delivered scope well beyond the grading-only scope its executed engagement letter set, while insisting scope never changed.",
+      "evidence": "The letter (d:0005) scopes 'the site grading design', listing grading plans, elevations, earthwork, 'the drainage details required to carry the site to design grade', and ESC notes, and says 'Where our design meets work that is properly the site contractor's or another engineer's, our sheets will note the interface and stop there'. The final report (d:0013) instead says 'The set covers the grading, roadway, storm drainage, and utility design for the site' and 'The water and sanitary sewer layout was coordinated with the grading', with a roadway 'plan and profile' and 'vertical curves' -- yet d:0010 and d:0013 both assert 'No change to scope or fee.'"
+    }
+  ]
+}

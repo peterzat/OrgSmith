@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "brackenridge-civil",
+  "dimension": "graph_acl_naturalness",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0005", "d:0006", "d:0009", "d:0012", "d:0013"],
+      "summary": "The Esparza-Lamb site-grading engagement is run and client-fronted entirely by two Design Technicians with no engineer on the team, the only one of the five engagements staffed that way, though both firm engineers were employed when it ran.",
+      "evidence": "The engagement letter (d:0005) promises 'I, Mark Todd, will direct the work and will review and seal each sheet before it leaves this office,' but the Principal then appears in none of the engagement's later docs. The kickoff memo is 'From: Linda Nguyen, Design Technician' (d:0006); both progress-meeting attendee lists show only 'Linda Nguyen, Design Technician' and 'Jason Jordan, Design Technician' on the firm side, no engineer (d:0009, d:0012); and a client-facing status report is signed by p:linda.nguyen, a Design Technician (d:0013). Two drafters even hold a 'pre-issue review' deciding the set is ready to seal (d:0012). Every other engagement (E-2004/2005/2006/2007) lists a Project Engineer among its participants, and engineers Linda George and Pamela Warren were both on staff in 2001, so the empty-of-engineers staffing reads as an assembled draw, not a firm whose charter says nothing leaves the office unsigned by its Principal Engineer."
+    }
+  ]
+}

@@ -29,6 +29,13 @@ doc_culture:
   legacy_ratio: 1.0
   scanned_ratio: 0.5
   ocr_layer_rate: 0.5
+  # M16: progress meetings with the county land on business days (weekends
+  # always excluded, a declared holiday per year across the span).
+  business_calendar:
+    holidays: [1999-05-31, 2000-07-04, 2001-09-03, 2002-11-28, 2003-12-25, 2004-05-31, 2005-07-04, 2006-09-04, 2007-11-22]
+  # M16: the voice layer, fleet-wide.
+  style_specs: true
+  voice_diversify: true
 
 finance:
   # 6% growth against three net new seats. Measured across the span:
@@ -40,6 +47,8 @@ finance:
 
 engagements:
   count: 5
+  # M16: the engagement ledger is a representative sample, not the whole book.
+  book_is_sample: true
   services: [Site Grading Design, Stormwater Management Plan, Roadway Widening Study, Utility Relocation Design, Bridge Deck Rehabilitation]
 
 graph_targets:

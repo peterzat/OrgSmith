@@ -40,11 +40,23 @@
     "scanned_ratio": 0.5,
     "legacy_ratio": 1.0,
     "ocr_layer_rate": 0.5,
-    "business_calendar": null,
+    "business_calendar": {
+      "holidays": [
+        "1999-05-31",
+        "2000-07-04",
+        "2001-09-03",
+        "2002-11-28",
+        "2003-12-25",
+        "2004-05-31",
+        "2005-07-04",
+        "2006-09-04",
+        "2007-11-22"
+      ]
+    },
     "noise": null,
-    "voice_diversify": false,
+    "voice_diversify": true,
     "mail": null,
-    "style_specs": false
+    "style_specs": true
   },
   "finance": {
     "base_revenue": 740000,
@@ -60,7 +72,7 @@
       "Utility Relocation Design",
       "Bridge Deck Rehabilitation"
     ],
-    "book_is_sample": false
+    "book_is_sample": true
   },
   "graph_targets": {
     "external_orgs": 5,

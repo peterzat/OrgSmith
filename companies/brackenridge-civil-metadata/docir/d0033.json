@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Minutes of Progress Meeting",
+      "text": "Progress Meeting: Utility Relocation Design for Franklin-Snyder",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Project: Utility Relocation Design for Franklin-Snyder\nClient: {{fact:f:E-2006-001.client}}\nLocation: Offices of Brackenridge Civil Group Inc\nMinutes taken by: Jason Jordan, Design Technician",
+      "text": "These minutes record a working session held to review the relocation design at its midpoint, to reconcile the design against the field locates now returned, and to settle the open items with the owner. The design is progressing on the schedule set at the outset of the work, and no change to its scope was raised.",
       "level": 1,
       "items": [],
       "header": [],
@@ -34,8 +34,8 @@
       "text": "",
       "level": 1,
       "items": [
-        "Linda George, Project Engineer, Brackenridge Civil Group Inc",
-        "Jason Jordan, Design Technician, Brackenridge Civil Group Inc",
+        "Linda George, Project Engineer, Brackenridge Civil Group",
+        "Jason Jordan, Design Technician, Brackenridge Civil Group",
         "Mark Green, Chief Financial Officer, Franklin-Snyder"
       ],
       "header": [],
@@ -44,7 +44,7 @@
     },
     {
       "kind": "heading",
-      "text": "Discussion",
+      "text": "Matters Discussed",
       "level": 2,
       "items": [],
       "header": [],
@@ -53,7 +53,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Linda George reviewed the status of the design. The water relocation is laid out through the corridor and the profiles are drawn. Sanitary layout is under way. Dry utility layout has not started and is not scheduled to start until the sanitary alignment is fixed. The erosion and sediment control plan follows both and has not been started.",
+      "text": "Linda George presented the existing-conditions base as it now stands, reconciled against the field locates and the test pits taken since the last review. The locates confirmed the water main and the sanitary sewer substantially where the record drawings placed them, but the overhead electric was found to cross the parcel some distance off its recorded position, which narrows the corridor available for the relocated lines. It was agreed that the design would carry the located position rather than the record, and that the discrepancy would be noted on the plan for the serving utility's confirmation.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,7 +62,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Linda George reported one conflict of consequence. The record drawings for a segment of the existing water main show it at a depth and alignment that the field review did not confirm. The facility owner has been asked for any later as-built information. If none exists, the alignment as drawn is based on the field review and is noted on the sheets as unverified. Mark Green asked what that means for the bid. Linda George stated that it means the contractor bids the relocation as drawn and that a differing condition in that segment is a change, and that the alternative is test pits before the set is issued, which are not in our scope and would have to be arranged and paid for by others.",
+      "text": "Jason Jordan reported that the plan and profile sheets are drawn to the preliminary alignment, and he identified a conflict between the proposed sanitary relocation and the new water main alignment at their crossing, where the vertical separation falls short of the regional water authority's required standard. It was agreed that Linda George would lower the sanitary profile at the crossing to restore the separation, and that Jason Jordan would revise the affected sheets once the corrected profile is set.",
       "level": 1,
       "items": [],
       "header": [],
@@ -71,7 +71,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Mark Green asked whether test pits could be added and what they would cost. Linda George stated that we do not perform them, that we would specify the locations, and that the cost and the schedule for them would come from whoever is engaged to dig. Mark Green asked for the locations and an estimate of the delay so that his side can decide. He did not commit to the work.",
+      "text": "Linda George reported on the coordination with the regional water authority, whose staff have reviewed the preliminary water main alignment informally and have asked that the relocated main be carried outside the proposed building footprint by a stated margin and placed within a dedicated easement. The easement exhibits will be prepared to reflect that margin. No formal comments have yet issued, the review to date having been by conversation only.",
       "level": 1,
       "items": [],
       "header": [],
@@ -80,7 +80,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Two facility owners have returned record drawings. One has not. Linda George stated that the third owner's plant is at the end of the corridor and that its absence does not hold up the water or sanitary work, but that it will hold up the dry utility layout if the records are not in hand by the time that layout begins. Mark Green stated that he would make a call on the firm's behalf. Nobody objected to that.",
+      "text": "Coordination with the serving electric and telephone companies was also discussed, the two lines being carried on the same poles and therefore to be relocated together. Linda George reported that the electric company has provided its relocation standard and its lead time for the work, and that the telephone company's requirements are expected shortly. It was agreed that the relocation of the joint-use poles would be shown on a separate sheet, so as to keep each utility owner's review confined to its own facilities.",
       "level": 1,
       "items": [],
       "header": [],
@@ -89,7 +89,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The undersigned raised the drawing standards for the plan set. The set will be issued under a sealed cover sheet and will conform to this office's standards, not to any contractor markup received in the interim. Mark Green had no comment.",
+      "text": "Mark Green confirmed, on behalf of the owner, that the site plan is settled and that the building footprint shown to this office will not change, which allows the relocations to be fixed against a stable improvement. He further confirmed that the owner will secure the temporary construction access the utility contractor will require, and that the record drawings for the private service lines on the property would be furnished within the week.",
       "level": 1,
       "items": [],
       "header": [],
@@ -98,7 +98,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Next progress meeting to be scheduled by Linda George after the sanitary layout is complete.",
+      "text": "The schedule for the relocation design for {{fact:f:E-2006-001.client}} was reviewed and found to be holding at its midpoint, with no additional work requested and no change to the agreed scope contemplated.",
       "level": 1,
       "items": [],
       "header": [],
@@ -120,54 +120,37 @@
       "level": 1,
       "items": [],
       "header": [
-        "No.",
-        "Action",
+        "Item",
         "Owner",
-        "Due"
+        "Target"
       ],
       "rows": [
         [
-          "1",
-          "Provide proposed test pit locations and an estimate of the schedule impact",
+          "Lower the sanitary relocation profile at the water main crossing to restore the required separation",
           "Linda George",
-          "One week"
+          "Before the next drafting turn"
         ],
         [
-          "2",
-          "Call the third facility owner regarding outstanding record drawings",
-          "Mark Green",
-          "One week"
+          "Revise the plan and profile sheets to the corrected profile and the located electric position",
+          "Jason Jordan",
+          "Following the profile revision"
         ],
         [
-          "3",
-          "Complete sanitary relocation layout and profiles",
+          "Prepare the easement exhibits to the margin set by the regional water authority",
           "Linda George",
-          "Two weeks"
+          "By the next progress meeting"
         ],
         [
-          "4",
-          "Annotate the unverified water main segment on the plan and profile sheets",
-          "Jason Jordan",
-          "With next issue"
-        ],
-        [
-          "5",
-          "Hold dry utility layout pending receipt of the outstanding records",
-          "Jason Jordan",
-          "Open"
-        ],
-        [
-          "6",
-          "Advise this office in writing whether test pits will be performed",
+          "Furnish the record drawings for the private service lines",
           "Mark Green",
-          "Two weeks"
+          "Within the week"
         ]
       ],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "These minutes are our record of the meeting. Please advise this office within five days of any correction; otherwise they will stand as written and go in the job file.",
+      "text": "The next step is the correction of the sanitary profile at the crossing, on which the revised sheets depend; once it is set, Jason Jordan will turn the affected sheets and the team will meet again at the next scheduled progress review.",
       "level": 1,
       "items": [],
       "header": [],

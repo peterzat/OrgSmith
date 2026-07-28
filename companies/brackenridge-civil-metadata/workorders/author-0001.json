@@ -6,7 +6,7 @@
   "org_name": "Brackenridge Civil Group Inc",
   "org_type": "civil engineering",
   "narrative": "Brackenridge Civil Group is a small civil engineering practice in a\ncounty seat, founded in 1996 and working for municipal public works\ndepartments, a regional water authority, and two private developers. Its\nwork is site grading, stormwater, roadway, and utility design: drawings\ngo out under a sealed cover sheet, and the paperwork that surrounds them\nis typed in Word and printed for the job file.\n\nIt is a firm of its era, and the file share shows it. Proposals and\ndesign memoranda are Word documents saved to a lettered project folder.\nExecuted agreements come back countersigned by fax, get scanned on the\nflatbed by the office administrator, and land in the share as crooked,\nspeckled images. Progress meetings with the county produce minutes that\nlist every attendee by full name and agency. The annual numbers live in\none spreadsheet the Principal Engineer keeps himself.\n\nWriting is late-1990s American professional-services prose: complete\nsentences, courteous but not warm, no buzzwords that would postdate the\ndocument. Engineers refer to clients by agency name and to each other by\nfull name in anything that leaves the office. The Principal Engineer\nsigns every agreement and every letter to a public body. Nobody writes\n\"reach out\"; they write \"we will contact\".",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0001\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0004",
@@ -19,7 +19,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -28,7 +28,7 @@
           "name": "Jason Jordan",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+          "persona": "Jason Jordan is the CAD hand for the roadway and site sets and the one who keeps the standard details and border sheets current. He has an eye for the small inconsistency, a mislabeled contour or a detail that no longer matches the note that calls it. His few written words are brief and matter-of-fact."
         }
       ],
       "engagement_summary": "",
@@ -46,9 +46,10 @@
         }
       ],
       "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": "Reports to Linda George, Project Engineer. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
       "doc_id": "d:0007",
@@ -61,7 +62,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -70,14 +71,14 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         },
         {
           "id": "p:mark.barrett",
           "name": "Mark Barrett",
           "title": "Office Administrator",
           "dept": "Administration",
-          "persona": "He is the reason the file share can be navigated at all: lettered project folders, agreements scanned off the flatbed the day the fax comes back countersigned, nothing left in a pile. He types what the engineers give him and quietly fixes the salutation when it is addressed to the wrong department. Chasing a countersignature is a matter of a call, then another call, and he is unfailingly pleasant about it while being entirely unwilling to let it go."
+          "persona": "Mark Barrett runs the front office: he logs the fax that brings an executed agreement back, scans it on the flatbed, and files the paperwork with the drawings it belongs to. He types the progress-meeting minutes and takes care to list every attendee by full name and agency. His writing is clerical and correct, in the plain register of a practiced office hand."
         }
       ],
       "engagement_summary": "",
@@ -100,9 +101,10 @@
         }
       ],
       "target_words": 750,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 1 client engagement(s) across 2001. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2001-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2001, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2001-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0014",
@@ -115,7 +117,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -124,7 +126,7 @@
           "name": "Jeffrey Perez",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Details and quantity takeoffs, checked once and then checked again from the other direction, because he does not like being the reason a bid comes in wrong. He talks constantly across the office and writes nothing the same way he speaks: on paper he is stiff, formal, and about half as long as he needs to be. Asks the engineers what a detail is for, not just what it should look like."
+          "persona": "Jeffrey Perez does the utility and stormwater drafting and is the technician the engineers hand a redline to when a set has to turn quickly. He is steady and unhurried, checking his callouts against the design memorandum rather than trusting memory. He rarely writes beyond a transmittal, and when he does it is terse and to the point."
         }
       ],
       "engagement_summary": "",
@@ -142,9 +144,10 @@
         }
       ],
       "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": "Reports to Linda George, Project Engineer. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
       "doc_id": "d:0016",
@@ -157,7 +160,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -166,7 +169,7 @@
           "name": "Charles Olson",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Came up on the board and still sketches by hand when he is thinking, then draws it properly afterward. He would rather walk the site than take the survey file's word for what is out there, and he has a settled skepticism about anything that looks too tidy in plan. When he writes it is short, concrete, and about what the ground actually does."
+          "persona": "Charles Olson has drafted for the practice long enough to remember how each recurring client likes its plans laid out, and he sets up a new sheet accordingly. He is careful and a little old-fashioned about drafting conventions, preferring the firm's established way to any shortcut. Notes from him are sparse, legible, and free of embellishment."
         }
       ],
       "engagement_summary": "",
@@ -184,9 +187,10 @@
         }
       ],
       "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": "Reports to Linda George, Project Engineer. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     },
     {
       "doc_id": "d:0021",
@@ -199,7 +203,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -208,7 +212,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "engagement_summary": "",
@@ -230,9 +234,10 @@
         }
       ],
       "target_words": 750,
-      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice.",
+      "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "",
-      "firm_digest": "As of this document's date the firm has begun 2 client engagement(s) across 2001-2004. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2001-001.client}}, {{fact:f:E-2004-001.client}}. Present nothing that post-dates this document as established, and claim no engagement not listed here."
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2001-2004, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2001-001.client}}, {{fact:f:E-2004-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0027",
@@ -245,7 +250,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -254,7 +259,7 @@
           "name": "Kimberly Branch",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "Careful and methodical, and not shy about asking an engineer to explain the intent behind a sheet before she draws it. She keeps a notebook of standard details and the small conventions the firm uses that are written down nowhere else. Her writing is plain and brief, no ornament, and she checks the spelling of an agency's name before it goes in a title block."
+          "persona": "Kimberly Branch handles the grading and drainage drafting and is quick with the quantity takeoffs the engineers need for a proposal. She is organized and methodical, labeling her files so a sheet can be found later without anyone having to ask. What little she writes is plain and precise."
         }
       ],
       "engagement_summary": "",
@@ -272,9 +277,10 @@
         }
       ],
       "target_words": 450,
-      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock.",
+      "guidance": "Internal onboarding record welcoming a new hire to the firm: a short welcome, the person's role and where they sit in the practice, and first-period logistics and expectations. Name the new employee. 2-4 short paragraphs, no sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": "Reports to Linda George, Project Engineer. State the reporting line only as briefed: name no other person or title as this hire's supervisor."
     }
   ],
   "people": [],

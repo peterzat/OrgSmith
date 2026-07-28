@@ -1,7 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0006",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -9,11 +12,7 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Mark Green\nChief Financial Officer\n{{fact:f:E-2006-001.client}}"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Re: Utility Relocation Design for Franklin-Snyder"
+          "text": "Mr. Mark Green, Chief Financial Officer, Franklin-Snyder"
         },
         {
           "kind": "paragraph",
@@ -21,69 +20,65 @@
         },
         {
           "kind": "paragraph",
-          "text": "This letter sets out the terms on which Brackenridge Civil Group Inc will provide engineering design services to {{fact:f:E-2006-001.client}} in connection with the relocation of utilities within the Franklin-Snyder corridor. It follows our meeting in this office and the correspondence since, and it is intended to serve as the agreement between us. If it states our understanding correctly, please sign and return the enclosed copy at your convenience. We will not commence work until we have the executed copy in hand."
+          "text": "This letter confirms that this office will design the relocation of the utilities in conflict with your planned improvements, and it sets out the terms of that work. It covers the scope, the people who will do it, the fee, and the conditions under which we will proceed. When you have read it and returned a signed copy to this office, it will stand as our agreement to perform the work for {{fact:f:E-2006-001.client}}."
         },
         {
           "kind": "heading",
-          "text": "Scope of Services",
+          "text": "The Work to Be Performed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We will prepare relocation design for the water, sanitary sewer, and dry utility facilities that conflict with the improvements as they are presently shown. The work is divided into three parts. First, we will assemble existing conditions: record drawings from the owners of the affected facilities, the survey furnished to us, and a field review by our staff to confirm what is actually in the ground against what the records show. Second, we will prepare relocation layouts and profiles, including plan and profile sheets, connection details, and the erosion and sediment control measures the relocations require. Third, we will prepare the drawings, technical specifications, and quantity estimate suitable for permit submittal and for bidding."
+          "text": "Your development cannot proceed until the utilities that cross the site are moved clear of the proposed building, grading, and pavement. We will design that relocation. Our work begins with the record drawings, the survey, and field locates that fix where the existing water main, sanitary sewer, and overhead electric and telephone lines actually lie. We will confirm each conflict against your site plan. We will then design a new alignment and profile for each utility that must move, clear of the improvements and clear of one another, and we will prepare the tie-in details where the relocated lines rejoin the existing system."
         },
         {
           "kind": "paragraph",
-          "text": "Our services do not include construction staking, geotechnical investigation, subsurface utility engineering by vacuum excavation, environmental permitting beyond the erosion and sediment control plan, easement plats, or services during construction. Any of these can be added by written amendment, and we will quote them separately if you want them."
+          "text": "The design will meet the standard of each utility that owns the line. The water main is operated by the regional water authority, and we will design its relocation to that authority's specifications and carry the coordination with its staff. The electric and telephone relocations will be designed to the serving companies' requirements. We will prepare the relocation plan and profile sheets under a sealed cover sheet, the easement exhibits for the new alignments, the estimated quantities, and an opinion of probable construction cost. Our fee includes one round of revisions to answer the written comments of the reviewing parties."
         },
         {
           "kind": "heading",
-          "text": "Approach",
+          "text": "Reliance on Furnished Information",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We work from record information first and confirm it in the field before we draw. In our experience the conflicts that cost money on a relocation are the ones nobody knew about at design, and the cheapest hour on a project like this one is the hour spent walking the corridor with the record drawings in hand. Where the records and the field disagree we will tell you which we have relied on and why."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will coordinate directly with each facility owner as their requirements govern the relocation of their own plant. We will keep you informed of that correspondence, and we will bring anything to you that carries a cost or schedule consequence rather than resolving it on our own. Drawings will be issued to you at the milestones described above for your review, and we will meet with your staff at each issue if you wish."
+          "text": "Our design will rely on the record drawings, the survey, and the site plan furnished to us. We will check that information for consistency and confirm the critical utilities by field locate, but we are entitled to rely on what is furnished and are not responsible for errors it contains. If the site plan or the survey changes after we begin, the change may affect the design, the schedule, and the fee. We will tell you the effect before we act on it."
         },
         {
           "kind": "heading",
-          "text": "Project Team",
+          "text": "Who Will Do the Work",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "I will serve as Principal Engineer and will seal the drawings. Linda George, Project Engineer, will have day to day charge of the design and will be your working contact; she has run the stormwater and utility design on the great majority of the corridor work this office has produced, and she is the person to call when you have a question about the drawings. Jason Jordan, Design Technician, will prepare the plan set and maintain our drawing standards. The three of us will do the work; we do not subcontract design and we do not assign staff you have not been told about."
+          "text": "The work will be staffed from this office. Linda George, Project Engineer, will lead the design and carry the day-to-day coordination with the utility owners and with the regional water authority. Jason Jordan, Design Technician, will prepare the plan and profile sheets and the relocation details to her direction. Mark Todd, Principal Engineer, will review every sheet and seal the completed set, and correspondence to the regional water authority or to any other public body will be issued over his signature. Questions on the progress of the work should be directed to Linda George. Questions on scope, fee, or the terms of this agreement should be directed to Mark Todd."
         },
         {
           "kind": "heading",
-          "text": "Fee",
+          "text": "Fee and Commencement",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "For the scope described above we propose a fixed fee of {{fact:f:E-2006-001.fee}}, inclusive of our ordinary reimbursable expenses for printing, plotting, delivery, and mileage. We are prepared to begin on {{fact:f:E-2006-001.start}} and to carry the work through to the permit and bid submittal in approximately three months from that date, subject to the timeliness of the record information we receive from the facility owners and of your reviews."
+          "text": "Our fee for the work described above is a fixed sum of {{fact:f:E-2006-001.fee}}. That sum covers the design, the plan and profile sheets, the easement exhibits, the quantities and cost opinion, and the single round of revisions noted above. We will begin the work on {{fact:f:E-2006-001.start}}. Work outside this scope, including further revision rounds, redesign to follow a change in your site plan, or the design of utilities not now in conflict, will be undertaken only on your written authorization, and we will quote its cost before we proceed."
         },
         {
           "kind": "heading",
-          "text": "Fees and Payment",
+          "text": "Invoicing and Payment",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We will invoice monthly for the portion of the work completed in the preceding month. Invoices are due thirty days from the date of invoice. Amounts not paid within sixty days will bear interest at one percent per month. Additional services requested in writing and not included in the scope above will be invoiced at our standard hourly rates then in effect, and we will provide an estimate before beginning any such work."
+          "text": "We will invoice monthly for the work completed in the period. Each invoice is due within thirty days of its date. Reimbursable costs, such as reproduction, agency fees, and delivery, are billed at cost and are additional to the fee. If an invoice stands unpaid sixty days after its date, we may suspend the work until it is paid, and we will give written notice before we do. A suspension for non-payment extends our schedule by its length."
         },
         {
           "kind": "heading",
-          "text": "Term and Termination",
+          "text": "Duration and Termination",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This agreement remains in effect until the services described above are complete or until it is terminated. Either party may terminate on seven days written notice, with or without cause. Upon termination we will be paid for services performed and expenses incurred through the effective date of termination, and we will deliver to you the work then in progress in the condition it stands."
+          "text": "This agreement takes effect on the day the work begins and runs until the relocation plans are complete and the reviewing parties' first comments have been answered. Either of us may end it on ten days' written notice to the other. On termination by you, you will pay for the services performed and the costs incurred through the date of termination. The drawings, profiles, and calculations we prepare are our instruments of service and remain our property; on payment in full you may use them for this project."
         },
         {
           "kind": "heading",
@@ -92,16 +87,16 @@
         },
         {
           "kind": "paragraph",
-          "text": "We will hold in confidence the information you furnish to us that is marked or identified as confidential, and we will not disclose it except to our own staff, to the facility owners and reviewing agencies to the extent required to perform the work, or as required by law. This obligation does not extend to information already in the public record, information already known to us, or information disclosed to us by a third party without restriction."
+          "text": "We will hold in confidence the site information, plans, and financial figures you give us, and we will use them only for this work. We may disclose what a utility owner or a public body reasonably requires for its review, and what the law compels. This obligation outlasts the completion or termination of the work."
         },
         {
           "kind": "heading",
-          "text": "Limitation of Liability",
+          "text": "Limit of Our Liability",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our services will be performed with the care and skill ordinarily exercised by members of our profession practicing under similar conditions in this locality. No other warranty, express or implied, is made. To the fullest extent permitted by law, our aggregate liability to you arising out of this agreement, whether in contract, tort, or otherwise, is limited to the amount of the fee stated above, and neither party is liable to the other for indirect, incidental, or consequential damages, including loss of use or loss of profit."
+          "text": "We will perform this work with the care and skill ordinarily used by civil engineers practicing in this locality at this time. We make no other warranty, express or implied. Our total liability to {{fact:f:E-2006-001.client}} for any claim arising out of or related to this work, whether in contract or in tort, is limited to the amount of the fee paid under this agreement. We are not responsible for the means, methods, or safety of construction, nor for the acts of contractors or others not under our direct control."
         },
         {
           "kind": "heading",
@@ -110,15 +105,29 @@
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the laws of the state in which the project is located. Any claim arising under it will be brought in the courts of the county in which the project is located. This letter, with any written amendments signed by both of us, is the entire agreement between us and supersedes our prior discussions and correspondence on the subject."
+          "text": "This agreement is governed by the laws of the state in which the site lies. Any dispute under it that we cannot settle between us will be brought in the courts of that state."
+        },
+        {
+          "kind": "heading",
+          "text": "Schedule",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "If the foregoing is acceptable, please sign both copies where indicated, retain one for your file, and return the other to this office. Should any part of it require adjustment before you can sign, call me and we will take it up directly. We appreciate the confidence {{fact:f:E-2006-001.client}} has placed in this firm and we will do the work carefully."
+          "text": "The work runs about three months from the start. We can hold that schedule so long as the record information reaches us when it is needed and the utility owners respond within their usual time. Delay in either is outside our control. Should one threaten the completion of the work, we will tell you promptly and propose how to recover the time."
+        },
+        {
+          "kind": "heading",
+          "text": "Acceptance",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Very truly yours,"
+          "text": "If these terms are acceptable, please sign both copies of this letter and return one to this office. On receipt we will schedule the work to begin on the date stated above. If any term needs discussion, telephone before you sign and we will settle it first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
         },
         {
           "kind": "sigblock",
@@ -131,65 +140,54 @@
       "doc_id": "d:0032",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Memorandum",
-          "level": 1
+          "kind": "paragraph",
+          "text": "To: The engagement team"
         },
         {
           "kind": "paragraph",
-          "text": "To: Jason Jordan, Design Technician\nFrom: Linda George, Project Engineer\nRe: Utility Relocation Design for Franklin-Snyder, project kickoff\ncc: Mark Todd, Principal Engineer"
+          "text": "From: Linda George, Project Engineer"
         },
         {
           "kind": "paragraph",
-          "text": "The agreement is executed and we start on {{fact:f:E-2006-001.start}}. What we owe {{fact:f:E-2006-001.client}} at the end is a permit and bid set for the relocations in the Franklin-Snyder corridor: plan and profile, details, specifications, and quantities. Everything below serves that. The schedule is three months and it is not generous, so the order of work matters more than usual."
+          "text": "Re: Kickoff, Utility Relocation Design for Franklin-Snyder"
         },
         {
           "kind": "paragraph",
-          "text": "The objective is narrow and worth stating plainly, because a relocation job drifts if it is not. We are not redesigning the corridor and we are not solving the client's easement problems. We are moving three owners' facilities out of the way of improvements that are already laid out, drawing the result to each owner's own standards, and handing over a set a contractor can bid without calling us. Anything that does not serve that is not in the fee."
+          "text": "We have begun the utility relocation design for {{fact:f:E-2006-001.client}}, and our object is a single, buildable relocation design that clears the utility owners and the regional water authority on the first review, so that Franklin-Snyder can move the lines and open its site on the schedule it has set. Everything that follows serves that object, and I want us working from one picture of it before any sheet is drawn."
         },
         {
-          "kind": "heading",
-          "text": "Workstreams",
-          "level": 2
+          "kind": "paragraph",
+          "text": "We have about three months, which is adequate for a relocation of this size only if we hold the sequence and avoid rework, because the surest way to lose the time is to design a line against a record we have not verified and then redraw it when the field proves the record wrong, and that is the one thing this memo is meant to keep us from doing."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work started on {{fact:f:E-2006-001.start}}, and it divides into four workstreams that must proceed in order, since each rests on the one before it and a mistake carried forward is far more costly to correct than one caught at its source."
         },
         {
           "kind": "list",
           "items": [
-            "Records and existing conditions. Request record drawings from each facility owner in the first week. These take longer to arrive than anyone expects, so the requests go out before we draw anything. Log what we asked for and the date, and log what comes back.",
-            "Field review. Once the survey is loaded, we walk the corridor against the records and mark what does not match. I want us both out there for the first pass. Anything we cannot confirm from the surface gets flagged on the drawings as unverified rather than shown as fact.",
-            "Base sheet setup. Sheet borders, layer standards, and the survey control set up once, correctly, before layout begins. Jason Jordan owns this and nobody else moves a layer.",
-            "Relocation layout and profiles. Water first, since the conflicts there drive the sanitary alignment, then sanitary, then dry utilities. Profiles as we go, not at the end.",
-            "Erosion and sediment control. My work. It follows the layout and I do not want it started until the alignments have settled.",
-            "Specifications and quantities. Assembled from the drawings at the back end, but the specification sections we know we need should be pulled and listed now.",
-            "Owner coordination. Each facility owner has its own standards for its own plant and we conform to them. Their comments come to me."
+            "Existing utilities and conflicts. I will assemble the record drawings, the survey, and the field locates, and I will fix where the water main, the sanitary sewer, and the overhead lines actually lie before we design anything to move them.",
+            "Relocation design. From that base I will lay out a new alignment and profile for each line that must move, clear of the proposed improvements and clear of the other utilities, and I will set the tie-ins where each relocated line rejoins the system.",
+            "Owner and agency coordination. I will carry the coordination with the regional water authority for the water main and with the serving companies for the electric and telephone lines, so that each relocation is designed to the standard its owner will accept.",
+            "Sheets and drafting. Jason Jordan will prepare the plan and profile sheets, the relocation details, and the easement exhibits from my direction, and he will check every callout against the design memoranda so the set tells one consistent story."
           ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The regional water authority owns the water main, and its relocation is the line that will most shape our schedule, because its review is the one we least control; for that reason I intend to open the conversation with the authority's staff while the alignment is still on paper and easy to change, instead of presenting them a finished design and hoping it passes. The serving electric and telephone companies will each hold us to their own standards, and I have asked for those standards so that we design to them from the start."
         },
         {
           "kind": "heading",
-          "text": "Next Steps",
+          "text": "Where we begin",
           "level": 2
         },
         {
-          "kind": "list",
-          "items": [
-            "This week: records requests out to all facility owners; I will draft the letters and Jason Jordan will assemble the exhibit for each.",
-            "This week: survey loaded and checked against control. Report any discrepancy to me before you build on it.",
-            "Next week: field review, both of us, one day if the weather holds.",
-            "Following week: base sheets complete and the first water alignment in progress.",
-            "Progress meeting with Mark Green and his staff once the field review is done, so we go into that meeting with something to say. I will schedule it."
-          ]
+          "kind": "paragraph",
+          "text": "Our first effort goes to the existing utilities, and we will not lay out a single relocation until we agree that we know what is in the ground, because a relocation designed against a wrong record is worse than none at all. I will circulate the base once the locates are in, and we will confirm the conflicts together before Jason Jordan turns any sheet. Mark Green, the Chief Financial Officer at Franklin-Snyder, is the owner's contact for site access and for the developer's decisions, and I will route the owner's questions through him so that we speak to the client with one voice."
         },
         {
           "kind": "paragraph",
-          "text": "Two things to keep in front of you. First, anything that comes back from a facility owner that changes scope, cost, or schedule goes to Mark Todd and to me before it goes anywhere else; it is not ours to absorb quietly. Second, this is a fixed fee, so hours we spend redrawing what we drew wrong come out of the firm. Get the records in, confirm them in the field, then draw. In that order."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One administrative note. I keep my own notes of every meeting with the client and the facility owners, in addition to whatever minutes are taken. That is not a comment on anyone's minutes. It is that a recollection differing from mine once cost this office a week, and it will not do so again."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Ask me if anything here is unclear. I would rather answer a question now than find the answer on a sheet later."
+          "text": "Bring me any assumption you have to make and I will see it filed, so that the next person designs from what we know and not from memory. Let us meet at the end of the week to walk the conflicts once the first locates are back."
         }
       ]
     },
@@ -199,12 +197,12 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Minutes of Progress Meeting",
+          "text": "Progress Meeting: Utility Relocation Design for Franklin-Snyder",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Project: Utility Relocation Design for Franklin-Snyder\nClient: {{fact:f:E-2006-001.client}}\nLocation: Offices of Brackenridge Civil Group Inc\nMinutes taken by: Jason Jordan, Design Technician"
+          "text": "These minutes record a working session held to review the relocation design at its midpoint, to reconcile the design against the field locates now returned, and to settle the open items with the owner. The design is progressing on the schedule set at the outset of the work, and no change to its scope was raised."
         },
         {
           "kind": "heading",
@@ -214,39 +212,39 @@
         {
           "kind": "list",
           "items": [
-            "Linda George, Project Engineer, Brackenridge Civil Group Inc",
-            "Jason Jordan, Design Technician, Brackenridge Civil Group Inc",
+            "Linda George, Project Engineer, Brackenridge Civil Group",
+            "Jason Jordan, Design Technician, Brackenridge Civil Group",
             "Mark Green, Chief Financial Officer, Franklin-Snyder"
           ]
         },
         {
           "kind": "heading",
-          "text": "Discussion",
+          "text": "Matters Discussed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Linda George reviewed the status of the design. The water relocation is laid out through the corridor and the profiles are drawn. Sanitary layout is under way. Dry utility layout has not started and is not scheduled to start until the sanitary alignment is fixed. The erosion and sediment control plan follows both and has not been started."
+          "text": "Linda George presented the existing-conditions base as it now stands, reconciled against the field locates and the test pits taken since the last review. The locates confirmed the water main and the sanitary sewer substantially where the record drawings placed them, but the overhead electric was found to cross the parcel some distance off its recorded position, which narrows the corridor available for the relocated lines. It was agreed that the design would carry the located position rather than the record, and that the discrepancy would be noted on the plan for the serving utility's confirmation."
         },
         {
           "kind": "paragraph",
-          "text": "Linda George reported one conflict of consequence. The record drawings for a segment of the existing water main show it at a depth and alignment that the field review did not confirm. The facility owner has been asked for any later as-built information. If none exists, the alignment as drawn is based on the field review and is noted on the sheets as unverified. Mark Green asked what that means for the bid. Linda George stated that it means the contractor bids the relocation as drawn and that a differing condition in that segment is a change, and that the alternative is test pits before the set is issued, which are not in our scope and would have to be arranged and paid for by others."
+          "text": "Jason Jordan reported that the plan and profile sheets are drawn to the preliminary alignment, and he identified a conflict between the proposed sanitary relocation and the new water main alignment at their crossing, where the vertical separation falls short of the regional water authority's required standard. It was agreed that Linda George would lower the sanitary profile at the crossing to restore the separation, and that Jason Jordan would revise the affected sheets once the corrected profile is set."
         },
         {
           "kind": "paragraph",
-          "text": "Mark Green asked whether test pits could be added and what they would cost. Linda George stated that we do not perform them, that we would specify the locations, and that the cost and the schedule for them would come from whoever is engaged to dig. Mark Green asked for the locations and an estimate of the delay so that his side can decide. He did not commit to the work."
+          "text": "Linda George reported on the coordination with the regional water authority, whose staff have reviewed the preliminary water main alignment informally and have asked that the relocated main be carried outside the proposed building footprint by a stated margin and placed within a dedicated easement. The easement exhibits will be prepared to reflect that margin. No formal comments have yet issued, the review to date having been by conversation only."
         },
         {
           "kind": "paragraph",
-          "text": "Two facility owners have returned record drawings. One has not. Linda George stated that the third owner's plant is at the end of the corridor and that its absence does not hold up the water or sanitary work, but that it will hold up the dry utility layout if the records are not in hand by the time that layout begins. Mark Green stated that he would make a call on the firm's behalf. Nobody objected to that."
+          "text": "Coordination with the serving electric and telephone companies was also discussed, the two lines being carried on the same poles and therefore to be relocated together. Linda George reported that the electric company has provided its relocation standard and its lead time for the work, and that the telephone company's requirements are expected shortly. It was agreed that the relocation of the joint-use poles would be shown on a separate sheet, so as to keep each utility owner's review confined to its own facilities."
         },
         {
           "kind": "paragraph",
-          "text": "The undersigned raised the drawing standards for the plan set. The set will be issued under a sealed cover sheet and will conform to this office's standards, not to any contractor markup received in the interim. Mark Green had no comment."
+          "text": "Mark Green confirmed, on behalf of the owner, that the site plan is settled and that the building footprint shown to this office will not change, which allows the relocations to be fixed against a stable improvement. He further confirmed that the owner will secure the temporary construction access the utility contractor will require, and that the record drawings for the private service lines on the property would be furnished within the week."
         },
         {
           "kind": "paragraph",
-          "text": "Next progress meeting to be scheduled by Linda George after the sanitary layout is complete."
+          "text": "The schedule for the relocation design for {{fact:f:E-2006-001.client}} was reviewed and found to be holding at its midpoint, with no additional work requested and no change to the agreed scope contemplated."
         },
         {
           "kind": "heading",
@@ -255,19 +253,17 @@
         },
         {
           "kind": "table",
-          "header": ["No.", "Action", "Owner", "Due"],
+          "header": ["Item", "Owner", "Target"],
           "rows": [
-            ["1", "Provide proposed test pit locations and an estimate of the schedule impact", "Linda George", "One week"],
-            ["2", "Call the third facility owner regarding outstanding record drawings", "Mark Green", "One week"],
-            ["3", "Complete sanitary relocation layout and profiles", "Linda George", "Two weeks"],
-            ["4", "Annotate the unverified water main segment on the plan and profile sheets", "Jason Jordan", "With next issue"],
-            ["5", "Hold dry utility layout pending receipt of the outstanding records", "Jason Jordan", "Open"],
-            ["6", "Advise this office in writing whether test pits will be performed", "Mark Green", "Two weeks"]
+            ["Lower the sanitary relocation profile at the water main crossing to restore the required separation", "Linda George", "Before the next drafting turn"],
+            ["Revise the plan and profile sheets to the corrected profile and the located electric position", "Jason Jordan", "Following the profile revision"],
+            ["Prepare the easement exhibits to the margin set by the regional water authority", "Linda George", "By the next progress meeting"],
+            ["Furnish the record drawings for the private service lines", "Mark Green", "Within the week"]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "These minutes are our record of the meeting. Please advise this office within five days of any correction; otherwise they will stand as written and go in the job file."
+          "text": "The next step is the correction of the sanitary profile at the crossing, on which the revised sheets depend; once it is set, Jason Jordan will turn the affected sheets and the team will meet again at the next scheduled progress review."
         }
       ]
     },
@@ -277,94 +273,81 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Progress Report: Utility Relocation Design for Franklin-Snyder",
+          "text": "Status Report: Utility Relocation Design",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for {{fact:f:E-2006-001.client}} by Linda George, Project Engineer"
+          "text": "The utility relocation design for {{fact:f:E-2006-001.client}} has reached its midpoint on schedule and within its budget, and nothing in the work to date suggests that either the schedule or the fixed fee is at risk. This report sets out where the design now stands, what was completed in the period, what the second half will hold, and the two items we are watching. None of it asks a decision of you today; it is a record of steady progress on the relocation Franklin-Snyder needs before its site work can begin."
         },
         {
           "kind": "heading",
-          "text": "Summary",
+          "text": "Where the design stands",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The design is on schedule and on budget. We are at roughly the midpoint of the work and roughly the midpoint of the fee. The water relocation design is complete through profiles. The sanitary relocation layout is drawn and its profiles are in progress. The dry utility layout has not begun and is waiting on record drawings from one facility owner. There is one open item that could affect the bid, described under Risks below, and it is not ours to close."
+          "text": "The design is roughly half complete. The existing utilities have been located in the field and reconciled against the record drawings, the conflicts with your proposed improvements have been confirmed, and a preliminary alignment and profile have been laid out for each line that must move. We have passed out of the investigation and into the design proper, where the alignments are refined, the crossings are resolved, and each relocation is carried to the standard its utility owner will accept."
         },
         {
           "kind": "paragraph",
-          "text": "The short version for anyone reading only this section: nothing here requires action from your side except a decision on the test pits, and that decision has a date attached to it. Everything else is running the way we said it would run."
+          "text": "The work is tracking with our costs, and we remain within the fixed fee of {{fact:f:E-2006-001.fee}} for the engagement, with nothing in the remaining work that we expect to change that. No additional scope has been requested, and the design has not grown beyond the relocation of the utilities identified at the outset as being in conflict with the improvements."
         },
         {
           "kind": "heading",
-          "text": "Accomplishments This Period",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Record drawings received from two of the three affected facility owners and reconciled against the survey.",
-            "Field review of the corridor completed. Eleven crossings confirmed against the records; one segment of existing water main was not confirmed and is discussed below.",
-            "Water relocation plan and profile complete, including connection details at both ends.",
-            "Sanitary relocation layout complete; profiles approximately half drawn.",
-            "Base sheets, borders, and drawing standards established for the full set. Jason Jordan has the set built so that the remaining sheets drop into a structure that already exists, which is why the second half of a job like this goes faster than the first.",
-            "Progress meeting held with your staff at this office. Minutes issued separately."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Upcoming Work",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Complete sanitary relocation profiles.",
-            "Begin dry utility layout on receipt of the outstanding record drawings.",
-            "Prepare the erosion and sediment control plan once the alignments are fixed.",
-            "Assemble technical specifications and the quantity estimate.",
-            "Internal review and seal, then issue the permit and bid set."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The sequence above is not arbitrary. The sanitary alignment is governed by the water relocation, the dry utility layout is governed by both, and the erosion and sediment control plan is governed by all three. Drawing any of them out of order means drawing them twice. Jason Jordan and I have held the dry utility sheets empty rather than populate them from records we do not have, and that is deliberate; empty sheets are honest and a set built on assumed plant is not."
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
+          "text": "Completed in this period",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The engagement is a fixed fee of {{fact:f:E-2006-001.fee}} and we do not expect to exceed the scope it covers. Our effort to date is consistent with the portion of the work completed, and we have invoiced accordingly. Nothing described in this report is an extra. Should the test pits discussed below be authorized, that work would be performed and paid for by others; our part would be to specify the locations and to incorporate the results, which we can absorb within the fee if the results arrive before the set is assembled."
+          "text": "The field locates and test pits were completed and the base reconciled against them. The water main and the sanitary sewer were found substantially where the record placed them, but the overhead electric was located some distance off its recorded position, and the design now carries the located position rather than the record, which is the more reliable of the two and keeps us from designing a relocation against a line that is not where the paper says it is."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jason Jordan has drawn the plan and profile sheets to the preliminary alignment and, in doing so, found a conflict at the crossing of the relocated sanitary sewer and the relocated water main, where the vertical separation fell short of the regional water authority's standard. The sanitary profile is being lowered at that crossing to restore the separation, and the affected sheets will be revised to the corrected profile, so that the conflict is resolved on paper well before it could reach the field."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The coordination with the utility owners has begun in earnest. The regional water authority has reviewed the preliminary water main alignment informally and has asked that the relocated main be carried outside your building footprint by a stated margin and placed within a dedicated easement, and the easement exhibits are being prepared to that margin. The serving electric company has provided its relocation standard and its lead time, and the telephone company's requirements are expected shortly."
         },
         {
           "kind": "heading",
-          "text": "Risks",
+          "text": "The second half",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The unverified water main segment is the item that matters. The records place it at one depth and alignment; the field review could not confirm it and the facility owner has produced nothing later. As things stand we will draw it as our field review indicates and note it on the sheets as unverified, which means a differing condition there becomes a change order during construction. Test pits before we issue would settle it. That decision, and the cost of it, sits with your side, and we have provided the locations. We do not need an answer today, but we do need one before the set is assembled, or the note stands."
+          "text": "In the second half we will finish the alignments and profiles, resolve the remaining crossings, and complete the easement exhibits, the estimated quantities, and the opinion of probable construction cost. The relocation of the joint-use electric and telephone poles will be carried on its own sheet, so that each utility owner's review is confined to its own facilities and no owner is asked to pass on another's design."
         },
         {
           "kind": "paragraph",
-          "text": "The second risk is the outstanding record drawings for the third facility owner. The water and sanitary work does not depend on them. The dry utility layout does. If those drawings are not in hand by the time we reach that layout, the schedule slips by about the length of the delay, and there is no way to work around it that does not amount to guessing at another owner's plant, which we will not do."
+          "text": "Jason Jordan will turn the plan set from the completed design, and the set will be assembled under the sealed cover sheet for issue. We will bring the design to you for a review before it is finalized and before it is submitted to the utility owners for their formal approval, so that you see the relocation as it will be built and can raise anything that does not match the owner's intent while it is still easy to change."
+        },
+        {
+          "kind": "heading",
+          "text": "Items we are watching",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The third risk is ordinary and I mention it only so it is on the record: review comments from a facility owner that arrive late and require an alignment change cost more the later they arrive. We have asked each owner for comments as we go rather than at the end. Two are cooperating."
+          "text": "Two items bear watching, and neither is serious today. The first is the formal review by the regional water authority, which to this point has been by conversation only; until its written comments are in hand, the water main alignment carries the authority's informal guidance rather than its approval, and a formal comment could ask for a change we have not anticipated."
         },
         {
           "kind": "paragraph",
-          "text": "None of the three risks is presently affecting the schedule or the fee, and I am not asking for relief on either. I am reporting them at the midpoint because the midpoint is when they can still be managed cheaply. The first one has a decision behind it, the second has a telephone call behind it, and the third has nothing behind it but attention."
+          "text": "The second is the private service information for the site. Until the owner's record drawings for the private service lines are in hand, the design carries an assumption about those lines that we would prefer to confirm before the plan set is issued; the drawings were promised within the week, and once they are in, that assumption can be retired."
+        },
+        {
+          "kind": "heading",
+          "text": "Where this leaves us",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Franklin-Snyder should expect the next report at the completion of the sanitary profiles. Call me with any question on the above; I would rather take the question than have this report answer one you did not ask."
+          "text": "The relocation design is at its midpoint, on schedule, and within the fee, and the path to an issued plan set is clear. The open items are the ordinary ones of a relocation at this stage, and both are on their way to being closed. We will bring the design to you at the review before it is finalized."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Linda George, Project Engineer."
         }
       ]
     }

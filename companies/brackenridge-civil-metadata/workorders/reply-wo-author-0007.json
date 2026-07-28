@@ -1,450 +1,115 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0007",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0036",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Ms. Carol Lewis, Director of Operations, {{fact:f:E-2007-001.client}}"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Re: Agreement for Professional Engineering Services, Bridge Deck Rehabilitation, Peck-Jennings"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Ms. Lewis:"
-        },
-        {
-          "kind": "paragraph",
-          "text": "This letter, when countersigned and returned to our office, will constitute the agreement between {{fact:f:E-2007-001.client}} and Brackenridge Civil Group Inc for professional engineering services in connection with the rehabilitation of the bridge deck carrying the private roadway on your property. We are pleased to have been asked. The terms are set out at some length below so that there is no question later about what is included and what is not."
-        },
-        {
-          "kind": "heading",
-          "text": "Scope of Services",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our services are limited to the engineering design and to the documents that carry it. We will perform a condition survey of the existing deck and its approaches, prepare rehabilitation plans and specifications suitable for competitive bidding, and assist you during the bidding period. Construction inspection, materials testing, and any work requiring a structural analysis of the substructure are excluded, and we will quote them separately if you want them. The services included are the following:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Condition survey of the deck, wearing surface, joints, railing, and the approach pavement on both sides, documented with field notes and photographs.",
-            "Review of the record drawings and any prior inspection reports {{fact:f:E-2007-001.client}} is able to furnish, together with our own field measurements where the record is silent.",
-            "Rehabilitation plans and specifications covering deck repair limits, wearing surface, joint replacement, railing, drainage of the deck and the approaches, and traffic control during construction.",
-            "A construction cost estimate at the preliminary submittal and again with the final plans.",
-            "Assistance during the bidding period, including written responses to bidder questions and the preparation of addenda."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Approach",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will proceed in two submittals. The first is a preliminary set at approximately sixty percent completion, issued for your review and for the review of any agency having jurisdiction over the crossing. The second is the final set, sealed and issued for bidding, carrying our responses to the comments returned on the preliminary. Comments are answered in writing, in the order they were issued, one response to each. That has been our practice for some years and it keeps the record straight when a question comes back a year later."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Field work will be scheduled around your operations. We will need access to the deck and to the underside where it can be reached safely. We will contact your maintenance staff before each visit rather than arrive unannounced."
-        },
-        {
-          "kind": "heading",
-          "text": "Project Team",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Pamela Warren, Project Engineer, is responsible for the design and is your day-to-day contact at this office. Jason Jordan, Design Technician, will produce the plan set and is responsible for the drawings meeting our standards. Kimberly Branch, Design Technician, will prepare the standard details and the approach grading sheets. I will review the work and seal the plans. Every drawing that leaves this office over our cover sheet has been read by me first, and that will not change on this project."
-        },
-        {
-          "kind": "heading",
-          "text": "Commencement and Schedule",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Services will commence on {{fact:f:E-2007-001.start}}, subject to our receipt of this letter countersigned. We have laid the work out over approximately four months from commencement, which allows time for your review of the preliminary submittal and for the agency review that follows it. The schedule assumes that the record drawings are furnished at the outset and that weather permits field work in the first weeks. Should either assumption fail, we will tell you promptly and in writing rather than absorb the delay quietly and explain it at the end."
-        },
-        {
-          "kind": "heading",
-          "text": "Fees and Payment",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for the scope described above is a fixed fee of {{fact:f:E-2007-001.fee}}, which includes our ordinary reimbursable expenses: mileage within the county, plotting, and the reproduction of review sets. Reproduction of bid sets for distribution to contractors is not included and will be invoiced at our cost."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We invoice monthly for the portion of the work completed in the preceding month. Invoices are payable within thirty days of the date rendered, and balances remaining unpaid beyond that period may, at our option, bear interest at the maximum rate permitted by law. Additional services requested by {{fact:f:E-2007-001.client}} and lying outside the scope above will be performed only after the scope and the fee for them have been agreed in writing. We do not begin extra work on a verbal instruction and then present the bill."
-        },
-        {
-          "kind": "heading",
-          "text": "Term and Termination",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This agreement takes effect on commencement and continues until we have delivered the final sealed plans and completed our assistance during the bidding period, unless terminated earlier. Either party may terminate upon seven days written notice, with or without cause. Upon termination you will pay us for services performed and expenses incurred through the effective date, and we will deliver the work in whatever state it then stands, with the understanding that plans which have not been sealed are not to be used for construction."
-        },
-        {
-          "kind": "heading",
-          "text": "Confidentiality",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will hold in confidence the information {{fact:f:E-2007-001.client}} furnishes to us and will not disclose it to a third party except as required to perform the work, or as required by law or by an agency having jurisdiction. This does not extend to information already public or already in our possession. We ask in turn that our drawings, specifications, and calculations be used only for this project. They are instruments of service, they remain our property, and we retain our copyright in them. You may of course keep and use copies for the operation and maintenance of the completed work."
-        },
-        {
-          "kind": "heading",
-          "text": "Limitation of Liability",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Brackenridge Civil Group will perform its services with the care and skill ordinarily exercised by civil engineers practicing in this locality at this time. We make no other warranty, express or implied. To the fullest extent permitted by law, the total liability of this firm and its employees to {{fact:f:E-2007-001.client}} arising out of this agreement, whether in contract or in tort, shall not exceed the total fee paid to us under it. Neither party shall be liable to the other for consequential damages, including loss of use or loss of profit."
-        },
-        {
-          "kind": "heading",
-          "text": "Governing Law",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This agreement is governed by the laws of the state in which the project is located, without regard to its conflicts provisions. It is the entire agreement between us on this subject and supersedes any prior understanding, written or verbal. It may be amended only by a writing signed by both parties."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If the foregoing is acceptable, please sign both copies in the space provided below, retain one for your files, and return the other to this office. We will begin as soon as we have it in hand. Should any term require discussion, telephone me and we will take it up before you sign rather than after."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We appreciate the confidence Peck-Jennings has placed in this firm, and we will do the work properly."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Very truly yours,"
-        },
-        {
-          "kind": "sigblock",
-          "signers": [
-            "p:mark.todd",
-            "xp:carol.lewis"
-          ]
-        }
+        {"kind": "paragraph", "text": "Carol Lewis\nDirector of Operations\n{{fact:f:E-2007-001.client}}"},
+        {"kind": "paragraph", "text": "Dear Ms. Lewis:"},
+        {"kind": "paragraph", "text": "This letter confirms our engagement to prepare the bridge deck rehabilitation design for {{fact:f:E-2007-001.client}}. It sets out the scope of the work, the fee, and the terms under which we will proceed. Signed and returned, one copy of it stands as our agreement. I have kept it plain, so that it records what we discussed and asks nothing you did not expect from that conversation."},
+        {"kind": "heading", "text": "The Work", "level": 2},
+        {"kind": "paragraph", "text": "We will prepare a rehabilitation design for the bridge deck. The scope covers the assessment of the existing deck condition, from the record drawings you provide and from our own field observation; the design of the concrete repairs and the wearing surface; the deck drainage and the treatment of the joints; and the traffic and staging notes the work will require. The set will be prepared to the standard the reviewing authority expects at submittal, and the cover sheet will be issued under seal."},
+        {"kind": "paragraph", "text": "We will coordinate the Peck-Jennings deck rehabilitation design as a single set, so that the repair details, the drainage, and the staging agree with one another before the drawings are sealed. On a rehabilitation, the observed condition governs the design, and so the repair limits and the quantities will follow from our examination of the deck rather than from the record drawings alone. Where our design meets work that is properly the contractor's or another party's, our sheets will note the interface and stop there. The scope does not extend to construction-phase inspection or to material testing. We would take up either of those separately if you wished, on terms we would set at that time."},
+        {"kind": "paragraph", "text": "We will assemble the completed sheets as a package suitable for the reviewing authority, and we will respond to the comments that come back on it as part of this design. Should a review require substantial rework beyond the ordinary, I will raise it with you before that work proceeds. The aim throughout is a set a contractor can build the rehabilitation from and a reviewer can approve without guesswork."},
+        {"kind": "heading", "text": "Our Approach", "level": 2},
+        {"kind": "paragraph", "text": "I walk a structure before I draw it, and I run the quantities myself rather than accept a figure I have not checked. The design will proceed from your record drawings and from our own observation of the deck as it stands, and I will hold the set to what the field conditions will actually support. We will keep you informed as the design develops, in short progress reports and in meetings when a decision is yours to make, and we will not let a question that is yours to decide sit unasked. Nothing leaves this office until it has been reviewed on my desk and I am satisfied it is correct. I, Mark Todd, will direct the work and seal each sheet before it is issued."},
+        {"kind": "heading", "text": "Assigned Staff", "level": 2},
+        {"kind": "paragraph", "text": "The design will be carried by our engineering staff. Pamela Warren, our Project Engineer, will handle the deck drainage and the coordination with the reviewing authority, and she will cite the governing standard on each detail before it is drawn. Jason Jordan will prepare the roadway, approach, and staging sheets and keep the standard details current across the set. Kimberly Branch will draft the repair details and run the quantity takeoffs that stand behind the fee. I will review and seal the completed set myself."},
+        {"kind": "heading", "text": "Fee and Commencement", "level": 2},
+        {"kind": "paragraph", "text": "Our fee for the design is {{fact:f:E-2007-001.fee}}, a fixed amount for the scope described above. We will begin the work on {{fact:f:E-2007-001.start}}. The design is a compact one, and we expect it to run about four months from commencement, subject to the timeliness of the record information and of the reviews on your side. If the scope changes in a way that bears on the fee, I will raise it with you, and we will settle it before any additional work proceeds."},
+        {"kind": "heading", "text": "Fees and Payment", "level": 2},
+        {"kind": "paragraph", "text": "We will invoice against the fee monthly as the work proceeds, and our invoices are due within thirty days of receipt. The fee covers our staff and their time. It does not cover out-of-pocket costs such as reproduction, delivery, and agency or permit fees; those we bill at cost. Where such a cost is of any consequence, we will agree it with you before it is incurred, and a small and routine one we will simply carry on the next invoice."},
+        {"kind": "heading", "text": "Term and Termination", "level": 2},
+        {"kind": "paragraph", "text": "Either of us may end this engagement on fourteen days written notice. If {{fact:f:E-2007-001.client}} ends it, you will owe us for the work properly performed to that date and for costs already committed on your behalf, and nothing further. On termination we will deliver the work in progress in the form it then stands, and the drawings remain your property to the extent you have paid for them."},
+        {"kind": "heading", "text": "Confidentiality", "level": 2},
+        {"kind": "paragraph", "text": "We will treat the information you provide in the course of this work as confidential and use it only for this design. That obligation binds our whole staff and continues after the engagement ends. Drawings we seal and issue become part of the project record in the ordinary course, and nothing in this paragraph restricts that."},
+        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
+        {"kind": "paragraph", "text": "We will perform the design with the care and skill ordinarily exercised by civil engineers practicing in this area at this time, and we stand behind our work to that standard. We do not warrant the performance of contractors or others we do not control, nor the results of construction carried out from our drawings without our involvement. Our liability to you under this engagement is limited to the amount of our fee, except where the law does not permit such a limit."},
+        {"kind": "heading", "text": "Governing Law", "level": 2},
+        {"kind": "paragraph", "text": "This agreement is governed by the law of the state in which our firm practices, and any dispute under it will be heard in the courts of that state. Should any single provision be found unenforceable, the remainder of this letter stands."},
+        {"kind": "paragraph", "text": "If these terms reflect our understanding, please sign both copies below, keep one for your files, and return the other to this office. On receipt I will schedule the field visit and begin the work."},
+        {"kind": "paragraph", "text": "Very truly yours,"},
+        {"kind": "sigblock", "signers": ["p:mark.todd", "xp:carol.lewis"]}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0037",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "TO: Pamela Warren, Kimberly Branch"
-        },
-        {
-          "kind": "paragraph",
-          "text": "FROM: Jason Jordan"
-        },
-        {
-          "kind": "paragraph",
-          "text": "SUBJECT: Bridge Deck Rehabilitation, Peck-Jennings. Project setup and workstreams."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The project file is open and lettered. The start date of record is {{fact:f:E-2007-001.start}}, and everything below runs from that date. This memo covers what we are producing, who has which part, and how the drawings are set up, so that nobody has to ask twice. It is a short schedule and it stays short only if the front end is done properly, which is what this is about."
-        },
-        {
-          "kind": "heading",
-          "text": "Objective",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "{{fact:f:E-2007-001.client}} has retained us for the design and for bid-period assistance, nothing beyond that. What we owe is a sealed plan set and a specification for the rehabilitation of the deck and its approaches, complete enough that a contractor can bid it without a pile of questions and build it without a pile of change orders. There are two submittals, preliminary at sixty percent and final for bidding. Plan the work backward from the preliminary, not forward from today."
-        },
-        {
-          "kind": "heading",
-          "text": "Workstreams",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Field survey and condition documentation. Pamela Warren. Deck, joints, railing, approach pavement, and drainage, measured and photographed. Field books live in the project folder, not in a truck.",
-            "Base drawings, layering, and the plotting setup. Mine. The template is the firm's, unchanged. If a layer needs to exist that does not, ask me and I will add it and tell everybody. Do not invent one, and do not move one that is already there.",
-            "Standard details and approach grading sheets. Kimberly Branch. Details come out of the detail notebook first. We draw a new one only when there is nothing that fits.",
-            "Specifications. Pamela Warren, with the Principal Engineer's review before anything is typed clean.",
-            "Cost estimate. Pamela Warren, at the preliminary submittal and again at final.",
-            "Correspondence and the project file. Everyone. Anything sent or received gets filed the day it moves, and a fax gets its transmittal sheet stapled to it."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Drawing conventions",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two things worth stating now rather than after they have gone wrong. First, the sheet numbering is fixed at the index and does not get renumbered partway through, because the specification and the estimate will both refer to sheets by number and I am not chasing those references twice. If a sheet has to be added late it gets a letter suffix and lives where it belongs. Second, nothing is plotted for issue from a personal directory. The set plots from the project folder, on the firm's pens, or it does not go out."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The cover sheet is drawn last and it is drawn once. It carries the seal, and it is not a place to experiment with the title block."
-        },
-        {
-          "kind": "heading",
-          "text": "Client contact",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Carol Lewis, Director of Operations at Peck-Jennings, is the client contact. Anything in writing that goes to her leaves this office over the Principal Engineer's signature, not ours. Telephone questions about site access go to her directly, and they get written in the project file the same day, whatever the answer was. If she asks for something that looks like a change in scope, do not agree to it on the telephone. Write down what she asked for and bring it back here."
-        },
-        {
-          "kind": "heading",
-          "text": "Next steps",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "I will open the drawing set and issue the sheet index this week. Nobody starts a sheet before the index exists.",
-            "Pamela Warren will telephone to arrange the first site visit and to ask for the record drawings. If the record drawings do not exist, we find that out now rather than at sixty percent.",
-            "Kimberly Branch will pull the details we expect to use and mark the ones that need editing.",
-            "We will meet in the conference room at the end of next week. Bring what you have, not what you intend to have."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Nothing about this job is unusual. The one thing that will hurt us is a survey that comes back thin and gets discovered late, so it is worth an extra half day in the field now."
-        }
+        {"kind": "paragraph", "text": "To: Bridge deck rehabilitation design team\nFrom: Jason Jordan, Design Technician\nRe: Project kickoff and file setup for {{fact:f:E-2007-001.client}}"},
+        {"kind": "paragraph", "text": "The bridge deck rehabilitation design for {{fact:f:E-2007-001.client}} is under way, with our start set for {{fact:f:E-2007-001.start}}. This memo sets the assignments and the opening tasks, so that the project folder is in order from the beginning and no one is left waiting on a hand-off that was never made. The aim of the first weeks is narrow and practical: to open the lettered project folder, bring in the record drawings and the field notes, and set up the sheet index and the standard details, so that when the design proper begins the file is already clean."},
+        {"kind": "paragraph", "text": "The work itself is straightforward in kind, if not in effort. We are rehabilitating an existing deck, which means the record information and the observed condition govern the design more than they would on new work, and a repair detail is only as good as the condition it is drawn to answer. The value in these opening weeks lies in getting the file and the field information right, so that the design that follows rests on something firm rather than on assumption."},
+        {"kind": "heading", "text": "Assignments", "level": 2},
+        {"kind": "list", "items": [
+          "Jason Jordan: the roadway, approach, and staging sheets, the border sheets, and the standard details, each confirmed current before we build on it.",
+          "Pamela Warren, Project Engineer: the deck drainage and the coordination with the reviewing authority, and the governing standards the repair details must answer to.",
+          "Kimberly Branch: the deck repair details and the quantity takeoffs, filed and labeled so a number can be found again when the set is revisited.",
+          "Carol Lewis, Director of Operations, is our point of contact at the client; approvals and questions on their side route through her."
+        ]},
+        {"kind": "paragraph", "text": "A word on the file itself. Every sheet is matched to the memorandum or the standard that governs it, and revisions are clouded and logged as they are made, so that the current sheet can be pulled in a hurry when the client calls. Please keep to that discipline from the first print, because a set that is kept orderly as it is drawn stays orderly through to issue."},
+        {"kind": "paragraph", "text": "Coordination with the client runs through Carol Lewis. When we need a decision or a document from their side, one of us asks her rather than several of us asking around, so that the requests stay in order and nothing is asked twice. The same holds for anything that leaves the office: a transmittal notes what was issued and when, so that the folder keeps a record of every set sent out, and the review order is not to be shortcut, since no sheet goes out until it has been checked and the cover sheet sealed."},
+        {"kind": "heading", "text": "First tasks", "level": 2},
+        {"kind": "list", "items": [
+          "Open the lettered project folder for the Peck-Jennings deck rehabilitation and set up the sheet index and the title blocks.",
+          "Bring in the record drawings and confirm they are the current ones before any repair is drawn over them.",
+          "Walk the deck with an engineer and note the observed conditions against the record, so the repair quantities start from what is actually there.",
+          "Set up the standard details and the border sheets so the set reads the firm's way from the first sheet."
+        ]},
+        {"kind": "paragraph", "text": "The first thing we need is the record set. I will confirm with Carol Lewis's office that we hold the current record drawings before we build the base, and until that base is right nothing drawn over it can be trusted. Once it is in hand, we begin."}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0038",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Project: Bridge Deck Rehabilitation, Peck-Jennings"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Subject: Progress meeting, held at this office at the request of {{fact:f:E-2007-001.client}}."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Minutes prepared by Kimberly Branch."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Present:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Pamela Warren, Project Engineer, Brackenridge Civil Group Inc",
-            "Jason Jordan, Design Technician, Brackenridge Civil Group Inc",
-            "Kimberly Branch, Design Technician, Brackenridge Civil Group Inc",
-            "Carol Lewis, Director of Operations, Peck-Jennings"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Pamela Warren reviewed the condition survey against the record drawings. Delamination of the deck is confined to the two spans nearest the west abutment, and to the shoulder areas rather than the wheel paths. The joints at both abutments are failing and will be replaced. This is consistent with what was assumed when the work was scoped."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Carol Lewis asked whether the crossing can remain open during construction. Pamela Warren said that half-width construction under one-way alternating traffic is workable given the deck width, and that the plans will show it that way, with a note permitting the contractor to propose a full closure if the schedule benefit is real. Carol Lewis said a full closure of more than one working day would not be acceptable and asked that the plans say so. Pamela Warren agreed to add it to the traffic control notes."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jason Jordan reported that the plan set is laid out, the sheet index is issued, and the sheets are drawn as far as the survey supports. He noted that two sheets of the record drawings furnished to us are illegible where they were faxed, and asked whether legible originals exist. Carol Lewis will check her files."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The preliminary submittal was discussed. It will be issued at sixty percent for review by {{fact:f:E-2007-001.client}} and by the agency having jurisdiction over the crossing. Comments will be answered in writing, in the order they are issued. Nothing raised in the meeting changed the scope of the work or the fee."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Kimberly Branch asked for the intended treatment at the joint header before the detail is drawn, so that it is not drawn twice. Pamela Warren will mark up a sketch. Kimberly Branch also asked which spelling of the client's name is to appear in the title block. Carol Lewis provided the correct form and it will be used on every sheet."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Drainage of the deck was discussed. Pamela Warren said the existing scuppers are undersized and partly blocked, and that the rehabilitation will replace them rather than clean them, since the deck is open in those areas regardless. Carol Lewis asked whether that adds cost. Pamela Warren said it is within the scope as written and does not.",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Carol Lewis asked when she would see something. Jason Jordan said the preliminary set is the first thing worth looking at and that an incomplete set circulated early causes more questions than it answers. Carol Lewis accepted this and asked only that she be told before it is transmitted, so that she can arrange her own review. Pamela Warren agreed to telephone in advance."
-        },
-        {
-          "kind": "heading",
-          "text": "Action items",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": [
-            "No.",
-            "Action",
-            "Owner"
-          ],
+        {"kind": "paragraph", "text": "Minutes of the progress meeting on the {{fact:f:E-2007-001.client}} bridge deck rehabilitation design, held at the firm's office and recorded by Kimberly Branch. The meeting reviewed the state of the field assessment, the design in progress, and the coordination between the drainage and the repair details, and it settled the items to be carried before the next session."},
+        {"kind": "heading", "text": "Attendees", "level": 2},
+        {"kind": "list", "items": [
+          "Pamela Warren, Project Engineer, Brackenridge Civil Group",
+          "Jason Jordan, Design Technician, Brackenridge Civil Group",
+          "Kimberly Branch, Design Technician, Brackenridge Civil Group",
+          "Carol Lewis, Director of Operations, Peck-Jennings"
+        ]},
+        {"kind": "heading", "text": "Discussion", "level": 2},
+        {"kind": "paragraph", "text": "Pamela Warren opened with the state of the field assessment. The deck has been walked and the visible spalling and delamination mapped, and the record drawings have been reconciled against the observed conditions. She noted that the deck drainage will govern several of the repair details, and that the governing standard will be cited on each sheet before the detail is drawn, so that the approach can survive the reviewing authority's read."},
+        {"kind": "paragraph", "text": "Jason Jordan reported on the roadway, approach, and staging sheets. The base sheets are set up and the standard details have been brought current, and the staging concept is being drawn to keep at least one lane open through the work. He flagged one inconsistency between the record deck section and the field measurements, which he will carry to the engineer of record before the repair limits are fixed."},
+        {"kind": "paragraph", "text": "Kimberly Branch reported that the repair details are in progress and that a preliminary quantity takeoff has been started from the mapped repair areas, to be firmed up as the details are completed. Carol Lewis asked that the client be kept informed of any finding that would bear on the cost or the schedule, and it was agreed that material questions would be raised with her office as they arise rather than held for the next meeting."},
+        {"kind": "paragraph", "text": "The group also discussed how the record drawings and the field notes are held in the project folder, so that the sheet in hand is always the current one and a repair detail can be traced back to the condition it answers. It was noted that the drainage design and the repair details must be coordinated as one, since the placement of a drain or a joint bears directly on the extent of the repair around it, and that this coordination should be checked before either is carried much further."},
+        {"kind": "paragraph", "text": "On schedule, the group agreed that the design remains in its early stage, with the assessment substantially in hand and the detailing under way, and that the coordination between the drainage and the repair details is the item most likely to govern the pace of the coming weeks. No item was identified as being at risk of delaying the set, though the reconciliation of the record section with the field measurements was noted as the first thing that must be settled."},
+        {"kind": "heading", "text": "Action items", "level": 2},
+        {"kind": "table",
+          "header": ["Item", "Owner", "Due"],
           "rows": [
-            [
-              "1",
-              "Add the traffic control note limiting a full closure to one working day.",
-              "Pamela Warren"
-            ],
-            [
-              "2",
-              "Mark up the joint header treatment for drafting.",
-              "Pamela Warren"
-            ],
-            [
-              "3",
-              "Locate legible originals of the two illegible record drawing sheets.",
-              "Carol Lewis"
-            ],
-            [
-              "4",
-              "Plot a check set of the preliminary sheets for internal review.",
-              "Jason Jordan"
-            ],
-            [
-              "5",
-              "Draw the joint header and approach grading details on receipt of the sketch.",
-              "Kimberly Branch"
-            ]
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next progress meeting will be arranged by telephone. Corrections to these minutes should be given to Kimberly Branch within one week. Otherwise they stand as written and go in the project file."
-        }
+            ["Reconcile the record deck section with the field measurements and confirm the repair limits", "Jason Jordan", "Before the repair details are advanced"],
+            ["Complete the deck drainage layout and cite the governing standard on each detail", "Pamela Warren", "Next progress meeting"],
+            ["Firm up the repair quantity takeoff as the details are completed", "Kimberly Branch", "With the next set of details"],
+            ["Relay any cost or schedule finding to the client's office", "Kimberly Branch", "As it arises"]
+          ]},
+        {"kind": "paragraph", "text": "The next progress meeting will be set once the repair details are advanced. These minutes will be circulated to the attendees, and any correction should be returned to Kimberly Branch."}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0039",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Project: Bridge Deck Rehabilitation, Peck-Jennings"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Prepared for {{fact:f:E-2007-001.client}} by Jason Jordan, Design Technician, Brackenridge Civil Group Inc."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Reporting period: since our last report."
-        },
-        {
-          "kind": "heading",
-          "text": "Status summary",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The work is on schedule and within the fee. The design stands at about the midpoint. The condition survey is complete, the plan set is laid out and drawn as far as the survey supports, and the preliminary submittal is in preparation for issue at sixty percent. Nothing has occurred that changes the scope of the work, and we are not asking for anything from you at this time beyond the item noted under Risks."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The condition of the deck is close enough to what was assumed when the work was scoped that the design has not had to be reconsidered. That is the most useful thing in this report. On a rehabilitation the survey is where the schedule is usually lost, and it was not lost here."
-        },
-        {
-          "kind": "heading",
-          "text": "Accomplishments this period",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Pamela Warren completed the condition survey of the deck, joints, railing, approach pavement, and drainage, and reconciled the findings against the record drawings. Delamination is confined to the two spans nearest the west abutment and to the shoulder areas rather than the wheel paths.",
-            "The sheet index was issued and the plan set laid out. A check set has been plotted and marked internally.",
-            "Kimberly Branch drew the standard details that could be taken from our existing library, and identified the two that require new work.",
-            "The traffic control approach was settled at a progress meeting: half-width construction under one-way alternating traffic, with a note permitting the contractor to propose a full closure of not more than one working day.",
-            "The specification outline was drafted and is with the Principal Engineer for review.",
-            "The record drawings furnished were reviewed sheet by sheet against the field measurements. Where the two disagree, the field measurement governs and the disagreement is noted on the sheet so that a reviewer can see it without having to ask."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "A progress meeting was held at this office with your Director of Operations in attendance. Minutes were issued and are in the project file. The items raised there are carried in the design and none of them required a change to the scope."
-        },
-        {
-          "kind": "heading",
-          "text": "Upcoming work",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Complete the sixty percent submittal and transmit it for your review and for the review of the agency having jurisdiction.",
-            "Prepare the preliminary construction cost estimate to accompany the submittal.",
-            "Draw the joint header and approach grading details.",
-            "Receive and answer review comments in writing, in the order they are issued, one response to each.",
-            "Advance the specification from outline to draft against the sixty percent sheets, so that the two are consistent before either is issued.",
-            "Begin the traffic control sheets, which follow from the half-width approach settled at the progress meeting."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will telephone before the submittal is transmitted so that your review can be arranged in advance rather than around it. Pamela Warren will also be available to walk the set with your staff if that would be useful, and in our experience an hour spent that way returns more than a written comment does."
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is a fixed fee of {{fact:f:E-2007-001.fee}}. The effort expended to date is in line with the work completed, and we do not foresee exceeding the fee for the scope as written. No additional services have been requested or performed. Should any be requested, we will price the work and obtain your written authorization before beginning it."
-        },
-        {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Record drawings. Two of the sheets furnished to us are illegible where they were faxed. If legible originals cannot be located, we will measure the joint and the header in the field. That costs us a day and it is not a change in scope, but it has to happen before the final details are drawn, so it is worth a look in your files."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Agency review. The length of the review of the preliminary submittal is not within our control. The schedule assumes a review of ordinary duration. A long review is the single item most likely to move the completion of the final plans, and it is the one we can do the least about."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Extent of repair. The survey establishes where the deck is sound and where it is not, but the true repair limits are not known until the contractor removes the wearing surface. The plans will handle this with unit price bid items for repair area rather than a lump sum, so that a surprise is priced in advance rather than negotiated after the fact."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Weather. Nothing to report."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Questions on any item in this report may be directed to Pamela Warren at this office."
-        }
+        {"kind": "paragraph", "text": "To: {{fact:f:E-2007-001.client}}\nFrom: Jason Jordan, Brackenridge Civil Group\nRe: Bridge deck rehabilitation design, progress report"},
+        {"kind": "heading", "text": "Summary of Progress", "level": 2},
+        {"kind": "paragraph", "text": "The bridge deck rehabilitation design for {{fact:f:E-2007-001.client}} is at roughly its midpoint and is proceeding on plan. The field assessment of the deck is complete, the repair details and the deck drainage are well advanced, and the set is moving toward the coordinated stage at which it can be assembled for the reviewing authority. The work remains within the fixed design fee of {{fact:f:E-2007-001.fee}}, and nothing observed to date has called either the scope or the budget into question. It continues to be carried by the same staff who began it, and the coordination that governs a rehabilitation set, between the observed condition, the repair details, and the drainage, has been held close from the start."},
+        {"kind": "heading", "text": "Accomplishments This Period", "level": 2},
+        {"kind": "paragraph", "text": "Since the last report, Pamela Warren has completed the deck drainage layout and has begun the coordination with the reviewing authority, citing the governing standard on each detail so that the approach is settled before the set is carried further. The repair details, drawn by Kimberly Branch from the mapped areas of spalling and delamination, are now substantially complete, and the quantity takeoff that stands behind the fee has been firmed up against them so that the numbers rest on the conditions actually observed rather than on a general allowance."},
+        {"kind": "paragraph", "text": "The assessment work that underlies all of this is now closed out. The deck was walked in full, and the joints and the existing wearing surface were examined along with the areas of distress, so that the findings could be carried onto the plans and the repair details drawn to answer the deck that was observed. That closure is what allows the detailing and the takeoff to proceed with confidence at this stage, and it is the reason the scope has held steady since the work began."},
+        {"kind": "paragraph", "text": "On the roadway and staging side, the approach and staging sheets have been developed to keep at least one lane open through construction, and the standard details have been brought current across the set. The inconsistency noted earlier between the record deck section and the field measurements has since been reconciled, and the repair limits have been fixed accordingly, so that the quantities now rest on the Peck-Jennings deck as it actually stands rather than on the record drawings alone."},
+        {"kind": "heading", "text": "Work of the Coming Period", "level": 2},
+        {"kind": "paragraph", "text": "The work of the coming weeks is coordination and completion rather than new design. Pamela Warren will carry the drainage and the repair details through the reviewing authority's comments as they return, and Kimberly Branch will hold the quantities current against any change those comments require, so that the takeoff and the drawings do not drift apart. The staging sheets will be coordinated a final time against the repair sequence, so that the traffic scheme and the work it protects remain consistent through construction."},
+        {"kind": "paragraph", "text": "The internal check will then be run before anything is sealed, in keeping with the firm's practice that no set leaves the office until it has been reviewed and the cover sheet sealed. The set will be assembled, checked, and prepared for sealing, at which point it will be issued under the firm's cover sheet as a package a contractor can build the rehabilitation from and a reviewer can approve without guesswork."},
+        {"kind": "heading", "text": "Risks and Items to Watch", "level": 2},
+        {"kind": "paragraph", "text": "Two items warrant attention. The first is the reviewing authority's turnaround, which is outside the firm's control and could move the completion of the set if comments are slow to return; we have front-loaded the coordination with the authority in order to limit that exposure as far as we are able. The second is the possibility that a repair area proves more extensive on closer examination than the visible condition suggested, which would bear on the quantities rather than on the design approach, and which we would bring to your office promptly should it develop, along with its effect, if any, on the design fee of {{fact:f:E-2007-001.fee}}."},
+        {"kind": "paragraph", "text": "Neither item is regarded as a present threat to the work, and both are being watched in the ordinary course rather than managed as a problem. The repair quantities are the figure most sensitive to what the review and the closer detailing turn up, and so they are the number we will keep under the closest eye as the set is finished, so that any movement in them is seen while there is still time to account for it."},
+        {"kind": "paragraph", "text": "Taken together, the engagement is where it should be at its midpoint. The assessment is behind us, the detailing is nearly done, and the set is moving toward the review and the seal within the terms agreed at the outset, with the same staff carrying it through that began it. We will continue to track the work against the plan as the details close out, and we will bring anything of consequence to your office as soon as it appears rather than hold it for the next report."},
+        {"kind": "paragraph", "text": "The next step is to complete the coordinated set and prepare it for review, and we will report again as it goes out. Should you wish to discuss any part of the work before then, Jason Jordan can be reached at the firm's office."}
       ]
     }
   ]

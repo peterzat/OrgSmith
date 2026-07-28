@@ -3,8 +3,17 @@
   "doc_id": "d:0012",
   "blocks": [
     {
+      "kind": "heading",
+      "text": "Progress Meeting Minutes",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "Project: Site Grading Design for {{fact:f:E-2001-001.client}}. Working session held at this office. Minutes taken by Jason Jordan and circulated for correction; corrections received within one week will be incorporated, after which these minutes stand as the record of the meeting.",
+      "text": "Project: site grading design for {{fact:f:E-2001-001.client}}. Subject: pre-issue review of the Esparza-Lamb grading set. Prepared by Jason Jordan, Design Technician.",
       "level": 1,
       "items": [],
       "header": [],
@@ -14,7 +23,7 @@
     {
       "kind": "heading",
       "text": "Attendees",
-      "level": 1,
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -25,9 +34,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "Linda Nguyen, Design Technician, Brackenridge Civil Group Inc",
-        "Jason Jordan, Design Technician, Brackenridge Civil Group Inc",
-        "Debra Vasquez, VP Finance, Esparza-Lamb"
+        "Linda Nguyen, Design Technician",
+        "Jason Jordan, Design Technician",
+        "Debra Vasquez, Vice President of Finance, {{fact:f:E-2001-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -36,6 +45,15 @@
     {
       "kind": "heading",
       "text": "Discussion",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Linda Nguyen walked the meeting through the grading set as it now stands, which is nearly complete, with the earthwork scheme, the finished elevations, and the drainage details drawn and coordinated against the roadway and utility sheets. It was agreed that the set has reached the stage at which a full pre-issue check is warranted, and that the remaining work is properly a punch list rather than continued design.",
       "level": 1,
       "items": [],
       "header": [],
@@ -44,7 +62,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The purpose of the session was to review the assembled plan set and the state of the submittal package. The set was reviewed sheet by sheet, in bound order, with the client present. Linda Nguyen ran the review. The set is complete as drawn and is in check.",
+      "text": "Debra Vasquez presented the client comments on the coordinated review copy, which were limited in number and directed chiefly at the labeling on two of the grading sheets and at a single drainage note, and each comment was reviewed in turn and either accepted for correction or resolved in the meeting. It was confirmed that none of the comments touches the design itself, so that the corrections can be made without disturbing the coordination already achieved between the sets.",
       "level": 1,
       "items": [],
       "header": [],
@@ -53,7 +71,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The set check has turned up the disagreements it was expected to turn up, all of them at the match lines and none of them in the design. Six items are open. Five are lettering and callout disagreements between adjoining sheets and are corrections rather than changes. The sixth is a spot elevation that appears differently on the grading sheet and on the utility sheet. Both cannot be right. The grading sheet is correct and the utility sheet will be brought to it. Debra Vasquez asked whether this meant the utility design was wrong. It does not; the elevation was carried forward from a print that predates the confirmation of the layout, and the design against which the utilities were laid out is the correct one.",
+      "text": "The group then reviewed the sheet index against the physical set, sheet by sheet, and confirmed that every sheet listed is present and that no sheet in the set is absent from the index, a check made deliberately at this stage because an index that has drifted from the set is the kind of small error that is easy to miss and awkward to explain after issue. Two sheets were found to carry an old revision letter in the title block, and those will be brought current as part of the punch list.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,25 +80,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The submittal package was reviewed. The drainage computations, the earthwork estimate, and the erosion and sediment control plan are complete and are in the package. The transmittal is drafted. The package is not submitted and will not be until the set check is closed and the cover sheet is sealed. Sealing is the Principal Engineer's and is not scheduled by this meeting; the set goes to him when it is right, and it is not right until the six items are closed.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Debra Vasquez asked what remains after submittal. The answer given was the agency's review, which is outside this firm's control and for which no date can be promised, followed by this firm's response to the agency's comments through the one review cycle the agreement provides. She asked to be copied on the transmittal when the package goes. That was agreed.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "No change in scope was requested at this session and none was identified. The site plan has not moved since the utility layout was confirmed, and the set as drawn reflects it.",
+      "text": "The meeting closed on the mechanics of issue, and it was confirmed that the title blocks, the border sheets, and the standard details are the current issue, so that the package will be internally consistent when it is submitted for review and seal. It was noted that the cover sheet is to be sealed only after the punch list is cleared and the set has had its final review, and not before.",
       "level": 1,
       "items": [],
       "header": [],
@@ -90,7 +90,7 @@
     {
       "kind": "heading",
       "text": "Action Items",
-      "level": 1,
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -102,54 +102,37 @@
       "level": 1,
       "items": [],
       "header": [
-        "No.",
-        "Action",
+        "Item",
         "Owner",
         "Target"
       ],
       "rows": [
         [
-          "1",
-          "Close the five lettering and callout items between adjoining sheets",
+          "Make the labeling corrections on the two grading sheets",
           "Jason Jordan",
           "This week"
         ],
         [
-          "2",
-          "Bring the utility sheet spot elevation to the grading sheet and recheck both",
-          "Linda Nguyen",
-          "This week"
-        ],
-        [
-          "3",
-          "Recheck the set at the match lines after items 1 and 2 are closed",
-          "Linda Nguyen",
-          "Following item 2"
-        ],
-        [
-          "4",
-          "Submit the set for seal once the check is closed",
-          "Linda Nguyen",
-          "Following item 3"
-        ],
-        [
-          "5",
-          "Copy Debra Vasquez on the transmittal when the package is submitted",
-          "Jason Jordan",
-          "At submittal"
-        ],
-        [
-          "6",
-          "File the marked-up check prints from this session in the project folder",
+          "Bring the two title-block revision letters current",
           "Jason Jordan",
           "This week"
+        ],
+        [
+          "Clear the punch list and reconcile the sheet index to the set",
+          "Linda Nguyen",
+          "Before final review"
+        ],
+        [
+          "Confirm the resolved drainage note back to the client",
+          "Debra Vasquez",
+          "At next contact"
         ]
       ],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "The check prints from this session are retained. They are the record of what was found and what was done about it, and they stay in the folder after the corrections are made.",
+      "text": "The clear next step is for Jason Jordan and Linda Nguyen to complete the punch list, after which the coordinated set will be submitted for the firm's final review and seal ahead of issue, and Debra Vasquez will be sent the resolved drainage note for the client file.",
       "level": 1,
       "items": [],
       "header": [],

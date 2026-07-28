@@ -28,7 +28,7 @@ The other 9 cost zero model tokens: 9 static (rendered from the deterministic le
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 26 rules run, 0 error(s), 0 warning(s); skipped by charter knob: CAL-01, NOISE-01, AFF-01, AFF-02, EML-01, EML-02, EML-03, DL-01, STY-01.
+Validator: 28 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, AFF-01, AFF-02, EML-01, EML-02, EML-03, DL-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score brackenridge-civil --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -38,13 +38,29 @@ Measurement and judgment: lengths, similarity, voice ranges, and the board's opi
 
 ### Length against brief
 
-31 authored documents, 21662 words, mean 699.
+31 authored documents, 19863 words, mean 641.
 
-Every document is within 75%-150% of the words its brief asked for.
+Off brief (outside 75%-150% of target):
+
+| doc | genre | words | target | ratio |
+| --- | --- | ---: | ---: | ---: |
+| d:0008 | briefing_deck | 242 | 400 | 0.60 |
+| d:0027 | onboarding_record | 294 | 450 | 0.65 |
+| d:0016 | onboarding_record | 307 | 450 | 0.68 |
+| d:0014 | onboarding_record | 317 | 450 | 0.70 |
 
 ### Same-genre similarity
 
-No same-genre pair reaches 0.15 4-gram Jaccard (highest: 0.1095).
+Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement, not a verdict: real firms reuse templates. The board judges which of these read as reuse.
+
+| doc a | doc b | genre | jaccard |
+| --- | --- | --- | ---: |
+| d:0021 | d:0040 | company_overview | 0.4533 |
+| d:0005 | d:0036 | engagement_letter | 0.3542 |
+| d:0007 | d:0040 | company_overview | 0.2482 |
+| d:0018 | d:0031 | engagement_letter | 0.2156 |
+| d:0007 | d:0021 | company_overview | 0.196 |
+| d:0006 | d:0037 | kickoff_memo | 0.1628 |
 
 ### Fee coverage
 
@@ -52,7 +68,7 @@ No same-genre pair reaches 0.15 4-gram Jaccard (highest: 0.1095).
 
 Documented fees are 3.5% of lifetime revenue.
 
-The recipe does not declare the engagement book a sample, so the overview may present it as the firm's whole client list. A large fee/revenue gap here reads as the contradiction the board found (engagement-ledger-reads-as-whole-book).
+The recipe declares the engagement book a sample (engagements.book_is_sample), so the firm overview presents these engagements as representative rather than complete. The gap between fees and revenue is expected and coherent.
 
 ### Cross-document voice
 
@@ -60,13 +76,13 @@ Pre-registered voice patterns over 31 authored documents. This is a RANGE across
 
 | pattern | reading | occurrences | docs |
 | --- | --- | ---: | ---: |
-| `antithesis-strict-now-than-later` | rather ... now/early ... than ... later/late (the temporal contrast, strictly read) | 1 | 1 |
-| `antithesis-strict-now-than` | rather ... (now\|early\|first) ... than (the contrast without its second pole) | 3 | 3 |
-| `antithesis-loose-rather-word-than` | rather <word> ... than (any near-adjacent rather/than pairing) | 12 | 10 |
-| `antithesis-plain-rather-than` | the plain words 'rather than' (sweeps up ordinary English) | 60 | 28 |
+| `antithesis-strict-now-than-later` | rather ... now/early ... than ... later/late (the temporal contrast, strictly read) | 0 | 0 |
+| `antithesis-strict-now-than` | rather ... (now\|early\|first) ... than (the contrast without its second pole) | 0 | 0 |
+| `antithesis-loose-rather-word-than` | rather <word> ... than (any near-adjacent rather/than pairing) | 2 | 2 |
+| `antithesis-plain-rather-than` | the plain words 'rather than' (sweeps up ordinary English) | 32 | 19 |
 | `two-asks-opener` | 'Two asks. First ... Second ...' engagement-email opener | 0 | 0 |
-| `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 7 | 5 |
-| `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 7 | 7 |
+| `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 1 | 1 |
+| `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 1 | 1 |
 
 ### Per-author similarity proxies
 
@@ -74,15 +90,26 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 | author | docs | within mean (min-max) | cross mean | early/late |
 | --- | ---: | --- | ---: | ---: |
-| p:charles.olson | 3 | 0.0136 (0.0108-0.0186) | 0.0020 | 0.0186 |
-| p:jason.jordan | 5 | 0.0141 (0.0016-0.0786) | 0.0036 | 0.0085 |
-| p:jeffrey.perez | 2 | 0.0110 (0.0110-0.0110) | 0.0027 | 0.0110 |
-| p:kimberly.branch | 1 | - | 0.0050 | - |
-| p:linda.george | 3 | 0.0038 (0.0007-0.0083) | 0.0031 | 0.0014 |
-| p:linda.nguyen | 4 | 0.0122 (0.0014-0.0316) | 0.0026 | 0.0147 |
-| p:mark.todd | 12 | 0.0146 (0.0000-0.1095) | 0.0018 | 0.0607 |
-| p:pamela.warren | 1 | - | 0.0033 | - |
+| p:charles.olson | 3 | 0.0143 (0.0068-0.0212) | 0.0035 | 0.0131 |
+| p:jason.jordan | 5 | 0.0087 (0.0008-0.0522) | 0.0049 | 0.0047 |
+| p:jeffrey.perez | 2 | 0.0216 (0.0216-0.0216) | 0.0044 | 0.0216 |
+| p:kimberly.branch | 1 | - | 0.0040 | - |
+| p:linda.george | 3 | 0.0051 (0.0018-0.0113) | 0.0043 | 0.0021 |
+| p:linda.nguyen | 4 | 0.0121 (0.0059-0.0218) | 0.0040 | 0.0138 |
+| p:mark.todd | 12 | 0.0318 (0.0000-0.4533) | 0.0018 | 0.1997 |
+| p:pamela.warren | 1 | - | 0.0051 | - |
 
 ### Review board
 
-No board findings ingested. Run `/forge-review brackenridge-civil` to dispatch the review board; the metrics above stand on their own without it.
+8 findings from the review board.
+
+| id | dimension | severity | docs | summary |
+| --- | --- | --- | --- | --- |
+| rf:cross-voice-1 | cross_document_voice | major | d:0006, d:0019, d:0026, d:0032, d:0037 | The five kickoff memos are attributed to five different staff yet collapse into two verbatim molds, so one generator's hand shows through instead of five distinct writers. |
+| rf:cross-voice-2 | cross_document_voice | major | d:0010, d:0023, d:0029, d:0034 | Status reports by four different authors reuse the same client-facing idioms word for word, so the reports read as one writer across all engagements. |
+| rf:docplaus-1 | document_plausibility | major | d:0021, d:0040 | The firm overviews describe past engagements with the wrong service type, contradicting every other document in those same engagement folders. |
+| rf:graph-acl-1 | graph_acl_naturalness | major | d:0005, d:0006, d:0009, d:0012, d:0013 | The Esparza-Lamb site-grading engagement is run and client-fronted entirely by two Design Technicians with no engineer on the team, the only one of the five engagements staffed that way, though both firm engineers were employed when it ran. |
+| rf:narrative-1 | narrative_consistency | major | d:0040, d:0021, d:0018, d:0025, d:0036 | The firm-overview brochures describe three named past engagements as work in disciplines the engagements were not, contradicting each engagement's own letter and file. |
+| rf:org-realism-1 | org_realism | major | d:0009, d:0012, d:0010, d:0013 | The Esparza-Lamb engagement's client design meetings and progress reports are conducted entirely by Design Technicians with no engineer present, unlike every later engagement, which is implausible for a firm whose drawings only leave under the Principal Engineer's seal. |
+| rf:cross-voice-3 | cross_document_voice | minor | d:0009, d:0028 | Meeting minutes by two different authors close on the same templated sentence, another shared idiom that betrays a single hand. |
+| rf:narrative-2 | narrative_consistency | minor | d:0013, d:0005 | The Esparza-Lamb final status report claims a delivered scope well beyond the grading-only scope its executed engagement letter set, while insisting scope never changed. |

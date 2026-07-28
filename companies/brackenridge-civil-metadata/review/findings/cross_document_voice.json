@@ -1,0 +1,52 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "brackenridge-civil",
+  "dimension": "cross_document_voice",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0006",
+        "d:0019",
+        "d:0026",
+        "d:0032",
+        "d:0037"
+      ],
+      "summary": "The five kickoff memos are attributed to five different staff yet collapse into two verbatim molds, so one generator's hand shows through instead of five distinct writers.",
+      "evidence": "d:0006 (Linda Nguyen, 2001) and d:0037 (Jason Jordan, 2007) are the same memo reskinned: 'This memo sets the assignments and the first tasks, so the project folder is in order from the beginning and no one waits on a hand-off that was never made' vs '...the opening tasks, so that the project folder is in order from the beginning and no one is left waiting on a hand-off that was never made'; both 'The job/work itself is straightforward in kind, if not in effort'; both 'one of us asks her rather than several of us asking around, so that the requests stay in order and nothing is asked twice.' d:0019 (Charles Olson), d:0026 (Jeffrey Perez), d:0032 (Linda George) share the other mold: 'A stormwater plan is only as good as the base it sits on' / 'A widening study is only as good as the record it rests on' / 'a relocation designed against a wrong record is worse than none at all', each followed by '(our/the) first effort goes to ... and we will not ... until ...' and 'so we speak to (him/the client) with one voice.' No single-author template explains this, since the memos are signed by five different people."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0010",
+        "d:0023",
+        "d:0029",
+        "d:0034"
+      ],
+      "summary": "Status reports by four different authors reuse the same client-facing idioms word for word, so the reports read as one writer across all engagements.",
+      "evidence": "d:0010 (Linda Nguyen) 'It is written for the client, and it is deliberately short' vs d:0029 (Jeffrey Perez) 'It is written for the client and is deliberately short.' The same self-reassuring conceit recurs: d:0010 'The half that remains is of the same kind as the half now done, so there is no part of the work still ahead that we have not already handled' vs d:0029 'The comparison now under way is the same kind of work as the base already finished, so nothing ahead of us on this corridor is unfamiliar.' And d:0023 (Charles Olson) 'Nothing here calls for a decision from you today; it is a picture of steady progress' vs d:0034 (Linda George) 'None of it asks a decision of you today; it is a record of steady progress.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-3",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0009",
+        "d:0028"
+      ],
+      "summary": "Meeting minutes by two different authors close on the same templated sentence, another shared idiom that betrays a single hand.",
+      "evidence": "d:0009 (Jason Jordan) closes 'The next progress meeting will be set once the coordinated set is ready ... so that the meeting can be spent on comments rather than on a first reading of the set.' d:0028 (Linda George) closes 'The next working session will be scheduled once the widening options are laid out ... so that the session can be spent on comparing the options rather than on establishing the base a second time.' Same 'so that the meeting can be spent on X rather than on Y' closer from two named authors."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

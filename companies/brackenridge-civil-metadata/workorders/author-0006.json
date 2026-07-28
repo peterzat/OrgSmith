@@ -6,7 +6,7 @@
   "org_name": "Brackenridge Civil Group Inc",
   "org_type": "civil engineering",
   "narrative": "Brackenridge Civil Group is a small civil engineering practice in a\ncounty seat, founded in 1996 and working for municipal public works\ndepartments, a regional water authority, and two private developers. Its\nwork is site grading, stormwater, roadway, and utility design: drawings\ngo out under a sealed cover sheet, and the paperwork that surrounds them\nis typed in Word and printed for the job file.\n\nIt is a firm of its era, and the file share shows it. Proposals and\ndesign memoranda are Word documents saved to a lettered project folder.\nExecuted agreements come back countersigned by fax, get scanned on the\nflatbed by the office administrator, and land in the share as crooked,\nspeckled images. Progress meetings with the county produce minutes that\nlist every attendee by full name and agency. The annual numbers live in\none spreadsheet the Principal Engineer keeps himself.\n\nWriting is late-1990s American professional-services prose: complete\nsentences, courteous but not warm, no buzzwords that would postdate the\ndocument. Engineers refer to clients by agency name and to each other by\nfull name in anything that leaves the office. The Principal Engineer\nsigns every agreement and every letter to a public body. Nobody writes\n\"reach out\"; they write \"we will contact\".",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0006\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0006\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0031",
@@ -19,7 +19,7 @@
           "name": "Mark Todd",
           "title": "Principal Engineer",
           "dept": "Leadership",
-          "persona": "Reads every agreement and every letter to a public body line by line before he signs it, and he signs all of them. His prose is formal and unhurried: complete sentences, the client named by agency, a courteous close that commits the firm to nothing it has not already agreed to do. He marks up drafts in red and returns them without much comment, on the theory that the correction is the comment. The firm's annual numbers are his own spreadsheet and he does not hand it to anyone."
+          "persona": "Mark Todd is the engineer whose seal covers the firm's drawings, and nothing leaves the office until he has reviewed the sheet and signed the letter that carries it. He keeps the practice's numbers close and trusts a job that has been walked and a figure he has run himself. In correspondence he is unfailingly courteous and exact, addressing a public body by its full agency name and never reaching for anything that sounds like salesmanship."
         }
       ],
       "participants": [
@@ -28,14 +28,14 @@
           "name": "Linda George",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Stormwater is her work and she writes about it plainly, leading with the conclusion and then showing how she got there. She runs progress meetings with public works staff and keeps her own notes even when minutes are being taken, because she has been burned by a recollection that differed from hers. Her memoranda are short, her drawings are not, and she would rather be asked a question than pad a document against one."
+          "persona": "Linda George carries much of the roadway and site-grading work and is the engineer the county public works staff know best by name. She drafts her design memoranda plainly, laying out the site conditions before the recommendation, and she expects a proposal to say exactly what the firm will and will not do. Colleagues would call her tone brisk but scrupulously polite."
         },
         {
           "id": "p:jason.jordan",
           "name": "Jason Jordan",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+          "persona": "Jason Jordan is the CAD hand for the roadway and site sets and the one who keeps the standard details and border sheets current. He has an eye for the small inconsistency, a mislabeled contour or a detail that no longer matches the note that calls it. His few written words are brief and matter-of-fact."
         },
         {
           "id": "xp:mark.green",
@@ -88,9 +88,10 @@
         }
       ],
       "target_words": 1100,
-      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact.",
+      "guidance": "Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0032",
@@ -103,7 +104,7 @@
           "name": "Linda George",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Stormwater is her work and she writes about it plainly, leading with the conclusion and then showing how she got there. She runs progress meetings with public works staff and keeps her own notes even when minutes are being taken, because she has been burned by a recollection that differed from hers. Her memoranda are short, her drawings are not, and she would rather be asked a question than pad a document against one."
+          "persona": "Linda George carries much of the roadway and site-grading work and is the engineer the county public works staff know best by name. She drafts her design memoranda plainly, laying out the site conditions before the recommendation, and she expects a proposal to say exactly what the firm will and will not do. Colleagues would call her tone brisk but scrupulously polite."
         }
       ],
       "participants": [
@@ -112,14 +113,14 @@
           "name": "Linda George",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Stormwater is her work and she writes about it plainly, leading with the conclusion and then showing how she got there. She runs progress meetings with public works staff and keeps her own notes even when minutes are being taken, because she has been burned by a recollection that differed from hers. Her memoranda are short, her drawings are not, and she would rather be asked a question than pad a document against one."
+          "persona": "Linda George carries much of the roadway and site-grading work and is the engineer the county public works staff know best by name. She drafts her design memoranda plainly, laying out the site conditions before the recommendation, and she expects a proposal to say exactly what the firm will and will not do. Colleagues would call her tone brisk but scrupulously polite."
         },
         {
           "id": "p:jason.jordan",
           "name": "Jason Jordan",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+          "persona": "Jason Jordan is the CAD hand for the roadway and site sets and the one who keeps the standard details and border sheets current. He has an eye for the small inconsistency, a mislabeled contour or a detail that no longer matches the note that calls it. His few written words are brief and matter-of-fact."
         },
         {
           "id": "xp:mark.green",
@@ -163,9 +164,10 @@
         }
       ],
       "target_words": 650,
-      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps.",
+      "guidance": "Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; 'Let me be direct:' and similar throat-clearing.",
       "engagement_position": "This document is dated about 3% of the way through the engagement (in the early phase); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0033",
@@ -178,7 +180,7 @@
           "name": "Jason Jordan",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+          "persona": "Jason Jordan is the CAD hand for the roadway and site sets and the one who keeps the standard details and border sheets current. He has an eye for the small inconsistency, a mislabeled contour or a detail that no longer matches the note that calls it. His few written words are brief and matter-of-fact."
         }
       ],
       "participants": [
@@ -187,14 +189,14 @@
           "name": "Linda George",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Stormwater is her work and she writes about it plainly, leading with the conclusion and then showing how she got there. She runs progress meetings with public works staff and keeps her own notes even when minutes are being taken, because she has been burned by a recollection that differed from hers. Her memoranda are short, her drawings are not, and she would rather be asked a question than pad a document against one."
+          "persona": "Linda George carries much of the roadway and site-grading work and is the engineer the county public works staff know best by name. She drafts her design memoranda plainly, laying out the site conditions before the recommendation, and she expects a proposal to say exactly what the firm will and will not do. Colleagues would call her tone brisk but scrupulously polite."
         },
         {
           "id": "p:jason.jordan",
           "name": "Jason Jordan",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+          "persona": "Jason Jordan is the CAD hand for the roadway and site sets and the one who keeps the standard details and border sheets current. He has an eye for the small inconsistency, a mislabeled contour or a detail that no longer matches the note that calls it. His few written words are brief and matter-of-fact."
         },
         {
           "id": "xp:mark.green",
@@ -234,9 +236,10 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a formal register (careful qualifications and a measured, precise tone) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'Let me be direct:' and similar throat-clearing; 'Two asks. First... Second...' as an opener.",
       "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     },
     {
       "doc_id": "d:0034",
@@ -249,7 +252,7 @@
           "name": "Linda George",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Stormwater is her work and she writes about it plainly, leading with the conclusion and then showing how she got there. She runs progress meetings with public works staff and keeps her own notes even when minutes are being taken, because she has been burned by a recollection that differed from hers. Her memoranda are short, her drawings are not, and she would rather be asked a question than pad a document against one."
+          "persona": "Linda George carries much of the roadway and site-grading work and is the engineer the county public works staff know best by name. She drafts her design memoranda plainly, laying out the site conditions before the recommendation, and she expects a proposal to say exactly what the firm will and will not do. Colleagues would call her tone brisk but scrupulously polite."
         }
       ],
       "participants": [
@@ -258,14 +261,14 @@
           "name": "Linda George",
           "title": "Project Engineer",
           "dept": "Engineering",
-          "persona": "Stormwater is her work and she writes about it plainly, leading with the conclusion and then showing how she got there. She runs progress meetings with public works staff and keeps her own notes even when minutes are being taken, because she has been burned by a recollection that differed from hers. Her memoranda are short, her drawings are not, and she would rather be asked a question than pad a document against one."
+          "persona": "Linda George carries much of the roadway and site-grading work and is the engineer the county public works staff know best by name. She drafts her design memoranda plainly, laying out the site conditions before the recommendation, and she expects a proposal to say exactly what the firm will and will not do. Colleagues would call her tone brisk but scrupulously polite."
         },
         {
           "id": "p:jason.jordan",
           "name": "Jason Jordan",
           "title": "Design Technician",
           "dept": "Engineering",
-          "persona": "The one who knows the CAD standards, the plotting setup, and which layer somebody moved and should not have. Dry to the point of deadpan in the office, correct and colorless in anything typed. He is protective of the sealed cover sheet and treats a plan set going out the door as a thing that reflects on the firm, which it does."
+          "persona": "Jason Jordan is the CAD hand for the roadway and site sets and the one who keeps the standard details and border sheets current. He has an eye for the small inconsistency, a mislabeled contour or a detail that no longer matches the note that calls it. His few written words are brief and matter-of-fact."
         }
       ],
       "engagement_summary": "Utility Relocation Design for Franklin-Snyder, running about 3 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -297,9 +300,10 @@
         }
       ],
       "target_words": 850,
-      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed.",
+      "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; 'Let me be direct:' and similar throat-clearing.",
       "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 3 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": ""
+      "firm_digest": "",
+      "reporting_line": ""
     }
   ],
   "people": [],
