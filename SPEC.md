@@ -11,7 +11,7 @@ release with an installable package and a reproducible generation container.
 
 ### Acceptance Criteria
 
-- [ ] **Recipes updated to the wave's final knobs.** The six fleet recipes
+- [x] **Recipes updated to the wave's final knobs.** The six fleet recipes
   gain the baseline realism layer (`business_calendar`, `book_is_sample`,
   `style_specs`, `voice_diversify`) plus their demonstrators: real mail
   threads (`doc_culture.mail`) on `hollowell-ip` and `meridian-actuarial`,
@@ -24,7 +24,7 @@ release with an installable package and a reproducible generation container.
   ceiling) and derives with no error. No recipe brief recites its own genre
   specifications as firm philosophy (closes `recipe-brief-leaks-genre-spec`).
 
-- [ ] **All eight orgs regenerated wholesale, live through the airlock.** Each
+- [x] **All eight orgs regenerated wholesale, live through the airlock.** Each
   org is deleted and re-run end to end from its recipe via `/forge` on
   `claude-opus-4-8[1m]` at effort `xhigh` (never an in-place edit of ledgers,
   manifest, or prose); each validates green (every rule its recipe enables, 0
@@ -34,26 +34,26 @@ release with an installable package and a reproducible generation container.
   `docplan/manifest.jsonl`, charter) byte-identically. `PINNED = SLUGS` is
   green at every commit, including between orgs mid-wave.
 
-- [ ] **Weekend and holiday meetings gone.** Every regenerated fleet org
+- [x] **Weekend and holiday meetings gone.** Every regenerated fleet org
   declares a `business_calendar`; `CAL-01` passes; no `meeting_minutes` and no
   engagement mail lands on a weekend or a declared holiday. The exemplar's
   previously-cited Saturday 2016-05-28 and 2023-07-04 client working sessions
   no longer occur. Closes `docplan-has-no-business-day-calendar` for the
   regenerated fleet.
 
-- [ ] **Overviews stop overstating the book.** Every regenerated fleet org
+- [x] **Overviews stop overstating the book.** Every regenerated fleet org
   declares its engagement ledger a sample (`book_is_sample`); no firm overview
   claims its engagements are the whole business, and no overview contradicts
   the finance ledger's revenue by an order of magnitude. Closes
   `engagement-ledger-reads-as-whole-book` for the regenerated fleet.
 
-- [ ] **Reporting-line drift cleared in prose.** Regenerated onboarding and
+- [x] **Reporting-line drift cleared in prose.** Regenerated onboarding and
   org-describing prose names no supervisor the ledger's `reports_to` edge
   contradicts, verified live on fresh prose by the M12 ingest check
   (`authoring/ingest.py::_check_reporting_line`). Closes `reporting-line-drift`
   for the regenerated fleet.
 
-- [ ] **Voice mitigation fleet-wide, measured never gated.** `style_specs` and
+- [x] **Voice mitigation fleet-wide, measured never gated.** `style_specs` and
   `voice_diversify` are on for every regenerated fleet org; per-author proxy
   metrics and same-genre similarity are reported as ranges in each
   `GENERATION-REPORT.md` and aggregated in `docs/DISTRIBUTIONS.md`; no voice or
@@ -62,7 +62,7 @@ release with an installable package and a reproducible generation container.
   hard problem; the fleet-wide mitigation's effect is recorded as a range, not
   asserted as a fix.
 
-- [ ] **The two mail-brief fixes proven on regenerated fixtures.** (a) On a
+- [x] **The two mail-brief fixes proven on regenerated fixtures.** (a) On a
   regenerated org with mail threads (`ashcombe-advisory`, `hollowell-ip`,
   `meridian-actuarial`), a client-delivered reply reads in a client-appropriate
   register: the board reads the regenerated prose and the
@@ -73,7 +73,7 @@ release with an installable package and a reproducible generation container.
   signature still names the author and validation still passes (closes the
   fixture half of `mundane-email-author-self-names`).
 
-- [ ] **The board reads all eight.** `/forge-review` dispatches the
+- [x] **The board reads all eight.** `/forge-review` dispatches the
   six-dimension board across all eight regenerated orgs; findings merge into
   each org's `GENERATION-REPORT.md`. Every finding quoted anywhere outside the
   raw `review/findings/` files is hand-verified against a ledger before
@@ -82,7 +82,7 @@ release with an installable package and a reproducible generation container.
   read-only and never authored what it reviewed; the static test proving no
   automated tier can reach the board stays green.
 
-- [ ] **Re-freeze.** `PINNED = SLUGS` is enforced fleet-wide with every
+- [x] **Re-freeze.** `PINNED = SLUGS` is enforced fleet-wide with every
   regenerated org pinned; CLAUDE.md's realism-wave carve-out paragraph is
   replaced with closure language mirroring M11b (additive evolution restored:
   any post-wave capability defaults off with inert schema defaults and new
@@ -93,13 +93,13 @@ release with an installable package and a reproducible generation container.
   reality, with no stale pre-regeneration number or retired-defect quote
   surviving anywhere in tree.
 
-- [ ] **The wave's deltas are visible in git.** The M15-committed frozen-fleet
+- [x] **The wave's deltas are visible in git.** The M15-committed frozen-fleet
   distributions are compared against the regenerated fleet in
   `docs/DISTRIBUTIONS.md` as a committed before/after (weekend rate, fee/revenue
   prose posture, per-author voice ranges, noise proportion), so the effect of
   turning the wave's knobs on is a diff rather than a claim.
 
-- [ ] **Release cut.** `pyproject.toml` gains `[build-system]`,
+- [x] **Release cut.** `pyproject.toml` gains `[build-system]`,
   `[project.scripts]` (a console entry point for `orgsmith`), and
   `[project.dependencies]` so `pip install .` succeeds from a clean venv;
   runtime dependencies are hash-locked (or the residual float is stated
@@ -110,7 +110,7 @@ release with an installable package and a reproducible generation container.
   external service and cannot be done offline) and stays in
   `packaging-and-archival`. Closes the local half of `packaging-and-archival`.
 
-- [ ] **Tests, docs, cost, and provenance.** Full `bin/test` (short + unit +
+- [x] **Tests, docs, cost, and provenance.** Full `bin/test` (short + unit +
   org + `flagship`) green, keyless and offline, with the byte pin green at
   every commit including mid-wave; `docs/RECIPE-FORMAT.md` reflects any
   knob-surface changes; the pre-rename working name appears nowhere
@@ -225,4 +225,44 @@ release with an installable package and a reproducible generation container.
 the two-dashboard split; 15/15 criteria met, dev-mini regenerated once and the
 frozen-fleet distributions committed so this turn can show deltas.*
 
-<!-- SPEC_META: {"date":"2026-07-23","title":"M16: regenerate the fleet under the wave's knobs, re-freeze, cut the release","criteria_total":12,"criteria_met":0} -->
+### Proposal (2026-07-28)
+
+**What happened.** M16 closed, 12/12. All eight fleet orgs were regenerated
+wholesale under the realism wave's knobs (business calendar, sample book,
+style/voice, mail threads, noise), validated 100%, byte-pinned, and boarded
+across six dimensions; the carve-out closed and the fleet re-froze. The docs
+reconciled to the regenerated reality (README "what is not modeled," the
+exemplar commentary, a retail-cost estimate ~$30, a committed DISTRIBUTIONS
+before/after). Then three follow-up fixes landed: the hollowell duplicated-header
+mail blocker (the renderer strips a `To:/Cc:` body banner; eml `doc_text` now
+reads the transport headers so MENT-01 still finds the recipient), the
+genre-spec brief leak (three briefs reworded, charters re-derived surgically with
+no re-authoring), and the **v2.1.0** release cut (`pip install .`, a generation
+Dockerfile built and verified green, `CHECKSUMS.md`, a pushed `v2.1.0` tag).
+Everything pushed; suite green (14/520/74 + 20 flagship).
+
+**Questions and directions.**
+- **M17, the window-defeating flagship?** The long-planned ~2,000-document org
+  that makes retrieval genuinely hard (a real denominator inside a 1M-token
+  window). The README and the calderwood pilot point straight here — what recipe
+  shape and cost envelope?
+- **The mail full-name-in-body device.** The render-strip fixed hollowell's
+  banner, but meridian/ashcombe still weave the recipient's full name into prose
+  ("for the file, [Full Name]"). Now that `doc_text` reads the headers, the
+  authoring guidance could drop the device — a re-render or a re-gen question.
+- **board-negative-control** stays open: boarding a fresh fleet is not a measured
+  false-positive rate, and a negative control is overdue.
+- **provider-neutral-authoring-driver:** the package ships now, so an external
+  consumer could finally shape the adapter surface.
+- Minor: the hollowell list-marker double-bullet, the mail-audience capability
+  half (mixed internal/external threads), and the security NOTE (constrain
+  `ManifestEntry.path` against `/`-absolute and `..`).
+
+**Backlog Sweep** (pending approval):
+- **Delete:** `recipe-brief-leaks-genre-spec` — closed this turn (briefs reworded).
+- **Delete:** `engagement-ledger-reads-as-whole-book` — closed (book_is_sample fleet-wide).
+- **Delete:** `docplan-has-no-business-day-calendar` — closed (business_calendar + CAL-01).
+- **Delete:** `reporting-line-drift` — closed for the regenerated fleet (ingest check).
+- **Delete:** `mundane-email-author-self-names` — closed (exempt_author_mentions).
+
+<!-- SPEC_META: {"date":"2026-07-23","title":"M16: regenerate the fleet under the wave's knobs, re-freeze, cut the release","criteria_total":12,"criteria_met":12} -->
