@@ -66,11 +66,14 @@ requires a fresh, user-approved carve-out.
 
 Known residual, recorded not fixed (board is read-only; fixing needs a new
 carve-out): in the two mail demonstrators, forge-author workers put an email
-recipient's full name in the message body to satisfy the ingest mention check,
-and on `hollowell-ip` a `To:/Cc:` body banner renders as a duplicated header on
-9 of 18 engagement emails (its document_plausibility board finding). A proper
-fix (renderer strips authored header-lines from `.eml` bodies, or the authoring
-guidance forbids them, then re-render the mail orgs) is its own unit of work.
+recipient's full name in the message body to satisfy the ingest mention check.
+The related `hollowell-ip` `To:/Cc:` duplicated-header banner is fixed as of
+v2.1.1: the renderer strips an authored header banner from `.eml` bodies and
+`doc_text` reads the transport headers, so MENT-01 still finds the recipient,
+and a committed test asserts no fleet mail body carries a header banner. The
+full-name-in-body device remains: a proper fix (exempt an email's recipient
+from its required body mentions, the way `exempt_author_mentions` exempts the
+author, then re-render the mail orgs) is its own unit of work.
 
 ## Environment
 
