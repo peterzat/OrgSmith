@@ -49,7 +49,7 @@ def render() -> str:
         rows.append((slug, digest, n))
         fleet.update(f"{slug}:{digest}\n".encode())
     lines = [
-        "# Checksum manifest — OrgSmith v2.1.0",
+        "# Checksum manifest — OrgSmith v2.1.1",
         "",
         "SHA-256 rollup per committed org, over every committed file under",
         "`companies/<slug>/` and `companies/<slug>-metadata/` in sorted path order",
