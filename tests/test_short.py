@@ -269,3 +269,17 @@ def test_no_tier_reads_a_model_api_key():
             text = path.read_text(encoding="utf-8")
             for key in key_names:
                 assert key not in text, f"{path.name} reads {key}"
+
+
+def test_orgsmith_never_imports_the_out_of_airlock_driver():
+    """The airlock dependency is one-way. The bring-your-own-token driver in
+    `drivers/` imports the pure `orgsmith.schemas`, but nothing under
+    `orgsmith/` may import `drivers`: the driver reads API keys and calls the
+    network, and an `orgsmith` import of it would drag both back inside the
+    airlock the rest of this file guards."""
+    for path in sorted((REPO / "orgsmith").rglob("*.py")):
+        for name in _imported_roots(path):
+            assert name.split(".")[0] != "drivers", (
+                f"{path.relative_to(REPO)} imports {name!r}; orgsmith/ must "
+                f"never import the out-of-airlock drivers package"
+            )

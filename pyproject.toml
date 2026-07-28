@@ -45,9 +45,14 @@ dependencies = [
 
 [project.scripts]
 orgsmith = "orgsmith.cli:main"
+# Optional bring-your-own-token authoring driver (out-of-airlock; see drivers/).
+orgsmith-author = "drivers.forge_external:main"
 
 [tool.setuptools.packages.find]
-include = ["orgsmith*"]
+# `drivers` is packaged alongside `orgsmith` so `python -m drivers.forge_external`
+# runs from an install and `tests/` can import it. It depends on `orgsmith`;
+# `orgsmith` never depends on it (the airlock stays one-way).
+include = ["orgsmith*", "drivers*"]
 
 [tool.setuptools.package-data]
 orgsmith = ["data/*.txt"]

@@ -13,6 +13,12 @@ dist/
 # Secrets and local environment (never committed)
 .env
 .env.*
+# BYO-token provider config: the real file lives at
+# ~/.config/orgsmith/providers.env (outside the repo); this stops a stray
+# local copy with keys from being committed. The committed template is
+# providers.env.example, which is not matched here.
+providers.env
+drivers/providers.env
 
 # Editor noise
 .idea/
