@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Status Report: Supply Chain Review for Poole, Mcknight and Rush",
+      "text": "Status Report: Supply Chain Review for {{fact:f:E-2010-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -12,41 +12,8 @@
       "signers": []
     },
     {
-      "kind": "table",
-      "text": "",
-      "level": 1,
-      "items": [],
-      "header": [
-        "Field",
-        "Detail"
-      ],
-      "rows": [
-        [
-          "Engagement",
-          "Supply chain review"
-        ],
-        [
-          "Client",
-          "{{fact:f:E-2010-001.client}}"
-        ],
-        [
-          "Prepared by",
-          "Deborah Gordon, Associate, Calderwood Partners"
-        ],
-        [
-          "Engagement manager",
-          "Michael Walker, Calderwood Partners"
-        ],
-        [
-          "Stage",
-          "Midpoint of a four-month review"
-        ]
-      ],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "The review is at its midpoint and on plan. The diagnostic work is largely done. We now hold a clean baseline of the client's supply chain spend, its supplier base, and its service levels, all reconciled to the client's own records rather than to any figure we brought in. The second half turns from measuring the current state to designing the changes. This report sets out what closed in the last several weeks, what the design phase will produce, where the budget stands, and the risks worth watching from here.",
+      "text": "For the reporting period ending 11 July 2010. Prepared by Deborah Gordon of our Advisory practice for the client executive at Poole, Mcknight and Rush, with the underlying data work carried by Daniel Leach and the engagement managed by Michael Walker.",
       "level": 1,
       "items": [],
       "header": [],
@@ -55,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "What closed since the last report",
+      "text": "Where We Stand at the Midpoint",
       "level": 2,
       "items": [],
       "header": [],
@@ -64,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The last several weeks produced the evidence the design will rest on. Daniel Leach reconciled the freight, procurement, and inventory data against the client's ledgers and warehouse records, checking each figure back to its source before it went into the baseline. The numbers we work from are the client's own, not our estimates. The following are complete:",
+      "text": "We have reached the midpoint of the review this week, and the account I can give you is a steady one: the diagnostic pass that filled the first half of the engagement is behind us, the benchmarking that our recommendations will rest on is well along, and nothing now open looks likely to move the schedule your team and ours set out together. I have kept my read close to what the data will carry, and in the places where the numbers are still settling I have said so plainly instead of letting an early figure stand in for a firm one.",
       "level": 1,
       "items": [],
       "header": [],
@@ -72,22 +39,8 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "A spend baseline across procurement and logistics, tied to the general ledger, with each category traceable to a record the client already keeps.",
-        "A map of the supplier base by category, showing where spend concentrates and where it fragments across many small vendors.",
-        "Service-level and lead-time measures for the main product lines, drawn from twelve months of the client's own order and delivery records.",
-        "A first read of inventory by location, flagging the sites that carry stock out of proportion to their throughput."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "One finding stands out. Freight is bought site by site. There are no common carrier terms across locations, and the price spread between sites on the same lane is wide. It is the largest single opportunity the baseline shows, and it is not a matter of one bad contract but of buying the same service many times over without a shared position. Daniel Leach has documented how that figure was built, lane by lane, and it holds up under review.",
+      "text": "In practice that means the work has turned a corner. The first half was spent understanding how the distribution network runs today, gathering the records and squaring them against one another, while the second half, which we are only now beginning, is given over to measuring that network against its peers and setting out where a leaner design would save money without putting service at risk.",
       "level": 1,
       "items": [],
       "header": [],
@@ -96,7 +49,7 @@
     },
     {
       "kind": "heading",
-      "text": "The design phase",
+      "text": "What We Have Finished Since the Last Report",
       "level": 2,
       "items": [],
       "header": [],
@@ -105,31 +58,8 @@
     },
     {
       "kind": "paragraph",
-      "text": "The second half converts the baseline into changes the client can carry out. Each recommendation will be tested against the transaction data already collected before it reaches the client, so that what we propose is measured against the client's own numbers. The work ahead:",
+      "text": "The larger of the two pieces we closed this period was the cost and volume baseline for the network, which Daniel Leach built up line by line from the transaction records your operations group sent across, and which he and I have since reconciled against the general ledger so that every figure we eventually put in front of you can be traced back to the source it came from. It is unglamorous work, but it is the floor the rest of the analysis stands on, and I took the time to be sure it was solid before we built anything on top of it.",
       "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "A consolidated freight approach with common carrier terms, sized against the lane data now in hand.",
-        "A supplier rationalization plan for the fragmented categories, with each category ranked by the effort it takes against the saving it returns.",
-        "Inventory targets by location, set from throughput and service data rather than from history.",
-        "A phased benefit case over the first two years, each figure carrying its assumption in writing and open to challenge."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Budget",
-      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -137,7 +67,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The engagement is tracking within the fixed fee of {{fact:f:E-2010-001.fee}} agreed at the outset. The diagnostic came in on the effort planned for it, and nothing in the design phase requires more than was scoped. We are not carrying any out-of-scope request that would change the figure. Should the design work surface a question that genuinely falls outside what we set out to do, we will bring it to the client as a separate item with its own estimate for a decision, kept apart from the fee already agreed.",
+      "text": "Alongside the baseline we opened the benchmarking that sets the client's freight, warehousing, and inventory positions against a set of comparable operators, and that comparison is roughly two-thirds of the way through its inputs. Michael Walker has been running the standing thread with your team for the last of the outside data we need, and while a handful of pulls are still outstanding, the records already in hand are enough to tell us the shape of the answer even before the file is fully closed.",
       "level": 1,
       "items": [],
       "header": [],
@@ -146,7 +76,7 @@
     },
     {
       "kind": "heading",
-      "text": "Open risks",
+      "text": "The Budget Against the Work",
       "level": 2,
       "items": [],
       "header": [],
@@ -155,7 +85,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Three risks are worth watching at this stage. None is fatal if it is managed early, and each is named here so it can be.",
+      "text": "The engagement is being carried against a fixed fee of {{fact:f:E-2010-001.fee}}, and as of this report we have earned a little under half of it, which sits square with the share of the work now behind us. On the plan as it stands the analysis that remains and the report itself can be delivered inside that fee, and I do not expect to come back to you for more; were the one open item below to widen the work in a way the plan did not assume, we would bring that to you for a decision before we spent against it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -163,21 +93,17 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Data gaps at two smaller sites, where the order records are thinner than at the main locations. Closing them needs a few hours from the client's staff, not a fresh collection, and the design can proceed while they close.",
-        "Supplier concentration. The freight consolidation narrows the carrier list, and the client will hold its own view on which relationships to keep for reasons the spend data does not show. That judgment sits with the client; we can frame the trade-off and cost each option.",
-        "Timing of the client's decisions. The benefit case runs on a critical path, and the design phase holds to it only if the midpoint choices are settled on schedule."
-      ],
+      "kind": "heading",
+      "text": "The Weeks Ahead",
+      "level": 2,
+      "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Michael Walker will confirm the date for the next review and send the short list of data still outstanding at the two smaller sites. Questions on any part of this report can come to him, or to Daniel Leach on the analysis behind the freight and inventory numbers.",
+      "text": "In the coming period we will close the benchmarking once the outstanding data is in, and then turn from measuring the network as it runs today to laying out the options for a leaner one, which is the part of the review your executive team has been waiting to see. Daniel Leach will finish the input file and I will take it into the comparison model, so that when we next sit down together we can walk you through a first read on where the savings sit and, just as usefully, where the data tells us they do not.",
       "level": 1,
       "items": [],
       "header": [],
@@ -185,15 +111,49 @@
       "signers": []
     },
     {
-      "kind": "sigblock",
-      "text": "",
+      "kind": "paragraph",
+      "text": "I want to set expectations honestly on that first read, since it will be a direction rather than a final number, with a few of the peer inputs still firming up as we present it. We will mark clearly which figures are settled and which are still moving, so that nothing in the room gets treated as more certain than the data standing behind it.",
       "level": 1,
       "items": [],
       "header": [],
       "rows": [],
-      "signers": [
-        "p:michael.walker"
-      ]
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "The One Item I Am Watching",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The single thing that could pull the coming period off its line is the last of the external data, a portion of the carrier and warehouse records that has not yet reached us, and Michael Walker is chasing it through your team gently, since the people who hold those records are the same ones who have been generous with everything else we have asked for. If it lands within the next week we stay on the schedule we set with {{fact:f:E-2010-001.client}}, and if it slips much beyond that the benchmarking closes late and the options discussion moves out with it, which is why I am naming it now while there is still room to make the time back.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "What I Need From Your Side",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "For now the review is where it should be at the halfway mark, and the picture I have laid out is one I am comfortable standing behind. The one thing I will ask of your team this week is to help Michael Walker close out the last of the carrier and warehouse records, because once those reach us we will have the benchmarking finished and the first read on savings ready to walk through at our next session.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
     }
   ]
 }

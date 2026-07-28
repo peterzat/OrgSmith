@@ -1,185 +1,826 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0030",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0137",
       "blocks": [
-        {"kind": "paragraph", "text": "Barbara Ward"},
-        {"kind": "paragraph", "text": "Director of Operations"},
-        {"kind": "paragraph", "text": "Garza, Leblanc and Porter"},
-        {"kind": "paragraph", "text": "Re: Advising you on the strategy for your portfolio of businesses"},
-        {"kind": "paragraph", "text": "Dear Ms. Ward:"},
-        {"kind": "paragraph", "text": "This letter confirms that we will advise you on the strategy for the group's portfolio of businesses, and it sets down the terms of that work: what we will do, who will do it, what it costs, and what each of us takes on. I have written it plainly and kept it short where the subject allowed. You and I have talked this through more than once, so nothing in it should surprise you. If any term here differs from what we agreed, telephone me before you sign and we will correct it."},
-        {"kind": "heading", "level": 2, "text": "The Question We Are Answering"},
-        {"kind": "paragraph", "text": "You run several operating businesses under one roof, built up over the years, and you want a clear answer to a question that is easy to state and hard to settle: which of them deserve more capital and management attention, which should hold their present course, which need work, and whether any no longer belong in the group. Our engagement builds toward that answer and a practical order for acting on it, and it proceeds along four lines."},
-        {"kind": "list", "items": [
-          "A common read of each business on its own terms: what it earns, the capital it ties up, how fast it is growing, and how those figures compare from one unit to the next on a single definition.",
-          "The market each business competes in and its standing within that market, so that a unit's prospects are judged against its own industry rather than against the other members of your group.",
-          "A benchmark of each business against comparable companies outside the group, drawn from public reference points, so that a judgment of strong or weak carries an outside measure and not only an internal one.",
-          "A portfolio view that places every business on one map of attractiveness and competitive position, and from it a recommendation on where to invest, where to hold, where to intervene, and what a sensible sequence of moves would be."
-        ]},
-        {"kind": "paragraph", "text": "Let me also mark what this work is not, so that nothing you expect is left unspoken. We do not value your businesses for sale, and we are not your investment bank; if a divestiture follows from the analysis, we set out the case for it and leave the transaction to advisors you engage for that purpose. We do not give legal or tax advice, and where a question turns on either we say so and send you to your counsel. We recommend where capital and attention should go, but the decision and its execution stay with your board and your managers. And we work from your businesses as they stand today; we do not audit their accounts, and we take the figures your people give us as the record."},
-        {"kind": "heading", "level": 2, "text": "How the Work Proceeds"},
-        {"kind": "paragraph", "text": "We work from your own figures rather than from industry rules of thumb, and every number in a deliverable ties back to a workpaper we can produce on request. We keep what we find apart from what we recommend, and label each, because the two do not carry the same weight. And we bring you our thinking as it firms up instead of holding it for the end, so that nothing in the final material reaches you cold. Where a figure is still provisional, we mark it as provisional and say what would settle it."},
-        {"kind": "heading", "level": 2, "text": "Who Will Do It"},
-        {"kind": "paragraph", "text": "Steven Hunt, Research Associate, leads the market and competitive read on each business, and he is the person to call on anything to do with how a unit is positioned in its industry. Melissa Casey, Research Associate, builds the outside benchmarks and the comparable-company references that measure each business against a standard beyond the group. I set the direction of the work and read everything before it reaches you. On your side, we will treat you, Barbara Ward, as our point of contact for data, access, and the decisions the work calls for, unless you name someone else to stand in that place."},
-        {"kind": "heading", "level": 2, "text": "Fee and Start Date"},
-        {"kind": "paragraph", "text": "Our fee to {{fact:f:E-2019-002.client}} is {{fact:f:E-2019-002.fee}}, fixed for the scope set out above. We expect to begin on {{fact:f:E-2019-002.start}} and to reach a portfolio recommendation about nine months from that date. If you ask us to widen the scope, we will price the addition in writing and will not begin it until you have agreed that price. We prefer a fixed fee here so that your people can work with us without watching a clock."},
-        {"kind": "heading", "level": 2, "text": "Fees and Payment"},
-        {"kind": "paragraph", "text": "We invoice the fixed fee in equal monthly installments across the term, each payable within thirty days of the invoice date. Out-of-pocket costs, chiefly travel to your sites and offices, are billed at cost and itemized on the invoice. We do not mark them up."},
-        {"kind": "heading", "level": 2, "text": "Term and Termination"},
-        {"kind": "paragraph", "text": "The engagement runs from the start date above until we deliver the portfolio recommendation, unless one of us ends it sooner. Either party may terminate on fifteen days' written notice, for any reason or none. On termination you owe the fee earned to the effective date, prorated against the fixed fee, together with expenses already incurred, and we hand over our work in whatever state it has then reached."},
-        {"kind": "heading", "level": 2, "text": "Confidentiality"},
-        {"kind": "paragraph", "text": "The performance and prospects of your individual businesses are among the most sensitive information the group holds, and we treat them accordingly. We will use what you give us only for this engagement, and disclose it outside our firm only as you direct in writing or as the law requires. We ask the same of you as to our methods, our workpapers, and the fee recorded in this letter."},
-        {"kind": "heading", "level": 2, "text": "Limitation of Liability"},
-        {"kind": "paragraph", "text": "Our total liability arising out of this engagement, whether framed in contract, in tort, or on any other basis, is limited to the fees actually paid to us under it. Neither party will be liable to the other for indirect or consequential loss, including lost profits, however it arises. This limit does not reach our own fraud or willful misconduct. Our deliverables are prepared for your internal use; if you intend to place one before a lender, a buyer, or another third party who may rely on it, raise it with me first so that we can address the reliance in writing."},
-        {"kind": "heading", "level": 2, "text": "Governing Law"},
-        {"kind": "paragraph", "text": "This letter is governed by the law of the state in which our principal office sits, without regard to its conflict-of-laws rules. Any dispute we cannot resolve between us will go to mediation before either party turns to the courts."},
-        {"kind": "paragraph", "text": "If these terms are acceptable, please countersign both copies of this letter and return one to me; the other is yours to keep. We are glad to take on this work for Garza, Leblanc and Porter, and Steven Hunt and Melissa Casey will be ready to begin on the date set out above."},
-        {"kind": "paragraph", "text": "Sincerely,"},
-        {"kind": "sigblock", "signers": ["p:julie.ramsey", "xp:barbara.ward"]}
+        {
+          "kind": "paragraph",
+          "text": "Barbara Ward\nDirector of Operations\n{{fact:f:E-2019-002.client}}",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Ward:",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "It was a pleasure to talk through the coming year's portfolio questions with you last month, and this letter is meant to set down, plainly and in one place, the terms on which our firm will carry out that work for {{fact:f:E-2019-002.client}}; once you have read it and signed the copy enclosed for the purpose, it will stand as the agreement between us. I have written it at some length and in ordinary language, because you are entitled to understand exactly what you are committing your firm to rather than to infer it, and I would ask that you read what follows against the conversation we had and tell me, before you countersign, if anything set out here departs from what you understood us to have agreed.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "The Scope of the Engagement",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "What we have undertaken is a portfolio strategy review for {{fact:f:E-2019-002.client}}, by which I mean a considered examination of the businesses the firm holds, of the returns and the demands each of them places on the whole, and of the question of where the firm's capital and attention are best directed over the period ahead. We will describe the portfolio as it now stands, weigh each part of it on its own merits and against the others, and set out a recommendation together with the reasoning that leads to it, so that where you come to differ from our view you can see precisely at which point your judgment and ours part company. The work covers our analysis and our counsel; it does not extend to carrying out whatever you decide, nor does it constitute legal, tax, or accounting advice, on which you should continue to rely on the advisers who ordinarily provide it to you.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "How We Mean to Work",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our manner is deliberate, and I would rather describe it to you now than have it come as a surprise once we have begun. We start by learning how the firm actually operates and what each business is asked to contribute before we commit any judgment to paper; we test what we are told against evidence we can gather for ourselves; and we bring you our thinking as it forms rather than holding it back for a single unveiling at the close, so that the conclusions, when they arrive, contain nothing you are meeting for the first time. Where the evidence will not carry a firm conclusion we will say so, and say what it would take to reach one, because an assessment that overstates its own certainty is of no use to a firm that must act on it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "The People You Will Be Working With",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The day-to-day work will be carried out by two of our research staff, whom you will come to know well. Steven Hunt will assemble the market and company evidence that frames the review and will be your most frequent point of contact on questions of data and scheduling; he is quick and resourceful, and candid about the places where the evidence is thinner than one would like. Melissa Casey will build the exhibits and hold the analysis together from one working session to the next, and she is exacting about sources and labels in a way that repays the attention. I will keep my own hand on the judgments that decide how far a conclusion can be pressed before it outruns what supports it, and nothing will leave the firm under our name without my having read it first.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Our Fee and When We Begin",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the engagement as I have described it is {{fact:f:E-2019-002.fee}}, fixed for the scope set out above and covering the time of the people named in it. The work will begin on {{fact:f:E-2019-002.start}} and is expected to run for something on the order of nine months, though we will treat it as finished when the work is genuinely done rather than when the calendar says that it ought to be. Should you ask us to widen the work materially beyond what this letter contemplates, I will raise the question of the fee with you and we will settle it together before that further work begins, so that nothing ever reaches you on an invoice you have not agreed to in advance.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Invoicing and Payment",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will render invoices against the fixed fee as the work proceeds rather than in a single sum at the close, and each invoice will be payable within thirty days of your receipt of it. The fee does not include incidental costs such as travel or the reproduction of materials; those we will incur only with your agreement and pass through to you at what they cost us, itemized so that no line on an invoice is a matter of guesswork.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Duration and Ending the Engagement",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Either of us may bring the engagement to an end on fourteen days' written notice to the other, for any reason or for none, and I would far rather you felt free to exercise that liberty than continue with work you had ceased to find useful. Should you be the one to end it, you will owe us for the work properly performed to that point and for any costs already committed on your behalf, and for nothing beyond that.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Everything we learn about {{fact:f:E-2019-002.client}} in the course of this work we will hold in confidence and use only for the purposes of the engagement, an obligation that binds each member of the team, that survives the end of our involvement, and that extends to the fact of the engagement as fully as to its substance. We ask the same of you in respect of the written materials and the methods we share with you, which are the firm's own and are given for your use rather than for wider circulation.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "The Limit of Our Liability",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will carry out the work with the care and skill you are entitled to expect of a firm engaged for it, and we stand behind what we do. We do not, however, govern the decision you will ultimately take or the conditions under which you will act on it, and so, except to the extent the law does not permit such a limit, our liability to you arising out of this engagement is limited to the fees paid under it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "This agreement is governed by the law of the state in which our firm is established, and any dispute arising under it will be resolved by the courts of that state. Should any single provision of this letter be held unenforceable, the remainder of it will continue in force, unaffected by that provision's failure.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "If this letter reflects the understanding we reached, I would ask that you sign the enclosed copy where indicated below and return it to me, keeping the other for your own file; the one step needed on your side is that signature, and once it is in hand Steven Hunt will write to you within the week to arrange the first meetings and set out the initial requests for information, so that we lose no time in beginning.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "sigblock",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": [
+            "p:julie.ramsey",
+            "xp:barbara.ward"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0139",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Melissa Casey"},
-        {"kind": "paragraph", "text": "From: Steven Hunt"},
-        {"kind": "paragraph", "text": "Subject: Getting the portfolio work underway for Garza, Leblanc and Porter"},
-        {"kind": "paragraph", "text": "Melissa, before we get going on {{fact:f:E-2019-002.start}} I wanted the two of us reading from the same page, because a portfolio study is the kind of work that sprawls if you let it. {{fact:f:E-2019-002.client}} runs several businesses under one roof, and Barbara Ward has been plain about the question the board is really asking: where should the group put its money and its attention next, and is there anything in the mix that has stopped earning its place. Everything we do should point back at that one question. If we keep it in front of us, I think we can hold the work tight."},
-        {"kind": "heading", "level": 2, "text": "How I would carve up the work"},
-        {"kind": "list", "items": [
-          "The inside read. We pull each business's own numbers together, side by side, on a common definition, so that revenue, margin, the capital each ties up, and its growth line all mean the same thing across the group. Barbara Ward's operations team is our way in for most of this.",
-          "The market read, which is mine. For each business I want to know the market it sits in, how fast that market is moving, and where the unit stands against the people it competes with. My early hunch is that a couple of these units look stronger on the inside numbers than their markets will support over time, but that is exactly the sort of thing I would rather test than assert, so treat it as a flag and nothing more.",
-          "The outside benchmark, which is yours. You set each business against comparable companies we can read from outside, so that we have a measure of strong and weak that does not come only from within the group.",
-          "The synthesis. Late in the engagement we put every business on one map, attractiveness against position, and turn that into a view on where the money should go and in what order. That part waits until the first three lines are solid."
-        ]},
-        {"kind": "paragraph", "text": "One note on how we handle their side. Barbara Ward mentioned that her operations people are already stretched, so let us consolidate every request, ask once, and keep the log tight enough that nobody at Garza, Leblanc and Porter is chased twice for the same file. A fair amount of the unit-level performance data is sensitive inside the group as well, so it stays between us and does not travel."},
-        {"kind": "heading", "level": 2, "text": "The first couple of weeks"},
-        {"kind": "list", "items": [
-          "I get one consolidated data request over to Barbara Ward this week, rather than dribbling asks at her team, and I open a log of what we have requested and what has come back.",
-          "You and I agree the common definitions for a business, its margin, and the capital it uses before either of us calculates anything, so that we are not arguing in month four about what a number means.",
-          "I start the market scan on the two largest units, since they will carry most of the answer.",
-          "We compare notes at the end of next week, gaps and all, and see whether the shape of the portfolio is starting to show."
-        ]},
-        {"kind": "paragraph", "text": "None of this is a finding yet, obviously; it is a plan and a data request going out the door. Poke holes in any of it now, while changing it costs nothing. If the definitions or the split of work look off to you, say so before we are committed to them. And if the request is going to land badly with anyone on their side, better we hear it from you before it goes out than from Barbara Ward afterward."}
+        {
+          "kind": "paragraph",
+          "text": "To: Melissa Casey\nFrom: Steven Hunt\nRe: Kickoff, portfolio strategy for {{fact:f:E-2019-002.client}}",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are engaged to help {{fact:f:E-2019-002.client}} decide where the firm's capital and attention are best directed across its portfolio over the year ahead. The client wants a recommendation their leadership can act on, grounded in evidence rather than a survey of every option. This memo sets down what we are trying to produce and who owns which part of it, so that we begin in step instead of converging on it later.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement began on {{fact:f:E-2019-002.start}}, and our sponsor on the client side is Barbara Ward, the Director of Operations, who has agreed to clear our path to the data and the people we will need. Any request of substance to the client goes through her, and I will hold the running list of what we have asked for so that it stays on one channel.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first weeks have one job, and it is a narrow one. We build a shared and sourced picture of the portfolio as it stands before we form any view on where it should go. We do not draft conclusions yet; those come later, and only once the facts they rest on are settled and agreed with the client.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The end product is a written recommendation on the portfolio with the workpapers standing behind it, and everything in the plan below feeds one or the other. It is worth saying plainly that we are advising the decision, not making it: the choice remains the client's, and we keep our analysis and our recommendation clearly apart so their leadership can weigh the evidence before being handed the answer.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "How the work divides",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Portfolio and market evidence. I take the market and competitive read, so we can place each business against what its market is actually doing, and I hand off each figure with its source attached.",
+            "Exhibits and the analytical pack. Melissa Casey owns the exhibits and keeps the pack consistent from one working session to the next, on the standing principle that an unsourced chart is an unfinished one.",
+            "Internal reconciliation. Melissa Casey leads the reconciliation of the client's own numbers across the businesses, so that when the comparison is drawn no one has to argue about the denominator after the fact.",
+            "Data requests. Every request to the client routes through one list rather than several; I keep it current so that Barbara Ward is never asked twice for the same thing.",
+            "The engagement file. We open a shared file this week and put sources into it as they arrive, so that any figure we later rely on can be traced back to where it came from."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "The first week",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The priority this week is access. I will send the client our first data request by the end of the week, and Melissa Casey will begin the market and portfolio scan in parallel so that we are not idle while the data comes back. Before we meet again, I would ask you for two things: the documents your side of the work will need from the client, and the people you would want to interview; send both to me by Friday and I will fold them into the single request.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "From next week we hold a short standing check-in between the two of us before anything goes to the client, kept to status, blockers, and what we still need from them. That keeps our requests to the client on one channel and their answers on the record, which matters more on an engagement of this length than it may seem at the outset.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will circulate a short index of what has arrived and what is still outstanding, and refresh it as things move, so that no one has to ask me twice for the same status and so the picture we carry into each check-in with Barbara Ward is an accurate one.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0140",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Barbara Ward\nCc: Melissa Casey"},
-        {"kind": "paragraph", "text": "Barbara,"},
-        {"kind": "paragraph", "text": "Thank you for the operating figures your team sent through last week. They came in clean and well labeled, which makes our side of the work a good deal faster. Melissa Casey has begun lining the businesses up against outside comparables, and I have started the market read on the two largest units, so the first picture of the {{fact:f:E-2019-002.client}} portfolio is beginning to take shape. We are not drawing conclusions from it yet; there is more to fold in before any of it holds still."},
-        {"kind": "paragraph", "text": "A couple of things would help us keep pace. We are still short the segment-level margins for the smaller businesses, and without those we cannot put the units on a common footing that means much. And I would like to sit with your operations people for an hour on each of the two main units, to walk through how the business actually runs; could you point me to the right person for each? We will schedule ourselves around their week, not the reverse."},
-        {"kind": "paragraph", "text": "Nothing here needs a decision from you beyond those two items. I am keeping a log of every request so that no one on the Garza, Leblanc and Porter team is chased twice for the same file, and I will copy you as items close."},
-        {"kind": "paragraph", "text": "Best,"},
-        {"kind": "paragraph", "text": "Steven Hunt"}
+        {
+          "kind": "paragraph",
+          "text": "Dear Barbara,",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The portfolio strategy work for {{fact:f:E-2019-002.client}} is moving on schedule, and I wanted to line up the last of the data we need before the picture goes any wider. We have the market and competitive read well under way, and Melissa Casey has finished a first pass on the business-by-business profiles, which are holding up against what we heard from you at the outset.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The gap now is on the internal numbers. Three of the schedules we asked for, the ones behind the two largest of the businesses, have not yet reached us, and without them Melissa Casey cannot close the comparison across the portfolio. If you can have them to us by the middle of next week, we can keep the review on its timeline rather than presenting around a hole in it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "I would also like to hold a short working session to walk you through what the read is showing before we take it any further. For that session I have you, Barbara Ward, Melissa Casey, and myself, Steven Hunt; let me know a day next week that suits you and I will hold it and send a short agenda round once the date is fixed.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0146",
       "blocks": [
-        {"kind": "paragraph", "text": "Minutes of the working session on the portfolio strategy for Garza, Leblanc and Porter, held at the client's offices. Recorded by Melissa Casey."},
-        {"kind": "heading", "level": 2, "text": "Attendees"},
-        {"kind": "list", "items": [
-          "Melissa Casey, Research Associate",
-          "Steven Hunt, Research Associate",
-          "Barbara Ward, Director of Operations, {{fact:f:E-2019-002.client}}"
-        ]},
-        {"kind": "heading", "level": 2, "text": "What we covered"},
-        {"kind": "paragraph", "text": "The session reviewed where each of the three workstreams stands and settled a handful of open definitions. We are far enough in to place real numbers against each business, but not yet at the point of a portfolio recommendation, which I said at the start."},
-        {"kind": "paragraph", "text": "Steven Hunt walked through the inside read. The common financial picture is now built for the larger businesses and reconciles to the figures the operations team supplied; two of the smaller units are still being normalized, because their segment margins arrived late. He kept what is confirmed apart from what is still being cleaned, and nothing discussed today rests on the units that remain open."},
-        {"kind": "paragraph", "text": "On the market read, Steven Hunt reported that the two largest units sit in markets moving at very different speeds, and that one of them looks stronger on its internal numbers than its market is likely to support. He marked that as a working read rather than a conclusion, pending the competitor detail still to come in."},
-        {"kind": "paragraph", "text": "I presented the outside benchmark. Against comparable companies, the group's margins are middling in two businesses and clearly below reference in a third. I set out where each comparison is firm and where it rests on a thin set of references, and where the reference base is thin I said so rather than smoothing it over."},
-        {"kind": "paragraph", "text": "One figure still carries a caveat. The margin for the third business depends on an allocation of shared overhead that the group makes one way and that comparable companies make another; until we restate it on a like-for-like basis, the gap to the benchmark is stated as a range rather than a single number. Barbara Ward agreed to have her finance contact confirm how the overhead is currently allocated."},
-        {"kind": "paragraph", "text": "Barbara Ward's main question was whether the smaller units could be set aside for now so that the work concentrates on the businesses that carry most of the group's capital. We agreed that the smaller units stay in the baseline for completeness but will not hold up the portfolio map, and that her team would supply the outstanding segment margins together with a first list of competitors for the two large units."},
-        {"kind": "paragraph", "text": "We also touched on sequencing. With the larger businesses now measured and the two smaller units close behind, the natural next block of work is the portfolio map. Steven Hunt and I agreed to hold the map back until the competitor detail for the two large units is in, so that the position axis is not built on a partial view, and Barbara Ward had no objection to that order."},
-        {"kind": "heading", "level": 2, "text": "Action items"},
-        {"kind": "table", "header": ["Action", "Owner", "By"], "rows": [
-          ["Deliver the outstanding segment margins for the smaller businesses and confirm the overhead allocation", "Barbara Ward", "Within two weeks"],
-          ["Normalize the two smaller units into the common financial picture", "Steven Hunt", "Before the next session"],
-          ["Firm up the outside benchmark for the third business and widen its reference base", "Melissa Casey", "Before the next session"],
-          ["Begin the competitive read on the two largest units", "Steven Hunt", "Before the next session"],
-          ["Set the next working session once the items above are in hand", "Melissa Casey", "On completion of the above"]
-        ]}
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: Portfolio Strategy for {{fact:f:E-2019-002.client}}",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "These minutes record the working session held to review the state of the portfolio strategy work for {{fact:f:E-2019-002.client}} and to fix what each party carries forward from here; they are intended as the shared record the team works from, and any attendee who reads a point differently should say so within the week so that the record can be corrected before it is relied on.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Steven Hunt, Research Associate, Calderwood Partners",
+            "Melissa Casey, Research Associate, Calderwood Partners",
+            "Barbara Ward, Director of Operations, {{fact:f:E-2019-002.client}}"
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Matters discussed",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Steven Hunt opened by taking the group through the market and competitive read as it now stands, setting out for each of the larger businesses how its market has moved over the recent period and where the demand behind it appears to be settling, and he was careful to distinguish the parts of that read that rest on external data from the parts that still rest on our own estimate, so that no one in the room left more confident than the evidence yet allows.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We then reviewed the business-by-business profiles I have been assembling, and we agreed that the shape of the portfolio is clearer than it was at the outset while several of the internal figures remain to be reconciled, in particular the cost allocations across the two largest businesses, which we cannot close until the client's finance team supplies the schedules behind them; until those arrive, the comparison across the portfolio carries a wider band than we would want to place in front of anyone.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "On method, we agreed to hold each figure in the profiles to a stated source before it is used, and to keep what we know apart from what we assume, marking every estimate as an estimate with the band around it; this discipline slows the assembly somewhat, but it is what will let the client's own people rerun the comparison after we have gone, which Barbara Ward noted her leadership would expect to be able to do.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Barbara Ward gave the client's account of where the outstanding schedules stand and undertook to have them to us by the middle of next month, and, before we set an action against that, she walked us through two reorganizations within the period that explain part of the discrepancy we had flagged in the earlier numbers; we agreed that the profiles would note those reorganizations plainly rather than smooth over the discontinuity they create in the figures.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Actions agreed",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "table",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [
+            "No.",
+            "Action",
+            "Owner",
+            "Target"
+          ],
+          "rows": [
+            [
+              "1",
+              "Deliver the cost-allocation schedules for the two largest businesses",
+              "Barbara Ward",
+              "By mid next month"
+            ],
+            [
+              "2",
+              "Close the portfolio comparison once the schedules are in",
+              "Melissa Casey",
+              "This period"
+            ],
+            [
+              "3",
+              "Firm up the market and competitive read and tie each figure to its source",
+              "Steven Hunt",
+              "Ongoing"
+            ],
+            [
+              "4",
+              "Note the two reorganizations in the affected business profiles",
+              "Melissa Casey",
+              "Next session"
+            ]
+          ],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will reconvene once the schedules are in hand and the portfolio comparison has been closed against them, and I will circulate these minutes to the group today; unless a correction reaches me within the week, they will stand as the agreed record of the session.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0147",
       "blocks": [
-        {"kind": "heading", "level": 1, "text": "Status Report: Portfolio Strategy"},
-        {"kind": "list", "items": [
-          "Client of record: {{fact:f:E-2019-002.client}}",
-          "Prepared for the operations sponsor at Garza, Leblanc and Porter",
-          "Prepared by Steven Hunt, with Melissa Casey",
-          "Reporting period: the four weeks ending with this report",
-          "Engagement roughly at its midpoint"
-        ]},
-        {"kind": "heading", "level": 2, "text": "Where things stand"},
-        {"kind": "paragraph", "text": "The engagement reached its midpoint this period and is on plan. The inside read is complete for every business in the group, the outside benchmark is substantially done, and we have begun turning both into the portfolio view that the recommendation will rest on. Measured against the engagement budget of {{fact:f:E-2019-002.fee}}, we are a little under half spent, which tracks the work performed rather than the calendar; the heavier synthesis hours fall in the periods ahead, and the budget was built around that. Nothing we have found points to a change in the fee or the timeline."},
-        {"kind": "paragraph", "text": "The short version, for anyone reading only this far: the diagnostic work is essentially finished, the picture is close to what we expected going in, and the work now turns from measuring each business to weighing the businesses against one another. We are not recommending anything yet, and will not until the portfolio map is built and tested."},
-        {"kind": "heading", "level": 2, "text": "Completed this period"},
-        {"kind": "list", "items": [
-          "Finished the common financial read across every business, including the two smaller units whose segment margins came in late and are now reconciled.",
-          "Completed the market read on the two largest units and confirmed that they sit in markets moving at very different speeds.",
-          "Brought the outside benchmark to substantial completion; Melissa Casey has each business set against a comparable set, with the reference base for the weakest unit now widened enough to rely on.",
-          "Restated the third business's margin on a like-for-like overhead basis, which closed the range we were carrying on it at the last session.",
-          "Held two working sessions on the largest units and documented how each business actually runs, which grounds the market read in more than the numbers.",
-          "Reconciled the unit-level figures to the group's own management accounts with your finance team, so that our baseline matches the numbers your reporting produces."
-        ]},
-        {"kind": "paragraph", "text": "None of that has gone to your board as a recommendation. These results are inputs to the portfolio view, and we have labeled them that way on every internal exhibit, so that no one mistakes a measurement for a verdict on a business."},
-        {"kind": "paragraph", "text": "A word on how the two sides have worked this period, since it bears on the pace. Your finance team turned the reconciliation questions around quickly, which is the main reason the inside read closed on schedule, and Melissa Casey and I have kept the single request log current so that nothing is asked for twice. The bulk of our hours this period went into cleaning and reconciling data rather than into analysis; that is the ordinary shape of a study at this stage, and it is why the lighter-looking spend does not mean the work is behind."},
-        {"kind": "heading", "level": 2, "text": "The period ahead"},
-        {"kind": "list", "items": [
-          "We place every business on one map of market attractiveness and competitive position, so that the group can be seen whole rather than one unit at a time.",
-          "Melissa Casey drafts the benchmark exhibits so that each business reads on a single page against its comparables.",
-          "We test each unit's standing against a normal year rather than the last twelve months alone, so that one soft or strong quarter does not tilt where a business lands on the map.",
-          "We walk the draft portfolio map past you before the next formal session, so that the options arrive already framed against how you see the businesses.",
-          "We prepare a first, clearly labeled set of portfolio options for the next working session, rather than a single answer."
-        ]},
-        {"kind": "heading", "level": 2, "text": "Risks and what we are watching"},
-        {"kind": "list", "items": [
-          "Competitor detail. The market read on the two large units leans on competitor information that is still partly incomplete; if the remaining detail shifts the picture, it will move where those units land, and you will hear it from us before it changes any recommendation.",
-          "Thin references on the smaller units. The comparable set for the smallest businesses is narrow, and a narrow benchmark can flatter or punish a unit unfairly; we are widening it and will flag any conclusion that rests on too few references.",
-          "Questions at the edge of scope. A couple of your managers have raised questions about pricing inside individual units that sit just outside the portfolio scope. We have logged them and will flag any that would change the fee before doing the work, not after."
-        ]},
-        {"kind": "paragraph", "text": "On balance, the work sits where it should at the halfway mark, and the coming period turns the diagnosis into portfolio options you can weigh. If the next period runs to plan, those options will be in your hands with room to consider them before the final month. I will hold this report to the same monthly cadence, and the request log stays open for anyone at {{fact:f:E-2019-002.client}} who wants to see what is outstanding."}
+        {
+          "kind": "heading",
+          "text": "Status Report: Portfolio Strategy for {{fact:f:E-2019-002.client}}",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for the leadership of {{fact:f:E-2019-002.client}} by the Calderwood engagement team, covering the period since our last update and looking ahead to the work that follows. The team on your engagement is Steven Hunt, who assembles the market and portfolio evidence, and Melissa Casey, who builds the analysis and the exhibits that carry it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Where the engagement stands",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is at its midpoint and on plan. The market and competitive read is substantially done, the business-by-business profiles are drafted, and the comparison across the portfolio is under way. One data dependency on your side, the cost-allocation schedules for the two largest businesses, is holding up the last of that comparison, and it is the item most worth your attention in the coming weeks.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The recommendation is not yet formed, and at this stage it should not be. We are still assembling and reconciling the evidence your leadership will need to weigh the portfolio with confidence, and we would rather bring you a narrow picture we can stand behind than a broad one we cannot. What follows is progress against the plan rather than conclusions drawn ahead of it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "What we completed this period",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The bulk of this period went to the evidence base, and it is now far enough along to describe. We have held each figure to a source as we go, so that the comparison, when it closes, will rest on numbers your own people can trace and rerun rather than take on trust.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Steven Hunt completed the market and competitive read for each of the larger businesses, distinguishing throughout what rests on external data from what remains our own estimate.",
+            "The business-by-business profiles are drafted, and Melissa Casey has reconciled the internal figures for all but the two largest businesses, where the schedules are still outstanding.",
+            "The benchmark set against which the portfolio is weighed is built and checked against outside data, so the comparisons rest on figures we can defend.",
+            "We held a working session with your team and agreed how two reorganizations within the period will be reflected in the affected profiles rather than smoothed over."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "A word on method, since it shapes what you can rely on. Every figure in the profiles carries a source in the engagement file, and where a number is our estimate rather than a settled fact it is labeled as an estimate, with the band around it; your finance owners can trace any line back to where it came from, and we would encourage them to do exactly that before your leadership sees the comparison.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "What comes next",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next period turns on the cost-allocation schedules from your finance team. Once they are in hand, Melissa Casey closes the portfolio comparison and we finalize the profiles for the two largest businesses, so that the picture moves together rather than in pieces. With the comparison closed, we will bring your team a first view of how the portfolio sorts before any recommendation is drawn from it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "That first view comes ahead of the recommendation itself and is meant to be argued with, so that your leadership can steer the analysis while it is still open rather than react to it once it has hardened. We will bring it to the working session that follows the close of the comparison, and we would welcome your team's challenge to it there.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "The engagement budget",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is a fixed fee of {{fact:f:E-2019-002.fee}}, and at its midpoint the work is tracking within it, with nothing in what remains that we expect to change that, provided the scope holds. Should you ask us to widen the work beyond the portfolio review as it was scoped, we would raise the fee with you and settle it before taking the further work on, as the engagement letter provides.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "What we are watching",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "The outstanding cost-allocation schedules are the one real dependency. Until they arrive the portfolio comparison carries a wider band than we want, and if they slip much past next month the final read slips with them; we would tell you rather than quietly absorb the delay.",
+            "The two reorganizations within the period create a genuine discontinuity in the internal figures. That is a matter of record rather than a problem, but it will shape how some of the businesses compare, and we are flagging it now so that it does not land as a surprise later.",
+            "Nothing else on the engagement is off plan at this point."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will send the next update after the working session that follows the close of the comparison. If anything here would be better discussed before then, Steven Hunt is your point of contact and will make the time.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0150",
       "blocks": [
-        {"kind": "paragraph", "text": "Notes from the working session on the portfolio strategy for Garza, Leblanc and Porter, at the client's offices. Recorded by Melissa Casey."},
-        {"kind": "heading", "level": 2, "text": "Present"},
-        {"kind": "list", "items": [
-          "Melissa Casey, Research Associate",
-          "Steven Hunt, Research Associate",
-          "Barbara Ward, Director of Operations, {{fact:f:E-2019-002.client}}"
-        ]},
-        {"kind": "heading", "level": 2, "text": "Discussion"},
-        {"kind": "paragraph", "text": "This session was about choosing among the portfolio options, not building them. The map of the businesses has held up through testing, and the purpose today was to put the choices in front of Barbara Ward and walk the trade-offs before we commit to a single recommendation."},
-        {"kind": "paragraph", "text": "Steven Hunt presented the portfolio map. Two businesses fall in the invest quadrant, with a strong position in markets that are still growing; two sit in hold, sound enough but in markets that are flat; and one lands in the fix-or-exit corner, a weak position in a market that is not helping it. He noted that the placement does not change when we set aside the last twelve months for a more normal year, which gives us some confidence the map is not resting on an unusual period."},
-        {"kind": "paragraph", "text": "We spent most of the hour on the two hold businesses, because they are the ones where reasonable people could disagree. Both earn their keep today, but one competes in a market that comparable companies are quietly leaving, and the question is whether hold there really means hold and watch. Steven Hunt's view was that it does, provided the group sets a marker now for what would move that unit into the fix-or-exit column later. I noted where the outside references support that reading and where they are still too thin to lean on."},
-        {"kind": "paragraph", "text": "I confirmed that every business on the map traces to both an inside figure and an outside comparable, and that the reference base for the smallest unit, thin at the last session, is now wide enough to rely on. There are no open benchmark items on our side."},
-        {"kind": "paragraph", "text": "On the fix-or-exit unit, I laid out the outside comparables once more, so that the group could see the judgment is not ours alone. Comparable companies in that market carry both thinner margins and slower growth than the group's other businesses, and several have narrowed or left the line over the last few years. That is the reference base behind placing the unit in that corner, and I marked the two references I would treat as the weakest of the set."},
-        {"kind": "paragraph", "text": "Barbara Ward's read was that the board will move on the two invest businesses without much argument, but will not accept a recommendation to exit the weakest unit without a clearer account of what leaving it in place would cost the group over the next few years. She asked us to develop that before we recommend, and was comfortable treating the two hold businesses as steady for now."},
-        {"kind": "paragraph", "text": "Before we closed, we settled the shape of the final readout. Barbara Ward preferred a short recommendation for the board, with the full portfolio map and the benchmark detail behind it as an appendix, so that the reasoning is on hand without crowding the decision. We will build the final material to that shape."},
-        {"kind": "heading", "level": 2, "text": "Actions"},
-        {"kind": "list", "items": [
-          "Steven Hunt: cost the case for leaving the weakest unit in place over the next few years, as the counterweight to an exit recommendation. Before the final session.",
-          "Melissa Casey: assemble the final exhibit pack and confirm every business ties to both an inside figure and an outside comparable. Before the final session.",
-          "Steven Hunt: firm up the recommendation on the two invest businesses so that it can be put to the board at the right level. Before the final session.",
-          "Barbara Ward: confirm the board's appetite for an exit so that the recommendation on the weakest unit is pitched realistically. Within two weeks."
-        ]}
+        {
+          "kind": "heading",
+          "text": "Minutes of the Working Session: Portfolio Strategy for {{fact:f:E-2019-002.client}}",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "These minutes set down what was reviewed and agreed at the working session on the portfolio strategy work for {{fact:f:E-2019-002.client}}, held to take stock now that the comparison across the portfolio has been closed and to agree how the remaining weeks are spent; as before, any attendee who reads a point otherwise should raise it within the week so that we correct the record together.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "In attendance",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Steven Hunt, Research Associate, Calderwood Partners",
+            "Melissa Casey, Research Associate, Calderwood Partners",
+            "Barbara Ward, Director of Operations, {{fact:f:E-2019-002.client}}"
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Summary of discussion",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We began with the state of the completed comparison, and Steven Hunt took the group through how the portfolio now sorts once the cost-allocation schedules from the client are folded in, noting that the picture held broadly to the earlier read while sharpening it in the two places we had flagged as uncertain; we agreed that the two largest businesses now sit where the reconciled figures put them rather than where the earlier estimates had, and that the profiles should say as much plainly.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "On method we held to the same discipline as before, keeping what the reconciled figures now show apart from what remains an estimate and marking each accordingly, since the value of the comparison to the client rests on their being able to rerun it after we have gone; Steven Hunt confirmed that every line in the closed comparison traces to a source in the engagement file, which is the condition we had set for treating it as settled.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We then worked through the options for the portfolio that the analysis supports, and rather than settle on one we set out the handful of criteria against which the client's leadership will weigh them, so that the choice reaches them as a set of reasoned alternatives and not as a single answer handed down; Barbara Ward was clear that her leadership would expect to see the reasoning behind each option, and we agreed that the reasoning would travel with the options rather than be held back for the recommendation.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Before closing we reviewed what remains, and I set out the state of the exhibits, which are largely built but not yet through a final check for sourcing and labels; we agreed that nothing would go in front of the client's leadership as settled until the underlying figures had been through both our review and the client's, and Barbara Ward undertook to line up the finance owners for that review in the coming weeks.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Actions carried forward",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Steven Hunt to finalize the portfolio sort and confirm each figure against its source in the engagement file.",
+            "Melissa Casey to complete the final sourcing and labeling check on the exhibits before any of them are shown.",
+            "Barbara Ward to line up the client's finance owners to review the reconciled figures.",
+            "The team to prepare the portfolio options and their reasoning for the client leadership's review at the next session, ahead of any recommendation."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will reconvene once the exhibits have cleared their final check and the client's review of the figures is arranged, and I will circulate these minutes to the group today; unless a correction reaches me within the week, they stand as the record of the session.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        }
       ]
     }
   ]

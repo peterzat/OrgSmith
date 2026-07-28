@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session: Supply Chain Baseline and Early Cost Drivers",
+      "text": "Working Session -- Supply Chain Review for {{fact:f:E-2010-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Minutes recorded by Michael Walker. Subject: {{fact:f:E-2010-001.client}} supply chain review, working session held with the client.",
+      "text": "The session settled two things that shape the next stretch of work: the baseline of the current supply chain is close enough to closing that the team can begin the benchmark against it, and the split of transport cost that has held one part of the picture open will be resolved within the week. The process detail, the early observations, and the client's read on pace all sit behind those two decisions. These minutes record who attended, what we covered, and who owns each next step.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
+      "text": "In attendance",
       "level": 2,
       "items": [],
       "header": [],
@@ -37,7 +37,7 @@
         "Michael Walker, Engagement Manager",
         "Deborah Gordon, Associate",
         "Daniel Leach, Research Associate",
-        "Sandra Flores, Chief Operating Officer, Poole, Mcknight and Rush"
+        "Sandra Flores, Chief Operating Officer, {{fact:f:E-2010-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -45,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Baseline and Data",
+      "text": "Where the baseline stands",
       "level": 2,
       "items": [],
       "header": [],
@@ -54,7 +54,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Daniel Leach took the group through the state of the baseline, which has come together well over the past two weeks. The purchasing and inventory data now reconcile against the management accounts at the category level, and the freight file ties at the carrier level. What is still soft is the lane-level view of freight, where a good share of the invoices arrive coded by carrier rather than by route, so Daniel Leach has been rebuilding the lane picture by hand. He was careful to say that the numbers behind the expedited-freight cost are close but not yet final, and that he would rather hold that figure back a few days than put something in front of everyone that he already expects to move. Sandra Flores offered to have her logistics team pull the lane coding at source, which would save the manual step, and we agreed she would check what is feasible.",
+      "text": "The baseline is largely built and lines up with what the operators describe. Deborah Gordon walked through the picture: the flow from supplier to point of use is mapped, the inventory the network carries is quantified, and the service levels are set against it, with only the usual small gaps between the documented process and the one actually run. The single open item is on the cost side, and it is transport: the file the client sent groups inbound and internal movement under one line, so we cannot yet separate what each of them costs. Daniel Leach has the request in with the client's finance team to break the two apart.",
       "level": 1,
       "items": [],
       "header": [],
@@ -63,7 +63,7 @@
     },
     {
       "kind": "heading",
-      "text": "Early Cost Drivers",
+      "text": "What the analysis is beginning to show",
       "level": 2,
       "items": [],
       "header": [],
@@ -72,7 +72,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Deborah Gordon then walked through the patterns the baseline is starting to show, and there are three worth recording. Inventory is sitting longer than the service level requires in two of the regional warehouses, which points to safety stock set by habit rather than by demand. A meaningful part of the inbound freight is moving on expedited terms, which usually means the plan and the replenishment are not talking to each other early enough. And ordering in several categories is happening more often, and in smaller quantities, than the volumes justify. Deborah Gordon was clear that these are the current read of the data and not yet findings; each one needs the remaining interviews and a firm number behind it before we put it to the client as something to act on. Sandra Flores recognized the warehouse pattern from her own experience and gave us two examples we had not captured, which Daniel Leach noted for the analysis.",
+      "text": "A few observations are firm enough to note, though the team offered them as observations and not yet as findings. Inventory is carried unevenly across the network, and in two locations it buys less protection against a stockout than its cost would suggest. Freight appears to lean more on expedited shipments than a network of this size should need, though that reading waits on the transport split before it can be put with any confidence. Sandra Flores noted that both patterns match what her site managers have raised, which gives the team a useful place to press.",
       "level": 1,
       "items": [],
       "header": [],
@@ -81,7 +81,7 @@
     },
     {
       "kind": "heading",
-      "text": "Open Items and Next Steps",
+      "text": "Pace and the next stretch",
       "level": 2,
       "items": [],
       "header": [],
@@ -90,7 +90,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We closed by agreeing what has to happen before the next session. The lane-level freight view has to be settled, either from source or by finishing the manual rebuild. The two purchasing interviews still outstanding need to be done, since they bear directly on the ordering pattern. And Sandra Flores asked that we not characterize the results to the warehouse and purchasing managers before those interviews, so the sessions stay diagnostic and do not turn into negotiations. We agreed, and I will hold the team to it.",
+      "text": "Michael Walker set out the sequence from here: once the transport split lands and the baseline closes, the benchmark follows, and the improvement options are framed against it rather than ahead of it. Sandra Flores asked whether the open cost item puts the timeline at risk. The read is that it does not, provided the split arrives inside the coming week, which is why it sits at the top of the actions below.",
       "level": 1,
       "items": [],
       "header": [],
@@ -99,7 +99,7 @@
     },
     {
       "kind": "heading",
-      "text": "Action Items",
+      "text": "Actions",
       "level": 2,
       "items": [],
       "header": [],
@@ -112,32 +112,41 @@
       "level": 1,
       "items": [],
       "header": [
-        "Item",
         "Owner",
-        "Due"
+        "Action",
+        "By when"
       ],
       "rows": [
         [
-          "Check whether the lane-level freight coding can be pulled at source and confirm what the logistics team can do",
           "Sandra Flores",
-          "Before the next working session"
+          "Have the finance team separate inbound and internal transport into distinct cost lines, or point Daniel Leach to the underlying detail",
+          "Within one week"
         ],
         [
-          "Finish the lane-level freight rebuild and close the baseline",
           "Daniel Leach",
-          "Middle of next week"
+          "Close the transport split and reconcile the freight figures to the process map",
+          "On receipt of the detail"
         ],
         [
-          "Complete the two outstanding purchasing interviews and log the ordering-pattern detail",
-          "Michael Walker",
-          "Before the next session"
-        ],
-        [
-          "Hold the early cost drivers inside the team until the interviews are complete",
           "Deborah Gordon",
-          "Ongoing"
+          "Close the baseline and begin the benchmark against a comparable operation",
+          "Two weeks"
+        ],
+        [
+          "Michael Walker",
+          "Confirm the benchmark review date with the client once the baseline closes",
+          "On close of baseline"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The next step is the transport split. Once the client's finance team returns it, Deborah Gordon will close the baseline and open the benchmark, and Michael Walker will set the date for the first review of what it shows.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

@@ -1,54 +1,203 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0033",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0156",
       "blocks": [
-        {"kind": "heading", "text": "Status Report: Customer Retention Program for Carroll, Merritt and Williams", "level": 1},
-        {"kind": "table",
-         "header": ["Field", "Detail"],
-         "rows": [
-           ["Client", "{{fact:f:E-2019-001.client}}"],
-           ["Program", "Customer Retention Program"],
-           ["Prepared for", "Client leadership"],
-           ["Prepared by", "Deborah Jimenez, Engagement Manager, Calderwood Partners"],
-           ["Stage", "Final phase, ahead of closeout"]
-         ]},
-        {"kind": "heading", "text": "Where the program stands", "level": 2},
-        {"kind": "paragraph", "text": "The retention program for Carroll, Merritt and Williams is in its final phase. The build is complete and the pilot is closed. What is left is the handoff to your team and the final readout to your leadership. The program is on plan and within budget. This report covers three things: the work closed since the last update, the items still open, and the risks I am managing into closeout with the response I am putting against each."},
-        {"kind": "paragraph", "text": "In brief, the pilot met the retention target we set with your team, the tools are built and tested, and the risk now sits in the handoff rather than in the work itself. The sections below give you the basis for that read and the items I still need from you before we close."},
-        {"kind": "heading", "text": "Closed this period", "level": 2},
-        {"kind": "paragraph", "text": "The pilot of the retention interventions ran to its full term and the results are in. Mary Parker compiled the outcome data and reconciled it to your own account records, so the figures rest on your system and not on our estimates. The following are complete."},
-        {"kind": "list", "items": [
-          "The at-risk account model was validated against the pilot cohort. Its predictions held within the tolerance we set at the start, so the model can go to your team as a working tool and not as a prototype.",
-          "The retention playbook is drafted and reviewed with the delivery leads. Each play states the trigger, the action, and the owner, at a level a manager can run from without us in the room.",
-          "The pilot outcomes are reconciled to your account records, line by line, so the retention figures can be traced back to a source your finance team already trusts.",
-          "The training materials for the retention team are prepared, built around the playbook rather than around general principles, so the sessions rehearse the actual plays your team will run."
-        ]},
-        {"kind": "paragraph", "text": "One result deserves to be stated plainly. The retention lift in the pilot concentrated in a single account segment, and the effect in the other segments was smaller than we modeled going in. Mary Parker has documented where the difference came from. It does not change the case for the program, but it does change where your team should spend its effort first, and the playbook now sets that order rather than treating every segment the same."},
-        {"kind": "heading", "text": "Open items", "level": 2},
-        {"kind": "paragraph", "text": "The remaining work turns a finished design into something your organization runs on its own. Assuming the readout confirms the direction, the open items are these."},
-        {"kind": "list", "items": [
-          "The final readout to your leadership, presenting the pilot results and the case for taking the program across the wider account base.",
-          "Handoff of the playbook and the monitoring dashboard to the client owners you name, with a working session on each.",
-          "A documented refresh procedure for the at-risk model, so it keeps producing accurate lists after the engagement ends.",
-          "Closeout documentation, including the reconciled pilot results and the assumptions behind each retention figure."
-        ]},
-        {"kind": "heading", "text": "Budget", "level": 2},
-        {"kind": "paragraph", "text": "The engagement is a fixed fee of {{fact:f:E-2019-001.fee}}, and it is tracking within that fee. Nothing in the closeout plan requires effort beyond what was scoped, and I do not expect a budget surprise at the end. If a late request falls outside the original scope, I will bring it to you before any work is done against it, not after, so the fee holds no surprises when we close."},
-        {"kind": "heading", "text": "Risks and the response to each", "level": 2},
-        {"kind": "paragraph", "text": "Three risks bear watching into closeout. None is fatal if it is handled now, and each is named here with the response I am putting against it."},
-        {"kind": "list", "items": [
-          "Adoption. The playbook produces retention only if your team runs it after we leave. The training sessions are scheduled and each play has a named owner on your side, so the responsibility transfers to a person and not to a document.",
-          "Model upkeep. The at-risk model degrades if it is not refreshed each month. The refresh procedure is documented and assigned to one of your analysts, and we will run the first refresh together before the engagement closes, so the first cycle is a rehearsal and not a solo test.",
-          "Measurement lag. Retention shows over quarters, not weeks, so the full effect of the program will not be visible by closeout. We have agreed a short set of leading indicators for your team to watch in the interim, so the value of the work is not left waiting on a number that arrives after we are gone."
-        ]},
-        {"kind": "heading", "text": "Before we close", "level": 2},
-        {"kind": "paragraph", "text": "Please confirm the client owners for each play, so the handoff lands on named people and not on a function. Please also hold a date for the final readout with your leadership present, since the decisions that keep the program running after us belong to them. Questions on any part of this report can come to me directly, or to Mary Parker on the pilot data behind it."},
-        {"kind": "sigblock", "signers": ["p:deborah.jimenez"]}
+        {
+          "kind": "heading",
+          "text": "Status Report: Customer Retention Program for {{fact:f:E-2019-001.client}}",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The customer retention program for Carroll, Merritt and Williams is in its final weeks and will close on plan. The work set for this period is done, the fee is on track, and one item is open that your team can settle this week. I have put the standing first. The detail follows it, in the order you will want to read it: where the program sits, what closed this period, the fee, the work left before close, and the open items.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Where the program stands",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The program has passed its analytical phases and is now in closeout. The two questions it was built to answer are answered. We know which accounts were most at risk of leaving, and we know the reasons behind the attrition rather than only its rate.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The retention analysis is finished and was accepted at the last review. The revised save process that came out of it is in place and has run under your own team for two weeks, without our hand on it. What remains is delivery and transfer, not analysis.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The point I would stress is that the save process now lives with your people. When we began, the save work was reactive and largely undocumented. It now has an owner, a written procedure, and a fixed place in the weekly cadence. That is the outcome the program was meant to leave behind, and it is in place before we go.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "On the results, I will keep to what the report will show. The at-risk accounts identified at the start have been worked through the new process, and the reactivation figures are the ones your finance team is confirming now. Those numbers belong in the report, checked and sourced, and that is where you will see them.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Completed this period",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three items closed since the last report, each set against the part of the program it serves.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Cohort retention analysis. Mary Parker completed the comparison of the reactivated accounts against the at-risk cohort and filed the sources with the schedule, so any figure in it can be traced back to where it came from. This was the last piece of evidence the final report was waiting on.",
+            "Save process handover. The revised save process was moved to your team, and we watched two full cycles of it run without our support before we called it settled. Your people are using it as designed, not as a form to be filled in.",
+            "Final report draft. The report is drafted and its exhibits are out for your review. It reads the results against the goals set at the start and records the few things that should be watched once we have gone."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Fee",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "The program is billed against a fixed fee of {{fact:f:E-2019-001.fee}}. Nearly all of that fee is now earned, which matches the share of the work complete. The closeout falls within the fixed fee. No further authorization is needed, and I do not anticipate asking for one.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Remaining before close",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three things are left, and all of them sit in the closing weeks.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "list",
+          "text": "",
+          "level": 1,
+          "items": [
+            "Take in your comments on the draft report and issue the final version.",
+            "Deliver the handover pack so your team can run the retention process without us, including the source files that sit behind each exhibit.",
+            "Hold the closing review with your leadership and walk the results from the goals through to the items left to watch."
+          ],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Open items",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "One item is open, and it is the only thing now holding the final report. Your finance team has not yet confirmed the figures in the reactivation exhibit, which we drew from the retention data held by {{fact:f:E-2019-001.client}}. The confirmation is a check against your own ledger, not a rework of the analysis. Nothing else now open is likely to move the close, and I have flagged this one only because the report cannot issue until it clears.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "heading",
+          "text": "Recommendation",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confirm the reactivation figures this week and the program closes on plan. Deborah Jimenez will bring the final report to the closing review as soon as they are in hand, and Mary Parker will send the source file alongside it so your finance team can check any number directly. I will confirm the date of the closing review with your office once the figures are back.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "sigblock",
+          "text": "",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": ["p:deborah.jimenez"]
+        }
       ]
     }
   ]

@@ -1,0 +1,24 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "calderwood-partners",
+  "dimension": "finance_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-realism-1",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": [
+        "d:0084",
+        "d:0102",
+        "d:0026"
+      ],
+      "summary": "Engagement fees run inverse to the seniority and size of the team staffed on them: the firm's Principal-led engagements are the cheapest in the book per month and priced below its own labor cost, while its all-junior engagements cost several times more, so the fees bear no relation to what the depicted work would cost.",
+      "evidence": "All three letters price a fixed fee that, in identical words, 'covers the time of the people named above,' so the labor-to-price relation is directly comparable. d:0084 (Working Capital, ~7 months) charges $30,000 (~$4.3k/mo) for a team led by 'Jason Torres, a Principal of the firm ... Brenda Rodriguez, a Senior Consultant ... John Vasquez,' plus Managing Principal review. d:0102 (Commercial Due Diligence, ~7 months) charges $112,500 (~$15.2k/mo) although 'the daily work will rest with three of our people' who are all Research Associates, the firm's most junior title (Casey, Hart, Griffin). d:0026 (Growth Strategy, ~7 months) charges $113,000 for one Senior Consultant plus a Research Associate. A Principal-led, four-person, seven-month engagement priced at a quarter of an all-junior one is not real pricing; $30,000 does not even cover a Principal's loaded time over seven months against 2013 compensation of $2,413,400 across the roster (finance.json). Across the 22-engagement book, fee-per-month spans 8x ($4.4k-$34.2k) with no relation to team seniority or year, and the earliest (2008, ~$5.5k/mo) and latest (2022, ~$7.3k/mo) engagements price alike while firm revenue rises 2.67x."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

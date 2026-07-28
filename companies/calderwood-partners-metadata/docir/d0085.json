@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: Jason Torres, Brenda Rodriguez\nFrom: John Vasquez\nRe: Walker-Murray working capital program, how the first weeks are set up",
+      "text": "To: Jason Torres, Brenda Rodriguez\nFrom: John Vasquez\nRe: Kickoff of the working capital program for {{fact:f:E-2013-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,38 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We are under way as of {{fact:f:E-2013-001.start}}, and this note lays out how the {{fact:f:E-2013-001.client}} working capital program is organized so that we are all working from the same picture before the first session with the client. The objective, put plainly, is that Walker-Murray has more cash tied up in its operating cycle than a company of its size needs, and management wants that cash back without breaking the machinery that produces it. What we do not yet know is how much of it is actually recoverable, and I want to be honest about that at the start. The first weeks exist to find out, and in particular to separate the cash that is genuinely trapped from the cash that only looks trapped because of how the books are kept.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "The lines of work",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Receivables and collections. How much Walker-Murray is owed, how old the balance is, and why the slow accounts are slow. The aging is the first thing we pull, and Brenda Rodriguez owns it.",
-        "Payables and payment terms. What the company owes, the terms it pays on in practice against the terms on paper, and where terms are being given up for no return. Brenda Rodriguez has this alongside the receivables.",
-        "Inventory. What is held, how quickly it turns, and how much of it is buffering real swings in demand rather than sitting against forecasts that no longer hold. This one comes a little later, once the data is in."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "It is worth saying why we keep these three together rather than handing each to a different person and adding up the answers. They pull on one another. Squeeze payables too hard and suppliers quietly tighten the terms they offer; cut inventory without understanding the demand it covers and a balance-sheet gain turns into stockouts on the floor. The part of this work that is easy to get wrong is the trade-offs between the three, so we will hold them in one view.",
+      "text": "The point of this memo is to fix who owns what before the working capital program for {{fact:f:E-2013-001.client}} gets under way, so that we begin in step rather than sort it out on the run. The engagement begins on {{fact:f:E-2013-001.start}}, and the opening weeks belong to gathering and cleaning the client's data rather than to analysis. Nothing we conclude later will be worth more than the figures it rests on, so the figures come first, and the plan below is built around getting them clean before anyone reaches for a recommendation.",
       "level": 1,
       "items": [],
       "header": [],
@@ -53,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "For my part, I am pulling the background on Walker-Murray's sector and the working-capital norms that companies like it tend to run to. That matters because a number on its own tells you little; days of receivables that look high against one industry are ordinary in another, and we should be able to tell the client where it is a genuine outlier and where it is simply where its business sits. I will have a first read on that before the receivables aging is finished, so the two land together.",
+      "text": "What this first phase produces is a current-state picture the client and we both accept: how long cash sits in receivables, payables, and inventory today, and where the largest and most reachable balances are. It does not produce recommendations, which come later and only once the underlying numbers are agreed, and I say that plainly here so we do not let an early read harden into a conclusion before the data supports it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,38 +31,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "On rhythm, the engagement runs the way ours usually do. Working sessions with the client produce written minutes; between them we trade shorter notes on data and scheduling. We will also hold a short internal check-in each week to keep the three lines moving at the same pace, since it is easy for the inventory piece to fall behind while the receivables work is generating the visible progress.",
+      "text": "The work divides into three strands. The first is the data, which is mine. I will pull the receivables aging, the payables terms, and the inventory records, and reconcile each against the trial balance so that we are working from numbers the client's own finance team will recognize. Where a figure will not tie out I will flag the gap rather than smooth it over, and I will keep a short log of what I pulled and how, so that any number can be reproduced without my having to remember it. James Keller, the Director of Operations at {{fact:f:E-2013-001.client}}, is our point of access on their side, and I will route every request through him so that we ask once and ask cleanly rather than pester different people for the same file.",
       "level": 1,
       "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Getting set up",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "Our contact on the client side is James Keller, Director of Operations at Walker-Murray. Data requests and access questions go to Keller, and we should batch them rather than send them one at a time, since he is fielding this on top of his own job.",
-        "David Wilson in Operations has the shared workspace set up and will handle scheduling for the working sessions and the internal check-ins. If you need a room, a call arranged, or files moved onto the shared drive, that is David Wilson's desk.",
-        "I will keep a running log of what we have asked the client for and what is still outstanding, so nothing gets chased twice or dropped between sessions."
-      ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Jason Torres will frame the first working session and set the two or three questions we most need answered early. If anything here does not match how you understood the scope, say so now, while the plan is still easy to change, and we will fix it.",
+      "text": "The second strand is the analysis, which Brenda Rodriguez leads. Once the data is clean she will build the working capital picture from it, measuring how long cash is tied up across each of the three areas and marking where the largest and most reachable balances sit. She and I will keep a shared record of every figure and its source, so that any number we later put in front of the client can be traced without a second search. The third strand is the client-facing thread, which Jason Torres owns; he will set the cadence of the check-ins and be the single voice the client hears from us, so that our messages do not arrive from three directions at once.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "On resourcing, David Wilson has the three of us blocked for the engagement, and I have asked him to confirm the allocation in writing so the calendar holds against the other work in the office. For the coming week the priority is access and the first request. I will send the opening data request to James Keller by Friday; Brenda Rodriguez will stand up the model skeleton so that it is ready the moment the extracts land; and Jason Torres will confirm the check-in schedule with the client and circulate it to us. What I need from each of you before we meet again is your list of the documents and contacts your part of the work will require, sent to me by the end of the week, so that I can fold it into one request to the client rather than several.",
       "level": 1,
       "items": [],
       "header": [],

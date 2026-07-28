@@ -1,88 +1,192 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0003",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0013",
       "blocks": [
-        {"kind": "heading", "text": "Status Report: Operating Model Redesign for Hughes Group", "level": 1},
-        {"kind": "table",
-         "header": ["Field", "Detail"],
-         "rows": [
-           ["Engagement", "Operating Model Redesign"],
-           ["Client", "{{fact:f:E-2008-001.client}}"],
-           ["Prepared for", "Hughes Group leadership"],
-           ["Prepared by", "Jason Torres, Principal, Calderwood Partners"],
-           ["Position", "Midpoint of the engagement"]
-         ]},
-        {"kind": "heading", "text": "Where the work stands", "level": 2},
-        {"kind": "paragraph", "text": "We are at the midpoint of the operating model redesign for Hughes Group, and the work is on plan. The current-state analysis is finished, the design principles are agreed and signed off by your team, and we now have two viable target models costed against the same baseline. My recommendation is stated up front so that the rest of this report supports it rather than builds to it: adopt the consolidated model organized around shared services, and spend the second half of the engagement making it executable rather than reopening the choice. The sections below give you the basis for that recommendation and the risks that come with it."},
-        {"kind": "heading", "text": "Completed in this period", "level": 2},
-        {"kind": "paragraph", "text": "The first half of the engagement produced the evidence the design rests on. Brenda Rodriguez led the cost and organization analysis, and the figures are now yours rather than ours, reconciled to your general ledger and your headcount records instead of to any estimate we brought in. The following are complete:"},
-        {"kind": "list", "items": [
-          "A baseline cost model across the operating units, built from your own figures and tied back to the trial balance, so that every line can be traced to a source you already trust.",
-          "An organization map of roles, spans of control, and reporting lines as they stand today, including the functions that are duplicated across more than one unit.",
-          "An agreed set of design principles that any target model has to satisfy, so the eventual choice is measured against criteria your leadership set in advance.",
-          "Two costed target operating models, each measured against the same baseline, so the decision between them is a decision between numbers and not between preferences."
-        ]},
-        {"kind": "paragraph", "text": "One finding deserves to be stated plainly. The duplication in the back-office functions is larger than the figure your team carried into this work, and it is the single largest source of the savings that both target models show. Brenda Rodriguez has documented how that number was built, line by line, and it does not soften under examination. It is the reason the consolidated model separates from the alternative on the numbers."},
-        {"kind": "heading", "text": "The second half", "level": 2},
-        {"kind": "paragraph", "text": "The remainder of the engagement turns the chosen model into a plan the organization can actually run. Assuming the direction is confirmed, the work ahead is:"},
-        {"kind": "list", "items": [
-          "Detailed design of the target organization: the specific roles, spans, and reporting lines, drawn at a level a manager could staff from.",
-          "A transition plan that sequences the moves so the business keeps operating while it changes, with the dependencies between moves made explicit rather than left to be discovered.",
-          "A quantified benefit case phased over the first two years, with the assumption behind each figure written down and open to challenge.",
-          "A short set of decisions for your leadership team, each paired with the information needed to make it."
-        ]},
-        {"kind": "heading", "text": "Budget", "level": 2},
-        {"kind": "paragraph", "text": "The engagement is tracking within its planned budget and hours. The analysis phase came in on effort, and nothing in the plan for the second half requires more than was scoped. If the detailed design surfaces a question that genuinely falls outside the original scope, I will bring it to you before any work is done against it, not after, so that the budget holds no surprises at the end."},
-        {"kind": "heading", "text": "Risks worth watching", "level": 2},
-        {"kind": "paragraph", "text": "Three risks bear watching. None of them is fatal if it is managed early, and each is named here so that it can be."},
-        {"kind": "list", "items": [
-          "Data completeness in the two smaller units, where the records are thinner than in the core business. We have flagged the gaps; closing them needs a few hours from your controllers, not a new data collection.",
-          "Organizational readiness. The consolidated model asks two managers to give up scope. That conversation belongs to your leadership; we can prepare it and support it, but we cannot hold it for you.",
-          "Decision latency. The transition plan has a critical path, and every week the model selection waits is a week the plan slips behind it. This is the risk most within your own control."
-        ]},
-        {"kind": "heading", "text": "The decision I need now", "level": 2},
-        {"kind": "paragraph", "text": "The decision I need from you at this checkpoint is narrow. Confirm the consolidated model as the target, or tell me which of the two you want carried forward, so that the second half opens on detailed design and not on a re-argument of the choice. Give me that at our next review and the plan will be in front of your leadership team on schedule. Questions on any part of this report can come to me directly, or to Brenda Rodriguez on the analysis behind it."},
-        {"kind": "sigblock", "signers": ["p:jason.torres"]}
+        {
+          "kind": "heading",
+          "text": "Status Report: Operating Model Redesign",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for the leadership team at {{fact:f:E-2008-001.client}}. This report covers the engagement's progress since our last review and identifies the point on which we will need a decision from your side before the design work gives way to implementation planning. We have now reached roughly the midpoint of the engagement, and the matter that should hold your attention is a structural one: whether the finance, procurement, and information-technology support that today sits inside each operating unit ought to be consolidated into a single shared-services organization, or whether a lighter coordinating arrangement will capture most of the available benefit while sparing the business the disruption that a full consolidation would carry with it. The analysis so far suggests that the case for consolidation is genuine but narrower than the opening hypothesis assumed, and I want to put that qualification in front of you plainly now, before an early estimate hardens into an expectation the later work cannot support."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the work stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "At the midpoint the diagnostic is essentially complete and the design phase is underway. We have a defensible cost baseline for the support functions across the Hughes Group operating units, we have mapped the principal process handoffs that cross unit boundaries, and we have a first-pass model of what a consolidated organization would look like in terms of reporting lines, staffing, and the service levels the units would be entitled to expect. What remains before implementation can begin is the validation of that model against the operating constraints your managers raised during the interviews, together with a disciplined estimate of the transition cost, which in engagements of this kind is the figure most often underweighted at the outset. Brenda Rodriguez has led the baseline analysis, and she has been deliberate in separating the savings that are structural from those that rest on assumptions we have not yet been able to confirm; I would ask you to read her eventual numbers with that distinction in mind."
+        },
+        {
+          "kind": "heading",
+          "text": "Completed since the last review",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Several pieces of work closed out in this period, and I set them down so that your team can see where the ground is now firm."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. We completed the cost baseline for the support functions and reconciled it against the general ledger, so that the figures we build on are your own and not our reconstruction of them.",
+            "2. We finished the round of operator interviews across the units and documented the handoffs, exceptions, and workarounds that a purely organizational view of the functions tends to miss.",
+            "3. We produced a first draft of the target operating model, including a straw-man organization chart and a provisional set of service definitions, which is now with your functional leads for comment."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "The period ahead",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next stretch of the engagement is where the design is tested against reality, and it is the part that most determines whether the eventual recommendation holds up in practice."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. We will validate the target model with the functional leads and revise it where their objections are well founded, rather than defending the first draft for its own sake.",
+            "2. We will build the transition plan and cost estimate, treating the one-time cost of moving from the current state to the new one as a first-class number and not a footnote.",
+            "3. We will prepare the recommendation and the supporting case for the decision described at the top of this report, so that when your leadership takes it up they are choosing between two clearly drawn options and not between a proposal and a vacuum."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Risks, and where we will need your help",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A few conditions will determine whether we hold the schedule, and because each of them sits partly on your side of the table, I want to set them out before I make any request of you."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Access to the finance systems has been slower than planned, and the transition estimate depends on data we have not yet received; if your team can clear the outstanding requests, we can keep the design phase from slipping into the validation window.",
+            "2. The functional leads are being asked to comment on a model that reduces the autonomy some of them have held for years, and candid feedback from them is worth more to us than polite agreement; a word from you that their objections are genuinely wanted would improve what we get back.",
+            "3. The transition cost remains the largest single uncertainty in the case, and I want to say now that our first estimate is likely to come in above what the early conversations implied, so that the figure surprises no one when it lands."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "None of this changes my read that the engagement is on course. The design is sound in its bones, the open questions are the ones we expected to be open at this stage, and the decision in front of you is a real choice and not a foregone conclusion dressed up as one. I will bring the validated model and the transition estimate to the next review, and I am glad to walk any of your leadership through the working before then."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Respectfully, Jason Torres, Principal, Calderwood Partners."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0014",
       "blocks": [
-        {"kind": "heading", "text": "Meeting Minutes: Operating Model Redesign for Hughes Group", "level": 1},
-        {"kind": "paragraph", "text": "Prepared by Brenda Rodriguez, Senior Consultant, Calderwood Partners. Working session held at the offices of Hughes Group. Corrections should reach this office within five business days; absent corrections, these minutes stand as the record of the session."},
-        {"kind": "heading", "text": "Attendees", "level": 2},
-        {"kind": "list", "items": [
-          "Brenda Rodriguez, Senior Consultant, Calderwood Partners",
-          "Jason Torres, Principal, Calderwood Partners",
-          "Linda Gallegos, Chief Financial Officer, Hughes Group"
-        ]},
-        {"kind": "heading", "text": "Purpose", "level": 2},
-        {"kind": "paragraph", "text": "The session reviewed the near-final target operating model and transition plan for {{fact:f:E-2008-001.client}} and worked through the items still open before the final readout. The design is fixed in its essentials. What was under discussion was the evidence behind the benefit case and the sequencing of the first moves, not the shape of the model itself."},
-        {"kind": "heading", "text": "Benefit case", "level": 2},
-        {"kind": "paragraph", "text": "The benefit figures were walked through line by line. The back-office consolidation accounts for the majority of the projected savings, and that figure has been reconciled to Hughes Group's own payroll and vendor records rather than to an outside benchmark. Linda Gallegos asked whether the estimate assumed attrition or active reduction. It assumes a stated mix of the two, and that assumption is now written into the model so that it is visible rather than buried inside a total. One qualifier stands: the savings in the smaller of the two units rest on a headcount record that is three months old, and that figure should be treated as provisional until the current record is supplied."},
-        {"kind": "heading", "text": "Transition sequence", "level": 2},
-        {"kind": "paragraph", "text": "Jason Torres presented the transition sequence. The first moves are deliberately the ones with no dependencies and the least disruption, so that the organization sees the change working before the harder consolidations begin. Linda Gallegos raised the timing of the two manager role changes against the close of the fiscal year. It was agreed that those moves would be scheduled after the close, and that the plan would show them that way, to avoid loading a reorganization onto the finance team during its busiest weeks."},
-        {"kind": "heading", "text": "Ownership after handoff", "level": 2},
-        {"kind": "paragraph", "text": "Linda Gallegos asked who inside Hughes Group would own the transition once the engagement ends. Jason Torres proposed that each of the early moves name a single accountable manager in the plan, so that ownership is written down rather than assumed, and that a short weekly check on the critical path sit with the finance function through the early moves. Brenda Rodriguez added one caution: the plan should not assign a move to a manager whose own scope that same move removes, and the two role changes were reviewed against that rule. No conflict was found in this pass, but the check will be repeated when the plan is finalized."},
-        {"kind": "heading", "text": "Final readout", "level": 2},
-        {"kind": "paragraph", "text": "Brenda Rodriguez noted that the readout to the leadership team should present the benefit case with its assumptions attached, not as a single number, so that the leadership decision is made on the same basis the analysis was built on. Linda Gallegos agreed and asked that the provisional figure noted above be resolved before the readout rather than carried into it with a caveat. The agreed action items follow."},
-        {"kind": "heading", "text": "Action Items", "level": 2},
-        {"kind": "table",
-         "header": ["No.", "Item", "Owner", "Target"],
-         "rows": [
-           ["1", "Supply the current headcount record for the smaller operating unit", "Linda Gallegos", "Within one week"],
-           ["2", "Update the benefit model on receipt of the current record and mark the figure final", "Brenda Rodriguez", "Two days after receipt"],
-           ["3", "Revise the transition plan to schedule the two manager role changes after the fiscal close", "Jason Torres", "Before the final readout"],
-           ["4", "Confirm the leadership team attendance and the readout format", "Linda Gallegos", "Before the next session"],
-           ["5", "Circulate the near-final model and plan to attendees ahead of the readout", "Brenda Rodriguez", "This week"]
-         ]},
-        {"kind": "paragraph", "text": "The next session will be the final readout to the leadership team. Brenda Rodriguez will circulate the revised materials once the outstanding headcount record has been received and the benefit case has been marked final."}
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: Operating Model Redesign",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "These are the minutes of the working session on the operating-model redesign for {{fact:f:E-2008-001.client}}, recorded by Brenda Rodriguez."
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jason Torres, Principal, Calderwood Partners",
+            "Brenda Rodriguez, Senior Consultant, Calderwood Partners",
+            "Linda Gallegos, Chief Financial Officer, Hughes Group"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What we covered",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The session settled the shape of the final recommendation. We agreed that the redesign is ready to move from design into implementation planning, and that the work left is to close a short list of open items before the final readout, not to reopen the model itself."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Brenda Rodriguez walked the group through the revised cost baseline. The structural savings held up under the questions Linda Gallegos raised in the last session. The figures that had leaned on softer assumptions were either confirmed against the ledger or dropped; where a number could not be supported, we pulled it from the case rather than carry it forward with a caveat."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Linda Gallegos pressed on the transition cost, which is the part of the estimate she is least willing to take on faith. Jason Torres agreed that the one-time cost of the move is the number most likely to swing the decision, and the team committed to bringing a fully built transition estimate to the readout instead of a range."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The group also reviewed the draft service definitions for the consolidated functions. Most were accepted as written. Two, covering month-end close and vendor onboarding, were marked open because the response times they promise depend on staffing decisions that have not been made. Brenda Rodriguez noted that those two definitions should not be finalized until the staffing questions are answered, because the new organization should not promise a response time it may not be able to meet."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Brenda Rodriguez then took the group through the draft implementation plan. It sequences the move in three stages: standing up the shared-services organization first, migrating the routine transaction work next, and shifting the judgment-heavy tasks last, so the units keep running while the change takes hold. Linda Gallegos asked that each stage carry a clear owner on the Hughes Group side and a checkpoint where the leadership team can hold or adjust the pace. Jason Torres agreed and said the plan would name those owners once the staffing questions are settled."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jason Torres and Linda Gallegos closed on how the change would reach the functional leads. The group agreed that the leads should hear the direction from Hughes Group management rather than from the consulting team, and that the order of those conversations should be set before any wider announcement."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Before the action items were set, the group agreed on what the final readout should contain. It will present the recommendation, the two options behind it, the validated savings, and the transition estimate, with the open service definitions flagged rather than left out. Linda Gallegos said the leadership team would want the assumptions laid out next to the numbers, so that the people taking the decision can see where the estimate is firm and where it still rests on judgment."
+        },
+        {
+          "kind": "heading",
+          "text": "Action items",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "By when"
+          ],
+          "rows": [
+            [
+              "Finalize the transition cost estimate and document the assumptions behind it",
+              "Brenda Rodriguez",
+              "Before the final readout"
+            ],
+            [
+              "Confirm the date and audience for the final readout with the leadership team",
+              "Jason Torres",
+              "This week"
+            ],
+            [
+              "Provide the remaining finance-system extracts needed to close the estimate",
+              "Linda Gallegos",
+              "By the end of next week"
+            ],
+            [
+              "Set the order for briefing the functional leads on the coming change",
+              "Linda Gallegos",
+              "Ahead of the readout"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next step is straightforward. Brenda Rodriguez will circulate the completed transition estimate to Linda Gallegos, and once she has it in hand the readout can be scheduled."
+        }
       ]
     }
   ]

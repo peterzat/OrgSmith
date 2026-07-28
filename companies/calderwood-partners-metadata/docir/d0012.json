@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session: Cost Baseline and Current-State Findings",
+      "text": "Working Session -- Operating Model Redesign for {{fact:f:E-2008-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Minutes recorded by Brenda Rodriguez. Subject: {{fact:f:E-2008-001.client}} operating model redesign, working session with the client.",
+      "text": "The session reached one decision that shapes the rest: we will keep the baseline open for another two weeks instead of closing it this week, because the cost data still cannot separate two support functions that share a single cost center, and a baseline built over that gap would not hold up. The process map, the early options, and the client's read on pace all sit behind that decision. These minutes record who attended, what we covered, and who owns each next step.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
+      "text": "Present",
       "level": 2,
       "items": [],
       "header": [],
@@ -34,9 +34,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "Jason Torres, Principal",
         "Brenda Rodriguez, Senior Consultant",
-        "Linda Gallegos, Chief Financial Officer, Hughes Group"
+        "Jason Torres, Principal",
+        "Linda Gallegos, Chief Financial Officer, {{fact:f:E-2008-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -44,7 +44,7 @@
     },
     {
       "kind": "heading",
-      "text": "Cost Baseline",
+      "text": "Where the baseline stands",
       "level": 2,
       "items": [],
       "header": [],
@@ -53,7 +53,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "I walked the table through the cost baseline as it stands. The finding is that the current structure carries more layers than the headcount justifies: in two functions there are five reporting layers between the CFO's office and the front line where three would carry the same work. That is a measurement from the charts and the payroll file, and it holds. What it means for cost is a judgment I am not ready to put a number on, because about a fifth of the contractor spend is booked to cost centers that do not map cleanly to a box on the chart, and until that maps I would be guessing at the denominator. Jason Torres asked whether the unmapped spend changes the shape of the finding or only its size. On the evidence so far it changes the size, not the shape, but I logged that as an assumption to confirm, not a conclusion. The reconciliation against the management accounts ties at the function level; it is the allocation within two functions that is still soft, and I will hold that number back a week. Publishing an allocation I already expect to change would only put a wrong figure into circulation.",
+      "text": "Brenda Rodriguez walked through the baseline. The process map is largely complete and lines up with what the operators describe, with the usual small gaps between the documented flow and the real one. The block is on the cost side: two support functions at {{fact:f:E-2008-001.client}} report into one cost center, so we cannot yet say what each of them costs to run on its own. Without that split, any option we price later would rest on an assumption instead of a measured number. The finance team holds the underlying detail; it has not yet been broken out. Until it is, the cost picture stays provisional and the baseline cannot close.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,7 +62,7 @@
     },
     {
       "kind": "heading",
-      "text": "Where Decisions Sit",
+      "text": "The test the client set",
       "level": 2,
       "items": [],
       "header": [],
@@ -71,7 +71,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We reviewed the decision-rights map against the reporting structure. The pattern is consistent with the cost finding: several decisions the chart places at the business-unit head are in practice made two layers up, and a smaller number that should sit centrally are made in the units without a common rule. Linda Gallegos confirmed the second point from her own experience with the capital approvals, where two units apply different thresholds for the same kind of spend, and added two examples we had not captured. I noted both for the map. Jason Torres asked whether the drift is deliberate or accidental; the honest answer is that we do not know yet, and the interviews are where that gets settled. None of this is a recommendation; it is the current state, described, and it needs the remaining interviews before we test any change against it.",
+      "text": "Linda Gallegos was clear about the standard the redesign has to meet: her managers have to be able to run the new model after we leave, without a consultant in the room to interpret it for them. She has seen redesigns that looked clean on a chart and came apart in operation, and she does not want another one. We agreed to fold that test straight into how we weigh the options, so that an elegant model her team cannot operate does not count as a candidate, and to describe each option in terms of what it asks her people to do differently.",
       "level": 1,
       "items": [],
       "header": [],
@@ -80,7 +80,7 @@
     },
     {
       "kind": "heading",
-      "text": "Open Questions",
+      "text": "Options and pace",
       "level": 2,
       "items": [],
       "header": [],
@@ -89,7 +89,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Two questions are open and both bear on the schedule. The first is the unmapped contractor spend, which finance is tracing. The second is whether the two functions with the extra layers are the exception or the rule across the company; the interviews still outstanding are the ones that will settle it. Linda Gallegos asked that we not characterize the structure to the business-unit heads before those interviews, so the sessions stay diagnostic and do not turn into negotiations. We agreed.",
+      "text": "Jason Torres set out how the options will take shape once the baseline closes: two or three candidate models, each tested against the current state for what it costs and what it asks the organization to change. He was direct with the client that we will not show options before the baseline is solid, because options built on a shaky baseline waste everyone's time. Linda Gallegos pushed on timing, wanting to know whether the two-week hold puts the finish at risk. The read is that it does not, provided the cost split lands inside that window.",
       "level": 1,
       "items": [],
       "header": [],
@@ -98,7 +98,7 @@
     },
     {
       "kind": "heading",
-      "text": "Action Items",
+      "text": "Action items",
       "level": 2,
       "items": [],
       "header": [],
@@ -111,32 +111,36 @@
       "level": 1,
       "items": [],
       "header": [
-        "Item",
         "Owner",
-        "Due"
+        "Action",
+        "By when"
       ],
       "rows": [
         [
-          "Trace the unmapped contractor spend to cost centers and remap it to the chart",
           "Linda Gallegos",
-          "Before the next working session"
+          "Have the finance team break the shared cost center into its two support functions, or point Brenda to the underlying detail",
+          "Within one week"
         ],
         [
-          "Extend the layer analysis to the remaining functions once the mapping is clean",
           "Brenda Rodriguez",
-          "With the draft baseline"
+          "Rebuild the cost picture once the split is available and reconcile it to the process map",
+          "Two weeks"
         ],
         [
-          "Complete the outstanding leadership interviews and log the decision-rights gaps",
           "Jason Torres",
-          "Before the diagnostic is drafted"
-        ],
-        [
-          "Hold the current-state findings inside the team until the interviews are complete",
-          "Jason Torres",
-          "Ongoing"
+          "Confirm the revised baseline date with the client and hold the first option review the following week",
+          "On close of baseline"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The next step is the cost split. Once the finance team returns it, Brenda will close the baseline and Jason will set the date for the first option review; nothing downstream moves until that one number is separated.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

@@ -1,0 +1,43 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "calderwood-partners",
+  "dimension": "cross_document_voice",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0007",
+        "d:0051",
+        "d:0092",
+        "d:0128",
+        "d:0160",
+        "d:0172"
+      ],
+      "summary": "The kickoff memos, though attributed to six different staff from Principal to Research Associate across 2008-2021, are built from one template and repeat the same idiosyncratic sentences verbatim, so the genre reads as a single author with names swapped rather than the different hands the charter explicitly promises ('no two memos are built from the same template').",
+      "evidence": "The skeleton 'These are not four projects run in parallel. The baseline feeds the cost picture, the cost picture disciplines the options ... a redesign built on an assumed baseline tends to come apart the first time it meets a fact from the floor' (Jason Torres, d:0007) recurs near-verbatim as 'These are not four separate projects run side by side. The baseline feeds the benchmark, the benchmark disciplines the opportunities' (Deborah Gordon, d:0051) and in the same form in d:0092, d:0128, d:0160, d:0172; the vivid 'come apart the first time it meets a fact from the floor / a real invoice' metaphor appears in four of the six. The same memos also share 'so that no one has to ask me twice for the same status,' 'so we are not idle while the data comes in,' and 'so the client hears one voice from us' across the same authors."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross-voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0009",
+        "d:0054",
+        "d:0122",
+        "d:0145",
+        "d:0041",
+        "d:0142"
+      ],
+      "summary": "The same single-hand fingerprint runs past the kickoff memos into other genres: engagement-email threads and analytical-review minutes repeat distinctive sentences verbatim across authors who, by design, never saw one another's work, so the whole corpus reads as one writer varying cadence rather than a firm of independent hands.",
+      "evidence": "The second client email in each thread closes 'send whatever is easiest to me, [name] ... so nothing has to be chased twice' under four different senders (Jason Torres d:0009, Deborah Gordon d:0054, Cynthia Hart d:0122, Deborah Jimenez d:0145). Working-session minutes record 'X asked that a range, not a single point, carry into the option work until [Y], and that was agreed' identically in d:0041 (recorded by Daniel Leach, 2009) and d:0142 (recorded by Deborah Jimenez, 2019), each closing on the twin 'the figures stay provisional and the option work waits on it.'"
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Status report: back-office automation for Garcia-Werner",
+      "text": "Status Report -- Back-Office Automation for {{fact:f:E-2021-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Prepared for the leadership of Garcia-Werner by Pamela Miller. This report covers the engagement to its midpoint.",
+      "text": "The engagement is at roughly its midpoint and on plan: the back-office processes are mapped and benchmarked, we know which of them will repay automation and which will not, and the work is turning from diagnosis toward the design that will carry the savings. This report covers the period since the last one, sets out what is finished and what comes next, and names the risks I am watching. It was prepared by Pamela Miller, with the benchmarking led by Matthew Parrish.",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,16 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The engagement is about halfway through. The first phase, mapping how the back-office work runs today and measuring what it costs in time and effort, is essentially complete and agreed with your team. We have moved into the second phase, which turns that picture into a ranked set of automation recommendations. Against the fixed fee of {{fact:f:E-2021-001.fee}}, which covers the whole engagement, the work is inside the scope and pace the engagement letter set, and we see nothing that would change either. In short, your team went over the current-state picture and it stood, it pointed clearly at where the routine work concentrates, and the recommendations now taking shape are aimed at those points.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One finding from the first phase is worth stating plainly, because the recommendations rest on it. The bulk of the manual effort in your back office sits in a handful of high-volume, rule-based processes, chiefly invoice coding and matching, the month-end reconciliations, and expense checking. These are also the processes where the work is most repetitive and the rules most consistent, which is what makes them the strongest candidates to automate. The rest of the back office is not being set aside, but it is either lower in volume or more a matter of judgment than of rule, and it earns a lower place in the sequence for that reason.",
+      "text": "The diagnosis is essentially complete. We now hold a current-state map of the back office at {{fact:f:E-2021-001.client}} that records each of the lead processes end to end, with the manual steps marked and timed, and a benchmarked view of how those processes compare with the way similar finance functions run them. On that basis we can say with reasonable confidence which processes will repay automation first and which are better left alone. The engagement remains within the fixed fee of {{fact:f:E-2021-001.fee}} agreed at the outset, and nothing in the current plan calls for a change to it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -49,7 +40,7 @@
     },
     {
       "kind": "heading",
-      "text": "Completed since the last note",
+      "text": "Finished this period",
       "level": 2,
       "items": [],
       "header": [],
@@ -61,27 +52,18 @@
       "text": "",
       "level": 1,
       "items": [
-        "Finished the current-state map. Matthew Parrish closed out the last two process maps, procurement and payroll administration, once your records arrived, so every main back-office process at {{fact:f:E-2021-001.client}} is now documented end to end, with its volumes and effort attached and sourced to your own records.",
-        "Settled the effort baseline. The figures behind the map were reviewed with your team, and the few provisional numbers were either confirmed or set aside.",
-        "Ranked the automation candidates. With the baseline in place, each candidate was weighed against the effort to automate it and the time it would return, and the candidates were put into a working order for the recommendations.",
-        "Closed the open data gaps. The fourth-quarter expense volumes and the purchasing-to-payables handoff that were outstanding at the last working session are now in hand and folded into the baseline."
+        "1. Closed the current-state map of the three lead processes, the payables handling, the reconciliations, and the monthly reporting pack, and separated the reconciliation step that had been counted as one into the two checks it actually is.",
+        "2. Benchmarked the effort and cost of those processes against comparable finance functions, which between them account for the larger share of the manual work.",
+        "3. Pulled the payables volume that had been sitting outside the workflow system into the count, so the effort on that process now rests on records rather than on an estimate.",
+        "4. Ranked the lead processes by the return their automation would bring against the difficulty of achieving it, so the design starts where the case is surest."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Fee and effort",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "The engagement is about half elapsed and, by our own reckoning, about half the effort is spent. Because the fee is fixed at {{fact:f:E-2021-001.fee}} rather than charged against hours, the question is not whether we have run over a rate but whether the work left to do fits the schedule and budget that remain, and it does. This note is only to confirm that, and that nothing in the second phase as it now looks would put it out.",
+      "text": "Taken together, this closes the diagnostic work. We now know how the back office runs, where the manual effort concentrates, and which of it a rule could carry as well as a person. Matthew Parrish has kept the benchmarks tied to sources your own staff could check, and the process map is clean enough that one of your analysts could pick it up and follow it without a guide.",
       "level": 1,
       "items": [],
       "header": [],
@@ -90,7 +72,7 @@
     },
     {
       "kind": "heading",
-      "text": "The next few weeks",
+      "text": "Planned for the coming weeks",
       "level": 2,
       "items": [],
       "header": [],
@@ -102,18 +84,27 @@
       "text": "",
       "level": 1,
       "items": [
-        "Turn the ranked candidates into a target design: for each recommended process, what the automated version does, what it needs to run, and what it leaves for a person to handle.",
-        "Estimate, from the agreed baseline, the time and cost each recommendation would return, so every claim in the briefing is a number your team can check.",
-        "Prepare the briefing for your wider group, to be given once the recommendations are firm enough to defend.",
-        "Set out a transition outline: the order to take the changes in, and what each one asks of your teams while it is put in place."
+        "1. Draft the automation design for the two lead processes, setting out how each would be redesigned and what the change asks your staff to do differently.",
+        "2. Test the designs against real transactions, so we learn where they hold and where they break before they are recommended rather than after.",
+        "3. Sequence the remaining processes, so the design covers more than the two we are leading with.",
+        "4. Begin the adoption plan, describing what your own team would own and operate once we have gone."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
+      "kind": "paragraph",
+      "text": "The center of the next period is the design itself. Everything to this point has been about establishing what is true; the work now is deciding what to do with it, which means redesigning the leading processes, testing them against live cases, and preparing your people to run the result after the engagement has closed.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "heading",
-      "text": "Risks and things to watch",
+      "text": "Risks I am watching",
       "level": 2,
       "items": [],
       "header": [],
@@ -125,10 +116,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "Implementation is not in our scope. Our work ends with tested recommendations and a sequence; building and installing the automation is a separate step, whether your teams do it or a partner does. We flag it so the plan you receive is read for what it is.",
-        "Software selection. Where a recommendation points to a category of tool, we describe what the tool must do; choosing and negotiating a particular product is out of scope and would need its own decision on your side.",
-        "Change readiness. Automating a process changes how the people who run it spend their day. A sound recommendation can still stall if the affected staff are not brought along, and that part is shared between us and your managers.",
-        "Keeping the list focused. As the recommendations firm up there will be a pull to widen the list to processes that are lower in value or more a matter of judgment. We will flag each addition, but whether to reach beyond where the value concentrates is a call for your leadership as much as ours."
+        "The share of back-office work that runs outside the main systems is larger than the client first expected, and bringing it into a designed process will take effort from your staff that competes with their day-to-day close.",
+        "The savings depend on your team operating the automated processes as designed after we leave, which is a matter of habit more than of analysis, and the adoption plan has to account for it.",
+        "One of the reporting-pack inputs is still being cleaned, so the design for that process rests for now on an assumption we are working to confirm from the source data."
       ],
       "header": [],
       "rows": [],
@@ -136,7 +126,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We are glad to walk through any of this in more detail whenever it suits you. The next set-piece is the briefing to your wider group, which we will schedule once the recommendations are ready to stand behind.",
+      "text": "None of these is off track, and each has an owner and a plan behind it. Matthew Parrish and I will bring the first automation designs to the next working session, and I will keep this report current so the picture you hold of the engagement matches the one we do.",
       "level": 1,
       "items": [],
       "header": [],

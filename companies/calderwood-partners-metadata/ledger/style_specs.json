@@ -1,0 +1,381 @@
+{
+  "schema_id": "orgsmith/style-specs@1",
+  "slug": "calderwood-partners",
+  "specs": [
+    {
+      "person": "p:julie.ramsey",
+      "voice_register": "formal",
+      "sentence_length": "long",
+      "greeting": "Hi {first},",
+      "closing": "Thanks",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "closes with one clear next step"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:jason.torres",
+      "voice_register": "formal",
+      "sentence_length": "long",
+      "greeting": "Good morning {first},",
+      "closing": "Regards",
+      "habits": [
+        "prefers numbered lists over bullet points",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:julie.parks",
+      "voice_register": "formal",
+      "sentence_length": "short",
+      "greeting": "Good morning {first},",
+      "closing": "Thanks",
+      "habits": [
+        "closes with one clear next step",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:michael.walker",
+      "voice_register": "structured",
+      "sentence_length": "long",
+      "greeting": "Dear {first},",
+      "closing": "Regards",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:brenda.rodriguez",
+      "voice_register": "plainspoken",
+      "sentence_length": "medium",
+      "greeting": "Hello {first},",
+      "closing": "Thanks",
+      "habits": [
+        "closes with one clear next step",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:deborah.allen",
+      "voice_register": "crisp",
+      "sentence_length": "short",
+      "greeting": "Dear {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "closes with one clear next step"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:james.green",
+      "voice_register": "crisp",
+      "sentence_length": "short",
+      "greeting": "Hi {first},",
+      "closing": "Best",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "'Let me be direct:' and similar throat-clearing"
+      ]
+    },
+    {
+      "person": "p:deborah.gordon",
+      "voice_register": "warm",
+      "sentence_length": "long",
+      "greeting": "Good morning {first},",
+      "closing": "Regards",
+      "habits": [
+        "closes with one clear next step",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:daniel.leach",
+      "voice_register": "formal",
+      "sentence_length": "medium",
+      "greeting": "Good morning {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "closes with one clear next step",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:jeffrey.jackson",
+      "voice_register": "crisp",
+      "sentence_length": "long",
+      "greeting": "Hi {first},",
+      "closing": "Best regards",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "closes with one clear next step"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:david.wilson",
+      "voice_register": "plainspoken",
+      "sentence_length": "short",
+      "greeting": "Hi {first},",
+      "closing": "Best",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "closes with one clear next step"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:deborah.jimenez",
+      "voice_register": "crisp",
+      "sentence_length": "medium",
+      "greeting": "Dear {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:brenda.clayton",
+      "voice_register": "crisp",
+      "sentence_length": "medium",
+      "greeting": "Hi {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:mary.parker",
+      "voice_register": "structured",
+      "sentence_length": "medium",
+      "greeting": "{first},",
+      "closing": "Thanks",
+      "habits": [
+        "closes with one clear next step",
+        "prefers numbered lists over bullet points"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "'Two asks. First... Second...' as an opener"
+      ]
+    },
+    {
+      "person": "p:matthew.parrish",
+      "voice_register": "structured",
+      "sentence_length": "long",
+      "greeting": "{first},",
+      "closing": "Best regards",
+      "habits": [
+        "opens with the conclusion before the detail",
+        "prefers numbered lists over bullet points"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:john.vasquez",
+      "voice_register": "structured",
+      "sentence_length": "medium",
+      "greeting": "Good morning {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:cynthia.hart",
+      "voice_register": "formal",
+      "sentence_length": "short",
+      "greeting": "Hello {first},",
+      "closing": "Best",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:melissa.casey",
+      "voice_register": "structured",
+      "sentence_length": "long",
+      "greeting": "Dear {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:nicole.griffin",
+      "voice_register": "structured",
+      "sentence_length": "long",
+      "greeting": "Hi {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "avoids lists entirely and writes in paragraphs",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:joseph.reed",
+      "voice_register": "warm",
+      "sentence_length": "short",
+      "greeting": "Hello {first},",
+      "closing": "Best regards",
+      "habits": [
+        "closes with one clear next step",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "closing epigrams or aphorisms"
+      ]
+    },
+    {
+      "person": "p:daniel.cisneros",
+      "voice_register": "warm",
+      "sentence_length": "long",
+      "greeting": "Hi {first},",
+      "closing": "Regards",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "a 'Workstreams' heading followed by 'Next Steps'",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:steven.hunt",
+      "voice_register": "formal",
+      "sentence_length": "medium",
+      "greeting": "Dear {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "keeps paragraphs to two or three sentences",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "the 'rather X now than Y later' antithesis"
+      ]
+    },
+    {
+      "person": "p:julie.vasquez",
+      "voice_register": "formal",
+      "sentence_length": "medium",
+      "greeting": "Hi {first},",
+      "closing": "Sincerely",
+      "habits": [
+        "closes with one clear next step",
+        "opens with the conclusion before the detail"
+      ],
+      "banned_tics": [
+        "'Let me be direct:' and similar throat-clearing",
+        "'Two asks. First... Second...' as an opener"
+      ]
+    },
+    {
+      "person": "p:pamela.miller",
+      "voice_register": "plainspoken",
+      "sentence_length": "long",
+      "greeting": "Hi {first},",
+      "closing": "Regards",
+      "habits": [
+        "opens with the conclusion before the detail",
+        "sets context in a sentence before making any request"
+      ],
+      "banned_tics": [
+        "'Two asks. First... Second...' as an opener",
+        "a 'Workstreams' heading followed by 'Next Steps'"
+      ]
+    },
+    {
+      "person": "p:steven.sanchez",
+      "voice_register": "structured",
+      "sentence_length": "medium",
+      "greeting": "{first},",
+      "closing": "Sincerely",
+      "habits": [
+        "closes with one clear next step",
+        "keeps paragraphs to two or three sentences"
+      ],
+      "banned_tics": [
+        "'In short,' as a paragraph opener",
+        "'Let me be direct:' and similar throat-clearing"
+      ]
+    }
+  ]
+}

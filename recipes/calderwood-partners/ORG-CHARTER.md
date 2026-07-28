@@ -39,6 +39,9 @@ doc_culture:
   # The brief bans the template constructions the board found, and each
   # author draws a voice register (M12).
   voice_diversify: true
+  # M16: the structured style layer joins the M12 voice register -- each
+  # person also carries a per-author style spec that reaches the brief.
+  style_specs: true
 
 finance:
   # 7% growth against twelve net new seats over fifteen years. Measured:

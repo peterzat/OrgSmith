@@ -1,0 +1,25 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "calderwood-partners",
+  "dimension": "narrative_consistency",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-consistency-1",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": [
+        "d:0012",
+        "d:0131",
+        "d:0055",
+        "d:0163"
+      ],
+      "summary": "The same mid-engagement plot beat -- a single merged cost line that cannot be split, which becomes the one blocker gating the baseline -- recurs as the central working-session problem across four unrelated clients over twelve years, so the engagements read less like independent histories than like one story retold.",
+      "evidence": "Hughes 2008 (d:0012): 'two support functions at Hughes Group report into one cost center, so we cannot yet say what each of them costs to run on its own ... the baseline cannot close.' Key 2018 (d:0131) is a near-clone of the same session: 'two of the support functions ... continue to report through a single cost center, so that we cannot yet state what each of them consumes on its own' -- same Jason Torres-led session, same client operability test ('his own managers must be able to operate ... once we have withdrawn' vs Hughes 'her managers have to be able to run the new model after we leave'), and a near-identical three-row action table (client splits the cost center in ~2 weeks / analyst rebuilds the cost picture / principal confirms the revised baseline date). The same device drives Poole 2010 (d:0055: 'the file the client sent groups inbound and internal movement under one line, so we cannot yet separate what each of them costs') and Stark-Wilson 2020 (d:0163: 'The cost to serve for the distributor channel rests on an allocation the client's finance team has not yet confirmed'). No single document is wrong; the repetition only surfaces on reading across engagements."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  }
+}

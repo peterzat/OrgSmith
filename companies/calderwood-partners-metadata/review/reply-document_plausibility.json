@@ -1,0 +1,17 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "calderwood-partners",
+  "dimension": "document_plausibility",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:document-plausibility-1",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": ["d:0177", "d:0178"],
+      "summary": "The firm's 'representative sample, not the whole book' disclaimer is inserted into a client engagement letter and an internal kickoff memo, two genres that would not carry it, making the constraint visible as a planted motif rather than natural document content.",
+      "evidence": "Engagement letter d:0177 adds to its scope clause: 'I should add, so that it is on the record from the outset, that if we ever describe this program to anyone outside it we will describe it as one representative example of the firm's work and never as the whole of what we do' -- a promise about the firm's own external marketing has no place in a binding client contract. Kickoff memo d:0178 then lists as one of 'Two points of method [that] carry across every line of work': 'any engagement we describe outside this team is a representative example of the firm's book and not its whole, so nothing we write should imply that Walker-Murray is the only work of its kind we do,' set beside the genuine method 'Every number ... has to trace back to a source.' The motif reads naturally in the firm overviews and onboarding notes; in a contract and a workplan it reads as the sample-vs-whole framing propagated into documents that would not host it."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "calderwood-partners",
+  "dimension": "graph_acl_naturalness",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-mention-quota-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0008", "d:0009", "d:0053", "d:0054", "d:0030"],
+      "summary": "The person-mention pattern reads as a quota being filled: senders name themselves by full name inside their own emails, and recipients are re-addressed by full name mid-sentence after a first-name greeting.",
+      "evidence": "Self-naming, 'to me, <own full name>' in the writer's own message, appears in 16 documents: d:0008 'anything ... comes to me, Jason Torres', d:0009 'send whatever is easiest directly to me, Jason Torres', d:0053/d:0054 'send whatever is easiest to me, Deborah Gordon'. In parallel, 19 documents re-address the recipient by full name after greeting them by first name, e.g. d:0009 greets 'Good morning Linda,' then writes 'I know this all lands on you, Linda Gallegos', and d:0030 'For that call I have you, Barbara Ward'. No real correspondent states their own full name in their own email; the naming is driven by the min-mentions-per-person target rather than by how people actually refer to each other."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-participant-locked-out-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0007", "d:0181"],
+      "summary": "Read access is stamped from the engagement participant graph, so a current employee named as a genuine participant in a document is denied access to it.",
+      "evidence": "d:0007 (Hughes kickoff memo) is addressed 'To: Brenda Rodriguez; Jeffrey Jackson' and tasks Jackson directly ('Jeffrey Jackson is finishing the administrative side of the engagement, the countersigned letter and the billing arrangement'), yet PERMISSIONS.md grants read access only to Rodriguez, Torres, and Ramsey; Jackson (a current employee) cannot read the memo written to him. d:0181 (Walker-Murray 2022 minutes) lists 'Steven Sanchez, Research Associate, Calderwood Partners' under Present, has him walk the group through the outstanding data, and assigns him an action item, yet the read-access set is Torres, Green, Casey, Ramsey only; Sanchez, a current employee present in the room, cannot read the minutes of the meeting he attended. (The similarly locked-out attendees Michael Walker in d:0040 and Deborah Allen in d:0063 are departed staff, so their revoked access is realistic and not part of this finding.)"
+    }
+  ]
+}

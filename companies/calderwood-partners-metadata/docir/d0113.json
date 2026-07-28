@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session: Baseline, Coverage, and Open Data",
+      "text": "Minutes of the Working Session",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Recorded by Matthew Parrish. Subject: sales effectiveness for {{fact:f:E-2016-001.client}}, mid-engagement working session with the client.",
+      "text": "The session reached one operative conclusion: the transaction data now supports a reliable read of how price and discount are set, and the analysis moves this week from assembling the record to testing it. What follows records who attended, what was discussed, and the actions each side agreed to before we next meet.",
       "level": 1,
       "items": [],
       "header": [],
@@ -34,10 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Jason Torres, Principal",
-        "Nicole Griffin, Research Associate",
-        "Matthew Parrish, Research Associate",
-        "Linda Gallegos, Chief Financial Officer, Hughes Group"
+        "Matthew Parrish, Research Associate, Calderwood Partners (minutes)",
+        "Nicole Griffin, Research Associate, Calderwood Partners",
+        "Jason Torres, Principal, Calderwood Partners",
+        "Linda Gallegos, Chief Financial Officer, {{fact:f:E-2016-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -45,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Where the Baseline Landed",
+      "text": "Discussion",
       "level": 2,
       "items": [],
       "header": [],
@@ -54,7 +54,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Jason Torres walked the room through the performance baseline, which is now firm at the level the analysis needs. Bookings and win rates are built from the last several years of records. Productivity varies more across the sales force than the company's own reporting shows, because the reporting blends the field and the inside team into one number and the two behave differently; split apart, the top of the field books several times what the bottom does, and the spread is wider than headcount or territory alone explains. The first coverage gap is clear: the selling effort is weighted toward the accounts that are easiest to reach, not the ones where the revenue and the open opportunity sit. Linda Gallegos asked whether that is a staffing problem or a targeting one. On the evidence so far it reads as targeting, the coverage model never having been cut to the opportunity, but the field interviews still open should settle it. Matthew Parrish flagged that roughly two months of pipeline history are missing from the extract and are being re-pulled; until they are in, the win-rate-by-stage figure stays provisional and is marked that way in the exhibits. He also noted that the discount field is blank on a share of the older records, so the realized-discount read leans on the more recent history until the gaps are filled.",
+      "text": "Nicole Griffin reported that the client's records on territory and account assignment are now complete and reconciled, and that the transaction extract covering the last two years arrived in full, which was the dependency the earlier weeks had waited on. I noted, for the record, that the discount field in that extract carries a number of blanks across the first several months of the period, and that we will treat those months as partial rather than read a zero discount into them, since a blank and a zero are not the same thing and the difference bears on the conclusion.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,17 +62,8 @@
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Pipeline and the Field",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "The pipeline read is taking shape. Deals stall most at the move from qualified to proposal, and a meaningful share age out at that stage without ever being lost or won, which usually means the qualification ahead of it is loose. The discounting behind booked revenue is heavier than the list terms suggest, which points at the incentives as much as at the process. Nicole Griffin reported on the interviews: the sales managers are largely done, the representatives are about half complete, and the remaining sessions are booked over the next two weeks. The managers and the field do not describe the stall the same way, the managers calling it a pricing problem and the representatives calling it a lead-quality one, and that split is itself a finding worth carrying forward. Linda Gallegos noted that one region changed its manager last year, and that its numbers should be read against that and not as a single trend. That was logged, so the baseline does not treat the region as one series.",
+      "text": "Jason Torres framed the emerging read for Linda Gallegos: the sales organization is coherently structured and its territories are sensibly drawn, but the discipline around discount appears to slip well below the executive level, where a good deal of price is given away without a corresponding record of why. Linda Gallegos confirmed that discount authority is delegated more widely than the written policy would suggest, and asked that we quantify the gap between the policy and the practice rather than describe it in general terms, which the team accepted as the sharper and more useful framing.",
       "level": 1,
       "items": [],
       "header": [],
@@ -80,9 +71,9 @@
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "Open Data",
-      "level": 2,
+      "kind": "paragraph",
+      "text": "On the comparables, I reported that the outside benchmark set is assembled but not yet final, since two of the reference organizations report their sales figures on a basis I have not yet confirmed is like for like; until that is settled I would rather hold the comparison than publish a number that looks clean and is not.",
+      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
@@ -90,7 +81,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Two items are still open on the client's side: the deal-level win-loss detail for the earlier of the two years, and the current territory assignments. Both sit with the client's sales operations. Everything else on the request list is closed. Nicole Griffin is tracking the two open items and will chase them through Linda Gallegos's office.",
+      "text": "We closed on the pipeline and on access. The pipeline extract is thinner than the transaction record, with the stage history missing for a stretch of the earlier period, and I asked that we treat what it shows as indicative until we have tested it against the account managers' own account of how deals move. To that end Nicole Griffin will arrange two interviews with the managers who carry the largest customers, since the detail behind a lost deal tends to live with the person who worked it and seldom survives into the system of record. Jason Torres asked that each interview be scheduled through Linda Gallegos rather than booked directly, so that the client hears a single voice from us on access as on everything else, and the team agreed.",
       "level": 1,
       "items": [],
       "header": [],
@@ -112,32 +103,40 @@
       "level": 1,
       "items": [],
       "header": [
-        "Item",
+        "No.",
+        "Action",
         "Owner",
         "Due"
       ],
       "rows": [
         [
-          "Re-pull the missing pipeline history and lift the provisional mark from the stage win rates",
+          "1",
+          "Reconcile the written discount policy against the transaction record and quantify the gap between policy and practice",
           "Matthew Parrish",
-          "Next week"
+          "Next session"
         ],
         [
-          "Complete the remaining representative interviews",
+          "2",
+          "Assemble the discount-authority records and note where authority sits against where it is exercised",
           "Nicole Griffin",
-          "Over the next two weeks"
+          "Before next session"
         ],
         [
-          "Provide the deal-level win-loss detail and the current territory assignments",
+          "3",
+          "Provide the current delegation-of-authority schedule for discount approval",
           "Linda Gallegos",
-          "Before the next session"
-        ],
-        [
-          "Cut the coverage model against the opportunity map for review",
-          "Jason Torres",
-          "With the interviews complete"
+          "Within the week"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The item that gates the next session is the third: until the delegation schedule is in hand we cannot say precisely how far actual authority departs from the written rule, which is the question the session turned on. Once Linda Gallegos has sent it, I will circulate the reconciled discount figures ahead of the meeting so that no one reads them cold.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]

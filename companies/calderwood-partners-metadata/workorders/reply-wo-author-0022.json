@@ -1,6 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0022",
+  "generator": {
+    "model": "claude-opus-4-8[1m]",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -8,24 +12,48 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Onboarding record: Nicole Griffin",
-          "level": 1
+          "text": "Welcome to Calderwood Partners: Nicole Griffin",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Nicole Griffin has joined the Advisory practice as a Research Associate, and this record sets out her role and how the first weeks should go. Her ground is sourcing: running down data requests, assembling the company and market material an engagement depends on, and keeping an honest account of what has been asked for and what is still open. The second half of that matters as much as the first. A team can wait a day for an answer; what it cannot absorb is a request that quietly slips off the list. We hired her because she keeps that account clean and writes it up so anyone on the team can see at a glance where a request stands. Her notes tend to run as short, scannable lists rather than prose, which is the right form for this seat: they are built to be picked up mid-engagement by whoever needs them."
+          "text": "It is a pleasure to welcome you to Calderwood Partners, Nicole Griffin, and to put down in writing, in the plain fashion the firm prefers for such things, what your first weeks with us are meant to hold. You join us as a Research Associate in the Advisory practice, and I want to be clear at the outset about why the role matters more than its modest title suggests: every engagement we run rests on a body of source material, from public filings to the notes taken in a working session, and the worth of that material depends almost entirely on whether it has been gathered carefully and kept in an order a colleague can still find it in months later, which is the work we are asking you to own.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Nicole reports to Jason Torres, Principal. Jason will set her assignments and decide the order when several teams are asking for her time at once. She should carry those conflicts to him rather than settle the priority herself, and anything that runs past what Jason can resolve she can bring to me. Through the first month I would expect her and Jason to sit down briefly each week, less to review output than to keep the queue of requests honest and current."
+          "text": "You will report to Jason Torres, Principal, who will set your assignments, decide how your time is spread across the engagements in flight, and be your first reader on anything you prepare for a team's use; I would encourage you to treat his questions as the quickest way to learn the firm's standards rather than as a hurdle to clear. Your days will place you alongside the consultants and associates doing the analysis, and the discipline we care most about is that the shared record stay reliable, so that no one at the firm rebuilds a piece of work that already exists for the simple reason that they could not lay hands on the first version of it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "I would keep the first couple of weeks light on volume and heavy on reading. She should spend that time in recent engagement files, both to see how we frame a request and to get a feel for what a finished piece of research looks like here before the live ones start arriving. Getting familiar with our standing sources early will save her time later. Her systems and equipment go through Operations in the first days; they know she is starting and will come find her. Her desk is with the rest of Advisory, which is where most of what she needs to learn will actually reach her. Much of the material she will handle is client-confidential, so she should get into the habit early of treating every file that way."
+          "text": "In practical terms, human resources will have your paperwork and your systems access ready on your first morning, and Jason will attach you to a live engagement within your first days, because we have found the method is learned far better on real work than from any note like this one. For the first month I would ask mainly that you watch how the senior people work before taking a great deal on yourself, since the habits that keep our source-gathering trustworthy, above all the care never to let a tidy summary quietly stand in for the document it was drawn from, are picked up more surely at close range than from any instruction I could set down here.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "One habit outweighs the rest in this seat. When a source will not support the claim a team wants to make, she should say so plainly and mark the gap, not smooth it over. A note that is honest about what it could not establish is worth more to us than one that looks finished and hides a hole. Julie Ramsey will read a few of her early pieces while the conventions are still settling, which is ordinary for a new associate and no cause for worry."
+          "text": "Your first concrete step is to sit down with Jason Torres this week, let him walk you through the engagement he has in mind, and agree how the two of you will work together; anything that falls outside that conversation, or that you would rather raise away from your reporting line, you are welcome to bring to me directly. I am Julie Ramsey, and I am glad you have joined the firm.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     },
@@ -35,56 +63,102 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Calderwood Partners: Firm Overview",
-          "level": 1
+          "text": "Calderwood Partners LLC",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Calderwood Partners is a general management consulting firm. We work with mid-market industrial and services companies on the questions that decide how well a business runs and how far it can grow: how the organization is put together, what it costs to operate, and where the next stage of growth is going to come from. Our clients are usually large enough to feel the weight of their own structure and small enough that they do not keep a full internal strategy staff on hand. That is the space the firm was built for. Most of our work arrives by referral or repeat engagement rather than by pitch, and we keep a deliberately light footprint, willing to say when a problem is not one we are the right people to solve."
+          "text": "Calderwood Partners is a general management consulting firm. We were founded in 2007 and advise mid-market industrial and services companies on the handful of questions that decide whether a business is genuinely earning its keep: whether its operating model still fits the company it has become, where cost has settled that no longer buys anything, and where growth can still be found without borrowing against the next several years to pay for it. We are a general firm on purpose. We prefer to understand one company's situation in full before reaching for a method to lay over it, and our engagements are therefore better described by the decision each was meant to serve than by any framework that happened to be used along the way.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "heading",
-          "text": "Service lines",
-          "level": 2
+          "text": "Where we are useful",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "The practice is organized around three kinds of work. The first is operating model and organization design: how a company is structured, where decisions are made, and whether the shape of the organization still fits the business it has become. The second is cost and margin: understanding what drives the cost base, finding the room in it, and holding onto the gains once they are made. The third is growth and commercial strategy: where a company should place its next bets, which markets and customers are worth the effort, and what has to be true for the growth to hold. Most engagements touch more than one of these. Few companies have a problem that stays neatly inside a single line, and where a client is unsure which of these their problem really is, sorting that out is often the first useful thing we do."
+          "text": "Our work gathers into three related areas, and most engagements touch more than one, because in a working company they do not hold still while attention is paid to only one of them. The first is the operating model, which is to say how a company is organized, where its decisions are made and by whom, and whether the structure it runs on still suits the size and shape it has grown into. The second is cost, where we help management see plainly what it spends and to what end, and distinguish the cost that buys performance from the cost that has merely accumulated across good years and gone unquestioned. The third is growth of the disciplined sort: a sharper commercial focus, more considered pricing, a measured move into an adjacent market or channel rather than a leap into one.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "heading",
-          "text": "How we work",
-          "level": 2
+          "text": "The way an engagement runs",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "We staff small and senior. A client should expect to see the people who sold the work doing the work, not a large team assembled after the fact. We write plainly, we lead with the recommendation, and we are careful to separate what the analysis shows from what we believe follows from it. When the evidence is thin, we say so instead of dressing it up. We keep engagements short enough to stay urgent and long enough to leave something durable. A narrowly scoped piece of work that gets finished serves a client better than an open-ended program, and we scope accordingly. The aim on every engagement is to leave the client able to carry the change forward without us, which is a harder standard than leaving behind a report."
+          "text": "We staff engagements with small, senior-led teams, so that the people who sit across the table in the first week are the same ones carrying the work in the tenth, and senior enough that judgment sits in the room rather than being held in reserve at a distance. We describe scope with some care, since a scope that promises more than the evidence will bear becomes a liability to the client first and to the firm shortly after. An engagement opens with a letter setting out its scope, its fees, and its terms; it proceeds through working sessions with the client's own team, regular status reporting to the executive who sponsors the work, and deliverables sized to the decision at hand rather than to the calendar. Throughout, our habit is to say what we can establish, to mark plainly where a judgment rests on thinner ground, and to bring an inconvenient finding forward while it can still change what a client decides.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "heading",
-          "text": "Who we work with",
-          "level": 2
+          "text": "Engagements, by way of illustration",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Our clients are concentrated in industrial manufacturing, distribution, and business services. They tend to be privately held or recently changed hands, often with a management team that knows the business intimately and wants a second, independent read on a decision that is hard to make from the inside. We are frequently brought in around an inflection: a new owner, a stalled margin, an organization that has outgrown the way it was first built. We are comfortable being the outside voice in those rooms, and comfortable being told we are wrong when the client knows something we do not. We work under the client's confidentiality as a matter of course, and much of our best work is never something we can point to by name."
+          "text": "The engagements named here are a representative sample of the firm's work between 2008 and 2014, offered to show the range of situations we are brought into and not as an account of our clients. In the earlier years we advised {{fact:f:E-2008-001.client}}, and then across 2009 a cluster of companies whose problems ran from operating model to cost, among them {{fact:f:E-2009-001.client}}, {{fact:f:E-2009-002.client}}, {{fact:f:E-2009-003.client}}, and {{fact:f:E-2009-004.client}}. The work continued with {{fact:f:E-2010-001.client}}, and then with {{fact:f:E-2011-001.client}} and {{fact:f:E-2011-002.client}}; more recently we have worked with {{fact:f:E-2012-001.client}}, {{fact:f:E-2013-001.client}}, and {{fact:f:E-2014-001.client}}. Taken together the sample spans all three areas at once, weighted toward operating-model work in some cases, a cost program in others, and a commercial or growth question in the remainder; that spread is simply what a general practice looks like from the outside, and not the mark of one method dressed up under several names.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
+        },
+        {
+          "kind": "paragraph",
+          "text": "These examples are illustrative, and meant to be read that way. They are a part of the firm's work in these years, selected for range, and they should not be taken to describe the whole of what we do or to mark the outer limits of the industries and company sizes we serve. Each engagement answered a particular decision a client's leadership was facing, and each was scoped, staffed, and run on its own terms; that is the reason we are slow to offer past work as a template a new situation can be fitted into, because the likeness between two companies tends to be thinner than it first appears, and most of what we contribute begins where that likeness runs out.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "heading",
-          "text": "Representative engagements",
-          "level": 2
+          "text": "Starting a conversation",
+          "level": 2,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "The companies below are offered as examples of the kind of work we do, not as a full account of our clients. Representative engagements include work with {{fact:f:E-2008-001.client}}, {{fact:f:E-2009-001.client}}, {{fact:f:E-2009-002.client}}, {{fact:f:E-2009-003.client}}, and {{fact:f:E-2009-004.client}}. Others we have advised include {{fact:f:E-2010-001.client}}, {{fact:f:E-2011-001.client}}, {{fact:f:E-2011-002.client}}, {{fact:f:E-2012-001.client}}, {{fact:f:E-2013-001.client}}, and {{fact:f:E-2014-001.client}}. These span the industrial and services sectors we know best, and they are a sample of a broader book rather than the whole of it. What the companies have in common is not their industry but their moment: each came to us at a point where the way the business was run had to change for it to keep growing."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are deliberately a firm of modest size, and we intend to compete on the quality of the thinking rather than the reach of the name on the door. If the questions above are the questions in front of you, we would welcome the conversation."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Julie Ramsey, Managing Principal"
+          "text": "If a question your company is facing resembles any of these, the sensible first step is a conversation, before any proposal, about what it is you are actually trying to decide, since that is the point at which we can tell you honestly whether this is a firm suited to the problem or whether it is not. Inquiries, and requests to discuss a particular situation in confidence, may be directed to Julie Ramsey, Managing Principal.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     },
@@ -94,24 +168,48 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "New in Advisory: Melissa Casey",
-          "level": 1
+          "text": "Welcome to the Advisory Practice: Melissa Casey",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "We have added Melissa Casey to the Advisory practice as a Research Associate. Her ground is comparables and reference work: finding the companies, transactions, and published sources that let an engagement measure a client against something real, and turning that material into a form the team can actually use. It is easy to gather comparables and hard to make them legible. We hired her because she does the second part, organizing what she finds into a few clear themes and giving each the one-line summary that tells a partner what it means before they read the detail. That habit of leading with the point and letting the backup sit behind it is exactly the register the practice writes in."
+          "text": "Welcome to Calderwood Partners, Melissa Casey. You are joining us as a Research Associate in the Advisory practice, and while I will spare you the usual speech about how glad we are to have you, I do mean it, and I would rather spend these few lines telling you plainly what the role asks. Much of your work will sit on the deck-building side of an engagement, turning a team's analysis into exhibits and keeping a status pack consistent from one page to the next, which can sound like production work until you have watched a decision turn on whether a single chart was labeled honestly.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Melissa reports to Jason Torres, Principal. He will hand her the early assignments and set priorities when more than one team is asking at once. If two requests collide, that is Jason's call to make, not hers to guess; where something sits above what he can settle, my door is open. She and Jason should plan to check in briefly through the first weeks, so the flow of work finds a steady rhythm rather than arriving in bursts."
+          "text": "You will report to Jason Torres, Principal, who will set your assignments and be your first reader on the material you prepare, and you will find that he holds the same view I do about sourcing: an exhibit whose numbers cannot be traced back to where they came from is not finished, however handsome it looks on the page. Your care about labels, footnotes, and sources is exactly the temperament the role rewards, and I mention it deliberately, because the firm presents its engagements to clients as representative examples and never as more than they are, and that honesty has to hold at the level of the individual chart or it holds nowhere at all.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "The first two weeks are for orientation more than output. I would have her read a few recent engagements end to end, so she can see how comparables were chosen and framed once they reached a client deliverable, and spend time with the sources we lean on most. Operations will square away her systems and equipment in the first days. Her seat is with the rest of Advisory, which is deliberate: most of what she needs to learn about how we work she will pick up from the people around her, not from any written guide. She should also treat the reference material she gathers as client-confidential from the outset, since a good deal of it is."
+          "text": "As for the first weeks, human resources will have your paperwork and systems access ready on your first morning, and Jason will place you on a live engagement in your first days so that you learn our conventions on real deliverables rather than in the abstract. Through the opening month I would ask that you lean toward asking when a source is unclear rather than assuming your way past it, since an uncertain figure is quickly settled with a question and a good deal more costly to discover only after a client has the exhibit in hand.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "A word on the standard we hold this work to. A comparable set is only as good as its honesty about fit, and the useful skill is knowing when a tidy analogy does not actually hold. She should flag those cases plainly rather than let a clean-looking exhibit carry more weight than it has earned. That instinct is worth more to us than polish, and it is the standard Julie Ramsey holds the practice to. Please make a point of introducing yourselves to her this week; the practice is easier to learn from the inside than from any handbook."
+          "text": "The first thing I would like you to do is meet with Jason Torres this week to go over the engagement he has in mind and to settle how the two of you will work; anything outside that, or that you would sooner raise apart from your reporting line, bring to me. I am Julie Ramsey, and the firm is the better for your having joined it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     },
@@ -121,24 +219,48 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Onboarding: Brenda Clayton, Consultant",
-          "level": 1
+          "text": "Joining Calderwood Partners: Brenda Clayton",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Brenda Clayton comes to us as a Consultant in the Advisory practice. She joins on the operating-model work, which is the core of what we sell: taking apart how a company is organized and run, finding where the structure no longer fits the business, and making the case for a change the client can actually carry out. It is analytical work that lives or dies on a tight argument, and she is good at building one and letting it stand on its own rather than overselling it. Her drafts are lean and she is reluctant to overstate, so her conclusions tend to land with a quiet confidence instead of a hard sell. That fits how we like to work."
+          "text": "Brenda Clayton, welcome to Calderwood Partners. You join us as a Consultant in the Advisory practice, a step up in responsibility from the associate bench, and the work will ask correspondingly more of you: you will carry the analytical legwork on a workstream, from the unglamorous cleanup of a client's data to the exhibits that sit behind a finding, and you will be trusted to keep your working notes tied to the sources they came from, so that any conclusion you reach can be walked back to the evidence that supports it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "As a Consultant she will run analysis and own pieces of an engagement directly, working alongside the associates rather than only through them. Brenda reports to Jason Torres, Principal. He will staff her onto live work and set her priorities across engagements. She should take scheduling conflicts and questions of scope to him; anything that needs a call above that level can come to me. In her first weeks I would have her and Jason settle directly which engagements she carries and what he wants to see before anything reaches a client."
+          "text": "You will report to Jason Torres, Principal, who will assign your workstreams and read your analysis first, and I would tell you early that the quality he and I prize most is not speed but candor: when a piece of analysis rests on thin ground, we would far rather you mark the soft spot plainly than smooth it over, because a finding brought forward with its weaknesses visible is one a client can actually put to use. That instinct to flag a doubt rather than paper over it is, I gather, already yours, and it is a good part of the reason the firm was glad to bring you on.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "I do not expect her to spend long ramping up. In the first weeks she should read into the two or three engagements she is most likely to touch and get current on where each one stands, and she should meet the associates whose research she will be building on. Operations handles her setup in the opening days. The client material she will be working from is confidential, and she should handle it accordingly from the first day. The sooner she is into real analysis the better, and the operating-model files on the shared drive are the best guide we have to how these problems get framed here."
+          "text": "In the near term, human resources will have your paperwork and systems access in order on your first morning, and Jason will place you on a live engagement within your first days, since our method is far better absorbed on real work than described in a note of this kind. Through the opening weeks I would ask that you spend as much attention on understanding how a workstream was scoped as on executing your part of it, because the discipline that keeps our engagements honest begins with knowing exactly what a given piece of analysis was, and was not, meant to answer.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "One thing is worth saying at the start. Our recommendations carry weight because we are careful to separate what the analysis shows from what we think should follow, and to be honest about the seam between them. She should hold to that even when a client is pressing for a cleaner answer than the evidence supports. Julie Ramsey and Jason will both read her early work closely, less to check it than to get a feel for how she thinks, which is normal for anyone joining at this level."
+          "text": "The concrete first step is to meet with Jason Torres this week, walk through the workstream he has in mind for you, and settle how the two of you will work together; anything that does not belong in that conversation, or that you would prefer to raise outside your reporting line, you should feel free to bring to me. I am Julie Ramsey, and I am pleased to have you with us.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     },
@@ -148,24 +270,48 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Joining Advisory: Joseph Reed",
-          "level": 1
+          "text": "For Joseph Reed, on His First Weeks",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Joseph Reed is joining Advisory as a Research Associate on the cost and operations work. His job is the detailed groundwork underneath a cost engagement: pulling the operational and financial data, checking it, and building it into the exhibits a team reasons from. It is patient work, and a good deal of it is the kind of careful, unglamorous detail that a hurried hand gets wrong. He is methodical and thorough, and he tends to number his findings so nothing gets lost between his desk and the team's. He is the sort of associate who reads the footnotes, and this seat rewards that. That reliability is exactly what the work needs."
+          "text": "It is a pleasure to welcome you to Calderwood Partners, Joseph Reed. You join the Advisory practice as a Research Associate, and your side of the work will be the quantitative one: the data cleaning, the reconciliations, and the plain arithmetic that has to tie before anyone at the firm is willing to put weight on a finding. It is exacting work, and often invisible when it is done well, but I will say plainly that a good deal of the credibility we carry into a client's boardroom is built the night before by someone quietly making the numbers reconcile.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Joseph reports to Jason Torres, Principal. Jason will set his assignments and decide priorities when several engagements want his time at once. He should bring those conflicts to Jason rather than resolve them on his own. He and Jason should also sit down briefly each week through the first month, so the flow of requests settles into a rhythm instead of arriving all at once."
+          "text": "You will report to Jason Torres, Principal, who will set your assignments and be the first to check what you produce, and you will find he shares your patience for a reconciliation that does not want to close; neither of us has much use for a total that ties only because the person doing it stopped looking. When you have had to make an assumption to get a figure to settle, note it plainly where the next person will see it, because it is the unrecorded assumption, far more often than an error of calculation, that sends a figure back to be rebuilt weeks later.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "For the opening weeks I would weight the time toward learning our conventions over producing volume. He should work through a few recent cost engagements to see how the data was assembled and how the exhibits were built, and get familiar with the sources and the shared templates before the live requests arrive. Operations will handle his systems and equipment in the first days. He sits with the rest of Advisory, so the people making the requests are within reach. The operational and financial data he handles is client-confidential, and he should treat it that way from the start."
+          "text": "For the practical matters, human resources will have your paperwork and your systems access ready on your first morning, and Jason will attach you to a live engagement in your first days, on the firm's settled preference for teaching the method on real workpapers rather than in the abstract. Through your first month I would ask mainly that you learn how our workpapers are meant to be built and kept before you begin producing them at pace, since a workpaper the rest of the team can trust and follow is the standard we hold to, and it is worth taking the early weeks to learn the way we reach it.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "The habit that matters most in this work is precision about the data itself. When a figure cannot be reconciled, or a source will not fully support the number a team wants, he should say so and note it clearly, not fold it into an exhibit that looks more certain than it is. A footnote that admits a gap is worth more to us than a clean-looking number that hides one. That is the standard, and it is the one thing I would ask him to hold from the first day. If a request is ever genuinely unclear, Jason is the first person to ask; Julie Ramsey can take whatever sits above what Jason can settle."
+          "text": "Your first concrete step is to sit down with Jason Torres this week to go over the engagement he intends for you and to agree how the two of you will work; anything that falls outside that, or that you would rather raise apart from your reporting line, you are welcome to bring to me directly. I am Julie Ramsey, and I am glad you have joined the firm.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     },
@@ -175,30 +321,50 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "New associate: Daniel Cisneros",
-          "level": 1
+          "text": "Onboarding Note: Daniel Cisneros",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Daniel Cisneros starts this week in the Advisory practice, a Research Associate on the quantitative side. His work is the numerical groundwork an engagement runs on: building the datasets, running the calculations, and producing the exhibits the analysis is then built around. He works cleanly and lets the numbers carry the point, which is the right instinct for the seat. He is sparing with commentary and trusts the exhibit to speak for itself, a register well suited to an internal handoff. What we need from him first is not interpretation but a set of figures the team can trust without re-checking."
+          "text": "Welcome to Calderwood Partners, Daniel Cisneros. You are joining the Advisory practice as a Research Associate, and your work will center on the primary research a good engagement depends on: drafting the question guides for our client interviews, sitting in on those conversations, and writing up afterward what was actually said. It is more delicate work than it sounds, because the write-up a team relies on is only as good as the discipline of the person who separated, in the moment, what a client stated as fact from what he offered as an impression.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "Daniel reports to Jason Torres, Principal. Jason will assign his work and set the order when several teams need him at once. Competing requests go to Jason to sequence, not to Daniel to arbitrate; anything larger than a scheduling question can come up to me. He and Jason should check in briefly through the first weeks so the work arrives in a steady flow rather than in bursts."
+          "text": "You will report to Jason Torres, Principal, who will set your assignments and read your write-ups first, and he and I hold a caution about interview work that I would ask you to carry from the start: a single vivid quotation is a temptation, and the job is to resist letting one voice stand in for a pattern until the pattern has actually been shown across the conversations. Capture what was said, keep your own editorializing out of it, and the analysis built on your notes will be the sounder for the restraint.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "The first weeks should go to learning how we work more than to turning out volume. He should read into a few recent engagements to see how the quantitative work fed the argument and how the exhibits were laid out for a client, and get familiar with our data sources and the standing templates. Operations will set up his systems and equipment in the opening days. His desk is with the rest of Advisory, within reach of the people whose questions he will be answering. Much of the data he handles is client-confidential, and he should get into the habit of treating every file that way."
+          "text": "On the practical side, human resources will have your paperwork and systems access ready on your first morning, and Jason will place you on a live engagement within your first days, because the firm has long held that its method is learned on real work and not from a note of this kind. For the first month I would ask that you spend a good part of it listening to how the senior people conduct an interview before you lead much of one yourself, since the even-handedness that makes our research trustworthy is a good deal easier to watch than it is to describe.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         },
         {
           "kind": "paragraph",
-          "text": "One point I would make at the start. Because his figures become the ground the analysis stands on, the discipline that matters most is flagging what he is unsure of instead of presenting every number with the same confidence. A caveat noted early can save an engagement from building on a figure that could not hold. The practice should make him welcome this week; Julie Ramsey likes to sit down with each new associate in the first couple of weeks, and that will be arranged shortly."
+          "text": "The first concrete step is to meet with Jason Torres this week to walk through the engagement he has in mind and to agree how the two of you will work together; anything outside that conversation, or that you would sooner raise away from your reporting line, you are free to bring to me. I am Julie Ramsey, and I am pleased to welcome you to the firm.",
+          "level": 1,
+          "items": [],
+          "header": [],
+          "rows": [],
+          "signers": []
         }
       ]
     }
-  ],
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  }
+  ]
 }

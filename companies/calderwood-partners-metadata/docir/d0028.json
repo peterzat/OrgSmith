@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: James Green, Deborah Gordon\nFrom: Michael Walker, Engagement Manager\nRe: Getting the Brown and Sons cost work moving",
+      "text": "To: James Green, Deborah Gordon\nFrom: Michael Walker\nRe: Getting the cost transformation for {{fact:f:E-2009-001.client}} under way",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "We are kicking this one off. Our start date is {{fact:f:E-2009-001.start}}, and I want everyone pointed the same direction from the outset. The job is straightforward to state and harder to do: help Brown and Sons find real, defensible operating cost to take out, and hand them a plan their own managers can run. Every number we put in front of the client has to trace back to their own records, so the current-state baseline for {{fact:f:E-2009-001.client}} is the foundation everything else stands on. If the baseline is soft, none of the savings will hold up, so we treat it as the first priority, not a warm-up. Keep in mind through all of this that we are not the ones who will run the changes; our job is to leave the client able to, which means the evidence behind each recommendation matters as much as the recommendation itself.",
+      "text": "The purpose of this memo is to fix who owns what before we begin, so that we start in step rather than sort it out on the fly. The engagement commences on {{fact:f:E-2009-001.start}} and runs for roughly seven months; our sponsor on the client side is Sandra Frazier, VP Finance, and I will be the single point of contact with her so that {{fact:f:E-2009-001.client}} hears one voice from us.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The aim of the first phase is narrow and worth stating plainly: to build a cost baseline that both sides will accept before anyone argues about what to do with it. Everything that follows, the benchmarking and the read on where cost can responsibly come out, stands on that baseline, so the early weeks are about getting the numbers clean and agreed rather than about reaching a conclusion.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "A second point is worth setting down at the outset, which is that we work from the client's ledger and not from its budget, on the understanding that the budget records what the business meant to spend while the ledger records what it actually spent. Where the two diverge is often the most useful thing we find, so keep the divergence rather than smoothing it, and note it plainly in the file where you find it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,17 +40,8 @@
     },
     {
       "kind": "heading",
-      "text": "The lines of work",
+      "text": "The work in front of us",
       "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Five workstreams. The first four run in parallel once the data is in hand; the fifth runs alongside them the whole way through:",
-      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
@@ -43,11 +52,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Cost baseline. James Green owns this. Build the current-state cost model from the general ledger and headcount extracts, reconciled to the trial balance so it is theirs, not ours. This is the gate the rest of the work passes through, so it goes first and it goes carefully.",
-        "Third-party and procurement spend. Map the vendor base, the top contracts, and where spend is fragmented across suppliers that could be consolidated. Get the contract terms, not just the spend totals; the savings live in the terms.",
-        "Operations and process. Walk the main operating processes with the people who run them, not from a desk. Look for rework, duplication, and handoffs that cost more than they return, and note where a process is expensive for a reason worth keeping.",
-        "Overhead and organization. Spans, layers, and the cost of the support functions relative to the work they carry. Keep this factual; it is the part clients feel most, so the evidence has to be clean.",
-        "Synthesis and business case. Deborah Gordon pulls the findings into a sized, prioritized case as they land, so the write-up is not a scramble at the end. Each opportunity gets a number, a basis for that number, and a rough sense of how hard it is to capture."
+        "Cost baseline. James Green will assemble the combined cost base from the client's general ledger, reconcile it against the departmental allocations so that it ties out, and stand up the model that the rest of the analysis will run on; where a number will not reconcile, flag it rather than force it.",
+        "Benchmarking. Deborah Gordon will build the comparator set and the benchmarks against it, keeping every source on file so that any figure we later put in front of the client can be traced back to where it came from, and labeling as provisional anything the comparators do not yet support.",
+        "Data and access. I will run the requests for information to Sandra Frazier's team and keep a running index of what has arrived and what is still outstanding, so that neither of you has to chase the client directly and so that our status to her rests on one accurate list.",
+        "Working record. From the first week we will keep one shared engagement file, so that our status notes and exhibits draw from a single record and not from anyone's memory of it, and so that the client's own people could rerun the analysis after we have gone."
       ],
       "header": [],
       "rows": [],
@@ -55,7 +63,7 @@
     },
     {
       "kind": "heading",
-      "text": "The first two weeks",
+      "text": "How we start the week",
       "level": 2,
       "items": [],
       "header": [],
@@ -64,7 +72,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Near-term, in order:",
+      "text": "For the coming week the priority is simply access and materials. I will send {{fact:f:E-2009-001.client}} the opening request for information on the first day, and I would ask each of you to send me, by the end of the week, the list of documents and contacts your area needs, so that I can fold it into one request to the client rather than several.",
       "level": 1,
       "items": [],
       "header": [],
@@ -72,23 +80,17 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
+      "kind": "paragraph",
+      "text": "James Green, please treat the general-ledger extract and the departmental cost allocations as the two items to press for first, since the model cannot begin without them. Deborah Gordon, you can start the comparator scan in parallel so that we are not idle while the client's data comes in, and I will bring you in on the reconciliation the moment the ledger lands so that the benchmarks are built on numbers we have already checked.",
       "level": 1,
-      "items": [
-        "Data request out to Sandra Frazier's team by the end of this week, with a named owner on their side for each item so nothing falls between people.",
-        "Kickoff session with client leadership to confirm scope, access, and the read-out cadence, and to agree who signs off on what.",
-        "Interview schedule confirmed with the operations leads before we need them, so we are not chasing calendars mid-analysis.",
-        "Baseline data loaded and a first reconciliation run against the trial balance, so we know early if anything is missing.",
-        "A weekly status note to the client office, short and plain, starting the first full week."
-      ],
+      "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "A few working norms so we do not have to relitigate them later. Keep your files clean and dated as you go; the synthesis is far easier when the trail behind each number is obvious, and the client will ask how a figure was built, so we should always be able to show them. When something you find looks material, bring it to me early; do not quietly polish it for weeks and surprise us all at the read-out. And treat the client's data with the care it deserves; it stays on our systems and goes no further. I am glad to be getting into this one. If anything here looks off to you, say so now, while we can still change it, and come find me with questions any time.",
+      "text": "I will circulate the standing check-in schedule once Sandra Frazier and I have agreed a cadence, and I will keep the shared file current so that no one has to ask me twice for the same status. If anything on the client side threatens the timeline, raise it with me early and I will handle it with Sandra Frazier's team; a data pull that slips by a week costs us little if we know about it, and a good deal if we learn of it late.",
       "level": 1,
       "items": [],
       "header": [],

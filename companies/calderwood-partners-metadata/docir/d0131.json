@@ -3,8 +3,17 @@
   "doc_id": "d:0131",
   "blocks": [
     {
+      "kind": "heading",
+      "text": "Working Session -- Shared Services Design for {{fact:f:E-2018-001.client}}",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "Working session on the shared services design for Key Group, held at the client's offices. Minutes taken by Jason Torres.",
+      "text": "These minutes record a working session held at the midpoint of the engagement, at which we reviewed the baseline of the in-scope support functions, tested an early view of what the shared services organization should and should not absorb, and agreed how we would carry the cost picture forward; they set down who attended, what was discussed, and who now owns each next step, so that we agree afterward on what was in fact decided rather than on what each of us recalls having wanted.",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
+      "text": "Present",
       "level": 2,
       "items": [],
       "header": [],
@@ -25,9 +34,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "Jason Torres, Principal",
-        "Daniel Cisneros, Research Associate",
-        "Steven Lowe, VP Finance, {{fact:f:E-2018-001.client}}"
+        "Jason Torres, Principal, Calderwood Partners",
+        "Daniel Cisneros, Research Associate, Calderwood Partners",
+        "Steven Lowe, Vice President, Finance, {{fact:f:E-2018-001.client}}"
       ],
       "header": [],
       "rows": [],
@@ -35,7 +44,7 @@
     },
     {
       "kind": "heading",
-      "text": "Discussion",
+      "text": "The baseline as it now stands",
       "level": 2,
       "items": [],
       "header": [],
@@ -44,7 +53,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We are far enough into the baseline to put real numbers against the four functions, and the session was about what those numbers show and where the design goes from here. Nothing today is a recommendation, and I said so at the start.",
+      "text": "Daniel Cisneros presented the baseline of the functions under consideration, which is substantially complete for finance and procurement and largely reconciles to what the unit operators describe, allowing for the familiar small distances between the documented process and the one actually run. The one material gap remains on the cost side, where two of the support functions at {{fact:f:E-2018-001.client}} continue to report through a single cost center, so that we cannot yet state what each of them consumes on its own; until that detail is separated, any figure we later attach to a consolidation option would rest on an apportionment rather than a measured number, and we were careful not to let the group treat a provisional split as though it were already settled.",
       "level": 1,
       "items": [],
       "header": [],
@@ -52,9 +61,9 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Daniel Cisneros walked the baseline. Spend and headcount are in and reconciled for finance, procurement, and human resources across every unit; IT is complete but for one unit's help-desk figures, which are still being normalized. He kept what is confirmed apart from what is still being cleaned, and nothing we discussed today rests on the one open item.",
-      "level": 1,
+      "kind": "heading",
+      "text": "What the shared organization should absorb",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -62,7 +71,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The pattern is plain. Three of the four functions run at a scale inside each unit that a shared organization would not need: the same roles repeat unit by unit, and the cost per transaction sits well above what a consolidated team would carry. Procurement is the clearest case, finance close behind. Human resources is more mixed, because a share of its work is local by nature and does not move to a shared team. My read is that the design should consolidate transactional finance and procurement in the first wave and treat HR as a partial move, and I want the option memo built that way.",
+      "text": "The discussion then turned to which activities genuinely belong in a shared organization and which are grouped together only by the history of how the units grew, and we tested each candidate function against whether consolidation would actually reduce duplicated effort or merely relocate it. Steven Lowe was clear that he did not want a design that swept every transactional task into one place for the appearance of tidiness, and asked us to be explicit about the functions where the case for consolidation is weak; we agreed to carry two or three of those forward as deliberately open questions instead of resolving them prematurely in favor of a cleaner chart.",
       "level": 1,
       "items": [],
       "header": [],
@@ -70,9 +79,9 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "A few numbers are worth recording. Finance and procurement together carry more supervisory layers than their volume warrants; the span of control in those teams is narrow, and a good deal of the cost sits in the second and third layers rather than in the people doing the work. Daniel Cisneros also flagged one figure that still carries a qualification. The procurement spend for the two units that share a vendor master is stated within a range until their records reconcile against a single source, and the range affects the size of the read, not its direction.",
-      "level": 1,
+      "kind": "heading",
+      "text": "Pace and the standard the client set",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -80,16 +89,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Steven Lowe's main question was whether the units keep enough control over their service once the work moves. That is a governance question rather than a cost one, and it belongs in the design. We agreed the service catalogue and the chargeback rules have to answer it before any number goes to his leadership. He also asked us to hold the smallest unit out of the first wave, on the ground that its volumes are too low to move the case; I agreed, and we will document it that way.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "We closed on what the next session has to show. The option memo will set the first-wave scope, the service catalogue, and a first cut of the chargeback rules, and it will keep the smallest unit visibly outside the first wave so that no one has to ask. Steven Lowe asked that the memo state, for each function that moves, what a unit keeps and what it hands over, because that distinction is what his own managers will read first.",
+      "text": "Steven Lowe restated the test the design has to meet, which is that his own managers must be able to operate the shared organization once we have withdrawn, and pressed on whether the open cost question puts the eight-month timeline at risk. The considered view we gave him is that it does not, provided the cost separation is completed within the coming fortnight, and we agreed to fold his operability test directly into how the options are weighed, so that a design his team could not run would not count as a candidate however well it reduced cost on paper.",
       "level": 1,
       "items": [],
       "header": [],
@@ -111,37 +111,36 @@
       "level": 1,
       "items": [],
       "header": [
-        "Action",
         "Owner",
-        "By"
+        "Action",
+        "Target"
       ],
       "rows": [
         [
-          "Close the open IT help-desk figures and finish the baseline",
-          "Daniel Cisneros",
-          "Within two weeks"
-        ],
-        [
-          "Draft the service catalogue and chargeback rules that answer the units' control concern",
-          "Jason Torres",
-          "Before the next session"
-        ],
-        [
-          "Build the first design option: transactional finance and procurement in the first wave, HR partial",
-          "Jason Torres",
-          "Before the next session"
-        ],
-        [
-          "Confirm which units fall in the first wave and which are held back",
           "Steven Lowe",
+          "Have the finance team separate the shared cost center into its two support functions, or point Daniel Cisneros to the underlying detail",
           "Within two weeks"
         ],
         [
-          "Set the next working session once the option memo is drafted",
+          "Daniel Cisneros",
+          "Rebuild the cost picture once the split is available and reconcile it to the process baseline",
+          "Two weeks from receipt"
+        ],
+        [
           "Jason Torres",
-          "On completion of the above"
+          "Confirm the revised baseline date with the client and set the first option review for the following week",
+          "On close of baseline"
         ]
       ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The engagement's forward motion now turns on the single cost separation described above; once the finance team returns it, Daniel Cisneros will close the baseline and I will fix the date for the first review of options, and I would ask that we treat that one item as the priority of the coming fortnight.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
       "signers": []
     }
   ]
