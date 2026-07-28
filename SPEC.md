@@ -1,196 +1,110 @@
 # SPEC
 
-## Spec — 2026-07-28 — Bring-your-own-token authoring mode (provider-neutral driver)
+## Spec — 2026-07-28 — Fit-and-finish: close and harden BYO, tidy the M16 aftermath, prune the backlog
 
-**Goal:** Ship an optional, off-by-default authoring mode that drives OrgSmith's
-two model passes (foundation persona enrichment and document authoring) through a
-user-supplied provider token (OpenAI, Anthropic, Google, OpenRouter, or any
-OpenAI-compatible endpoint including free-tier and local models) instead of the
-ambient Claude Code harness. This is the deferred `provider-neutral-authoring-driver`
-backlog item: the first non-skill implementation of the
-`WorkOrder -> AuthorAdapter -> Deliverable` interface the README already blesses,
-and it lets the model passes run on free-subscription or bring-your-own tokens
-rather than consuming Claude Code usage.
+**Goal:** Put a bow on the current body of work before any M17 flagship effort.
+Close bring-your-own-token authoring (without the live-key smoke), apply the
+useful hardening to the BYO path, finish the reachable M16 loose ends and make
+the docs and exemplar narrative reflect current reality, and prune the backlog
+of resolved entries. No committed fixture is regenerated and no new capability
+line is begun; this turn only tightens and tidies what already shipped.
 
 ### Acceptance Criteria
 
-- [x] **Off by default, opt-in, airlock preserved.** With no provider configured
-  (`ORGSMITH_AUTHOR_PROVIDER` unset and no `~/.config/orgsmith/providers.env`),
-  BYO mode is inert: `python -m drivers.forge_external --check` prints the
-  off-by-default explanation and exits 0, and `/forge` runs today's forked-worker
-  path unchanged. No file under `orgsmith/` gains provider, key, or network code;
-  all of it lives in the new top-level `drivers/` package. `bin/test short` stays
-  green, including `test_no_tier_reads_a_model_api_key`, the schema pin, and the
-  product-name check. A shipped `drivers/providers.env.example` has every provider
-  line commented; `providers.env` is gitignored.
+- [x] **BYO `base_url` scheme allowlist (closes the BYO security NOTE).** Before
+  any request, the driver refuses a `base_url` whose scheme is not `http` or
+  `https`: `call_provider` returns `None` without opening a connection, and
+  `--check` reports the provider as not-ready with a non-zero exit. Unit-tested
+  for both an allowed scheme and a rejected one (for example an empty scheme or
+  `file:`/`ftp:`). SECURITY.md's `base_url` NOTE is marked resolved.
 
-- [x] **Provider registry and selection.** `drivers/config.py` registers `openai`,
-  `anthropic`, `google`, and `openrouter` as named providers plus a generic
-  OpenAI-compatible `local` entry whose base_url is user-set. Every provider's
-  base_url and model id are overridable by env, so any other OpenAI-compatible
-  endpoint (xAI, DeepSeek, Mistral, Together, Groq, Ollama, LM Studio) works by
-  config alone with no code change. The active provider is chosen by
-  `ORGSMITH_AUTHOR_PROVIDER` or `--provider`; unset resolves to none (the off
-  gate). `--check` lists the selected provider, base_url, model, effort, config
-  path, and whether the key is present (presence only, never the value), and exits
-  non-zero when a provider is selected but its key or base_url is missing.
+- [x] **Authoring-guidance drift guard.** A short-tier test keeps the driver's
+  writing-quality system prompt (`drivers/forge_external.py`) in sync with the
+  authoring guidance in `.claude/skills/forge-author/SKILL.md`, failing if the
+  two diverge, so the documented MVP drift risk cannot land silently. Either a
+  single shared asset both read, or a pinned-in-sync assertion in the spirit of
+  `test_board_dimensions_match_the_schema`.
 
-- [x] **Adapters fail open.** `call_provider` reaches the OpenAI Chat Completions
-  and Anthropic Messages shapes over stdlib HTTP (no new runtime dependency) and
-  fails open: any missing key, connection error, non-2xx response, or
-  empty/malformed body logs one line to stderr and returns `None` without raising.
-  Verified offline with mocked HTTP for both shapes.
+- [x] **Backlog pruned of resolved entries.** BACKLOG.md drops the five entries
+  closed by M16 (`recipe-brief-leaks-genre-spec`,
+  `engagement-ledger-reads-as-whole-book`, `docplan-has-no-business-day-calendar`,
+  `reporting-line-drift`, `mundane-email-author-self-names`) and the one closed
+  by the BYO turn (`provider-neutral-authoring-driver`). Every still-open entry
+  is retained verbatim (`board-negative-control`, `cross-document-voice`,
+  `generator-fingerprinting`, `external-validity-program`, `event-simulation`,
+  `state-json-mixes-execution-and-provenance`, `recipe-coherence-test-has-no-floor`,
+  `concurrent-workers-share-one-scratchpad`, `packaging-and-archival`,
+  `mail-audience-internal-vs-external`).
 
-- [x] **The driver produces valid deliverables for both passes, with a bounded
-  repair loop.** `drive_work_order` feeds the self-contained WorkOrder JSON
-  verbatim (no ledger fact value ever appears in the prompt), extracts the
-  deliverable JSON from the model reply tolerating code fences and surrounding
-  prose, validates it against the matching pydantic schema (`EnrichmentDeliverable`
-  for foundation, `AuthoringDeliverable` for author) via `orgsmith.schemas`, and
-  stamps a truthful `generator={model,effort}`. A `None` adapter result is a hard
-  stop with a clear message, never a silent skip. On an `orgsmith ... --ingest`
-  rejection the driver re-prompts the model with the rejection text and retries up
-  to `--max-retries` (default 2), then fails loudly; a failed ingest leaves the
-  batch outstanding for a clean resume.
+- [x] **Docs reconciled to current reality, exemplar included.** The project
+  `CLAUDE.md` known-residual paragraph no longer claims the `hollowell-ip`
+  `To:/Cc:` body banner is unfixed (it was fixed in v2.1.1); only the still-open
+  full-name-in-body device remains, correctly scoped as needing a future
+  regeneration. The README presents BYO as a first-class capability consistent
+  with the exemplar-driven narrative, and no stale pre-fix claim about the
+  exemplar or the mail banner survives anywhere in tree.
 
-- [ ] **Standalone end-to-end loop.** `python -m drivers.forge_external <slug>`
-  generates an org with zero Claude Code dependency: foundation enrichment, then
-  the serial authoring loop (`--next-batch` -> drive -> `--ingest` -> render until
-  `all batchable docs authored`), then assemble/acl/validate/report. It resumes
-  through the same `state.json` + serial-`--ingest` discipline `/forge` uses, and
-  when no provider is configured it prints the pointer and exits 0 having mutated
-  nothing.
+- [x] **README reads cleanly for a newcomer, in house voice.** The README is
+  revised for first-time flow and readability (a newcomer can follow what
+  OrgSmith is, how the airlock works, and how to run it without backtracking),
+  and obvious AI-generated language is removed to match house style: em-dashes
+  replaced with commas, periods, or parentheses; no AI-voice tics ("It's
+  important to note," "Let's," "Great question"); short declarative sentences.
+  Every factual claim, number, and code reference is preserved unchanged (a
+  voice-and-flow edit, not a content rewrite), and the short-tier guards stay
+  green (no hardcoded effort floor, pre-rename name absent). zat.env's README is
+  the reference for the target voice.
 
-- [x] **`/forge` BYO branch.** `.claude/skills/forge/SKILL.md` gains a BYO branch:
-  Step 0 detects a configured provider (via the driver `--check`) and reports the
-  provider/model pair in place of the ambient model line; when set, the model
-  passes delegate to `python -m drivers.forge_external <slug>`; when unset, the
-  forked-worker path is byte-for-byte unchanged. The serial single-writer
-  `--ingest` discipline is kept.
+- [x] **`ManifestEntry.path` constrained at the boundary (closes the standing
+  security NOTE).** An absolute or `..`-bearing manifest path is refused at load
+  time (`load_manifest`, or an equivalent boundary check), closing the
+  path-traversal NOTE carried since before M16. Every committed manifest still
+  loads and the frozen fleet re-derives byte-identical, because every committed
+  path is share-relative. SECURITY.md updated. (Implemented as a boundary check,
+  not a schema-id change, so `schemas/` and the schema pin are untouched.)
 
-- [x] **Offline, keyless tests and fleet safety.** `tests/test_unit_driver.py`
-  (marker `unit`) covers config load and selection, prompt assembly with no fact
-  leak, deliverable extraction and schema validation, generator stamping, the
-  bounded repair loop, per-shape graceful degradation, and `--check` in all three
-  states, entirely offline with mocked HTTP and subprocess; the file contains none
-  of the literal strings `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `CLAUDE_API_KEY`.
-  Full `bin/test` (short + unit + org + flagship) stays green, keyless and offline.
-  No new randomness stream and no schema-id bump; the frozen fleet still loads,
-  validates, and re-derives byte-identical (`test_org_regen.py` `PINNED = SLUGS`
-  and the schema pin unaffected).
-
-- [x] **Docs, README highlight, backlog closure.** `docs/BYO-AUTHORING.md`
-  documents the config surface, provider table, selection, `--check`, the
-  standalone run, the `/forge` mode, generator/effort semantics, the
-  fail-open-vs-hard-stop contract, the manual scratch-root smoke recipe (never
-  authoring into a frozen fixture), and the key-storage security note. `README.md`
-  highlights the capability, leading with the headline benefit: driving authoring
-  on free-tier or free-subscription provider tokens (free Gemini/OpenRouter tiers
-  or a local model at zero API cost) or a user's own BYO key, instead of consuming
-  Claude Code harness usage. `BACKLOG.md`'s `provider-neutral-authoring-driver`
-  entry is closed.
+- [x] **No regeneration, no M17; suite green.** No committed org's ledgers,
+  manifest, or authored/rendered prose is regenerated; `tests/test_org_regen.py`
+  `PINNED = SLUGS` stays byte-identical; no flagship, event-simulation,
+  validation-program, or other new-capability work is begun. Full `bin/test`
+  (short + unit + org + flagship) passes, keyless and offline.
 
 ### Context
 
-- **Adopted from plan** `~/.claude/plans/let-s-add-a-bring-your-own-token-snug-mitten.md`.
-  Read it for the full file-by-file design, the adapter interface, and the
-  MVP/follow-up split. It supersedes the M16-close proposal's headline M17-flagship
-  direction; the flagship remains a live future direction (README + git history),
-  not lost.
+- **Adopted from the 2026-07-28 proposal**, the "close BYO / put a bow on it"
+  direction the user chose over the M17 flagship. The proposal carried no
+  backlog-sweep ops, so backlog pruning is an explicit criterion here rather than
+  a mechanical sweep.
 
-- **Airlock positioning (the load-bearing constraint).** The airlock rule
-  (CLAUDE.md:10-14) constrains code inside `orgsmith/`. The driver lives in a new
-  top-level `drivers/` package, outside that boundary, so it may import `urllib`,
-  read API keys, and call providers. Verified against the enforcement tests:
-  `test_no_tier_reads_a_model_api_key` (test_short.py:261-271) scans only
-  `orgsmith/` and `tests/` for the three literal key names, so driver code is free
-  in `drivers/` but any driver test under `tests/` must avoid those literals
-  (reference `PROVIDERS["openai"].key_env` and a synthetic `ORGSMITH_TEST_KEY`
-  provider instead). The banned-network-import scan (test_short.py:149-161) covers
-  only `orgsmith/review`. The dependency is one-way: the driver imports the pure
-  `orgsmith.schemas`; nothing in `orgsmith/` imports `drivers`.
+- **Frozen-fixture rule is in force; no carve-out this turn.** Committed ledgers,
+  manifests, and authored/rendered prose are frozen (`CLAUDE.md`, restored as of
+  M16). Every criterion here is reachable without regeneration: hardening and
+  tests touch `drivers/` and `tests/`, the `ManifestEntry.path` check is a
+  load-time boundary guard that all committed paths already satisfy, and the doc
+  and backlog edits are prose. Any fix that would move committed bytes (the mail
+  full-name-in-body device, the hollowell list-marker double-bullet) stays
+  deferred to a future, user-approved regeneration turn.
 
-- **No schema change.** `AuthoringDeliverable.generator` /
-  `EnrichmentDeliverable.generator` are already optional and recorded by
-  `author --ingest` (schemas.py:996-1030). The driver stamps the real
-  provider/model truthfully. `--ingest` is side-effect-free on rejection, so it
-  doubles as the repair-loop validator: a rejected batch stays outstanding.
+- **Explicitly out of scope (the "down-the-road body of work").** The M17
+  window-defeating flagship; `event-simulation`; `external-validity-program`;
+  `generator-fingerprinting` defenses; the mail-audience mixed internal/external
+  capability; and the BYO parallel window (K>1) and a MODEL-AB round using the
+  driver. These stay in the backlog.
 
-- **Self-contained WorkOrders.** The authoring WorkOrder carries the full
-  hard-rules `instructions` block, `narrative`, and per-doc `guidance`
-  (`orgsmith/authoring/contexts.py`), so the driver's own prompt scaffolding is
-  small: a writing-quality system prompt distilled from `forge-author/SKILL.md`
-  plus an "emit pure JSON" instruction. Accepted MVP drift risk: the distilled
-  prompt is driver-owned; a shared prompt asset both skill and driver read is a
-  follow-up.
+- **BYO closed at 7/8 by decision.** The live end-to-end run against a real
+  provider key (BYO criterion 5) was intentionally not done; the documented
+  manual scratch-root smoke in `docs/BYO-AUTHORING.md` remains the way to
+  exercise it later. This turn treats BYO as shipped and only hardens it.
 
-- **Packaging.** `pyproject.toml` adds `drivers` to
-  `[tool.setuptools.packages.find]` (currently `include = ["orgsmith*"]`) so
-  `python -m drivers.forge_external` runs and `tests/` can `import drivers.*`; an
-  optional `orgsmith-author` console entry point may be added. Stdlib-only, no new
-  runtime dependency. `unit` is an existing pytest marker.
-
-- **Exercised proof (manual, non-CI).** To prove the driver end to end needs a
-  real key and costs money, so it is a documented manual smoke against a gitignored
-  scratch root with the `dev-mini` recipe, never against a frozen fixture. Not a
-  gating criterion.
-
-- **House practices (zat.env).** Verification over prompting: the acceptance
-  criteria are the contract. Small committable increments with tests in the same
-  increment; run the relevant tier after each functional change. If two
-  consecutive fix attempts fail, revert and re-evaluate. Never weaken a test to
-  accommodate a regression. Precision over recall in any review. Do not remove,
-  reword, or reorder acceptance criteria; only check them off when verified.
-
-- **Execution (user directed autonomous implementation + push).** Implement in the
-  plan's staged increments, committing each with its tests; update the README
-  highlight last; then push. The final push triggers the pre-push `/codereview`
-  gate; run it when it blocks.
-
-- **Turn closed 2026-07-28 (7/8), user decision.** Criterion 5's live
-  end-to-end run against a real provider key was consciously skipped, not
-  attempted: it needs a paid credential and cannot run in CI. Everything up to
-  the live provider call is unit-tested; the documented manual scratch-root
-  smoke (`docs/BYO-AUTHORING.md`) remains the way to close it. Shipped and
-  pushed (`4fdce04`, `cf9ee69`, `856489a`); codereview + security clean
-  (0 BLOCK, 0 WARN, 1 defense-in-depth NOTE).
+- **House practices (zat.env).** Verification over prompting; small committable
+  increments with tests in the same increment; run the relevant tier after each
+  change; precision over recall in review; a fit-and-finish turn still avoids
+  bundling unrelated concerns into one commit. Do not reword or reorder criteria;
+  check off only when verified.
 
 ---
-*Prior spec (2026-07-23): M16 — regenerated the eight-org fleet under the realism
-wave's knobs, re-froze (`PINNED = SLUGS` fleet-wide), and cut the v2.1.0 release;
-12/12 criteria met.*
+*Prior spec (2026-07-28): bring-your-own-token authoring driver shipped
+(out-of-airlock `drivers/` package, off by default); 7/8 criteria met, the live
+end-to-end run against a real key intentionally skipped.*
 
-### Proposal (2026-07-28)
-
-**What happened.** Bring-your-own-token authoring shipped (`4fdce04`, `cf9ee69`,
-`856489a`), closing the deferred `provider-neutral-authoring-driver` backlog item. A
-new out-of-airlock `drivers/` package drives OrgSmith's two model passes through a
-configured provider (OpenAI, Anthropic, Google, OpenRouter, or any
-OpenAI-compatible/local endpoint): a config/registry, two stdlib-HTTP adapters
-(fail-open), a WorkOrder -> provider -> Deliverable loop with generator stamping and a
-bounded repair loop, a standalone generation loop, a `--check` preflight, and a
-`/forge` BYO branch. Off by default; the airlock is untouched (`orgsmith/` unchanged,
-the one-way dependency enforced by a new short-tier test). Codereview and security
-clean (0 BLOCK, 0 WARN, 1 defense-in-depth NOTE). 7/8 criteria: the live end-to-end
-run against a real key was consciously skipped (CI stays keyless), so the driver is
-proven up to the provider call but never exercised end to end against a real model.
-
-**Questions and directions.**
-- **Close the BYO loop for real.** The one open criterion: run the driver end to end
-  on a scratch `dev-mini` against a free or local provider (a free Gemini/OpenRouter
-  tier, or Ollama), confirm it produces a valid org, and record the result. Small and
-  concrete, and it converts "proven up to the call" into "proven." Open question: does
-  a non-Claude model actually satisfy ingest's placeholder/mention/hard-case checks,
-  and how many repair rounds does it take?
-- **M17, the window-defeating flagship.** Still the big roadmap item, deferred again
-  this turn. BYO now makes it cheaper: the ~2,000-document org could author on a
-  cheaper or free provider. What recipe shape and cost envelope, and does the driver's
-  serial loop need a parallel window (K>1) first?
-- **BYO hardening follow-ups.** The security NOTE (an `http(s)`-only scheme allowlist
-  on `base_url`); a shared authoring-prompt asset both the skill and driver read, with
-  a drift test; a MODEL-AB round using the driver to vary the model independent of the
-  harness.
-- **Carried from M16.** The mail full-name-in-body device (meridian/ashcombe) and
-  `board-negative-control` (still no measured board false-positive rate).
-
-<!-- SPEC_META: {"date":"2026-07-28","title":"Bring-your-own-token authoring mode (provider-neutral driver)","criteria_total":8,"criteria_met":7} -->
+<!-- SPEC_META: {"date":"2026-07-28","title":"Fit-and-finish: close and harden BYO, tidy the M16 aftermath, prune the backlog","criteria_total":7,"criteria_met":7} -->
