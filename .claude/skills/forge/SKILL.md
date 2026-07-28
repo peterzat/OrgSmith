@@ -34,9 +34,33 @@ conversation (that is what workers and validators are for).
 
    Both halves are self-reported and recorded per batch, never verified:
    see `orgsmith/effort.py` for what the harness does and does not expose.
+   (In BYO provider mode, Step 0.5, the provider and model author instead of
+   the session; report the pair from `--check`, not this model line.)
 3. `PY -m orgsmith status <slug> --json` — this tells you exactly where a
    previous session stopped. Resume state is file-derived; never rely on
    conversation memory of earlier runs.
+
+## Step 0.5 — BYO provider mode (optional, off by default)
+
+Bring-your-own-token authoring routes the model passes through a configured
+API provider (the out-of-airlock `drivers/` package) instead of forked
+workers. It is OFF unless a provider is configured; when off, ignore this step
+and run Steps 1-5 as written.
+
+1. `PY -m drivers.forge_external --check`. If it reports `OFF (no provider
+   selected)`, BYO mode is off: proceed to Step 1, the forked-worker path is
+   unchanged.
+2. If it reports a provider, that provider and model author this run, not the
+   ambient session. Report that provider/model pair to the user (in place of
+   Step 0's model line) and confirm it is `ready`.
+3. Delegate the generation to the driver:
+   `PY -m drivers.forge_external <slug>` (add `--root` if you use one). It runs
+   the pure stages, both model passes (enrichment and authoring, serial), and
+   render/assemble/acl/validate/report itself, resuming from `state.json` the
+   same way this skill does. Report its validate summary.
+4. Then skip Steps 1-4 (the driver ran them) and go to Step 5 (the optional
+   board), which is unchanged: the board is a separate quality pass over
+   whatever authored the org.
 
 ## Step 1 — pure stages (Bash, in order, each idempotent)
 

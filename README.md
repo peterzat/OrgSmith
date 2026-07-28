@@ -461,6 +461,18 @@ surface prose, through an airlock:
   editor. Both contracts are published as JSON Schema in
   [`schemas/`](schemas/) (`python -m orgsmith emit-schemas`), so you do not
   need to import Python to read them.
+- **Bring your own token (optional, off by default).** That interface ships
+  with a reference driver in [`drivers/`](drivers/):
+  `python -m drivers.forge_external <slug>` generates a whole org through a
+  provider you configure (OpenAI, Anthropic, Google, OpenRouter, or any
+  OpenAI-compatible endpoint, including free-tier and local models). The point
+  is cost and portability: author the model passes on a free-subscription
+  token (a free Gemini or OpenRouter tier, or a local model at zero API cost)
+  or your own key, instead of consuming Claude Code usage, and reproduce a
+  corpus without the harness at all. See
+  [`docs/BYO-AUTHORING.md`](docs/BYO-AUTHORING.md). The airlock is unchanged:
+  the driver lives outside `orgsmith/`, which still never calls a model or
+  touches the network.
 - The model writes documents with `{{fact:...}}` placeholders and is never
   shown the underlying values. Python substitutes them at render time, so a
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
