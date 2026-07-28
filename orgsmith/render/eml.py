@@ -8,6 +8,7 @@ flattened to text/plain. Re-rendering writes identical bytes.
 
 from __future__ import annotations
 
+import re
 from datetime import datetime, timezone
 from email import policy
 from email.message import EmailMessage
@@ -17,6 +18,31 @@ from .. import PRODUCT_NAME
 from ..schemas import DocIR, ManifestEntry
 
 MARKER_HEADER = f"X-{PRODUCT_NAME}-Synthetic"
+
+# A transport-header line an author sometimes puts at the very top of the body
+# (To:/Cc: banner) to get the recipient's full name past the ingest mention
+# check. The real headers already carry these, so a body copy renders as a
+# duplicated header block. Matches only "Word: " where Word is a known header
+# keyword, so a body opening "To all staff," or "Subject to review:" is safe.
+_HEADER_LINE = re.compile(
+    r"^(To|Cc|Bcc|From|Subject|Date|Sent|Reply-To):[ \t]", re.IGNORECASE
+)
+
+
+def strip_leading_header_block(text: str) -> str:
+    """Drop a contiguous run of transport-header-style lines at the very top of
+    a message body (plus one blank separator after it). Only strips a run that
+    starts on the first line, so a body that opens with a salutation or any
+    ordinary prose is returned unchanged. Idempotent."""
+    lines = text.split("\n")
+    i = 0
+    while i < len(lines) and _HEADER_LINE.match(lines[i]):
+        i += 1
+    if i == 0:
+        return text
+    while i < len(lines) and lines[i].strip() == "":
+        i += 1
+    return "\n".join(lines[i:])
 
 
 def _message_id(doc_id: str, slug: str, domain: str) -> str:
@@ -150,7 +176,7 @@ def _body_text(docir: DocIR, entry: ManifestEntry) -> str:
                 f"render: sigblock in {entry.doc_id} ({entry.format}); mail "
                 "carries no signature blocks"
             )
-    return "\n".join(lines).strip() + "\n"
+    return strip_leading_header_block("\n".join(lines).strip()) + "\n"
 
 
 def render_eml(

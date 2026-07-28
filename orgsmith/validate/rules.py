@@ -90,8 +90,24 @@ class Context:
         elif entry.format == "pptx":
             text = _pptx_text(path)
         elif entry.format == "eml":
-            body = _eml_message(path).get_body(preferencelist=("plain",))
-            text = body.get_content() if body is not None else ""
+            from email.utils import getaddresses
+
+            msg = _eml_message(path)
+            body = msg.get_body(preferencelist=("plain",))
+            body_text = body.get_content() if body is not None else ""
+            # Include the To/Cc header display names: a recipient's full name
+            # legitimately lives in the transport headers, not the body, so
+            # MENT-01 must read it there. The eml body no longer carries a
+            # To:/Cc: banner (strip_leading_header_block), so without this a
+            # header-only recipient name would read as a missing mention.
+            names = [
+                nm
+                for nm, _addr in getaddresses(
+                    msg.get_all("To", []) + msg.get_all("Cc", [])
+                )
+                if nm
+            ]
+            text = (" ".join(names) + "\n" + body_text) if names else body_text
         elif entry.format in ("xlsx", "xls"):
             # Workbooks are checked cell-by-cell (FIN-02), not as prose;
             # FACT-01 skips them explicitly.

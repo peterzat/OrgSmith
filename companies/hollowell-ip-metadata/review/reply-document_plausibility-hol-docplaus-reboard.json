@@ -2,16 +2,14 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "hollowell-ip",
   "dimension": "document_plausibility",
+  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
       "id": "rf:doc-plausibility-mail-salutation",
       "dimension": "document_plausibility",
       "severity": "minor",
-      "docs": [
-        "d:0002",
-        "d:0052"
-      ],
+      "docs": ["d:0002", "d:0052"],
       "summary": "Both firm-wide internal notices are sent to the all-staff distribution list yet open with the salutation 'Sharon,' and are written entirely as one-to-one notes to the docketing manager, so a broadcast reads as a private message.",
       "evidence": "d:0002 ('Office logistics') and d:0052 ('IT maintenance window') both carry 'To: all-staff@hollowellpatent.com' but open 'Sharon,'; e.g. d:0052 broadcasts 'Please move anything due that day to before the window opens.' to the whole firm while addressing only Sharon."
     },
@@ -20,15 +18,9 @@
       "id": "rf:doc-plausibility-list-marker",
       "dimension": "document_plausibility",
       "severity": "minor",
-      "docs": [
-        "d:0060"
-      ],
+      "docs": ["d:0060"],
       "summary": "A client email's two-item request list renders with both a dash bullet and an author-typed number on each line, a double list marker no genuine email carries.",
       "evidence": "Rendered body of d:0060: '  - 1. the recorded assignments for the third family, which we understand your prior counsel still holds; and' / '  - 2. the executed side letter referenced in Section 4 of the term sheet.'"
     }
-  ],
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  }
+  ]
 }

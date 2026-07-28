@@ -108,13 +108,14 @@ Per-author 4-gram Jaccard proxies, computed with no model: within is an author's
 
 ### Review board
 
-6 findings from the review board.
+7 findings from the review board.
 
 | id | dimension | severity | docs | summary |
 | --- | --- | --- | --- | --- |
-| rf:doc-plausibility-1 | document_plausibility | blocker | d:0017, d:0018, d:0019, d:0020, d:0021, d:0056, d:0057, d:0058, d:0059 | Nine engagement emails retype the recipient list as literal 'To:/Cc:' text at the very top of the message body, directly beneath the .eml's own To/Cc headers, a templating artifact no genuine email carries. |
 | rf:cross-voice-email-openers | cross_document_voice | major | d:0006, d:0017, d:0032, d:0045, d:0056 | The first client email of all five engagements opens with the same 'I am opening this thread so ... stay in one place' sentence, though each was written by a different person. |
 | rf:cross-voice-kickoff-scope | cross_document_voice | major | d:0016, d:0044, d:0055 | The three opinion-type kickoff memos, each by a different agent, reach for the same verbatim scope-scaffolding sentences rather than expressing the shared method in independent words. |
 | rf:cross-voice-minutes | cross_document_voice | major | d:0010, d:0061 | Meeting minutes taken by two different people six years apart share verbatim narrative sentences that are prose, not form fields, so the match reads as one generator rather than two minute-takers. |
 | rf:graph-acl-1 | graph_acl_naturalness | major | d:0044 | The Jackson Inc trademark-clearance kickoff assigns core searching to Matthew Parrish, who is not on the matter team and has no access to the matter folder. |
 | rf:narrative-consistency-1 | narrative_consistency | major | d:0004, d:0011, d:0013 | The Odonnell portfolio-review engagement carves office-action work out of scope in the letter, kickoff, and deck, then the status report and closing minutes report drafting and FILING office-action responses (and an examiner interview) as completed engagement work while still claiming to be within scope. |
+| rf:doc-plausibility-list-marker | document_plausibility | minor | d:0060 | A client email's two-item request list renders with both a dash bullet and an author-typed number on each line, a double list marker no genuine email carries. |
+| rf:doc-plausibility-mail-salutation | document_plausibility | minor | d:0002, d:0052 | Both firm-wide internal notices are sent to the all-staff distribution list yet open with the salutation 'Sharon,' and are written entirely as one-to-one notes to the docketing manager, so a broadcast reads as a private message. |

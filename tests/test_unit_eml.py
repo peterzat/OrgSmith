@@ -151,3 +151,45 @@ def test_eml01_skips_visibly_when_knob_off(capsys):
     assert run_validate(committed, only=["EML-01"]) == 0
     out = capsys.readouterr().out
     assert "SKIP EML-01" in out and "format_mix.eml is 0" in out
+
+
+def test_strip_leading_header_block():
+    """An author's To:/Cc: body banner (added to get the recipient full name
+    past the ingest mention check) is dropped at render time, since the real
+    transport headers already carry it. Bodies that open with prose are
+    untouched, and the strip is idempotent."""
+    from orgsmith.render.eml import strip_leading_header_block as strip
+
+    banner = "To: Barbara Blair\nCc: Kelly Snyder, Heather Munoz\n\nHello Barbara,\nthe body."
+    assert strip(banner) == "Hello Barbara,\nthe body."
+    assert strip(strip(banner)) == strip(banner)  # idempotent
+    # Ordinary prose that merely starts with a header keyword is NOT a banner.
+    assert strip("Hello Barbara,\nbody") == "Hello Barbara,\nbody"
+    assert strip("To all staff, please note the change.") == (
+        "To all staff, please note the change."
+    )
+    assert strip("Subject to board approval, we proceed.") == (
+        "Subject to board approval, we proceed."
+    )
+
+
+def test_committed_mail_body_carries_no_header_banner():
+    """No committed engagement email opens its body with a transport-header
+    line: the recipient full name lives in the real To/Cc headers, and MENT-01
+    reads it there (Context.doc_text folds the header display names in)."""
+    from orgsmith.artifacts import load_manifest
+
+    for slug in ("hollowell-ip", "meridian-actuarial", "ashcombe-advisory"):
+        paths = OrgPaths(root=REPO, slug=slug)
+        for entry in load_manifest(paths):
+            if entry.format != "eml":
+                continue
+            msg = _parse(paths.share_dir / entry.path)
+            body = msg.get_body(preferencelist=("plain",))
+            if body is None:
+                continue
+            first = (body.get_content().splitlines() or [""])[0]
+            keyword = first.split(":", 1)[0].strip()
+            assert keyword not in {
+                "To", "Cc", "Bcc", "From", "Subject", "Date", "Sent", "Reply-To"
+            }, f"{slug}/{entry.path}: body opens with a header banner"
