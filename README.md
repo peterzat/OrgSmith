@@ -44,9 +44,9 @@ shown, so a fee or a date cannot be mistranscribed into a document.
 OrgSmith runs as Claude Code skills rather than against an API, so authoring
 bills to the Claude subscription you already have, needs no API keys, and the
 deterministic stages (ledgers, rendering, validation) cost no tokens at all.
-The writer is whatever model your session is set to — OrgSmith pins none, so
+The writer is whatever model your session is set to, and OrgSmith pins none, so
 [which one you pick is the one choice that changes your
-corpus](#which-model-should-write-your-documents), and we measured it rather
+corpus](#which-model-should-write-your-documents). We measured that rather
 than guessed.
 
 The result reads like a real firm wrote it: engagement letters on letterhead
@@ -54,14 +54,14 @@ with signature blocks, meeting minutes that name every attendee, spreadsheets
 whose formulas recompute to the values the finance ledger says. The
 `-metadata` directory is the answer key.
 
-**Start here: [`northgate-staffing`](companies/northgate-staffing/)** — the
+**Start here: [`northgate-staffing`](companies/northgate-staffing/).** The
 firm above, 53 documents across eight years, and its [answer
 key](companies/northgate-staffing-metadata/). Real files in your browser,
 nothing to clone, install, or authenticate. It is the org we consider our best
 current example, so it is also the one our review board was pointed at, and
 [every flaw it found is published below](#what-is-not-modeled-today).
 
-Six more companies are committed beside it — [the fleet](#what-ships-today)
+Six more companies are committed beside it, [the fleet](#what-ships-today)
 exists to show breadth (1999–2025, legacy binaries, degraded scans,
 departmental ACLs), not to be browsed end to end. You can also write a recipe
 and generate your own.
@@ -69,8 +69,8 @@ and generate your own.
 ## Who this is for
 
 You are building something that has to operate over a real organization's
-documents — retrieval, extraction, a people graph, an agent that navigates
-a file share — and you need a corpus to develop against. Your options today
+documents (retrieval, extraction, a people graph, an agent that navigates
+a file share), and you need a corpus to develop against. Your options today
 are limited:
 
 - **Real corpora** are confidential, single-instance, and carry no ground
@@ -94,7 +94,7 @@ before any prose existed, every question has a computed answer:
   the expected document set per question.
 - **Extraction.** What was the fee on E-2021-003, and where does it live?
   The suite ships the exact expected value, the source documents, and the
-  *location class* — so you can score "found it in the body" separately from
+  *location class*, so you can score "found it in the body" separately from
   "found it on the signature page of a scanned PDF."
 - **People-graph / entity resolution.** Who works with whom, who is the same
   person under a nickname, who changed employers mid-history? The answer key
@@ -106,7 +106,7 @@ before any prose existed, every question has a computed answer:
   corpora skip entirely. Recipes can produce genuine pre-2007 OLE binaries,
   PDFs rasterized and degraded to look scanned, an invisible synthetic OCR
   layer with realistic corruptions, and image-only scans with no extractable
-  text at all — each with the *true* page text archived as ground truth, so
+  text at all, each with the *true* page text archived as ground truth, so
   you can measure exactly what your OCR pipeline lost.
 
 `score` grades an external system's answers against any suite with
@@ -132,7 +132,7 @@ every `<slug>/` is a real file share you can click through and every
 `<slug>-metadata/` is its answer key, sitting right next to it. A ninth
 committed org, the test fixture [`dev-mini`](companies/dev-mini/), sits beside
 them. **If you are here to eyeball the output, read
-[`northgate-staffing`](companies/northgate-staffing/) and stop** — the rest of
+[`northgate-staffing`](companies/northgate-staffing/) and stop.** The rest of
 the table is here to show the axes the generator moves along (era, sector, ACL
 posture, format mix, mail, noise), not to be read end to end.
 
@@ -141,7 +141,7 @@ recipe allowed:
 
 | company | docs | share | answer key |
 | --- | --- | --- | --- |
-| **the exemplar** — 12-person executive search firm, 2015–2023, business calendar, sample book, the full noise suite | 66 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
+| **the exemplar**, a 12-person executive search firm, 2015–2023, business calendar, sample book, the full noise suite | 66 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
 | 25-person management consultancy, 2008–2022, the largest here, duplicate/draft noise | 218 | [calderwood-partners](companies/calderwood-partners/) | [key](companies/calderwood-partners-metadata/) |
 | 16-person comms advisory, 2017–2024, the email pilot: real threads plus the full noise suite | 104 | [ashcombe-advisory](companies/ashcombe-advisory/) | [key](companies/ashcombe-advisory-metadata/) |
 | 12-person actuarial consultancy, 2016–2024, a roster that grows, real mail threads | 72 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
@@ -205,9 +205,9 @@ email-first pilot and is now a regenerated member of the fleet (M16): a 16-seat
 corporate communications and investor-relations advisory across 2017–2024, 104
 documents, generated through the live airlock on `claude-opus-4-8[1m]` at effort
 `xhigh`. It is the org to read for email realism. Under the optional
-`doc_culture.mail` block, its engagement mail runs as real threads — **45
+`doc_culture.mail` block, its engagement mail runs as real threads, **45
 `.eml`, the largest mail presence in the fleet, across 6 threads up to depth
-8** — with minute-granularity send times in declared business hours,
+8**, with minute-granularity send times in declared business hours,
 `In-Reply-To`/`References` chains, RE: subjects, derived quoted-history tails, a
 deterministic To/Cc split, promotion-aware signature blocks, transmittal emails
 carrying a kickoff memo as a byte-identical MIME attachment, a mundane
@@ -267,7 +267,7 @@ produce 40 documents. It produces, very roughly:
   board caught the corpus mistaking that sample for the whole business, and
   the arithmetic is published rather than smoothed over (`BACKLOG.md`,
   `engagement-ledger-reads-as-whole-book`).
-- **Documents 3–6× longer — fixed.** Real engagement letters run 800–1,500
+- **Documents 3–6× longer, fixed.** Real engagement letters run 800–1,500
   words; the pre-v2.0 fleet's authored mean was **236 words** against briefs
   asking 130–350. The model was roughly hitting its targets; the targets
   were wrong. M9 made length a per-genre property of the genre registry and
@@ -280,7 +280,7 @@ There is no honest way to call 40 documents a sample of that. What it is: a
 corpus where **every** hard case you care about is present, labeled, and
 checkable. If your extractor cannot find a fee that exists only on the
 signature page of a degraded scan, it will fail here, on 40 documents, in
-under two seconds, with an exact answer key — instead of failing silently on
+under two seconds, with an exact answer key, instead of failing silently on
 50,000 real ones.
 
 ### What is not modeled today
@@ -304,7 +304,7 @@ regenerating it rather than by our say-so:
   The recipe now declares a calendar; validator rule CAL-01 keeps every
   `meeting_minutes` and engagement email on a business day. The previously-cited
   Saturday 2016-05-28 and 2023-07-04 (US Independence Day) client working
-  sessions **no longer occur** — those dates appear nowhere in the corpus.
+  sessions **no longer occur**. Those dates appear nowhere in the corpus.
 - **The overview no longer overstates the book** (`engagements.book_is_sample`).
   Where the 2021 overview once called five engagements "a deliberately short
   list" of the firm's entire client base, it now reads "a representative
@@ -353,25 +353,27 @@ honest about where the generator actually stands:
   access to the very document that tasks them. It reads as two mechanisms
   (mention quota, access derivation) derived independently and never reconciled.
 
-**One fleet-wide artifact the wave introduced, recorded not fixed.** The ingest
-mention check requires an email author to spell the recipient's full legal name
-in the body (a first-name greeting alone will not satisfy it), so the mail
-demonstrators put it there. On `hollowell-ip` the device is a `To:/Cc:` banner
-at the top of the message body, and the `.eml` renderer emits it **on top of
-the real headers** — a duplicated recipient block on 9 of 18 engagement emails,
-visible the instant the message opens (its document_plausibility board finding,
-a blocker). It passes validation (the actual `.eml` headers recompute correctly;
-the duplicate is in the body prose). A proper fix (the renderer strips authored
-header-lines from `.eml` bodies, or the authoring guidance forbids them, then
-re-render the mail orgs) is its own unit of work, out of scope for the
-regenerate-and-re-freeze wave that produced this fleet.
+**One fleet-wide artifact the wave introduced, its worst symptom since fixed.**
+The ingest mention check requires an email author to spell the recipient's full
+legal name in the body (a first-name greeting alone does not satisfy it), so the
+mail demonstrators put it there. On `hollowell-ip` that device produced a
+`To:/Cc:` banner at the top of the message body, and the `.eml` renderer emitted
+it on top of the real headers, a duplicated recipient block visible the instant
+the message opened. That renderer bug is fixed as of v2.1.1: the renderer now
+strips an authored header banner from `.eml` bodies and reads the recipient from
+the transport headers instead, so the mention check still passes and a committed
+test asserts no fleet mail body carries a header banner. The device underneath
+remains. The recipient's full name still appears in the prose to satisfy the
+mention check, and exempting a mail recipient from its required body mentions
+(the way `exempt_author_mentions` already exempts the author), then re-rendering
+the mail orgs, is its own unit of work.
 
 **What we think is important about this exemplar.** The point of regenerating
 `northgate-staffing` under the newest version of the framework is not that the
-board fell silent — it did not. It is *which* findings survived. Everything the
-generator can settle by construction — a business-day calendar, a sample-book
+board fell silent. It did not. It is *which* findings survived. Everything the
+generator can settle by construction (a business-day calendar, a sample-book
 prose posture, reporting lines that match the graph, the named template
-constructions — the wave settled, cleanly and measurably, by turning a knob and
+constructions), the wave settled cleanly and measurably, by turning a knob and
 regenerating. What is left is the class of problem no ledger can adjudicate:
 whether thirteen documents read as thirteen hands or one, and whether the
 firm's own structured facts agree with each other before the prose ever renders
@@ -381,14 +383,14 @@ exemplar's residue is now a voice problem and a fact-consistency problem rather
 than a calendar bug and an overstated brochure. The roadmap is scoped directly
 from what is left.
 
-Read the board sceptically, including here — it is the weakest instrument in
+Read the board sceptically, including here: it is the weakest instrument in
 this repo, it has been caught publishing a checkable falsehood, and its
 false-positive rate is unmeasured ([what this does not
 prove](#what-this-does-not-prove)). Every finding quoted above was re-verified
 against a ledger or the rendered artifact before it was published: the "Jim"
 collision against `foundation.json` and the two documents, the duplicated
 header against the rendered `.eml`, the calendar fix against the manifest. The
-one thing no ledger can settle — whether two sentences are the same voice — is
+one thing no ledger can settle, whether two sentences are the same voice, is
 labelled as the board's judgment, not rounded up into a fact.
 
 **You can check that rather than take it: all eight orgs ship their own board
@@ -403,7 +405,7 @@ once compensation tracks a roster instead of tracking fees, a firm that
 compounds revenue with a headcount that never moves posts a net margin
 climbing toward 50%, which no professional-services firm does. The model was
 right and the recipes were wrong. So each fleet recipe is now tuned until
-its growth, headcount, and span describe one firm — measured from its own
+its growth, headcount, and span describe one firm, measured from its own
 finance ledger, recorded in the recipe, and re-checked on every test run
 (`test_fleet_recipe_growth_headcount_and_span_describe_one_firm`). This is
 the pattern worth stealing: when a fix reveals that your inputs were wrong,
@@ -430,8 +432,8 @@ senders, promotion-aware signatures) now ship under the optional
 email-first pilot [`ashcombe-advisory`](#the-m14-email-pilot) (45 `.eml`, depth
 8). What is still open is *volume*: even the pilot is document-dominant, and no
 corpus here approaches an email-dominant one. The wave also surfaced a rendering
-artifact on `hollowell-ip` (a duplicated recipient block in 9 emails, above),
-recorded not fixed.
+artifact on `hollowell-ip` (a duplicated recipient block in the mail bodies),
+fixed in v2.1.1 (above).
 
 **Choose accordingly.** If you need email or document *volume*, or a realistic
 noise distribution, this is still the wrong tool today; if you need thread
@@ -456,8 +458,8 @@ surface prose, through an airlock:
 - **That file exchange is the whole interface.** OrgSmith ships Claude Code
   skills as its driver, but nothing in the package knows what wrote a
   deliverable: anything that reads a `WorkOrder` and writes back an
-  `AuthoringDeliverable` drives the pipeline — another harness, a plain API
-  script, a local model, a replay of a previous run, a human with a text
+  `AuthoringDeliverable` drives the pipeline: another harness, a plain API
+  script, a local model, a replay of a previous run, or a human with a text
   editor. Both contracts are published as JSON Schema in
   [`schemas/`](schemas/) (`python -m orgsmith emit-schemas`), so you do not
   need to import Python to read them.
@@ -543,25 +545,25 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 **oracles beat proxies beat critics**, and you should know which one you are
 relying on for any given claim.
 
-**Oracles — strongest, and where all the facts live.** An oracle recomputes
+**Oracles, strongest, and where all the facts live.** An oracle recomputes
 the answer from ground truth. The 35-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
-is why the airlock exists — the model never sees a value it is placing, so
+is why the airlock exists: the model never sees a value it is placing, so
 "the model transcribed the fee wrong" is not a bug class that can occur. It
 is structurally impossible rather than tested-for.
 
-**Proxies — weaker, cheap, and blind to different things than you are.**
+**Proxies, weaker, cheap, and blind to different things than you are.**
 `orgsmith report` computes corpus metrics with no model: each document's
 length against the words its brief actually asked for, and same-genre n-gram
 overlap. A proxy catches what the generator cannot see about itself. Ours
 immediately found real literal reuse across two engagement letters that no
 human reader in the project had noticed.
 
-**Critics — weakest, and treated as such.** `/forge-review` dispatches a
+**Critics, weakest, and treated as such.** `/forge-review` dispatches a
 board of fresh-context reviewers across six dimensions. A critic shares
 blind spots with the generator that produced the text, so the board's scope
-is exactly what no proxy reaches — above all **cross-document voice**, the
+is exactly what no proxy reaches, above all **cross-document voice**, the
 one dimension no author can ever self-check, because nothing in the pipeline
 holds two authored documents at once. Every document is written by a fresh
 worker that has never seen a sibling.
@@ -570,7 +572,7 @@ Three consequences worth being explicit about:
 
 **Nothing that is not an oracle is allowed to gate.** No metric and no board
 finding is a validator rule. Thresholds are unknown, and "when a measure
-becomes a target, it stops being a good measure" — a similarity rule would
+becomes a target, it stops being a good measure": a similarity rule would
 just teach the generator to paraphrase. The metric measures, the board
 judges, the human decides.
 
@@ -581,8 +583,8 @@ reach the board at all (a static test proves no tier can); and no LLM grades
 an LLM anywhere in an automated path.
 
 **We publish what the critic said about us.** Every org ships the board's
-findings next to the documents they judge, unflattering ones included — 28
-of them against the current exemplar, 16 rated major, quoted at length
+findings next to the documents they judge, unflattering ones included (8
+of them against the current exemplar, 6 rated major), quoted at length
 [above](#what-is-not-modeled-today). Two of those drove BACKLOG entries
 carrying the arithmetic that proves them. The board's findings against the
 *retired* exemplar drove milestones M8 and M9, and are why the frozen
@@ -614,7 +616,7 @@ similarity, per-author voice ranges, fee coverage, and the review board's
 findings. Nothing here has a validated threshold, nothing here gates, and a
 number moving in a direction we like is not evidence that it should have.
 Fleet-wide distributions live in
-[`docs/DISTRIBUTIONS.md`](docs/DISTRIBUTIONS.md) — corpus shape per org plus
+[`docs/DISTRIBUTIONS.md`](docs/DISTRIBUTIONS.md), corpus shape per org plus
 an aggregate, with reference lines that restate this README's
 order-of-magnitude prose about real firms rather than any sampled
 population. They are context for reading the gap, not a score
@@ -641,7 +643,7 @@ separate boxes makes it hard to quote one as the other.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
-  regenerating unchanged — which is why derived artifacts (`evals/`,
+  regenerating unchanged, which is why derived artifacts (`evals/`,
   `acl.json`, PERMISSIONS.md, `GENERATION-REPORT.md`) are recomputed rather
   than stored.
 - **Tamper evidence by construction.** Rules grandfather by *charter*, not
@@ -651,14 +653,14 @@ separate boxes makes it hard to quote one as the other.
 - **The model choice is measured, not asserted.** See below.
 - **The whole project is built this way.** Spec-driven turns, adversarial
   review with builder/verifier separation, and a pre-push gate that blocks
-  unreviewed code — via [zat.env](https://github.com/peterzat/zat.env).
+  unreviewed code, via [zat.env](https://github.com/peterzat/zat.env).
   `SPEC.md`, `CODEREVIEW.md`, and `SECURITY.md` are in the repo; read them
   to see what the review actually caught.
 
 ### What this does not prove
 
 The board has been calibrated on one org, one model, one run, with no
-negative control, so its false-positive rate is unmeasured — and it is not
+negative control, so its false-positive rate is unmeasured, and it is not
 zero. We have caught it inventing a checkable
 falsehood: during the Round 2 A/B a reviewer asserted that two corpora
 rendered byte-identical prose when all 22 documents differed, and it
@@ -690,16 +692,16 @@ So we measured it twice, at the same seed, against byte-identical ledgers
 and briefs, changing only the model. Full write-up and limits in
 [docs/MODEL-AB.md](docs/MODEL-AB.md).
 
-**Round 1 — Opus 4.8 against Haiku 4.5.** One corpus a blind reviewer said
+**Round 1, Opus 4.8 against Haiku 4.5.** One corpus a blind reviewer said
 would "take a deliberate effort to catch out"; the other it rejected
 outright as too thin to survive first contact, at **60% of the words its
 briefs asked for**, with 8 of 9 documents off brief. Both corpora passed
 every validator rule that ran, with zero errors. The folklore was right, and
 the gap is not subtle. But Haiku is a small, fast, cheap model, so this
-establishes that the axis is real — not where a strong mid-tier model sits
+establishes that the axis is real, not where a strong mid-tier model sits
 on it.
 
-**Round 2 — Opus 4.8 against Sonnet 5.** Run because Round 1 licenses no
+**Round 2, Opus 4.8 against Sonnet 5.** Run because Round 1 licenses no
 conclusion about a mid-tier model, and because "Opus is overkill for placing
 prose around placeholders" is a reasonable hypothesis that deserved a number
 rather than a dismissal. The quality gap turned out to be modest: **0.853 of
@@ -708,7 +710,7 @@ mildly terse, not thin. Nothing like Haiku's collapse. On quality alone it
 would be a defensible choice.
 
 **The cost case is what failed instead.** Sonnet spent **1.89x the tokens**
-for byte-identical work — it made more tool calls, re-read more, and
+for byte-identical work: it made more tool calls, re-read more, and
 self-checked more, while producing 0.86x the words. Sonnet 5 is priced at
 exactly 0.6x Opus 4.8 on *both* halves ($3/$15 per MTok against $5/$25), so
 the arithmetic is short:
@@ -733,14 +735,14 @@ you. If you pick a model on price, measure the tokens it actually spends on
 ### How we guard a choice we refuse to gate
 
 This is where OrgSmith's philosophy gets concrete, because the obvious move
-— a test that fails when the corpus reads thin — is one we deliberately do
+(a test that fails when the corpus reads thin) is one we deliberately do
 not make.
 
 **No test asserts prose quality, and none ever will.** Quality has no
 validated threshold here, and the moment a similarity or length number
 becomes a bar, the generator learns to satisfy the bar rather than the
 intent: a similarity rule teaches it to paraphrase. That is Goodhart, and
-`bin/test` is kept free of it by construction — no tier may touch a model,
+`bin/test` is kept free of it by construction: no tier may touch a model,
 the network, a key, or a wall clock, and a static test proves no tier can
 reach the review board at all. What the tests *do* guard is that the
 deterministic half cannot drift underneath you: the same recipe re-derives
@@ -767,8 +769,8 @@ Instead of gating, four cheap mechanisms make a weak pass *visible*:
   human decides. That sequence is the whole design.
 
 **The honest caveats, because this section argues for spending more money.**
-Both rounds are n = 1, one org and one run per arm, and the effort axis was
-never independently varied — they establish a default with evidence behind
+Both rounds are n = 1 (one org and one run per arm), and the effort axis was
+never independently varied. They establish a default with evidence behind
 it, not an effect size.
 
 And the 13% figure is softer than it looks. It holds only if both arms spend
@@ -779,7 +781,7 @@ expensive one). That skew makes 1.135x an *over*-estimate of Sonnet's true
 cost, and a blended-price shift of ~12% would drop it under 1.0 and flip the
 headline. We cannot settle it from the artifacts: the harness reports one
 undifferentiated token total per worker. So the defensible claim is narrower
-than "Sonnet is more expensive" — it is that **Sonnet's 0.6x rate card does
+than "Sonnet is more expensive": it is that **Sonnet's 0.6x rate card does
 not buy you a 0.6x bill, the gap is most of the way to erasing the discount,
 and nobody should assume the direction without measuring.** Full derivation
 and limits in [docs/MODEL-AB.md](docs/MODEL-AB.md).
@@ -869,7 +871,7 @@ generation bills to your existing plan. Deterministic stages (scaffold,
 ledgers, rendering, validation) run as plain Python and cost no tokens at
 all. Use the strongest model you have, and read
 [Which model should write your documents?](#which-model-should-write-your-documents)
-before deciding a cheaper one saves you anything — measured, it did not.
+before deciding a cheaper one saves you anything. Measured, it did not.
 
 ## What is in the box today
 
@@ -879,7 +881,7 @@ The fleet table [above](#what-ships-today) says what each org *is*. This says
 what each one *exercises*, so you can pick the fixture that stresses the part
 of your system you care about. Every row is read from that org's committed
 charter. Most columns have a validator rule that recomputes them from the
-recipe and fails the org on a mismatch — `ACL-01/02/03`, `LEG-01`,
+recipe and fails the org on a mismatch: `ACL-01/02/03`, `LEG-01`,
 `SCAN-01/02`, `LOC-01/02/03` (the hard cases), `AFF-01/02`, `EML-01`,
 `MENT-01/02` (the ambiguity surfaces). Decks are the exception: they are
 covered by the generic "every file opens in its native reader" rule
@@ -892,17 +894,17 @@ those are fleet-wide, so they are not columns here. The columns are what still
 
 | org | ACL | legacy | scans | OCR | sig-page fee | filename date | surname | nickname | multi-affil | decks | mail | noise | hires/departs/promos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `ashcombe-advisory` | open | — | — | — | — | — | — | ✓ | — | ✓ | ✓ | ✓ | 3/1/2 |
-| `brackenridge-civil` | open | **1.0** | 0.5 | 0.5 | — | — | — | — | — | ✓ | — | — | 3/1/1 |
-| `calderwood-partners` | departmental | — | 0.3 | 0.5 | ✓ | ✓ | ✓ | ✓ | — | ✓ | — | ✓ | 12/2/3 |
-| `hollowell-ip` | departmental | — | — | — | ✓ | — | — | ✓ | — | ✓ | ✓ | — | 4/1/1 |
-| `meridian-actuarial` | departmental | — | — | — | ✓ | ✓ | ✓ | — | — | ✓ | ✓ | — | 5/1/2 |
-| `northgate-staffing` | open | — | — | — | — | — | ✓ | ✓ | — | ✓ | — | ✓ | 5/1/2 |
-| `saltmarsh-environmental` | departmental | — | 0.6 | 0.5 | ✓ | ✓ | — | — | ✓ | ✓ | — | — | 4/1/1 |
-| `verdant-health` | open | — | 0.5 | — | — | — | — | — | ✓ | ✓ | — | — | 1/1/1 |
-| `dev-mini` | open | — | — | — | — | — | — | — | — | — | — | — | 1/1/1 |
+| `ashcombe-advisory` | open |  |  |  |  |  |  | ✓ |  | ✓ | ✓ | ✓ | 3/1/2 |
+| `brackenridge-civil` | open | **1.0** | 0.5 | 0.5 |  |  |  |  |  | ✓ |  |  | 3/1/1 |
+| `calderwood-partners` | departmental |  | 0.3 | 0.5 | ✓ | ✓ | ✓ | ✓ |  | ✓ |  | ✓ | 12/2/3 |
+| `hollowell-ip` | departmental |  |  |  | ✓ |  |  | ✓ |  | ✓ | ✓ |  | 4/1/1 |
+| `meridian-actuarial` | departmental |  |  |  | ✓ | ✓ | ✓ |  |  | ✓ | ✓ |  | 5/1/2 |
+| `northgate-staffing` | open |  |  |  |  |  | ✓ | ✓ |  | ✓ |  | ✓ | 5/1/2 |
+| `saltmarsh-environmental` | departmental |  | 0.6 | 0.5 | ✓ | ✓ |  |  | ✓ | ✓ |  |  | 4/1/1 |
+| `verdant-health` | open |  | 0.5 |  |  |  |  |  | ✓ | ✓ |  |  | 1/1/1 |
+| `dev-mini` | open |  |  |  |  |  |  |  |  |  |  |  | 1/1/1 |
 
-Reading it: **`brackenridge-civil`** is the ugly-format org — `legacy_ratio`
+Reading it: **`brackenridge-civil`** is the ugly-format org, `legacy_ratio`
 at 1.0 means *every* office document is a real pre-2007 OLE container (24
 `.doc`, 9 `.xls`, 2 `.ppt`), half its PDFs are degraded scans, and half of
 those carry a synthetic OCR layer. **`saltmarsh-environmental`** and
@@ -916,7 +918,7 @@ runs as real threads (the `doc_culture.mail` block); the exemplar
 carry the organizational-noise suite (duplicates, drafts, misfiles). **`dev-mini`**
 is deliberately bare: it is the regression oracle the ~510-test unit tier builds
 on, so it stays small and cheap rather than proving breadth. Its one exception
-is `style_specs`, on since M15 — the per-person voice ledger is cheap, and a
+is `style_specs`, on since M15: the per-person voice ledger is cheap, and a
 tracer is the right place to prove it end to end.
 
 - The full pipeline, end to end, proven on all eight, every one generated on
@@ -927,7 +929,7 @@ tracer is the right place to prove it end to end.
   finance restricted to its owners) plus a human-readable PERMISSIONS.md
   in the share root, both enforced by validator rules that recompute the
   grants from the posture. Grants are access *as of the end of the
-  corpus*, so someone the roster retires mid-history holds none — which
+  corpus*, so someone the roster retires mid-history holds none, which
   makes "does your system correctly deny a departed employee?" a scored
   visibility question with an empty expected set, rather than a case the
   answer key is blind to.
@@ -991,7 +993,7 @@ board said about the retired exemplar, and it ran four milestones:
 | **M8** | Roster churn, behavioral finance, staffing rotation, date-scoped briefs, era-appropriate naming. The firm gets a history. |
 | **M9** | The document-supply model: a genre registry driving volume from the firm's engagements, fiscal years, and hires (no fixed skeleton), realistic per-genre lengths, and a folder taxonomy beyond `Engagements/Finance/Firm`. |
 | **M10** | Parallel authoring: a bounded K-wide window of concurrent authors over a serial, single-writer merge. This is what makes a fleet-sized run a few hours instead of a few days. |
-| **M11** | The fleet reset: six new recipes (civil engineering, environmental, actuarial, IP law, executive search, healthcare; 1999–2025), all generated through the live airlock, the six pre-v2.0 fixtures retired, and the byte pin restored fleet-wide — which re-freezes the fixtures and restores additive evolution. |
+| **M11** | The fleet reset: six new recipes (civil engineering, environmental, actuarial, IP law, executive search, healthcare; 1999–2025), all generated through the live airlock, the six pre-v2.0 fixtures retired, and the byte pin restored fleet-wide, which re-freezes the fixtures and restores additive evolution. |
 
 **M12a landed the capability layer.** The findings the board raised against the
 fleet became recipe knobs, each defaulting off so the frozen fleet stays
@@ -1004,13 +1006,13 @@ generator-wide fix so prose can no longer contradict a ledger reporting line.
 The pilot org **`calderwood-partners`** (218 documents, every knob on)
 proves the stack end to end and is committed and browsable beside the fleet.
 
-**The realism wave (M13-M16) is underway.** M13 closed the path-safety and
+**The realism wave (M13-M16) is closed.** M13 closed the path-safety and
 letterhead-escaping hygiene; **M14 landed email realism**, with the committed
 email-first pilot `ashcombe-advisory` (real threads, minute-granularity
 timing, quoted history, promotion-aware signatures, transmittal attachments,
-and distribution lists). M15 (organizational noise, persona voice, a
-distributional dashboard) and M16 (regenerate the fleet under the wave's
-knobs, re-freeze, cut a release) follow.
+and distribution lists). M15 added organizational noise, persona voice, and a
+distributional dashboard, and M16 regenerated the whole fleet under the wave's
+knobs, re-froze it, and cut the v2.1 release.
 
 **After the wave: M17, one flagship org large enough to defeat a context
 window.** The whole committed fleet is ~280 documents; you can fit that in a
@@ -1039,14 +1041,14 @@ See NOTICE.
 
 OrgSmith is itself an agentically coded project: designed and implemented
 in [Claude Code](https://claude.com/claude-code) running
-[zat.env](https://github.com/peterzat/zat.env) — spec-driven turns,
+[zat.env](https://github.com/peterzat/zat.env), spec-driven turns,
 adversarial code review with builder/verifier separation, and a pre-push
 gate that blocks unreviewed code.
 
 The committed fleet was authored through the same airlock this repo ships,
 by `claude-opus-4-8[1m]` (all eight fleet orgs and `dev-mini` at `/effort
 xhigh`). Every org's `GENERATION-REPORT.md` records what actually wrote
-it, batch by batch — self-reported, and treated as a record rather than an
+it, batch by batch, self-reported, and treated as a record rather than an
 oracle for the reason [Round 1
 found](#which-model-should-write-your-documents).
 
