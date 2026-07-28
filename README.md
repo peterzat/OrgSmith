@@ -500,9 +500,11 @@ duplicated or lost documents. Structure is fully seeded; the same recipe
 regenerates the same org (ids, names, tree, numbers), with only the
 model-authored prose varying.
 
-**What it costs to generate, roughly.** Only the authoring passes spend model
-tokens; the deterministic stages (charter, foundation, fabric, docplan, render,
-assemble, validate) and the noise stages spend zero by construction. The
+### What it costs to generate
+
+Roughly: only the authoring passes spend model tokens; the deterministic stages
+(charter, foundation, fabric, docplan, render, assemble, validate) and the noise
+stages spend zero by construction. The
 exemplar `northgate-staffing` is 44 model-authored documents (~26,000 words)
 across 11 batches: one persona-enrichment pass plus ten authoring work orders,
 each a fresh-context worker that reads its work order and the schema contract,

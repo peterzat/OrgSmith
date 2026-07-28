@@ -176,10 +176,19 @@ def test_strip_leading_header_block():
 def test_committed_mail_body_carries_no_header_banner():
     """No committed engagement email opens its body with a transport-header
     line: the recipient full name lives in the real To/Cc headers, and MENT-01
-    reads it there (Context.doc_text folds the header display names in)."""
+    reads it there (Context.doc_text folds the header display names in). Covers
+    EVERY committed org with eml, not just the mail demonstrators -- single-
+    message format_mix eml (e.g. northgate, calderwood) carry banners too."""
     from orgsmith.artifacts import load_manifest
 
-    for slug in ("hollowell-ip", "meridian-actuarial", "ashcombe-advisory"):
+    HDR = {"To", "Cc", "Bcc", "From", "Subject", "Date", "Sent", "Reply-To"}
+    slugs = sorted(
+        p.name[: -len("-metadata")]
+        for p in (REPO / "companies").glob("*-metadata")
+        if (REPO / "recipes" / p.name[: -len("-metadata")]).is_dir()
+    )
+    checked = 0
+    for slug in slugs:
         paths = OrgPaths(root=REPO, slug=slug)
         for entry in load_manifest(paths):
             if entry.format != "eml":
@@ -188,8 +197,10 @@ def test_committed_mail_body_carries_no_header_banner():
             body = msg.get_body(preferencelist=("plain",))
             if body is None:
                 continue
+            checked += 1
             first = (body.get_content().splitlines() or [""])[0]
             keyword = first.split(":", 1)[0].strip()
-            assert keyword not in {
-                "To", "Cc", "Bcc", "From", "Subject", "Date", "Sent", "Reply-To"
-            }, f"{slug}/{entry.path}: body opens with a header banner"
+            assert keyword not in HDR, (
+                f"{slug}/{entry.path}: body opens with a header banner"
+            )
+    assert checked > 0, "no committed eml found to check"
