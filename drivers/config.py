@@ -67,16 +67,24 @@ class Provider:
 # The four named providers plus a generic OpenAI-compatible `local` entry. The
 # default model ids are a convenience only; every one is overridable, and
 # `--check` prints the effective model so a stale default is visible before a
-# token is spent. Reasoning models that reject `max_tokens` (OpenAI o-series)
-# are best driven through the `local`/generic entry with a body override, or
-# an upstream OpenAI-compatible gateway; see docs/BYO-AUTHORING.md.
+# token is spent. The OpenAI/OpenRouter defaults are `gpt-4.1`, not `gpt-4o`:
+# in a live dev-mini run gpt-4o could not satisfy OrgSmith's placeholder and
+# mention discipline within the repair budget, while gpt-4.1 produced a
+# validate-clean org (one repair round per batch). Every default here is the
+# strong tier of its family (Anthropic Sonnet 5, Gemini 2.5 Pro); the cheap
+# tier (Gemini Flash, a small local model) will miss the same discipline gpt-4o
+# did. Those non-OpenAI recommendations are by analogy, not separately measured.
+# See docs/BYO-AUTHORING.md.
+# Reasoning models that reject `max_tokens` (OpenAI o-series) are best driven
+# through the `local`/generic entry with a body override, or an upstream
+# OpenAI-compatible gateway.
 PROVIDERS: dict[str, Provider] = {
     "openai": Provider(
         name="openai",
         shape="openai",
         default_base_url="https://api.openai.com/v1",
         key_env="OPENAI_API_KEY",
-        default_model="gpt-4o",
+        default_model="gpt-4.1",
         base_url_env="ORGSMITH_OPENAI_BASE_URL",
         model_env="ORGSMITH_OPENAI_MODEL",
     ),
@@ -103,7 +111,7 @@ PROVIDERS: dict[str, Provider] = {
         shape="openai",
         default_base_url="https://openrouter.ai/api/v1",
         key_env="OPENROUTER_API_KEY",
-        default_model="openai/gpt-4o",
+        default_model="openai/gpt-4.1",
         base_url_env="ORGSMITH_OPENROUTER_BASE_URL",
         model_env="ORGSMITH_OPENROUTER_MODEL",
     ),

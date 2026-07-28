@@ -79,6 +79,45 @@ prints the effective model, so a stale default is visible before a token is
 spent. Reasoning models that reject `max_tokens` (OpenAI o-series) are best
 reached through a gateway or the `local` entry.
 
+## Model choice
+
+OrgSmith's authoring is strict. Every fact briefed for a document must appear as
+a `{{fact:...}}` placeholder, and every briefed name must appear verbatim, or
+`--ingest` rejects the batch. Holding that discipline is harder than writing
+plausible prose, so the model you pick matters more here than the provider does.
+**Use the strong tier of whichever provider you choose, not the cheap or fast
+one.** `--check` prints the effective model before you spend a token.
+
+Measured on a live `dev-mini` run (OpenAI is the only provider tested directly):
+
+| model | result |
+| --- | --- |
+| OpenAI `gpt-4o` | failed: omitted required placeholders and a mention; the repair loop could not fix it within the default 2 retries, so the run hard-stopped |
+| OpenAI `gpt-4.1` | succeeded: every batch ingested after one repair round, and the org validated clean (0 errors) |
+
+So the OpenAI and OpenRouter defaults are `gpt-4.1`, not `gpt-4o`. The
+recommendations for the other providers are by analogy (the strong tier of each
+family), not separately measured:
+
+- **Anthropic:** `claude-sonnet-5` or Opus. The committed fleet is authored on
+  Opus, and MODEL-AB Round 2 showed Sonnet is a capable author.
+- **Google:** `gemini-2.5-pro`, not `gemini-2.5-flash`. The cheap tier will miss
+  the placeholder discipline the way `gpt-4o` did.
+- **OpenRouter:** route to a frontier model (`openai/gpt-4.1`,
+  `anthropic/claude-sonnet-5`, `google/gemini-2.5-pro`); a cheap or small routed
+  model fails the same way.
+- **local:** use the largest, strongest instruction-following model your
+  hardware runs. Small local models (7-14B) will not hold the discipline; a
+  frontier model behind an OpenAI-compatible gateway is the more reliable path.
+
+Two things help a borderline model: raise `--max-retries` (each retry re-prompts
+with the exact validator rejection), and pay for the strongest model before
+paying for retries (a model that cannot place placeholders in two or three
+rounds usually will not in five). Even a model that validates clean may run
+short of its length brief (`gpt-4.1` did on `dev-mini`: every authored doc came
+in off brief). That is a realism gap, not an integrity failure, and it is the
+same axis the README's model-choice section measures for the Claude family.
+
 ## How the driver runs
 
 `python -m drivers.forge_external <slug>` runs the full pipeline with no Claude
@@ -131,6 +170,10 @@ ORGSMITH_AUTHOR_PROVIDER=openai OPENAI_API_KEY=sk-... \
   python -m drivers.forge_external dev-mini --root scratch/byo
 python -m orgsmith validate dev-mini --root scratch/byo
 ```
+
+This path has been run: on `gpt-4.1` the scratch `dev-mini` generated end to end
+and validated clean (0 errors), resuming correctly even across a mid-run model
+switch. See [Model choice](#model-choice) for how different models fared.
 
 Never author into `companies/<slug>`: the committed fleet is frozen.
 
