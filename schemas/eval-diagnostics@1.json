@@ -1,0 +1,157 @@
+{
+  "$defs": {
+    "AliasSighting": {
+      "additionalProperties": false,
+      "description": "A registered alias token standing on its own in a document's rendered\ntext with no planned mention of that alias for that document.\n\nThis is the mechanical form of the exemplar's published `Jim` residual:\nthe ledger registers an alias to one person while another person's prose\nclaims it. Diagnostics report it; the alias-agreement knob (MENT-03)\nrejects it at ingest for orgs that turn the discipline on.",
+      "properties": {
+        "alias": {
+          "title": "Alias",
+          "type": "string"
+        },
+        "lineage": {
+          "default": "",
+          "title": "Lineage",
+          "type": "string"
+        },
+        "owner": {
+          "title": "Owner",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alias",
+        "owner",
+        "path"
+      ],
+      "title": "AliasSighting",
+      "type": "object"
+    },
+    "IncidentalMentions": {
+      "additionalProperties": false,
+      "description": "How far a mention or alias question's rendered truth ran past its\nplan: how many documents the plan placed, and how many more visibly\ncarry the surface and became acceptable.",
+      "properties": {
+        "entity": {
+          "title": "Entity",
+          "type": "string"
+        },
+        "incidental": {
+          "title": "Incidental",
+          "type": "integer"
+        },
+        "planned": {
+          "title": "Planned",
+          "type": "integer"
+        },
+        "question": {
+          "title": "Question",
+          "type": "string"
+        },
+        "surface": {
+          "title": "Surface",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "entity",
+        "surface",
+        "planned",
+        "incidental"
+      ],
+      "title": "IncidentalMentions",
+      "type": "object"
+    },
+    "ValueCollision": {
+      "additionalProperties": false,
+      "description": "An extraction question's expected surface found in a document that is\nneither a required host, an equivalence member of one, nor a derived\nnear-duplicate of one.\n\nRecorded, never promoted: a same-surface value in another engagement's\ndocument is a wrong answer, not an acceptable one. This exists so a\nconsumer can see the collision rather than discover it as a mysterious\nscoring loss.",
+      "properties": {
+        "fact_id": {
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "question": {
+          "title": "Question",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "fact_id",
+        "value",
+        "paths"
+      ],
+      "title": "ValueCollision",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/eval-diagnostics@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "What the corpus-wide surface scan saw that the answer key does not\nclaim. Nothing here is gold and nothing here gates: it is the record\nthat keeps a disagreement between the ledgers and the rendered text\nvisible instead of silent.",
+  "properties": {
+    "incidental_mentions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/IncidentalMentions"
+      },
+      "title": "Incidental Mentions",
+      "type": "array"
+    },
+    "lineage_explained_value_hits": {
+      "default": 0,
+      "title": "Lineage Explained Value Hits",
+      "type": "integer"
+    },
+    "policy_version": {
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "orgsmith/eval-diagnostics@1",
+      "default": "orgsmith/eval-diagnostics@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "unplanned_alias_sightings": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AliasSighting"
+      },
+      "title": "Unplanned Alias Sightings",
+      "type": "array"
+    },
+    "value_collisions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ValueCollision"
+      },
+      "title": "Value Collisions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "slug",
+    "policy_version"
+  ],
+  "title": "EvalDiagnostics",
+  "type": "object"
+}

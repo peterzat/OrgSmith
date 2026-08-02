@@ -33,6 +33,7 @@ SCHEMA_IDS = {
     "mention_map": "orgsmith/mention-map@1",
     "graph_expected": "orgsmith/graph-expected@1",
     "eval_clusters": "orgsmith/eval-clusters@1",
+    "eval_diagnostics": "orgsmith/eval-diagnostics@1",
     "work_order": "orgsmith/work-order@1",
     "enrichment_deliverable": "orgsmith/enrichment-deliverable@1",
     "authoring_deliverable": "orgsmith/authoring-deliverable@1",
@@ -1040,6 +1041,13 @@ class RetrievalQuestion(StrictModel):
     id: str  # q:0001
     question: str
     expected_docs: list[str]  # share-relative paths, sorted
+    # M17: documents whose rendered text visibly carries the same evidence
+    # but which the plan never placed. Returning one is never penalized;
+    # recall is still measured against expected_docs alone, so an acceptable
+    # document can only relax scoring, never tighten it. Scan-derived (see
+    # docs/LABEL-POLICY.md); byte-identical copies ride in clusters.json
+    # instead, because those are canonicalized rather than dropped.
+    acceptable_docs: list[str] = []
     tags: list[str] = []
 
 
@@ -1109,7 +1117,73 @@ class EvalClusters(StrictModel):
 
     schema_id: Literal["orgsmith/eval-clusters@1"] = SCHEMA_IDS["eval_clusters"]
     slug: str
+    policy_version: str  # docs/LABEL-POLICY.md version these labels follow
     clusters: list[EvalCluster]
+
+
+class ValueCollision(StrictModel):
+    """An extraction question's expected surface found in a document that is
+    neither a required host, an equivalence member of one, nor a derived
+    near-duplicate of one.
+
+    Recorded, never promoted: a same-surface value in another engagement's
+    document is a wrong answer, not an acceptable one. This exists so a
+    consumer can see the collision rather than discover it as a mysterious
+    scoring loss."""
+
+    question: str  # xq:0001
+    fact_id: str
+    value: str
+    paths: list[str]  # share-relative, sorted
+
+
+class AliasSighting(StrictModel):
+    """A registered alias token standing on its own in a document's rendered
+    text with no planned mention of that alias for that document.
+
+    This is the mechanical form of the exemplar's published `Jim` residual:
+    the ledger registers an alias to one person while another person's prose
+    claims it. Diagnostics report it; the alias-agreement knob (MENT-03)
+    rejects it at ingest for orgs that turn the discipline on."""
+
+    alias: str
+    owner: str  # p:/xp: id the alias is registered to
+    path: str  # share-relative document the token was seen in
+    # Source path when the host is a derived near-duplicate, so a draft
+    # inheriting its source's prose reads as lineage rather than a new defect.
+    lineage: str = ""
+
+
+class IncidentalMentions(StrictModel):
+    """How far a mention or alias question's rendered truth ran past its
+    plan: how many documents the plan placed, and how many more visibly
+    carry the surface and became acceptable."""
+
+    question: str  # q:0030
+    entity: str
+    surface: str
+    planned: int
+    incidental: int
+
+
+class EvalDiagnostics(StrictModel):
+    """What the corpus-wide surface scan saw that the answer key does not
+    claim. Nothing here is gold and nothing here gates: it is the record
+    that keeps a disagreement between the ledgers and the rendered text
+    visible instead of silent."""
+
+    schema_id: Literal["orgsmith/eval-diagnostics@1"] = SCHEMA_IDS[
+        "eval_diagnostics"
+    ]
+    slug: str
+    policy_version: str
+    value_collisions: list[ValueCollision] = []
+    unplanned_alias_sightings: list[AliasSighting] = []
+    incidental_mentions: list[IncidentalMentions] = []
+    # Expected-value hits inside derived near-duplicates of a required host.
+    # Explained by lineage rather than flagged: a draft of an engagement
+    # letter holds its fee because it was copied from it.
+    lineage_explained_value_hits: int = 0
 
 
 class RetrievalAnswerItem(StrictModel):

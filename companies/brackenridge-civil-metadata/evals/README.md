@@ -1,15 +1,20 @@
 # Golden eval suites for `brackenridge-civil`
 
 Emitted by `python -m orgsmith emit-evals brackenridge-civil`. Deterministic: derived
-entirely from this org's ground-truth ledgers. You do not need OrgSmith
-source (or any model) to be graded; everything required is in this
-directory.
+entirely from this org's ground-truth ledgers and the rendered share. You do
+not need OrgSmith source (or any model) to be graded; everything required is
+in this directory.
+
+**Relevance-label policy version 1.0.** What counts as a
+required, acceptable, or never-acceptable document is a versioned contract:
+see `docs/LABEL-POLICY.md` in the OrgSmith repository for the scan
+semantics, the cluster canonicalization rule, and the stated limitations.
 
 ## retrieval.jsonl
 
 One question per line: `id`, `question`, `expected_docs` (share-relative
-paths), `tags`. Run your retrieval system over the `companies/brackenridge-civil/`
-share and write an answers file:
+paths), `acceptable_docs`, `tags`. Run your retrieval system over the
+`companies/brackenridge-civil/` share and write an answers file:
 
 ```json
 {"suite": "retrieval",
@@ -18,7 +23,19 @@ share and write an answers file:
   ]}
 ```
 
-A question is correct when your doc set exactly matches `expected_docs`.
+A question is correct when your doc set matches `expected_docs` exactly,
+after two relaxations that can only ever help you:
+
+- Documents listed in `acceptable_docs` are dropped from your answer before
+  the comparison. These are documents whose rendered text visibly carries
+  the same evidence (a colleague named in passing in a memo the plan never
+  counted) but which the answer key does not require. Returning one costs
+  nothing; missing one costs nothing either, because recall is measured
+  against `expected_docs` alone.
+- Documents that carry byte-identical evidence are canonicalized first (see
+  `clusters.json`), so returning a duplicate in place of its original is
+  correct.
+
 Score: `python -m orgsmith score --suite retrieval --answers answers.json
 --evals-dir <this directory>`.
 
@@ -61,6 +78,26 @@ aliases. Edges are scored precision/recall after resolving names the same
 way. Entities may carry `ambiguity:<class>` tags (surname-collision,
 nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
+
+## diagnostics.json
+
+What a corpus-wide scan of the rendered text saw that the answer key does
+**not** claim. Nothing here is ground truth, nothing here is scored, and
+nothing here gates:
+
+- `value_collisions`: an extraction question's expected surface found in
+  another engagement's paperwork. Recorded so you can see it; returning it
+  is still a wrong answer, because the question asks where *that*
+  engagement's value lives.
+- `unplanned_alias_sightings`: a registered nickname standing on its own in
+  a document that plans no mention of it. Usually this means the structured
+  ledger and the prose disagree about who the nickname belongs to.
+- `incidental_mentions`: how far each mention question's rendered truth ran
+  past the plan (how many documents the plan placed, how many more the scan
+  found and made acceptable).
+
+These are published rather than fixed because they are honest properties of
+this corpus. Read them before treating a scoring loss as your system's bug.
 
 ## Difficulty tags on extraction questions
 

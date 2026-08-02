@@ -20,31 +20,47 @@ from ..artifacts import (
 )
 from ..paths import OrgPaths
 from ..schemas import (
+    AliasSighting,
     EvalCluster,
     EvalClusterMember,
     EvalClusters,
+    EvalDiagnostics,
     ExtractionQuestion,
     GraphEntityExpected,
     GraphExpected,
+    IncidentalMentions,
     RetrievalQuestion,
+    ValueCollision,
     dump_json,
+    surface_in_text,
     write_model,
 )
 from ..state import load_state, require_stages
+
+# The versioned relevance-label contract these suites follow. Bump it in
+# lockstep with docs/LABEL-POLICY.md whenever the meaning of required,
+# acceptable, or never-acceptable changes, so a consumer holding only an
+# `evals/` directory can tell which rules produced it.
+LABEL_POLICY_VERSION = "1.0"
 
 _README = """\
 # Golden eval suites for `{slug}`
 
 Emitted by `python -m orgsmith emit-evals {slug}`. Deterministic: derived
-entirely from this org's ground-truth ledgers. You do not need OrgSmith
-source (or any model) to be graded; everything required is in this
-directory.
+entirely from this org's ground-truth ledgers and the rendered share. You do
+not need OrgSmith source (or any model) to be graded; everything required is
+in this directory.
+
+**Relevance-label policy version {policy_version}.** What counts as a
+required, acceptable, or never-acceptable document is a versioned contract:
+see `docs/LABEL-POLICY.md` in the OrgSmith repository for the scan
+semantics, the cluster canonicalization rule, and the stated limitations.
 
 ## retrieval.jsonl
 
 One question per line: `id`, `question`, `expected_docs` (share-relative
-paths), `tags`. Run your retrieval system over the `companies/{slug}/`
-share and write an answers file:
+paths), `acceptable_docs`, `tags`. Run your retrieval system over the
+`companies/{slug}/` share and write an answers file:
 
 ```json
 {{"suite": "retrieval",
@@ -53,7 +69,19 @@ share and write an answers file:
   ]}}
 ```
 
-A question is correct when your doc set exactly matches `expected_docs`.
+A question is correct when your doc set matches `expected_docs` exactly,
+after two relaxations that can only ever help you:
+
+- Documents listed in `acceptable_docs` are dropped from your answer before
+  the comparison. These are documents whose rendered text visibly carries
+  the same evidence (a colleague named in passing in a memo the plan never
+  counted) but which the answer key does not require. Returning one costs
+  nothing; missing one costs nothing either, because recall is measured
+  against `expected_docs` alone.
+- Documents that carry byte-identical evidence are canonicalized first (see
+  `clusters.json`), so returning a duplicate in place of its original is
+  correct.
+
 Score: `python -m orgsmith score --suite retrieval --answers answers.json
 --evals-dir <this directory>`.
 
@@ -126,6 +154,30 @@ distractors.
 
 An `evals/` directory with no `clusters.json` scores exactly as it did
 before clusters existed: canonicalization falls back to identity.
+"""
+
+# Always emitted; the section is appended only when the scan actually saw
+# something, so a clean org's README stays quiet about it.
+_README_DIAGNOSTICS = """
+## diagnostics.json
+
+What a corpus-wide scan of the rendered text saw that the answer key does
+**not** claim. Nothing here is ground truth, nothing here is scored, and
+nothing here gates:
+
+- `value_collisions`: an extraction question's expected surface found in
+  another engagement's paperwork. Recorded so you can see it; returning it
+  is still a wrong answer, because the question asks where *that*
+  engagement's value lives.
+- `unplanned_alias_sightings`: a registered nickname standing on its own in
+  a document that plans no mention of it. Usually this means the structured
+  ledger and the prose disagree about who the nickname belongs to.
+- `incidental_mentions`: how far each mention question's rendered truth ran
+  past the plan (how many documents the plan placed, how many more the scan
+  found and made acceptable).
+
+These are published rather than fixed because they are honest properties of
+this corpus. Read them before treating a scoring loss as your system's bug.
 """
 
 # Appended only when extraction questions carry difficulty tags, so
@@ -272,7 +324,11 @@ def build_clusters(paths: OrgPaths, manifest) -> EvalClusters:
         )
         for canonical, members in sorted(grouped.items())
     ]
-    return EvalClusters(slug=paths.slug, clusters=clusters)
+    return EvalClusters(
+        slug=paths.slug,
+        policy_version=LABEL_POLICY_VERSION,
+        clusters=clusters,
+    )
 
 
 def _carries_bytes(paths: OrgPaths, eml_path: str, carried: str) -> bool:
@@ -289,10 +345,44 @@ def _carries_bytes(paths: OrgPaths, eml_path: str, carried: str) -> bool:
     return eml_attachment_bytes(message) == source.read_bytes()
 
 
+def scan_corpus(paths: OrgPaths, manifest, engagements, foundation) -> dict:
+    """{share-relative path: extractable text} for every entry, read through
+    the one shared reader (orgsmith/doctext.py) so the answer key and the
+    validator agree on what a document says. One extraction per document."""
+    from ..doctext import DocText
+
+    reader = DocText(paths, engagements, foundation)
+    texts = {}
+    for entry in manifest:
+        if (paths.share_dir / entry.path).is_file():
+            texts[entry.path] = reader.text(entry)
+    return texts
+
+
+def _mask(text: str, surfaces) -> str:
+    """Text with the given surfaces removed, so a scan for a short token
+    cannot match inside a longer planned name (an alias `Jim` standing
+    inside a planned `Jim Halpert` belongs to Halpert, not to whoever
+    registered `Jim`)."""
+    import re as _re
+
+    for surface in sorted(surfaces, key=len, reverse=True):
+        if surface:
+            text = _re.sub(rf"(?<!\w){_re.escape(surface)}(?!\w)", " ", text)
+    return text
+
+
 def build_retrieval(
-    charter, foundation, engagements, manifest, mention_map
+    charter, foundation, engagements, manifest, mention_map, texts=None
 ) -> list[RetrievalQuestion]:
-    questions: list[tuple[str, list[str], list[str]]] = []
+    """The retrieval suite. `texts` is the rendered-text scan (scan_corpus);
+    without it the suites carry no acceptable sets, which is strictly
+    stricter scoring, never looser."""
+    texts = texts or {}
+    questions: list[tuple[str, list[str], list[str], list[str]]] = []
+
+    def ask(text: str, docs, tags, acceptable=()) -> None:
+        questions.append((text, list(docs), list(tags), sorted(acceptable)))
 
     def docs_with_fact(ref: str) -> list[str]:
         # M17: a transmittal email carrying this document byte-identically is
@@ -302,51 +392,41 @@ def build_retrieval(
         return sorted({e.path for e in manifest if ref in e.facts_refs})
 
     for eng in engagements.engagements:
-        questions.append(
-            (
-                f"Which documents state the fixed fee for the {eng.title} "
-                f"engagement?",
-                docs_with_fact(f"f:{eng.id}.fee"),
-                ["fact:money", eng.id],
-            )
+        ask(
+            f"Which documents state the fixed fee for the {eng.title} "
+            f"engagement?",
+            docs_with_fact(f"f:{eng.id}.fee"),
+            ["fact:money", eng.id],
         )
-        questions.append(
-            (
-                f"Which documents state the start date of the {eng.title} "
-                f"engagement?",
-                docs_with_fact(f"f:{eng.id}.start"),
-                ["fact:date", eng.id],
-            )
+        ask(
+            f"Which documents state the start date of the {eng.title} "
+            f"engagement?",
+            docs_with_fact(f"f:{eng.id}.start"),
+            ["fact:date", eng.id],
         )
-        questions.append(
-            (
-                f"Which documents identify the client organization of the "
-                f"{eng.title} engagement?",
-                docs_with_fact(f"f:{eng.id}.client"),
-                ["fact:text", eng.id],
-            )
+        ask(
+            f"Which documents identify the client organization of the "
+            f"{eng.title} engagement?",
+            docs_with_fact(f"f:{eng.id}.client"),
+            ["fact:text", eng.id],
         )
 
     for entry in manifest:
         if entry.genre == "financial_summary":
             year = entry.render_params["year"]
-            questions.append(
-                (
-                    f"Which document is the FY{year} financial summary?",
-                    [entry.path],
-                    ["workbook"],
-                )
+            ask(
+                f"Which document is the FY{year} financial summary?",
+                [entry.path],
+                ["workbook"],
             )
     overview_docs = sorted(
         e.path for e in manifest if e.genre == "company_overview"
     )
     if overview_docs:
-        questions.append(
-            (
-                f"Which document gives an overview of {charter.name}?",
-                overview_docs,
-                ["firm"],
-            )
+        ask(
+            f"Which document gives an overview of {charter.name}?",
+            overview_docs,
+            ["firm"],
         )
 
     if mention_map is not None:
@@ -359,6 +439,35 @@ def build_retrieval(
         mundane_ids = {
             e.doc_id for e in manifest if e.genre == "internal_email"
         }
+        # Planned surfaces per document, for masking before an alias scan.
+        planned = {}
+        for record in mention_map.mentions:
+            planned.setdefault(by_path.get(record.doc_id), {}).setdefault(
+                record.entity, set()
+            ).add(record.surface)
+
+        def scan_hits(surface: str, required, owner: str | None = None):
+            """Documents whose rendered text carries `surface` as a standalone
+            token run, beyond the ones the plan placed. When `owner` is given
+            the scan is an alias scan, so every other entity's planned
+            surfaces are masked first: a short alias must not be credited to
+            a longer planned name that contains it."""
+            hits = set()
+            for path, text in texts.items():
+                if path in required:
+                    continue
+                if owner is not None:
+                    others = {
+                        s
+                        for entity, surfaces in planned.get(path, {}).items()
+                        if entity != owner
+                        for s in surfaces
+                    }
+                    text = _mask(text, others)
+                if surface_in_text(surface, text):
+                    hits.add(path)
+            return hits
+
         for person in foundation.people:
             docs = sorted(
                 {
@@ -368,12 +477,11 @@ def build_retrieval(
                 }
             )
             if docs:
-                questions.append(
-                    (
-                        f"Which documents mention {person.name}?",
-                        docs,
-                        ["mention:person", person.id],
-                    )
+                ask(
+                    f"Which documents mention {person.name}?",
+                    docs,
+                    ["mention:person", person.id],
+                    scan_hits(person.name, set(docs)),
                 )
             for alias in person.aliases:
                 alias_docs = sorted(
@@ -386,20 +494,22 @@ def build_retrieval(
                     }
                 )
                 if alias_docs:
-                    questions.append(
-                        (
-                            f"Which documents refer to someone as "
-                            f"“{alias}”?",
-                            alias_docs,
-                            ["mention:alias", person.id],
-                        )
+                    ask(
+                        f"Which documents refer to someone as “{alias}”?",
+                        alias_docs,
+                        ["mention:alias", person.id],
+                        scan_hits(alias, set(alias_docs), owner=person.id),
                     )
 
     return [
         RetrievalQuestion(
-            id=f"q:{i:04d}", question=text, expected_docs=docs, tags=tags
+            id=f"q:{i:04d}",
+            question=text,
+            expected_docs=docs,
+            acceptable_docs=acceptable,
+            tags=tags,
         )
-        for i, (text, docs, tags) in enumerate(questions, start=1)
+        for i, (text, docs, tags, acceptable) in enumerate(questions, start=1)
         if docs
     ]
 
@@ -557,6 +667,130 @@ def build_graph_expected(charter, foundation, graph) -> GraphExpected:
     return GraphExpected(slug=charter.slug, entities=entities, edges=scorable)
 
 
+def build_diagnostics(
+    paths, manifest, foundation, mention_map, questions, extraction,
+    clusters, texts,
+) -> EvalDiagnostics:
+    """What the corpus-wide scan saw that the answer key does not claim.
+
+    Three records, none of them gold and none of them gating:
+
+    - **Value collisions.** Every extraction question's expected surface is
+      scanned corpus-wide. A hit in another engagement's paperwork (or in
+      firm-level prose) is recorded, never promoted: returning it stays a
+      wrong answer, because the question asks where that engagement's value
+      lives. Hits inside the fact's own engagement are ordinary repetition
+      and are not recorded. Hits inside a derived near-duplicate of a
+      required host are explained by lineage and counted, not listed: a
+      draft holds its source's fee because it was copied from it.
+    - **Unplanned alias sightings.** A registered alias standing on its own
+      in a document that plans no mention of it. This is the mechanical form
+      of the exemplar's `Jim` residual.
+    - **Incidental mentions.** How far each mention question's rendered
+      truth ran past its plan.
+    """
+    by_path = {e.path: e for e in manifest}
+    doc_paths = {e.doc_id: e.path for e in manifest}
+    equivalents: dict[str, set[str]] = {}
+    for cluster in clusters.clusters:
+        equivalents[cluster.canonical] = {m.path for m in cluster.members}
+    derived_source = {
+        e.path: doc_paths.get(e.noise_of or "", "")
+        for e in manifest
+        if e.authoring == "derived"
+    }
+
+    collisions: list[ValueCollision] = []
+    lineage_hits = 0
+    for question in extraction:
+        required = set(question.expected_docs)
+        allowed = set(required)
+        for path in required:
+            allowed |= equivalents.get(path, set())
+        engagements_of_fact = {
+            by_path[p].engagement for p in required if p in by_path
+        }
+        flagged: list[str] = []
+        for path, text in texts.items():
+            if path in allowed or not surface_in_text(question.expected_value, text):
+                continue
+            entry = by_path.get(path)
+            if entry is not None and entry.engagement in engagements_of_fact:
+                continue  # the fact's own engagement repeating its own value
+            if derived_source.get(path, "") in allowed:
+                lineage_hits += 1
+                continue
+            flagged.append(path)
+        if flagged:
+            collisions.append(
+                ValueCollision(
+                    question=question.id,
+                    fact_id=question.fact_id,
+                    value=question.expected_value,
+                    paths=sorted(flagged),
+                )
+            )
+
+    planned: dict[str, dict[str, set[str]]] = {}
+    if mention_map is not None:
+        for record in mention_map.mentions:
+            path = doc_paths.get(record.doc_id)
+            planned.setdefault(path, {}).setdefault(record.entity, set()).add(
+                record.surface
+            )
+
+    sightings: list[AliasSighting] = []
+    people = list(foundation.people) + list(foundation.external_people)
+    for person in people:
+        for alias in getattr(person, "aliases", []):
+            for path, text in sorted(texts.items()):
+                here = planned.get(path, {})
+                if alias in here.get(person.id, set()):
+                    continue  # planned: this document may say it
+                masked = _mask(
+                    text,
+                    {
+                        s
+                        for entity, surfaces in here.items()
+                        if entity != person.id
+                        for s in surfaces
+                    },
+                )
+                if surface_in_text(alias, masked):
+                    sightings.append(
+                        AliasSighting(
+                            alias=alias,
+                            owner=person.id,
+                            path=path,
+                            lineage=derived_source.get(path, ""),
+                        )
+                    )
+
+    incidental = [
+        IncidentalMentions(
+            question=q.id,
+            entity=q.tags[1],
+            surface=q.question.split("“")[1].rstrip("”?")
+            if "“" in q.question
+            else q.question[len("Which documents mention ") :].rstrip("?"),
+            planned=len(q.expected_docs),
+            incidental=len(q.acceptable_docs),
+        )
+        for q in questions
+        if q.acceptable_docs
+        and any(t.startswith("mention:") for t in q.tags)
+    ]
+
+    return EvalDiagnostics(
+        slug=paths.slug,
+        policy_version=LABEL_POLICY_VERSION,
+        value_collisions=collisions,
+        unplanned_alias_sightings=sightings,
+        incidental_mentions=incidental,
+        lineage_explained_value_hits=lineage_hits,
+    )
+
+
 def build_splits(manifest, questions, extraction) -> dict:
     """Nested corpus splits for a retrieval degradation curve (M12,
     external-validity-program). A split is the set of documents a system
@@ -626,8 +860,31 @@ def run_emit_evals(paths: OrgPaths) -> int:
     # only; the noise files are the corpus the +noise split adds around them.
     answer_manifest = [e for e in manifest if e.authoring != "derived"]
 
+    # One extraction pass over the whole rendered corpus, shared by the
+    # acceptable-set scan and the diagnostics scan.
+    texts = scan_corpus(paths, manifest, engagements, foundation)
+    clusters = build_clusters(paths, manifest)
+    cluster_members = {
+        m.path for c in clusters.clusters for m in c.members
+    }
+    # Acceptable sets are scanned over authored documents that are not
+    # equivalence members. A derived near-duplicate holding the surface is a
+    # distractor by doctrine; a cluster member is canonicalized rather than
+    # dropped, and letting it be both would make "return the copy instead of
+    # the original" score empty. See docs/LABEL-POLICY.md.
+    authored_texts = {
+        e.path: texts[e.path]
+        for e in answer_manifest
+        if e.path in texts and e.path not in cluster_members
+    }
+
     questions = build_retrieval(
-        charter, foundation, engagements, answer_manifest, mention_map
+        charter,
+        foundation,
+        engagements,
+        answer_manifest,
+        mention_map,
+        authored_texts,
     )
     extraction = build_extraction(engagements, answer_manifest)
     expected = build_graph_expected(charter, foundation, graph)
@@ -647,12 +904,30 @@ def run_emit_evals(paths: OrgPaths) -> int:
     write_jsonl("retrieval.jsonl", questions)
     write_jsonl("extraction.jsonl", extraction)
     write_model(paths.evals_dir / "graph_expected.json", expected)
-    clusters = build_clusters(paths, manifest)
     write_model(paths.evals_dir / "clusters.json", clusters)
+    diagnostics = build_diagnostics(
+        paths,
+        manifest,
+        foundation,
+        mention_map,
+        questions,
+        extraction,
+        clusters,
+        texts,
+    )
+    write_model(paths.evals_dir / "diagnostics.json", diagnostics)
 
-    readme = _README.format(slug=charter.slug)
+    readme = _README.format(
+        slug=charter.slug, policy_version=LABEL_POLICY_VERSION
+    )
     if clusters.clusters:
         readme += _README_CLUSTERS
+    if (
+        diagnostics.value_collisions
+        or diagnostics.unplanned_alias_sightings
+        or diagnostics.incidental_mentions
+    ):
+        readme += _README_DIAGNOSTICS
     new_tags = ("scan:ocr", "scan:image-only", "format:legacy")
     if any(t in q.tags for q in extraction for t in new_tags):
         readme += _README_FORMAT_TAGS

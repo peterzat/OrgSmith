@@ -118,7 +118,14 @@ def _score_docset(
 
     M17: both sides are canonicalized through the equivalence clusters
     first, so returning a byte-identical copy of an expected document (or
-    both the copy and the original) is correct rather than an error."""
+    both the copy and the original) is correct rather than an error. Then
+    the question's acceptable documents are dropped from the answer: their
+    rendered text carries the same evidence, so returning one is never
+    penalized, and they are never required, so missing one costs nothing.
+
+    Order matters. Canonicalization runs first because a cluster member
+    stands in for its original; acceptable documents are dropped second and
+    are never cluster members, so the two relaxations cannot interfere."""
     canonical = canonical or {}
     given = {a.id: a.docs for a in answers.answers}
     gradable = [
@@ -129,8 +136,9 @@ def _score_docset(
     result = RetrievalResult(total=len(gradable), correct=0)
     for q in gradable:
         expected = _canonicalize(q.expected_docs, canonical)
+        acceptable = set(q.acceptable_docs) - expected
         raw = [d.strip() for d in given.get(q.id, [])]
-        got = _canonicalize(raw, canonical)
+        got = _canonicalize(raw, canonical) - acceptable
         if got == expected:
             result.correct += 1
             continue
@@ -141,8 +149,12 @@ def _score_docset(
                 "missing": sorted(expected - got),
                 # Report what the system actually returned, not its
                 # canonical form, so a failure line names a real path.
+                # Acceptable documents never appear here: they were dropped.
                 "extra": sorted(
-                    d for d in raw if canonical.get(d, d) not in expected
+                    d
+                    for d in raw
+                    if canonical.get(d, d) not in expected
+                    and canonical.get(d, d) not in acceptable
                 ),
                 "answered": q.id in given,
             }

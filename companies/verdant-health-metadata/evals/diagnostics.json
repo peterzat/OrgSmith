@@ -1,0 +1,61 @@
+{
+  "schema_id": "orgsmith/eval-diagnostics@1",
+  "slug": "verdant-health",
+  "policy_version": "1.0",
+  "value_collisions": [
+    {
+      "question": "xq:0001",
+      "fact_id": "f:E-2020-001.fee",
+      "value": "$53,000",
+      "paths": [
+        "Engagements/Sullivan, Hall and Kelly/2024.02.20 - Engagement Letter - Sullivan, Hall and Kelly - EXECUTED.pdf",
+        "Engagements/Sullivan, Hall and Kelly/2024.06.07 - Status Report - Sullivan, Hall and Kelly v2 FINAL.docx"
+      ]
+    },
+    {
+      "question": "xq:0003",
+      "fact_id": "f:E-2020-001.client",
+      "value": "Johnson, Cross and Gibbs",
+      "paths": [
+        "Engagements/Johnson, Cross and Gibbs/2021.05.31 - Engagement Letter - Johnson, Cross and Gibbs - EXECUTED.pdf",
+        "Engagements/Johnson, Cross and Gibbs/2021.06.13 - Kickoff Memo - Physician Compensation Review.docx",
+        "Engagements/Johnson, Cross and Gibbs/2021.07.03 - Briefing Deck - Johnson, Cross and Gibbs.pptx",
+        "Engagements/Johnson, Cross and Gibbs/2021.07.27 - Status Report - Johnson, Cross and Gibbs v2 FINAL.docx",
+        "Engagements/Johnson, Cross and Gibbs/Meeting Minutes 2021-07-16 - Johnson, Cross and Gibbs.docx"
+      ]
+    },
+    {
+      "question": "xq:0006",
+      "fact_id": "f:E-2021-001.client",
+      "value": "Johnson, Cross and Gibbs",
+      "paths": [
+        "Engagements/Johnson, Cross and Gibbs/2020.07.25 - Engagement Letter - Johnson, Cross and Gibbs - EXECUTED.pdf",
+        "Engagements/Johnson, Cross and Gibbs/2020.08.07 - Kickoff Memo - Service Line Assessment.docx",
+        "Engagements/Johnson, Cross and Gibbs/2020.09.23 - Briefing Deck - Johnson, Cross and Gibbs.pptx",
+        "Engagements/Johnson, Cross and Gibbs/2020.11.13 - Status Report - Johnson, Cross and Gibbs v2 FINAL.docx",
+        "Engagements/Johnson, Cross and Gibbs/Meeting Minutes 2020-10-23 - Johnson, Cross and Gibbs.docx",
+        "Engagements/Johnson, Cross and Gibbs/Meeting Minutes 2021-01-21 - Johnson, Cross and Gibbs.docx"
+      ]
+    },
+    {
+      "question": "xq:0010",
+      "fact_id": "f:E-2024-001.fee",
+      "value": "$53,000",
+      "paths": [
+        "Engagements/Johnson, Cross and Gibbs/2020.07.25 - Engagement Letter - Johnson, Cross and Gibbs - EXECUTED.pdf",
+        "Engagements/Johnson, Cross and Gibbs/2020.11.13 - Status Report - Johnson, Cross and Gibbs v2 FINAL.docx"
+      ]
+    }
+  ],
+  "unplanned_alias_sightings": [],
+  "incidental_mentions": [
+    {
+      "question": "q:0021",
+      "entity": "p:susan.clark",
+      "surface": "Susan Clark",
+      "planned": 11,
+      "incidental": 2
+    }
+  ],
+  "lineage_explained_value_hits": 0
+}

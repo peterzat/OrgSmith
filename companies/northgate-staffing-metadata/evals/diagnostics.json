@@ -1,0 +1,31 @@
+{
+  "schema_id": "orgsmith/eval-diagnostics@1",
+  "slug": "northgate-staffing",
+  "policy_version": "1.0",
+  "value_collisions": [],
+  "unplanned_alias_sightings": [
+    {
+      "alias": "Jim",
+      "owner": "p:james.grant",
+      "path": "Firm/Firm Overview 2015 v3.docx",
+      "lineage": ""
+    }
+  ],
+  "incidental_mentions": [
+    {
+      "question": "q:0030",
+      "entity": "p:sandra.fuentes",
+      "surface": "Sandra Fuentes",
+      "planned": 17,
+      "incidental": 6
+    },
+    {
+      "question": "q:0032",
+      "entity": "p:james.grant",
+      "surface": "Jim",
+      "planned": 1,
+      "incidental": 1
+    }
+  ],
+  "lineage_explained_value_hits": 0
+}

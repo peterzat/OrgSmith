@@ -1,0 +1,42 @@
+{
+  "schema_id": "orgsmith/eval-diagnostics@1",
+  "slug": "saltmarsh-environmental",
+  "policy_version": "1.0",
+  "value_collisions": [
+    {
+      "question": "xq:0003",
+      "fact_id": "f:E-2015-001.client",
+      "value": "Dyer and Sons",
+      "paths": [
+        "Engagements/Dyer and Sons/2016.04.30 - Engagement Letter - Dyer and Sons - EXECUTED.pdf",
+        "Engagements/Dyer and Sons/2016.05.13 - Kickoff Memo - Phase I Site Assessment.docx",
+        "Engagements/Dyer and Sons/2016.07.06 - Status Report - Dyer and Sons v2 FINAL.docx",
+        "Engagements/Dyer and Sons/Meeting Minutes 2016-06-24 - Dyer and Sons.docx"
+      ]
+    },
+    {
+      "question": "xq:0007",
+      "fact_id": "f:E-2016-001.client",
+      "value": "Dyer and Sons",
+      "paths": [
+        "Engagements/Dyer and Sons/2015.05.15 - Engagement Letter - Dyer and Sons - EXECUTED.pdf",
+        "Engagements/Dyer and Sons/2015.05.28 - Kickoff Memo - Wetland Delineation.docx",
+        "Engagements/Dyer and Sons/2015.07.10 - Briefing Deck - Dyer and Sons.pptx",
+        "Engagements/Dyer and Sons/2015.08.26 - Status Report - Dyer and Sons v2 FINAL.docx",
+        "Engagements/Dyer and Sons/Meeting Minutes 2015-08-07 - Dyer and Sons.docx",
+        "Engagements/Dyer and Sons/Meeting Minutes 2015-11-05 - Dyer and Sons.docx"
+      ]
+    }
+  ],
+  "unplanned_alias_sightings": [],
+  "incidental_mentions": [
+    {
+      "question": "q:0027",
+      "entity": "p:john.sanchez",
+      "surface": "John Sanchez",
+      "planned": 15,
+      "incidental": 5
+    }
+  ],
+  "lineage_explained_value_hits": 0
+}

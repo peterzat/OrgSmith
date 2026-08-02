@@ -64,6 +64,10 @@
       "title": "Clusters",
       "type": "array"
     },
+    "policy_version": {
+      "title": "Policy Version",
+      "type": "string"
+    },
     "schema_id": {
       "const": "orgsmith/eval-clusters@1",
       "default": "orgsmith/eval-clusters@1",
@@ -77,6 +81,7 @@
   },
   "required": [
     "slug",
+    "policy_version",
     "clusters"
   ],
   "title": "EvalClusters",
