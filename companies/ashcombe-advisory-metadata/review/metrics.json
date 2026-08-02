@@ -2020,5 +2020,358 @@
       "genre": "meeting_minutes",
       "jaccard": 0.0009
     }
-  ]
+  ],
+  "structural_pairs": [
+    {
+      "doc_a": "d:0003",
+      "doc_b": "d:0063",
+      "genre": "kickoff_memo",
+      "shape": 0.9412,
+      "openers": 0.8
+    },
+    {
+      "doc_a": "d:0002",
+      "doc_b": "d:0045",
+      "genre": "engagement_letter",
+      "shape": 0.9818,
+      "openers": 0.7547
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0012",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.6667
+    },
+    {
+      "doc_a": "d:0002",
+      "doc_b": "d:0061",
+      "genre": "engagement_letter",
+      "shape": 0.9091,
+      "openers": 0.7547
+    },
+    {
+      "doc_a": "d:0041",
+      "doc_b": "d:0044",
+      "genre": "meeting_minutes",
+      "shape": 0.9091,
+      "openers": 0.7429
+    },
+    {
+      "doc_a": "d:0049",
+      "doc_b": "d:0051",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0050",
+      "doc_b": "d:0054",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0066",
+      "doc_b": "d:0070",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0067",
+      "doc_b": "d:0069",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0067",
+      "doc_b": "d:0071",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0077",
+      "doc_b": "d:0079",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.8
+    },
+    {
+      "doc_a": "d:0045",
+      "doc_b": "d:0061",
+      "genre": "engagement_letter",
+      "shape": 0.8929,
+      "openers": 0.7037
+    },
+    {
+      "doc_a": "d:0024",
+      "doc_b": "d:0029",
+      "genre": "status_report",
+      "shape": 0.8125,
+      "openers": 0.6977
+    },
+    {
+      "doc_a": "d:0034",
+      "doc_b": "d:0060",
+      "genre": "onboarding_record",
+      "shape": 0.75,
+      "openers": 0.75
+    },
+    {
+      "doc_a": "d:0002",
+      "doc_b": "d:0038",
+      "genre": "engagement_letter",
+      "shape": 0.8302,
+      "openers": 0.6275
+    },
+    {
+      "doc_a": "d:0038",
+      "doc_b": "d:0061",
+      "genre": "engagement_letter",
+      "shape": 0.8148,
+      "openers": 0.6154
+    },
+    {
+      "doc_a": "d:0004",
+      "doc_b": "d:0064",
+      "genre": "engagement_email",
+      "shape": 0.6,
+      "openers": 0.8
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0079",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0008",
+      "doc_b": "d:0081",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0048",
+      "doc_b": "d:0050",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0048",
+      "doc_b": "d:0051",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0049",
+      "doc_b": "d:0052",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0049",
+      "doc_b": "d:0053",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0050",
+      "doc_b": "d:0053",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0051",
+      "doc_b": "d:0053",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0065",
+      "doc_b": "d:0067",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0065",
+      "doc_b": "d:0069",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0065",
+      "doc_b": "d:0071",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0066",
+      "doc_b": "d:0068",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0068",
+      "doc_b": "d:0070",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0069",
+      "doc_b": "d:0070",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0069",
+      "doc_b": "d:0071",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0079",
+      "doc_b": "d:0081",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0081",
+      "doc_b": "d:0083",
+      "genre": "engagement_email",
+      "shape": 0.8,
+      "openers": 0.6
+    },
+    {
+      "doc_a": "d:0082",
+      "doc_b": "d:0084",
+      "genre": "engagement_email",
+      "shape": 1.0,
+      "openers": 0.4
+    },
+    {
+      "doc_a": "d:0038",
+      "doc_b": "d:0045",
+      "genre": "engagement_letter",
+      "shape": 0.8148,
+      "openers": 0.5769
+    },
+    {
+      "doc_a": "d:0011",
+      "doc_b": "d:0013",
+      "genre": "engagement_email",
+      "shape": 0.8333,
+      "openers": 0.5
+    },
+    {
+      "doc_a": "d:0019",
+      "doc_b": "d:0062",
+      "genre": "internal_email",
+      "shape": 0.8889,
+      "openers": 0.4444
+    },
+    {
+      "doc_a": "d:0061",
+      "doc_b": "d:0075",
+      "genre": "engagement_letter",
+      "shape": 0.7636,
+      "openers": 0.566
+    },
+    {
+      "doc_a": "d:0002",
+      "doc_b": "d:0075",
+      "genre": "engagement_letter",
+      "shape": 0.7037,
+      "openers": 0.5769
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0011",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0066",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0070",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0082",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0011",
+      "doc_b": "d:0083",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0066",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0070",
+      "genre": "engagement_email",
+      "shape": 0.9091,
+      "openers": 0.3636
+    },
+    {
+      "doc_a": "d:0045",
+      "doc_b": "d:0075",
+      "genre": "engagement_letter",
+      "shape": 0.6909,
+      "openers": 0.566
+    },
+    {
+      "doc_a": "d:0024",
+      "doc_b": "d:0056",
+      "genre": "status_report",
+      "shape": 0.8108,
+      "openers": 0.44
+    },
+    {
+      "doc_a": "d:0030",
+      "doc_b": "d:0037",
+      "genre": "internal_email",
+      "shape": 1.0,
+      "openers": 0.25
+    }
+  ],
+  "structural_pairs_considered": 682
 }

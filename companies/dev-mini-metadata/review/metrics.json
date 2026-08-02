@@ -238,5 +238,155 @@
       "genre": "meeting_minutes",
       "jaccard": 0.0009
     }
-  ]
+  ],
+  "structural_pairs": [
+    {
+      "doc_a": "d:0002",
+      "doc_b": "d:0008",
+      "genre": "engagement_letter",
+      "shape": 0.8085,
+      "openers": 0.7111
+    },
+    {
+      "doc_a": "d:0002",
+      "doc_b": "d:0015",
+      "genre": "engagement_letter",
+      "shape": 0.8,
+      "openers": 0.7083
+    },
+    {
+      "doc_a": "d:0018",
+      "doc_b": "d:0020",
+      "genre": "meeting_minutes",
+      "shape": 0.7857,
+      "openers": 0.6875
+    },
+    {
+      "doc_a": "d:0008",
+      "doc_b": "d:0015",
+      "genre": "engagement_letter",
+      "shape": 0.7925,
+      "openers": 0.5098
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0012",
+      "genre": "meeting_minutes",
+      "shape": 0.7143,
+      "openers": 0.4375
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0020",
+      "genre": "meeting_minutes",
+      "shape": 0.7407,
+      "openers": 0.3871
+    },
+    {
+      "doc_a": "d:0010",
+      "doc_b": "d:0018",
+      "genre": "meeting_minutes",
+      "shape": 0.6667,
+      "openers": 0.3871
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0020",
+      "genre": "meeting_minutes",
+      "shape": 0.6667,
+      "openers": 0.3333
+    },
+    {
+      "doc_a": "d:0013",
+      "doc_b": "d:0017",
+      "genre": "onboarding_record",
+      "shape": 0.8333,
+      "openers": 0.1667
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0018",
+      "genre": "meeting_minutes",
+      "shape": 0.6897,
+      "openers": 0.303
+    },
+    {
+      "doc_a": "d:0012",
+      "doc_b": "d:0020",
+      "genre": "meeting_minutes",
+      "shape": 0.6897,
+      "openers": 0.303
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0010",
+      "genre": "meeting_minutes",
+      "shape": 0.6154,
+      "openers": 0.3448
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0012",
+      "genre": "meeting_minutes",
+      "shape": 0.5714,
+      "openers": 0.3226
+    },
+    {
+      "doc_a": "d:0004",
+      "doc_b": "d:0022",
+      "genre": "company_overview",
+      "shape": 0.64,
+      "openers": 0.24
+    },
+    {
+      "doc_a": "d:0005",
+      "doc_b": "d:0018",
+      "genre": "meeting_minutes",
+      "shape": 0.5185,
+      "openers": 0.3333
+    },
+    {
+      "doc_a": "d:0011",
+      "doc_b": "d:0019",
+      "genre": "status_report",
+      "shape": 0.6842,
+      "openers": 0.1579
+    },
+    {
+      "doc_a": "d:0003",
+      "doc_b": "d:0009",
+      "genre": "kickoff_memo",
+      "shape": 0.6667,
+      "openers": 0.0
+    },
+    {
+      "doc_a": "d:0006",
+      "doc_b": "d:0011",
+      "genre": "status_report",
+      "shape": 0.5455,
+      "openers": 0.0851
+    },
+    {
+      "doc_a": "d:0006",
+      "doc_b": "d:0019",
+      "genre": "status_report",
+      "shape": 0.5128,
+      "openers": 0.1132
+    },
+    {
+      "doc_a": "d:0003",
+      "doc_b": "d:0016",
+      "genre": "kickoff_memo",
+      "shape": 0.3704,
+      "openers": 0.125
+    },
+    {
+      "doc_a": "d:0009",
+      "doc_b": "d:0016",
+      "genre": "kickoff_memo",
+      "shape": 0.32,
+      "openers": 0.16
+    }
+  ],
+  "structural_pairs_considered": 21
 }

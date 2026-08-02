@@ -24,10 +24,13 @@ from .metrics import (
     LONG_RATIO,
     SHORT_RATIO,
     SIMILAR_JACCARD,
+    STRUCTURAL_ROWS,
     author_ranges,
     flagged_lengths,
     flagged_pairs,
+    jaccard_of,
     run_metrics,
+    top_structural_pairs,
 )
 
 _SEVERITY_ORDER = {"blocker": 0, "major": 1, "minor": 2, "note": 3}
@@ -149,6 +152,53 @@ def _similarity_lines(metrics: CorpusMetrics) -> list[str]:
     ]
     for p in flagged:
         lines.append(f"| {p.doc_a} | {p.doc_b} | {p.genre} | {p.jaccard} |")
+    return lines
+
+
+def _structural_lines(metrics: CorpusMetrics) -> list[str]:
+    """M17b: the same-genre reading list ranked by what the documents
+    CONTAIN, printed beside the lexical score rather than instead of it.
+
+    No threshold, because there is no validated one: the rows are the
+    strongest N, and the Jaccard column is there so a reader can see which
+    axis found the pair. A high row is not a defect -- two status reports
+    SHOULD share a shape -- it is a pair worth a human's eyes.
+    """
+    rows = top_structural_pairs(metrics)
+    if not rows:
+        return [
+            "No same-genre pair of authored documents to compare "
+            "(structural pairs cover model-authored documents only; "
+            "derived duplicates are excluded)."
+        ]
+    lines = [
+        f"The {len(rows)} strongest of {metrics.structural_pairs_considered} "
+        f"same-genre pairs, ranked by structure rather than by wording. "
+        f"`shape` compares the block skeleton and `openers` compares the "
+        f"first content word of each prose unit; neither carries an authored "
+        f"sentence, so a thorough paraphrase moves the lexical column and "
+        f"leaves these two standing. Jaccard is repeated here so the reader "
+        f"sees which axis found the pair. Nothing here gates and no cut point "
+        f"is validated (docs/REVIEW-CALIBRATION.md).",
+        "",
+        "| doc a | doc b | genre | shape | openers | jaccard |",
+        "| --- | --- | --- | ---: | ---: | ---: |",
+    ]
+    for p in rows:
+        lines.append(
+            f"| {p.doc_a} | {p.doc_b} | {p.genre} | {p.shape} | {p.openers} "
+            f"| {jaccard_of(metrics, p.doc_a, p.doc_b)} |"
+        )
+    if metrics.structural_pairs_considered > len(metrics.structural_pairs):
+        lines.append("")
+        lines.append(
+            f"{metrics.structural_pairs_considered} pairs were scored; the "
+            f"artifact keeps the strongest {len(metrics.structural_pairs)} "
+            f"and this table shows the top {STRUCTURAL_ROWS}. The full "
+            f"ranking is recomputable from committed DocIR "
+            f"(`orgsmith.review.structure.compute_pairs`); it is truncated "
+            f"here rather than dropped silently."
+        )
     return lines
 
 
@@ -360,6 +410,10 @@ def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
         "### Same-genre similarity",
         "",
         *_similarity_lines(metrics),
+        "",
+        "### Structural similarity",
+        "",
+        *_structural_lines(metrics),
         "",
         "### Fee coverage",
         "",

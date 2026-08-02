@@ -28,7 +28,7 @@ The other 9 cost zero model tokens: 9 static (rendered from the deterministic le
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 28 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, AFF-01, AFF-02, EML-01, EML-02, EML-03, DL-01.
+Validator: 29 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, MENT-03, AFF-01, AFF-02, EML-01, EML-02, EML-03, DL-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score brackenridge-civil --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -61,6 +61,25 @@ Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement,
 | d:0018 | d:0031 | engagement_letter | 0.2156 |
 | d:0007 | d:0021 | company_overview | 0.196 |
 | d:0006 | d:0037 | kickoff_memo | 0.1628 |
+
+### Structural similarity
+
+The 10 strongest of 60 same-genre pairs, ranked by structure rather than by wording. `shape` compares the block skeleton and `openers` compares the first content word of each prose unit; neither carries an authored sentence, so a thorough paraphrase moves the lexical column and leaves these two standing. Jaccard is repeated here so the reader sees which axis found the pair. Nothing here gates and no cut point is validated (docs/REVIEW-CALIBRATION.md).
+
+| doc a | doc b | genre | shape | openers | jaccard |
+| --- | --- | --- | ---: | ---: | ---: |
+| d:0018 | d:0031 | engagement_letter | 0.9643 | 0.7037 | 0.2156 |
+| d:0009 | d:0012 | meeting_minutes | 0.88 | 0.7407 | 0.0522 |
+| d:0005 | d:0036 | engagement_letter | 0.8364 | 0.717 | 0.3542 |
+| d:0018 | d:0036 | engagement_letter | 0.8519 | 0.6154 | 0.0255 |
+| d:0005 | d:0018 | engagement_letter | 0.8772 | 0.5455 | 0.0259 |
+| d:0021 | d:0040 | company_overview | 0.9167 | 0.5 | 0.4533 |
+| d:0033 | d:0038 | meeting_minutes | 0.9231 | 0.4828 | 0.011 |
+| d:0012 | d:0028 | meeting_minutes | 0.96 | 0.4444 | 0.0114 |
+| d:0014 | d:0027 | onboarding_record | 1.0 | 0.4 | 0.0302 |
+| d:0031 | d:0036 | engagement_letter | 0.8889 | 0.5 | 0.025 |
+
+60 pairs were scored; the artifact keeps the strongest 50 and this table shows the top 10. The full ranking is recomputable from committed DocIR (`orgsmith.review.structure.compute_pairs`); it is truncated here rather than dropped silently.
 
 ### Fee coverage
 

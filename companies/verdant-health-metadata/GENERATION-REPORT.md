@@ -25,7 +25,7 @@ The other 6 cost zero model tokens: 6 static (rendered from the deterministic le
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 29 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, EML-01, EML-02, EML-03, DL-01, LEG-01.
+Validator: 30 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, MENT-03, EML-01, EML-02, EML-03, DL-01, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score verdant-health --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -46,6 +46,23 @@ Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement,
 | doc a | doc b | genre | jaccard |
 | --- | --- | --- | ---: |
 | d:0019 | d:0026 | engagement_letter | 0.246 |
+
+### Structural similarity
+
+The 10 strongest of 42 same-genre pairs, ranked by structure rather than by wording. `shape` compares the block skeleton and `openers` compares the first content word of each prose unit; neither carries an authored sentence, so a thorough paraphrase moves the lexical column and leaves these two standing. Jaccard is repeated here so the reader sees which axis found the pair. Nothing here gates and no cut point is validated (docs/REVIEW-CALIBRATION.md).
+
+| doc a | doc b | genre | shape | openers | jaccard |
+| --- | --- | --- | ---: | ---: | ---: |
+| d:0019 | d:0026 | engagement_letter | 0.9259 | 0.8462 | 0.246 |
+| d:0021 | d:0023 | meeting_minutes | 0.9286 | 0.75 | 0.0515 |
+| d:0006 | d:0009 | meeting_minutes | 0.8696 | 0.5926 | 0.0354 |
+| d:0028 | d:0030 | meeting_minutes | 0.8667 | 0.5625 | 0.0515 |
+| d:0002 | d:0010 | engagement_letter | 0.898 | 0.5106 | 0.0503 |
+| d:0022 | d:0029 | status_report | 0.8571 | 0.4918 | 0.126 |
+| d:0002 | d:0026 | engagement_letter | 0.7547 | 0.549 | 0.0273 |
+| d:0023 | d:0030 | meeting_minutes | 0.8966 | 0.375 | 0.1046 |
+| d:0002 | d:0019 | engagement_letter | 0.717 | 0.5098 | 0.0293 |
+| d:0010 | d:0019 | engagement_letter | 0.8 | 0.4167 | 0.0169 |
 
 ### Fee coverage
 

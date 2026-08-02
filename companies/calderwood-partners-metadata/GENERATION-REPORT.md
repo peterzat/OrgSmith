@@ -57,7 +57,7 @@ The other 50 cost zero model tokens: 15 static (rendered from the deterministic 
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 29 rules run, 0 error(s), 0 warning(s); skipped by charter knob: AFF-01, AFF-02, EML-02, EML-03, DL-01, LEG-01.
+Validator: 30 rules run, 0 error(s), 0 warning(s); skipped by charter knob: MENT-03, AFF-01, AFF-02, EML-02, EML-03, DL-01, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score calderwood-partners --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -187,6 +187,25 @@ Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement,
 | d:0098 | d:0175 | status_report | 0.1528 |
 | d:0070 | d:0119 | company_overview | 0.151 |
 | d:0075 | d:0141 | engagement_letter | 0.1508 |
+
+### Structural similarity
+
+The 10 strongest of 2072 same-genre pairs, ranked by structure rather than by wording. `shape` compares the block skeleton and `openers` compares the first content word of each prose unit; neither carries an authored sentence, so a thorough paraphrase moves the lexical column and leaves these two standing. Jaccard is repeated here so the reader sees which axis found the pair. Nothing here gates and no cut point is validated (docs/REVIEW-CALIBRATION.md).
+
+| doc a | doc b | genre | shape | openers | jaccard |
+| --- | --- | --- | ---: | ---: | ---: |
+| d:0098 | d:0175 | status_report | 1.0 | 0.8571 | 0.1528 |
+| d:0091 | d:0171 | engagement_letter | 0.9524 | 0.9 | 0.3402 |
+| d:0050 | d:0091 | engagement_letter | 1.0 | 0.85 | 0.282 |
+| d:0006 | d:0091 | engagement_letter | 0.9048 | 0.9 | 0.3884 |
+| d:0050 | d:0171 | engagement_letter | 0.9524 | 0.85 | 0.2262 |
+| d:0127 | d:0171 | engagement_letter | 0.9524 | 0.85 | 0.2248 |
+| d:0094 | d:0169 | onboarding_record | 0.8 | 1.0 | 0.1013 |
+| d:0122 | d:0162 | engagement_email | 1.0 | 0.8 | 0.0496 |
+| d:0006 | d:0127 | engagement_letter | 0.9048 | 0.85 | 0.3278 |
+| d:0024 | d:0157 | engagement_letter | 1.0 | 0.7368 | 0.3263 |
+
+2072 pairs were scored; the artifact keeps the strongest 50 and this table shows the top 10. The full ranking is recomputable from committed DocIR (`orgsmith.review.structure.compute_pairs`); it is truncated here rather than dropped silently.
 
 ### Fee coverage
 

@@ -55,6 +55,25 @@ Same-genre pairs at or above 0.15 4-gram Jaccard. High overlap is a measurement,
 | --- | --- | --- | ---: |
 | d:0011 | d:0029 | engagement_letter | 0.2409 |
 
+### Structural similarity
+
+The 10 strongest of 161 same-genre pairs, ranked by structure rather than by wording. `shape` compares the block skeleton and `openers` compares the first content word of each prose unit; neither carries an authored sentence, so a thorough paraphrase moves the lexical column and leaves these two standing. Jaccard is repeated here so the reader sees which axis found the pair. Nothing here gates and no cut point is validated (docs/REVIEW-CALIBRATION.md).
+
+| doc a | doc b | genre | shape | openers | jaccard |
+| --- | --- | --- | ---: | ---: | ---: |
+| d:0031 | d:0040 | engagement_email | 1.0 | 0.6667 | 0.0156 |
+| d:0011 | d:0029 | engagement_letter | 0.9474 | 0.6667 | 0.2409 |
+| d:0017 | d:0047 | onboarding_record | 1.0 | 0.5263 | 0.0578 |
+| d:0016 | d:0034 | status_report | 0.7273 | 0.68 | 0.0198 |
+| d:0021 | d:0039 | kickoff_memo | 0.8485 | 0.5366 | 0.062 |
+| d:0025 | d:0027 | onboarding_record | 0.8571 | 0.5 | 0.0066 |
+| d:0008 | d:0034 | status_report | 0.8 | 0.5333 | 0.003 |
+| d:0047 | d:0049 | onboarding_record | 0.7143 | 0.5556 | 0.0106 |
+| d:0017 | d:0027 | onboarding_record | 0.8571 | 0.4 | 0.007 |
+| d:0017 | d:0054 | onboarding_record | 0.8571 | 0.4 | 0.0153 |
+
+161 pairs were scored; the artifact keeps the strongest 50 and this table shows the top 10. The full ranking is recomputable from committed DocIR (`orgsmith.review.structure.compute_pairs`); it is truncated here rather than dropped silently.
+
 ### Fee coverage
 
 6 documented engagement(s), fees totalling $500,500, against $20,712,000 of lifetime revenue.

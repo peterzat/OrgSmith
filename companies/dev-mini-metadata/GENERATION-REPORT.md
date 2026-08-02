@@ -24,7 +24,7 @@ The other 5 cost zero model tokens: 5 static (rendered from the deterministic le
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 24 rules run, 0 error(s), 0 warning(s); skipped by charter knob: CAL-01, NOISE-01, AFF-01, AFF-02, EML-01, EML-02, EML-03, DL-01, SCAN-01, SCAN-02, LEG-01.
+Validator: 25 rules run, 0 error(s), 0 warning(s); skipped by charter knob: CAL-01, NOISE-01, MENT-03, AFF-01, AFF-02, EML-01, EML-02, EML-03, DL-01, SCAN-01, SCAN-02, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score dev-mini --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -41,6 +41,23 @@ Every document is within 75%-150% of the words its brief asked for.
 ### Same-genre similarity
 
 No same-genre pair reaches 0.15 4-gram Jaccard (highest: 0.0725).
+
+### Structural similarity
+
+The 10 strongest of 21 same-genre pairs, ranked by structure rather than by wording. `shape` compares the block skeleton and `openers` compares the first content word of each prose unit; neither carries an authored sentence, so a thorough paraphrase moves the lexical column and leaves these two standing. Jaccard is repeated here so the reader sees which axis found the pair. Nothing here gates and no cut point is validated (docs/REVIEW-CALIBRATION.md).
+
+| doc a | doc b | genre | shape | openers | jaccard |
+| --- | --- | --- | ---: | ---: | ---: |
+| d:0002 | d:0008 | engagement_letter | 0.8085 | 0.7111 | 0.0725 |
+| d:0002 | d:0015 | engagement_letter | 0.8 | 0.7083 | 0.0587 |
+| d:0018 | d:0020 | meeting_minutes | 0.7857 | 0.6875 | 0.0278 |
+| d:0008 | d:0015 | engagement_letter | 0.7925 | 0.5098 | 0.0662 |
+| d:0010 | d:0012 | meeting_minutes | 0.7143 | 0.4375 | 0.0085 |
+| d:0010 | d:0020 | meeting_minutes | 0.7407 | 0.3871 | 0.0009 |
+| d:0010 | d:0018 | meeting_minutes | 0.6667 | 0.3871 | 0.0017 |
+| d:0005 | d:0020 | meeting_minutes | 0.6667 | 0.3333 | 0.0027 |
+| d:0013 | d:0017 | onboarding_record | 0.8333 | 0.1667 | 0.0192 |
+| d:0012 | d:0018 | meeting_minutes | 0.6897 | 0.303 | 0.0026 |
 
 ### Fee coverage
 
