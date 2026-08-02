@@ -211,6 +211,15 @@ class MailCulture(StrictModel):
     # off keeps every committed manifest re-deriving byte-identically; a
     # recipe opts in at its regeneration.
     exempt_author_mentions: bool = False
+    # M17: the twin of the above for the other end of the message. Mention
+    # planning stops forcing a recipient's full legal name into the authored
+    # body, which is why the mail demonstrators read as if everyone
+    # addresses colleagues in the third person. MENT-01 still finds the
+    # recipient: since v2.1.1 an .eml's extractable text folds in the To/Cc
+    # display names, which is where a recipient's name legitimately lives.
+    # Default off keeps every committed manifest re-deriving
+    # byte-identically; a recipe opts in at its regeneration.
+    exempt_recipient_mentions: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "MailCulture":

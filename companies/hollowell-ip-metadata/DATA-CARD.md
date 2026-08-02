@@ -30,6 +30,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.mail.attachments` | `0` |
 | `doc_culture.mail.distribution_lists` | `1` |
 | `doc_culture.mail.exempt_author_mentions` | `True` |
+| `doc_culture.mail.exempt_recipient_mentions` | `False` |
 | `doc_culture.style_specs` | `True` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1320000` |
@@ -123,7 +124,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| hollowell-ip | 181 | `668876205990d525cbc5cdff13f935226d6ad4ef15e4c4d157d3fe08749d3f65` |
+| hollowell-ip | 181 | `d20207594a49790f39bfdf349d1a20d3d1afcde9f7470cd06c936e891ac7568d` |
 
 Verify with `python tools/checksums.py --check`.
 

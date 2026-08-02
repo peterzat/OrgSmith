@@ -45,6 +45,19 @@ def strip_leading_header_block(text: str) -> str:
     return "\n".join(lines[i:])
 
 
+def eml_recipients(authors: list, participants: list) -> list:
+    """Who a message is addressed to: every participant other than its
+    author, falling back to the author for a message with no one else.
+
+    Shared with the docplan mention planner, which exempts exactly these
+    people from forced body mentions when
+    `mail.exempt_recipient_mentions` is on. The two have to agree: exempt
+    somebody the renderer does not address and MENT-01 loses a name it
+    still demands."""
+    author = authors[0]
+    return [p for p in participants if p != author] or [author]
+
+
 def _message_id(doc_id: str, slug: str, domain: str) -> str:
     return f"<{doc_id.replace(':', '')}.{slug}@{domain}>"
 
@@ -97,7 +110,7 @@ def expected_headers(
     author = entry.authors[0]
     mail_on = "send_minute" in entry.render_params
     dl_addr = entry.render_params.get("dl")
-    recipients = [p for p in entry.participants if p != author] or [author]
+    recipients = eml_recipients(entry.authors, entry.participants)
     if dl_addr:
         # Addressed to a distribution list (M14): the To header is the list,
         # not the individual participants (who remain, for body mentions).

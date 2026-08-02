@@ -321,6 +321,11 @@
           "title": "Exempt Author Mentions",
           "type": "boolean"
         },
+        "exempt_recipient_mentions": {
+          "default": false,
+          "title": "Exempt Recipient Mentions",
+          "type": "boolean"
+        },
         "max_thread_depth": {
           "default": 6,
           "minimum": 1,

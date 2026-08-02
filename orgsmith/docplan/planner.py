@@ -744,21 +744,38 @@ class _Planner:
         eng_by_id = {e.id: e for e in self.engagements.engagements}
         mail = self.charter.doc_culture.mail
         exempt = mail is not None and mail.exempt_author_mentions
+        exempt_to = mail is not None and mail.exempt_recipient_mentions
         for doc in self.planned:
             doc["mentions"] = []
             if doc.get("authoring") == "static":
                 continue
             people = doc["authors"] + doc["participants"]
-            if exempt and doc["format"] == "eml":
-                # M15 (mundane-email-author-self-names): knob-on mail ends in
-                # a render-time signature block that names the author, and
-                # validation reads the rendered text, so forcing the name
-                # into the authored body only produced third-person
-                # self-reference. Gated (default off) so every committed
-                # manifest re-derives byte-identically until a recipe opts
-                # in at its regeneration.
-                authors = set(doc["authors"])
-                people = [p for p in people if p not in authors]
+            if (exempt or exempt_to) and doc["format"] == "eml":
+                # Mail names both ends of the message in its transport
+                # headers, and validation reads the rendered text, so
+                # forcing either name into the authored body produces prose
+                # nobody writes: third-person self-reference from the
+                # author (M15), and a recipient's full legal name in a note
+                # addressed to them (M17). Both gated, both default off, so
+                # every committed manifest re-derives byte-identically until
+                # a recipe opts in at its regeneration.
+                #
+                # Recipients are participants other than the author, the
+                # same partition render/eml.py uses to build To and Cc.
+                from ..render.eml import eml_recipients
+
+                drop: set = set()
+                if exempt:
+                    drop |= set(doc["authors"])
+                if exempt_to and not doc["render_params"].get("dl"):
+                    # Not for distribution-list mail: there the To header
+                    # carries the list address, so the members' names are
+                    # nowhere in the transport headers and the body is the
+                    # only place they appear.
+                    drop |= set(
+                        eml_recipients(doc["authors"], doc["participants"])
+                    ) - set(doc["authors"])
+                people = [p for p in people if p not in drop]
             for pid in people:
                 self._doc_mention_add(doc, self._entity_surface(pid))
             if doc["engagement"]:
