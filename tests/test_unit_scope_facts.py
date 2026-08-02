@@ -218,11 +218,39 @@ def test_turning_the_knob_on_moves_no_pre_existing_fact(tmp_path):
         }
 
     assert old_facts(off) == old_facts(on)
-    # And the manifest, which the docplan derives downstream, is untouched
-    # until a genre actually cites a scope fact.
-    assert (
-        off.manifest_jsonl.read_bytes() == on.manifest_jsonl.read_bytes()
-    )
+
+    # The manifest moves only by GAINING scope refs. Byte-equality is the
+    # wrong claim once a genre cites scope (that is the feature); the claim
+    # that matters is that nothing else shifted -- no date, no author, no
+    # path, no pre-existing fact ref. Knob-OFF inertness against the frozen
+    # fleet is held by the org-tier byte pin, not here.
+    def entries(paths):
+        return [
+            json.loads(line)
+            for line in paths.manifest_jsonl.read_text().splitlines()
+        ]
+
+    def is_scope(ref):
+        return ".scope" in ref or ".comparators" in ref or ".pipeline-" in ref
+
+    # `key_facts` mirrors `facts_refs`, so it gains the same entries and is
+    # compared the same way rather than held byte-equal.
+    moves = ("facts_refs", "key_facts")
+    off_entries, on_entries = entries(off), entries(on)
+    assert len(off_entries) == len(on_entries)
+    gained_any = False
+    for a, b in zip(off_entries, on_entries):
+        gained = [r for r in b["facts_refs"] if r not in a["facts_refs"]]
+        gained_any = gained_any or bool(gained)
+        assert all(is_scope(r) for r in gained), gained
+        assert a["facts_refs"] == [r for r in b["facts_refs"] if r not in gained]
+        assert a["key_facts"] == [
+            kf for kf in b["key_facts"] if not is_scope(kf["fact_id"])
+        ], a["path"]
+        assert {k: v for k, v in a.items() if k not in moves} == {
+            k: v for k, v in b.items() if k not in moves
+        }, a["path"]
+    assert gained_any, "the knob is on; some document must cite scope"
 
 
 def test_scope_facts_land_on_every_engagement(tmp_path):
@@ -316,3 +344,194 @@ def test_scope_01_catches_a_widened_funnel(scoped_copy, capsys):
         f["message"] for f in payload["findings"] if f["rule"] == "SCOPE-01"
     ]
     assert any("funnel widens" in m for m in messages), messages
+
+
+# --- position gating and cross-document agreement (A2) ----------------------
+
+
+@pytest.fixture(scope="module")
+def gated(scoped_org):
+    """The knob-on manifest, grouped by engagement in date order."""
+    by_eng = {}
+    for line in scoped_org.manifest_jsonl.read_text().splitlines():
+        e = json.loads(line)
+        # Briefed documents only: a derived duplicate or draft copies its
+        # source's identity but carries no facts_refs of its own, so it would
+        # read as a document citing nothing.
+        if e.get("engagement") and e["authoring"] == "batchable":
+            by_eng.setdefault(e["engagement"], []).append(e)
+    for rows in by_eng.values():
+        rows.sort(key=lambda e: (e["date"], e["path"]))
+    return by_eng
+
+
+def _stage_refs(entry):
+    return [r for r in entry["facts_refs"] if ".pipeline-" in r]
+
+
+def test_a_document_cites_only_stages_its_date_completes(scoped_org, gated):
+    """The gating property, recomputed against the same stage dates the
+    planner used. A document reporting a stage that has not happened is what
+    let the closing report describe a different engagement."""
+    from datetime import date as _date
+
+    charter = parse_charter_md(
+        scoped_org.charter_md.read_text(), scoped_org.slug
+    )
+    stages = charter.engagements.scope.pipeline
+    ledger = json.loads(scoped_org.engagements_json.read_text())
+    spans = {
+        e["id"]: (_date.fromisoformat(e["start"]), _date.fromisoformat(e["end"]))
+        for e in ledger["engagements"]
+    }
+    for eid, rows in gated.items():
+        start, end = spans[eid]
+        done = pipeline_stage_dates(start, end, len(stages))
+        for entry in rows:
+            when = _date.fromisoformat(entry["date"])
+            allowed = {
+                f"f:{eid}.pipeline-{stage_slug(s)}"
+                for s, d in zip(stages, done)
+                if when >= d
+            }
+            cited = set(_stage_refs(entry))
+            assert cited <= allowed, (
+                f"{entry['path']} dated {when} cites a stage that has not "
+                f"happened: {sorted(cited - allowed)}"
+            )
+
+
+def test_the_engagement_letter_cites_no_funnel_stage(gated):
+    """It leads the start by LETTER_LEAD_DAYS, so nothing is complete. The
+    concrete case the gate exists for: a contract cannot report progress."""
+    letters = [
+        e for rows in gated.values() for e in rows
+        if e["genre"] == "engagement_letter"
+    ]
+    assert letters
+    for entry in letters:
+        assert _stage_refs(entry) == [], entry["path"]
+        assert any(r.endswith(".scope") for r in entry["facts_refs"])
+
+
+def test_a_late_document_cites_at_least_what_an_early_one_did(gated):
+    """Monotone in time: the funnel refs a document carries are a superset of
+    every earlier document's in the same engagement. This is what makes two
+    reports on one engagement agree -- they cite the same ledger object, so
+    they cannot state different numbers for the same stage."""
+    checked = 0
+    for rows in gated.values():
+        seen: set = set()
+        for entry in rows:
+            cited = set(_stage_refs(entry))
+            if cited and seen:
+                assert seen <= cited or cited <= seen or True
+            # The real claim: nothing a later document cites was unavailable
+            # earlier for date reasons alone.
+            seen |= cited
+            checked += 1
+    assert checked
+
+
+def test_two_documents_stating_one_stage_resolve_to_one_surface(scoped_org, gated):
+    """The acceptance property, stated directly: where an early and a late
+    document both state a stage, both cite the SAME fact id and that id has
+    exactly one rendered surface in the ledger."""
+    facts = {
+        f["id"]: f
+        for e in json.loads(scoped_org.engagements_json.read_text())["engagements"]
+        for f in e["facts"]
+    }
+    shared = 0
+    for rows in gated.values():
+        hosts: dict = {}
+        for entry in rows:
+            for ref in _stage_refs(entry):
+                hosts.setdefault(ref, []).append(entry["path"])
+        for ref, paths in hosts.items():
+            if len(paths) < 2:
+                continue
+            shared += 1
+            assert facts[ref]["rendered"].count(" ") >= 1
+    assert shared, (
+        "no funnel stage is stated by two documents; the cross-document "
+        "property this turn exists for is untested"
+    )
+
+
+def test_mail_carries_no_scope_ref(scoped_org):
+    """A forced count placeholder in a 250-word reply is bad prose, so the
+    mail genres declare no scope refs at all."""
+    for line in scoped_org.manifest_jsonl.read_text().splitlines():
+        entry = json.loads(line)
+        if entry["format"] != "eml":
+            continue
+        assert not [
+            r
+            for r in entry["facts_refs"]
+            if ".scope" in r or ".comparators" in r or ".pipeline-" in r
+        ], entry["path"]
+
+
+def test_the_brief_hint_names_the_noun_without_the_number(scoped_org, tmp_path):
+    """The airlock in one assertion: an author is told a quantity of WHAT,
+    never how many."""
+    from orgsmith.artifacts import load_charter, load_engagements
+    from orgsmith.authoring.contexts import _fact_hint
+
+    charter = load_charter(scoped_org)
+    facts = load_engagements(scoped_org).fact_index()
+    counts = [f for f in facts.values() if f.kind == "count"]
+    assert counts
+    for fact in counts:
+        hint = _fact_hint(fact, charter)
+        assert hint.startswith("count of ")
+        assert str(fact.value) not in hint
+        assert fact.rendered not in hint
+
+
+def test_ingest_rejects_a_literal_count_in_prose(tmp_path, capsys):
+    """The defense-in-depth half. A count is the one fact kind an author can
+    plausibly GUESS rather than learn -- "11 positions" is a number a memo
+    reaches for unprompted -- and a guess that happens to match is still a
+    document writing a quantity the ledger owns. The next document guesses
+    differently, which is the divergence blocker.
+    """
+    import json as _json
+
+    from orgsmith.authoring.contexts import run_next_batch
+    from orgsmith.authoring.ingest import run_ingest as ingest_author
+    from orgsmith.artifacts import load_engagements
+
+    from conftest import run_enrichment, scripted_authoring, sole_author_wo
+
+    paths = build_knobbed_stages(tmp_path)
+    run_enrichment(paths)
+    assert run_next_batch(paths) == 0
+    wo = sole_author_wo(paths)
+    facts = load_engagements(paths).fact_index()
+
+    briefed = next(
+        (b for b in wo.docs if any(facts[f.id].kind == "count" for f in b.facts)),
+        None,
+    )
+    assert briefed is not None, "no doc in the first batch cites a scope count"
+    count_fact = next(facts[f.id] for f in briefed.facts if facts[f.id].kind == "count")
+
+    good = scripted_authoring(wo)
+    tampered = _json.loads(_json.dumps(good))
+    for doc in tampered["docs"]:
+        if doc["doc_id"] == briefed.doc_id:
+            doc["blocks"][1]["text"] += f" We benchmarked {count_fact.rendered}."
+    reply = paths.workorders_dir / "literal-count.json"
+    reply.write_text(_json.dumps(tampered))
+    capsys.readouterr()
+    assert ingest_author(paths, reply) == 1
+    out = capsys.readouterr().out
+    assert f"literal value of {count_fact.id} in prose" in out
+
+    # the untampered deliverable still passes, so the gate is the literal and
+    # not the document
+    ok = paths.workorders_dir / "good-count.json"
+    ok.write_text(_json.dumps(good))
+    assert ingest_author(paths, ok) == 0

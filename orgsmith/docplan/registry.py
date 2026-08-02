@@ -48,6 +48,13 @@ class GenreRule:
     format: str
     folder: str
     fact_suffixes: tuple[str, ...] = ()
+    # M17b: which engagement SCOPE quantities this genre cites, from the
+    # vocabulary {"scope", "comparators", "pipeline"}. Inert unless the
+    # recipe declares engagements.scope: the planner drops a ref whose fact
+    # the ledger never planted, so a knob-off org plans the same manifest
+    # byte for byte. "pipeline" is position-gated -- a document cites only
+    # the funnel stages its own date says are complete.
+    scope_refs: tuple[str, ...] = ()
     authoring: str = "batchable"
     # The brief's word target for this genre, and the single source of truth
     # for it (authoring/contexts.py and review/corpus.py both read it here).
@@ -109,6 +116,9 @@ REGISTRY: tuple[GenreRule, ...] = (
         format="pdf",
         folder="Engagements/{client}",
         fact_suffixes=("fee", "start", "client"),
+        # The letter leads the start, so no funnel stage is complete yet:
+        # it states what the engagement is FOR and nothing about progress.
+        scope_refs=("scope",),
         hosts_signature=True,
         author_role="ceo",  # a countersigned contract, signed by the principal
         lead_days=10,  # LETTER_LEAD_DAYS; the letter leads the engagement
@@ -122,6 +132,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         format="docx",
         folder="Engagements/{client}",
         fact_suffixes=("start", "client"),
+        scope_refs=("scope",),
         start_offset_days=3,  # a kickoff for EVERY engagement now (cap removed)
         title_prefix="Kickoff Memo",
         filename="{date:%Y.%m.%d} - Kickoff Memo - {service}.docx",
@@ -133,6 +144,8 @@ REGISTRY: tuple[GenreRule, ...] = (
         format="docx",
         folder="Engagements/{client}",
         fact_suffixes=("client",),
+        # Minutes report progress against the funnel, not the commercials.
+        scope_refs=("pipeline",),
         hosts_filename=True,
         author_role="junior",  # the most-junior member takes the minutes
         anchor_frac=0.4,  # first working session; shares minutes_date()
@@ -148,6 +161,10 @@ REGISTRY: tuple[GenreRule, ...] = (
         format="docx",
         folder="Engagements/{client}",
         fact_suffixes=("fee", "client"),
+        # The genre the divergence blocker landed on: a status report
+        # states the whole picture, so it cites every quantity its date
+        # permits and every one of them is a ledger object.
+        scope_refs=("scope", "comparators", "pipeline"),
         participants="team",  # a client-facing report names the internal team
         anchor_frac=0.5,  # status reports for EVERY engagement now (cap removed)
         period_days=120,
@@ -161,6 +178,7 @@ REGISTRY: tuple[GenreRule, ...] = (
         format="pptx",
         folder="Engagements/{client}",
         fact_suffixes=("start", "client"),
+        scope_refs=("scope", "comparators"),
         anchor_frac=0.25,  # dated a quarter of the way in
         optional_count="pptx",
         title_prefix="Briefing Deck",

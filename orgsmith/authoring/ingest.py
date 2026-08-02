@@ -315,13 +315,19 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
             if entry is not None:
                 for p in _check_hard_cases(doc, entry, facts):
                     problems.append(f"{doc.doc_id}: {p}")
-            # Defense in depth: money/date surface forms must arrive only
-            # via placeholders. A literal match means the author somehow
+            # Defense in depth: money/date/count surface forms must arrive
+            # only via placeholders. A literal match means the author somehow
             # learned (or guessed) a ledger value.
+            #
+            # M17b added "count". It is the one kind an author can plausibly
+            # GUESS rather than learn -- "11 positions" is a number a memo
+            # would reach for unprompted -- and a guess that happens to match
+            # is still a document writing a quantity the ledger owns. The
+            # next one guesses differently, which is the divergence blocker.
             text = _chunks(doc)
             for brief_fact in brief.facts:
                 fact = facts.get(brief_fact.id)
-                if fact and fact.kind in ("money", "date") and (
+                if fact and fact.kind in ("money", "date", "count") and (
                     fact.rendered in text
                 ):
                     problems.append(

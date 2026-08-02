@@ -13,11 +13,12 @@ from datetime import date
 from ..airlock import emit_author_batch
 from ..artifacts import load_charter, load_engagements, load_foundation, load_manifest
 from ..docplan.registry import REGISTRY
-from ..fabric.engagements import employer_at
+from ..fabric.engagements import employer_at, scope_noun
 from ..paths import OrgPaths
 from ..seeds import rng
 from ..schemas import (
     SCHEMA_IDS,
+    Charter,
     DocBrief,
     FactBrief,
     Foundation,
@@ -136,6 +137,31 @@ Hard rules:
   supervisor; a reporting relationship is owned by the ledger, not invented.
 - Write plain, era-appropriate business prose in the org's voice.
 """
+
+
+_KIND_HINTS = {
+    "money": "amount of money; place where the figure belongs",
+    "date": "calendar date; place where the date belongs",
+    "text": "proper name; place where the name belongs",
+    "count": "a quantity; place where the number belongs",
+}
+
+
+def _fact_hint(fact, charter: Charter) -> str:
+    """A human description of what a placeholder stands for, carrying NO
+    ledger value.
+
+    A scope count names the noun it counts ("count of positions"), taken from
+    the recipe rather than from the fact, so the author knows a quantity of
+    what belongs there without learning how many. The airlock holds: a noun
+    is not a value. Without this an author is told only "a quantity", which
+    is exactly the ambiguity that had documents inventing their own.
+    """
+    if fact.kind == "count" and charter.engagements.scope is not None:
+        noun = scope_noun(fact.id, charter.engagements.scope)
+        if noun:
+            return f"count of {noun}; place where the number belongs"
+    return _KIND_HINTS[fact.kind]
 
 
 def _brief_summary(eng) -> str:
@@ -517,17 +543,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                     ],
                     engagement_summary=_brief_summary(eng) if eng else "",
                     facts=[
-                        FactBrief(
-                            id=ref,
-                            hint={
-                                "money": "amount of money; place where the "
-                                "figure belongs",
-                                "date": "calendar date; place where the date "
-                                "belongs",
-                                "text": "proper name; place where the name "
-                                "belongs",
-                            }[facts[ref].kind],
-                        )
+                        FactBrief(id=ref, hint=_fact_hint(facts[ref], charter))
                         for ref in body_refs
                     ],
                     mentions=list(entry.mentions),

@@ -27,6 +27,8 @@ from ..fabric.engagements import (
     LETTER_LEAD_DAYS,
     calendar_holidays,
     minutes_date,
+    pipeline_stage_dates,
+    stage_slug,
     to_business_day,
 )
 from ..naming import check_relpath, sanitize_component
@@ -308,8 +310,51 @@ class _Planner:
             for d in dates
         ]
 
+    def _scope_refs_for(self, rule: GenreRule, eng, when: date) -> list[str]:
+        """The engagement scope facts this instance cites (M17b).
+
+        THE INERTNESS HINGE is `ref not in self.facts`: with no scope profile
+        declared the fabric planted nothing, every ref resolves to nothing,
+        and the manifest is byte-identical to a pre-M17b plan. The registry
+        rows can therefore carry `scope_refs` unconditionally.
+
+        POSITION GATING is the other half, and it is what makes the
+        divergence blocker inexpressible rather than merely unlikely: a
+        document cites a funnel stage only once its own date says that stage
+        is complete. A closing report's numbers then become the same ledger
+        objects the mid-engagement report cited, plus the stages that
+        finished in between -- it cannot state a different engagement,
+        because it is not writing the numbers.
+        """
+        profile = self.charter.engagements.scope
+        if profile is None or not rule.scope_refs:
+            return []
+        refs: list[str] = []
+        for kind in rule.scope_refs:
+            if kind == "pipeline":
+                # Every stage complete as of this date, in funnel order. Not
+                # capped: an early and a late document citing the same stage
+                # resolving to the same surface is the property this exists
+                # for. If a knob-on trial ever reads as a form rather than a
+                # report, cap here (most recent K), not in the registry.
+                stage_dates = pipeline_stage_dates(
+                    eng.start, eng.end, len(profile.pipeline)
+                )
+                refs += [
+                    f"f:{eng.id}.pipeline-{stage_slug(phrase)}"
+                    for phrase, done in zip(profile.pipeline, stage_dates)
+                    if when >= done
+                ]
+            else:
+                refs.append(f"f:{eng.id}.{kind}")
+        return [
+            r
+            for r in refs
+            if r in self.facts and self.policy.get(r, "body") == "body"
+        ]
+
     def _facts_for(
-        self, rule: GenreRule, eng, is_first: bool
+        self, rule: GenreRule, eng, is_first: bool, when: date
     ) -> tuple[list[str], list[KeyFact], dict]:
         """(facts_refs, extra_key_facts, render_params) for one instance.
 
@@ -327,6 +372,7 @@ class _Planner:
             elif pol == "signature_page" and rule.hosts_signature:
                 refs.append(ref)
                 render_params["sig_fact"] = ref
+        refs += self._scope_refs_for(rule, eng, when)
         extra: list[KeyFact] = []
         if rule.hosts_filename and is_first:
             md_ref = f"f:{eng.id}.minutes-date"
@@ -355,7 +401,7 @@ class _Planner:
             service = eng.title.split(" for ")[0]
             dates = self._engagement_dates(rule, eng)
             for i, when in enumerate(dates):
-                refs, extra, render_params = self._facts_for(rule, eng, i == 0)
+                refs, extra, render_params = self._facts_for(rule, eng, i == 0, when)
                 name = rule.filename.format(
                     date=when, client=client, service=service, n=i + 1
                 )
@@ -418,7 +464,7 @@ class _Planner:
                 ed, self.calendar, self.range_start, self.range_end
             )
             last[eng.id] = ed
-            refs, _, _ = self._facts_for(rule, eng, False)
+            refs, _, _ = self._facts_for(rule, eng, False, ed)
             name = rule.filename.format(
                 date=ed, client=client, service=service, n=k + 1
             )
@@ -533,7 +579,7 @@ class _Planner:
                     cur_date, cur_min = self._next_send(
                         cur_date, cur_min, day_lo, day_hi, hrand
                     )
-                refs, _, _ = self._facts_for(rule, eng, False)
+                refs, _, _ = self._facts_for(rule, eng, False, cur_date)
                 # A reply's quoted tail carries its predecessor's resolved
                 # body, so the reply's manifest entry owns those fact surfaces
                 # too: evals attribute a quoted fact to the reply as well.

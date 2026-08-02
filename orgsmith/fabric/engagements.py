@@ -198,6 +198,25 @@ def scope_facts_for(profile, eid: str, seed: int) -> list[Fact]:
     return facts
 
 
+def scope_noun(fact_id: str, profile) -> str | None:
+    """The declared noun phrase a scope fact counts, or None when the id is
+    not a scope fact of this profile.
+
+    The noun comes from the RECIPE, never from the fact's value, which is
+    what makes it safe to put in an authoring brief and in an eval prompt:
+    the airlock holds because a noun is not a quantity.
+    """
+    suffix = fact_id.split(".", 1)[-1]
+    if suffix == "scope":
+        return profile.unit
+    if suffix == "comparators":
+        return profile.comparator
+    for phrase in profile.pipeline:
+        if suffix == f"pipeline-{stage_slug(phrase)}":
+            return phrase
+    return None
+
+
 def plant_scope_facts(charter: Charter, eids: list[str]) -> dict[str, list[Fact]]:
     """{engagement_id: [scope facts]}, or {} when the recipe declares no
     scope profile.

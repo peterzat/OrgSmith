@@ -147,7 +147,10 @@ def test_authoring_flow_and_rejections(org, capsys):
     ref = next(iter(_ls(org).author_batches.values()))
     wo_text = (org.workorders_dir / ref.workorder).read_text()
     for fact in load_engagements(org).fact_index().values():
-        if fact.kind in ("money", "date"):
+        # M17b adds "count": a scope brief names the NOUN it counts, from
+        # the recipe, never the quantity. A leak here would be the airlock
+        # failing on the one fact kind an author could otherwise guess.
+        if fact.kind in ("money", "date", "count"):
             assert fact.rendered not in wo_text, fact.id
 
     good = scripted_authoring(wo)
