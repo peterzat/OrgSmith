@@ -16,8 +16,8 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~80s wall and 859 passing + 27 skipped (16 short, 615 unit, 228 org)
-on a box with LibreOffice; 851 passing + 35 skipped without it (the six
+Expect ~85s wall and 945 passing + 27 skipped (16 short, 701 unit, 228 org)
+on a box with LibreOffice; 937 passing + 35 skipped without it (the six
 `@needs_soffice` conversion tests, which is what CI sees). Both are green
 states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
@@ -28,10 +28,12 @@ the wave's knobs -- a business-day calendar, a sample-book posture, the
 style/voice layer, and, per recipe, real mail threads and organizational
 noise -- and re-froze it, so the org tier now re-derives all eight fleet
 orgs plus `dev-mini`; with M17's answer-key and baseline checks on top it
-stands at 226. The two largest, `calderwood-partners` and
-`ashcombe-advisory`, stay in their own opt-in `flagship` tier, kept out
-of the default `bin/test` because validating their ~320 files is ~4s on its
-own.)
+stands at 226. M17b moved the unit tier only, adding the structural
+similarity axis, engagement scope facts, and per-document section
+skeletons; it regenerated no fixture, so the org tier is unchanged. The two
+largest, `calderwood-partners` and `ashcombe-advisory`, stay in their own
+opt-in `flagship` tier, kept out of the default `bin/test` because
+validating their ~320 files is ~4s on its own.)
 
 The `flagship` tier is opt-in (`bin/test flagship`, 65 passing + 5 skipped)
 and runs in CI on its own step; the default `bin/test` excludes it so the

@@ -12,7 +12,7 @@ flagship is the proof, and this turn is the gate before it.
 
 ### Acceptance Criteria
 
-- [ ] **Engagement scope quantities become ledger facts.** A default-off
+- [x] **Engagement scope quantities become ledger facts.** A default-off
   recipe knob declares an engagement's unit of work, comparison group, and an
   ordered funnel; the fabric plants them as additional entries in the existing
   `Engagement.facts` list with a strictly non-increasing funnel, drawing only
@@ -22,7 +22,7 @@ flagship is the proof, and this turn is the gate before it.
   committed org re-derives its ledger byte-identical with the knob absent, and
   a knob-off org draws zero values from the new stream.
 
-- [ ] **A document cannot contradict its own folder about a planted
+- [x] **A document cannot contradict its own folder about a planted
   quantity.** Documents cite scope facts through the placeholder machinery, so
   the same ledger object appears in every document that states it; a document
   cites a funnel stage only when its own date implies that stage is complete.
@@ -30,26 +30,26 @@ flagship is the proof, and this turn is the gate before it.
   both state the same stage and resolve to the same rendered surface. With the
   knob off, every committed manifest re-derives byte-identical.
 
-- [ ] **SCOPE-01 recomputes the planted quantities.** A new validator rule
+- [x] **SCOPE-01 recomputes the planted quantities.** A new validator rule
   re-derives them from the charter and compares ids, values, and rendered
   surfaces exactly, and asserts the funnel is monotone and complete per
   engagement. It grandfathers by charter: skips visibly when the knob is off,
   and a knob on with the ledger mutated is a finding, never a skip. A mutated
   value yields a finding in a test.
 
-- [ ] **Scope facts become scored questions automatically.** Every planted
+- [x] **Scope facts become scored questions automatically.** Every planted
   scope fact emits an extraction question with a readable prompt, so a knob-on
   org gains cross-document questions where one fact is hosted by several
   documents. `emit-evals` stays byte-idempotent on all nine committed orgs and
   EVAL-01 stays green fleet-wide, because no committed org adopts the knob.
 
-- [ ] **A client-facing report briefs its client reader.** A default-off knob
+- [x] **A client-facing report briefs its client reader.** A default-off knob
   makes the status-report genre brief the engagement's client contact rather
   than the internal team only, closing the audience limb of the narrative
   blocker. Off, every committed manifest is byte-identical; on, the planned
   mentions for that genre include the client contact.
 
-- [ ] **The plan assigns a per-document skeleton.** A default-off knob makes
+- [x] **The plan assigns a per-document skeleton.** A default-off knob makes
   the docplan deal each authored document a section skeleton from a per-genre
   pool, drawing only from a NEW seed stream, recorded without adding any field
   to `ManifestEntry`. The deal is deterministic across runs, and **no two
@@ -57,22 +57,22 @@ flagship is the proof, and this turn is the gate before it.
   documents of one genre inside a single engagement share one. Knob off, no
   document carries a skeleton and the stream is never drawn from.
 
-- [ ] **OUT-01 recomputes the skeleton assignment** and fails on a tampered
+- [x] **OUT-01 recomputes the skeleton assignment** and fails on a tampered
   record, asserting the no-adjacent-repeat property. Grandfathers by charter,
   as above.
 
-- [ ] **Authoring ingest enforces the skeleton it briefed.** A deliverable
+- [x] **Authoring ingest enforces the skeleton it briefed.** A deliverable
   that omits a section form its outline requires, or carries a block kind its
   outline forbids, is rejected with an actionable message; a conforming
   deliverable passes. Inert when the brief carries no outline, so knob-off
   work orders and deliverables are byte-identical.
 
-- [ ] **Skeleton variety is measured, not asserted.** A knob-off scripted
+- [x] **Skeleton variety is measured, not asserted.** A knob-off scripted
   corpus yields exactly one distinct block-shape signature per genre; a
   knob-on corpus of the same recipe yields at least `min(pool size, documents
   in that genre)`. Asserted as counts, never as a similarity threshold.
 
-- [ ] **The realism instrument gains a structural axis.** A new metric scores
+- [x] **The realism instrument gains a structural axis.** A new metric scores
   same-genre authored pairs on document structure and on positional openers,
   reported in `GENERATION-REPORT.md` beside the existing lexical score rather
   than replacing it, and byte-stable across two runs. It is never a validator
@@ -81,14 +81,14 @@ flagship is the proof, and this turn is the gate before it.
   structurally and near zero lexically; a constructed same-words-different-
   shape pair inverts.
 
-- [ ] **The new axis is calibrated against the board's own findings.**
+- [x] **The new axis is calibrated against the board's own findings.**
   `docs/REVIEW-CALIBRATION.md` records, as a dated measurement, where the
   structural axis ranks the pairs the M17 board named on the frozen exemplar
   (including the `rf:voice-1` blocker pair `d:0021`/`d:0039`, which the lexical
   metric does not flag), the pairs it misses, and the stated limit that no
   keyless proxy sees `rf:voice-3`-style paraphrased recurrence across genres.
 
-- [ ] **The turn closes without moving a fixture.** No committed org's
+- [x] **The turn closes without moving a fixture.** No committed org's
   ledgers, manifest, or authored prose is regenerated; `PINNED = SLUGS` is
   green at every commit including mid-turn; derived artifacts re-emit in the
   order metrics/report, then checksums, then data cards. The BACKLOG sweep
@@ -177,4 +177,4 @@ flagship is the proof, and this turn is the gate before it.
 the verbatim-critique criterion and the two mail-demonstrator regenerations
 deliberately left out of scope.*
 
-<!-- SPEC_META: {"date":"2026-08-02","title":"M17b: the batch-boundary turn","criteria_total":12,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-08-02","title":"M17b: the batch-boundary turn","criteria_total":12,"criteria_met":12} -->

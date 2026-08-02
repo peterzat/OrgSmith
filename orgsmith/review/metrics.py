@@ -1,6 +1,7 @@
 """Deterministic corpus metrics. No model, no network, no opinion.
 
-Two measurements, both proxies for things the 35-rule validator cannot see:
+Two measurements, both proxies for things the validator cannot see (a third,
+structural similarity, lives in `structure.py` and is wired in below):
 
 - **Length against the brief.** `target_words` is what the author was asked
   for; the word count is what arrived. Until now nothing read the target

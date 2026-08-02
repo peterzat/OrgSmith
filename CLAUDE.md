@@ -48,6 +48,40 @@ README.md for the product shape and SPEC.md for the current unit of work.
   anywhere in the repo (enforced by a short-tier test; see
   `tests/test_short.py` for the check).
 
+## Capability turn (M17b): NO CARVE-OUT, and none is open (2026-08-02)
+
+M17b answered both of M17's board blockers with capability only. **No
+committed org's ledgers, manifest, or authored prose was regenerated**, so
+every finding the README quotes against the exemplar is still present in it.
+`PINNED = SLUGS` was enforced fleet-wide and green at every commit, including
+mid-turn.
+
+Four knobs landed, all default-off with inert schema defaults on the existing
+`orgsmith/<kind>@<ver>` schema ids, drawing only from NEW `seeds.py` streams
+(`fabric.engagements.scope`, `docplan.outline`), proven inert against the
+frozen fleet before anything adopted them: `engagements.scope`,
+`doc_culture.client_facing_reports`, `doc_culture.outline_variety`, and the
+`GenreRule.scope_refs` registry column. Two validator rules (`SCOPE-01`,
+`OUT-01`) grandfather by charter in the AFF-01/STY-01 idiom: skip visibly with
+the knob off, fail when a knob is on and its artifact is missing.
+
+Each knob rewrote all nine `charter.json` files and all nine data cards, since
+`dump_json` serializes every field and `datacard._knob_rows` walks the charter
+model. Re-emission order when metrics move: metrics/report, then
+`tools/checksums.py`, then `data-card` for all nine (the cards quote their own
+checksum row).
+
+`orgsmith/review/structure.py` is a MEASUREMENT and may never gate: no
+threshold it produces enters a test tier or a validator rule. Two same-genre
+status reports SHOULD share a shape.
+
+What this turn does NOT claim, and no doc may imply: that authored prose
+improved. The outline work is proven as plumbing and as block-shape counts
+under the scripted author; the next generation settles the rest. "Impossible
+by construction" is an overclaim -- a finite pool cycles, and the guarantees
+are stated exactly in `assign_outlines`. `rf:voice-3` (a paraphrased move
+across five genres) is beyond both the structural axis and the outline work.
+
 ## Frozen-fixture carve-out, answer-key turn (M17): CLOSED as of 2026-08-02
 
 The M17 carve-out is **closed**. `northgate-staffing` was regenerated once,
