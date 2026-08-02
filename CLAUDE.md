@@ -78,10 +78,12 @@ full-name-in-body device described below; the
 proven inert, but the orgs were not re-run. Their data cards record it.
 
 Residual on the exemplar, recorded not fixed (board findings are published,
-never prose-fixed): the recipient exemption removed the device from
-person-to-person mail but not from distribution-list mail, where the To
-header carries the list address rather than member names, so MENT-01 still
-needs the body mention. The result is a broadcast that greets one person by
+never prose-fixed): the recipient exemption removed the *requirement* from
+person-to-person mail (no such message plans a recipient mention), but not the
+surface: 8 of 14 still name a recipient in the body by authorial choice.
+Distribution-list mail keeps the requirement outright, because the To header
+carries the list address rather than member names, so MENT-01 still needs the
+body mention. The result is a broadcast that greets one person by
 first name and then names them in full to the room. Closing that needs
 either a mention model that understands list membership or a planner that
 stops giving a broadcast a single participant, and it is its own unit of

@@ -1,99 +1,71 @@
 # CODEREVIEW
 
-## Review — 2026-08-02 (commit: 6bd7d77)
+## Review — 2026-08-02 (commit: b6becc7) — the regeneration and close
 
-**Summary:** The M17 answer-key turn: 16 commits since `06cfc53` adding the
-shared doc-text reader, equivalence clusters, scan-derived acceptable sets,
-diagnostics, unanswerable questions, ranked scoring, keyless baselines, per-org
-data cards, EVAL-01, MENT-03, the doctor split, and the mail recipient
-exemption. Full-depth review: the prior review's `reviewed_up_to` (`afa211a`)
-precedes the base (`origin/main` = `06cfc53`), so the already-reviewed set is
-empty. One BLOCK, three WARN, one NOTE; all four actionable findings fixed and
-re-verified.
+**Summary:** Full review of the M17 regeneration half: the CAL-01 business-day
+fix in the noise planner, the checksum version derivation, two re-hosted test
+files, the enriched exemplar recipe, the regenerated org, and the closing docs.
+The prior entry's fix loop is folded in (its REVIEW_META recorded the pre-fix
+commit; corrected here).
 
 **External reviewers:** None configured.
 
 ### Findings
 
-**[BLOCK, FIXED] orgsmith/evals/score.py — canonicalizing `expected_docs`
-collapsed two genuinely distinct required documents, so a system that missed
-one of them scored correct.**
+**[WARN, FIXED] README.md, CLAUDE.md — a published claim overstated what the
+recipient exemption achieved.**
 
-Cluster membership is symmetric for `byte_copy` members (identical bytes) but
-**directional** for `attachment` members: a transmittal email carries the
-memo's bytes, so the email contains the memo's evidence, but the memo does not
-contain the email's body. A transmittal is frequently required in its own
-right, because its body states facts and names people.
+Both said the regenerated exemplar's person-to-person mail is "free of the
+device." Measured against the committed org: no non-DL message plans a
+recipient mention, so the *forcing mechanism* is genuinely gone, but 8 of 14
+such messages still name a recipient in the message body, now by authorial
+choice. "Free of the device" reads as "the names are absent," which is false.
 
-On `ashcombe-advisory`, `q:0003` requires 16 documents including both
-`2017.02.18 - Kickoff Memo …` and its transmittal `2017.03.15 - Email 1 …`.
-Canonicalizing both sides collapsed the pair, so an answer omitting the
-transmittal entirely (15 docs) scored the question CORRECT. Verified against
-the committed fleet before the fix. The required set also silently shrank from
-16 to 15, inflating the recall, MRR, and nDCG denominators.
+Found by verifying the claim rather than repeating the board's. The first
+measurement was itself wrong in the opposite direction (32 hits) because
+`DocText` deliberately folds To/Cc display names into an `.eml`'s text, so it
+was matching transport headers; the body-only count is 8/14.
 
-This is a false accept in an eval harness, and it sat inside the commit that
-claims to have fixed exactly that class of defect.
+Both files now state the mechanism claim precisely and tell a reader to count
+planned mentions rather than grep bodies.
 
-Fix: `_cover()` replaces canonicalize-both-sides. The required set is the
-question's own `expected_docs` and is never rewritten; clusters only let an
-answer *satisfy* a requirement. A required document covers itself (test first),
-a cluster member covers its required canonical (second), acceptable documents
-are dropped, everything else is extra. The condensed list for the ranked
-metrics is built the same way. Applied to `_score_docset` and
-`score_extraction`.
+**[NOTE] orgsmith/docplan/planner.py — `_chain_member_date` narrows the
+business-day ceiling, which makes `to_business_day`'s give-up path marginally
+more reachable.**
 
-Verified: ground truth still scores 44/44 on ashcombe; omitting the required
-transmittal from `q:0003` now fails with the transmittal reported missing.
+Passing `ceil=src.date - 1 day` is deliberate and correct: it stops the
+tie-break's forward step carrying a version member onto or past the document it
+is a version of. The cost is that a pathological window (every candidate within
+±7 days a weekend or declared holiday, floor pinned tight) returns the date
+unchanged, per that function's documented contract, and CAL-01 then flags it
+visibly. Confirmed reachable in a synthetic worst case; not reachable on any
+committed org, all of which validate clean. The failure mode is a loud
+validation error rather than a silent bad date, which is the right trade.
 
-**[WARN, FIXED] README.md, TESTING.md — published test counts were stale.**
-README claimed 879/850; the docs commit recorded the counts before a later
-commit added 7 unit tests. Re-measured and republished: 16 short, 615 unit, 226
-org (+29 skipped) = 857 passed / 886 collected; flagship 65 (+5 skipped).
-
-**[WARN, FIXED] orgsmith/docplan/planner.py — unguarded `doc["render_params"]`
-where the same file treats the key as optional.** `_add(**kw)` appends whatever
-kwargs it is given and three call sites pass no `render_params`; `plan_scans`
-reads the same key with `.get`. Currently unreachable for those docs, but one
-new eml call site would crash the planner. Now `doc.get("render_params", {})`.
-
-**[WARN, FIXED] orgsmith/validate/rules.py — the validator imported a private
-helper (`_mask`) from `evals.emit`.** The masking rule is now a shared contract
-between the emitter and MENT-03, and the two must agree or they disagree about
-the same document. Promoted to `orgsmith/doctext.py::mask_surfaces`, beside the
-other shared text primitives; `emit.py`, `rules.py`, and the unit test import
-it by its public name.
-
-**[NOTE, not fixed] orgsmith/evals/emit.py — the alias scan over external
-people is dead code.** `build_diagnostics` reads `getattr(person, "aliases",
-[])` over `foundation.external_people`, but `ExternalPerson` has no `aliases`
-field, so that half of the loop can never yield a sighting. Informational; left
-as-is per the review's own instruction.
+**[NOTE] tools/checksums.py — the manifest header version now imports from the
+package.** This couples a tools script to `orgsmith` importing successfully.
+Accepted deliberately: the hardcoded string it replaces had gone stale at 2.1.1
+while the package moved, which is the defect that prompted it.
 
 ### Fixes Applied
 
-- [BLOCK] `orgsmith/evals/score.py` — coverage-based grading (`_cover`)
-  replacing canonicalization of the required set, in both suites and in the
-  ranked/macro metrics and failure reporting.
-- [WARN] `README.md:663`, `TESTING.md:19,63,301` — re-measured test counts.
-- [WARN] `orgsmith/docplan/planner.py:770` — defensive `.get`.
-- [WARN] `orgsmith/validate/rules.py`, `orgsmith/doctext.py`,
-  `orgsmith/evals/emit.py` — `_mask` promoted to public `mask_surfaces`.
+- [WARN] `README.md`, `CLAUDE.md` — corrected the recipient-exemption claim to
+  distinguish the forcing mechanism (closed) from the surface (8 of 14).
 
-Two tests encoded the collapsed semantics and were corrected rather than
-relaxed: `test_transmittal_is_an_equivalence_member_not_gold` and
-`test_a_byte_identical_copy_of_a_required_doc_is_accepted`. Each now scopes its
-substitution probe to questions that do not also require the copy in its own
-right, with a guard assertion so the probe cannot become vacuous, and the mail
-test gained a directional half asserting that omitting a required transmittal
-reports it missing. Verified by reading both.
+### Verified, not filed
 
-Derived artifacts recomputed: baselines for all nine orgs (only ashcombe
-moved), `docs/BASELINES.md`, the data cards, and `CHECKSUMS.md`.
-`docs/LABEL-POLICY.md` and the disposition row in
-`docs/EXTERNAL-CRITIQUE-2026-07-28.md` stated the collapsed rule as the
-contract and were corrected. `LABEL_POLICY_VERSION` deliberately not bumped:
-the label semantics are unchanged, only the grading of an answer against them.
+- `_chain_member_date`'s blast radius was measured before the fix, not after:
+  no frozen org has a derived attendance-genre document on a weekend, so the
+  change is inert on the fleet. Re-planning the exemplar moved exactly one
+  field across 76 documents (`d:0074` date, Saturday to the preceding Friday).
+- Both re-hosted test files keep guard assertions so they cannot go vacuous:
+  the grandfathering test requires at least one adopting and one
+  non-adopting org, and the re-hosted MENT-03 probe asserts the specific
+  target path and message content against a mutation it makes itself.
+- The `Jim` closure was re-verified independently of the board: exactly one
+  occurrence across 76 documents, in the one document whose plan places it.
+- Regenerated org: 34 validator rules run, 0 errors; ground truth 100% on all
+  four splits for both suites and 12/12 on visibility.
 
 ### Accepted Risks
 
@@ -101,29 +73,21 @@ None.
 
 ### Security
 
-`/security` scanned the 15 in-airlock files (~2,400 added lines) over
-`9927e03`..`6bd7d77`: **0 BLOCK / 0 WARN / 1 NOTE**. The NOTE is pre-existing
-and not introduced this turn: `validate/__init__.py:69` prints validator
-finding messages raw, and those messages interpolate unconstrained ledger
-strings (`GraphEdge.src`, `AclGrant.person`, `LedgerCheck.detail`), while every
-other verb routes untrusted strings through `strip_control`. It requires
-validating a hostile org tree from a third party. Recorded in SECURITY.md.
-
-Cleared explicitly: the new cluster-hashing and attachment-byte reads stay
-inside the share (`load_manifest` re-checks `entry.path` and `attach_path` with
-`check_relpath` at every load); `score --evals-dir`, the new third-party input
-path, only reads and sanitizes its failure lines; board summaries reaching
-`DATA-CARD.md` pass through `_cell`, which blocks table-row forgery; the one
-subprocess (`tools/checksums.py`) uses a fixed argv with no shell.
+No new security surface since the prior scan (0 BLOCK / 0 WARN / 1 pre-existing
+NOTE at `6bd7d77`). The regeneration adds data, not code paths; the two code
+changes are a date computation and a version import, neither touching input
+handling, subprocess, network, or a model-output sink. The prior scan's NOTE
+(raw validator finding messages in `validate/__init__.py`) is unchanged and
+carried forward in SECURITY.md.
 
 ### Test Baseline
 
-All four tiers green: 16 short, 615 unit, 226 org (+29 skipped), 65 flagship
-(+5 skipped). Keyless and offline. `python tools/checksums.py --check` current.
+All four tiers green: 16 short, 615 unit, 228 org (+27 skipped), 65 flagship
+(+5 skipped). `python tools/checksums.py --check` current.
 
 ---
-*Prior review (2026-07-28, commit afa211a): refresh review of the BYO
-model-choice updates (default model ids and documentation); 0 BLOCK / 0 WARN /
-0 NOTE.*
+*Prior review (2026-08-02, commit 6bd7d77): the M17 answer-key turn; 1 BLOCK
+(cluster canonicalization collapsing distinct required documents), 3 WARN, all
+fixed; 1 NOTE left informational.*
 
-<!-- REVIEW_META: {"date":"2026-08-02","commit":"6bd7d77","reviewed_up_to":"6bd7d77","base":"origin/main","tier":"full","block":1,"warn":3,"note":1} -->
+<!-- REVIEW_META: {"date":"2026-08-02","commit":"b6becc7","reviewed_up_to":"b6becc7","base":"origin/main","tier":"full","block":0,"warn":1,"note":2} -->

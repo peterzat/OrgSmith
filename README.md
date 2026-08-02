@@ -417,14 +417,25 @@ honest about where the generator actually stands:
   shocks in it, which is the `event-simulation` entry in `BACKLOG.md` arriving
   as a finding.
 
-**One fleet-wide artifact, half closed.** The ingest mention check requires an
-email author to spell the recipient's full legal name in the body, so the mail
-orgs put it there. `mail.exempt_recipient_mentions` (M17) stops the planner
-forcing it, and the regenerated exemplar's person-to-person mail is free of the
-device. It is **not** closed on distribution-list mail: a broadcast's `To`
-header carries the list address rather than member names, so `MENT-01` still
-needs the body mention, and the result is a note that greets one person by
-first name and then names them in full to the room. Nor is it closed on
+**One fleet-wide artifact, half closed, and be precise about which half.**
+The ingest mention check requires an email author to spell the recipient's
+full legal name in the body, so the mail orgs put it there.
+`mail.exempt_recipient_mentions` (M17) stops the planner *requiring* it, and on
+the regenerated exemplar no person-to-person message plans a recipient mention
+at all: the mechanism is gone.
+
+The surface is not. Eight of the exemplar's fourteen person-to-person messages
+still name a recipient in the body, now because an author chose to rather than
+because a check demanded it, which is often what a real note does when a
+colleague is copied. So the honest claim is that the *forcing* is closed, not
+that the names are absent, and anyone measuring this should count planned
+mentions rather than grep the bodies.
+
+It is **not** closed on distribution-list mail. A broadcast's `To` header
+carries the list address rather than member names, so `MENT-01` still needs the
+body mention, and the result is a note that greets one person by first name and
+then names them in full to the room (`BACKLOG.md`,
+`mundane-broadcast-names-a-recipient-in-the-body`). Nor is it closed on
 `hollowell-ip` and `meridian-actuarial`, which were not regenerated this turn;
 their data cards record it. The related `To:/Cc:` banner bug was fixed in
 v2.1.1 and a committed test asserts no fleet mail body carries a header banner.
