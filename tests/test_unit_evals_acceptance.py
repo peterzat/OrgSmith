@@ -49,3 +49,129 @@ def test_surface_matching_is_word_bounded():
     assert surface_in_text("Jen", "we asked Jen, then left")
     assert surface_in_text("Jen", "Jen's report")
     assert not surface_in_text("Jen", "Jennifer filed it")
+
+
+def test_a_synthetic_value_collision_is_recorded_and_never_promoted():
+    """The recording path, proven on a collision built by hand rather than
+    on whichever ones a committed fixture happens to hold.
+
+    Two engagements priced identically is the case that matters: the second
+    engagement's paperwork carries the first's expected surface, so an
+    extractor that returns it has found the right string in the wrong place.
+    Diagnostics records it; gold never gains it."""
+    from orgsmith.evals.emit import build_diagnostics
+    from orgsmith.schemas import EvalClusters, ExtractionQuestion
+
+    class Entry:
+        def __init__(self, path, engagement):
+            self.path = path
+            self.doc_id = path
+            self.engagement = engagement
+            self.authoring = "batchable"
+            self.noise_of = None
+            self.noise_kind = None
+
+    class Paths:
+        slug = "synthetic"
+
+    class Foundation:
+        people = []
+        external_people = []
+
+    manifest = [
+        Entry("Engagements/A/letter.pdf", "E-2021-001"),
+        Entry("Engagements/A/status.docx", "E-2021-001"),
+        Entry("Engagements/B/letter.pdf", "E-2022-001"),
+    ]
+    question = ExtractionQuestion(
+        id="xq:0001",
+        fact_id="f:E-2021-001.fee",
+        question="What is the fee?",
+        expected_value="$105,000",
+        expected_docs=["Engagements/A/letter.pdf"],
+    )
+    texts = {
+        # the planted host
+        "Engagements/A/letter.pdf": "The fixed fee is $105,000 for the work.",
+        # the same engagement restating its own value: ordinary repetition
+        "Engagements/A/status.docx": "Against the $105,000 fee, we have billed half.",
+        # another engagement that happens to be priced the same: a collision
+        "Engagements/B/letter.pdf": "Our fee for this engagement is $105,000.",
+    }
+
+    diagnostics = build_diagnostics(
+        Paths(),
+        manifest,
+        Foundation(),
+        None,
+        [],
+        [question],
+        EvalClusters(slug="synthetic", policy_version="1.0", clusters=[]),
+        texts,
+    )
+    (collision,) = diagnostics.value_collisions
+    assert collision.question == "xq:0001"
+    assert collision.fact_id == "f:E-2021-001.fee"
+    assert collision.value == "$105,000"
+    assert collision.paths == ["Engagements/B/letter.pdf"], (
+        "the fact's own engagement restating its own value is repetition, "
+        "not a collision"
+    )
+    # And the recording never widens gold.
+    assert question.expected_docs == ["Engagements/A/letter.pdf"]
+
+
+def test_a_derived_near_duplicate_hit_is_lineage_explained_not_flagged():
+    """A draft holds its source's fee because it was copied from it. That is
+    lineage, not a new disagreement, so it is counted rather than listed."""
+    from orgsmith.evals.emit import build_diagnostics
+    from orgsmith.schemas import EvalClusters, ExtractionQuestion
+
+    class Entry:
+        def __init__(self, path, engagement, authoring="batchable", of=None):
+            self.path = path
+            self.doc_id = path
+            self.engagement = engagement
+            self.authoring = authoring
+            self.noise_of = of
+            self.noise_kind = "draft" if of else None
+
+    class Paths:
+        slug = "synthetic"
+
+    class Foundation:
+        people = []
+        external_people = []
+
+    manifest = [
+        Entry("Engagements/A/letter.pdf", "E-2021-001"),
+        Entry(
+            "Engagements/A/letter DRAFT.pdf",
+            None,
+            authoring="derived",
+            of="Engagements/A/letter.pdf",
+        ),
+    ]
+    question = ExtractionQuestion(
+        id="xq:0001",
+        fact_id="f:E-2021-001.fee",
+        question="What is the fee?",
+        expected_value="$105,000",
+        expected_docs=["Engagements/A/letter.pdf"],
+    )
+    texts = {
+        "Engagements/A/letter.pdf": "The fixed fee is $105,000.",
+        "Engagements/A/letter DRAFT.pdf": "The fixed fee is $105,000.",
+    }
+    diagnostics = build_diagnostics(
+        Paths(),
+        manifest,
+        Foundation(),
+        None,
+        [],
+        [question],
+        EvalClusters(slug="synthetic", policy_version="1.0", clusters=[]),
+        texts,
+    )
+    assert diagnostics.value_collisions == []
+    assert diagnostics.lineage_explained_value_hits == 1
