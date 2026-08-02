@@ -40,6 +40,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.mail.exempt_author_mentions` | `True` |
 | `doc_culture.mail.exempt_recipient_mentions` | `True` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1250000` |
 | `finance.growth_rate` | `0.1` |
@@ -163,7 +164,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 200 | `11a9358a35d9354dc9a8ef8a0ad00a5b9c83f8885752949a491a6b10a36e1b35` |
+| northgate-staffing | 200 | `14e7705861586fbbc33716625c3f3968335da2aa484a02a2d79c33150e13f18a` |
 
 Verify with `python tools/checksums.py --check`.
 

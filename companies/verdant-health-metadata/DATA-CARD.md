@@ -26,6 +26,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `off` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1080000` |
 | `finance.growth_rate` | `0.06` |
@@ -125,7 +126,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| verdant-health | 105 | `599fda716a1fe2bd2c3a425ef4fdb6cb4fd87c87986ca9b4c889c9a36a4ba537` |
+| verdant-health | 105 | `48ff3deb97551ad234d1e86ff44b0faae4cacf4b0568188ce12208a15ce262e8` |
 
 Verify with `python tools/checksums.py --check`.
 

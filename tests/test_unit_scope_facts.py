@@ -638,3 +638,102 @@ def test_eval_01_is_green_on_the_knob_on_org(scored, capsys):
     payload = json.loads(capsys.readouterr().out)
     assert "EVAL-01" in payload["rules_run"]
     assert "SCOPE-01" in payload["rules_run"]
+
+
+# --- the client-facing report (A4) ------------------------------------------
+
+
+def _build_with_culture(root, extra: str):
+    from conftest import build_culture_stages
+
+    return build_culture_stages(root, extra)
+
+
+def test_client_facing_reports_is_inert_when_off(tmp_path):
+    """Off, the plan does not move: same manifest bytes, same mention map."""
+    off = build_pure_stages(tmp_path / "off")
+    on = _build_with_culture(tmp_path / "on", "  client_facing_reports: false\n")
+    assert off.manifest_jsonl.read_bytes() == on.manifest_jsonl.read_bytes()
+    assert (
+        off.mention_map_json.read_bytes() == on.mention_map_json.read_bytes()
+    )
+
+
+def test_client_facing_report_names_the_client_contact(tmp_path):
+    """On, the status report gains the engagement's external contact as a
+    participant, so the brief hands the author a real reader instead of
+    leaving one to be invented."""
+    off = build_pure_stages(tmp_path / "off")
+    on = _build_with_culture(tmp_path / "on", "  client_facing_reports: true\n")
+
+    def reports(paths):
+        return {
+            e["doc_id"]: e
+            for line in paths.manifest_jsonl.read_text().splitlines()
+            for e in [json.loads(line)]
+            if e["genre"] == "status_report"
+        }
+
+    off_r, on_r = reports(off), reports(on)
+    assert off_r and off_r.keys() == on_r.keys()
+
+    ledger = {
+        e["id"]: e
+        for e in json.loads(on.engagements_json.read_text())["engagements"]
+    }
+    gained_any = False
+    for doc_id, entry in on_r.items():
+        externals = ledger[entry["engagement"]]["external_participants"]
+        if not externals:
+            continue
+        gained = [
+            p for p in entry["participants"]
+            if p not in off_r[doc_id]["participants"]
+        ]
+        assert gained == externals, doc_id
+        gained_any = True
+    assert gained_any, "no engagement has an external contact to name"
+
+
+def test_only_the_status_report_genre_moves(tmp_path):
+    """Scoped to the genre rather than the participants vocabulary: widening
+    `team` wholesale would hand every client contact read access to internal
+    documents through the participant-scoped ACL."""
+    off = build_pure_stages(tmp_path / "off")
+    on = _build_with_culture(tmp_path / "on", "  client_facing_reports: true\n")
+
+    def by_doc(paths):
+        return {
+            e["doc_id"]: e
+            for line in paths.manifest_jsonl.read_text().splitlines()
+            for e in [json.loads(line)]
+        }
+
+    off_d, on_d = by_doc(off), by_doc(on)
+    assert off_d.keys() == on_d.keys()
+    for doc_id, entry in on_d.items():
+        if entry["genre"] == "status_report":
+            continue
+        assert entry["participants"] == off_d[doc_id]["participants"], doc_id
+
+
+def test_the_client_contact_becomes_a_planned_mention(tmp_path):
+    """The acceptance property: the report's planned mentions include the
+    client contact, so the author must name them and MENT-01 checks it."""
+    on = _build_with_culture(tmp_path, "  client_facing_reports: true\n")
+    entries = {
+        e["doc_id"]: e
+        for line in on.manifest_jsonl.read_text().splitlines()
+        for e in [json.loads(line)]
+    }
+    reports = [e for e in entries.values() if e["genre"] == "status_report"]
+    assert reports
+    named = 0
+    for entry in reports:
+        externals = [p for p in entry["participants"] if p.startswith("xp:")]
+        if not externals:
+            continue
+        mentioned = {m["entity"] for m in entry["mentions"]}
+        assert set(externals) <= mentioned, entry["path"]
+        named += 1
+    assert named, "no status report names an external contact"

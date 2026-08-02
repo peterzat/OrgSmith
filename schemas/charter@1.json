@@ -31,6 +31,11 @@
           ],
           "default": null
         },
+        "client_facing_reports": {
+          "default": false,
+          "title": "Client Facing Reports",
+          "type": "boolean"
+        },
         "date_range": {
           "maxItems": 2,
           "minItems": 2,

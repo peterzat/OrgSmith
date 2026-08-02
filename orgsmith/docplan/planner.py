@@ -250,6 +250,22 @@ class _Planner:
         ids = list(eng.internal_participants)
         if rule.participants == "team_external":
             ids = ids + list(eng.external_participants)
+        elif (
+            rule.genre == "status_report"
+            and self.charter.doc_culture.client_facing_reports
+        ):
+            # M17b, the audience limb of the divergence blocker. The
+            # status_report row says participants="team", so a report written
+            # FOR the client briefs only internal people and the author has to
+            # invent its reader -- which is how "the named client contact"
+            # became "the committee". Naming the engagement's client contact
+            # gives the report a real addressee from the ledger.
+            #
+            # Scoped to this genre rather than flipping the row to
+            # team_external, because the row is also read by the ACL and the
+            # participant-scoped posture: widening it wholesale would grant
+            # every client contact read access to internal reports.
+            ids = ids + list(eng.external_participants)
         return ids
 
     @staticmethod

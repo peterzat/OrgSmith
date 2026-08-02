@@ -34,6 +34,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `off` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `2600000` |
 | `finance.growth_rate` | `0.07` |
@@ -153,7 +154,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| calderwood-partners | 505 | `c3b1e4307bfe22c0f6aef22a8f33b45d8fd366bc468922c46afcc603f502e394` |
+| calderwood-partners | 505 | `bac652e0358c857a7ef3d3bb288053cacfc6ed17ba3f62ee1db1aa599324a2da` |
 
 Verify with `python tools/checksums.py --check`.
 

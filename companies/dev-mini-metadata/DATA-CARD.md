@@ -26,6 +26,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.voice_diversify` | `False` |
 | `doc_culture.mail` | `off` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `850000` |
 | `finance.growth_rate` | `0.07` |

@@ -32,6 +32,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.mail.exempt_author_mentions` | `True` |
 | `doc_culture.mail.exempt_recipient_mentions` | `False` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1400000` |
 | `finance.growth_rate` | `0.1` |
@@ -127,7 +128,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| meridian-actuarial | 198 | `1a85e072a42eaf147b5c68bd85d3eca6d28efb1b50769e13008ff8122c75c601` |
+| meridian-actuarial | 198 | `d9f5918ca897aff20d7e4645e64287144d723edb566dfb7277dadbeaa30420b7` |
 
 Verify with `python tools/checksums.py --check`.
 

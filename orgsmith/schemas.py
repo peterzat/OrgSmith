@@ -279,6 +279,13 @@ class DocCulture(StrictModel):
     # Default off: committed foundations and briefs stay byte-identical, and
     # voice_diversify (v1) keeps meaning exactly what it means today.
     style_specs: bool = False
+    # M17b: a client-facing status report names the engagement's client
+    # contact, not the internal team only. The genre registry says
+    # participants="team", so the author is handed no reader and invents one
+    # -- the audience half of M17's divergence blocker, where a named client
+    # contact became "the committee". Default off: every committed manifest,
+    # mention map and ACL is byte-identical without it.
+    client_facing_reports: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":

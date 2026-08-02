@@ -150,6 +150,19 @@ doc_culture:
   #                         # Recomputed by STY-01. A proxy, never a gate: the
   #                         # report ranges per-author similarity and nothing
   #                         # in any test tier reads a threshold.
+  # client_facing_reports: true
+  #                         # M17b, default false. A status report names the
+  #                         # engagement's client contact as a participant, so
+  #                         # the brief hands the author a real reader. The
+  #                         # genre row says participants="team", which left a
+  #                         # client-facing document briefed to internal people
+  #                         # only and the author inventing its audience -- how
+  #                         # a named client contact became "the committee" in
+  #                         # M17's board findings. Scoped to this one genre
+  #                         # rather than widening the row, because the row
+  #                         # also drives the participant-scoped ACL: widening
+  #                         # it wholesale would grant every client contact
+  #                         # read access to internal reports.
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD

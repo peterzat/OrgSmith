@@ -26,6 +26,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `off` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1150000` |
 | `finance.growth_rate` | `0.08` |
@@ -124,7 +125,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| saltmarsh-environmental | 126 | `c85403862f02274c091e9edca27e0bead348cd139e31892b4cc0cad6724167be` |
+| saltmarsh-environmental | 126 | `a2fc79a8f5fa0ce4f9d0b668035ef0cd63eb6b317337d0fa11c05002fe05ab32` |
 
 Verify with `python tools/checksums.py --check`.
 

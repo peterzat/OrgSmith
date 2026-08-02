@@ -26,6 +26,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `off` |
 | `doc_culture.style_specs` | `True` |
+| `doc_culture.client_facing_reports` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `740000` |
 | `finance.growth_rate` | `0.06` |
@@ -120,7 +121,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| brackenridge-civil | 127 | `0266fdd672da2ae28eba03af4da656a81e8499567da01e9058b2e32f16831758` |
+| brackenridge-civil | 127 | `fe8a29a0972fa38fd852ced3b291f835bf003a01de5200b10a3f2d1384c3c233` |
 
 Verify with `python tools/checksums.py --check`.
 
