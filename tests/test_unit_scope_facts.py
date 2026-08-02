@@ -838,3 +838,61 @@ def test_the_client_contact_becomes_a_planned_mention(tmp_path):
         assert set(externals) <= mentioned, entry["path"]
         named += 1
     assert named, "no status report names an external contact"
+
+
+def test_count_noun_survives_a_spaceless_rendered_surface():
+    """SECURITY.md 2026-08-02 recorded this as robustness, not security, and
+    deferred it here: `count_noun` split on a space that `render_count`
+    always writes, so a hand-edited surface without one raised IndexError out
+    of `emit-evals`.
+
+    `ScopeProfile` now rejects a blank noun at parse and `render_count`
+    cannot produce a spaceless surface, so this is reachable only from a
+    tampered ledger. A slightly wooden question beats a traceback, and
+    SCOPE-01 is what reports the tamper.
+    """
+    from orgsmith.evals.emit import count_noun
+    from orgsmith.schemas import Fact
+
+    normal = Fact(id="f:E-2019-001.scope", kind="count", value=11,
+                  rendered="11 positions")
+    assert count_noun(normal) == "positions"
+
+    tampered = Fact(id="f:E-2019-001.scope", kind="count", value=11,
+                    rendered="11")
+    assert count_noun(tampered) == ""  # no IndexError
+
+
+def test_emit_evals_does_not_crash_on_a_spaceless_count_surface():
+    """The same guard at the level that matters: the whole extraction build
+    completes rather than dying partway."""
+    from datetime import date
+
+    from orgsmith.evals.emit import build_extraction
+    from orgsmith.schemas import (
+        Engagement,
+        EngagementsLedger,
+        Fact,
+        KeyFact,
+        ManifestEntry,
+    )
+
+    eng = Engagement(
+        id="E-2019-001", title="Placement Study for Acme", client="x:acme",
+        start=date(2019, 1, 1), end=date(2019, 6, 1), fee=1000,
+        internal_participants=["p:a"], external_participants=[],
+        summary="s",
+        facts=[Fact(id="f:E-2019-001.scope", kind="count", value=11,
+                    rendered="11")],
+    )
+    entry = ManifestEntry(
+        doc_id="d:0001", path="Engagements/Acme/report.docx", title="R",
+        genre="status_report", format="docx", date=date(2019, 3, 1),
+        authors=["p:a"], facts_refs=["f:E-2019-001.scope"],
+        key_facts=[KeyFact(fact_id="f:E-2019-001.scope", location="body")],
+    )
+    questions = build_extraction(
+        EngagementsLedger(slug="s", engagements=[eng]), [entry]
+    )
+    assert len(questions) == 1
+    assert questions[0].expected_value == "11"

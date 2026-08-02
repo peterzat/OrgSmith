@@ -586,8 +586,17 @@ def count_noun(fact) -> str:
     Recipe authors own plurality: a `unit_range` reaching 1 renders "1
     positions". Nothing here can fix that, and nothing should try -- the
     surface has to match the document verbatim.
+
+    Falls back to the empty string on a surface with no space rather than
+    raising `IndexError`. `render_count` cannot produce one and
+    `ScopeProfile` now rejects a blank noun at parse, so this is reachable
+    only from a hand-edited ledger -- but emitting a slightly wooden question
+    beats a traceback out of `emit-evals`, and SCOPE-01 is what reports the
+    tamper. (SECURITY.md 2026-08-02, "considered and not filed"; robustness,
+    not security.)
     """
-    return fact.rendered.split(" ", 1)[1]
+    _, _, noun = fact.rendered.partition(" ")
+    return noun
 
 
 def _extraction_text(fact, eng) -> str:

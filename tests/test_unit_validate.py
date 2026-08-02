@@ -101,3 +101,60 @@ def test_only_filter_and_unknown_rule(org):
     assert run_validate(org, only=["ORG-01", "FIN-01"]) == 0
     with pytest.raises(SystemExit):
         run_validate(org, only=["NOPE-99"])
+
+
+def test_findings_printer_neutralizes_a_smuggled_escape(org_copy, capsys):
+    """SECURITY.md's carried NOTE, closed 2026-08-02.
+
+    Validating an org tree obtained from someone else is a supported
+    operation, and findings quote ledger strings pydantic does not constrain
+    (`Person.reports_to` here). An ANSI escape smuggled through one used to
+    reach the terminal raw, where it can rewrite or hide earlier findings.
+
+    Sanitized at the PRINTER rather than at each interpolation site, so the
+    rules that do not yet quote with `!r` are covered too, and so a rule
+    added later cannot reintroduce it. `keep=""` drops the newline as well:
+    otherwise a smuggled one forges a second finding line.
+    """
+    foundation = org_copy.foundation_json
+    hostile = '"reports_to": "p:x\\u001b[2J\\u001b[31mPWNED\\nERROR FAKE-01 [x] forged"'
+    text = foundation.read_text()
+    corrupted = text.replace('"reports_to": null', hostile, 1)
+    assert corrupted != text
+    foundation.write_text(corrupted)
+
+    assert run_validate(org_copy) == 1
+    out = capsys.readouterr().out
+
+    assert "\x1b" not in out, "an escape sequence reached the terminal"
+    assert "PWNED" in out, "content must survive; only the escape is dropped"
+    # The smuggled newline forged no extra line: every printed finding line
+    # starts with a severity or SKIP, and the summary is the last line.
+    forged = [
+        ln for ln in out.splitlines()
+        if ln.startswith("ERROR FAKE-01")
+    ]
+    assert not forged, f"a smuggled newline forged a finding line: {forged}"
+
+
+def test_json_output_is_not_mangled_by_the_printer_sanitizer(org_copy):
+    """The sanitizer is on the human printer only. `--json` output is
+    consumed by tooling and by several tests, so it must keep the ledger's
+    bytes exactly; `json.dumps` already escapes control characters safely."""
+    import json as _json
+
+    foundation = org_copy.foundation_json
+    text = foundation.read_text()
+    foundation.write_text(
+        text.replace('"reports_to": null', '"reports_to": "p:x\\u001b[2Jz"', 1)
+    )
+    import io
+    import contextlib
+
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        run_validate(org_copy, as_json=True)
+    payload = _json.loads(buf.getvalue())  # parses => not corrupted
+    assert any("\x1b" in f["message"] for f in payload["findings"]), (
+        "json mode must preserve the raw ledger string for tooling"
+    )

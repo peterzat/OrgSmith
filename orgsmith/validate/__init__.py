@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 
+from ..naming import strip_control
 from ..paths import OrgPaths
 from .rules import RULES, Context
 
@@ -62,10 +63,32 @@ def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
             )
         )
     else:
+        # Findings quote unconstrained ledger strings (`LedgerCheck.name`,
+        # `GraphEdge.src`, `AclGrant.person`, `Person.reports_to`) and
+        # third-party parser exception text, none of which pydantic
+        # constrains. Validating an org tree obtained from someone else is a
+        # supported operation, so an ANSI escape smuggled through any of them
+        # would reach the terminal and could rewrite or hide earlier
+        # findings -- exactly what `strip_control` exists to stop.
+        #
+        # Sanitized at the printer rather than at each interpolation site:
+        # one place cannot be forgotten, and it covers the rules that do not
+        # yet quote with `!r` as well as every rule added later. `keep=""`
+        # drops newlines too, so a smuggled newline cannot forge a second
+        # finding line. Matches the ingest and score printers.
+        # (SECURITY.md, carried NOTE, closed 2026-08-02.)
         for s in skipped:
-            print(f"SKIP {s['rule']}: {s['reason']}")
+            print(
+                f"SKIP {strip_control(s['rule'], keep='')}: "
+                f"{strip_control(s['reason'], keep='')}"
+            )
         for f in findings:
-            print(f"{f['severity']} {f['rule']} [{f['target']}] {f['message']}")
+            print(
+                f"{strip_control(f['severity'], keep='')} "
+                f"{strip_control(f['rule'], keep='')} "
+                f"[{strip_control(f['target'], keep='')}] "
+                f"{strip_control(f['message'], keep='')}"
+            )
         print(
             f"validate: {ran} rules run, {len(skipped)} skipped, "
             f"{len(errors)} errors, {len(findings) - len(errors)} warnings"

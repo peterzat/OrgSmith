@@ -7,14 +7,19 @@ batch-boundary turn (~1,600 added lines since the last baseline `6bd7d77`):
 engagement scope quantities as ledger facts, per-document section skeletons,
 the client-facing-report participant override, the structural-similarity
 axis, the SCOPE-01/OUT-01 rules, and the ingest outline gate. No secret, no
-injection path, no PII, no new dependency. The prior NOTE on the `validate`
-plain-text printer is unchanged and carried forward; the two new rules do not
-extend it, because both repr-escape every untrusted value they quote.
+injection path, no PII, no new dependency. The two new rules do not extend
+the standing `validate`-printer NOTE, because both repr-escape every
+untrusted value they quote.
+
+**The carried NOTE is CLOSED as of this entry** (2026-08-02, at the user's
+instruction to clear the notes before pushing). `run_validate`'s human
+printer now routes every field of every finding and skip through
+`strip_control(..., keep="")`, so this file records zero open findings.
 
 ### Findings
 
 ```
-[NOTE] orgsmith/validate/rules.py:332,579,616,707,812-813,956,1168,1489 —
+[NOTE, FIXED] orgsmith/validate/rules.py:332,579,616,707,812-813,956,1168,1489 —
 validate findings interpolate unconstrained ledger strings and third-party
 parser exception text, and the plain-text printer emits them raw. Carried
 forward from 2026-08-02 (`6bd7d77`), unchanged; line numbers re-derived at
@@ -40,12 +45,23 @@ this commit.
   Remediation: wrap the two plain-text prints in
     `orgsmith/validate/__init__.py` in `strip_control(..., keep="")`, one
     finding per line, matching the score-failure printer.
+  FIXED 2026-08-02, exactly as remediated. Sanitized at the PRINTER rather
+    than at each interpolation site, so the rules that do not yet quote with
+    `!r` are covered and a rule added later cannot reintroduce it. `keep=""`
+    drops newlines too, so a smuggled one cannot forge a second finding
+    line. `--json` output is deliberately left raw: it is consumed by
+    tooling, and `json.dumps` already escapes control characters.
+    Regression-tested both ways in `tests/test_unit_validate.py`
+    (`test_findings_printer_neutralizes_a_smuggled_escape`,
+    `test_json_output_is_not_mangled_by_the_printer_sanitizer`); the first
+    was proven to fail against the pre-fix printer.
 ```
 
-Severity stays NOTE for the reason recorded last time: the reachable input is
-an org tree the operator chose to trust enough to validate, and the supported
-third-party ingress points (`score --evals-dir`, `--answers`) are already
-guarded.
+The severity assessment that held it at NOTE is unchanged and is why it was
+never urgent: the reachable input is an org tree the operator chose to trust
+enough to validate, and the supported third-party ingress points (`score
+--evals-dir`, `--answers`) were already guarded. It is fixed now because it
+was cheap and it had been carried across two reviews.
 
 ### Verified this turn
 
@@ -108,13 +124,15 @@ guarded.
   every commit in `6bd7d77..HEAD` touching these paths is clean. No email
   address, phone number, or real-person name appears in any of them;
   `tests/conftest.py` writes only under pytest fixture roots.
-- **Considered and not filed: `count_noun` on a mutated ledger.**
-  `evals/emit.py:590` does `fact.rendered.split(" ", 1)[1]`, which raises
+- **`count_noun` on a mutated ledger: filed as robustness, and FIXED.**
+  `evals/emit.py` did `fact.rendered.split(" ", 1)[1]`, which raises
   `IndexError` for a hand-edited `count` fact whose rendered surface has no
-  space. `render_count` cannot produce one (`unit` carries `min_length=1`),
-  so this is unreachable from any recipe, and the outcome is a traceback in a
-  local offline CLI with no disclosure or privilege consequence. Robustness,
-  not security.
+  space. Unreachable from any recipe (`render_count` cannot produce one, and
+  `ScopeProfile` now rejects a blank noun at parse), and the outcome was a
+  traceback in a local offline CLI with no disclosure or privilege
+  consequence — robustness, not security. Now uses `partition`, so
+  `emit-evals` completes and SCOPE-01 reports the tamper. Covered by two
+  tests in `tests/test_unit_scope_facts.py`.
 
 ### Accepted Risks
 
@@ -128,4 +146,4 @@ gates and the EVAL-01/MENT-03 rules. No secret, no injection path, no PII;
 0 BLOCK / 0 WARN / 1 NOTE, that NOTE being the raw `validate` plain-text
 printer carried forward above.*
 
-<!-- SECURITY_META: {"date":"2026-08-02","commit":"e35e6eb180aff01202061e51b9cda08160ddc206","scope":"paths","scanned_files":["orgsmith/__init__.py","orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/docplan/planner.py","orgsmith/docplan/registry.py","orgsmith/evals/emit.py","orgsmith/fabric/engagements.py","orgsmith/review/metrics.py","orgsmith/review/report.py","orgsmith/review/structure.py","orgsmith/schemas.py","orgsmith/validate/rules.py","pyproject.toml","tests/conftest.py"],"block":0,"warn":0,"note":1} -->
+<!-- SECURITY_META: {"date":"2026-08-02","commit":"e35e6eb180aff01202061e51b9cda08160ddc206","scope":"paths","scanned_files":["orgsmith/__init__.py","orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/docplan/planner.py","orgsmith/docplan/registry.py","orgsmith/evals/emit.py","orgsmith/fabric/engagements.py","orgsmith/review/metrics.py","orgsmith/review/report.py","orgsmith/review/structure.py","orgsmith/schemas.py","orgsmith/validate/rules.py","pyproject.toml","tests/conftest.py"],"block":0,"warn":0,"note":0} -->

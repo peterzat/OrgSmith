@@ -212,6 +212,38 @@ vacuously if the outline pools change.
   table) after the fix pass added seven tests. Recorded here because it is a
   review-adjacent doc edit, not a code change.
 
+### Notes closed after the review, at the user's instruction
+
+Both were standing NOTEs rather than review findings; recorded here because
+they changed code after the review's marker was written.
+
+- **[NOTE, FIXED] `orgsmith/validate/__init__.py` — the human findings
+  printer emitted unconstrained ledger strings raw.** SECURITY.md's carried
+  NOTE, open across two reviews. Validating an org tree obtained from
+  someone else is supported, and findings quote fields pydantic does not
+  constrain (`LedgerCheck.name`, `GraphEdge.src`, `AclGrant.person`,
+  `Person.reports_to`), so a smuggled ANSI escape reached the terminal and
+  could rewrite or hide earlier findings. Fixed at the printer, not at each
+  interpolation site, so rules that do not quote with `!r` are covered and a
+  later rule cannot reintroduce it; `keep=""` also stops a smuggled newline
+  forging a finding line. `--json` stays raw for tooling. Two tests added,
+  the first proven to fail against the pre-fix printer.
+- **[NOTE, FIXED] `orgsmith/evals/emit.py` (`count_noun`) — `IndexError` on
+  a spaceless rendered surface.** Recorded by the security pass as
+  "robustness, not security" and deferred here. Reachable only from a
+  hand-edited ledger, but it is the same class as the SCOPE-01 crash fixed
+  above: a traceback where a clean result belongs. Now uses `partition`, so
+  `emit-evals` completes and SCOPE-01 reports the tamper.
+
+The two NOTEs from the prior review are deliberately NOT fixed: both were
+recorded as accepted design trades, not defects. `_chain_member_date`'s
+narrowed business-day ceiling is correct and its failure mode is a loud
+CAL-01 error; `tools/checksums.py` importing the package version is what
+stopped the hardcoded string going stale.
+
+Suite after these: 16 short / 712 unit / 228 org (+27 skipped) / 65 flagship
+(+5 skipped). Org and flagship unchanged again.
+
 ### Accepted Risks
 
 None.
