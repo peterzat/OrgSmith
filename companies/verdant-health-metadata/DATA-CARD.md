@@ -41,6 +41,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `0` |
 | `graph_targets.multi_affiliations` | `1` |
 | `graph_targets.affiliations_in_docs` | `True` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `0` |
 | `hard_cases.filename_dates` | `0` |
@@ -123,7 +124,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| verdant-health | 105 | `dc8eec23b3594fc6a93d94e77409ceffe5d041ee8f415625822faf37a5447c89` |
+| verdant-health | 105 | `ea37fd9611ffa9710b134734d74a9ac62ab5ea5a64e462aa41c487ab1998d26c` |
 
 Verify with `python tools/checksums.py --check`.
 

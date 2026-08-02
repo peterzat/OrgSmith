@@ -49,6 +49,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `1` |
 | `graph_targets.multi_affiliations` | `0` |
 | `graph_targets.affiliations_in_docs` | `False` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `0` |
 | `hard_cases.filename_dates` | `0` |
@@ -128,7 +129,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 168 | `22400c18e9ce898bbf3a3c203c87f0e3b42f721806472ea2c6f152f1c02d18d4` |
+| northgate-staffing | 168 | `384875dbdd6688be736f283847660e2acdd6a65b57b73d31a43b41eb4fb10aeb` |
 
 Verify with `python tools/checksums.py --check`.
 

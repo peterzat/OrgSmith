@@ -41,6 +41,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `0` |
 | `graph_targets.multi_affiliations` | `1` |
 | `graph_targets.affiliations_in_docs` | `True` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `1` |
 | `hard_cases.filename_dates` | `1` |
@@ -122,7 +123,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| saltmarsh-environmental | 126 | `7d43a021e5c15c3ac4421572f550854b17b342af5aa38c804f3f854a472e5ad8` |
+| saltmarsh-environmental | 126 | `c827f02b73df438c4d43bd0c6c5305124d3a804042bcaa0206ea6670ac4c3b2e` |
 
 Verify with `python tools/checksums.py --check`.
 

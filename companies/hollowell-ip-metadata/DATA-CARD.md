@@ -46,6 +46,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `1` |
 | `graph_targets.multi_affiliations` | `0` |
 | `graph_targets.affiliations_in_docs` | `False` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `1` |
 | `hard_cases.filename_dates` | `0` |
@@ -122,7 +123,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| hollowell-ip | 181 | `aad86b1a28ba8adf11147fee859e6cce9514993500aea5bacceeaf321fe3b717` |
+| hollowell-ip | 181 | `668876205990d525cbc5cdff13f935226d6ad4ef15e4c4d157d3fe08749d3f65` |
 
 Verify with `python tools/checksums.py --check`.
 

@@ -41,6 +41,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `0` |
 | `graph_targets.multi_affiliations` | `0` |
 | `graph_targets.affiliations_in_docs` | `False` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `0` |
 | `hard_cases.filename_dates` | `0` |
@@ -118,7 +119,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| brackenridge-civil | 127 | `3f94781d90c3bd28d0ce6da6924ea13967a60c61499fbe9f3efdd48eb448ee27` |
+| brackenridge-civil | 127 | `6d097f001c1d6df9203378ea60779e21131825c82d06ed41a52255610ed13f4a` |
 
 Verify with `python tools/checksums.py --check`.
 

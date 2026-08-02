@@ -15,7 +15,12 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from ..airlock import clear_author_batch, match_author_batch
-from ..artifacts import load_engagements, load_foundation, load_manifest
+from ..artifacts import (
+    load_charter,
+    load_engagements,
+    load_foundation,
+    load_manifest,
+)
 from ..fabric.engagements import render_date
 from ..naming import doc_id_filename, strip_control
 from ..paths import OrgPaths
@@ -86,6 +91,76 @@ def _check_reporting_line(
                 f"{subject.name} to {hit!r}, but foundation reports them to "
                 f"{true_name} ({true_title})"
             )
+    return problems
+
+
+def alias_owners(foundation: Foundation) -> dict[str, str]:
+    """{registered alias token: owning person id}. External people carry no
+    aliases in the ledger, so this is the internal roster's nickname table."""
+    return {
+        alias: person.id
+        for person in foundation.people
+        for alias in person.aliases
+    }
+
+
+def check_alias_agreement(
+    entry, foundation: Foundation, resolved: str
+) -> list[str]:
+    """Reject authored prose that uses a registered nickname the plan never
+    placed in this document (M17, `graph_targets.alias_agreement`).
+
+    The exemplar's published residual is the failure this closes: the ledger
+    registers `Jim` to James Grant while a different James's persona claims
+    it, so the firm overview calls the wrong man Jim and the corpus
+    contradicts itself in a way no fact check can see. A nickname is a
+    relationship the ledger owns.
+
+    Planned surfaces for other entities are masked before the scan, so an
+    alias standing inside a longer planned name belongs to the longer name.
+    Signature-block signers are exempt: a rendered signature prints a name
+    the author did not write."""
+    planned_here = {m.surface for m in entry.mentions}
+    mine = {
+        m.surface
+        for m in entry.mentions
+        if m.kind == "person"
+    }
+    text = resolved
+    for surface in sorted(planned_here, key=len, reverse=True):
+        if surface:
+            text = re.sub(
+                rf"(?<!\w){re.escape(surface)}(?!\w)", " ", text
+            )
+    problems = []
+    for alias, owner in sorted(alias_owners(foundation).items()):
+        if alias in mine:
+            continue  # the plan placed this alias here
+        if surface_in_text(alias, text):
+            problems.append(
+                f"uses the registered nickname {alias!r} ({owner}) where the "
+                f"plan placed no such mention; a nickname belongs to the "
+                f"person the ledger registered it to"
+            )
+    return problems
+
+
+def check_persona_aliases(foundation: Foundation, personas) -> list[str]:
+    """Reject a persona that claims a nickname the ledger registered to a
+    different person (M17). This is the actual root of the exemplar's `Jim`
+    collision: the enrichment pass wrote the alias into the wrong person's
+    persona, and every document that read that persona then repeated it."""
+    owners = alias_owners(foundation)
+    problems = []
+    for person_id, text in sorted(personas.items()):
+        for alias, owner in sorted(owners.items()):
+            if owner == person_id:
+                continue
+            if surface_in_text(alias, text):
+                problems.append(
+                    f"{person_id}: persona claims the nickname {alias!r}, "
+                    f"which the ledger registers to {owner}"
+                )
     return problems
 
 
@@ -228,6 +303,7 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
         problems.append(f"work-order docs not delivered: {', '.join(missing)}")
     facts = load_engagements(paths).fact_index()
     manifest = load_manifest(paths)
+    charter = load_charter(paths)
     foundation = load_foundation(paths)
     entries = {e.doc_id: e for e in manifest}
     for doc in deliverable.docs:
@@ -275,6 +351,9 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
             if entry is not None:
                 for p in _check_reporting_line(entry, foundation, resolved):
                     problems.append(f"{doc.doc_id}: {p}")
+                if charter.graph_targets.alias_agreement:
+                    for p in check_alias_agreement(entry, foundation, resolved):
+                        problems.append(f"{doc.doc_id}: {p}")
 
     if problems:
         print("ingest: deliverable rejected:")

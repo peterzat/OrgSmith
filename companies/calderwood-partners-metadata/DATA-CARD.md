@@ -49,6 +49,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `1` |
 | `graph_targets.multi_affiliations` | `0` |
 | `graph_targets.affiliations_in_docs` | `False` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `1` |
 | `hard_cases.filename_dates` | `1` |
@@ -151,7 +152,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| calderwood-partners | 505 | `87f146ed4b0564b526d8d0ff8f4410e9f728bfe308c7c0a5f35e2fc497ad0328` |
+| calderwood-partners | 505 | `87701c7ca54aa2b347796fa6072a25e918b5a208bc14ca57a26cd5a6810dc053` |
 
 Verify with `python tools/checksums.py --check`.
 

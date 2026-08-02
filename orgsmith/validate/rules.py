@@ -146,6 +146,57 @@ def sty_01(ctx: Context):
         )
 
 
+def _needs_alias_agreement(ctx: Context) -> str | None:
+    if not ctx.charter.graph_targets.alias_agreement:
+        return "graph_targets.alias_agreement is off for this recipe"
+    return None
+
+
+def ment_03(ctx: Context):
+    """M17: alias agreement, on committed state. The validate-time twin of
+    the ingest gate: a registered nickname appears in a document's rendered
+    text only where the plan placed it.
+
+    Two exemptions, both because the text is not the author's:
+    signature-block signers (the renderer prints those names), and every
+    surface the plan did place in this document, masked before the scan so
+    a short alias standing inside a longer planned name belongs to the
+    longer name.
+
+    Grandfathers by charter: an org whose recipe leaves the knob off skips
+    visibly, which is why the exemplar's published `Jim` collision keeps
+    validating until that org opts in."""
+    from ..authoring.ingest import alias_owners
+    from ..evals.emit import _mask
+
+    owners = alias_owners(ctx.foundation)
+    if not owners:
+        return
+    planned: dict[str, set] = {}
+    for record in ctx.mention_map.mentions if ctx.mention_map else []:
+        planned.setdefault(record.doc_id, set()).add(record.surface)
+
+    for entry in ctx.manifest:
+        if not (ctx.paths.share_dir / entry.path).is_file():
+            continue  # MAN-01/FILE-01 own an absent file
+        here = planned.get(entry.doc_id, set())
+        signers = {
+            ctx.foundation.person(p).name
+            for p in entry.participants + entry.authors
+            if p.startswith("p:")
+        }
+        text = _mask(ctx.doc_text(entry), here | signers)
+        for alias, owner in sorted(owners.items()):
+            if alias in here:
+                continue
+            if surface_in_text(alias, text):
+                yield (
+                    f"registered nickname {alias!r} ({owner}) appears in "
+                    "rendered text with no planned mention for this document",
+                    entry.path,
+                )
+
+
 def _needs_evals(ctx: Context) -> str | None:
     if not ctx.paths.evals_dir.is_dir():
         return "evals/ was never emitted for this org"
@@ -1472,6 +1523,8 @@ RULES = [
          ment_01, available=_needs_mentions),
     Rule("MENT-02", "ERROR", "mentions resolve to graph entities", ment_02,
          available=_needs_mentions),
+    Rule("MENT-03", "ERROR", "registered nicknames appear only where planned",
+         ment_03, available=_needs_alias_agreement),
     Rule("GRAPH-01", "ERROR", "per-person mention coverage meets the recipe",
          graph_01, available=_needs_mention_knob),
     Rule("GRAPH-02", "ERROR", "no orphan roster member", graph_02,

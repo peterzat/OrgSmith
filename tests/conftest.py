@@ -92,6 +92,9 @@ KNOB_LINES = (
     "  nickname_aliases: 1\n"
     "  multi_affiliations: 1\n"
     "  affiliations_in_docs: true\n"
+    # M17: alias agreement on, so MENT-03 finds its knob here too (the
+    # zero-skip test keys off this org).
+    "  alias_agreement: true\n"
 )
 
 MENTIONS_FROM = "  min_mentions_per_person: 1\n"

@@ -46,7 +46,7 @@ def test_knobbed_org_validates_clean_with_all_rules(knobbed_org, capsys):
     for rule in ("MENT-01", "MENT-02", "GRAPH-01", "GRAPH-02",
                  "GRAPH-03", "GRAPH-04", "AFF-01", "AFF-02", "EML-01",
                  "EML-02", "EML-03", "DL-01", "SCAN-01", "SCAN-02",
-                 "EVAL-01"):
+                 "EVAL-01", "MENT-03"):
         assert rule in payload["rules_run"], rule
     # Every charter-gated rule must find its knob on here, with one
     # exception: legacy stays off because rendering it needs LibreOffice

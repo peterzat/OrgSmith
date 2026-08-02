@@ -215,6 +215,11 @@
           "title": "Affiliations In Docs",
           "type": "boolean"
         },
+        "alias_agreement": {
+          "default": false,
+          "title": "Alias Agreement",
+          "type": "boolean"
+        },
         "external_orgs": {
           "minimum": 1,
           "title": "External Orgs",

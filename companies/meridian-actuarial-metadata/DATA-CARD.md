@@ -46,6 +46,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `0` |
 | `graph_targets.multi_affiliations` | `0` |
 | `graph_targets.affiliations_in_docs` | `False` |
+| `graph_targets.alias_agreement` | `False` |
 | `hard_cases` | `on` |
 | `hard_cases.signature_page_facts` | `1` |
 | `hard_cases.filename_dates` | `1` |
@@ -124,7 +125,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| meridian-actuarial | 198 | `d2be9c478af29c49dbfdc887e7908f633aa1927ee9ae60c11653f94defd270df` |
+| meridian-actuarial | 198 | `9924c9d573b2e6970f02f8710775a4fc290b2b756d9353ed37c9dc08664b0e90` |
 
 Verify with `python tools/checksums.py --check`.
 

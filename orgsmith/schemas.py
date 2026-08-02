@@ -353,6 +353,14 @@ class GraphTargets(StrictModel):
     # under both employers, era-appropriate per doc date. Default inert on
     # the existing schema id.
     affiliations_in_docs: bool = False
+    # M17: alias-agreement discipline. When on, a registered nickname may
+    # appear in authored text only where the plan placed it, and a persona
+    # may not claim an alias the ledger registered to someone else. Off by
+    # default and inert: the frozen fleet re-derives byte-identical with it
+    # unset, and the exemplar's published `Jim` collision (a persona
+    # claiming another person's registered alias) keeps validating until an
+    # org opts in. Enforced at ingest, twinned at validate time by MENT-03.
+    alias_agreement: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "GraphTargets":

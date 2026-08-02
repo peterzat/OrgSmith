@@ -13,7 +13,7 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from ..airlock import clear_outstanding, match_outstanding
-from ..artifacts import load_foundation
+from ..artifacts import load_charter, load_foundation
 from ..naming import strip_control
 from ..paths import OrgPaths
 from ..schemas import EnrichmentDeliverable, write_model
@@ -47,6 +47,17 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     missing = sorted(set(roster_ids) - set(given))
     if missing:
         problems.append(f"missing personas for: {', '.join(missing)}")
+    # M17: the actual root of the exemplar's `Jim` collision. A persona that
+    # claims a nickname the ledger registered to somebody else propagates
+    # into every document that reads it, and no fact check downstream can
+    # see the contradiction. Gated on the recipe knob, so the frozen fleet
+    # is untouched.
+    if not problems and load_charter(paths).graph_targets.alias_agreement:
+        from ..authoring.ingest import check_persona_aliases
+
+        problems += check_persona_aliases(
+            foundation, {e.person_id: e.persona for e in deliverable.personas}
+        )
     if problems:
         print("ingest: deliverable rejected:")
         for p in problems:
