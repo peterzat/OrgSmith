@@ -119,6 +119,33 @@
       ],
       "kind": "person",
       "tags": []
+    },
+    {
+      "id": "E-2019-001",
+      "canonical": "Operational Review for Johnson and Sons",
+      "aliases": [
+        "E-2019-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2020-001",
+      "canonical": "Pricing Study for Dean PLC",
+      "aliases": [
+        "E-2020-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2021-001",
+      "canonical": "Integration Support for Reeves, Miller and Thompson",
+      "aliases": [
+        "E-2021-001"
+      ],
+      "kind": "engagement",
+      "tags": []
     }
   ],
   "edges": [
@@ -242,6 +269,27 @@
       "end": null
     },
     {
+      "src": "p:jennifer.fletcher",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-07-17",
+      "end": "2019-10-29"
+    },
+    {
+      "src": "p:robert.miller",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-07-17",
+      "end": "2019-10-29"
+    },
+    {
+      "src": "xp:stephanie.campos",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-07-17",
+      "end": "2019-10-29"
+    },
+    {
       "src": "x:dean-plc",
       "dst": "x:dev-mini",
       "kind": "client_of",
@@ -249,11 +297,67 @@
       "end": null
     },
     {
+      "src": "p:robert.miller",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-17",
+      "end": "2020-10-01"
+    },
+    {
+      "src": "p:jennifer.fletcher",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-17",
+      "end": "2020-10-01"
+    },
+    {
+      "src": "p:susan.wiley",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-17",
+      "end": "2020-10-01"
+    },
+    {
+      "src": "xp:cynthia.foley",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-02-17",
+      "end": "2020-10-01"
+    },
+    {
       "src": "x:reeves-miller-and-thompson",
       "dst": "x:dev-mini",
       "kind": "client_of",
       "start": "2021-04-05",
       "end": null
+    },
+    {
+      "src": "p:cynthia.ball",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-05",
+      "end": "2021-10-20"
+    },
+    {
+      "src": "p:robert.miller",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-05",
+      "end": "2021-10-20"
+    },
+    {
+      "src": "p:jennifer.fletcher",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-05",
+      "end": "2021-10-20"
+    },
+    {
+      "src": "xp:christopher.cole",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-05",
+      "end": "2021-10-20"
     }
   ]
 }

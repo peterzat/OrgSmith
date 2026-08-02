@@ -181,6 +181,51 @@
       ],
       "kind": "person",
       "tags": []
+    },
+    {
+      "id": "E-2019-001",
+      "canonical": "Patent Portfolio Review for Odonnell Inc",
+      "aliases": [
+        "E-2019-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2020-001",
+      "canonical": "Freedom-to-Operate Analysis for Middleton, Sullivan and Wiley",
+      "aliases": [
+        "E-2020-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2021-001",
+      "canonical": "Prosecution Support for Keith-Duarte",
+      "aliases": [
+        "E-2021-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2024-001",
+      "canonical": "Trademark Clearance for Jackson Inc",
+      "aliases": [
+        "E-2024-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2025-001",
+      "canonical": "Licensing Diligence for Price-Henson",
+      "aliases": [
+        "E-2025-001"
+      ],
+      "kind": "engagement",
+      "tags": []
     }
   ],
   "edges": [
@@ -360,11 +405,67 @@
       "end": null
     },
     {
+      "src": "p:kelly.snyder",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "p:amanda.schwartz",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
+      "src": "xp:gary.smith",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-13",
+      "end": "2019-12-12"
+    },
+    {
       "src": "x:middleton-sullivan-and-wiley",
       "dst": "x:hollowell-ip",
       "kind": "client_of",
       "start": "2020-05-12",
       "end": null
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "p:heather.munoz",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
+    },
+    {
+      "src": "xp:barbara.blair",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-05-12",
+      "end": "2021-01-24"
     },
     {
       "src": "x:keith-duarte",
@@ -374,6 +475,34 @@
       "end": null
     },
     {
+      "src": "p:heather.munoz",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "p:joseph.walker",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
+      "src": "xp:joseph.palmer",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-08-11",
+      "end": "2022-01-16"
+    },
+    {
       "src": "x:jackson-inc",
       "dst": "x:hollowell-ip",
       "kind": "client_of",
@@ -381,11 +510,53 @@
       "end": null
     },
     {
+      "src": "p:ashley.williams",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-04-09",
+      "end": "2024-08-03"
+    },
+    {
+      "src": "p:kelly.snyder",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-04-09",
+      "end": "2024-08-03"
+    },
+    {
+      "src": "xp:cynthia.hunter",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-04-09",
+      "end": "2024-08-03"
+    },
+    {
       "src": "x:price-henson",
       "dst": "x:hollowell-ip",
       "kind": "client_of",
       "start": "2025-03-14",
       "end": null
+    },
+    {
+      "src": "p:david.chang",
+      "dst": "E-2025-001",
+      "kind": "participant",
+      "start": "2025-03-14",
+      "end": "2025-09-02"
+    },
+    {
+      "src": "p:richard.henderson",
+      "dst": "E-2025-001",
+      "kind": "participant",
+      "start": "2025-03-14",
+      "end": "2025-09-02"
+    },
+    {
+      "src": "xp:tiffany.munoz",
+      "dst": "E-2025-001",
+      "kind": "participant",
+      "start": "2025-03-14",
+      "end": "2025-09-02"
     }
   ]
 }

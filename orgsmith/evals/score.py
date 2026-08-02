@@ -30,13 +30,67 @@ class RetrievalResult:
     total: int
     correct: int
     failures: list[dict] = field(default_factory=list)
+    # M17: set-level macro precision/recall/F1 and the rank-aware metrics,
+    # both computed over the condensed answer list. Empty for the visibility
+    # suite, which is graded as a raw exact set and has no meaningful rank
+    # (the question is "which documents may this person read?", not "which
+    # are most relevant?").
+    macro: dict = field(default_factory=dict)
+    ranked: dict = field(default_factory=dict)
 
     @property
     def score(self) -> float:
         return self.correct / self.total if self.total else 0.0
 
 
-ExtractionResult = RetrievalResult  # same shape: total, correct, failures
+@dataclass
+class ExtractionResult:
+    total: int
+    correct: int
+    failures: list[dict] = field(default_factory=list)
+    # M17: the two halves of the conjunctive headline, reported separately.
+    # "Found the right value but cited the wrong document" and "cited the
+    # right document but read the wrong value" are different failures and a
+    # single AND-ed number hides which one you have.
+    value_correct: int = 0
+    attribution_correct: int = 0
+
+    @property
+    def score(self) -> float:
+        return self.correct / self.total if self.total else 0.0
+
+    @property
+    def value_accuracy(self) -> float:
+        return self.value_correct / self.total if self.total else 0.0
+
+    @property
+    def attribution_accuracy(self) -> float:
+        return self.attribution_correct / self.total if self.total else 0.0
+
+
+def _rank_metrics(required: set[str], condensed: list[str]) -> dict:
+    """Rank-aware credit for one question, over the condensed answer list.
+
+    Binary gains (a document either answers the question or does not), and
+    no tie handling: the rank is the order the system wrote its answer in,
+    which is total by construction."""
+    import math
+
+    ranks = [i for i, doc in enumerate(condensed) if doc in required]
+    dcg = sum(1.0 / math.log2(i + 2) for i in ranks if i < 10)
+    ideal = sum(
+        1.0 / math.log2(i + 2) for i in range(min(10, len(required)))
+    )
+    return {
+        "recall@5": len([i for i in ranks if i < 5]) / len(required),
+        "recall@10": len([i for i in ranks if i < 10]) / len(required),
+        "rr": 1.0 / (ranks[0] + 1) if ranks else 0.0,
+        "ndcg@10": (dcg / ideal) if ideal else 0.0,
+    }
+
+
+def _mean(values: list[float]) -> float:
+    return sum(values) / len(values) if values else 0.0
 
 
 @dataclass
@@ -48,6 +102,17 @@ class GraphResult:
     # per ambiguity class: {"expected": n, "matched": m, "recall": r};
     # empty when the org's ground truth carries no ambiguity tags
     classes: dict = field(default_factory=dict)
+    # M17: per edge kind {"expected": n, "matched": m, "recall": r}, so
+    # "who worked on what" (participant edges) is visible separately from
+    # the org chart.
+    edge_kinds: dict = field(default_factory=dict)
+    # M17: of the correctly-identified edges whose ground truth carries
+    # dates, the share whose answer got both dates right. None when the
+    # answer file supplies no dates at all, so a dateless answer reads as
+    # "did not attempt" rather than "scored zero".
+    dated_edge_credit: float | None = None
+    dated_edges_eligible: int = 0
+    dated_edges_credited: int = 0
 
 
 def load_questions(evals_dir: Path) -> list[RetrievalQuestion]:
@@ -110,11 +175,19 @@ def _score_docset(
     answers,
     corpus: set[str] | None = None,
     canonical: dict[str, str] | None = None,
+    ranked: bool = False,
 ) -> RetrievalResult:
     """Exact doc-set matching, shared by the retrieval and visibility
     suites (identical answers contract). When `corpus` is given (a split), a
     question whose expected answers are not all in the split is not gradable
     there and is skipped, so ground truth scores 100% on every split.
+
+    `ranked` adds the set-level macro metrics and the rank-aware ones,
+    computed over questions with a non-empty required set. An unanswerable
+    question is excluded from those aggregates (recall, MRR, and nDCG are
+    all undefined against an empty required set) but is still graded by the
+    strict headline, where abstaining is the correct answer. Visibility
+    passes `ranked=False`: it is a raw exact set with no notion of rank.
 
     M17: both sides are canonicalized through the equivalence clusters
     first, so returning a byte-identical copy of an expected document (or
@@ -134,11 +207,37 @@ def _score_docset(
         if corpus is None or set(q.expected_docs) <= corpus
     ]
     result = RetrievalResult(total=len(gradable), correct=0)
+    precisions: list[float] = []
+    recalls: list[float] = []
+    f1s: list[float] = []
+    per_question: list[dict] = []
     for q in gradable:
         expected = _canonicalize(q.expected_docs, canonical)
         acceptable = set(q.acceptable_docs) - expected
         raw = [d.strip() for d in given.get(q.id, [])]
-        got = _canonicalize(raw, canonical) - acceptable
+        # The condensed list: canonicalized, acceptable documents removed so
+        # they occupy no rank and earn no penalty, deduped keeping the first
+        # occurrence so the system's own ordering survives.
+        condensed: list[str] = []
+        for doc in raw:
+            doc = canonical.get(doc, doc)
+            if doc not in acceptable and doc not in condensed:
+                condensed.append(doc)
+        got = set(condensed)
+
+        if ranked and expected:
+            hits = len(expected & got)
+            precision = hits / len(condensed) if condensed else 0.0
+            recall = hits / len(expected)
+            precisions.append(precision)
+            recalls.append(recall)
+            f1s.append(
+                2 * precision * recall / (precision + recall)
+                if precision + recall
+                else 0.0
+            )
+            per_question.append(_rank_metrics(expected, condensed))
+
         if got == expected:
             result.correct += 1
             continue
@@ -163,6 +262,22 @@ def _score_docset(
                 "answered": q.id in given,
             }
         )
+
+    if ranked and per_question:
+        result.macro = {
+            "questions": len(per_question),
+            "precision": round(_mean(precisions), 4),
+            "recall": round(_mean(recalls), 4),
+            "f1": round(_mean(f1s), 4),
+        }
+        result.ranked = {
+            "recall@5": round(_mean([m["recall@5"] for m in per_question]), 4),
+            "recall@10": round(
+                _mean([m["recall@10"] for m in per_question]), 4
+            ),
+            "mrr": round(_mean([m["rr"] for m in per_question]), 4),
+            "ndcg@10": round(_mean([m["ndcg@10"] for m in per_question]), 4),
+        }
     return result
 
 
@@ -174,6 +289,7 @@ def score_retrieval(
         answers,
         corpus,
         load_canonical_map(evals_dir),
+        ranked=True,
     )
 
 
@@ -227,6 +343,8 @@ def score_extraction(
         got_docs = _canonicalize(raw_docs, canonical)
         value_ok = answer is not None and answer.value.strip() == q.expected_value
         docs_ok = answer is not None and got_docs == expected_docs
+        result.value_correct += int(value_ok)
+        result.attribution_correct += int(docs_ok)
         if value_ok and docs_ok:
             result.correct += 1
             continue
@@ -278,14 +396,45 @@ def score_graph(evals_dir: Path, answers: GraphAnswers) -> GraphResult:
     )
 
     expected_edges = {(e.src, e.dst, e.kind) for e in expected.edges}
+    expected_dates = {
+        (e.src, e.dst, e.kind): (e.start, e.end) for e in expected.edges
+    }
     resolved = []
     for edge in answers.edges:
         src = index.get(edge.src.casefold())
         dst = index.get(edge.dst.casefold())
-        resolved.append((src, dst, edge.kind))
-    hits = {t for t in resolved if t in expected_edges}
+        resolved.append(((src, dst, edge.kind), edge))
+    hits = {t for t, _ in resolved if t in expected_edges}
     edge_precision = len(hits) / len(resolved) if resolved else 0.0
     edge_recall = len(hits) / len(expected_edges) if expected_edges else 0.0
+
+    edge_kinds: dict = {}
+    for key in expected_edges:
+        stats = edge_kinds.setdefault(key[2], {"expected": 0, "matched": 0})
+        stats["expected"] += 1
+        stats["matched"] += int(key in hits)
+    edge_kinds = {
+        kind: {**stats, "recall": round(stats["matched"] / stats["expected"], 4)}
+        for kind, stats in sorted(edge_kinds.items())
+    }
+
+    # Dated-edge credit: of the correct edges whose ground truth carries
+    # dates, how many did the answer date correctly? Attempted only when the
+    # answer file supplies at least one date, so a dateless answer scores
+    # identical edge precision and recall and reports no credit at all.
+    attempted = any(e.start or e.end for _, e in resolved)
+    eligible = credited = 0
+    for key, edge in resolved:
+        if key not in expected_edges:
+            continue
+        want = expected_dates.get(key)
+        if want is None or (want[0] is None and want[1] is None):
+            continue
+        eligible += 1
+        credited += int((edge.start, edge.end) == want)
+    dated_credit = (
+        (credited / eligible if eligible else 0.0) if attempted else None
+    )
 
     class_ids: dict[str, set] = {}
     for entity in expected.entities:
@@ -307,6 +456,10 @@ def score_graph(evals_dir: Path, answers: GraphAnswers) -> GraphResult:
         edge_precision=edge_precision,
         edge_recall=edge_recall,
         classes=classes,
+        edge_kinds=edge_kinds,
+        dated_edge_credit=dated_credit,
+        dated_edges_eligible=eligible if attempted else 0,
+        dated_edges_credited=credited if attempted else 0,
     )
 
 
@@ -353,23 +506,36 @@ def run_score(
         scorer = score_retrieval if suite == "retrieval" else score_visibility
         result = scorer(evals_dir, answers, corpus)
         if as_json:
-            print(
-                json.dumps(
-                    {
-                        "suite": suite,
-                        "total": result.total,
-                        "correct": result.correct,
-                        "score": round(result.score, 4),
-                        "failures": result.failures,
-                    },
-                    indent=2,
-                )
-            )
+            payload = {
+                "suite": suite,
+                "total": result.total,
+                "correct": result.correct,
+                "score": round(result.score, 4),
+            }
+            if result.macro:
+                payload["macro"] = result.macro
+            if result.ranked:
+                payload["ranked"] = result.ranked
+            payload["failures"] = result.failures
+            print(json.dumps(payload, indent=2))
         else:
             print(
                 f"{suite}: {result.correct}/{result.total} "
                 f"({result.score:.1%})"
             )
+            if result.macro:
+                print(
+                    "  macro P={precision:.1%} R={recall:.1%} "
+                    "F1={f1:.1%} (over {questions} answerable "
+                    "questions)".format(**result.macro)
+                )
+            if result.ranked:
+                print(
+                    "  ranked R@5={recall@5:.1%} R@10={recall@10:.1%} "
+                    "MRR={mrr:.3f} nDCG@10={ndcg@10:.3f}".format(
+                        **result.ranked
+                    )
+                )
             for failure in result.failures:
                 parts = []
                 if failure.get("abstention_expected"):
@@ -401,6 +567,10 @@ def run_score(
                         "total": result.total,
                         "correct": result.correct,
                         "score": round(result.score, 4),
+                        "value_accuracy": round(result.value_accuracy, 4),
+                        "attribution_accuracy": round(
+                            result.attribution_accuracy, 4
+                        ),
                         "failures": result.failures,
                     },
                     indent=2,
@@ -410,6 +580,12 @@ def run_score(
             print(
                 f"extraction: {result.correct}/{result.total} "
                 f"({result.score:.1%})"
+            )
+            print(
+                f"  value {result.value_correct}/{result.total} "
+                f"({result.value_accuracy:.1%}); attribution "
+                f"{result.attribution_correct}/{result.total} "
+                f"({result.attribution_accuracy:.1%})"
             )
             for failure in result.failures:
                 parts = []
@@ -445,6 +621,12 @@ def run_score(
     }
     if result.classes:
         payload["classes"] = result.classes
+    if result.edge_kinds:
+        payload["edge_kinds"] = result.edge_kinds
+    if result.dated_edge_credit is not None:
+        payload["dated_edge_credit"] = round(result.dated_edge_credit, 4)
+        payload["dated_edges_eligible"] = result.dated_edges_eligible
+        payload["dated_edges_credited"] = result.dated_edges_credited
     if as_json:
         print(json.dumps(payload, indent=2))
     else:
@@ -452,6 +634,17 @@ def run_score(
             "graph: entities P={entity_precision:.1%} R={entity_recall:.1%}; "
             "edges P={edge_precision:.1%} R={edge_recall:.1%}".format(**payload)
         )
+        for kind, stats in result.edge_kinds.items():
+            print(
+                f"  edges {kind}: R={stats['recall']:.1%} "
+                f"({stats['matched']}/{stats['expected']})"
+            )
+        if result.dated_edge_credit is not None:
+            print(
+                f"  dated edges: {result.dated_edges_credited}/"
+                f"{result.dated_edges_eligible} "
+                f"({result.dated_edge_credit:.1%})"
+            )
         for name, stats in result.classes.items():
             # Class names come from ambiguity tags in a third-party
             # graph_expected.json (`--evals-dir` is a supported input);

@@ -301,6 +301,60 @@
       ],
       "kind": "person",
       "tags": []
+    },
+    {
+      "id": "E-2017-001",
+      "canonical": "Corporate Positioning for Barrera Group",
+      "aliases": [
+        "E-2017-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2018-001",
+      "canonical": "Investor Relations Program for Castaneda, Adams and Davis",
+      "aliases": [
+        "E-2018-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2021-001",
+      "canonical": "Crisis Communications for Lee, Rice and Adams",
+      "aliases": [
+        "E-2021-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2022-001",
+      "canonical": "Media Relations Program for Kirby-Taylor",
+      "aliases": [
+        "E-2022-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2023-001",
+      "canonical": "Executive Messaging for Suarez-Jones",
+      "aliases": [
+        "E-2023-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2024-001",
+      "canonical": "Reputation Audit for Gallegos, Pope and Marsh",
+      "aliases": [
+        "E-2024-001"
+      ],
+      "kind": "engagement",
+      "tags": []
     }
   ],
   "edges": [
@@ -599,11 +653,60 @@
       "end": null
     },
     {
+      "src": "p:daniel.valenzuela",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-02-15",
+      "end": "2017-07-10"
+    },
+    {
+      "src": "p:michelle.rose",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-02-15",
+      "end": "2017-07-10"
+    },
+    {
+      "src": "xp:mary.frank",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-02-15",
+      "end": "2017-07-10"
+    },
+    {
       "src": "x:castaneda-adams-and-davis",
       "dst": "x:ashcombe-advisory",
       "kind": "client_of",
       "start": "2018-07-07",
       "end": null
+    },
+    {
+      "src": "p:michael.morris",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "p:laura.bradley",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "p:michelle.black",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
+    },
+    {
+      "src": "xp:lauren.heath",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-07",
+      "end": "2019-03-26"
     },
     {
       "src": "x:lee-rice-and-adams",
@@ -613,11 +716,60 @@
       "end": null
     },
     {
+      "src": "p:amy.carter",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-07-23",
+      "end": "2022-03-20"
+    },
+    {
+      "src": "p:nancy.suarez",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-07-23",
+      "end": "2022-03-20"
+    },
+    {
+      "src": "xp:megan.sutton",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-07-23",
+      "end": "2022-03-20"
+    },
+    {
       "src": "x:kirby-taylor",
       "dst": "x:ashcombe-advisory",
       "kind": "client_of",
       "start": "2022-04-28",
       "end": null
+    },
+    {
+      "src": "p:laura.bradley",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "p:kimberly.le",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "p:melissa.zimmerman",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
+    },
+    {
+      "src": "xp:sandra.mcdaniel",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-04-28",
+      "end": "2022-08-27"
     },
     {
       "src": "x:suarez-jones",
@@ -627,11 +779,53 @@
       "end": null
     },
     {
+      "src": "p:john.macias",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-07-05",
+      "end": "2023-11-26"
+    },
+    {
+      "src": "p:amy.carter",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-07-05",
+      "end": "2023-11-26"
+    },
+    {
+      "src": "xp:jennifer.herrera",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-07-05",
+      "end": "2023-11-26"
+    },
+    {
       "src": "x:gallegos-pope-and-marsh",
       "dst": "x:ashcombe-advisory",
       "kind": "client_of",
       "start": "2024-02-12",
       "end": null
+    },
+    {
+      "src": "p:michelle.rose",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-02-12",
+      "end": "2024-06-08"
+    },
+    {
+      "src": "p:kimberly.le",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-02-12",
+      "end": "2024-06-08"
+    },
+    {
+      "src": "xp:robert.smith",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-02-12",
+      "end": "2024-06-08"
     }
   ]
 }

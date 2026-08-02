@@ -123,18 +123,30 @@ A question is correct when `value` equals `expected_value` exactly
 ## graph_expected.json
 
 Canonical entities (with `aliases`: any alias earns full credit) and typed
-edges. Answers file:
+edges. Entity kinds are `person`, `org`, and `engagement`. Answers file:
 
 ```json
 {{"suite": "graph",
   "entities": [{{"name": "Jane Q. Example", "kind": "person"}}],
   "edges": [{{"src": "Jane Q. Example", "dst": "Example Corp",
-             "kind": "works_at"}}]}}
+             "kind": "works_at"}},
+            {{"src": "Jane Q. Example", "dst": "CFO Search",
+             "kind": "participant",
+             "start": "2015-08-27", "end": "2015-12-04"}}]}}
 ```
 
 Entity names are matched case-insensitively against canonical names and
 aliases. Edges are scored precision/recall after resolving names the same
-way. Entities may carry `ambiguity:<class>` tags (surname-collision,
+way, with a per-kind recall breakdown so "who worked on what"
+(`participant`) is visible separately from the org chart (`reports_to`).
+
+`start` and `end` are optional. Omitting them scores exactly the same edge
+precision and recall; supplying them earns a separate `dated_edge_credit`,
+the share of your correct edges whose ground truth carries dates that you
+dated correctly. An answer file with no dates at all reports no credit
+rather than a zero, because not attempting is not the same as being wrong.
+
+Entities may carry `ambiguity:<class>` tags (surname-collision,
 nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
 """
@@ -650,7 +662,9 @@ def _ambiguity_tags(foundation) -> dict[str, list[str]]:
     return tags
 
 
-def build_graph_expected(charter, foundation, graph) -> GraphExpected:
+def build_graph_expected(
+    charter, foundation, graph, engagements=None
+) -> GraphExpected:
     ambiguity = _ambiguity_tags(foundation)
     entities: list[GraphEntityExpected] = []
     entities.append(
@@ -682,10 +696,36 @@ def build_graph_expected(charter, foundation, graph) -> GraphExpected:
                 tags=ambiguity.get(xp.id, []),
             )
         )
-    # Only entity-to-entity edges belong in the scoring contract:
-    # participant edges point at engagement ids, which an external system
-    # answering in entity names cannot express. They remain ground truth in
-    # ledger/graph.json.
+    # M17: engagements join the contract. Participant edges used to be
+    # stripped here because they point at engagement ids an answer file had
+    # no way to name, which silently dropped "who worked on what" from the
+    # scored graph. Naming the engagement makes them expressible.
+    if engagements is not None:
+        titles: dict[str, int] = {}
+        for eng in engagements.engagements:
+            titles[eng.title] = titles.get(eng.title, 0) + 1
+        clients = {org.id: org.name for org in foundation.external_orgs}
+        for eng in engagements.engagements:
+            # Two engagements can share a title (the same service sold
+            # twice); disambiguate by client so a canonical name is unique.
+            canonical = eng.title
+            aliases = [eng.id]
+            if titles[eng.title] > 1:
+                client = clients.get(eng.client, eng.client)
+                canonical = f"{eng.title} ({client})"
+                aliases.append(eng.title)
+            entities.append(
+                GraphEntityExpected(
+                    id=eng.id,
+                    canonical=canonical,
+                    aliases=aliases,
+                    kind="engagement",
+                )
+            )
+        return GraphExpected(
+            slug=charter.slug, entities=entities, edges=list(graph.edges)
+        )
+
     scorable = [e for e in graph.edges if e.kind != "participant"]
     return GraphExpected(slug=charter.slug, entities=entities, edges=scorable)
 
@@ -910,7 +950,7 @@ def run_emit_evals(paths: OrgPaths) -> int:
         authored_texts,
     )
     extraction = build_extraction(engagements, answer_manifest)
-    expected = build_graph_expected(charter, foundation, graph)
+    expected = build_graph_expected(charter, foundation, graph, engagements)
     acl = load_acl(paths)
 
     paths.evals_dir.mkdir(parents=True, exist_ok=True)

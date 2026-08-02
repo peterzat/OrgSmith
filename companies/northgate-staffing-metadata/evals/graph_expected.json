@@ -219,6 +219,60 @@
       ],
       "kind": "person",
       "tags": []
+    },
+    {
+      "id": "E-2015-001",
+      "canonical": "CFO Search for Roach, Moss and Hall",
+      "aliases": [
+        "E-2015-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2016-001",
+      "canonical": "VP Engineering Search for Coleman Ltd",
+      "aliases": [
+        "E-2016-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2017-001",
+      "canonical": "Board Director Search for Sanchez-Baker",
+      "aliases": [
+        "E-2017-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2018-001",
+      "canonical": "Head of Operations Search for Davis and Sons",
+      "aliases": [
+        "E-2018-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2019-001",
+      "canonical": "General Counsel Search for Howard, Carlson and Tran",
+      "aliases": [
+        "E-2019-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2023-001",
+      "canonical": "Compensation Benchmarking for Hicks-Castillo",
+      "aliases": [
+        "E-2023-001"
+      ],
+      "kind": "engagement",
+      "tags": []
     }
   ],
   "edges": [
@@ -433,11 +487,67 @@
       "end": null
     },
     {
+      "src": "p:sandra.fuentes",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
+      "src": "xp:jason.myers",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-08-27",
+      "end": "2015-12-04"
+    },
+    {
       "src": "x:coleman-ltd",
       "dst": "x:northgate-staffing",
       "kind": "client_of",
       "start": "2016-03-06",
       "end": null
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "p:john.chang",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
+    },
+    {
+      "src": "xp:michael.martin",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-03-06",
+      "end": "2016-10-01"
     },
     {
       "src": "x:sanchez-baker",
@@ -447,11 +557,60 @@
       "end": null
     },
     {
+      "src": "p:jason.bell",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "p:jeffrey.patterson",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
+      "src": "xp:jennifer.frazier",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-05-13",
+      "end": "2017-09-02"
+    },
+    {
       "src": "x:davis-and-sons",
       "dst": "x:northgate-staffing",
       "kind": "client_of",
       "start": "2018-07-05",
       "end": null
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-05",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "p:nicole.donovan",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-05",
+      "end": "2018-12-12"
+    },
+    {
+      "src": "xp:jason.vasquez",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-07-05",
+      "end": "2018-12-12"
     },
     {
       "src": "x:howard-carlson-and-tran",
@@ -461,11 +620,60 @@
       "end": null
     },
     {
+      "src": "p:nicole.donovan",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "p:james.grant",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
+      "src": "xp:amy.alvarez",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-09",
+      "end": "2019-09-03"
+    },
+    {
       "src": "x:hicks-castillo",
       "dst": "x:northgate-staffing",
       "kind": "client_of",
       "start": "2023-03-25",
       "end": null
+    },
+    {
+      "src": "p:david.weiss",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-03-25",
+      "end": "2023-12-03"
+    },
+    {
+      "src": "p:sandra.fuentes",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-03-25",
+      "end": "2023-12-03"
+    },
+    {
+      "src": "xp:david.mcgee",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-03-25",
+      "end": "2023-12-03"
     }
   ]
 }

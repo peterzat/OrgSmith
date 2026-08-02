@@ -1060,7 +1060,10 @@ class GraphEntityExpected(StrictModel):
     id: str
     canonical: str
     aliases: list[str] = []  # any of these earn full credit for the entity
-    kind: Literal["person", "org"]
+    # M17: "engagement" joins the contract so participant edges are
+    # expressible in an answer file. Until then they pointed at engagement
+    # ids an external system had no way to name, and were stripped at emit.
+    kind: Literal["person", "org", "engagement"]
     # Planted-ambiguity classes ("ambiguity:<class>"), derived from the
     # ledgers at emit time so pre-existing orgs gain them on re-emission
     # without touching frozen artifacts.
@@ -1203,13 +1206,18 @@ class RetrievalAnswers(StrictModel):
 
 class GraphAnswerEntity(StrictModel):
     name: str
-    kind: Literal["person", "org"]
+    kind: Literal["person", "org", "engagement"]
 
 
 class GraphAnswerEdge(StrictModel):
     src: str  # entity name (canonical or alias)
     dst: str
     kind: str
+    # M17: optional. An edge with no dates is scored exactly as it was
+    # before dates existed; supplying them earns separate dated-edge credit
+    # and never changes the headline edge precision or recall.
+    start: date | None = None
+    end: date | None = None
 
 
 class GraphAnswers(StrictModel):

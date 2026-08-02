@@ -77,18 +77,30 @@ A question is correct when `value` equals `expected_value` exactly
 ## graph_expected.json
 
 Canonical entities (with `aliases`: any alias earns full credit) and typed
-edges. Answers file:
+edges. Entity kinds are `person`, `org`, and `engagement`. Answers file:
 
 ```json
 {"suite": "graph",
   "entities": [{"name": "Jane Q. Example", "kind": "person"}],
   "edges": [{"src": "Jane Q. Example", "dst": "Example Corp",
-             "kind": "works_at"}]}
+             "kind": "works_at"},
+            {"src": "Jane Q. Example", "dst": "CFO Search",
+             "kind": "participant",
+             "start": "2015-08-27", "end": "2015-12-04"}]}
 ```
 
 Entity names are matched case-insensitively against canonical names and
 aliases. Edges are scored precision/recall after resolving names the same
-way. Entities may carry `ambiguity:<class>` tags (surname-collision,
+way, with a per-kind recall breakdown so "who worked on what"
+(`participant`) is visible separately from the org chart (`reports_to`).
+
+`start` and `end` are optional. Omitting them scores exactly the same edge
+precision and recall; supplying them earns a separate `dated_edge_credit`,
+the share of your correct edges whose ground truth carries dates that you
+dated correctly. An answer file with no dates at all reports no credit
+rather than a zero, because not attempting is not the same as being wrong.
+
+Entities may carry `ambiguity:<class>` tags (surname-collision,
 nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
 

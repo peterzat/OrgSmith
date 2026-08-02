@@ -165,9 +165,14 @@ def test_graph_alias_credit(org):
         for e in expected.edges
         if e.src in by_id and e.dst in by_id
     ]
-    # every expected edge is entity-to-entity, so alias-credited answers
-    # can reach perfect scores
-    assert all(e.kind != "participant" for e in expected.edges)
+    # M17: every expected edge is entity-to-entity, participant edges
+    # included, because engagements are entities now. Before that they
+    # pointed at engagement ids no answer file could name and were stripped
+    # at emit, which silently dropped "who worked on what" from the graph.
+    assert any(e.kind == "participant" for e in expected.edges)
+    assert all(
+        e.src in by_id and e.dst in by_id for e in expected.edges
+    ), "an expected edge names something the entity list does not"
     result = score_graph(
         org.evals_dir,
         GraphAnswers.model_validate(

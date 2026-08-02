@@ -450,6 +450,204 @@
       ],
       "kind": "person",
       "tags": []
+    },
+    {
+      "id": "E-2008-001",
+      "canonical": "Operating Model Redesign for Hughes Group",
+      "aliases": [
+        "E-2008-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2009-001",
+      "canonical": "Cost Transformation for Brown and Sons",
+      "aliases": [
+        "E-2009-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2009-002",
+      "canonical": "Growth Strategy for Key Group",
+      "aliases": [
+        "E-2009-002"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2009-003",
+      "canonical": "Post-Merger Integration for Carroll, Merritt and Williams",
+      "aliases": [
+        "E-2009-003"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2009-004",
+      "canonical": "Pricing Strategy for Garza, Leblanc and Porter",
+      "aliases": [
+        "E-2009-004"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2010-001",
+      "canonical": "Supply Chain Review for Poole, Mcknight and Rush",
+      "aliases": [
+        "E-2010-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2011-001",
+      "canonical": "Digital Operating Model for Scott, Smith and Edwards",
+      "aliases": [
+        "E-2011-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2011-002",
+      "canonical": "Organization Design for Stark-Wilson",
+      "aliases": [
+        "E-2011-002"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2012-001",
+      "canonical": "Market Entry Assessment for Garcia-Werner",
+      "aliases": [
+        "E-2012-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2013-001",
+      "canonical": "Working Capital Program for Walker-Murray",
+      "aliases": [
+        "E-2013-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2014-001",
+      "canonical": "Procurement Transformation for Pacheco-Casey",
+      "aliases": [
+        "E-2014-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2015-001",
+      "canonical": "Commercial Due Diligence for Johnson, Lopez and Brooks",
+      "aliases": [
+        "E-2015-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2016-001",
+      "canonical": "Sales Effectiveness for Hughes Group",
+      "aliases": [
+        "E-2016-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2017-001",
+      "canonical": "Footprint Rationalization for Brown and Sons",
+      "aliases": [
+        "E-2017-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2018-001",
+      "canonical": "Shared Services Design for Key Group",
+      "aliases": [
+        "E-2018-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2019-001",
+      "canonical": "Customer Retention Program for Carroll, Merritt and Williams",
+      "aliases": [
+        "E-2019-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2019-002",
+      "canonical": "Portfolio Strategy for Garza, Leblanc and Porter",
+      "aliases": [
+        "E-2019-002"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2019-003",
+      "canonical": "Capital Allocation Review for Poole, Mcknight and Rush",
+      "aliases": [
+        "E-2019-003"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2020-001",
+      "canonical": "Service Delivery Redesign for Scott, Smith and Edwards",
+      "aliases": [
+        "E-2020-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2020-002",
+      "canonical": "Channel Strategy for Stark-Wilson",
+      "aliases": [
+        "E-2020-002"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2021-001",
+      "canonical": "Back-Office Automation for Garcia-Werner",
+      "aliases": [
+        "E-2021-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2022-001",
+      "canonical": "Margin Recovery Program for Walker-Murray",
+      "aliases": [
+        "E-2022-001"
+      ],
+      "kind": "engagement",
+      "tags": []
     }
   ],
   "edges": [
@@ -902,11 +1100,60 @@
       "end": null
     },
     {
+      "src": "p:jason.torres",
+      "dst": "E-2008-001",
+      "kind": "participant",
+      "start": "2008-05-18",
+      "end": "2008-12-30"
+    },
+    {
+      "src": "p:brenda.rodriguez",
+      "dst": "E-2008-001",
+      "kind": "participant",
+      "start": "2008-05-18",
+      "end": "2008-12-30"
+    },
+    {
+      "src": "xp:linda.gallegos",
+      "dst": "E-2008-001",
+      "kind": "participant",
+      "start": "2008-05-18",
+      "end": "2008-12-30"
+    },
+    {
       "src": "x:brown-and-sons",
       "dst": "x:calderwood-partners",
       "kind": "client_of",
       "start": "2009-06-25",
       "end": null
+    },
+    {
+      "src": "p:michael.walker",
+      "dst": "E-2009-001",
+      "kind": "participant",
+      "start": "2009-06-25",
+      "end": "2010-01-29"
+    },
+    {
+      "src": "p:james.green",
+      "dst": "E-2009-001",
+      "kind": "participant",
+      "start": "2009-06-25",
+      "end": "2010-01-29"
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "E-2009-001",
+      "kind": "participant",
+      "start": "2009-06-25",
+      "end": "2010-01-29"
+    },
+    {
+      "src": "xp:sandra.frazier",
+      "dst": "E-2009-001",
+      "kind": "participant",
+      "start": "2009-06-25",
+      "end": "2010-01-29"
     },
     {
       "src": "x:key-group",
@@ -916,11 +1163,60 @@
       "end": null
     },
     {
+      "src": "p:brenda.rodriguez",
+      "dst": "E-2009-002",
+      "kind": "participant",
+      "start": "2009-07-04",
+      "end": "2010-01-25"
+    },
+    {
+      "src": "p:daniel.leach",
+      "dst": "E-2009-002",
+      "kind": "participant",
+      "start": "2009-07-04",
+      "end": "2010-01-25"
+    },
+    {
+      "src": "xp:steven.lowe",
+      "dst": "E-2009-002",
+      "kind": "participant",
+      "start": "2009-07-04",
+      "end": "2010-01-25"
+    },
+    {
       "src": "x:carroll-merritt-and-williams",
       "dst": "x:calderwood-partners",
       "kind": "client_of",
       "start": "2009-04-22",
       "end": null
+    },
+    {
+      "src": "p:daniel.leach",
+      "dst": "E-2009-003",
+      "kind": "participant",
+      "start": "2009-04-22",
+      "end": "2009-08-22"
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "E-2009-003",
+      "kind": "participant",
+      "start": "2009-04-22",
+      "end": "2009-08-22"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2009-003",
+      "kind": "participant",
+      "start": "2009-04-22",
+      "end": "2009-08-22"
+    },
+    {
+      "src": "xp:joseph.wallace",
+      "dst": "E-2009-003",
+      "kind": "participant",
+      "start": "2009-04-22",
+      "end": "2009-08-22"
     },
     {
       "src": "x:garza-leblanc-and-porter",
@@ -930,11 +1226,67 @@
       "end": null
     },
     {
+      "src": "p:mary.parker",
+      "dst": "E-2009-004",
+      "kind": "participant",
+      "start": "2009-06-22",
+      "end": "2010-01-26"
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "E-2009-004",
+      "kind": "participant",
+      "start": "2009-06-22",
+      "end": "2010-01-26"
+    },
+    {
+      "src": "p:brenda.rodriguez",
+      "dst": "E-2009-004",
+      "kind": "participant",
+      "start": "2009-06-22",
+      "end": "2010-01-26"
+    },
+    {
+      "src": "xp:barbara.ward",
+      "dst": "E-2009-004",
+      "kind": "participant",
+      "start": "2009-06-22",
+      "end": "2010-01-26"
+    },
+    {
       "src": "x:poole-mcknight-and-rush",
       "dst": "x:calderwood-partners",
       "kind": "client_of",
       "start": "2010-05-18",
       "end": null
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "E-2010-001",
+      "kind": "participant",
+      "start": "2010-05-18",
+      "end": "2010-09-03"
+    },
+    {
+      "src": "p:daniel.leach",
+      "dst": "E-2010-001",
+      "kind": "participant",
+      "start": "2010-05-18",
+      "end": "2010-09-03"
+    },
+    {
+      "src": "p:michael.walker",
+      "dst": "E-2010-001",
+      "kind": "participant",
+      "start": "2010-05-18",
+      "end": "2010-09-03"
+    },
+    {
+      "src": "xp:sandra.flores",
+      "dst": "E-2010-001",
+      "kind": "participant",
+      "start": "2010-05-18",
+      "end": "2010-09-03"
     },
     {
       "src": "x:scott-smith-and-edwards",
@@ -944,11 +1296,53 @@
       "end": null
     },
     {
+      "src": "p:deborah.allen",
+      "dst": "E-2011-001",
+      "kind": "participant",
+      "start": "2011-02-16",
+      "end": "2011-05-20"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2011-001",
+      "kind": "participant",
+      "start": "2011-02-16",
+      "end": "2011-05-20"
+    },
+    {
+      "src": "xp:melissa.johnson",
+      "dst": "E-2011-001",
+      "kind": "participant",
+      "start": "2011-02-16",
+      "end": "2011-05-20"
+    },
+    {
       "src": "x:stark-wilson",
       "dst": "x:calderwood-partners",
       "kind": "client_of",
       "start": "2011-05-10",
       "end": null
+    },
+    {
+      "src": "p:julie.parks",
+      "dst": "E-2011-002",
+      "kind": "participant",
+      "start": "2011-05-10",
+      "end": "2011-09-23"
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "E-2011-002",
+      "kind": "participant",
+      "start": "2011-05-10",
+      "end": "2011-09-23"
+    },
+    {
+      "src": "xp:julie.gonzalez",
+      "dst": "E-2011-002",
+      "kind": "participant",
+      "start": "2011-05-10",
+      "end": "2011-09-23"
     },
     {
       "src": "x:garcia-werner",
@@ -958,11 +1352,67 @@
       "end": null
     },
     {
+      "src": "p:james.green",
+      "dst": "E-2012-001",
+      "kind": "participant",
+      "start": "2012-05-21",
+      "end": "2012-08-31"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2012-001",
+      "kind": "participant",
+      "start": "2012-05-21",
+      "end": "2012-08-31"
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "E-2012-001",
+      "kind": "participant",
+      "start": "2012-05-21",
+      "end": "2012-08-31"
+    },
+    {
+      "src": "xp:mark.villegas",
+      "dst": "E-2012-001",
+      "kind": "participant",
+      "start": "2012-05-21",
+      "end": "2012-08-31"
+    },
+    {
       "src": "x:walker-murray",
       "dst": "x:calderwood-partners",
       "kind": "client_of",
       "start": "2013-08-09",
       "end": null
+    },
+    {
+      "src": "p:john.vasquez",
+      "dst": "E-2013-001",
+      "kind": "participant",
+      "start": "2013-08-09",
+      "end": "2014-03-03"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2013-001",
+      "kind": "participant",
+      "start": "2013-08-09",
+      "end": "2014-03-03"
+    },
+    {
+      "src": "p:brenda.rodriguez",
+      "dst": "E-2013-001",
+      "kind": "participant",
+      "start": "2013-08-09",
+      "end": "2014-03-03"
+    },
+    {
+      "src": "xp:james.keller",
+      "dst": "E-2013-001",
+      "kind": "participant",
+      "start": "2013-08-09",
+      "end": "2014-03-03"
     },
     {
       "src": "x:pacheco-casey",
@@ -972,11 +1422,298 @@
       "end": null
     },
     {
+      "src": "p:matthew.parrish",
+      "dst": "E-2014-001",
+      "kind": "participant",
+      "start": "2014-03-01",
+      "end": "2014-11-05"
+    },
+    {
+      "src": "p:daniel.leach",
+      "dst": "E-2014-001",
+      "kind": "participant",
+      "start": "2014-03-01",
+      "end": "2014-11-05"
+    },
+    {
+      "src": "p:brenda.rodriguez",
+      "dst": "E-2014-001",
+      "kind": "participant",
+      "start": "2014-03-01",
+      "end": "2014-11-05"
+    },
+    {
+      "src": "xp:david.carter",
+      "dst": "E-2014-001",
+      "kind": "participant",
+      "start": "2014-03-01",
+      "end": "2014-11-05"
+    },
+    {
       "src": "x:johnson-lopez-and-brooks",
       "dst": "x:calderwood-partners",
       "kind": "client_of",
       "start": "2015-06-16",
       "end": null
+    },
+    {
+      "src": "p:melissa.casey",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-06-16",
+      "end": "2016-01-26"
+    },
+    {
+      "src": "p:cynthia.hart",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-06-16",
+      "end": "2016-01-26"
+    },
+    {
+      "src": "p:nicole.griffin",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-06-16",
+      "end": "2016-01-26"
+    },
+    {
+      "src": "xp:barbara.banks",
+      "dst": "E-2015-001",
+      "kind": "participant",
+      "start": "2015-06-16",
+      "end": "2016-01-26"
+    },
+    {
+      "src": "p:nicole.griffin",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-02-27",
+      "end": "2016-07-29"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-02-27",
+      "end": "2016-07-29"
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-02-27",
+      "end": "2016-07-29"
+    },
+    {
+      "src": "xp:linda.gallegos",
+      "dst": "E-2016-001",
+      "kind": "participant",
+      "start": "2016-02-27",
+      "end": "2016-07-29"
+    },
+    {
+      "src": "p:cynthia.hart",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-07-02",
+      "end": "2018-01-21"
+    },
+    {
+      "src": "p:deborah.gordon",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-07-02",
+      "end": "2018-01-21"
+    },
+    {
+      "src": "p:brenda.clayton",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-07-02",
+      "end": "2018-01-21"
+    },
+    {
+      "src": "xp:sandra.frazier",
+      "dst": "E-2017-001",
+      "kind": "participant",
+      "start": "2017-07-02",
+      "end": "2018-01-21"
+    },
+    {
+      "src": "p:daniel.cisneros",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-02-07",
+      "end": "2018-10-03"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-02-07",
+      "end": "2018-10-03"
+    },
+    {
+      "src": "xp:steven.lowe",
+      "dst": "E-2018-001",
+      "kind": "participant",
+      "start": "2018-02-07",
+      "end": "2018-10-03"
+    },
+    {
+      "src": "p:deborah.jimenez",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-19",
+      "end": "2020-02-13"
+    },
+    {
+      "src": "p:mary.parker",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-19",
+      "end": "2020-02-13"
+    },
+    {
+      "src": "xp:joseph.wallace",
+      "dst": "E-2019-001",
+      "kind": "participant",
+      "start": "2019-05-19",
+      "end": "2020-02-13"
+    },
+    {
+      "src": "p:steven.hunt",
+      "dst": "E-2019-002",
+      "kind": "participant",
+      "start": "2019-03-22",
+      "end": "2019-12-04"
+    },
+    {
+      "src": "p:melissa.casey",
+      "dst": "E-2019-002",
+      "kind": "participant",
+      "start": "2019-03-22",
+      "end": "2019-12-04"
+    },
+    {
+      "src": "xp:barbara.ward",
+      "dst": "E-2019-002",
+      "kind": "participant",
+      "start": "2019-03-22",
+      "end": "2019-12-04"
+    },
+    {
+      "src": "p:brenda.clayton",
+      "dst": "E-2019-003",
+      "kind": "participant",
+      "start": "2019-02-22",
+      "end": "2019-09-05"
+    },
+    {
+      "src": "p:deborah.jimenez",
+      "dst": "E-2019-003",
+      "kind": "participant",
+      "start": "2019-02-22",
+      "end": "2019-09-05"
+    },
+    {
+      "src": "xp:sandra.flores",
+      "dst": "E-2019-003",
+      "kind": "participant",
+      "start": "2019-02-22",
+      "end": "2019-09-05"
+    },
+    {
+      "src": "p:julie.vasquez",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-03-16",
+      "end": "2020-10-17"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-03-16",
+      "end": "2020-10-17"
+    },
+    {
+      "src": "xp:melissa.johnson",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-03-16",
+      "end": "2020-10-17"
+    },
+    {
+      "src": "p:joseph.reed",
+      "dst": "E-2020-002",
+      "kind": "participant",
+      "start": "2020-04-01",
+      "end": "2020-08-22"
+    },
+    {
+      "src": "p:deborah.jimenez",
+      "dst": "E-2020-002",
+      "kind": "participant",
+      "start": "2020-04-01",
+      "end": "2020-08-22"
+    },
+    {
+      "src": "xp:julie.gonzalez",
+      "dst": "E-2020-002",
+      "kind": "participant",
+      "start": "2020-04-01",
+      "end": "2020-08-22"
+    },
+    {
+      "src": "p:pamela.miller",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-01",
+      "end": "2021-07-19"
+    },
+    {
+      "src": "p:matthew.parrish",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-01",
+      "end": "2021-07-19"
+    },
+    {
+      "src": "xp:mark.villegas",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-04-01",
+      "end": "2021-07-19"
+    },
+    {
+      "src": "p:melissa.casey",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-14",
+      "end": "2022-12-17"
+    },
+    {
+      "src": "p:james.green",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-14",
+      "end": "2022-12-17"
+    },
+    {
+      "src": "p:jason.torres",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-14",
+      "end": "2022-12-17"
+    },
+    {
+      "src": "xp:james.keller",
+      "dst": "E-2022-001",
+      "kind": "participant",
+      "start": "2022-05-14",
+      "end": "2022-12-17"
     }
   ]
 }

@@ -137,6 +137,42 @@
       ],
       "kind": "person",
       "tags": []
+    },
+    {
+      "id": "E-2020-001",
+      "canonical": "Service Line Assessment for Johnson, Cross and Gibbs",
+      "aliases": [
+        "E-2020-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2021-001",
+      "canonical": "Physician Compensation Review for Johnson, Cross and Gibbs",
+      "aliases": [
+        "E-2021-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2023-001",
+      "canonical": "Ambulatory Network Study for Lopez, Mcbride and Evans",
+      "aliases": [
+        "E-2023-001"
+      ],
+      "kind": "engagement",
+      "tags": []
+    },
+    {
+      "id": "E-2024-001",
+      "canonical": "Revenue Cycle Diagnostic for Sullivan, Hall and Kelly",
+      "aliases": [
+        "E-2024-001"
+      ],
+      "kind": "engagement",
+      "tags": []
     }
   ],
   "edges": [
@@ -274,6 +310,55 @@
       "end": null
     },
     {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "E-2020-001",
+      "kind": "participant",
+      "start": "2020-08-04",
+      "end": "2021-02-22"
+    },
+    {
+      "src": "p:patricia.moore",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-06-10",
+      "end": "2021-09-12"
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-06-10",
+      "end": "2021-09-12"
+    },
+    {
+      "src": "xp:laura.phillips",
+      "dst": "E-2021-001",
+      "kind": "participant",
+      "start": "2021-06-10",
+      "end": "2021-09-12"
+    },
+    {
       "src": "x:lopez-mcbride-and-evans",
       "dst": "x:verdant-health",
       "kind": "client_of",
@@ -281,11 +366,60 @@
       "end": null
     },
     {
+      "src": "p:barbara.freeman",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "p:joshua.dougherty",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
+      "src": "xp:angela.mahoney",
+      "dst": "E-2023-001",
+      "kind": "participant",
+      "start": "2023-02-13",
+      "end": "2023-09-06"
+    },
+    {
       "src": "x:sullivan-hall-and-kelly",
       "dst": "x:verdant-health",
       "kind": "client_of",
       "start": "2024-03-01",
       "end": null
+    },
+    {
+      "src": "p:susan.clark",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-03-01",
+      "end": "2024-09-13"
+    },
+    {
+      "src": "p:daniel.alvarado",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-03-01",
+      "end": "2024-09-13"
+    },
+    {
+      "src": "xp:megan.wells",
+      "dst": "E-2024-001",
+      "kind": "participant",
+      "start": "2024-03-01",
+      "end": "2024-09-13"
     }
   ]
 }
