@@ -11,13 +11,12 @@ import json
 import pytest
 
 from orgsmith.artifacts import load_manifest
-from orgsmith.doctext import DocText
 from orgsmith.evals.emit import LABEL_POLICY_VERSION
 from orgsmith.evals.score import score_retrieval
 from orgsmith.paths import OrgPaths
 from orgsmith.schemas import RetrievalAnswers, surface_in_text
 
-from conftest import REPO, flagship_params
+from conftest import REPO, committed_doctext, flagship_params
 
 pytestmark = pytest.mark.org
 
@@ -51,12 +50,10 @@ def test_every_acceptable_document_really_carries_the_surface(slug):
     """An acceptable document is not a courtesy. Its rendered text has to
     contain the questioned surface as a standalone token run, recomputed
     here from the committed share."""
-    from orgsmith.artifacts import load_engagements, load_foundation
-
     paths = OrgPaths(root=REPO, slug=slug)
     manifest = load_manifest(paths)
     by_path = {e.path: e for e in manifest}
-    reader = DocText(paths, load_engagements(paths), load_foundation(paths))
+    reader = committed_doctext(slug)
 
     checked = 0
     for question in _questions(paths):
@@ -148,13 +145,11 @@ def test_scan_hits_are_required_acceptable_or_a_recorded_diagnostic(slug):
     """The completeness property: for every questioned mention surface,
     every authored document whose rendered text carries it is accounted for.
     Nothing the scan can see is silently absent from the answer key."""
-    from orgsmith.artifacts import load_engagements, load_foundation
-
     paths = OrgPaths(root=REPO, slug=slug)
     manifest = [
         e for e in load_manifest(paths) if e.authoring != "derived"
     ]
-    reader = DocText(paths, load_engagements(paths), load_foundation(paths))
+    reader = committed_doctext(slug)
     clusters = json.loads((paths.evals_dir / "clusters.json").read_text())
     members = {
         m["path"] for c in clusters["clusters"] for m in c["members"]
@@ -245,15 +240,13 @@ def test_diagnostics_are_emitted_and_stamped(slug):
 def test_recorded_value_collisions_are_real_and_never_gold(slug):
     """A collision names documents that really hold the surface and are
     really not answers. Recorded, never promoted."""
-    from orgsmith.artifacts import load_engagements, load_foundation
-
     paths = OrgPaths(root=REPO, slug=slug)
     data = json.loads((paths.evals_dir / "diagnostics.json").read_text())
     if not data["value_collisions"]:
         pytest.skip(f"{slug} records no value collisions")
 
     by_path = {e.path: e for e in load_manifest(paths)}
-    reader = DocText(paths, load_engagements(paths), load_foundation(paths))
+    reader = committed_doctext(slug)
     extraction = {
         json.loads(line)["id"]: json.loads(line)
         for line in (paths.evals_dir / "extraction.jsonl").read_text().splitlines()

@@ -115,6 +115,17 @@ def main(argv=None) -> int:
     p_doc.add_argument("slug", nargs="?", help="record results into this org's state")
     p_doc.add_argument("--root", type=Path, default=None)
 
+    p_base = sub.add_parser(
+        "baseline", help="keyless retrieval baselines -> baselines/summary.json"
+    )
+    p_base.add_argument("slug", nargs="?", help="org slug (omit with --fleet)")
+    p_base.add_argument("--root", type=Path, default=None)
+    p_base.add_argument(
+        "--fleet",
+        action="store_true",
+        help="render the fleet table -> docs/BASELINES.md",
+    )
+
     p_dist = sub.add_parser(
         "distributions",
         help="fleet distributional dashboard -> docs/DISTRIBUTIONS.md",
@@ -161,6 +172,15 @@ def main(argv=None) -> int:
         from .distributions import run_distributions
 
         return run_distributions(args.root)
+
+    if args.verb == "baseline":
+        from .baselines import run_baseline, run_baseline_fleet
+
+        if args.fleet:
+            return run_baseline_fleet(args.root)
+        if not args.slug:
+            parser.error("baseline needs a slug or --fleet")
+        return run_baseline(org_paths(args.slug, args.root))
 
     if args.verb == "score":
         from .evals import run_score

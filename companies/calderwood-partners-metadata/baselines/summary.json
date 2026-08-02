@@ -1,0 +1,118 @@
+{
+  "schema_id": "orgsmith/baseline-summary@1",
+  "slug": "calderwood-partners",
+  "policy_version": "1.0",
+  "config": {
+    "k1": 1.5,
+    "b": 0.75,
+    "top_k": 10,
+    "tokenizer": "[a-z0-9]+ over casefolded text",
+    "tie_break": "ascending share-relative path"
+  },
+  "scores": [
+    {
+      "retriever": "filename-only",
+      "split": "core",
+      "questions": 108,
+      "strict": 0.0093,
+      "precision": 0.3368,
+      "recall": 0.6592,
+      "f1": 0.3099,
+      "recall_at_5": 0.4968,
+      "recall_at_10": 0.6592,
+      "mrr": 0.6787,
+      "ndcg_at_10": 0.5411
+    },
+    {
+      "retriever": "filename-only",
+      "split": "distractors",
+      "questions": 108,
+      "strict": 0.0093,
+      "precision": 0.3368,
+      "recall": 0.6592,
+      "f1": 0.3099,
+      "recall_at_5": 0.4968,
+      "recall_at_10": 0.6592,
+      "mrr": 0.6787,
+      "ndcg_at_10": 0.5411
+    },
+    {
+      "retriever": "filename-only",
+      "split": "noise",
+      "questions": 108,
+      "strict": 0.0093,
+      "precision": 0.3271,
+      "recall": 0.636,
+      "f1": 0.3015,
+      "recall_at_5": 0.4541,
+      "recall_at_10": 0.636,
+      "mrr": 0.6256,
+      "ndcg_at_10": 0.5075
+    },
+    {
+      "retriever": "filename-only",
+      "split": "full",
+      "questions": 108,
+      "strict": 0.0093,
+      "precision": 0.3271,
+      "recall": 0.636,
+      "f1": 0.3015,
+      "recall_at_5": 0.4541,
+      "recall_at_10": 0.636,
+      "mrr": 0.6256,
+      "ndcg_at_10": 0.5075
+    },
+    {
+      "retriever": "bm25",
+      "split": "core",
+      "questions": 108,
+      "strict": 0.0,
+      "precision": 0.3852,
+      "recall": 0.7147,
+      "f1": 0.4189,
+      "recall_at_5": 0.6307,
+      "recall_at_10": 0.7147,
+      "mrr": 0.8025,
+      "ndcg_at_10": 0.7463
+    },
+    {
+      "retriever": "bm25",
+      "split": "distractors",
+      "questions": 108,
+      "strict": 0.0,
+      "precision": 0.3852,
+      "recall": 0.7147,
+      "f1": 0.4189,
+      "recall_at_5": 0.6307,
+      "recall_at_10": 0.7147,
+      "mrr": 0.8025,
+      "ndcg_at_10": 0.7463
+    },
+    {
+      "retriever": "bm25",
+      "split": "noise",
+      "questions": 108,
+      "strict": 0.0,
+      "precision": 0.383,
+      "recall": 0.6939,
+      "f1": 0.416,
+      "recall_at_5": 0.6032,
+      "recall_at_10": 0.6939,
+      "mrr": 0.7873,
+      "ndcg_at_10": 0.7162
+    },
+    {
+      "retriever": "bm25",
+      "split": "full",
+      "questions": 108,
+      "strict": 0.0,
+      "precision": 0.383,
+      "recall": 0.6939,
+      "f1": 0.416,
+      "recall_at_5": 0.6032,
+      "recall_at_10": 0.6939,
+      "mrr": 0.7873,
+      "ndcg_at_10": 0.7162
+    }
+  ]
+}

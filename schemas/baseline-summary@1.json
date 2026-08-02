@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "BaselineScore": {
+      "additionalProperties": false,
+      "description": "One retriever's result on one split of one org.",
+      "properties": {
+        "f1": {
+          "title": "F1",
+          "type": "number"
+        },
+        "mrr": {
+          "title": "Mrr",
+          "type": "number"
+        },
+        "ndcg_at_10": {
+          "title": "Ndcg At 10",
+          "type": "number"
+        },
+        "precision": {
+          "title": "Precision",
+          "type": "number"
+        },
+        "questions": {
+          "title": "Questions",
+          "type": "integer"
+        },
+        "recall": {
+          "title": "Recall",
+          "type": "number"
+        },
+        "recall_at_10": {
+          "title": "Recall At 10",
+          "type": "number"
+        },
+        "recall_at_5": {
+          "title": "Recall At 5",
+          "type": "number"
+        },
+        "retriever": {
+          "title": "Retriever",
+          "type": "string"
+        },
+        "split": {
+          "title": "Split",
+          "type": "string"
+        },
+        "strict": {
+          "title": "Strict",
+          "type": "number"
+        }
+      },
+      "required": [
+        "retriever",
+        "split",
+        "questions",
+        "strict",
+        "precision",
+        "recall",
+        "f1",
+        "recall_at_5",
+        "recall_at_10",
+        "mrr",
+        "ndcg_at_10"
+      ],
+      "title": "BaselineScore",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/baseline-summary@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Keyless reference points for the retrieval suite.\n\nTwo deliberately dumb retrievers, run through the ordinary scorer as\nordinary answer files. They exist so a consumer can tell a question that\nis genuinely hard from one that is structurally easy: where filename\nmatching alone aces a family, the question was measuring the filename.\n\nNever a gate and never a target. Derived, so re-emitting is free.",
+  "properties": {
+    "config": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Config",
+      "type": "object"
+    },
+    "policy_version": {
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "orgsmith/baseline-summary@1",
+      "default": "orgsmith/baseline-summary@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "scores": {
+      "items": {
+        "$ref": "#/$defs/BaselineScore"
+      },
+      "title": "Scores",
+      "type": "array"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "policy_version",
+    "config",
+    "scores"
+  ],
+  "title": "BaselineSummary",
+  "type": "object"
+}

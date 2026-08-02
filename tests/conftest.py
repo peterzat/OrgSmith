@@ -428,3 +428,23 @@ def build_rendered(paths: OrgPaths) -> OrgPaths:
     run_authoring(paths)
     assert run_render(paths) == 0
     return paths
+
+
+_DOCTEXT_CACHE: dict = {}
+
+
+def committed_doctext(slug: str):
+    """One shared extractable-text reader per committed org.
+
+    M17's answer-key work reads rendered text from several org-tier test
+    modules. Extraction is the expensive part of that tier, so it is paid
+    once per org per session rather than once per module."""
+    from orgsmith.artifacts import load_engagements, load_foundation
+    from orgsmith.doctext import DocText
+
+    if slug not in _DOCTEXT_CACHE:
+        paths = OrgPaths(root=REPO, slug=slug)
+        _DOCTEXT_CACHE[slug] = DocText(
+            paths, load_engagements(paths), load_foundation(paths)
+        )
+    return _DOCTEXT_CACHE[slug]

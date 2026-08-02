@@ -85,6 +85,14 @@ class OrgPaths:
         return self.meta_dir / "evals"
 
     @property
+    def baselines_dir(self) -> Path:
+        return self.meta_dir / "baselines"
+
+    @property
+    def data_card_md(self) -> Path:
+        return self.meta_dir / "DATA-CARD.md"
+
+    @property
     def docplan_dir(self) -> Path:
         return self.meta_dir / "docplan"
 

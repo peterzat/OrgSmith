@@ -1,0 +1,118 @@
+{
+  "schema_id": "orgsmith/baseline-summary@1",
+  "slug": "northgate-staffing",
+  "policy_version": "1.0",
+  "config": {
+    "k1": 1.5,
+    "b": 0.75,
+    "top_k": 10,
+    "tokenizer": "[a-z0-9]+ over casefolded text",
+    "tie_break": "ascending share-relative path"
+  },
+  "scores": [
+    {
+      "retriever": "filename-only",
+      "split": "core",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3317,
+      "recall": 0.6876,
+      "f1": 0.3259,
+      "recall_at_5": 0.6518,
+      "recall_at_10": 0.6876,
+      "mrr": 0.6911,
+      "ndcg_at_10": 0.6275
+    },
+    {
+      "retriever": "filename-only",
+      "split": "distractors",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3317,
+      "recall": 0.6876,
+      "f1": 0.3259,
+      "recall_at_5": 0.6518,
+      "recall_at_10": 0.6876,
+      "mrr": 0.6911,
+      "ndcg_at_10": 0.6275
+    },
+    {
+      "retriever": "filename-only",
+      "split": "noise",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3108,
+      "recall": 0.6627,
+      "f1": 0.3126,
+      "recall_at_5": 0.6064,
+      "recall_at_10": 0.6627,
+      "mrr": 0.6535,
+      "ndcg_at_10": 0.5949
+    },
+    {
+      "retriever": "filename-only",
+      "split": "full",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3108,
+      "recall": 0.6627,
+      "f1": 0.3126,
+      "recall_at_5": 0.6064,
+      "recall_at_10": 0.6627,
+      "mrr": 0.6535,
+      "ndcg_at_10": 0.5949
+    },
+    {
+      "retriever": "bm25",
+      "split": "core",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3578,
+      "recall": 0.707,
+      "f1": 0.408,
+      "recall_at_5": 0.5668,
+      "recall_at_10": 0.707,
+      "mrr": 0.7134,
+      "ndcg_at_10": 0.6928
+    },
+    {
+      "retriever": "bm25",
+      "split": "distractors",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3578,
+      "recall": 0.707,
+      "f1": 0.408,
+      "recall_at_5": 0.5668,
+      "recall_at_10": 0.707,
+      "mrr": 0.7134,
+      "ndcg_at_10": 0.6928
+    },
+    {
+      "retriever": "bm25",
+      "split": "noise",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3598,
+      "recall": 0.6752,
+      "f1": 0.4016,
+      "recall_at_5": 0.5073,
+      "recall_at_10": 0.6752,
+      "mrr": 0.6421,
+      "ndcg_at_10": 0.6229
+    },
+    {
+      "retriever": "bm25",
+      "split": "full",
+      "questions": 41,
+      "strict": 0.0,
+      "precision": 0.3598,
+      "recall": 0.6752,
+      "f1": 0.4016,
+      "recall_at_5": 0.5073,
+      "recall_at_10": 0.6752,
+      "mrr": 0.6421,
+      "ndcg_at_10": 0.6229
+    }
+  ]
+}

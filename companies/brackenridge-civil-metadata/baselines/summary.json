@@ -1,0 +1,118 @@
+{
+  "schema_id": "orgsmith/baseline-summary@1",
+  "slug": "brackenridge-civil",
+  "policy_version": "1.0",
+  "config": {
+    "k1": 1.5,
+    "b": 0.75,
+    "top_k": 10,
+    "tokenizer": "[a-z0-9]+ over casefolded text",
+    "tie_break": "ascending share-relative path"
+  },
+  "scores": [
+    {
+      "retriever": "filename-only",
+      "split": "core",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3265,
+      "recall": 0.716,
+      "f1": 0.316,
+      "recall_at_5": 0.7101,
+      "recall_at_10": 0.716,
+      "mrr": 0.8529,
+      "ndcg_at_10": 0.7291
+    },
+    {
+      "retriever": "filename-only",
+      "split": "distractors",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3265,
+      "recall": 0.716,
+      "f1": 0.316,
+      "recall_at_5": 0.7101,
+      "recall_at_10": 0.716,
+      "mrr": 0.8529,
+      "ndcg_at_10": 0.7291
+    },
+    {
+      "retriever": "filename-only",
+      "split": "noise",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3265,
+      "recall": 0.716,
+      "f1": 0.316,
+      "recall_at_5": 0.7101,
+      "recall_at_10": 0.716,
+      "mrr": 0.8529,
+      "ndcg_at_10": 0.7291
+    },
+    {
+      "retriever": "filename-only",
+      "split": "full",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3265,
+      "recall": 0.716,
+      "f1": 0.316,
+      "recall_at_5": 0.7101,
+      "recall_at_10": 0.716,
+      "mrr": 0.8529,
+      "ndcg_at_10": 0.7291
+    },
+    {
+      "retriever": "bm25",
+      "split": "core",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3569,
+      "recall": 0.6969,
+      "f1": 0.4274,
+      "recall_at_5": 0.619,
+      "recall_at_10": 0.6969,
+      "mrr": 0.7353,
+      "ndcg_at_10": 0.7057
+    },
+    {
+      "retriever": "bm25",
+      "split": "distractors",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3569,
+      "recall": 0.6969,
+      "f1": 0.4274,
+      "recall_at_5": 0.619,
+      "recall_at_10": 0.6969,
+      "mrr": 0.7353,
+      "ndcg_at_10": 0.7057
+    },
+    {
+      "retriever": "bm25",
+      "split": "noise",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3569,
+      "recall": 0.6969,
+      "f1": 0.4274,
+      "recall_at_5": 0.619,
+      "recall_at_10": 0.6969,
+      "mrr": 0.7353,
+      "ndcg_at_10": 0.7057
+    },
+    {
+      "retriever": "bm25",
+      "split": "full",
+      "questions": 34,
+      "strict": 0.0294,
+      "precision": 0.3569,
+      "recall": 0.6969,
+      "f1": 0.4274,
+      "recall_at_5": 0.619,
+      "recall_at_10": 0.6969,
+      "mrr": 0.7353,
+      "ndcg_at_10": 0.7057
+    }
+  ]
+}

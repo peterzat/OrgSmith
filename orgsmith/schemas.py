@@ -34,6 +34,7 @@ SCHEMA_IDS = {
     "graph_expected": "orgsmith/graph-expected@1",
     "eval_clusters": "orgsmith/eval-clusters@1",
     "eval_diagnostics": "orgsmith/eval-diagnostics@1",
+    "baseline_summary": "orgsmith/baseline-summary@1",
     "work_order": "orgsmith/work-order@1",
     "enrichment_deliverable": "orgsmith/enrichment-deliverable@1",
     "authoring_deliverable": "orgsmith/authoring-deliverable@1",
@@ -1192,6 +1193,41 @@ class EvalDiagnostics(StrictModel):
     # Explained by lineage rather than flagged: a draft of an engagement
     # letter holds its fee because it was copied from it.
     lineage_explained_value_hits: int = 0
+
+
+class BaselineScore(StrictModel):
+    """One retriever's result on one split of one org."""
+
+    retriever: str
+    split: str
+    questions: int  # gradable on this split
+    strict: float  # exact-set headline, the same one a consumer sees
+    precision: float
+    recall: float
+    f1: float
+    recall_at_5: float
+    recall_at_10: float
+    mrr: float
+    ndcg_at_10: float
+
+
+class BaselineSummary(StrictModel):
+    """Keyless reference points for the retrieval suite.
+
+    Two deliberately dumb retrievers, run through the ordinary scorer as
+    ordinary answer files. They exist so a consumer can tell a question that
+    is genuinely hard from one that is structurally easy: where filename
+    matching alone aces a family, the question was measuring the filename.
+
+    Never a gate and never a target. Derived, so re-emitting is free."""
+
+    schema_id: Literal["orgsmith/baseline-summary@1"] = SCHEMA_IDS[
+        "baseline_summary"
+    ]
+    slug: str
+    policy_version: str
+    config: dict[str, Union[int, float, str]]
+    scores: list[BaselineScore]
 
 
 class RetrievalAnswerItem(StrictModel):
