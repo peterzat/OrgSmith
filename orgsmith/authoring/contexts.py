@@ -135,6 +135,12 @@ Hard rules:
 - If a doc carries `reporting_line`, the person reports to exactly who it
   names and to no one else. Do not name any other person or title as their
   supervisor; a reporting relationship is owned by the ledger, not invented.
+- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that
+  skeleton is binding and overrides the genre's default shape. Cover every
+  numbered item, using at least the block kind it names, and use NONE of the
+  block kinds it forbids anywhere in that document. Two documents of one
+  genre are deliberately given different skeletons; write the one you were
+  given rather than the arrangement the genre usually takes.
 - Write plain, era-appropriate business prose in the org's voice.
 """
 
@@ -162,6 +168,68 @@ def _fact_hint(fact, charter: Charter) -> str:
         if noun:
             return f"count of {noun}; place where the number belongs"
     return _KIND_HINTS[fact.kind]
+
+
+_BLOCK_NAMES = {
+    "heading": "heading block",
+    "paragraph": "paragraph block",
+    "list": "list block",
+    "table": "table block",
+    "sigblock": "sigblock",
+}
+
+
+def outline_for(entry) -> "Outline | None":
+    """This document's dealt skeleton, or None.
+
+    Resolved from `render_params["outline"]` through the registry rather than
+    carried in the brief, so the skeleton has exactly one definition. The
+    brief would otherwise be a second copy free to drift from the pool the
+    validator recomputes against, and ingest would be trusting a
+    model-visible file for a rule about model output.
+    """
+    from ..docplan.registry import outline_by_id
+
+    outline_id = entry.render_params.get("outline")
+    if not outline_id:
+        return None
+    return outline_by_id(entry.genre, str(outline_id))
+
+
+def _outline_guidance(entry) -> str:
+    """The dealt skeleton, as brief text.
+
+    Guidance is where every other structural instruction already lives
+    (genre shape, hard-case location rules, per-author style), so an outline
+    needs no new field on `DocBrief` -- which is also what keeps a knob-off
+    work order byte-identical.
+
+    The forbidden kinds are stated as a hard rule rather than a preference
+    because that is the half ingest enforces, and because "the same five
+    numbered owners in the same order" is exactly what a preference would
+    fail to prevent.
+    """
+    outline = outline_for(entry)
+    if outline is None:
+        return ""
+    lines = [
+        " STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default "
+        "shape described above, and it differs from other documents of this "
+        "genre ON PURPOSE: do not reach for the usual arrangement. Cover "
+        "these in order, each as at least the block kind named:"
+    ]
+    for i, section in enumerate(outline.sections, start=1):
+        lines.append(
+            f" {i}. [{_BLOCK_NAMES[section.form]}] {section.directive}."
+        )
+    if outline.forbids:
+        kinds = ", ".join(sorted(outline.forbids))
+        lines.append(
+            f" This document must contain NO {kinds} block of any kind, "
+            f"anywhere. Express that material as prose instead. A "
+            f"deliverable carrying one is rejected."
+        )
+    return "".join(lines)
 
 
 def _brief_summary(eng) -> str:
@@ -527,6 +595,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                 guidance += _style_guidance(
                     style_specs[entry.authors[0]], entry.genre
                 )
+            guidance += _outline_guidance(entry)
             briefs.append(
                 DocBrief(
                     doc_id=entry.doc_id,

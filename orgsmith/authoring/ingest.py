@@ -273,6 +273,57 @@ def _check_hard_cases(doc: DocIR, entry, facts) -> list[str]:
     return problems
 
 
+def _check_outline(doc: DocIR, entry) -> list[str]:
+    """The deliverable honors the skeleton the plan dealt it (M17b).
+
+    Read from the MANIFEST rather than from the brief. The brief is a
+    model-visible file; the manifest is ground truth that OUT-01 recomputes,
+    so a deliverable cannot argue its way out of its own skeleton.
+
+    Deliberately NOT an ordering check. The goal is to make convergence
+    structurally hard, not authoring brittle: an author that covers the
+    right material in a defensible order has written a different document
+    from its sibling, which is the whole objective. What is checked is what
+    a document CONTAINS -- enough blocks to carry the sections, enough of
+    each named list/table form, and none of the forbidden kinds.
+
+    Inert when the document carries no outline, so knob-off ingest behaves
+    exactly as it did before this existed.
+    """
+    from ..authoring.contexts import outline_for
+
+    outline = outline_for(entry)
+    if outline is None:
+        return []
+    problems = []
+    kinds = [b.kind for b in doc.blocks]
+    for forbidden in outline.forbids:
+        if forbidden in kinds:
+            problems.append(
+                f"outline {outline.id!r} forbids {forbidden} blocks and the "
+                f"document carries {kinds.count(forbidden)}; express that "
+                f"material as prose"
+            )
+    if len(doc.blocks) < len(outline.sections):
+        problems.append(
+            f"outline {outline.id!r} has {len(outline.sections)} sections "
+            f"and the document has {len(doc.blocks)} block(s); every section "
+            f"needs at least one block"
+        )
+    # Counted for the forms whose ABSENCE is the defect an outline exists to
+    # prevent. A heading or paragraph shortfall is already caught by the
+    # block-count check above; a missing table is not, because paragraphs
+    # can pad the count while the document quietly reverts to prose.
+    for form in ("list", "table", "sigblock"):
+        want = sum(1 for s in outline.sections if s.form == form)
+        if want and kinds.count(form) < want:
+            problems.append(
+                f"outline {outline.id!r} calls for {want} {form} block(s) "
+                f"and the document has {kinds.count(form)}"
+            )
+    return problems
+
+
 def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
     state = load_state(paths)
     if not deliverable_path.exists():
@@ -314,6 +365,8 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
             entry = entries.get(doc.doc_id)
             if entry is not None:
                 for p in _check_hard_cases(doc, entry, facts):
+                    problems.append(f"{doc.doc_id}: {p}")
+                for p in _check_outline(doc, entry):
                     problems.append(f"{doc.doc_id}: {p}")
             # Defense in depth: money/date/count surface forms must arrive
             # only via placeholders. A literal match means the author somehow

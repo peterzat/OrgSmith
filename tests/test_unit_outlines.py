@@ -99,13 +99,11 @@ def test_variants_differ_in_what_a_document_contains():
     leave the underlying document identical, which is the defect. Compared
     on form sequence plus forbidden kinds, never on directive wording."""
     for genre, pool in OUTLINES.items():
-        shapes = {
-            (tuple(s.form for s in o.sections), tuple(sorted(o.forbids)))
-            for o in pool
-        }
+        shapes = {tuple(s.form for s in o.sections) for o in pool}
         assert len(shapes) == len(pool), (
-            f"{genre}: two variants share a block shape and a forbids set, "
-            f"so they ask for the same document"
+            f"{genre}: two variants share a block-form sequence, so they ask "
+            f"for the same document -- and the variety measurement, which "
+            f"counts distinct block shapes, would silently undercount"
         )
 
 
@@ -365,3 +363,260 @@ def test_out_01_catches_an_outline_on_a_derived_document(outlined_copy, capsys):
     findings = _findings(_report(outlined_copy, capsys))
     assert findings
     assert "the deal assigns none" in findings[0]["message"]
+
+
+# --- the brief and ingest conformance (B2) ----------------------------------
+
+
+@pytest.fixture(scope="module")
+def briefed(tmp_path_factory):
+    """A knob-on org with one authoring batch outstanding."""
+    from orgsmith.authoring.contexts import run_next_batch
+
+    from conftest import run_enrichment
+
+    paths = build_knobbed_stages(tmp_path_factory.mktemp("outline-brief"))
+    run_enrichment(paths)
+    assert run_next_batch(paths) == 0
+    return paths
+
+
+@pytest.fixture()
+def briefed_copy(briefed, tmp_path):
+    """A per-test copy of the briefed org.
+
+    Ingesting a batch clears it from `state.author_batches`, so the tests
+    below would consume the module fixture's only outstanding batch for each
+    other. Each gets its own tree instead.
+    """
+    shutil.copytree(briefed.root / "recipes", tmp_path / "recipes")
+    shutil.copytree(briefed.root / "companies", tmp_path / "companies")
+    return OrgPaths(root=tmp_path, slug=briefed.slug)
+
+
+def _wo(paths):
+    from conftest import sole_author_wo
+
+    return sole_author_wo(paths)
+
+
+def test_the_brief_states_the_skeleton_and_what_it_forbids(briefed):
+    from conftest import committed_outlines
+
+    outlines = committed_outlines(briefed)
+    order = _wo(briefed)
+    checked = 0
+    for brief in order.docs:
+        outline = outlines.get(brief.doc_id)
+        if outline is None:
+            continue
+        assert "STRUCTURE FOR THIS DOCUMENT" in brief.guidance
+        for section in outline.sections:
+            assert section.directive in brief.guidance, brief.doc_id
+        for forbidden in outline.forbids:
+            assert forbidden in brief.guidance.split("must contain NO")[-1]
+        checked += 1
+    assert checked
+
+
+def test_a_knob_off_brief_carries_no_outline_text(tmp_path):
+    from orgsmith.authoring.contexts import run_next_batch
+
+    from conftest import run_enrichment, sole_author_wo
+
+    paths = build_pure_stages(tmp_path)
+    run_enrichment(paths)
+    assert run_next_batch(paths) == 0
+    for brief in sole_author_wo(paths).docs:
+        assert "STRUCTURE FOR THIS DOCUMENT" not in brief.guidance
+
+
+def test_a_knob_off_work_order_is_byte_identical(tmp_path):
+    """The inertness claim, at the bytes. Nothing was added to `DocBrief`:
+    the skeleton reaches the author through `guidance`, where every other
+    structural instruction already lives, so a knob-off work order is the
+    file it was before this feature existed."""
+    from orgsmith.authoring.contexts import run_next_batch
+    from orgsmith.state import load_state
+
+    from conftest import run_enrichment
+
+    def emit(root):
+        paths = build_pure_stages(root)
+        run_enrichment(paths)
+        assert run_next_batch(paths) == 0
+        ref = next(iter(load_state(paths).author_batches.values()))
+        return (paths.workorders_dir / ref.workorder).read_bytes()
+
+    first = emit(tmp_path / "a")
+    second = emit(tmp_path / "b")
+    assert first == second
+    assert b"outline" not in first
+
+
+def _deliver(paths, order, outlines, mutate=None):
+    from conftest import scripted_authoring
+
+    payload = scripted_authoring(order, outlines)
+    if mutate:
+        mutate(payload)
+    return payload
+
+
+def _ingest(paths, order, payload, name):
+    from orgsmith.authoring.ingest import run_ingest as ingest_author
+
+    reply = paths.workorders_dir / f"{name}.json"
+    reply.write_text(json.dumps(payload))
+    return ingest_author(paths, reply)
+
+
+def _outlined_doc(order, outlines, predicate):
+    for brief in order.docs:
+        outline = outlines.get(brief.doc_id)
+        if outline is not None and predicate(outline):
+            return brief.doc_id, outline
+    return None, None
+
+
+def test_a_conforming_deliverable_passes(briefed_copy, capsys):
+    from conftest import committed_outlines
+
+    order = _wo(briefed_copy)
+    outlines = committed_outlines(briefed_copy)
+    capsys.readouterr()
+    assert _ingest(briefed_copy, order, _deliver(briefed_copy, order, outlines), "ok") == 0
+
+
+def test_a_forbidden_block_kind_is_rejected(briefed_copy, capsys):
+    """The half that actually kills the blocker. "The same five numbered
+    owners in the same order" cannot recur in a variant that may not
+    contain a list -- but only because the ban is enforced rather than
+    suggested."""
+    from conftest import committed_outlines
+
+    order = _wo(briefed_copy)
+    outlines = committed_outlines(briefed_copy)
+    doc_id, outline = _outlined_doc(
+        order, outlines, lambda o: "list" in o.forbids
+    )
+    assert doc_id, "no briefed document forbids a list"
+
+    def mutate(payload):
+        for doc in payload["docs"]:
+            if doc["doc_id"] == doc_id:
+                doc["blocks"].append(
+                    {"kind": "list", "items": ["One", "Two", "Three"]}
+                )
+
+    capsys.readouterr()
+    assert _ingest(
+        briefed_copy, order, _deliver(briefed_copy, order, outlines, mutate), "forbidden"
+    ) == 1
+    out = capsys.readouterr().out
+    assert f"outline {outline.id!r} forbids list blocks" in out
+
+
+def test_a_missing_required_form_is_rejected(briefed_copy, capsys):
+    """A table section quietly reverting to prose is the failure the block
+    count alone cannot see: paragraphs pad the count while the document goes
+    back to the shape every sibling has."""
+    from conftest import committed_outlines
+
+    order = _wo(briefed_copy)
+    outlines = committed_outlines(briefed_copy)
+    # Whichever counted form this batch happens to offer. Keying off a
+    # specific one would make the test depend on which documents the first
+    # batch drew, which is batch luck rather than behaviour.
+    form = None
+    for candidate in ("table", "list", "sigblock"):
+        doc_id, outline = _outlined_doc(
+            order, outlines, lambda o, c=candidate: any(
+                s.form == c for s in o.sections
+            )
+        )
+        if doc_id:
+            form = candidate
+            break
+    assert form, "no briefed document requires a counted form"
+    want = sum(1 for s in outline.sections if s.form == form)
+
+    def mutate(payload):
+        for doc in payload["docs"]:
+            if doc["doc_id"] == doc_id:
+                doc["blocks"] = [
+                    {"kind": "paragraph", "text": "Padding."}
+                    if b["kind"] == form
+                    else b
+                    for b in doc["blocks"]
+                ]
+
+    capsys.readouterr()
+    assert _ingest(
+        briefed_copy, order, _deliver(briefed_copy, order, outlines, mutate), "noform"
+    ) == 1
+    out = capsys.readouterr().out
+    assert f"outline {outline.id!r} calls for {want} {form} block(s)" in out
+
+
+def test_a_document_with_too_few_blocks_is_rejected(briefed_copy, capsys):
+    from conftest import committed_outlines
+
+    order = _wo(briefed_copy)
+    outlines = committed_outlines(briefed_copy)
+    doc_id, outline = _outlined_doc(
+        order, outlines, lambda o: len(o.sections) >= 3
+    )
+    assert doc_id
+
+    def mutate(payload):
+        for doc in payload["docs"]:
+            if doc["doc_id"] == doc_id:
+                doc["blocks"] = doc["blocks"][:1]
+
+    capsys.readouterr()
+    assert _ingest(
+        briefed_copy, order, _deliver(briefed_copy, order, outlines, mutate), "short"
+    ) == 1
+    assert "every section needs at least one block" in capsys.readouterr().out
+
+
+def test_conformance_is_not_an_ordering_check(briefed_copy, capsys):
+    """Deliberately permissive on order. The goal is to make convergence
+    structurally hard, not authoring brittle: a document that covers the
+    right material in a defensible order has already stopped being its
+    sibling."""
+    from conftest import committed_outlines
+
+    order = _wo(briefed_copy)
+    outlines = committed_outlines(briefed_copy)
+
+    def mutate(payload):
+        for doc in payload["docs"]:
+            # A sigblock must stay last for the renderer; everything before
+            # it is fair game.
+            body = [b for b in doc["blocks"] if b["kind"] != "sigblock"]
+            sig = [b for b in doc["blocks"] if b["kind"] == "sigblock"]
+            doc["blocks"] = list(reversed(body)) + sig
+
+    capsys.readouterr()
+    assert _ingest(
+        briefed_copy, order, _deliver(briefed_copy, order, outlines, mutate), "reordered"
+    ) == 0
+
+
+def test_ingest_reads_the_manifest_not_the_brief(briefed_copy):
+    """The skeleton has one definition, in the plan. A deliverable cannot
+    talk its way out by disagreeing with the guidance it was handed, because
+    the check never reads the guidance."""
+    from orgsmith.authoring.contexts import outline_for
+    from orgsmith.artifacts import load_manifest
+
+    entries = {e.doc_id: e for e in load_manifest(briefed_copy)}
+    order = _wo(briefed_copy)
+    for brief in order.docs:
+        entry = entries[brief.doc_id]
+        from_manifest = outline_for(entry)
+        if from_manifest is None:
+            continue
+        assert from_manifest.id == entry.render_params["outline"]

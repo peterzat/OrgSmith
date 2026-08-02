@@ -331,7 +331,77 @@ def scripted_enrichment(order) -> dict:
     }
 
 
-def scripted_authoring(order) -> dict:
+def _outline_blocks(brief, outline, payload, signers) -> list:
+    """Scripted blocks that honor a dealt skeleton (M17b).
+
+    One block per section, in the form the section names, with the fact
+    placeholders and required mention surfaces injected into the first
+    text-bearing block. That is enough to satisfy ingest -- which checks
+    what a document CONTAINS, never the order it says it in -- and enough
+    for the variety measurement, which counts distinct block shapes.
+
+    A test double, not a model: it proves the plumbing carries a skeleton
+    end to end and that different skeletons yield different documents.
+    Whether real prose stops converging is the next generation's question.
+    """
+    blocks = []
+    placed = False
+    for i, section in enumerate(outline.sections):
+        extra = ""
+        if not placed and section.form in ("heading", "paragraph", "list"):
+            extra = " " + payload
+            placed = True
+        if section.form == "heading":
+            blocks.append(
+                {"kind": "heading", "text": f"{brief.title}{extra}", "level": 1}
+            )
+        elif section.form == "paragraph":
+            blocks.append(
+                {
+                    "kind": "paragraph",
+                    "text": (
+                        f"Scripted section {i + 1} for {brief.genre} under "
+                        f"outline {outline.id}.{extra}"
+                    ),
+                }
+            )
+        elif section.form == "list":
+            blocks.append(
+                {
+                    "kind": "list",
+                    "items": [
+                        f"Scripted item for section {i + 1}.{extra}",
+                        "Second scripted item.",
+                    ],
+                }
+            )
+        elif section.form == "table":
+            blocks.append(
+                {
+                    "kind": "table",
+                    "header": ["item", "owner"],
+                    "rows": [["Scripted row", "Scripted owner"]],
+                }
+            )
+        elif section.form == "sigblock":
+            blocks.append({"kind": "sigblock", "signers": signers})
+    return blocks
+
+
+def _letter_signers(brief) -> list:
+    signers = [brief.authors[0].id]
+    if brief.participants:
+        ext = [p.id for p in brief.participants if p.id.startswith("xp:")]
+        signers += ext[:1]
+    return signers
+
+
+def scripted_authoring(order, outlines=None) -> dict:
+    """`outlines` maps doc_id -> Outline for a knob-on org. Absent (the
+    default) the shapes below are byte-identical to what this helper
+    produced before M17b, which is what keeps knob-off deliverables
+    unchanged."""
+    outlines = outlines or {}
     docs = []
     for brief in order.docs:
         placeholders = " ".join("{{fact:%s}}" % f.id for f in brief.facts)
@@ -343,6 +413,21 @@ def scripted_authoring(order) -> dict:
             if "filename only" in brief.guidance
             else f" dated {brief.date}"
         )
+        outline = outlines.get(brief.doc_id)
+        if outline is not None:
+            docs.append(
+                {
+                    "schema_id": "orgsmith/docir@1",
+                    "doc_id": brief.doc_id,
+                    "blocks": _outline_blocks(
+                        brief,
+                        outline,
+                        f"{placeholders} Present: {surfaces}.{dated}",
+                        _letter_signers(brief),
+                    ),
+                }
+            )
+            continue
         blocks = [
             {"kind": "heading", "text": brief.title, "level": 1},
             {
@@ -371,11 +456,9 @@ def scripted_authoring(order) -> dict:
                 {"kind": "list", "items": [p.name for p in brief.participants]}
             )
         if brief.genre == "engagement_letter":
-            signers = [brief.authors[0].id]
-            if brief.participants:
-                ext = [p.id for p in brief.participants if p.id.startswith("xp:")]
-                signers += ext[:1]
-            blocks.append({"kind": "sigblock", "signers": signers})
+            blocks.append(
+                {"kind": "sigblock", "signers": _letter_signers(brief)}
+            )
         docs.append(
             {"schema_id": "orgsmith/docir@1", "doc_id": brief.doc_id, "blocks": blocks}
         )
@@ -412,6 +495,24 @@ def sole_author_wo(paths: OrgPaths):
     return load_work_order(paths.workorders_dir / ref.workorder)
 
 
+def committed_outlines(paths: OrgPaths) -> dict:
+    """doc_id -> Outline for every document the plan dealt one (M17b).
+
+    Read from the MANIFEST, which is where the deal is recorded and what
+    ingest enforces against, so the scripted author is held to exactly the
+    skeleton a real author would be. Empty when the knob is off.
+    """
+    from orgsmith.artifacts import load_manifest
+    from orgsmith.docplan.registry import outline_by_id
+
+    out = {}
+    for entry in load_manifest(paths):
+        outline_id = entry.render_params.get("outline")
+        if outline_id:
+            out[entry.doc_id] = outline_by_id(entry.genre, str(outline_id))
+    return out
+
+
 def ingest_author_batch(paths: OrgPaths, wo_id: str) -> None:
     """Author and ingest one outstanding batch by work_order_id (scripted)."""
     import json
@@ -423,7 +524,7 @@ def ingest_author_batch(paths: OrgPaths, wo_id: str) -> None:
     ref = load_state(paths).author_batches[wo_id]
     wo = load_work_order(paths.workorders_dir / ref.workorder)
     reply = paths.workorders_dir / f"reply-{wo.id.replace(':', '-')}.json"
-    reply.write_text(json.dumps(scripted_authoring(wo)))
+    reply.write_text(json.dumps(scripted_authoring(wo, committed_outlines(paths))))
     assert ingest_author(paths, reply) == 0
 
 

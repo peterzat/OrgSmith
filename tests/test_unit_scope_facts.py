@@ -503,7 +503,12 @@ def test_ingest_rejects_a_literal_count_in_prose(tmp_path, capsys):
     from orgsmith.authoring.ingest import run_ingest as ingest_author
     from orgsmith.artifacts import load_engagements
 
-    from conftest import run_enrichment, scripted_authoring, sole_author_wo
+    from conftest import (
+        committed_outlines,
+        run_enrichment,
+        scripted_authoring,
+        sole_author_wo,
+    )
 
     paths = build_knobbed_stages(tmp_path)
     run_enrichment(paths)
@@ -518,11 +523,16 @@ def test_ingest_rejects_a_literal_count_in_prose(tmp_path, capsys):
     assert briefed is not None, "no doc in the first batch cites a scope count"
     count_fact = next(facts[f.id] for f in briefed.facts if facts[f.id].kind == "count")
 
-    good = scripted_authoring(wo)
+    # The knobbed org deals section skeletons, so the deliverable has to
+    # honor them or the outline check rejects it for reasons this test is
+    # not about.
+    good = scripted_authoring(wo, committed_outlines(paths))
     tampered = _json.loads(_json.dumps(good))
     for doc in tampered["docs"]:
-        if doc["doc_id"] == briefed.doc_id:
-            doc["blocks"][1]["text"] += f" We benchmarked {count_fact.rendered}."
+        if doc["doc_id"] != briefed.doc_id:
+            continue
+        block = next(b for b in doc["blocks"] if b["kind"] == "paragraph")
+        block["text"] += f" We benchmarked {count_fact.rendered}."
     reply = paths.workorders_dir / "literal-count.json"
     reply.write_text(_json.dumps(tampered))
     capsys.readouterr()
