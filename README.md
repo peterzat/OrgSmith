@@ -139,17 +139,17 @@ posture, format mix, mail, noise), not to be read end to end.
 Document spans below are the real dates on the files, not the window the
 recipe allowed:
 
-| company | docs | share | answer key |
-| --- | --- | --- | --- |
-| **the exemplar**, a 12-person executive search firm, 2015–2023, business calendar, sample book, the full noise suite | 66 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) |
-| 25-person management consultancy, 2008–2022, the largest here, duplicate/draft noise | 218 | [calderwood-partners](companies/calderwood-partners/) | [key](companies/calderwood-partners-metadata/) |
-| 16-person comms advisory, 2017–2024, the email pilot: real threads plus the full noise suite | 104 | [ashcombe-advisory](companies/ashcombe-advisory/) | [key](companies/ashcombe-advisory-metadata/) |
-| 12-person actuarial consultancy, 2016–2024, a roster that grows, real mail threads | 72 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) |
-| 10-person patent boutique, 2018–2025, real mail threads | 64 | [hollowell-ip](companies/hollowell-ip/) | [key](companies/hollowell-ip-metadata/) |
-| 9-person civil engineering firm, 1999–2007, every office doc a pre-2007 binary | 40 | [brackenridge-civil](companies/brackenridge-civil/) | [key](companies/brackenridge-civil-metadata/) |
-| 10-person environmental consultancy, 2013–2021, scans and a departmental ACL | 40 | [saltmarsh-environmental](companies/saltmarsh-environmental/) | [key](companies/saltmarsh-environmental-metadata/) |
-| 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) |
-| 7-person consultancy, 2019–2023, the test fixture | 23 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) |
+| company | docs | share | answer key | data card |
+| --- | --- | --- | --- | --- |
+| **the exemplar**, a 12-person executive search firm, 2015–2023, business calendar, sample book, the full noise suite | 66 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) | [card](companies/northgate-staffing-metadata/DATA-CARD.md) |
+| 25-person management consultancy, 2008–2022, the largest here, duplicate/draft noise | 218 | [calderwood-partners](companies/calderwood-partners/) | [key](companies/calderwood-partners-metadata/) | [card](companies/calderwood-partners-metadata/DATA-CARD.md) |
+| 16-person comms advisory, 2017–2024, the email pilot: real threads plus the full noise suite | 104 | [ashcombe-advisory](companies/ashcombe-advisory/) | [key](companies/ashcombe-advisory-metadata/) | [card](companies/ashcombe-advisory-metadata/DATA-CARD.md) |
+| 12-person actuarial consultancy, 2016–2024, a roster that grows, real mail threads | 72 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) | [card](companies/meridian-actuarial-metadata/DATA-CARD.md) |
+| 10-person patent boutique, 2018–2025, real mail threads | 64 | [hollowell-ip](companies/hollowell-ip/) | [key](companies/hollowell-ip-metadata/) | [card](companies/hollowell-ip-metadata/DATA-CARD.md) |
+| 9-person civil engineering firm, 1999–2007, every office doc a pre-2007 binary | 40 | [brackenridge-civil](companies/brackenridge-civil/) | [key](companies/brackenridge-civil-metadata/) | [card](companies/brackenridge-civil-metadata/DATA-CARD.md) |
+| 10-person environmental consultancy, 2013–2021, scans and a departmental ACL | 40 | [saltmarsh-environmental](companies/saltmarsh-environmental/) | [key](companies/saltmarsh-environmental-metadata/) | [card](companies/saltmarsh-environmental-metadata/DATA-CARD.md) |
+| 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) | [card](companies/verdant-health-metadata/DATA-CARD.md) |
+| 7-person consultancy, 2019–2023, the test fixture | 23 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) | [card](companies/dev-mini-metadata/DATA-CARD.md) |
 
 Eight fleet companies (plus `dev-mini`), 1999–2025: ~32 MB of browsable share, plus ~13 MB of ground truth beside it.
 

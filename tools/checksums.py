@@ -23,12 +23,22 @@ ORGS = [
 ]
 
 
+# DATA-CARD.md quotes this manifest's own row for its org, so hashing it
+# would make the manifest self-referential: emitting the card would change
+# the digest, which would change the card. It is excluded here and guarded
+# instead by a recompute-and-compare test, which is stronger evidence than a
+# hash: it checks that the content is still correct, not merely unchanged.
+_SELF_REFERENTIAL = ("DATA-CARD.md",)
+
+
 def _org_files(slug: str) -> list[str]:
     out = subprocess.run(
         ["git", "ls-files", f"companies/{slug}", f"companies/{slug}-metadata"],
         capture_output=True, text=True, check=True,
     ).stdout.split("\n")
-    return sorted(f for f in out if f)
+    return sorted(
+        f for f in out if f and not f.endswith(_SELF_REFERENTIAL)
+    )
 
 
 def _rollup(slug: str) -> tuple[str, int]:

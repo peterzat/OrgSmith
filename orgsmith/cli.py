@@ -126,6 +126,10 @@ def main(argv=None) -> int:
         help="render the fleet table -> docs/BASELINES.md",
     )
 
+    _add_slug(
+        sub.add_parser("data-card", help="per-org characterization -> DATA-CARD.md")
+    )
+
     p_dist = sub.add_parser(
         "distributions",
         help="fleet distributional dashboard -> docs/DISTRIBUTIONS.md",
@@ -261,6 +265,10 @@ def main(argv=None) -> int:
         from .review import run_report
 
         return run_report(paths)
+    if args.verb == "data-card":
+        from .datacard import run_data_card
+
+        return run_data_card(paths)
     if args.verb == "status":
         from .status import run_status
 
