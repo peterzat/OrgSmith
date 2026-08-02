@@ -620,3 +620,140 @@ def test_ingest_reads_the_manifest_not_the_brief(briefed_copy):
         if from_manifest is None:
             continue
         assert from_manifest.id == entry.render_params["outline"]
+
+
+# --- variety, measured as counts (B3) ---------------------------------------
+#
+# The capability measurement, and the honest limit of what this turn can
+# prove. Counts of distinct block shapes under a SCRIPTED author, never a
+# similarity score: the scripted author writes the same sentence every time,
+# so any lexical number here would measure the test double. Whether real
+# prose stops converging is the next generation's question, and nothing here
+# claims otherwise.
+
+
+def _signatures(paths):
+    """genre -> set of block-kind sequences, over authored documents.
+
+    Block KINDS, not `structure.shape_tokens`. The shape tokens bucket
+    paragraph and list lengths, so they would move with how many
+    placeholders a document happens to carry -- length noise, not skeleton
+    variety. The kind sequence is exactly what an outline determines.
+
+    Derived documents are excluded: a duplicate is a byte copy of its
+    source, so counting it would credit the noise stages with variety.
+    """
+    from orgsmith.artifacts import load_manifest
+    from orgsmith.naming import doc_id_filename
+    from orgsmith.schemas import DocIR
+
+    out: dict = {}
+    for entry in load_manifest(paths):
+        if entry.authoring != "batchable":
+            continue
+        path = paths.docir_dir / doc_id_filename(entry.doc_id, ".json")
+        if not path.exists():
+            continue
+        doc = DocIR.model_validate_json(path.read_text("utf-8"))
+        out.setdefault(entry.genre, set()).add(
+            tuple(b.kind for b in doc.blocks)
+        )
+    return out
+
+
+def _doc_counts(paths):
+    from orgsmith.artifacts import load_manifest
+
+    counts: dict = {}
+    for entry in load_manifest(paths):
+        if entry.authoring == "batchable":
+            counts[entry.genre] = counts.get(entry.genre, 0) + 1
+    return counts
+
+
+@pytest.fixture(scope="module")
+def variety(tmp_path_factory):
+    """The same recipe authored twice: knob off, knob on."""
+    from conftest import run_authoring, run_enrichment
+
+    root = tmp_path_factory.mktemp("variety")
+    off = build_pure_stages(root / "off")
+    on = build_culture_stages(root / "on", ON)
+    for paths in (off, on):
+        run_enrichment(paths)
+        run_authoring(paths)
+    return off, on
+
+
+def test_knob_off_yields_exactly_one_shape_per_genre(variety):
+    """The baseline the board described: every document of a genre is the
+    same document. Under a scripted author that is literally true, which is
+    what makes the knob-on count below meaningful rather than incidental."""
+    off, _on = variety
+    sigs = _signatures(off)
+    assert sigs
+    for genre, shapes in sigs.items():
+        assert len(shapes) == 1, f"{genre}: {shapes}"
+
+
+def test_knob_on_yields_a_shape_per_variant_the_corpus_can_reach(variety):
+    """`min(pool size, documents of that genre)` -- the most distinct shapes
+    the corpus has room for. Fewer would mean the deal repeated a variant it
+    did not have to."""
+    _off, on = variety
+    sigs = _signatures(on)
+    counts = _doc_counts(on)
+    assert sigs
+    checked = 0
+    for genre, shapes in sigs.items():
+        if genre not in OUTLINES:
+            # No pool: this genre is expected to keep its single shape.
+            assert len(shapes) == 1, f"{genre}: {shapes}"
+            continue
+        want = min(len(OUTLINES[genre]), counts[genre])
+        assert len(shapes) >= want, (
+            f"{genre}: {len(shapes)} distinct shapes over {counts[genre]} "
+            f"documents against a pool of {len(OUTLINES[genre])}; expected "
+            f"at least {want}"
+        )
+        checked += 1
+    assert checked, "no pooled genre was authored"
+
+
+def test_the_knob_strictly_increases_variety_somewhere(variety):
+    """Stated as a comparison rather than as an absolute, so it cannot pass
+    on a corpus that happened to be varied for some other reason."""
+    off, on = variety
+    off_sigs, on_sigs = _signatures(off), _signatures(on)
+    improved = [
+        genre
+        for genre in on_sigs
+        if len(on_sigs[genre]) > len(off_sigs.get(genre, set()))
+    ]
+    assert improved, "the knob changed no genre's shape count"
+    assert set(improved) <= set(OUTLINES), (
+        f"a genre with no pool gained shapes: {set(improved) - set(OUTLINES)}"
+    )
+
+
+def test_this_module_never_reaches_for_the_review_instrument():
+    """A guard on the test file itself, as the module grows.
+
+    The scripted author writes the same sentence every time, so any lexical
+    or structural SCORE computed here would measure the test double and then
+    read as evidence about prose. Variety is counted, never scored --
+    enforced by asserting this module imports nothing from
+    `orgsmith.review`, which is where every similarity number lives.
+    """
+    source = __import__("pathlib").Path(__file__).read_text()
+    imports = [
+        line.strip()
+        for line in source.splitlines()
+        if line.strip().startswith(("import ", "from "))
+    ]
+    offenders = [line for line in imports if "orgsmith.review" in line]
+    assert not offenders, (
+        f"this module imports from orgsmith.review ({offenders}); variety is "
+        f"asserted as counts of distinct block shapes, never as a similarity "
+        f"number"
+    )

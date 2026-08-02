@@ -603,30 +603,31 @@ def assign_outlines(charter, rows) -> list[str | None]:
     is aligned to it, carrying an outline id or None. Pure and module-level
     so OUT-01 recomputes it with the same code that planned it.
 
-    A CONSTRAINED DRAW rather than the shuffled cycles the M17b plan
-    sketched, because cycles deliver only the adjacency property. Two
-    documents of one genre in one engagement can sit two apart in the global
-    genre order (concurrent engagements interleave), and two cycles can put
-    the same variant at those two positions. Both properties the spec asks
-    for are stated directly here instead: a pick may not repeat the previous
-    document of its genre, and may not repeat any variant already used by
-    that genre inside the same engagement.
+    A CONSTRAINED DRAW over a cycle, which is three properties at once. Write
+    k for the pool size.
 
-    THE EXACT BOUNDARY, because "impossible by construction" would be an
-    overclaim and a vague guarantee is worse than a bounded one. Write k for
-    the pool size and j for how many documents of this genre the engagement
-    has already taken. A pick must avoid j variants and the previous one, so
-    a candidate exists whenever j <= k - 2 -- that is, **both properties hold
-    together for the first k-1 documents of a genre within one engagement.**
-    Pools are sized against that: 4 variants for the genres a single
-    engagement repeats (minutes, status reports), so up to 3 per engagement
-    is guaranteed.
+    1. THE CYCLE, and it is absolute: a per-genre `cycle` set records what
+       this pass through the pool has used and empties once full, so **no
+       variant repeats within any k consecutive documents of a genre.** That
+       is what makes corpus variety a structural guarantee rather than luck:
+       the first min(k, n) documents of a genre are all different.
+    2. ADJACENCY, also absolute for k >= 2, and what OUT-01 enforces as a
+       rule. It survives the cycle boundary because the previous pick is
+       excluded even on the pass where the cycle resets.
+    3. WITHIN-ENGAGEMENT uniqueness, preferred but not absolute. Concurrent
+       engagements interleave in the global genre order, so an engagement's
+       documents are not contiguous, and the cycle can leave only variants
+       this engagement has already taken. When the two conflict the cycle
+       wins, because corpus variety is the property a reader notices and a
+       within-engagement repeat two years apart is not.
 
-    Past that the constraints RELAX, adjacency last, because OUT-01 enforces
-    adjacency as a rule while within-engagement uniqueness is a property of
-    the deal. So an engagement that outruns its pool reuses a variant it has
-    already used, and never repeats one back to back. A finite pool cycles;
-    this is where.
+    Priority when candidates run out: drop within-engagement first, then the
+    cycle, then adjacency. The last two are unreachable for k >= 2 -- with
+    the cycle emptied when full the previous pick is always inside it, so
+    excluding both leaves at least one variant -- which is why the first two
+    properties are absolute and this order is provable rather than hopeful.
+    "Impossible by construction" is still an overclaim: a genre with more
+    than k documents reuses variants, in cycles, by design.
 
     Exactly one draw per assigned document, from a per-genre stream, so the
     deal is deterministic across runs and independent of every other genre.
@@ -635,6 +636,7 @@ def assign_outlines(charter, rows) -> list[str | None]:
         return [None] * len(rows)
     rands: dict = {}
     last: dict = {}
+    cycles: dict = {}
     used: dict = {}
     out: list[str | None] = []
     for genre, authoring, engagement in rows:
@@ -646,15 +648,21 @@ def assign_outlines(charter, rows) -> list[str | None]:
         if rand is None:
             rand = rands[genre] = rng(charter.seed, "docplan.outline", genre)
         ids = [o.id for o in pool]
+        cycle = cycles.setdefault(genre, set())
+        if len(cycle) >= len(ids):
+            cycle.clear()
         seen = used.setdefault((genre, engagement), set())
         blocked = last.get(genre)
-        candidates = [i for i in ids if i != blocked and i not in seen]
-        if not candidates:  # engagement has outrun the pool
-            candidates = [i for i in ids if i != blocked]
-        if not candidates:  # a single-variant pool
-            candidates = ids
+        candidates = [
+            i for i in ids if i != blocked and i not in cycle and i not in seen
+        ]
+        if not candidates:  # the cycle and this engagement disagree
+            candidates = [i for i in ids if i != blocked and i not in cycle]
+        if not candidates:  # unreachable for k >= 2; kept as a floor
+            candidates = [i for i in ids if i != blocked] or ids
         pick = rand.choice(candidates)
         out.append(pick)
         last[genre] = pick
+        cycle.add(pick)
         seen.add(pick)
     return out
