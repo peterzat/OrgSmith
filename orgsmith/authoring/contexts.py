@@ -551,6 +551,22 @@ def run_next_batch(paths: OrgPaths) -> int:
                 if locations.get(ref, "body") == "body"
             ]
             guidance = _GENRE_GUIDANCE[entry.genre]
+            # A dealt skeleton can forbid a block kind the genre's default
+            # shape asks for: km-narrative forbids lists, and the kickoff_memo
+            # text asks for "a list of workstreams". Framing the default as a
+            # default, up front, is what keeps the brief from carrying a flat
+            # contradiction. Leaving one instruction to be defeated by a later
+            # override sentence is the brief-level mechanism M16 found
+            # unreliable, and it costs a worker a rejected round trip on a
+            # document the plan set up to fail.
+            outline_text = _outline_guidance(entry)
+            if outline_text:
+                guidance = (
+                    "Default shape for this genre, SUPERSEDED wherever it "
+                    "disagrees with the STRUCTURE FOR THIS DOCUMENT section "
+                    "below -- follow that section, not this sentence, on "
+                    "which blocks to use: " + guidance
+                )
             if entry.genre == "engagement_email" and "thread_pos" in (
                 entry.render_params
             ):
@@ -595,7 +611,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                 guidance += _style_guidance(
                     style_specs[entry.authors[0]], entry.genre
                 )
-            guidance += _outline_guidance(entry)
+            guidance += outline_text
             briefs.append(
                 DocBrief(
                     doc_id=entry.doc_id,

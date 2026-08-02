@@ -387,15 +387,35 @@ class ScopeProfile(StrictModel):
 
     @model_validator(mode="after")
     def _check(self) -> "ScopeProfile":
+        # Deferred: `fabric.engagements` imports this module. `stage_slug` is
+        # the function that actually mints the fact id, so the guard has to
+        # ask it rather than compare the phrases a maintainer typed.
+        from .fabric.engagements import stage_slug
+
         for name in ("unit_range", "comparator_range", "pipeline_top_range"):
             lo, hi = getattr(self, name)
             if lo > hi:
                 raise ValueError(f"{name} low bound exceeds its high bound")
-        if self.pipeline:
-            if len(self.pipeline) != len(set(self.pipeline)):
+        for name in ("unit", "comparator"):
+            if not stage_slug(getattr(self, name)):
                 raise ValueError(
-                    "pipeline stage phrases must be distinct; they become "
-                    "fact ids"
+                    f"{name} must carry alphanumeric text; a blank or "
+                    f"punctuation-only noun renders a bare numeral, which "
+                    f"matches inside money and dates corpus-wide"
+                )
+        if self.pipeline:
+            slugs = [stage_slug(p) for p in self.pipeline]
+            if not all(slugs):
+                raise ValueError(
+                    "every pipeline stage phrase must carry alphanumeric "
+                    "text; a blank or punctuation-only phrase renders a bare "
+                    "numeral and slugs to an empty fact-id fragment"
+                )
+            if len(slugs) != len(set(slugs)):
+                raise ValueError(
+                    "pipeline stage phrases must be distinct after slugging; "
+                    "the SLUG is what becomes the fact id, so two phrases "
+                    "differing only in case or punctuation collide"
                 )
             if self.pipeline_top_range[0] < 1:
                 raise ValueError(

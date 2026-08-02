@@ -607,10 +607,13 @@ def assign_outlines(charter, rows) -> list[str | None]:
     k for the pool size.
 
     1. THE CYCLE, and it is absolute: a per-genre `cycle` set records what
-       this pass through the pool has used and empties once full, so **no
-       variant repeats within any k consecutive documents of a genre.** That
-       is what makes corpus variety a structural guarantee rather than luck:
-       the first min(k, n) documents of a genre are all different.
+       this pass through the pool has used and empties once full, so **every
+       aligned block of k picks -- documents 1..k of a genre, then k+1..2k,
+       and so on -- is a permutation of the pool.** Corollary, and what the
+       count guarantee needs: the first min(k, n) documents of a genre are
+       all different. Note the bound is on ALIGNED blocks, not on every
+       window: two picks straddling a cycle boundary can repeat at a distance
+       below k (seed 0, status_report: positions 6 and 8).
     2. ADJACENCY, also absolute for k >= 2, and what OUT-01 enforces as a
        rule. It survives the cycle boundary because the previous pick is
        excluded even on the pass where the cycle resets.

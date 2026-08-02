@@ -159,10 +159,13 @@ doc_culture:
   #                         # only and the author inventing its audience -- how
   #                         # a named client contact became "the committee" in
   #                         # M17's board findings. Scoped to this one genre
-  #                         # rather than widening the row, because the row
-  #                         # also drives the participant-scoped ACL: widening
-  #                         # it wholesale would grant every client contact
-  #                         # read access to internal reports.
+  #                         # rather than widening the row, because
+  #                         # `participants` is also what the eml renderer
+  #                         # derives To/Cc from: on a mail genre the row
+  #                         # states who is addressed, and widening it there
+  #                         # would re-address mail. No ACL effect either way;
+  #                         # the ACL reads the engagement ledger's
+  #                         # internal_participants, not the manifest entry's.
 
 finance:
   base_revenue: 850000        # first full fiscal year, USD

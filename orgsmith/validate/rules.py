@@ -1107,6 +1107,20 @@ def scope_01(ctx: Context):
     for eng in ctx.engagements.engagements:
         want = {f.id: f for f in planted[eng.id]}
         got = {f.id: f for f in eng.facts if f.id in want}
+        # Both directions: an INJECTED count fact has no manifest host and so
+        # corrupts no eval question, but an id set checked one way is not the
+        # "exactly" this rule claims. `count` is the scope profile's own kind,
+        # so anything carrying it that the charter did not plant is tamper
+        # evidence.
+        extra = sorted(
+            f.id for f in eng.facts if f.kind == "count" and f.id not in want
+        )
+        if extra:
+            yield (
+                f"the ledger carries {len(extra)} count fact(s) the charter "
+                f"does not plant: {', '.join(extra)}",
+                eng.id,
+            )
         missing = sorted(set(want) - set(got))
         if missing:
             yield (
@@ -1136,6 +1150,22 @@ def scope_01(ctx: Context):
         counts = [
             got[f"f:{eng.id}.pipeline-{stage_slug(s)}"].value for s in stages
         ]
+        # `Fact.value` is Union[int, str], so a value tampered to its string
+        # form loads fine and would make the comparison below raise TypeError.
+        # A validator that dies on the tamper it exists to detect is neither a
+        # finding nor a visible skip; report the type and stop comparing.
+        bad = [
+            f"{stages[i]!r}={counts[i]!r}"
+            for i in range(len(counts))
+            if not isinstance(counts[i], int)
+        ]
+        if bad:
+            yield (
+                f"funnel stage value(s) are not integers, so the funnel "
+                f"cannot be checked for monotonicity: {', '.join(bad)}",
+                eng.id,
+            )
+            continue
         for i in range(1, len(counts)):
             if counts[i] > counts[i - 1]:
                 yield (

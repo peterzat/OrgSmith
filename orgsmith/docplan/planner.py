@@ -262,9 +262,13 @@ class _Planner:
             # gives the report a real addressee from the ledger.
             #
             # Scoped to this genre rather than flipping the row to
-            # team_external, because the row is also read by the ACL and the
-            # participant-scoped posture: widening it wholesale would grant
-            # every client contact read access to internal reports.
+            # team_external, because `participants` is also the vocabulary the
+            # eml renderer derives To/Cc from: on a mail genre the row states
+            # who is addressed, and widening it there would silently re-address
+            # mail. `status_report` is not a mail genre, so the widening is
+            # safe here and nowhere else by default. No ACL effect either way:
+            # `derive_acl` reads `eng.internal_participants` off the engagement
+            # ledger, never the manifest entry's participants.
             ids = ids + list(eng.external_participants)
         return ids
 

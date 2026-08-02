@@ -419,6 +419,41 @@ def test_the_brief_states_the_skeleton_and_what_it_forbids(briefed):
     assert checked
 
 
+def test_the_genre_default_is_framed_as_superseded_ahead_of_the_skeleton(
+    briefed,
+):
+    """A dealt skeleton can forbid a block kind the genre's default shape asks
+    for (km-narrative forbids lists; the kickoff_memo text asks for "a list of
+    workstreams"). The framing must PRECEDE the clause it overrides: leaving
+    one instruction to be defeated by a later override sentence is the
+    brief-level mechanism M16 found unreliable."""
+    from conftest import committed_outlines
+
+    outlines = committed_outlines(briefed)
+    checked = 0
+    for brief in _wo(briefed).docs:
+        if brief.doc_id not in outlines:
+            continue
+        assert brief.guidance.startswith("Default shape for this genre,")
+        assert "SUPERSEDED" in brief.guidance
+        assert brief.guidance.index("SUPERSEDED") < brief.guidance.index(
+            "STRUCTURE FOR THIS DOCUMENT"
+        )
+        checked += 1
+    assert checked
+
+    # And the contradiction it exists to defuse is real: at least one briefed
+    # document is forbidden a block kind its genre default asks for by name.
+    from orgsmith.authoring.contexts import _GENRE_GUIDANCE
+
+    assert any(
+        forbidden in _GENRE_GUIDANCE[brief.genre]
+        for brief in _wo(briefed).docs
+        if brief.doc_id in outlines
+        for forbidden in outlines[brief.doc_id].forbids
+    )
+
+
 def test_a_knob_off_brief_carries_no_outline_text(tmp_path):
     from orgsmith.authoring.contexts import run_next_batch
 
@@ -429,6 +464,10 @@ def test_a_knob_off_brief_carries_no_outline_text(tmp_path):
     assert run_next_batch(paths) == 0
     for brief in sole_author_wo(paths).docs:
         assert "STRUCTURE FOR THIS DOCUMENT" not in brief.guidance
+        # No skeleton means nothing to supersede: the genre default is stated
+        # flat, with no framing sentence in front of it.
+        assert "SUPERSEDED" not in brief.guidance
+        assert not brief.guidance.startswith("Default shape for this genre,")
 
 
 def test_a_knob_off_work_order_is_byte_identical(tmp_path):

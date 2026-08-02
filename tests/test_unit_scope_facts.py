@@ -144,6 +144,52 @@ def test_duplicate_stage_phrases_are_rejected_at_parse():
         )
 
 
+def test_stage_phrases_colliding_only_after_slugging_are_rejected():
+    """The SLUG is what becomes the fact id, so two phrases differing only in
+    case or punctuation collide. Caught at parse, not at `fact_index` far
+    downstream naming a fact id and no recipe line."""
+    with pytest.raises(ValueError, match="distinct after slugging"):
+        ScopeProfile(
+            unit="u",
+            unit_range=(1, 2),
+            comparator="c",
+            comparator_range=(1, 2),
+            pipeline=["candidates screened", "Candidates  Screened!"],
+            pipeline_top_range=(10, 10),
+            pipeline_retention=(0.5, 0.9),
+        )
+
+
+def test_a_punctuation_only_stage_phrase_is_rejected():
+    """It slugs to an empty id fragment AND renders a bare numeral, which
+    matches inside money and inside every date corpus-wide."""
+    with pytest.raises(ValueError, match="every pipeline stage phrase"):
+        ScopeProfile(
+            unit="u",
+            unit_range=(1, 2),
+            comparator="c",
+            comparator_range=(1, 2),
+            pipeline=["candidates sourced", " - "],
+            pipeline_top_range=(10, 10),
+            pipeline_retention=(0.5, 0.9),
+        )
+
+
+@pytest.mark.parametrize("field", ["unit", "comparator"])
+def test_a_blank_unit_noun_is_rejected(field):
+    """`min_length=1` admits " ". The guard asks `stage_slug`, the function
+    that actually mints the id, rather than measuring the phrase."""
+    kwargs = dict(
+        unit="positions",
+        unit_range=(1, 2),
+        comparator="peer companies",
+        comparator_range=(1, 2),
+    )
+    kwargs[field] = " "
+    with pytest.raises(ValueError, match=f"{field} must carry alphanumeric"):
+        ScopeProfile(**kwargs)
+
+
 def test_stage_dates_are_ordered_and_end_on_the_engagement_end():
     from datetime import date
 
@@ -344,6 +390,51 @@ def test_scope_01_catches_a_widened_funnel(scoped_copy, capsys):
         f["message"] for f in payload["findings"] if f["rule"] == "SCOPE-01"
     ]
     assert any("funnel widens" in m for m in messages), messages
+
+
+def test_scope_01_catches_an_injected_count_fact(scoped_copy, capsys):
+    """The id set is compared BOTH ways. An injected count fact has no
+    manifest host and so corrupts no eval question, but an id set checked one
+    way is not the "exactly" this rule claims."""
+    data = json.loads(scoped_copy.engagements_json.read_text())
+    eng = data["engagements"][0]
+    eng["facts"].append(
+        {
+            "id": f"f:{eng['id']}.pipeline-fabricated",
+            "kind": "count",
+            "value": 7,
+            "rendered": "7 fabricated stages",
+            "location_policy": "body",
+        }
+    )
+    scoped_copy.engagements_json.write_text(json.dumps(data))
+    payload = _rule_report(scoped_copy, capsys)
+    messages = [
+        f["message"] for f in payload["findings"] if f["rule"] == "SCOPE-01"
+    ]
+    assert any("the charter does not plant" in m for m in messages), messages
+
+
+def test_scope_01_reports_a_non_integer_funnel_value_instead_of_crashing(
+    scoped_copy, capsys
+):
+    """`Fact.value` is Union[int, str], so a value tampered to its string form
+    loads fine and used to raise TypeError out of the monotonicity comparison,
+    taking the already-yielded drift finding with it. A validator that dies on
+    the tamper it exists to detect is neither a finding nor a visible skip."""
+    data = json.loads(scoped_copy.engagements_json.read_text())
+    eng = data["engagements"][0]
+    stages = [f for f in eng["facts"] if ".pipeline-" in f["id"]]
+    stages[-1]["value"] = str(stages[-1]["value"])
+    scoped_copy.engagements_json.write_text(json.dumps(data))
+    payload = _rule_report(scoped_copy, capsys)
+    messages = [
+        f["message"] for f in payload["findings"] if f["rule"] == "SCOPE-01"
+    ]
+    assert any("are not integers" in m for m in messages), messages
+    # The drift finding yielded before the type guard survives rather than
+    # being lost with a traceback.
+    assert any("does not recompute" in m for m in messages), messages
 
 
 # --- position gating and cross-document agreement (A2) ----------------------
