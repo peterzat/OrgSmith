@@ -1048,6 +1048,11 @@ class RetrievalQuestion(StrictModel):
     # docs/LABEL-POLICY.md); byte-identical copies ride in clusters.json
     # instead, because those are canonicalized rather than dropped.
     acceptable_docs: list[str] = []
+    # M17: false when the corpus contains no answer. Such questions used to
+    # be dropped, which quietly taught a benchmark that everything asked has
+    # an answer. Abstaining (or returning only acceptable documents) is
+    # correct; inventing one fails.
+    answerable: bool = True
     tags: list[str] = []
 
 

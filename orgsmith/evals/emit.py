@@ -85,6 +85,19 @@ after two relaxations that can only ever help you:
 Score: `python -m orgsmith score --suite retrieval --answers answers.json
 --evals-dir <this directory>`.
 
+### Unanswerable questions
+
+A question with `"answerable": false` has no answer in this corpus: the
+person it asks about is documented nowhere the suite counts. Its
+`expected_docs` is empty and the correct response is to **abstain**, either
+by omitting the question from your answers file or by returning an empty
+list. Returning only `acceptable_docs` is also correct. Inventing an answer
+fails with `expected abstention`.
+
+These exist because dropping them would teach a benchmark that everything
+asked has an answer, which is the opposite of what a retrieval system needs
+to learn.
+
 ## extraction.jsonl
 
 One planted fact per line: `id`, `fact_id`, `question`, `expected_value`
@@ -379,10 +392,12 @@ def build_retrieval(
     without it the suites carry no acceptable sets, which is strictly
     stricter scoring, never looser."""
     texts = texts or {}
-    questions: list[tuple[str, list[str], list[str], list[str]]] = []
+    questions: list[tuple[str, list[str], list[str], list[str], bool]] = []
 
-    def ask(text: str, docs, tags, acceptable=()) -> None:
-        questions.append((text, list(docs), list(tags), sorted(acceptable)))
+    def ask(text: str, docs, tags, acceptable=(), answerable=True) -> None:
+        questions.append(
+            (text, list(docs), list(tags), sorted(acceptable), answerable)
+        )
 
     def docs_with_fact(ref: str) -> list[str]:
         # M17: a transmittal email carrying this document byte-identically is
@@ -476,13 +491,19 @@ def build_retrieval(
                     if r.entity == person.id and r.doc_id not in mundane_ids
                 }
             )
-            if docs:
-                ask(
-                    f"Which documents mention {person.name}?",
-                    docs,
-                    ["mention:person", person.id],
-                    scan_hits(person.name, set(docs)),
-                )
+            # Emitted even when the plan placed nothing. A roster member who
+            # is named only in mundane internal mail (or nowhere at all) is
+            # a real question with no answer, and dropping it taught the
+            # suite that everything asked is answerable. Her mundane mail
+            # becomes the acceptable set, so returning it is not an error
+            # either.
+            ask(
+                f"Which documents mention {person.name}?",
+                docs,
+                ["mention:person", person.id],
+                scan_hits(person.name, set(docs)),
+                answerable=bool(docs),
+            )
             for alias in person.aliases:
                 alias_docs = sorted(
                     {
@@ -507,10 +528,12 @@ def build_retrieval(
             question=text,
             expected_docs=docs,
             acceptable_docs=acceptable,
+            answerable=answerable,
             tags=tags,
         )
-        for i, (text, docs, tags, acceptable) in enumerate(questions, start=1)
-        if docs
+        for i, (text, docs, tags, acceptable, answerable) in enumerate(
+            [q for q in questions if q[1] or not q[4]], start=1
+        )
     ]
 
 

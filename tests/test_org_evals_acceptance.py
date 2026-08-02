@@ -180,6 +180,57 @@ def test_scan_hits_are_required_acceptable_or_a_recorded_diagnostic(slug):
 
 
 @pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
+def test_unanswerable_questions_are_really_unanswerable(slug):
+    """An `answerable: false` question must carry no required documents and
+    must name a person the plan genuinely never placed. Abstaining scores
+    correct; inventing an answer does not."""
+    paths = OrgPaths(root=REPO, slug=slug)
+    questions = _questions(paths)
+    unanswerable = [q for q in questions if not q["answerable"]]
+    if not unanswerable:
+        pytest.skip(f"{slug} poses no unanswerable question")
+
+    for question in unanswerable:
+        assert question["expected_docs"] == [], question["id"]
+
+    abstained = score_retrieval(
+        paths.evals_dir,
+        RetrievalAnswers.model_validate(
+            {
+                "suite": "retrieval",
+                "answers": [
+                    {"id": q["id"], "docs": q["expected_docs"]}
+                    for q in questions
+                ],
+            }
+        ),
+    )
+    assert abstained.total and abstained.correct == abstained.total
+
+    invented = score_retrieval(
+        paths.evals_dir,
+        RetrievalAnswers.model_validate(
+            {
+                "suite": "retrieval",
+                "answers": [
+                    {
+                        "id": q["id"],
+                        "docs": q["expected_docs"] or ["TOC.md"],
+                    }
+                    for q in questions
+                ],
+            }
+        ),
+    )
+    assert invented.correct == abstained.correct - len(unanswerable)
+    assert all(
+        f["abstention_expected"]
+        for f in invented.failures
+        if f["id"] in {q["id"] for q in unanswerable}
+    )
+
+
+@pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
 def test_diagnostics_are_emitted_and_stamped(slug):
     paths = OrgPaths(root=REPO, slug=slug)
     data = json.loads((paths.evals_dir / "diagnostics.json").read_text())

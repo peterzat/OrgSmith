@@ -146,6 +146,10 @@ def _score_docset(
             {
                 "id": q.id,
                 "tags": q.tags,
+                # An unanswerable question is failed only by inventing an
+                # answer, so say that rather than listing "extra" documents
+                # against an empty expected set.
+                "abstention_expected": not q.answerable,
                 "missing": sorted(expected - got),
                 # Report what the system actually returned, not its
                 # canonical form, so a failure line names a real path.
@@ -368,7 +372,9 @@ def run_score(
             )
             for failure in result.failures:
                 parts = []
-                if not failure["answered"]:
+                if failure.get("abstention_expected"):
+                    parts.append("expected abstention")
+                elif not failure["answered"]:
                     parts.append("unanswered")
                 if failure["missing"]:
                     parts.append("missing: " + ", ".join(failure["missing"]))

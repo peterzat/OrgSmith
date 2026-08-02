@@ -39,6 +39,19 @@ after two relaxations that can only ever help you:
 Score: `python -m orgsmith score --suite retrieval --answers answers.json
 --evals-dir <this directory>`.
 
+### Unanswerable questions
+
+A question with `"answerable": false` has no answer in this corpus: the
+person it asks about is documented nowhere the suite counts. Its
+`expected_docs` is empty and the correct response is to **abstain**, either
+by omitting the question from your answers file or by returning an empty
+list. Returning only `acceptable_docs` is also correct. Inventing an answer
+fails with `expected abstention`.
+
+These exist because dropping them would teach a benchmark that everything
+asked has an answer, which is the opposite of what a retrieval system needs
+to learn.
+
 ## extraction.jsonl
 
 One planted fact per line: `id`, `fact_id`, `question`, `expected_value`
