@@ -2,9 +2,101 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "northgate-staffing",
   "dimension": "document_plausibility",
-  "findings": [],
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0009",
+        "d:0051"
+      ],
+      "summary": "Both firm-wide mundane emails are addressed only to the all-staff list yet open by greeting one person by first name, then refer to that same person by full legal name in the third person.",
+      "evidence": "d:0051 is 'To: all-staff@northgatetalent.com' and opens 'Hello Nicole,' then instructs the room 'Nicole Donovan is keeping the list of what has to stay reachable, so send her whatever belongs on it by Thursday.' d:0009 is likewise To: all-staff, opens 'Hello James,' from James Grant, and then says 'tell James Weiss within the hour rather than on your way out.' Nobody greets one colleague and then briefs the office about her in the third person in the same note; a broadcast opens 'All,' or has no salutation."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-2",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0005",
+        "d:0003"
+      ],
+      "summary": "The first client email attaches the firm's internal kickoff memo verbatim, a document that discusses how to manage that client and disputes his brief.",
+      "evidence": "d:0005 to Jason Myers says 'I have attached the plan we set at kickoff so you can see the sequence we are working to.' The attached '2015.08.30 - Kickoff Memo - CFO Search.docx' is byte-identical to d:0003, whose own header reads 'To: Jeffrey Patterson; James Grant / Cc: James Weiss / From: Sandra Fuentes, Principal' and whose body says of the recipient 'he should not be hearing about this search from three of us in three different weeks' and 'at the compensation they have in mind those two things do not often live in the same person.' A search firm sends a client a client-facing plan, not the internal memo about handling him."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-3",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0040",
+        "d:0041",
+        "d:0042",
+        "d:0043",
+        "d:0032"
+      ],
+      "summary": "The demonstrator mail threads answer client replies that exist nowhere in the file, and each 'RE:' is threaded as a reply to the firm's own previous message rather than to the client.",
+      "evidence": "d:0042 opens 'That is enough to work with, thank you, and the session is held. The four companies you named are marked off limits' and d:0043 opens 'Yes, and it is the right question to have asked' -- both plainly answering Amy Alvarez, yet In-Reply-To on d:0042 is <d0041...> (Sandra's message to Amy) and on d:0043 is <d0042...> (Nicole's message to Amy). Opened in a mail client the thread renders as four Northgate messages replying to each other with the client's half missing, and no message in the org quotes a line of what it is replying to."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-4",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0063",
+        "d:0061",
+        "d:0062",
+        "d:0060"
+      ],
+      "summary": "The closing status report on the Hicks-Castillo benchmarking describes a materially different piece of work from the rest of that engagement's own file.",
+      "evidence": "d:0061 (July) records 'Position schedule | Closed | Eleven positions, signed off in April and unchanged since' and d:0062 (October) has 'David Weiss walked the eleven positions in the order they appear in the draft.' d:0063 (November) instead reports 'All five job families in scope' with a table totalling 57 roles benchmarked, cites 'the geography agreed at the autumn working session' that the October minutes never discuss, drops the costed median remedy the October session commissioned, and addresses 'the committee' and 'the members who will vote on the structure' in place of David Mcgee and his board."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-5",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0026"
+      ],
+      "summary": "A note sent to a single colleague carries a paragraph plainly written for the whole office.",
+      "evidence": "'Separately, the parking validations have run out again and the new book does not arrive until the end of the month, so I would ask everyone to hold on to what they have for visitors rather than for themselves' -- addressed To: Jeffrey Patterson alone, with no Cc, in a firm that has an all-staff list the same author's colleagues use elsewhere."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-6",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0056"
+      ],
+      "summary": "A Research Associate chases two colleagues for timesheets and speaks for the monthly close, which is the Office Manager's work in this firm.",
+      "evidence": "Jason Bell, Research Associate, writes 'The monthly summary is compiled from the book on the first working day after it closes. It is only ever as good as what is in there by Friday afternoon.' The foundation gives that ground to James Weiss, Office Manager, who 'keeps the back office running and owns the firm's quarterly numbers' and whose notes 'end by naming what he needs and when he needs it.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-7",
+      "dimension": "document_plausibility",
+      "severity": "note",
+      "docs": [
+        "d:0017",
+        "d:0025",
+        "d:0027",
+        "d:0047",
+        "d:0049",
+        "d:0054"
+      ],
+      "summary": "All six hire records land the same closing beat, and five of them refer to their own author in the third person while the sixth is in her first person.",
+      "evidence": "d:0047: 'Kelly Chavez will take an hour with him in the next fortnight on how this firm describes a candidate to a client and what we will not put in writing. That hour is the one conversation here nobody skips.' d:0054, same author: 'I have kept an hour with her in her second week, on how this firm describes a search to a client and what we will not put in writing. Nobody here skips that conversation.' Six notes over six years from one Managing Director may well repeat like this; recorded because the register flip inside a single genre and author is the part that does not."
+    }
+  ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5",
     "effort": "xhigh"
   }
 }

@@ -2,16 +2,70 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "northgate-staffing",
   "dimension": "narrative_consistency",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-consistency-jim-nickname",
+      "id": "rf:narr-1",
+      "dimension": "narrative_consistency",
+      "severity": "blocker",
+      "docs": ["d:0063", "d:0062", "d:0061"],
+      "summary": "The closing status report on the Hicks-Castillo benchmarking describes a different engagement from the five documents in front of it: a different unit of scope, a different count, a different client body, and none of the open items the October session left.",
+      "evidence": "d:0061 (July): 'Position schedule | Closed | Eleven positions, signed off in April and unchanged since.' d:0062 (October): 'David Weiss walked the eleven positions in the order they appear in the draft.' d:0063 (November): 'All five job families in scope have a matched comparator set', with a table totalling 57 roles benchmarked (6+9+14+11+17) and comparator counts of 38/52/61/44/58. d:0063 also says 'Field work closed in this period' when d:0061 said in July 'Collection is finished'; it reports to 'the committee' and 'the members who will vote on the structure' rather than to David Mcgee, the General Manager who signed the letter and is the client contact in every other document; and the whole open thread from October -- the two below-range positions, the costed remedy, the knock-on total David Mcgee asked for -- is gone, replaced by an unheralded 'compression' finding and a 'regional differential' applied to families that do not exist elsewhere in the file."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-2",
       "dimension": "narrative_consistency",
       "severity": "major",
-      "docs": ["d:0006", "d:0007"],
-      "summary": "The nickname \"Jim\" is attached to two different people across the corpus: the Firm Overview gives it to Office Manager James Weiss and says it is what keeps him distinct from the other James, while the CFO-search meeting minutes give the same nickname to Senior Consultant James Grant.",
-      "evidence": "d:0006: \"James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.\" d:0007: \"On the division of the next stage of work, James Grant, whom the team calls Jim, agreed to take the first-round interviews...\" The overview's stated purpose for the nickname (to distinguish Weiss from Grant) is contradicted by the minutes calling Grant himself Jim."
+      "docs": ["d:0009", "d:0051"],
+      "summary": "Two of the five internal broadcast emails greet one person by first name and then, in the same short note, refer to that same person in the third person and tell the reader to go to them, so the note instructs its own addressee to contact himself.",
+      "evidence": "d:0009 (To: all-staff, 121 words) opens 'Hello James,' and closes 'If you want something added, tell James Weiss within the hour rather than on your way out, since he is placing it before he leaves.' d:0051 (To: all-staff, 132 words) opens 'Hello Nicole,' and then 'Nicole Donovan is keeping the list of what has to stay reachable, so send her whatever belongs on it by Thursday and she will close the list before the technician starts.' The 'you' addressed in the body cannot be the person named in the salutation. The other three internal emails (d:0026, d:0045, d:0056) get this right: each greets its subject and then keeps addressing them in the second person."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-3",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0046", "d:0040", "d:0044"],
+      "summary": "The General Counsel search reports more approaches than its own closed target lists can supply, and more sub-title candidates in conversation than the widened pass produced.",
+      "evidence": "d:0040 (6 June): the map 'closed at thirty-eight people of the right seniority', and 'Nobody has been approached'. d:0044 (24 June): 'Research across the primary map closed two weeks ago, so the target list is now a fixed thing we can be held to.' d:0046 (6 July) reports the second pass 'produced fourteen prospects. Nine have been approached' -- a ceiling of 38 + 9 = 47 -- and then states 'Fifty-one people have been approached'. The same report says 'Six of the nine live conversations are with people who do not yet hold the title', although the widened brief that admits them has only 'four ... in conversation'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-4",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0011", "d:0029"],
+      "summary": "The engagement letter for Davis and Sons hands James Grant, word for word, the personal habit the roster records as Jeffrey Patterson's, so the same Managing Director sells two clients the same distinguishing trait in two different men.",
+      "evidence": "d:0011 (2016): 'Jeffrey Patterson will carry the search day to day and is the person to call about anything of substance. He came up through our research side, and it shows in his habits: he will not put a name in front of you until he can say precisely why it belongs there.' d:0029 (2018): 'James Grant will carry the search day to day and is the person to call about anything of substance. He has spent most of his career on operations roles in owner-managed businesses, and he will not put a name in front of you until he can say precisely why it belongs there.' The clause is Jeffrey Patterson's persona in foundation.json verbatim ('He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there'). A firm reusing its own letter template is realistic; a template that carries one consultant's biography onto another is not, and this is the pair the similarity table flags at 0.24."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-5",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0047", "d:0049", "d:0054"],
+      "summary": "Three of the six onboarding records place the joining date a week away from the start date the roster holds, and one of them names the wrong day of the week.",
+      "evidence": "Every onboarding record is dated exactly seven days after the person's recorded start. Three say so correctly ('joined us last week', d:0017; 'started with us last week', d:0025; 'joined the firm last week', d:0027). The other three do not: d:0047, dated 2019-11-19, says Larry Russell 'joined the search practice on Monday' when the roster start is Tuesday 2019-11-12; d:0049, dated Friday 2020-11-27, says Mary Parker 'started with us this week' against a start of Friday 2020-11-20; d:0054, dated Friday 2022-09-02, says Heather Meyer 'joined the research side of the practice this week' against a start of Friday 2022-08-26. The onboarding record is the only document that dates a hire, so the prose is the answer a reader would take."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-6",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0040", "d:0041", "d:0042", "d:0043"],
+      "summary": "The four-message client thread holds only Northgate's outbound side, yet the later messages answer things the client said, so the record depends on messages the file does not contain.",
+      "evidence": "d:0042 opens 'That is enough to work with, thank you, and the session is held', then 'The four companies you named are marked off limits' and 'I have taken the second of the two windows you offered'; d:0043 opens 'Yes, and it is the right question to have asked.' Amy Alvarez's replies, which those sentences quote back, are nowhere in the engagement folder, while the thread chains each Northgate message to the previous Northgate message. A search file kept on correspondence is the one place a client's answers would have been filed."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-7",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0007"],
+      "summary": "The only use of James Grant's nickname in the whole corpus sits in the client-facing minutes he took himself, where he records one action under 'Jim' in the narrative and under 'James Grant' in the action table.",
+      "evidence": "d:0007 lists 'James Grant, Senior Consultant, Northgate Talent Partners (minutes)' among those present, reports that 'James Grant reported that the client's office has held two half-day windows', and then writes 'Sandra Fuentes ... asked Jim to sit with Jeffrey Patterson on the second research pass'. The action table records that same task against 'James Grant'. The minute-taker is switching register on himself, in the record a client sits in, and this is the single 'Jim' in 76 documents against 24 uses of 'James Grant'. The charter places the nickname 'in internal notes'; the internal mail (d:0009, d:0051, d:0045) never uses it."
     }
   ]
 }

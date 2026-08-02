@@ -1,175 +1,135 @@
 {
-  "schema_id": "orgsmith/authoring-deliverable@1",
-  "work_order_id": "wo:author:0008",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
-  "docs": [
+ "schema_id": "orgsmith/authoring-deliverable@1",
+ "work_order_id": "wo:author:0008",
+ "generator": {
+  "model": "claude-opus-5",
+  "effort": "xhigh"
+ },
+ "docs": [
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0036",
+   "blocks": [
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0042",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Welcome to Northgate, Mary",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "It is a genuine pleasure to have you with us. We keep a small tradition here. When someone joins the firm, one of us writes them a short note to mark the first week and to say, plainly, how we like to begin. So consider this one yours. We are glad you are here, Mary Parker, and we are confident the research bench is exactly where you belong."
-        },
-        {
-          "kind": "paragraph",
-          "text": "You come to us as a Research Associate, in our search practice, on the research bench that every assignment quietly leans on. Ours is a correspondence business by nature; the formal documents are only the scaffolding around a long thread of candidate conversations. What holds all of that upright is the research beneath it, and that is your ground now. Your work is to keep our candidate research honest: to cross-check the market maps, to test what a fast sourcing pass turns up, and to catch the one detail that a hurried first look slid past. A market map is only as good as the person willing to doubt it, and that person, from this week, is you."
-        },
-        {
-          "kind": "paragraph",
-          "text": "You will report to Sandra Fuentes, our Principal, who runs the search practice day to day. She will set your first assignments and be your first call whenever a search raises a question. And there is one habit we ask you to carry from your very first day. We describe candidates by their current seat, never by their name, in anything that leaves the room. Discretion is not a courtesy in our line of work; it is the reason good people trust us enough to talk at all. You will have it by heart inside a week."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A few things to get you settled in these first days:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Spend your opening days with the research team and walk the shared market maps together, so the tools feel like yours before the real work lands.",
-            "Sit in on a live search with Sandra, to see the shape of an assignment from the inside before one is your own.",
-            "Ask for the underlying files whenever a summary looks a shade too clean. That instinct is exactly the one we hired."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Here is your one first task, and it is a gentle one. Find me on your second morning and we will walk the current searches together, so you can see where your research is going to land. We tend to move quickly once someone is settled, so do not be surprised if the work finds you before the second week is out. Welcome aboard."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Warmly,\nKelly Chavez\nManaging Director"
-        }
-      ]
+     "kind": "heading",
+     "text": "Head of Operations Search for {{fact:f:E-2018-001.client}}: Closing Session",
+     "level": 1
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0044",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Northgate Talent Partners",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are a retained executive search firm, and we have built the whole of the practice on a simple belief: that this is a relationship business first and a document business second. We help mid-market companies, and one regional health system we have been proud to serve, find the senior operators and board directors who will carry them into their next stage. When a board decides that its next hire is the one that matters most, that is the moment we are built for."
-        },
-        {
-          "kind": "heading",
-          "text": "The work we do",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A retained search means we work only for you on the assignment, and we stay with it until the seat is filled. It is patient, careful work. The real product is not a stack of paper; it is a long, discreet thread of conversations with people who are, for the most part, not looking to move. The formal documents matter, and we do them well, but they are the scaffolding around that thread. Everything we produce is in service of one thing: bringing you a person your board will be glad to have hired three years from now."
-        },
-        {
-          "kind": "heading",
-          "text": "How an assignment runs",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Every search we run moves through the same clear stages, and we like our clients to know the shape of it from the start:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "We agree a position specification with you and your board, so that we are all searching for the same person.",
-            "We map the market, build a long list from that map, and approach prospects with care and discretion.",
-            "We interview and assess in depth, then bring you a short candidate slate described by fit and evidence, not by name alone.",
-            "We stay with you through client interviews, references, and the offer, and we do not step back until your new leader has accepted and started."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Discretion runs through all of it. A search puts two anxious parties in our care at once, a client who cannot afford to get the hire wrong and a candidate who cannot afford to be seen looking, and our whole method is built to keep faith with both. We describe prospects to a client by their current seat and record rather than by name, and we hold those names close until both sides are ready to meet. It is the reason the best people, the ones already in a good chair and not advertising a wish to leave it, are willing to take our call at all."
-        },
-        {
-          "kind": "heading",
-          "text": "Why boards work with us",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are not the firm to call for volume, and we do not pretend to be. We take a small number of assignments and give each of them our full attention. A board comes to us when the seat is one that will shape the next several years, when the field is thin and has to be found rather than screened, and when the process has to stay quiet. On those searches, our fixed fee is agreed at the outset and does not move as the search does, so the cost is known before the first call is made. What a client is buying is judgment and patience, and the steadiness to keep two nervous parties calm while the right conversation slowly comes together."
-        },
-        {
-          "kind": "heading",
-          "text": "Some of the searches we have run",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are fortunate in our clients. What follows is a representative handful, offered as examples of the kind of company that trusts us with a search, and not as a full account of our book; we hold a great many of our relationships in confidence, as our clients would expect us to:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "{{fact:f:E-2015-001.client}}",
-            "{{fact:f:E-2016-001.client}}",
-            "{{fact:f:E-2017-001.client}}",
-            "{{fact:f:E-2018-001.client}}",
-            "{{fact:f:E-2019-001.client}}"
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Each of these began the same way, with a board that wanted to get one important hire exactly right, and each is a relationship we still value. We name them here with their goodwill, and we describe the searches themselves no further; the trust that lets us do this work runs in both directions."
-        },
-        {
-          "kind": "heading",
-          "text": "The people you will work with",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The firm is led by Kelly Chavez, our Managing Director, who still sets the tone for how the office writes and for how it holds the two anxious parties every search carries at once, the client and the candidate. Behind every assignment is a research bench that does the deep, unhurried sourcing the work depends on. Larry Russell is the patient sourcer among them, the one we hand the long-lead mandate where the right person has to be coaxed into a conversation. Mary Parker keeps that research honest, cross-checking the market maps and catching the detail a first pass misses. They describe candidates by their seat, never by their name, in anything that travels, because discretion is the condition that lets good people talk to us at all."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If your board is weighing a search that has to go right, the next step is an easy one. Call us, and let us spend an hour understanding what you actually need before anyone talks about candidates. That first conversation is where every good search begins."
-        }
-      ]
+     "kind": "paragraph",
+     "text": "Ninety minutes at the client's offices. The purpose was to settle what remains after the acceptance, and nothing in the session reopened a decision already taken. Recorded by Nicole Donovan, copies to those present and to the search file."
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0046",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Joining our research bench",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Welcome, Heather. We are so glad to have you. When someone new joins the bench, one of us takes a moment to put the welcome in writing, and this one is mine. Heather Meyer joins us as a Research Associate, in our search practice, on the research team that quietly holds up every assignment we run. It is a good bench, and it is better with you on it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Ours is a correspondence business at heart. The real work is a long thread of conversations with people who are, more often than not, not looking to move, which means someone has to find them first, sideways, from a direction they never saw coming. That is the part of the craft we are told you love, and it happens to be the part we lean on most. You will report to Sandra Fuentes, our Principal, who runs the search practice day to day. She will hand you your first assignments and be your first call whenever a search raises a question."
-        },
-        {
-          "kind": "paragraph",
-          "text": "There is one firm habit worth learning before any other. In everything that circulates, we describe a candidate by their current role, never by their name. A passive candidate is trusting us with a conversation they have had with no one else, sometimes not even at home, and that trust is the whole of our business. Guard it as though the search depended on it, because it always does. It is the first thing everyone here learns, and the last thing any of us would ever bend."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For your first weeks the only real expectation is that you find your feet. Sit with the research team, follow a live search from the inside, and let yourself be curious out loud about why we do things the way we do. The digging you are known for will have all the room it needs soon enough. Your first step, though, is a small one. Come find me at the end of your first week and tell me one thing that surprised you about how we run a search. There are no wrong answers, and the odd ones are usually the most useful. I always learn something from that conversation, and it is the best way I know to begin. Welcome aboard."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Warmly,\nKelly Chavez\nManaging Director"
-        }
+     "kind": "heading",
+     "text": "Present",
+     "level": 2
+    },
+    {
+     "kind": "list",
+     "items": [
+      "James Grant, Senior Consultant, Northgate Talent Partners",
+      "Nicole Donovan, Research Associate, Northgate Talent Partners",
+      "Jason Vasquez, General Manager, {{fact:f:E-2018-001.client}}"
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "The acceptance",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The offer has been accepted and the search is closed in substance, with the notice period and the start date the only things now standing between here and the appointment. James Grant reported that the signed letter came back last week and that the candidate told her employer the next morning, which is the point at which we stop treating an acceptance as provisional, and she has asked for no change to the terms since."
+    },
+    {
+     "kind": "paragraph",
+     "text": "Jason Vasquez asked how she reads the counteroffer risk. James Grant said her employer has already made one and she declined it inside a day, and that he intends to keep the weekly calls running through the whole of her notice rather than treat the question as answered."
+    },
+    {
+     "kind": "heading",
+     "text": "How she is described until she starts",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "She is not named in this record and she stays unnamed in anything that circulates at {{fact:f:E-2018-001.client}} until she has worked her last day where she is, which is our practice on every search and not a courtesy particular to this one. Jason Vasquez agreed to it without argument and has told the operations group that a hire is made without saying who. He would rather announce once, with a date attached, than announce twice."
+    },
+    {
+     "kind": "heading",
+     "text": "References",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "References were complete before the offer went out and none of them qualified the recommendation. Two of the four had managed her directly, one was a peer, one a former direct report, and the written report went to Jason Vasquez alone and was copied no further. He asked whether it should go to the two managers who will report to her, and James Grant said no, on the ground that a reference is given to the client and not to a department."
+    },
+    {
+     "kind": "heading",
+     "text": "The first month",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The one question left open in the session is how much of the first month is handover from the interim arrangement, and that one belongs to the client. Jason Vasquez wants the site visits done inside the first two weeks so that she meets the operation before she meets the reporting on it. James Grant suggested the expectation be written into the welcome letter rather than left to be discovered in week three."
+    },
+    {
+     "kind": "heading",
+     "text": "Closing the file",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "What is left on our side is the final invoice, the closeout file, and the replacement undertaking in the engagement letter, which runs twelve months from the day she starts. Nicole Donovan will assemble the file: the approved position specification, the slate with the written appraisals, the reference report, and the correspondence."
+    },
+    {
+     "kind": "paragraph",
+     "text": "James Grant asked that the client's own record of the search be squared with ours before either is put away, since two versions of a candidate list is the ordinary way a name gets out. Jason Vasquez will send his copies of the slate material back to us to be destroyed with ours."
+    },
+    {
+     "kind": "heading",
+     "text": "Actions agreed",
+     "level": 2
+    },
+    {
+     "kind": "table",
+     "header": [
+      "Owner",
+      "Action",
+      "By when"
+     ],
+     "rows": [
+      [
+       "Jason Vasquez",
+       "Confirm the start date once notice has been served, and hold the internal announcement until it is fixed",
+       "On receipt"
+      ],
+      [
+       "James Grant",
+       "Weekly call with the candidate through the notice period, and word to the client the same day if anything moves",
+       "Weekly, to start"
+      ],
+      [
+       "Jason Vasquez",
+       "Settle the handover question with the interim and write the first-month expectations into the welcome letter",
+       "Before she starts"
+      ],
+      [
+       "Nicole Donovan",
+       "Assemble the closeout file and return or destroy the slate material held on both sides",
+       "Two weeks"
+      ],
+      [
+       "James Grant",
+       "Raise the final invoice against the engagement letter and send it with the closeout file",
+       "Two weeks"
       ]
+     ]
+    },
+    {
+     "kind": "paragraph",
+     "text": "Nothing in the session required a decision from the firm. The next entry in this file is the confirmed start date, and these minutes go this afternoon to the three of us who were in the room and into the client folder."
     }
-  ]
+   ]
+  }
+ ]
 }

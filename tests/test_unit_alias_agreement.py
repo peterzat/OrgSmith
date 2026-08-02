@@ -51,51 +51,81 @@ def test_the_knob_defaults_off():
     ).graph_targets.alias_agreement
 
 
-def test_the_knob_is_inert_on_the_frozen_fleet():
-    """Additive evolution: with the knob unset, every committed org's rule
-    set is unchanged and MENT-03 skips visibly rather than running."""
+def test_the_knob_grandfathers_by_charter_across_the_fleet():
+    """Additive evolution, both halves. An org that did not adopt the knob
+    skips MENT-03 visibly rather than running it, so landing the discipline
+    moved nothing under the frozen fixtures. An org that DID adopt it runs
+    the rule, and runs it clean: a knob on with a violation is a failure,
+    never a skip.
+
+    At least one committed org must sit on each side, or this proves only
+    half the contract."""
+    adopted, grandfathered = [], []
     for slug in sorted(
         p.name
         for p in (REPO / "companies").iterdir()
         if p.is_dir() and not p.name.endswith("-metadata")
     ):
         ctx = Context.load(OrgPaths(root=REPO, slug=slug))
-        _, skipped = collect(ctx, MENT_03)
-        assert skipped == [
-            {
-                "rule": "MENT-03",
-                "reason": "graph_targets.alias_agreement is off for this recipe",
-            }
-        ], slug
+        findings, skipped = collect(ctx, MENT_03)
+        if ctx.charter.graph_targets.alias_agreement:
+            adopted.append(slug)
+            assert not skipped, slug
+            assert not findings, (slug, findings)
+        else:
+            grandfathered.append(slug)
+            assert skipped == [
+                {
+                    "rule": "MENT-03",
+                    "reason": (
+                        "graph_targets.alias_agreement is off for this recipe"
+                    ),
+                }
+            ], slug
+    assert adopted, "no committed org adopted the discipline"
+    assert grandfathered, "no committed org still grandfathers"
 
 
-def test_forced_on_ment_03_flags_the_exemplars_jim_collision(tmp_path):
-    """The critique's probe, on today's northgate: turn the knob on against
-    the committed exemplar and the rule finds the overview that calls the
-    wrong James 'Jim'.
+def test_ment_03_flags_an_unplanned_alias_in_committed_text(tmp_path):
+    """The validate-time half, re-hosted (2026-08-02).
 
-    Scoped to the pre-regeneration exemplar deliberately. Once northgate is
-    regenerated with the knob on, this collision cannot exist, and the
-    durable proofs are the synthetic ones below."""
-    shutil.copytree(
-        REPO / "companies" / "northgate-staffing",
-        tmp_path / "companies" / "northgate-staffing",
-    )
-    shutil.copytree(
-        REPO / "companies" / "northgate-staffing-metadata",
-        tmp_path / "companies" / "northgate-staffing-metadata",
-    )
-    paths = OrgPaths(root=tmp_path, slug="northgate-staffing")
+    This assertion used to run against the committed exemplar, where the
+    ledger registered `Jim` to one James while another James's prose claimed
+    it. The M17 regeneration turned the discipline on for that org, so the
+    collision cannot exist there any more and the probe lost its host. Rather
+    than let it skip into a silent pass, it is rebuilt on a synthetic org:
+    plant the same disagreement in rendered text and MENT-03 must find it."""
+    from conftest import build_rendered
+
+    paths = _charter_with_knob(tmp_path, on=True)
+    build_rendered(paths)
+
     ctx = Context.load(paths)
-    ctx.charter.graph_targets.alias_agreement = True
+    alias, owner = next(iter(alias_owners(ctx.foundation).items()))
 
-    findings, skipped = collect(ctx, MENT_03)
+    # A document that names the alias with no planned mention of it: exactly
+    # the shape of the exemplar's published residual.
+    victim = next(
+        e
+        for e in ctx.manifest
+        if e.format == "docx"
+        and not any(m.surface == alias for m in e.mentions)
+    )
+    original = ctx.doc_text(victim)
+    assert alias not in original.split(), "fixture already carries the alias"
+
+    import docx
+
+    target = paths.share_dir / victim.path
+    document = docx.Document(str(target))
+    document.paragraphs[-1].text += f" Everyone here calls him {alias}."
+    document.save(str(target))
+
+    findings, skipped = collect(Context.load(paths), MENT_03)
     assert not skipped
-    assert [f["target"] for f in findings] == [
-        "Firm/Firm Overview 2015 v3.docx"
-    ], findings
-    assert "'Jim'" in findings[0]["message"]
-    assert "p:james.grant" in findings[0]["message"]
+    assert [f["target"] for f in findings] == [victim.path], findings
+    assert repr(alias) in findings[0]["message"]
+    assert owner in findings[0]["message"]
 
 
 def test_a_clean_org_passes_with_the_knob_on(tmp_path):

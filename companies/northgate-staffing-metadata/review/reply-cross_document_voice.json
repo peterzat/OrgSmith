@@ -1,0 +1,71 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "northgate-staffing",
+  "dimension": "cross_document_voice",
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "blocker",
+      "docs": ["d:0021", "d:0039"],
+      "summary": "Two kickoff memos two years apart, signed by two different research associates, are the same memo re-skinned: same five numbered owners in the same order, same open-questions pair, and a three-paragraph close that runs sentence for sentence.",
+      "evidence": "d:0021 (Jason Bell, 2017): 'The specification interviews are the gate on everything else, so scheduling them is the first job. I will send the request to Jennifer Frazier today and hold two slots that suit James Grant as well, since he should hear the brief first hand rather than read it. / Jeffrey Patterson, the draft outline for the specification is yours. My notes from the intake call are in the engagement file and they are fuller than the summary I sent round. / James Grant, I need your read on the approach wording before I make any research calls. I will not put a call into the market until it is settled. If you want the first version to come from me, say so and I will draft it against the intake notes.' d:0039 (Nicole Donovan, 2019): 'Scheduling gates everything else, so it is the first job and it is mine. I will ask Amy Alvarez today for two blocks inside the next fortnight, and I will hold slots that work for James Grant as well, since he should hear the brief first hand instead of reading my notes of it. / Sandra Fuentes, the outline for the specification is yours. My intake notes are in the engagement file and they are a good deal fuller than the summary I circulated after the session. / James Grant, I need your read on the approach wording before I make any research calls. Nothing goes into the market until it is settled. If you would rather the first draft came from me, say so and I will write it against the intake notes and send it up.' The sections above them match too: 'Five pieces, listed in the order they gate one another' / 'Five pieces, in the order each one unlocks the next', both running Specification, Market map, Long list, Approach wording, Reporting with the same owners, both closing item 3 with 'James Grant reads it before any name is approached' / 'before a single name is approached', and both carrying an open-questions section that starts 'Two questions are open and both belong in the first specification session.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0005", "d:0013", "d:0022", "d:0031", "d:0040", "d:0059"],
+      "summary": "Every engagement-opening email follows one script across five different authors: status line, 'I am starting this thread so the running record lives in one place', two asks (ninety minutes for a session, a ruling on off-limits companies), then a conditional close trading a client deadline for a firm deliverable.",
+      "evidence": "One sentence is shared verbatim by two authors two years apart: d:0013 (Jeffrey Patterson, 2016) 'John Chang will look for ninety minutes in your calendar in the next two weeks for a calibration session with James Grant and me, where we walk you through the map and test the specification against what the market has actually said back to us'; d:0031 (James Grant, 2018) 'Nicole is looking for ninety minutes in your diary in the next fortnight for a calibration session, where we take you through the map and test the specification against what the market has actually said back to us.' Both then ask for a ruling on the same three companies ('three companies on the target list sit close enough to ... that I will not approach anyone there without a ruling from you first' / 'three of the businesses on the target list sell into the same accounts as ..., so I need your ruling on whether they are open to us or off limits before the second wave goes out'). The thread-opening line recurs in d:0005 ('I am opening this thread so that the running record of the ... search sits in one place'), d:0013, d:0031 and d:0040; the two-asks move recurs in all six, including d:0059's benchmarking email ('There are two things I need from your side before collection starts')."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-3",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [],
+      "summary": "The 'one thing everything else waits on' construction the previous board flagged has survived the regeneration in paraphrase: fourteen documents nominate a single gating item, across eight authors, five genres and 2015-2023, with the wording varied just enough that the n-gram metric cannot see it.",
+      "evidence": "d:0003 'The specification will decide this search, not the length of the list'; d:0012 'The thing that will decide this search is the research'; d:0030 'so the opening weeks decide the search'; d:0057 'The comparison group decides the answer'; d:0058 'The comparison group is the whole engagement'; d:0021 'Five pieces, listed in the order they gate one another' and 'The specification interviews are the gate on everything else'; d:0039 'Five pieces, in the order each one unlocks the next' and 'Scheduling gates everything else'; d:0023 'The next step is the approach wording, which gates everything in the table below it'; d:0015 'The next step is the client's position on the compensation band. Everything else in this record waits on it'; d:0008 'and that piece sets the pace for everything after it'; d:0016 'The one action that moves everything else is fixing the presentation date'; d:0034 'taking one of them before the month is out is the single thing that keeps the November meetings where they are'; d:0033 'if the band moves, the date moves with it'; d:0061 'every date after the draft findings review moves with it'. The tic is now lexically diverse (decides / gates / unlocks / waits on / moves with / the single thing that) but structurally identical, and it is the same rhetorical move in memos, minutes, letters and status reports by people whose personas share nothing else."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-4",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0034", "d:0046"],
+      "summary": "Consecutive-engagement status reports by two different authors carry the same risk taxonomy in the same order with clause-level phrasing in common, so the status-report template collapse the previous board found is reduced rather than gone.",
+      "evidence": "Counteroffer risk, d:0034 (James Grant): 'Two of the five assessed candidates matter enough to their present employers that a counteroffer is likely, so we work that risk during references and during the offer, while there is still something to be done about it.' d:0046 (Nicole Donovan): 'Three of the nine matter enough to their present employers that a counteroffer should be assumed. That work begins during references, while there is still something to be done about it.' Pipeline risk, same pair: 'If two were to withdraw in the same fortnight the October date would be at risk, and you would hear that from us on the day it happened, not at the next report' / 'If both close, the slate is three and the presentation moves back a fortnight. James Grant reports either outcome the day it reaches him and not at the next report.' Both reports then run holiday-period risk and confidentiality risk in that order, and both open on the same clause ('The search is at its midpoint and is on schedule' / 'The search is at its midpoint and on plan'), which d:0016 uses as well."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-5",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": ["d:0011", "d:0029"],
+      "summary": "In the pair the similarity metric flagged, the copied passage is the 'Your Team' paragraph, and it transplants one consultant's distinguishing habit onto another, so the characterization reads as decoration rather than as a description of a person.",
+      "evidence": "d:0011: 'Jeffrey Patterson will carry the search day to day and is the person to call about anything of substance. He came up through our research side, and it shows in his habits: he will not put a name in front of you until he can say precisely why it belongs there.' d:0029: 'James Grant will carry the search day to day and is the person to call about anything of substance. He has spent most of his career on operations roles in owner-managed businesses, and he will not put a name in front of you until he can say precisely why it belongs there.' The sixteen-word habit is Jeffrey Patterson's in foundation.json ('he will not put a name in front of a client until he can say precisely why it belongs there'); James Grant's persona is about ordering and faithful minute-taking and claims nothing like it. Reused engagement-letter boilerplate is realistic for a signing partner; a personal habit reused as the reason to trust a different consultant is not."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-6",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0017", "d:0025", "d:0027", "d:0047", "d:0049", "d:0054"],
+      "summary": "The six onboarding records hit the same beats in the same order, including a 'from the outside this looks like clerical work' paragraph and the same hour with the Managing Director described as the one conversation nobody skips.",
+      "evidence": "The reframing move: d:0017 'It is worth saying what the seat is for'; d:0025 'A word on why the seat matters, since from the outside it can look like clerical work'; d:0047 'It is worth saying plainly why the firm pays for patience'; d:0049 'From outside the firm this can look like checking. It is closer to protecting the client and the candidate at the same time.' The hour: d:0047 'Kelly Chavez will take an hour with him in the next fortnight on how this firm describes a candidate to a client and what we will not put in writing. That hour is the one conversation here nobody skips'; d:0027 'it is the one conversation here that nobody is allowed to skip'; d:0054 'Nobody here skips that conversation.' All six then close with Sandra Fuentes handing over a specification on an open assignment. One author writing six notes for the same seat justifies a shared shape; it does not explain the same insight arriving fresh each time."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-7",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": [],
+      "summary": "Per-person voice is genuinely present in this corpus; what recurs is per-genre outline, so the defect sits at the level of what each document is asked to contain rather than at the level of how any one person writes.",
+      "evidence": "John Chang's minutes (d:0015, d:0018) are flat, agentless and literal ('It was agreed that ... will come back to us on the band'); James Grant's (d:0007, d:0023) move through attendees, decisions and owners and record reservations in the first person ('I record a reservation of my own'); Sandra Fuentes's (d:0044) argue the reasoning in long sentences and put the client's pushback on the page ('Amy Alvarez pushed back for a good while, and she was right to'). Kelly Chavez's letters are warm at the open and numbered after it, exactly as her persona says. Across genres the same author reads as one person, and two authors in the same genre read as two. The twins in rf:voice-1, rf:voice-2 and rf:voice-4 are alike in what they say and in what order, not in cadence, which is why the same-genre 4-gram metric flagged none of them."
+    }
+  ]
+}

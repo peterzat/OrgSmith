@@ -1,493 +1,329 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0009",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0048",
+      "doc_id": "d:0038",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "David Mcgee\nGeneral Manager\nHicks-Castillo"
+          "text": "Amy Alvarez\nGeneral Manager\n{{fact:f:E-2019-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Dear David,"
+          "text": "Dear Ms. Alvarez:"
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for asking us to take on your compensation benchmarking. This letter sets out how we will carry out that work for {{fact:f:E-2023-001.client}}, and the terms we will work under. We treat a retained engagement as a partnership. So we like to begin with everything written down plainly, before any of the work starts, and this letter is that beginning."
+          "text": "You gave us the better part of an afternoon last week, and most of it went to what this role is for and very little of it to what it costs. That order helps us more than you might think. We would be glad to conduct the search. This letter sets out the agreement between us, and I have written it in plain language so that it can be read once and understood."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Please read it against your own notes from that afternoon. If a term here sits differently from what you understood, telephone me before you sign and we will settle it between us."
         },
         {
           "kind": "heading",
-          "text": "The Work You Have Asked Us to Do",
-          "level": 2
+          "level": 2,
+          "text": "The Role We Are Retained to Fill"
         },
         {
           "kind": "paragraph",
-          "text": "You want to know, with confidence, where the pay of your senior team sits against the companies you actually compete with for that talent. It is a fair question and a harder one than it sounds, because a good comparison depends entirely on choosing the right peers and reading the numbers honestly. Our task is to gather that market data with care, to test it against what we see in our own placement work, and to bring you a picture you and your board can act on. We work on a retained basis. That means we work for you alone on this study, and we stay with it until the findings are in your hands and you have had the chance to talk them through with us."
+          "text": "Northgate will conduct a retained search for the general counsel of {{fact:f:E-2019-001.client}}, reporting to you. The role is defined by a written position specification. We draft it with you, you approve it, and no one is approached before you have. Everything after that point is measured against it. If the market disagrees with the specification, and on a role of this kind the market usually has an opinion, we bring the disagreement back to you and change the document openly."
         },
         {
           "kind": "paragraph",
-          "text": "The study moves through a few clear stages, and I want you to know the shape of it from the first day."
+          "text": "Two things sit outside this letter. We are not reviewing your outside counsel arrangements, and we are not searching for the other positions we touched on at the end of the afternoon. Either can be taken up under a separate engagement. If this search raises a question of that kind, and searches for a first senior lawyer often do, we will put it in front of you and wait for your instruction before we act on it."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Our Method, Stage by Stage"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work runs in five stages and each one gates the next. You will know at any point in the search which stage we are in and what is holding up the one after it."
         },
         {
           "kind": "list",
           "items": [
-            "First, we agree the scope with you: the roles in view, the peer group we will measure you against, and the questions your board most wants answered.",
-            "Second, we assemble the market data, drawing on both the published compensation surveys and what we learn firsthand placing senior people, and we clean it so that every comparison is a fair one.",
-            "Third, we analyze the findings role by role, across base pay, incentive, and total compensation, so that nothing hides inside a single blended number.",
-            "Fourth, we bring you a written report, and we sit with you and your board to walk through what it means and where you may want to act."
+            "1. Specification. We interview you and the executives this lawyer will sit alongside, then draft a document that states what the role owns, what it does not, and what a person must have done before to hold it. Your approval closes the stage.",
+            "2. Market map. We chart where lawyers of this description actually sit today: your revenue band, the two sectors either side of it, and the firms that serve them. You see the map, so that you can tell us where we have looked in the wrong place.",
+            "3. Approach. Our consultants make every approach themselves and by telephone. Nothing goes out until you have read the long list with us and told us where you disagree with it.",
+            "4. Assessment. Everyone carried forward is interviewed against the specification and written up before they travel any further. Nobody reaches a slate on the strength of a good conversation alone.",
+            "5. Slate and references. We present the slate in person, take the references on the finalists ourselves, and stay with you through the offer and through the resignation your candidate has to go and hand in."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "None of this is guesswork. The value of a benchmark comes entirely from the honesty of the comparison behind it, and most of our effort goes into getting that comparison right before a single figure reaches your board. A smaller set of numbers we can stand behind completely will serve you better than a thick report no one can quite trust, and that is the standard we hold ourselves to."
+          "text": "We are retained rather than contingent, and the difference shows up in how we behave rather than in what we charge. What you are buying is the whole of the market looked at properly, including the parts of it that turn out to hold no one, and an honest account of what we found there."
         },
         {
           "kind": "heading",
-          "text": "Who Will Do the Work",
-          "level": 2
+          "level": 2,
+          "text": "Who Will Do the Work"
         },
         {
           "kind": "paragraph",
-          "text": "I will oversee this engagement myself, and I remain your point of contact whenever you want one. Sandra Fuentes, a Principal in our practice, will lead the study day to day and own the relationship with you from the first conversation to the last. David Weiss, a Research Associate on our bench, will do the market research and the careful data-gathering the whole study rests on. It is a small team by design. You will always know who is doing your work, and you will rarely have to explain yourself twice."
+          "text": "Sandra Fuentes leads the search and is your point of contact from the first specification interview through to the day the appointment is announced. James Grant works the assessment alongside her and takes the second read on every candidate who reaches a written appraisal. Nicole Donovan holds the research, the record, and the calendar; when you need a session moved or a document sent, she is the shortest route to it. I remain accountable for the engagement. If at any point you are not getting what this letter describes, telephone me directly and say so."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One habit of ours is worth stating now, because it will show up in every document you receive from us. Candidates are described by the role they hold today and the scale of the business they hold it in, never by name, until they have spoken to their own employer and are ready for the conversation to be real. In a market this size, one name in the wrong room ends a search and does a good deal of damage on its way out."
         },
         {
           "kind": "heading",
-          "text": "Our Fee, and When We Begin",
-          "level": 2
+          "level": 2,
+          "text": "Fee, Expenses, and When Work Begins"
         },
         {
           "kind": "paragraph",
-          "text": "For a study of this kind we work to a fixed professional fee of {{fact:f:E-2023-001.fee}}. That fee covers the whole of the work, from the scoping conversation through to the final report and our presentation of it to your board. It does not move with the size of the findings or the hours the work takes. You know the cost at the outset. We expect to begin on {{fact:f:E-2023-001.start}}, and the study runs for something on the order of eight months from there, allowing for the survey cycles that the good comparisons depend on."
+          "text": "Our fee for this search is a fixed {{fact:f:E-2019-001.fee}}, payable in three parts: one third on your signature of this letter, one third when we present the slate, and the balance when your chosen candidate accepts. The fee does not move with the salary you agree, and we take no percentage of it. Invoices fall due thirty days from issue."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Expenses are billed at cost and itemized on each invoice: our travel to interviews, candidate travel where we have asked someone to come to you, and any external verification you instruct us to run. We ask your approval in advance for any item of real consequence. Our work begins {{fact:f:E-2019-001.start}}, and the specification interviews are the first thing we will want in the diary."
         },
         {
           "kind": "heading",
-          "text": "Fees and Payment",
-          "level": 2
+          "level": 2,
+          "text": "How Long This Runs, and How It Ends"
         },
         {
           "kind": "paragraph",
-          "text": "We bill the fixed fee in three parts, tied to the milestones of the study: on your signing of this letter, on the delivery of our draft findings, and on the final report. Invoices are due on receipt. Any reasonable direct cost we arrange at your request, such as a purchased survey your board specifically wants included, we pass through at cost and only with your agreement in advance, so nothing on an invoice is ever a surprise."
+          "text": "We plan the search over about four months from the day work begins. Searches move at the speed of the calendars involved, and if we come to think we are behind we will tell you at that moment and not at the point where it has become obvious to both of us. Either of us may end this engagement on thirty days' written notice. If you end it, you owe the portion of the fee earned to that date together with expenses already incurred, and we hand over the specification, the market map, and the record of every conversation held on your behalf. Nothing in the file is kept back."
         },
         {
           "kind": "heading",
-          "text": "The Length of the Engagement, and Ending It",
-          "level": 2
+          "level": 2,
+          "text": "What Stays Between Us"
         },
         {
           "kind": "paragraph",
-          "text": "The engagement runs from your signature until the report is delivered and our final invoice is settled. Either of us may end it sooner, in writing. We ask only for a short conversation first, so that nothing ends on a misunderstanding. If you close the study early for a reason unrelated to our work, we bill for the work done to that point and no more."
+          "text": "What you tell us about {{fact:f:E-2019-001.client}}, about your people, and about your plans stays inside the engagement team and is never carried into another search. The same protection runs the other way for the candidates we speak to, which is why their names reach you and go no further. For the term of this engagement and for twelve months after it closes, we will not approach an employee of {{fact:f:E-2019-001.client}} on behalf of another client of this firm."
         },
         {
           "kind": "heading",
-          "text": "Holding Confidence",
-          "level": 2
+          "level": 2,
+          "text": "The Limits of What We Promise"
         },
         {
           "kind": "paragraph",
-          "text": "Compensation is the most guarded number a company keeps, and we treat it that way. What you tell us about your own pay, and everything we assemble about the market, stays confidential and is used only for this work. Inside our office, access sits with the people named above and with anyone whose work on the study requires it. We extend the same care to the comparator data. We report the market in aggregate, never in a way that would expose what any one company pays a named person."
+          "text": "We do not guarantee an appointment. We guarantee the work: the market covered, every candidate assessed against the specification you approved, and a straight account of what we found, including the parts you would have preferred we had not. Our liability under this agreement is limited to the fees you have paid us under it. If the lawyer we place leaves within twelve months, other than through redundancy or a material change to the role, we conduct one replacement search and charge you expenses only."
         },
         {
           "kind": "heading",
-          "text": "Where Our Liability Sits",
-          "level": 2
+          "level": 2,
+          "text": "The Law That Applies"
         },
         {
           "kind": "paragraph",
-          "text": "We give this study our best professional judgment, and we stand behind the care we take. Still, the compensation decisions you make from our findings are finally yours, and we cannot warrant the outcome of choices we do not control. Our liability to you under this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us for the work."
-        },
-        {
-          "kind": "heading",
-          "text": "The Law That Governs Us",
-          "level": 2
+          "text": "This agreement is governed by the law of the state in which our office is established, and any dispute arising under it belongs in the courts of that state. If a provision of this letter is found unenforceable, the remainder stands. Signed, this letter is the whole of the agreement between us on this search, and neither of us should rely on anything said before it."
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Should any dispute arise, we will each make a genuine effort to settle it in conversation before either of us turns anywhere else."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If these terms read as we agreed them, the next step is a simple one. Please sign both copies where shown below, keep one for your file, and send the other back to me. That single signature is all we need to begin. If anything here gives you pause, call me first, and we will settle it before you sign."
-        },
-        {
-          "kind": "paragraph",
-          "text": "With warm regards,"
+          "text": "If this reflects your understanding, please sign both copies and return one to me. The next step is a short one. Sandra Fuentes will telephone your office this week to fix the specification interviews for the opening days of the engagement, and we would ask that the second of them include whoever manages your work with outside counsel today."
         },
         {
           "kind": "sigblock",
-          "signers": ["p:kelly.chavez", "xp:david.mcgee"]
+          "signers": ["p:kelly.chavez", "xp:amy.alvarez"]
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0049",
+      "doc_id": "d:0039",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Engagement Kickoff",
-          "level": 1
+          "kind": "paragraph",
+          "text": "To: Sandra Fuentes, James Grant\nFrom: Nicole Donovan\nRe: General counsel search for {{fact:f:E-2019-001.client}}, opening plan and division of work\nCopy: engagement file"
         },
         {
           "kind": "paragraph",
-          "text": "To: Sandra Fuentes, Heather Meyer\nFrom: David Weiss\nRe: Compensation benchmarking for Hicks-Castillo, engagement kickoff"
-        },
-        {
-          "kind": "paragraph",
-          "text": "The objective of this engagement is straightforward, and it is worth stating before anything else: we are to give {{fact:f:E-2023-001.client}} a defensible, role-by-role picture of where its senior compensation stands against a peer group we can stand behind. Everything we do over the coming months serves that single end, and every choice we make about data and method should be judged against whether it makes that picture more honest or less. The engagement is now under way as of {{fact:f:E-2023-001.start}}, and our client contact throughout is David Mcgee, the General Manager, who has asked for findings his board can act on rather than a survey dump."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sandra Fuentes leads the engagement and owns the client relationship, while the two of us on the research bench carry the data. Because the quality of a benchmark lives entirely in the peer group and the cleanliness of the underlying figures, the early phase is where a study like this is won or lost, and that is where our attention has to go first, before any figure is pulled."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The client's concern, as David Mcgee framed it at the outset, is competitive: he believes the company may be losing operating leaders on pay and wants to know whether that instinct is borne out by the market before the board sets next year's compensation. That gives the study a clear question to answer, and it tells us where to press hardest, on incentive and total compensation for the operating-leader roles rather than on base pay taken alone."
+          "text": "The engagement opened {{fact:f:E-2019-001.start}} and this memo is the record of what we settled in the room afterwards. Amy Alvarez is our client on the assignment and the role reports to her. Everything below is what I will hold the file to until one of you tells me to change it."
         },
         {
           "kind": "heading",
-          "text": "The Work Ahead",
-          "level": 2
+          "level": 2,
+          "text": "The objective, stated once"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Present a slate of general counsel candidates who can carry the legal work of a business this size without a department behind them. The work going to outside firms today is commercial contracts and employment, and the client wants that judgment inside the business and available in the week it is asked for rather than in the week after."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two constraints from the intake session shape the map and are worth repeating. Amy Alvarez wants a lawyer who has been the only one in a room of operators and was comfortable there. She also said, without being asked, that a candidate whose first move is to build a team is not the candidate."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Who owns which piece"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Five pieces, in the order each one unlocks the next. I have put the owner on every line so that nobody has to come and ask me in three weeks."
         },
         {
           "kind": "list",
           "items": [
-            "Scope and peer group: with Sandra, confirm the roles in view and assemble a defensible list of comparator companies, so that every later number rests on an agreed foundation.",
-            "Survey and source assembly: gather the relevant published compensation surveys for the sectors and geographies in scope, and log each source with its date and coverage so the analysis stays auditable.",
-            "Firsthand market read: draw on what the firm sees directly in placing senior operators, treated in aggregate, to sense-check the published figures against a live market.",
-            "Normalization: reconcile titles, role scope, and pay definitions across sources, because a general manager in one survey is not always a general manager in another.",
-            "Analysis and drafting: build the role-by-role comparison across base, incentive, and total compensation, and draft the findings for Sandra's review."
+            "1. Specification. Sandra Fuentes runs both sessions at the client and drafts from them. I sit in and keep the record. No part of it reaches a candidate before Amy Alvarez has approved the draft in writing.",
+            "2. Market map. Mine to build: businesses in the client's revenue band and the two sectors either side of it, and the counsel, deputy counsel, and head of legal titles sitting inside them. I am building it to be defensible rather than long.",
+            "3. Long list. Mine to draw off the map and not off our files. James Grant reads it before a single name is approached, and Sandra Fuentes takes it to the client.",
+            "4. Approach wording. James Grant owns it. Every approach goes by telephone and by a consultant, and I log who was approached, when, by what route, and what came back.",
+            "5. Reporting. A written update to Amy Alvarez every fortnight and a working session at each review point. Sandra Fuentes holds the client relationship. I draft, she signs."
           ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "A note on sequence: the peer group has to settle before the data build begins in earnest, because rework at that stage is expensive and every downstream number inherits the comparison set. We should hold off on pulling figures until the scope is signed off, however ready the sources look, since a clean start is what keeps the second half calm."
         },
         {
           "kind": "heading",
-          "text": "First Steps",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Heather Meyer to begin the comparator long list this week and circulate a first draft for Sandra's review by the end of next week.",
-            "David Weiss to pull the survey inventory and confirm which sources we already hold and which we must acquire, flagging any that need the client's agreement to purchase.",
-            "Sandra Fuentes to set the first client checkpoint with David Mcgee so the scope and peer group are agreed before we commit to the data build."
-          ]
+          "level": 2,
+          "text": "Unsettled, and it changes the approach"
         },
         {
           "kind": "paragraph",
-          "text": "That is enough to start. I will keep a running log of sources and decisions so that anyone picking up a thread can see how we got there. Questions to me."
+          "text": "Two questions are open and both belong in the first specification session. We do not know whether the role carries the compliance work as well as the contracts, and lawyers at this level ask early because the answer decides how much of their week is their own. We also do not know what the client wants said if a candidate's employer hears about the search, which on a search of this kind is a live possibility."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Neither question belongs in an email. I have put both at the top of the agenda for the first session so that they are answered while everyone with a view is in the room."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Before the first session"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Scheduling gates everything else, so it is the first job and it is mine. I will ask Amy Alvarez today for two blocks inside the next fortnight, and I will hold slots that work for James Grant as well, since he should hear the brief first hand instead of reading my notes of it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sandra Fuentes, the outline for the specification is yours. My intake notes are in the engagement file and they are a good deal fuller than the summary I circulated after the session."
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Grant, I need your read on the approach wording before I make any research calls. Nothing goes into the market until it is settled. If you would rather the first draft came from me, say so and I will write it against the intake notes and send it up."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0050",
+      "doc_id": "d:0040",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Working Session Minutes: Compensation Benchmarking for Hicks-Castillo",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Hi Amy,"
         },
         {
           "kind": "paragraph",
-          "text": "A working session held at the client's offices to review progress at the midpoint of the study and to align on the shape of the analysis before we build it out. The following were present:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Sandra Fuentes, Principal, Northgate Talent Partners",
-            "David Weiss, Research Associate, Northgate Talent Partners",
-            "David Mcgee, General Manager, Hicks-Castillo"
-          ]
+          "text": "The specification is signed off and the market work behind it is finished, so the next thing on the {{fact:f:E-2019-001.client}} general counsel search is the long list session with you. I am starting this thread to keep the updates in one place, and Sandra and James are on copy throughout."
         },
         {
           "kind": "paragraph",
-          "text": "The headline from the session is that we are on track and the peer group is holding up well, which is the single thing that most determines whether the final numbers will be trusted. We walked David Mcgee through the comparator set we have assembled for {{fact:f:E-2023-001.client}} and the reasoning behind each inclusion, and he confirmed that the companies match the ones his team competes with for senior talent in practice, with two additions he asked us to weigh before the set is locked."
+          "text": "Where the work stands. The map covers your revenue band and the two sectors either side of it, and it closed at thirty-eight people of the right seniority. Nineteen of those are worth a first conversation on what we can see of them from the outside. Nobody has been approached, and nobody will be until you have read the list with Sandra."
         },
         {
           "kind": "paragraph",
-          "text": "David Weiss then summarized the state of the data, which is further along than the halfway mark might suggest. The published surveys for the roles in scope are in hand and logged, the firsthand read from the firm's own placement work is assembled in aggregate, and the normalization of titles and pay definitions across sources is under way, which is the slow, unglamorous part of the work that makes the comparisons honest. We were candid with the client that a few of his roles do not map cleanly onto standard survey titles, and we talked through how we mean to handle those before they quietly distort a total."
+          "text": "There are two things I need from you before any approach goes out. One is ninety minutes inside the next fortnight for the list session, at your office or ours, and I will build it around whatever windows you can give me. The other is your ruling on which companies are off limits to us. Your outside counsel firms are the obvious ones; any business where a call from us would be awkward for you belongs on that list too, and I would rather have the awkward names than guess at them."
         },
         {
           "kind": "paragraph",
-          "text": "We also settled how to treat the survey timing, since two of the sources report on a different fiscal calendar than the client's, and comparing across mismatched periods without noting it would quietly weaken an otherwise sound result. David Weiss will annotate those figures as the analysis is built, so the difference stays visible rather than buried, and the client asked us to carry the same caution into anything that eventually reaches the board."
+          "text": "Send me the windows and I will confirm the session today."
         },
         {
           "kind": "paragraph",
-          "text": "We spent the back half of the session on what the client most wants to be able to decide once the findings are in. David Mcgee was clear that the board's interest is less in a single market-median figure and more in where the company sits on incentive and on total compensation for its operating leaders, and we agreed to shape the analysis and the eventual report around that emphasis. Nothing in that changes the scope we set out under; it simply sharpens where we spend the analytical effort through the second half of the study."
-        },
-        {
-          "kind": "heading",
-          "text": "What We Agreed to Do",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": ["Owner", "Action", "Timing"],
-          "rows": [
-            ["David Weiss", "Finish the title and pay-definition normalization across all sources and flag every role that needs a judgment call", "Two weeks"],
-            ["Sandra Fuentes", "Weigh David Mcgee's two proposed additions to the peer group and confirm whether they belong before the data build hardens", "Next week"],
-            ["David Mcgee", "Confirm the internal role list and current pay ranges for the operating-leader roles so our comparison uses the client's real structure", "Before our next session"]
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "We set no formal next meeting, but agreed to reconvene once the normalization is complete and the first comparative cuts are ready to look at together. Minutes recorded by Sandra Fuentes."
+          "text": "Regards"
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0051",
+      "doc_id": "d:0041",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Status Report: Compensation Benchmarking",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Hi Amy,"
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for Hicks-Castillo. Prepared by David Weiss, with Sandra Fuentes as engagement lead. This report covers the reporting period just ended and reflects the state of the engagement at its midpoint."
-        },
-        {
-          "kind": "heading",
-          "text": "Where the Engagement Stands",
-          "level": 2
+          "text": "The list you read at that session will hold fewer sitting general counsel than the specification implies, and you should hear why from me before it is in front of you."
         },
         {
           "kind": "paragraph",
-          "text": "The engagement for {{fact:f:E-2023-001.client}} is on schedule and has reached its midpoint. The comparator peer group is agreed with the client, the source data is assembled and logged, and the analysis phase is under way. Nothing at this stage puts the timeline or the quality of the findings at risk."
+          "text": "The specification asks for a lawyer who already holds the title inside a business the size of {{fact:f:E-2019-001.client}} and who knows your regulatory ground. Both of those are reasonable on their own, and the place where they overlap is thin. The people who sit squarely in it are mostly not moving this year. The deeper field is deputies and heads of legal doing the same work under somebody else's title, and the good ones are ready for the step."
         },
         {
           "kind": "paragraph",
-          "text": "The midpoint is a meaningful marker on a study like this, because most of what determines whether a benchmark can be trusted is decided in the first half, in the choice of peers and the discipline of the source assembly. That work is now done and agreed with the client, which means the second half is a matter of careful analysis on a foundation that has already been validated rather than a scramble to settle open questions late."
+          "text": "I am not asking you to lower the bar, and I would not recommend it. I am asking you to tell us, before the approaches start, which of the two you would keep if you could only keep one, because that answer decides who we call first. Bring it to the session and the list we walk you through will be honest about the trade."
         },
         {
           "kind": "paragraph",
-          "text": "This period also included a working session with the client to review progress and confirm the peer group in person. Sandra Fuentes led that session. The client validated the comparator set and raised two additions, both of which we assessed and folded in. That review matters more than it looks, because the peer group is the one input the whole benchmark cannot be corrected for later, and it now carries the client's explicit sign-off."
+          "text": "The research carries on while you think about it. The calls we are making this week are the ones that tell us how thin the overlap really is, and I will have a better answer for you by the session than I have this morning."
         },
         {
           "kind": "paragraph",
-          "text": "Work remains within the agreed fixed fee of {{fact:f:E-2023-001.fee}}. The engagement is tracking to budget with no variance to report, and we do not foresee any pass-through costs beyond the ones already discussed and agreed."
-        },
-        {
-          "kind": "heading",
-          "text": "Completed This Period",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The first half of the engagement produced the foundation the analysis will rest on. In summary:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Finalized the comparator peer group with the client, including the two additions raised at the midpoint working session, and locked it as the agreed basis for every downstream comparison.",
-            "Completed the assembly and logging of the published compensation surveys covering the roles and markets in scope, each recorded with its source, publication date, and coverage, so that every figure in the final report can be traced back to where it came from.",
-            "Assembled the firm's own firsthand read of the senior compensation market, in aggregate and with no individual identifiable, drawn from recent placement work, and used it as an independent check on the published surveys.",
-            "Advanced the normalization of titles, role scope, and pay definitions across the sources, which is roughly two-thirds complete and on course to finish early in the coming period."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Taken together, the first half leaves us with a validated peer group, a logged and traceable body of source data, and an independent firsthand check against it. That is the whole reason for front-loading the discipline: the figures the board eventually sees will each carry a clear provenance, and none of them will rest on a comparison the client has not already reviewed and agreed."
-        },
-        {
-          "kind": "heading",
-          "text": "The Period Ahead",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The second half turns that foundation into findings. The planned work is as follows:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Complete the normalization and resolve the small number of client roles that do not map cleanly onto any standard survey title, using a documented judgment rather than a forced match.",
-            "Build the role-by-role comparison across base pay, short-term incentive, and total compensation, so that no single blended figure hides a difference the board would want to see.",
-            "Produce the first draft analytical cuts for Sandra Fuentes to review, in full, before any figure is shared with the client.",
-            "Schedule the next client checkpoint once the first comparative cuts are ready, so the client sees the shape of the findings before the report is drafted."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Risks and Watch Items",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "One item is worth flagging, and it is a question of method rather than schedule. A few of the client's operating-leader roles carry a scope that does not correspond cleanly to any single survey benchmark, and mapping them to a nearest match would introduce a quiet distortion into the totals. We are handling those roles with an explicit, documented judgment call, and we will show the client the reasoning openly when we present the findings rather than presenting a false precision."
-        },
-        {
-          "kind": "paragraph",
-          "text": "No other risks are open at this time. The survey sources we depend on have published on schedule, the client has been prompt and clear on every question of scope, and the fixed fee leaves no commercial question hanging over the work."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next report will follow the completion of the first full comparative analysis. Any questions on the above can come to me directly, or to Sandra Fuentes."
+          "text": "Best regards"
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0052",
+      "doc_id": "d:0042",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Minutes: Findings Review, Hicks-Castillo Benchmarking",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Hi Amy,"
         },
         {
           "kind": "paragraph",
-          "text": "A working session to review the draft findings and agree what remains before the final report. Held with:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Sandra Fuentes, Principal, Northgate Talent Partners",
-            "David Weiss, Research Associate, Northgate Talent Partners",
-            "David Mcgee, General Manager, Hicks-Castillo"
-          ]
+          "text": "That is enough to work with, thank you, and the session is held."
         },
         {
           "kind": "paragraph",
-          "text": "The main outcome of the session is that the draft findings hold together and the client sees his own company in them, which is the test that matters at this stage. We took David Mcgee through the role-by-role comparison for {{fact:f:E-2023-001.client}} across base, incentive, and total compensation, and he recognized both the overall picture and the outliers in it, which tells us the peer group and the normalization did the work they were meant to do."
+          "text": "The four companies you named are marked off limits in the engagement file and nobody here will put a call into any of them without your say. I have logged your reason against each one so the file explains itself to whoever reads it later."
         },
         {
           "kind": "paragraph",
-          "text": "David Weiss then walked through the two operating-leader roles we had flagged earlier as hard to benchmark, and explained the judgment calls we made and documented instead of forcing a false match onto a survey title. David Mcgee accepted the reasoning and, helpfully, gave us a piece of internal context on one of those roles that lets us tighten the comparison further. We agreed that being transparent about those two roles belongs in the report itself, not buried in a footnote, so that the board understands where the numbers are firm and where they rest on judgment."
+          "text": "I have taken the second of the two windows you offered and the invitation is with your assistant. Sandra and James both come. Two things would help before it: the names and titles of whoever will sit in the interviews, and whatever you have in writing on how the outside counsel work runs today, since the list reads better against a picture of what this person is actually inheriting. If the panel is not settled yet, send me who you expect it to be and I will correct the file later."
         },
         {
           "kind": "paragraph",
-          "text": "Much of the substance turned on the incentive gap. The comparison shows the client's operating leaders at or near market on base pay but trailing the peer group on total compensation, and the difference sits almost entirely in the incentive component. David Mcgee had suspected as much, and seeing it laid out role by role gave him something concrete to take to the board, though we were careful to say that the numbers describe the market and do not, on their own, prescribe what the client should do about them."
+          "text": "The list itself reaches you the day before, by courier and not by email, and it describes people by the role they hold now. That is how we work on every search, not a precaution we have invented for {{fact:f:E-2019-001.client}}."
         },
         {
           "kind": "paragraph",
-          "text": "We also talked about timing for the close. With the analysis all but settled, David Mcgee asked how soon the board could see a final version, and we were straight with him that the two open refinements come first. A benchmark that shifts after the board has already seen it does more damage to confidence than the few days of waiting would ever be worth, so we agreed to hold the presentation until the report is genuinely final."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We closed on how the client wants the findings framed for the board. David Mcgee asked that the report lead with total compensation for the operating leaders and treat base pay as supporting detail, consistent with what the board most cares about, and we agreed that framing. We also agreed to keep the comparator companies unnamed in the board version, identifying them by sector and size band, which protects the confidences under which the data was gathered."
-        },
-        {
-          "kind": "heading",
-          "text": "Actions Before the Final Report",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": ["Owner", "Action", "Timing"],
-          "rows": [
-            ["David Weiss", "Incorporate the new internal context on the flagged role and refresh the affected comparison", "One week"],
-            ["Sandra Fuentes", "Redraft the findings summary to lead with total compensation and prepare the board-ready version with comparators anonymized", "Two weeks"],
-            ["David Mcgee", "Confirm the board meeting date so we can schedule the final presentation", "This week"]
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are close. Once these items are done, the final report and a board presentation are all that remain. Minutes recorded by Sandra Fuentes."
+          "text": "Regards"
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0053",
+      "doc_id": "d:0043",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Final Status Report: Compensation Benchmarking",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Hi Amy,"
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for Hicks-Castillo. Prepared by David Weiss, with Sandra Fuentes as engagement lead. This is the final status report for the engagement."
-        },
-        {
-          "kind": "heading",
-          "text": "Summary",
-          "level": 2
+          "text": "Yes, and it is the right question to have asked. A deputy who has run the contract work for a business twice your size is often the stronger appointment, and two of the people I most want you to see are in exactly that position today."
         },
         {
           "kind": "paragraph",
-          "text": "The engagement for {{fact:f:E-2023-001.client}} is complete in substance. The final report has been delivered, the findings have been presented to the board, and the recommendations are in the client's hands. What remains is administrative: the closing invoice and the handover of the source file."
+          "text": "What that means for the session is small. When you read the list, the line that matters is what the person owns now, not the title on the card, and we will lay it out that way so the comparison is a fair one. I will say a sentence about each of them before you read anything."
         },
         {
           "kind": "paragraph",
-          "text": "The purpose of this report is to close the engagement cleanly, to record what was delivered against what was agreed, and to leave the client with a clear account of where the numbers are firm and where they rest on documented judgment. There are no open questions of substance and no surprises in the closing."
+          "text": "On your point about timing, the approaches go out in the week after we have read the list together, and the first conversations are deliberately informal; nobody is negotiating with anybody at that stage, {{fact:f:E-2019-001.client}} is not named until a candidate has shown real interest, and no candidate's name leaves our file until they know their own mind, which is usually two conversations in."
         },
         {
           "kind": "paragraph",
-          "text": "The work was delivered within the agreed fixed fee of {{fact:f:E-2023-001.fee}}, with no overrun and no pass-through charges. The only commercial item outstanding is the final invoice against that fee."
-        },
-        {
-          "kind": "heading",
-          "text": "Delivered This Period",
-          "level": 2
+          "text": "If anything else has occurred to you, send it before Monday and I will fold it into the agenda."
         },
         {
           "kind": "paragraph",
-          "text": "The final period turned the analysis into delivered work product. In summary:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Completed the role-by-role compensation comparison across base pay, short-term incentive, and total compensation for every role in scope.",
-            "Delivered the final written report, including the explicit and documented treatment of the two operating-leader roles that do not map cleanly onto any standard benchmark.",
-            "Presented the findings to the board, leading with total compensation for the operating leaders as the client asked, and identifying the comparator companies by sector and size band rather than by name, consistent with the confidences under which the data was gathered.",
-            "Handed over the underlying source inventory, so that for every figure in the report the client can see the source, its date, and its coverage."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The board session went as we had hoped. The directors engaged with the total-compensation comparison directly, asked hard questions about the size of the incentive gap and how firm the underlying numbers were, and left with a shared reading of where the company stands rather than a report to work through later. I prepared the comparison material with the bench, and Sandra Fuentes led the discussion in the room, which is the division of labor that has served this engagement from the start."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The handover deserves a note of its own. Every figure in the report ties back to a logged source, and the client now holds that inventory in full. That means the client can rely on the benchmark, test any number in it, and refresh the whole study a year or two from now without depending on us to reconstruct where a figure came from. That auditability was a design choice from the first week, and it is the part of the delivery I am most confident will hold up over time."
-        },
-        {
-          "kind": "heading",
-          "text": "Findings, in Brief",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The detail belongs in the report, but the shape is worth restating for the record. The client's base pay for its operating leaders sits within the market range, while total compensation runs below the peer median, and the gap is driven mostly by a lighter incentive component than comparable companies carry rather than by base pay. The two roles we had flagged as hard to benchmark were handled by explicit judgment rather than forced comparison, and the report is candid throughout about where a figure is firm and where it rests on that judgment. Where the survey calendars did not line up with the client's own, the affected figures are annotated so no comparison is read across mismatched periods by accident."
-        },
-        {
-          "kind": "heading",
-          "text": "Closing Items",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Issue the final invoice against the agreed fixed fee.",
-            "Confirm the client has everything it needs from the source file, and close the engagement record."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "None open. The report is delivered and accepted, the board presentation is given, and nothing on the engagement is unresolved. Should the board decide it wants follow-on work, whether a refresh of the benchmark or a deeper look at the incentive design, that would be a fresh engagement and a new conversation with Sandra Fuentes, not a continuation of this one."
-        },
-        {
-          "kind": "paragraph",
-          "text": "This has been a straightforward engagement to work and a clean one to close, and the credit for that belongs in large part to a client who gave us honest access and candid answers. My thanks to the client for both. Any questions on this report can come to me or to Sandra Fuentes."
+          "text": "Best regards"
         }
       ]
     }

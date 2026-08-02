@@ -9,7 +9,7 @@
   "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0006\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0027",
+      "doc_id": "d:0029",
       "title": "Engagement Letter: Head of Operations Search for Davis and Sons",
       "genre": "engagement_letter",
       "date": "2018-06-25",
@@ -19,7 +19,7 @@
           "name": "Kelly Chavez",
           "title": "Managing Director",
           "dept": "Leadership",
-          "persona": "Kelly built the firm around the belief that retained search is a relationship business first and a document business second, and she still sets the tone for how the office writes to clients. With the executives she has partnered with over many engagements she drops into first names and an easy, direct warmth; when a search turns delicate she is the one who chooses each word. She is protective of the firm's discretion and expects everyone to describe candidates by their seat, not their name, in anything that travels."
+          "persona": "Kelly Chavez holds the firm's word to a client. She signs the retained agreements, decides what Northgate will and will not promise on a search, and is the last read on anything that describes the practice to an outsider. Her writing is warm at the open and short-winded after that, numbered wherever there is more than one thing to say, and it ends by naming the next step rather than trailing off. She talks about candidates by their current role and never by name, and she expects the same from everyone."
         }
       ],
       "participants": [
@@ -28,14 +28,14 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:nicole.donovan",
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         },
         {
           "id": "xp:jason.vasquez",
@@ -94,7 +94,7 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0028",
+      "doc_id": "d:0030",
       "title": "Kickoff Memo: Head of Operations Search for Davis and Sons",
       "genre": "kickoff_memo",
       "date": "2018-07-08",
@@ -104,7 +104,7 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         }
       ],
       "participants": [
@@ -113,14 +113,14 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:nicole.donovan",
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         },
         {
           "id": "xp:jason.vasquez",
@@ -170,8 +170,8 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0029",
-      "title": "RE: Head of Operations Search for Davis and Sons",
+      "doc_id": "d:0031",
+      "title": "Head of Operations Search for Davis and Sons",
       "genre": "engagement_email",
       "date": "2018-08-02",
       "authors": [
@@ -180,7 +180,7 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         }
       ],
       "participants": [
@@ -189,14 +189,14 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:nicole.donovan",
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         },
         {
           "id": "xp:jason.vasquez",
@@ -215,20 +215,62 @@
       ],
       "mentions": [
         {
-          "entity": "p:james.grant",
-          "surface": "James Grant",
-          "kind": "person"
+          "entity": "x:davis-and-sons",
+          "surface": "Davis and Sons",
+          "kind": "org"
+        }
+      ],
+      "target_words": 250,
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one. Delivery: this message is sent To Jason Vasquez at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. Open with your salutation form \"Hello {first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "This document is dated about 18% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0032",
+      "title": "Head of Operations Search for Davis and Sons",
+      "genre": "engagement_email",
+      "date": "2018-08-03",
+      "authors": [
+        {
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:james.grant",
+          "name": "James Grant",
+          "title": "Senior Consultant",
+          "dept": "Search",
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
-          "entity": "p:nicole.donovan",
-          "surface": "Nicole Donovan",
-          "kind": "person"
+          "id": "p:nicole.donovan",
+          "name": "Nicole Donovan",
+          "title": "Research Associate",
+          "dept": "Search",
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         },
         {
-          "entity": "xp:jason.vasquez",
-          "surface": "Jason Vasquez",
-          "kind": "person"
-        },
+          "id": "xp:jason.vasquez",
+          "name": "Jason Vasquez",
+          "title": "General Manager",
+          "dept": "Davis and Sons",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Head of Operations Search for Davis and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2018-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
         {
           "entity": "x:davis-and-sons",
           "surface": "Davis and Sons",
@@ -236,13 +278,13 @@
         }
       ],
       "target_words": 250,
-      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. Open with your salutation form \"Hello {first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Jason Vasquez at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; a 'Workstreams' heading followed by 'Next Steps'. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
       "engagement_position": "This document is dated about 18% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0030",
+      "doc_id": "d:0033",
       "title": "Meeting Minutes: Head of Operations Search for Davis and Sons",
       "genre": "meeting_minutes",
       "date": "2018-09-07",
@@ -252,7 +294,7 @@
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         }
       ],
       "participants": [
@@ -261,14 +303,14 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:nicole.donovan",
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         },
         {
           "id": "xp:jason.vasquez",
@@ -314,7 +356,7 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0031",
+      "doc_id": "d:0034",
       "title": "Status Report: Head of Operations Search for Davis and Sons",
       "genre": "status_report",
       "date": "2018-09-23",
@@ -324,7 +366,7 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         }
       ],
       "participants": [
@@ -333,14 +375,14 @@
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:nicole.donovan",
           "name": "Nicole Donovan",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
+          "persona": "Nicole Donovan is the associate the consultants route work through, and the file shows it: the kickoff memo, the session minutes, the note confirming a slate review. She writes quickly and without waste, in sentences that run on a little because she is thinking as she goes, and she is meticulous about who was copied on what. When a finalist withdraws, she usually drafts the careful version of that news before a principal puts a name to it."
         }
       ],
       "engagement_summary": "Head of Operations Search for Davis and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -374,78 +416,6 @@
       "target_words": 850,
       "guidance": "Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
-      "firm_digest": "",
-      "reporting_line": ""
-    },
-    {
-      "doc_id": "d:0033",
-      "title": "Meeting Minutes: Head of Operations Search for Davis and Sons",
-      "genre": "meeting_minutes",
-      "date": "2018-12-06",
-      "authors": [
-        {
-          "id": "p:nicole.donovan",
-          "name": "Nicole Donovan",
-          "title": "Research Associate",
-          "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:james.grant",
-          "name": "James Grant",
-          "title": "Senior Consultant",
-          "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
-        },
-        {
-          "id": "p:nicole.donovan",
-          "name": "Nicole Donovan",
-          "title": "Research Associate",
-          "dept": "Search",
-          "persona": "Nicole writes the tight candidate profiles the consultants circulate, and she has a feel for framing a person's background honestly without overselling. She is discreet by instinct, careful about what gets said in an email versus what waits for a call, and precise about describing candidates by their current role. Her research reads clean enough to drop into a slate with little editing."
-        },
-        {
-          "id": "xp:jason.vasquez",
-          "name": "Jason Vasquez",
-          "title": "General Manager",
-          "dept": "Davis and Sons",
-          "persona": ""
-        }
-      ],
-      "engagement_summary": "Head of Operations Search for Davis and Sons, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
-      "facts": [
-        {
-          "id": "f:E-2018-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
-      "mentions": [
-        {
-          "entity": "p:nicole.donovan",
-          "surface": "Nicole Donovan",
-          "kind": "person"
-        },
-        {
-          "entity": "p:james.grant",
-          "surface": "James Grant",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:jason.vasquez",
-          "surface": "Jason Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "x:davis-and-sons",
-          "surface": "Davis and Sons",
-          "kind": "org"
-        }
-      ],
-      "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: keeps paragraphs to two or three sentences; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; a 'Workstreams' heading followed by 'Next Steps'.",
-      "engagement_position": "This document is dated about 96% of the way through the engagement (in the later phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
     }

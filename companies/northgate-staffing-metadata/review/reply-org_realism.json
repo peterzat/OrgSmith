@@ -2,16 +2,52 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "northgate-staffing",
   "dimension": "org_realism",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-jim-1",
+      "id": "rf:orgreal-1",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": ["d:0006", "d:0007"],
-      "summary": "The internal nickname \"Jim\" is attached to two different colleagues named James, and the document that introduces it presents the nickname as the device that keeps the two Jameses apart, so the second use directly contradicts it.",
-      "evidence": "d:0006 (Firm Overview): \"James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.\" d:0007 (RMH meeting minutes): \"James Grant, whom the team calls Jim, agreed to take the first-round interviews of the most senior prospects himself.\""
+      "docs": ["d:0020", "d:0021", "d:0024", "d:0057", "d:0061", "d:0063"],
+      "summary": "On two engagements a Research Associate is the client's de facto lead: the periodic report the client reads goes out over the associate's name with no consultant on it, contradicting the engagement letter that named a consultant as the client's first call.",
+      "evidence": "Sanchez-Baker: d:0020 promises 'Jeffrey Patterson, a Research Consultant with this firm, carries the search day to day and is your first call on anything that will not wait,' while the report the client actually receives (d:0024) opens 'Prepared by: Jason Bell, Research Associate' with no reviewer or approver named, and demotes Patterson to a fallback ('If the board wants a read before then, Jeffrey Patterson can give it on a call'). Bell had been in the seat ten months and his kickoff (d:0021) tasks both consultants above him: 'Jeffrey Patterson, the draft outline for the specification is yours.' Hicks-Castillo repeats it: d:0057 says 'Sandra Fuentes, our Principal, leads the engagement and is the person to call. She runs the sessions with you and she writes the findings,' yet both client reports (d:0061, d:0063) are 'Prepared by David Weiss, Research Associate' alone. The firm knows better, which is what makes these read as defects rather than house style: the same-genre report on the 2019 search carries 'Prepared by Nicole Donovan, Research Associate. Reviewed by James Grant, who runs the assignment day to day, and approved for release by Sandra Fuentes.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-2",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": ["d:0017", "d:0025", "d:0027", "d:0047", "d:0049", "d:0054"],
+      "summary": "The 2023 roster is six Research Associates behind three working consultants, with the Research Consultant rung vacant since mid-2018 and not one associate promoted in seven years, at a firm whose entire business is other people's careers.",
+      "evidence": "Active roster at the end of the file: 1 Managing Director, 2 Principals, 1 Senior Consultant, 1 Office Manager, and 6 Research Associates. Six onboarding records across six years (d:0017 2016, d:0025 2017, d:0027 2017, d:0047 2019, d:0049 2020, d:0054 2022) each open the same seat and each closes the same way, 'He reports to Sandra Fuentes, Principal, who will decide which assignments he works and in what order.' Nothing in the file records anyone moving up out of that seat: Jason Bell is still a Research Associate seven years after d:0017, Nicole Donovan and David Weiss six years after d:0025 and d:0027. The rung above them is empty and visibly so, since 'Jeffrey Patterson, our Research Consultant' is fielded to clients in 2015 and 2016 and no document after mid-2018 puts anyone in that title. The reporting lines are equally flat: every one of the eight active Search staff reports to Sandra Fuentes, including James Grant, who is a Principal himself, while she also carries searches of her own."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-3",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0052"],
+      "summary": "The 2021 firm overview asks 'Who actually does the work?' and then names two junior researchers and no consultant at all.",
+      "evidence": "d:0052 answers its own heading with 'The consultant a client meets first... A client always knows whose telephone to pick up, and that person always knows the search well enough to answer without going away to check.' The only people it names are Kelly Chavez and two Research Associates hired in 2019 and 2020: 'Larry Russell works the hard end of those lists here' and 'Mary Parker establishes what a prospect actually owns today.' Sandra Fuentes, James Grant and Jeffrey Patterson, who carry every assignment in the file and whom the engagement letters name to clients by title, appear nowhere in the document a board reads before hiring the firm."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-4",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0009", "d:0045", "d:0051", "d:0056"],
+      "summary": "Four of the five internal administrative notices are sent by consultants, the Managing Director, or a research associate, at a firm that employs an Office Manager to do exactly that.",
+      "evidence": "d:0009 (holiday closure, answering service, mail held at the post office, the supply order) and d:0051 (the server maintenance window) both go out over James Grant's name, a fee-earning consultant. d:0045, replacing lobby access cards and arranging out-of-hours entry for two staff, is from the Managing Director. d:0056 chases two peer Research Associates for their January hours and explains that 'The monthly summary is compiled from the book on the first working day after it closes' over Jason Bell's name, a Research Associate with no authority over either recipient and no ownership of the summary. James Weiss is the Office Manager, his persona has him 'keeps the back office running and owns the firm's quarterly numbers,' he authors every financial summary in the file, and he sends exactly one of the five internal notes, about a conference room booking (d:0026). d:0009 even routes the supply order back to him: 'tell James Weiss within the hour rather than on your way out.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:orgreal-5",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0002", "d:0011", "d:0020", "d:0023", "d:0029", "d:0038", "d:0057"],
+      "summary": "Every client contact across six engagements and nine years is a Chief Operating Officer or a General Manager; no chief executive, head of HR, or board chair ever appears, and the board director search is run entirely through a management officer.",
+      "evidence": "The six engagement letters are addressed to Jason Myers, Chief Operating Officer (d:0002); Michael Martin, Chief Operating Officer (d:0011); Jennifer Frazier, Chief Operating Officer (d:0020); Jason Vasquez, General Manager (d:0029); Amy Alvarez, General Manager (d:0038); David Mcgee, General Manager (d:0057). Three of one title and three of the other, with no other title anywhere in the client base, and none of the two people who most often buy retained search. The board seat is the sharpest instance: d:0020 retains the firm to find 'one independent director for the board,' is signed by the COO, and in d:0023 she is the only client-side person in the room when the long list is read name by name, answering for the nominating committee ('the committee has not yet decided whether it carries the chair'). The committee is named once at kickoff and never appears again."
     }
   ]
 }

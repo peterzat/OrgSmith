@@ -9,7 +9,7 @@
   "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0010",
+      "doc_id": "d:0011",
       "title": "Engagement Letter: VP Engineering Search for Coleman Ltd",
       "genre": "engagement_letter",
       "date": "2016-02-25",
@@ -19,7 +19,7 @@
           "name": "Kelly Chavez",
           "title": "Managing Director",
           "dept": "Leadership",
-          "persona": "Kelly built the firm around the belief that retained search is a relationship business first and a document business second, and she still sets the tone for how the office writes to clients. With the executives she has partnered with over many engagements she drops into first names and an easy, direct warmth; when a search turns delicate she is the one who chooses each word. She is protective of the firm's discretion and expects everyone to describe candidates by their seat, not their name, in anything that travels."
+          "persona": "Kelly Chavez holds the firm's word to a client. She signs the retained agreements, decides what Northgate will and will not promise on a search, and is the last read on anything that describes the practice to an outsider. Her writing is warm at the open and short-winded after that, numbered wherever there is more than one thing to say, and it ends by naming the next step rather than trailing off. She talks about candidates by their current role and never by name, and she expects the same from everyone."
         }
       ],
       "participants": [
@@ -28,21 +28,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         },
         {
           "id": "xp:michael.martin",
@@ -106,7 +106,7 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0011",
+      "doc_id": "d:0012",
       "title": "Kickoff Memo: VP Engineering Search for Coleman Ltd",
       "genre": "kickoff_memo",
       "date": "2016-03-09",
@@ -116,7 +116,7 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         }
       ],
       "participants": [
@@ -125,21 +125,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         },
         {
           "id": "xp:michael.martin",
@@ -194,8 +194,8 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0012",
-      "title": "RE: VP Engineering Search for Coleman Ltd",
+      "doc_id": "d:0013",
+      "title": "VP Engineering Search for Coleman Ltd",
       "genre": "engagement_email",
       "date": "2016-04-04",
       "authors": [
@@ -204,7 +204,7 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         }
       ],
       "participants": [
@@ -213,21 +213,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         },
         {
           "id": "xp:michael.martin",
@@ -246,39 +246,19 @@
       ],
       "mentions": [
         {
-          "entity": "p:jeffrey.patterson",
-          "surface": "Jeffrey Patterson",
-          "kind": "person"
-        },
-        {
-          "entity": "p:james.grant",
-          "surface": "James Grant",
-          "kind": "person"
-        },
-        {
-          "entity": "p:john.chang",
-          "surface": "John Chang",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michael.martin",
-          "surface": "Michael Martin",
-          "kind": "person"
-        },
-        {
           "entity": "x:coleman-ltd",
           "surface": "Coleman Ltd",
           "kind": "org"
         }
       ],
       "target_words": 250,
-      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms. Open with your salutation form \"Dear {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one. Delivery: this message is sent To Michael Martin at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms. Open with your salutation form \"Dear {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
       "engagement_position": "This document is dated about 14% of the way through the engagement (in the early phase); it runs roughly 7 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0013",
+      "doc_id": "d:0014",
       "title": "Briefing Deck: VP Engineering Search for Coleman Ltd",
       "genre": "briefing_deck",
       "date": "2016-04-27",
@@ -288,7 +268,7 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         }
       ],
       "participants": [
@@ -297,21 +277,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         },
         {
           "id": "xp:michael.martin",
@@ -366,7 +346,7 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0014",
+      "doc_id": "d:0015",
       "title": "Meeting Minutes: VP Engineering Search for Coleman Ltd",
       "genre": "meeting_minutes",
       "date": "2016-05-27",
@@ -376,7 +356,7 @@
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         }
       ],
       "participants": [
@@ -385,21 +365,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         },
         {
           "id": "xp:michael.martin",
@@ -450,7 +430,7 @@
       "reporting_line": ""
     },
     {
-      "doc_id": "d:0015",
+      "doc_id": "d:0016",
       "title": "Status Report: VP Engineering Search for Coleman Ltd",
       "genre": "status_report",
       "date": "2016-06-18",
@@ -460,7 +440,7 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         }
       ],
       "participants": [
@@ -469,21 +449,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         }
       ],
       "engagement_summary": "VP Engineering Search for Coleman Ltd, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",

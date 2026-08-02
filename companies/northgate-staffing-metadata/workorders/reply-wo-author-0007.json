@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0007",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -11,201 +11,197 @@
       "doc_id": "d:0035",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Amy Alvarez\nGeneral Manager\nHoward, Carlson and Tran"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Amy,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thank you for choosing us to find your next General Counsel. This letter sets out how we will run that search for {{fact:f:E-2019-001.client}}, and the terms we will run it under. We treat a retained mandate as a partnership. So we like to begin with everything said plainly, in writing, before the work starts. Please read what follows with care. If any line does not match what we agreed, call me before you sign, and we will put it right."
-        },
-        {
           "kind": "heading",
-          "text": "The Search Before Us",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "You need a General Counsel who can be a true partner to your leadership, not only a careful lawyer. Our task is to find that person, to test them hard, and to bring you a short slate you can act on with confidence. We work on a retained basis. That means we work for you alone on this search, and we stay with it until the seat is filled. Discretion runs through all of it. We describe prospective candidates to you by their current role and record, never by name in anything that circulates, and we hold names close until both sides are ready to meet."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The assignment moves through a few clear stages, and I want you to know the shape of it from the first day."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "First, we agree the position specification with you and your board, so we are all searching for the same person.",
-            "Second, we map the market, build a long list from that map, and approach prospects with care.",
-            "Third, we interview and assess in depth, then bring you a short slate framed by fit and evidence, not by name alone.",
-            "Fourth, we stay beside you through your own interviews, the references, and the offer, and we do not step back until your new General Counsel has accepted and started."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Who Will Do the Work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "I will oversee this engagement myself, and I remain your point of contact whenever you want one. Sandra Fuentes, a Principal in our practice, will lead the search day to day and own the relationship with you and with every candidate she brings forward. James Grant, also a Principal, will work the most senior end of the market and lend his judgment on the finalists. Nicole Donovan, our Research Associate, will build the candidate research and keep the small loops closed, so nothing on our side goes quiet on you. You will find us easy to reach."
-        },
-        {
-          "kind": "heading",
-          "text": "Our Fee, and When We Start",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "For a retained search of this kind we work to a fixed professional fee of {{fact:f:E-2019-001.fee}}. That fee covers the whole assignment, from the specification through to a placement made. It is not tied to the pay of the person you hire. You know the cost at the outset, and it does not move as the search does. We are ready to begin on {{fact:f:E-2019-001.start}}, once this letter is signed and returned, and we will hold that date for you."
-        },
-        {
-          "kind": "heading",
-          "text": "How We Invoice",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We bill the fixed fee in three parts, tied to the milestones of the search: at your signing of this letter, at the delivery of the short slate, and on your chosen candidate's acceptance. Invoices are due on receipt. Reasonable direct costs that we arrange at your request, such as candidate travel, are billed at cost and shown in full. We will clear anything out of the ordinary with you first."
-        },
-        {
-          "kind": "heading",
-          "text": "The Length of the Engagement, and Ending It",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement runs from your signature until the search is done and our final invoice is settled. Either of us may end it sooner, in writing. We ask only for a short conversation first, so nothing ends on a misunderstanding. If you close the search early for a reason unrelated to our work, we bill for the stage in hand and no further. If a General Counsel we place leaves you within the first year for reasons within our control, we will reopen the search once at no added fee."
-        },
-        {
-          "kind": "heading",
-          "text": "Holding Confidence",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We treat what you tell us, and all we learn during the search, as confidential, and we use it only for this work. Inside our office, access sits with the people named above and with those whose work on the search requires it. We extend the same care to candidates. We do not reveal a prospect's interest to anyone outside your committee without their knowledge, and we describe them by their role rather than their name until you are ready to meet. We guard that discretion closely, because it is the reason strong candidates are willing to speak with us while they are still in post."
-        },
-        {
-          "kind": "heading",
-          "text": "Where Our Liability Sits",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We give this search our best professional judgment. Still, the choice of whom to hire is finally yours, and we cannot warrant how any person will perform once appointed. Our liability to you under this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, save for our own fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss."
-        },
-        {
-          "kind": "heading",
-          "text": "The Law That Governs Us",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Should any dispute arise, we will each make a real effort to settle it in conversation before either of us turns elsewhere."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If these terms read as we agreed, the next step is a simple one. Please sign both copies where shown below, keep one for your file, and return the other to me. That single signature is all we need to begin. If anything here gives you pause, call me first, and we will settle it before you sign. We are glad to be doing this with you."
-        },
-        {
-          "kind": "paragraph",
-          "text": "With warm regards,"
-        },
-        {
-          "kind": "sigblock",
-          "signers": [
-            "p:kelly.chavez",
-            "xp:amy.alvarez"
-          ]
-        }
-      ]
-    },
-    {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0036",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Kickoff Memo: General Counsel Search for Howard, Carlson and Tran",
+          "text": "Northgate Talent Partners LLC: Firm Overview",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "To: Sandra Fuentes; James Grant\nFrom: Nicole Donovan\nRe: How we will run the General Counsel search"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our objective is a single one, and it should govern every choice from here: place a General Counsel with {{fact:f:E-2019-001.client}} whom their board will still be glad to have hired three years on. We agreed the mandate with the client's General Manager, Amy Alvarez, and the engagement begins on {{fact:f:E-2019-001.start}}. This memo records the plan we set at kickoff, so the three of us work from one brief rather than three. The search will run heavily on correspondence, because the strongest candidates are not looking and both sides will need steady contact to stay comfortable."
+          "text": "Most of our work begins with the same telephone call. A chief executive or a board chair has a seat to fill that the company cannot fill from inside, and rather more rides on it than on any hire they have made in years. What they want to know first is whether we can reach the people who are not looking. It is a fair question, and the honest answer takes a conversation. This page is meant to lead to that conversation rather than to stand in for it."
         },
         {
           "kind": "heading",
-          "text": "The role we are filling",
+          "text": "The assignments we take",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The client wants a General Counsel who is a genuine partner to leadership, not only a technical lawyer. They have said little yet about the finer points of the brief, which is why the specification comes first. Settling it with Amy Alvarez and her board is the first real task on the account, and it will set the terms every later decision rests on. The profile we build from it should read the same to all three of us, so that the field we assemble answers one brief and not three private readings of it. Discretion holds throughout: we describe candidates by their current seat and record, and we hold names until both sides want to meet."
+          "text": "We are a retained search firm working on senior roles in the middle market: chief executives and the leaders who report to them, the functional heads underneath, and outside directors brought on for a particular kind of judgment. We do not work on contingency and we do not advertise a search. A company fills a seat of this kind once every few years. The market it needs to reach is made up almost entirely of people who are content where they are, and reaching them is slow telephone work. That is most of what a client is buying from us."
         },
         {
           "kind": "heading",
-          "text": "How the work divides",
+          "text": "What being retained means here",
           "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The word gets used loosely in this industry, so it is worth setting down what it means in our engagement letters."
         },
         {
           "kind": "list",
           "items": [
-            "Specification: Sandra Fuentes drafts the position specification and settles it with the client, so the whole team searches against one agreed brief rather than four private ones.",
-            "Market and long list: James Grant leads the mapping at the senior end, works the sectors where a General Counsel of this profile is actually found, and builds the long list from that map rather than from a list we already hold.",
-            "Research and profiles: I prepare the candidate research and the short profiles the consultants circulate, each drawn by current role rather than by name, so they are clean enough to drop into a slate.",
-            "Logistics: I keep the schedules, the client billing, and the meeting arrangements in order, so the search never goes quiet on the client or on a candidate while we are busy elsewhere."
+            "1. We work the assignment exclusively and stay with it until the seat is filled. If a search turns out harder than either side expected, that is ours to solve and not an occasion to renegotiate.",
+            "2. Expenses are billed at cost and itemized. We do not bill research time, telephone, courier, or administrative support, and we do not mark up an expense.",
+            "3. If the executive we place leaves inside the first year, for a reason other than a change the client makes to the role, we run the replacement search and bill only what it costs us out of pocket."
           ]
         },
         {
           "kind": "heading",
-          "text": "First moves",
+          "text": "One consultant, first meeting to first month in the seat",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The specification gates everything else, so that is where we start. This week Sandra Fuentes gets a first draft of the specification to Amy Alvarez, and I would like James Grant to open the market map in parallel, so we are not idle while the client reads. I will set a standing weekly check-in for the three of us and arrange a first calibration call once the draft is in the client's hands. If anyone sees a reason this plan will not hold, say so now, before the search is underway."
+          "text": "The firm is small deliberately. The consultant who takes the first meeting writes the specification, makes the approaches, and sits in the room when the finalists are argued over. Nothing is sold by one person and worked by another. Behind that consultant is a research bench that has grown steadily with the practice, and its work is the part clients tend to underestimate. Before there is a slate, somebody has to establish who holds this job today, at which companies, in which markets, and which of those people will take a call at all. A slate is only ever as good as the map it came off. The specification comes first and the client corrects it line by line, because a document nobody argued with is a document nobody agreed to."
+        },
+        {
+          "kind": "heading",
+          "text": "How we speak about people who are not yet candidates",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A word on how we will keep the thread orderly. This is a correspondence-heavy search, so the record matters as much as the calls, and I will hold the schedules, the notes, and the client billing in one place. Every candidate profile I circulate will carry a name at the top for questions, so nothing waits on a guess about who owns it. When something is delicate, it waits for a call rather than an email, and I will flag those to whichever of you owns the relationship."
+          "text": "Discretion here is a habit rather than a policy. In anything that travels past the hiring executive, a person is the role they hold now and the sector they hold it in, never a name. A prospect learns which company we are calling for when there is a real conversation to be had, and not before. The discipline costs us nothing. It is the reason a senior person takes our second call as readily as the first, and it is the reason we are able to go back to someone two years later about a different seat."
+        },
+        {
+          "kind": "heading",
+          "text": "A sample of the work",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "That is the whole of it for now. Once the specification is agreed, the market work begins in earnest, and the memo after this one will be about candidates rather than plan."
+          "text": "What follows are illustrations of the kind of assignment we take, not an account of the practice. The rest of the work belongs to the clients who engaged us and stays with them."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. A chief financial officer for {{fact:f:E-2015-001.client}}.",
+            "2. A vice president of engineering for {{fact:f:E-2016-001.client}}.",
+            "3. An outside director for {{fact:f:E-2017-001.client}}.",
+            "4. A head of operations for {{fact:f:E-2018-001.client}}, which is open as this is written."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A reference conversation with a client who has been through a search with us will tell a board more than any list of names, and we are glad to arrange one. If a search is being weighed now, the next step is a half hour on the telephone with Kelly Chavez, our Managing Director. She takes the first call on every assignment. If we are the wrong firm for it, she will say so on that call."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0037",
+      "doc_id": "d:0045",
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Amy Alvarez\nCc: James Grant; Sandra Fuentes"
+          "text": "Jeffrey and James,"
         },
         {
           "kind": "paragraph",
-          "text": "Hi Amy,"
+          "text": "Building management is changing the lobby readers this week, and the two of you are in well before the front desk is staffed, so this lands on you harder than on the rest of us. From Wednesday the side entrance stays locked until eight and the cards we hold now will not open it. The replacements are at the desk in the lobby, and they want the old cards handed back when you collect."
         },
         {
           "kind": "paragraph",
-          "text": "A short update before our next call. The search for {{fact:f:E-2019-001.client}} is moving on schedule, and I wanted you to have the shape of it in writing. James Grant has the market map nearly closed, and I have good early research on the seats we most want to reach. We are still at the stage of building the field rather than narrowing it, which is where a search of this kind should be at this point."
+          "text": "The building is shut Thursday and Friday for the holiday. If either of you means to come in over the long weekend, tell me today and I will have the access added before we close tomorrow."
         },
         {
           "kind": "paragraph",
-          "text": "Two things would help from your side. First, a short read from the Howard, Carlson and Tran board on the two priorities we flagged in the draft specification, so I am not researching against a brief that has quietly shifted. Second, a note of any names inside your own network you would want us to include or to avoid. The candidate profiles I prepare will reach your committee under my name, Nicole Donovan, so please send any questions on them straight to me."
+          "text": "Sincerely"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0047",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Larry Russell, Research Associate",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "On timing, we are comfortably inside the window we set at the start. Once the map is closed this week, I will send a proposed date for our first proper review of where the field is heading, and we can fit it around your calendar rather than ours."
+          "text": "Larry Russell joined the search practice on Monday as a Research Associate, and we are glad to have him. Take this as the file copy and as a welcome. Four of us met him separately before the offer went out, and what came back each time was a note about temperament rather than technique, which does not happen often and which, for this seat, is the right way round."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Larry has the hard end of the list. Every search reaches a stretch where the obvious people have said no, the client is getting anxious, and the work becomes ringing someone who declined in the spring to ask what has changed since. Most people are not built for that. He is patient with a slow process and comfortable going back a second time, and he would rather make the call than write around it. He reports to Sandra Fuentes, Principal. She sets what he works and in what order."
+        },
+        {
+          "kind": "paragraph",
+          "text": "It is worth saying plainly why the firm pays for patience. From the outside, a search that ends well looks like a lucky introduction. From the inside it is a long run of conversations that went nowhere and one that did not, and nobody is owed that last one. It is earned by working the list after the interesting part is over, and by leaving the kind of impression that lets us call the same person again next year about something else entirely."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three things for the first month:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Discretion is the house rule and it does not bend. Outside the search file a candidate is the job they hold now, never a name.",
+            "2. A call is not a record until it is written down. Summarizing it in a handful of lines is fine, as long as the lines are in the file the same day, because the consultant reading them on a Sunday cannot ring you to ask what you meant.",
+            "3. When a prospect asks who the client is, that answer comes from the consultant carrying the search."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly Chavez will take an hour with him in the next fortnight on how this firm describes a candidate to a client and what we will not put in writing. That hour is the one conversation here nobody skips. Before then, Sandra Fuentes hands over the specification and the target list on an open assignment Thursday morning, and he should expect to be on the telephone with it before the week is out."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0049",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "New this week: Mary Parker",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Mary Parker started with us this week as a Research Associate, and she is welcome. She comes from work where an answer had to be right before it was allowed to be interesting, and it shows in how she writes: short flat statements, numbered as often as not, and no more of them than the point requires."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Her seat is verification, and it is the seat that keeps a slate defensible. Before a name reaches a client, somebody has to establish what that person actually owns today, how large the team really is, what the line they carry actually covers, and where the story a resume tells goes thin. Mary does that work and keeps what she has confirmed strictly apart from what she was told. The consultants will learn quickly that when her note hedges, the hedge is the finding, and that the right response is another question rather than a rounded-up sentence. She reports to Sandra Fuentes, Principal, and will take work from every consultant in the practice, so an early skill is saying what she can finish and by when."
+        },
+        {
+          "kind": "paragraph",
+          "text": "From outside the firm this can look like checking. It is closer to protecting the client and the candidate at the same time. A retained search is sold on the promise that the four or five people in front of a board have been assessed rather than merely admired, and a slate that has not been verified will eventually put a client in a room with a person whose job is smaller than the paper suggested. That conversation is expensive for everybody in it, and it is avoidable. Mary is one of the reasons we can avoid it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three standing rules for the first month:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Confirmed and reported are two columns and they never merge. If a figure came from the candidate, the note says so in the same line.",
+            "2. Nothing about a prospect travels outside the search file. Current role and sector will carry almost any sentence you need to write.",
+            "3. If verification turns up something that changes the slate, it goes to the consultant carrying the search that day, not at the end of the week."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly Chavez will sit down with her inside the first fortnight on our written standards for describing a candidate, which are stricter than most people arrive with, and the short version is that we write as though the note will be read aloud to the client and the candidate both. Her first piece of work is the verification pass on an open file. Sandra Fuentes will hand it over Monday morning and wants her first questions back before that week closes."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0051",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Hello Nicole,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "I am copying the office so that this only goes round once: the server that holds the research files and the shared calendar comes down for maintenance early on Saturday, and while it is meant to be back the same afternoon, nobody should build a weekend around that."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three things follow from it. Anything you expect to need over the weekend should be on your own machine before you leave Friday, the telephones and the answering service are untouched, and mail sent into the office while the work is running will arrive late rather than not at all. Nicole Donovan is keeping the list of what has to stay reachable, so send her whatever belongs on it by Thursday and she will close the list before the technician starts."
         },
         {
           "kind": "paragraph",
@@ -215,181 +211,81 @@
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0038",
+      "doc_id": "d:0052",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: General Counsel Search for Howard, Carlson and Tran",
+          "text": "Northgate Talent Partners LLC: Firm Overview",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "These minutes record our working session on the General Counsel search for {{fact:f:E-2019-001.client}}, held to take stock of the field and to agree how the next stretch should run. The short version is that the search is where it should be: the specification is settled, the market map is largely built, and we are beginning to test our first real prospects. What follows is the detail behind that."
+          "text": "Northgate Talent Partners is a retained executive search firm. We fill senior operating roles and board seats for companies in the middle market, and one consultant carries an assignment from the first meeting to the new executive's first month in the seat. What follows is a short account of how the practice works, written for a board or a chief executive with a search in prospect."
         },
         {
           "kind": "heading",
-          "text": "Present",
+          "text": "Can you reach the people who are not looking?",
           "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "That is the whole job. The people worth having are employed, well regarded, and reading nothing that resembles an advertisement. Reaching them is telephone work against a map of the market, and the map gets built before a single name goes in front of a client. Larry Russell works the hard end of those lists here, the roles where the obvious people have already said no, and he is patient about going back to someone who declined the first time. Much of what he learns never reaches a document. It shows up in who we call next."
+        },
+        {
+          "kind": "heading",
+          "text": "Will the slate stand up?",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A short slate is easy to assemble and hard to defend, and ours is defensible because somebody checks it. Mary Parker establishes what a prospect actually owns today and where the story a resume tells goes thin, keeping what she has confirmed apart from what she was told. When her note hedges, the hedge is the finding, and it reaches the client in those words. A board should hear that from us and not discover it in a reference call."
+        },
+        {
+          "kind": "heading",
+          "text": "Who actually does the work?",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The consultant a client meets first. The firm is small on purpose, and nothing here is sold by one person and worked by another. The research bench sits behind that consultant and has grown as the practice has, but the specification, the approaches, and the assessment stay with one named person from beginning to end. A client always knows whose telephone to pick up, and that person always knows the search well enough to answer without going away to check."
+        },
+        {
+          "kind": "heading",
+          "text": "What we put in writing",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three commitments, and they appear in every engagement letter we sign."
         },
         {
           "kind": "list",
           "items": [
-            "Sandra Fuentes, Principal",
-            "James Grant, Principal",
-            "Nicole Donovan, Research Associate",
-            "Amy Alvarez, General Manager, Howard, Carlson and Tran"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Where the search stands",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We began with a recap of the field. James Grant walked the group through the map he has built at the senior end of the market, and we agreed it now covers the sectors where a General Counsel of this profile is genuinely to be found. Nicole Donovan has drawn early research on the seats we most want to reach, each described by current role rather than by name, which is how we will keep the whole field until both sides are ready to meet."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two prospects are worth a closer look already, and we discussed each by their current seat: the deputy general counsel of a listed manufacturer, and the general counsel of a regional health system. Neither has been approached in a way that commits them, and we were careful to note that the field is still being built rather than narrowed. Amy Alvarez asked good questions about how we would test for the partner-to-leadership qualities the client cares most about, and we agreed those questions belong in the assessment rather than the first approach."
-        },
-        {
-          "kind": "heading",
-          "text": "What the client needs from us",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Amy Alvarez set the context plainly before making her one request. The board would like to see how a candidate has behaved when the business was under real pressure, not only how they present in a room. She asked, therefore, that our profiles carry a short, concrete account of judgment under strain for each person we bring forward. We agreed that Nicole Donovan will fold that into the profile format, and that James Grant will weigh it directly in his read of the finalists."
-        },
-        {
-          "kind": "heading",
-          "text": "What we agreed to do next",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": [
-            "Owner",
-            "Action",
-            "Timing"
-          ],
-          "rows": [
-            [
-              "James Grant",
-              "Close the remaining gaps in the market map and open first, uncommitting approaches to the strongest seats",
-              "Over the next two weeks"
-            ],
-            [
-              "Nicole Donovan",
-              "Add a short account of judgment under pressure to the candidate profile format and update the drawn profiles to match",
-              "This week"
-            ],
-            [
-              "Sandra Fuentes",
-              "Confirm the assessment questions with the client and hold the relationship steady on both sides",
-              "Before the next session"
-            ],
-            [
-              "Amy Alvarez",
-              "Share any internal names the board would want included or avoided, and confirm the review cadence with her leadership",
-              "Ahead of the next call"
-            ]
+            "1. A written position specification, agreed line by line before we approach anybody. Every candidate is measured against it, and so are we.",
+            "2. Written reporting on a fixed rhythm. The report goes out in the weeks when the news is thin as well as in the weeks when it is good, because a quiet month is still a month the client has paid for.",
+            "3. Candidates described by current role and sector, never by name, in anything that circulates. A name reaches a client when one of us can say precisely why it belongs there."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Our one priority before we next meet is to move the two leading prospects from names on a map into real conversations, without committing either side too early. Everything after that, including when a slate reaches the committee, follows from how those first approaches land."
-        }
-      ]
-    },
-    {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0039",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Status Report: General Counsel Search for Howard, Carlson and Tran",
-          "level": 1
+          "text": "Two further terms are worth stating on a page like this, because they are the ones clients ask about last and care about most. We work on retainer rather than on contingency, so a client is buying a search and not a placement, and expenses are billed at cost without a markup. And for as long as an engagement is open, and for a year after it closes, we will not approach anyone employed by that client on behalf of another. A firm that recruits out of the company it just recruited into is not one a board should keep on retainer."
         },
         {
           "kind": "paragraph",
-          "text": "Prepared for the client executive by Nicole Donovan, Research Associate. The search for {{fact:f:E-2019-001.client}} is on schedule and on budget at its midpoint. The field is built, the first prospects are in real conversations, and we expect to move from a broad field toward a short slate over the coming weeks. This report sets out what we finished in the last period, what comes next, where the budget sits, and the risks we are watching."
+          "text": "One change since we last revised this page is worth noting. More of our first meetings now happen over video than across a table, and for an opening conversation it has worked better than we expected, particularly with people who cannot easily be seen leaving their own building in the middle of a working day. We still sit down in person with a finalist before that finalist goes in front of a board."
         },
         {
           "kind": "heading",
-          "text": "Where things stand",
+          "text": "Some of the work",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The specification is agreed and has held steady since kickoff, which is the main reason the search has stayed orderly. James Grant has completed the market map at the senior end, covering the sectors where a General Counsel of this profile is genuinely found rather than only the sectors that are easy to reach. Sandra Fuentes owns the client relationship and will own the assessment as the field narrows. We are squarely at the midpoint of the work: past the building of the field, and not yet at finalists and references. Nothing on the account is behind, and nothing has surprised us."
-        },
-        {
-          "kind": "heading",
-          "text": "What we completed this period",
-          "level": 2
+          "text": "These are illustrations rather than a client list. We found a chief financial officer for {{fact:f:E-2015-001.client}} and a vice president of engineering for {{fact:f:E-2016-001.client}}. We recruited an outside director for {{fact:f:E-2017-001.client}} and a head of operations for {{fact:f:E-2018-001.client}}. More recently we placed a general counsel with {{fact:f:E-2019-001.client}}. We are glad to arrange a reference conversation with a client who has been through a search with us, and an hour of that will tell a board more than this page can."
         },
         {
           "kind": "paragraph",
-          "text": "The period's work went to closing the field and sharpening how we describe it."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Completed the market map at the senior end and confirmed it reaches the sectors where a General Counsel of this profile is actually found, rather than only the obvious ones.",
-            "Opened first, uncommitting approaches to the strongest prospects. Each is held by current role rather than by name, in keeping with how the client asked us to handle the field.",
-            "Revised the candidate profile format at the client's request to carry a short, concrete account of judgment under pressure, and updated the profiles already drawn so the whole field is described on the same terms.",
-            "Held the standing weekly review with the team, and kept the client's questions routed to a single point on our side so nothing was answered twice or missed."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "What comes next",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next period turns from building the field to testing it."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Move the leading prospects from first approaches into full assessment, testing directly for the partner-to-leadership qualities the client cares most about rather than for presentation alone.",
-            "Begin the groundwork for references discreetly, arranging it so that no inquiry reaches a prospect's current employer.",
-            "Bring Sandra Fuentes's read of the client relationship and James Grant's judgment on the senior market together into a short slate, framed by fit and evidence rather than by name.",
-            "Propose a date for the first committee review of the field once the assessments are in hand, fitted around the client's calendar."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement runs to the fixed professional fee of {{fact:f:E-2019-001.fee}}, agreed at the outset and unchanged since. We remain comfortably within it at the midpoint. Because the fee is fixed rather than tied to a candidate's eventual pay, the cost of the search does not move as the search does, and the client carries no surprise at the end. There are no expenses outstanding beyond the ordinary, and nothing unusual that we have not already flagged."
-        },
-        {
-          "kind": "heading",
-          "text": "Risks and what we are watching",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Three risks are worth naming, none of them pressing, all of them managed."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Availability: the strongest prospects are not looking, so a leading candidate could step back late. We keep more than one prospect warm to hold against it.",
-            "Brief drift: a specification can quietly shift as a board begins to picture candidates. We reconfirm the two priorities at each review to keep the search aimed at one brief.",
-            "Confidentiality: a General Counsel search touches sensitive ground. We describe candidates by their seat and hold names until both sides are ready, which slows nothing and protects everyone."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The single thing to watch between now and the next report is how the first assessments land. They will tell us whether the leading prospects hold up against the qualities the client cares most about, or whether we lean harder on the next names in the field. Once they are in, the field should resolve quickly toward a slate, and I will propose a review date the moment it does."
+          "text": "If a search is coming, begin with Kelly Chavez, who takes the first call for the firm. Half an hour is usually enough to know whether this is an assignment we should be doing."
         }
       ]
     }

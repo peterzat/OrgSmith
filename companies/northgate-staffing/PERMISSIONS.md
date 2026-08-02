@@ -1,47 +1,52 @@
 # PERMISSIONS
 
-Read-access ground truth for Northgate Talent Partners LLC (northgate-staffing); posture: open.
+Read-access ground truth for Northgate Talent Partners LLC (northgate-staffing); posture: departmental.
 Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-staffing`.
 
 ## Kelly Chavez (Managing Director)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
 - Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
 - Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
+- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd - Copy.eml
 - Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
 - Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
 - Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
+- Engagements/Coleman Ltd/Copy of Meeting Minutes 2016-08-26 - Coleman Ltd.docx
 - Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
 - Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
+- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED DO NOT USE.pdf
 - Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
 - Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
 - Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
+- Engagements/Davis and Sons/2018.08.03 - Email 2 - Head of Operations Search - Davis and Sons.eml
 - Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
 - Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
 - Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v1.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v2.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v3.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v4.docx
 - Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
 - Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
+- Engagements/Hicks-Castillo/2023.04.21 - Email 1 - Compensation Benchmarking - Hicks-Castillo.eml
 - Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
 - Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
 - Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
 - Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
 - Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v1.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v2.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v3.docx
 - Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
 - Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 2 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 3 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.07 - Email 4 - General Counsel Search - Howard, Carlson and Tran.eml
 - Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
 - Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
 - Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
 - Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
 - Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
 - Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
 - Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
 - Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
@@ -49,8 +54,8 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 - Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
 - Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
 - Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
+- Engagements/Sanchez-Baker/Firm Overview 2018 v3 (1).docx
 - Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
 - Finance/FY2014 Financial Summary.xlsx
 - Finance/FY2015 Financial Summary.xlsx
 - Finance/FY2016 Financial Summary.xlsx
@@ -60,11 +65,16 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 - Finance/FY2020 Financial Summary.xlsx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -74,66 +84,40 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Sandra Fuentes (Principal)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
 - Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
 - Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
+- Engagements/Hicks-Castillo/2023.04.21 - Email 1 - Compensation Benchmarking - Hicks-Castillo.eml
 - Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
 - Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
 - Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
 - Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
 - Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v1.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v2.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v3.docx
 - Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
 - Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 2 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 3 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.07 - Email 4 - General Counsel Search - Howard, Carlson and Tran.eml
 - Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
 - Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
 - Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
 - Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
 - Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
 - Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
 - Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
 - Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -143,43 +127,41 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## James Grant (Principal)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
 - Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
 - Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
+- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd - Copy.eml
 - Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
 - Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
 - Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
+- Engagements/Coleman Ltd/Copy of Meeting Minutes 2016-08-26 - Coleman Ltd.docx
 - Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
 - Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
+- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED DO NOT USE.pdf
 - Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
 - Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
 - Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
+- Engagements/Davis and Sons/2018.08.03 - Email 2 - Head of Operations Search - Davis and Sons.eml
 - Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
 - Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
 - Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v1.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v2.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v3.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v4.docx
 - Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v1.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v2.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v3.docx
 - Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
 - Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 2 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 3 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.07 - Email 4 - General Counsel Search - Howard, Carlson and Tran.eml
 - Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
 - Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
 - Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
 - Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
 - Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
 - Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
 - Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
 - Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
@@ -187,22 +169,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 - Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
 - Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
 - Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
+- Engagements/Sanchez-Baker/Firm Overview 2018 v3 (1).docx
 - Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -212,43 +190,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Jeffrey Patterson (Senior Consultant)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
 - Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
 - Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
+- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd - Copy.eml
 - Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
 - Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
 - Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
+- Engagements/Coleman Ltd/Copy of Meeting Minutes 2016-08-26 - Coleman Ltd.docx
 - Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
 - Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
 - Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
 - Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
 - Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
 - Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
 - Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
 - Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
@@ -256,22 +209,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 - Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
 - Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
 - Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
+- Engagements/Sanchez-Baker/Firm Overview 2018 v3 (1).docx
 - Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -284,52 +233,6 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## James Weiss (Office Manager)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
 - Finance/FY2014 Financial Summary.xlsx
 - Finance/FY2015 Financial Summary.xlsx
 - Finance/FY2016 Financial Summary.xlsx
@@ -339,11 +242,16 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 - Finance/FY2020 Financial Summary.xlsx
 - Finance/FY2021 Financial Summary.xlsx
 - Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -353,66 +261,23 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## David Weiss (Research Associate)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
 - Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
 - Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
+- Engagements/Hicks-Castillo/2023.04.21 - Email 1 - Compensation Benchmarking - Hicks-Castillo.eml
 - Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
 - Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
 - Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
 - Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -422,66 +287,22 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Jason Bell (Research Associate)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
 - Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
 - Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
 - Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
 - Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
+- Engagements/Sanchez-Baker/Firm Overview 2018 v3 (1).docx
 - Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -491,66 +312,39 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Nicole Donovan (Research Associate)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
+- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED DO NOT USE.pdf
 - Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
 - Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
 - Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
+- Engagements/Davis and Sons/2018.08.03 - Email 2 - Head of Operations Search - Davis and Sons.eml
 - Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
 - Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
 - Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v1.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v2.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v3.docx
+- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons_v4.docx
 - Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v1.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v2.docx
+- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search - v3.docx
 - Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
 - Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 2 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 3 - General Counsel Search - Howard, Carlson and Tran.eml
+- Engagements/Howard, Carlson and Tran/2019.06.07 - Email 4 - General Counsel Search - Howard, Carlson and Tran.eml
 - Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
 - Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -560,66 +354,16 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Larry Russell (Research Associate)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -629,66 +373,16 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Mary Parker (Research Associate)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx
@@ -698,66 +392,16 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl northgate-
 
 ## Heather Meyer (Research Associate)
 
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf
-- Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf
-- Engagements/Coleman Ltd/2016.03.09 - Kickoff Memo - VP Engineering Search.docx
-- Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml
-- Engagements/Coleman Ltd/2016.04.27 - Briefing Deck - Coleman Ltd.pptx
-- Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-05-27 - Coleman Ltd.docx
-- Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx
-- Engagements/Davis and Sons/2018.06.25 - Engagement Letter - Davis and Sons - EXECUTED.pdf
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v1.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v2.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v3.docx
-- Engagements/Davis and Sons/2018.07.08 - Kickoff Memo - Head of Operations Search_v4.docx
-- Engagements/Davis and Sons/2018.08.02 - Email 1 - Head of Operations Search - Davis and Sons.eml
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v1.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v2.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL - v3.docx
-- Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-09-07 - Davis and Sons.docx
-- Engagements/Davis and Sons/Meeting Minutes 2018-12-06 - Davis and Sons.docx
-- Engagements/Hicks-Castillo/2023.03.15 - Engagement Letter - Hicks-Castillo - EXECUTED.pdf
-- Engagements/Hicks-Castillo/2023.03.28 - Kickoff Memo - Compensation Benchmarking.docx
-- Engagements/Hicks-Castillo/2023.07.29 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/2023.11.26 - Status Report - Hicks-Castillo v2 FINAL.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-07-03 - Hicks-Castillo.docx
-- Engagements/Hicks-Castillo/Meeting Minutes 2023-10-02 - Hicks-Castillo.docx
-- Engagements/Howard, Carlson and Tran/2019.04.29 - Engagement Letter - Howard, Carlson and Tran - EXECUTED.pdf
-- Engagements/Howard, Carlson and Tran/2019.05.12 - Kickoff Memo - General Counsel Search.docx
-- Engagements/Howard, Carlson and Tran/2019.06.06 - Email 1 - General Counsel Search - Howard, Carlson and Tran.eml
-- Engagements/Howard, Carlson and Tran/2019.07.06 - Status Report - Howard, Carlson and Tran v2 FINAL.docx
-- Engagements/Howard, Carlson and Tran/Meeting Minutes 2019-06-24 - Howard, Carlson and Tran.docx
-- Engagements/Roach, Moss and Hall/2015.08.17 - Engagement Letter - Roach, Moss and Hall - EXECUTED.pdf
-- Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx
-- Engagements/Roach, Moss and Hall/2015.09.20 - Briefing Deck - Roach, Moss and Hall.pptx
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall - DRAFT.eml
-- Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml
-- Engagements/Roach, Moss and Hall/2015.10.15 - Status Report - Roach, Moss and Hall v2 FINAL.docx
-- Engagements/Roach, Moss and Hall/Meeting Minutes 2015-10-05 - Roach, Moss and Hall.docx
-- Engagements/Sanchez-Baker/2017.05.03 - Engagement Letter - Sanchez-Baker - EXECUTED.pdf
-- Engagements/Sanchez-Baker/2017.05.16 - Kickoff Memo - Board Director Search.docx
-- Engagements/Sanchez-Baker/2017.06.09 - Email 1 - Board Director Search - Sanchez-Baker.eml
-- Engagements/Sanchez-Baker/2017.07.08 - Status Report - Sanchez-Baker v2 FINAL.docx
-- Engagements/Sanchez-Baker/Meeting Minutes 2017-06-26 - Sanchez-Baker.docx
-- Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx
-- Finance/FY2014 Financial Summary.xlsx
-- Finance/FY2015 Financial Summary.xlsx
-- Finance/FY2016 Financial Summary.xlsx
-- Finance/FY2017 Financial Summary.xlsx
-- Finance/FY2018 Financial Summary.xlsx
-- Finance/FY2019 Financial Summary.xlsx
-- Finance/FY2020 Financial Summary.xlsx
-- Finance/FY2021 Financial Summary.xlsx
-- Finance/FY2022 Financial Summary.xlsx
+- Firm/Firm Overview 2015 v3 - DRAFT.docx
 - Firm/Firm Overview 2015 v3.docx
 - Firm/Firm Overview 2018 v3.docx
 - Firm/Firm Overview 2021 v3.docx
+- Firm/Mail/2015.11.25 - Office logistics.eml
+- Firm/Mail/2017.09.12 - Scheduling next week.eml
+- Firm/Mail/2019.07.02 - Building access.eml
+- Firm/Mail/2021.04.19 - IT maintenance window.eml
+- Firm/Mail/2023.02.06 - Timesheet reminder.eml
 - People/2016.07.24 - Onboarding - Jason Bell.docx
-- People/2017.08.01 - Onboarding - David Weiss DO NOT USE.docx
 - People/2017.08.01 - Onboarding - David Weiss.docx
 - People/2017.12.31 - Onboarding - Nicole Donovan.docx
 - People/2019.11.19 - Onboarding - Larry Russell.docx

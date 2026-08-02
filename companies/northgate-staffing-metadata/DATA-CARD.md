@@ -6,8 +6,8 @@ Derived from committed state by `python -m orgsmith data-card northgate-staffing
 
 ## Corpus
 
-- **66 documents**: 44 model-authored, 9 deterministic, 13 derived.
-- **Formats**: 42 `.docx`, 6 `.eml`, 7 `.pdf`, 2 `.pptx`, 9 `.xlsx`.
+- **76 documents**: 54 model-authored, 9 deterministic, 13 derived.
+- **Formats**: 42 `.docx`, 16 `.eml`, 7 `.pdf`, 2 `.pptx`, 9 `.xlsx`.
 - **Document dates**: 2015-01-15 to 2023-11-26.
 - **Charter window**: 2015-01-01 to 2023-12-31.
 
@@ -18,9 +18,9 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | knob | value |
 | --- | --- |
 | `doc_culture` | `on` |
-| `doc_culture.scanned_ratio` | `0.0` |
+| `doc_culture.scanned_ratio` | `0.5` |
 | `doc_culture.legacy_ratio` | `0.0` |
-| `doc_culture.ocr_layer_rate` | `0.0` |
+| `doc_culture.ocr_layer_rate` | `0.34` |
 | `doc_culture.business_calendar` | `on` |
 | `doc_culture.noise` | `on` |
 | `doc_culture.noise.duplicates` | `2` |
@@ -32,7 +32,13 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.noise.attachment_mismatch` | `0` |
 | `doc_culture.noise.filename_variety` | `True` |
 | `doc_culture.voice_diversify` | `True` |
-| `doc_culture.mail` | `off` |
+| `doc_culture.mail` | `on` |
+| `doc_culture.mail.max_thread_depth` | `4` |
+| `doc_culture.mail.mundane_emails` | `5` |
+| `doc_culture.mail.attachments` | `1` |
+| `doc_culture.mail.distribution_lists` | `1` |
+| `doc_culture.mail.exempt_author_mentions` | `True` |
+| `doc_culture.mail.exempt_recipient_mentions` | `True` |
 | `doc_culture.style_specs` | `True` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1250000` |
@@ -49,64 +55,91 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `graph_targets.nickname_aliases` | `1` |
 | `graph_targets.multi_affiliations` | `0` |
 | `graph_targets.affiliations_in_docs` | `False` |
-| `graph_targets.alias_agreement` | `False` |
+| `graph_targets.alias_agreement` | `True` |
 | `hard_cases` | `on` |
-| `hard_cases.signature_page_facts` | `0` |
-| `hard_cases.filename_dates` | `0` |
+| `hard_cases.signature_page_facts` | `1` |
+| `hard_cases.filename_dates` | `1` |
 | `roster_churn` | `on` |
 | `roster_churn.departures` | `1` |
 | `roster_churn.promotions` | `2` |
 | `roster_churn.hires` | `5` |
-| `acl_posture` | `open` |
+| `acl_posture` | `departmental` |
 
 ## Questions
 
-- **Retrieval**: 41 questions, of which 0 are unanswerable (correct response: abstain). 7 incidental documents are marked acceptable across the suite.
+- **Retrieval**: 41 questions, of which 0 are unanswerable (correct response: abstain). 42 incidental documents are marked acceptable across the suite.
 - Retrieval question families: `fact:date` 6, `fact:money` 6, `fact:text` 6, `firm` 1, `mention:alias` 1, `mention:person` 12, `workbook` 9.
-- **Extraction**: 18 questions. Locations: `body` 18.
-- Extraction difficulty tags: none (no scans, no legacy binaries).
+- **Extraction**: 19 questions. Locations: `body` 17, `filename` 1, `signature_page` 1.
+- Extraction difficulty tags: `scan:image-only` 3, `scan:ocr` 6.
 - **Visibility**: 12 questions, one per internal person.
 
 ## Splits
 
 | split | documents |
 | --- | ---: |
-| `core` | 53 |
-| `distractors` | 53 |
-| `noise` | 66 |
-| `full` | 66 |
+| `core` | 58 |
+| `distractors` | 63 |
+| `noise` | 71 |
+| `full` | 76 |
 
-**Distractor gap = 0.** Authored documents that answer no retrieval or extraction question. A gap of zero means this org has no lexical distractors and its degradation curve is flat between `core` and `distractors`; the noise split still degrades it.
+**Distractor gap = 5.** Authored documents that answer no retrieval or extraction question. A gap of zero means this org has no lexical distractors and its degradation curve is flat between `core` and `distractors`; the noise split still degrades it.
 
 Splits are a retrieval and extraction device. The visibility suite is graded over the whole share by nature and contributes no documents to `core`.
 
 ## Access control
 
-- **Posture**: `open`.
-- **Grants**: 12, covering 0 to 66 documents each (median 66).
+- **Posture**: `departmental`.
+- **Grants**: 12, covering 0 to 76 documents each (median 25).
 - Grants are access *as of the end of the corpus*, so a person the roster retires mid-history holds none. That makes a departed employee a scored visibility question with an empty expected set, not a case the answer key is blind to.
 
 ## Labels
 
 - **Relevance-label policy version 1.0** (`docs/LABEL-POLICY.md`).
-- **Equivalence clusters**: 3, covering 3 documents that carry byte-identical evidence to a canonical document. Returning a member in place of its canonical is correct.
+- **Equivalence clusters**: 4, covering 4 documents that carry byte-identical evidence to a canonical document. Returning a member in place of its canonical is correct.
 
 ## Known residuals
 
-- **Alias disagreement.** `Firm/Firm Overview 2015 v3.docx` uses the nickname "Jim", which the ledger registers to `p:james.grant`, with no planned mention. The structured layer and the prose disagree and the prose reports its source faithfully.
-
-The adversarial review board's findings against this org (8 across 6 dimensions), published rather than fixed:
+The adversarial review board's findings against this org (37 across 6 dimensions), published rather than fixed:
 
 | severity | id | finding |
 | --- | --- | --- |
-| major | `rf:cross-voice-closer-1` | Documents across every genre and ostensible author close by isolating 'the single/one thing' that governs what happens next, a structural tic no set of fresh, sibling-blind authors would independently share; it even survives into the registers that otherwise read as distinct voices. |
-| major | `rf:cross-voice-nickname-1` | The corpus contradicts itself on which of the two men named James is nicknamed 'Jim': the firm overview gives the nickname to James Weiss (Office Manager), the Roach minutes to James Grant (Senior Consultant), so a reader tracking the roster hits a plain contradiction the disambiguation was meant to prevent. |
-| major | `rf:cross-voice-status-1` | The five executive-search status reports collapse onto one template despite carrying five different first-person authors; the flagged pair d:0008 (Sandra) and d:0031 (James) are near-identical paragraph for paragraph, and all five open their risk section with the same frame naming the same two risks, which reads as one generator wearing name tags rather than a firm reusing author-neutral boilerplate. |
-| major | `rf:graph-acl-1` | The nickname 'Jim' is attached to two different people: the firm overview assigns it to Office Manager James Weiss (framing it as the disambiguator between the roster's two Jameses), while the meeting minutes assign the same nickname to Principal James Grant. |
-| major | `rf:narrative-consistency-jim-nickname` | The nickname "Jim" is attached to two different people across the corpus: the Firm Overview gives it to Office Manager James Weiss and says it is what keeps him distinct from the other James, while the CFO-search meeting minutes give the same nickname to Senior Consultant James Grant. |
-| major | `rf:org-realism-jim-1` | The internal nickname "Jim" is attached to two different colleagues named James, and the document that introduces it presents the nickname as the device that keeps the two Jameses apart, so the second use directly contradicts it. |
-| minor | `rf:cross-voice-kickoff-1` | Four kickoff memos by four different consultants, plus the firm overview, share the same signature opener and the same specification-gates-everything line, so a phrase meant to sound like an individual's framing reads as a house macro pasted by everyone. |
-| note | `rf:graph-acl-2` | Every client-side sponsor the firm interfaces with holds one of only two titles, split in a clean chronological block, which reads as an assigned pool rather than an organic book of relationships. |
+| blocker | `rf:narr-1` | The closing status report on the Hicks-Castillo benchmarking describes a different engagement from the five documents in front of it: a different unit of scope, a different count, a different client body, and none of the open items the October session left. |
+| blocker | `rf:voice-1` | Two kickoff memos two years apart, signed by two different research associates, are the same memo re-skinned: same five numbered owners in the same order, same open-questions pair, and a three-paragraph close that runs sentence for sentence. |
+| major | `rf:docplaus-1` | Both firm-wide mundane emails are addressed only to the all-staff list yet open by greeting one person by first name, then refer to that same person by full legal name in the third person. |
+| major | `rf:docplaus-2` | The first client email attaches the firm's internal kickoff memo verbatim, a document that discusses how to manage that client and disputes his brief. |
+| major | `rf:docplaus-3` | The demonstrator mail threads answer client replies that exist nowhere in the file, and each 'RE:' is threaded as a reply to the firm's own previous message rather than to the client. |
+| major | `rf:docplaus-4` | The closing status report on the Hicks-Castillo benchmarking describes a materially different piece of work from the rest of that engagement's own file. |
+| major | `rf:finance-1` | The ledger books 2020 as a normal 10% growth year and puts travel spend at its all-time high in 2020 and 2021, which is the wrong shape for a retained search boutique in those two years and the opposite of what the firm's own 2021 overview describes. |
+| major | `rf:finance-2` | The Hicks-Castillo closing report delivers 57 benchmarked roles across five job families, plus an unplanned internal equity read and a free reissue, against the same unchanged fixed fee that every earlier document in the file says bought eleven positions. |
+| major | `rf:graphacl-1` | Two kickoff memos address a colleague on the To/Cc line and hand them a task inside a folder that colleague cannot open. |
+| major | `rf:graphacl-2` | Internal administrative mail is sent by whoever, not by the person who holds the function: four of the five internal emails come from someone other than the Office Manager, and each defers the actual ownership to somebody else. |
+| major | `rf:narr-2` | Two of the five internal broadcast emails greet one person by first name and then, in the same short note, refer to that same person in the third person and tell the reader to go to them, so the note instructs its own addressee to contact himself. |
+| major | `rf:orgreal-1` | On two engagements a Research Associate is the client's de facto lead: the periodic report the client reads goes out over the associate's name with no consultant on it, contradicting the engagement letter that named a consultant as the client's first call. |
+| major | `rf:orgreal-2` | The 2023 roster is six Research Associates behind three working consultants, with the Research Consultant rung vacant since mid-2018 and not one associate promoted in seven years, at a firm whose entire business is other people's careers. |
+| major | `rf:voice-2` | Every engagement-opening email follows one script across five different authors: status line, 'I am starting this thread so the running record lives in one place', two asks (ninety minutes for a session, a ruling on off-limits companies), then a conditional close trading a client deadline for a firm deliverable. |
+| major | `rf:voice-3` | The 'one thing everything else waits on' construction the previous board flagged has survived the regeneration in paraphrase: fourteen documents nominate a single gating item, across eight authors, five genres and 2015-2023, with the wording varied just enough that the n-gram metric cannot see it. |
+| major | `rf:voice-4` | Consecutive-engagement status reports by two different authors carry the same risk taxonomy in the same order with clause-level phrasing in common, so the status-report template collapse the previous board found is reduced rather than gone. |
+| major | `rf:voice-5` | In the pair the similarity metric flagged, the copied passage is the 'Your Team' paragraph, and it transplants one consultant's distinguishing habit onto another, so the characterization reads as decoration rather than as a description of a person. |
+| minor | `rf:docplaus-5` | A note sent to a single colleague carries a paragraph plainly written for the whole office. |
+| minor | `rf:docplaus-6` | A Research Associate chases two colleagues for timesheets and speaks for the monthly close, which is the Office Manager's work in this firm. |
+| minor | `rf:finance-3` | The P&L absorbs candidate and consultant travel wholly as firm cost, with a single revenue line and no reimbursement line, in a firm whose every engagement letter bills exactly that travel to the client at cost. |
+| minor | `rf:finance-4` | Across eleven years the statements contain no down year, no lumpy expense and no one-off item: revenue, compensation and professional services rise in every single transition, and facilities moves only in two exact steps. |
+| minor | `rf:graphacl-3` | The permission set has no residue: every one of the 12 read sets is reproducible in closed form from the participant ledger, with zero stale, courtesy, or leftover grants across nine years. |
+| minor | `rf:graphacl-4` | Three of the six research associates are inert in the graph, and the two most inert are named exactly twice each, which is the recipe's minimum-mentions floor showing through. |
+| minor | `rf:graphacl-5` | Every client has exactly one contact and their titles come from a two-value pool split evenly three and three, so no search in the book was retained by the kind of buyer the firm's own overviews say retains it. |
+| minor | `rf:narr-3` | The General Counsel search reports more approaches than its own closed target lists can supply, and more sub-title candidates in conversation than the widened pass produced. |
+| minor | `rf:narr-4` | The engagement letter for Davis and Sons hands James Grant, word for word, the personal habit the roster records as Jeffrey Patterson's, so the same Managing Director sells two clients the same distinguishing trait in two different men. |
+| minor | `rf:narr-5` | Three of the six onboarding records place the joining date a week away from the start date the roster holds, and one of them names the wrong day of the week. |
+| minor | `rf:narr-6` | The four-message client thread holds only Northgate's outbound side, yet the later messages answer things the client said, so the record depends on messages the file does not contain. |
+| minor | `rf:narr-7` | The only use of James Grant's nickname in the whole corpus sits in the client-facing minutes he took himself, where he records one action under 'Jim' in the narrative and under 'James Grant' in the action table. |
+| minor | `rf:orgreal-3` | The 2021 firm overview asks 'Who actually does the work?' and then names two junior researchers and no consultant at all. |
+| minor | `rf:orgreal-4` | Four of the five internal administrative notices are sent by consultants, the Managing Director, or a research associate, at a firm that employs an Office Manager to do exactly that. |
+| minor | `rf:orgreal-5` | Every client contact across six engagements and nine years is a Chief Operating Officer or a General Manager; no chief executive, head of HR, or board chair ever appears, and the board director search is run entirely through a management officer. |
+| minor | `rf:voice-6` | The six onboarding records hit the same beats in the same order, including a 'from the outside this looks like clerical work' paragraph and the same hour with the Managing Director described as the one conversation nobody skips. |
+| note | `rf:docplaus-7` | All six hire records land the same closing beat, and five of them refer to their own author in the third person while the sixth is in her first person. |
+| note | `rf:finance-5` | No defect claimed: the deterministic review sample for this org contains no financial document, so the reading list handed to this dimension holds nothing from the Finance folder. |
+| note | `rf:graphacl-6` | The internal correspondence graph has no work edges: every engagement email is outbound to the client and every internal email is administrative, in the org built as the fleet's mail-heavy exemplar. |
+| note | `rf:voice-7` | Per-person voice is genuinely present in this corpus; what recurs is per-genre outline, so the defect sits at the level of what each document is asked to contain rather than at the level of how any one person writes. |
 
 The board is the weakest instrument in this project: it shares blind spots with the generator, its false-positive rate is unmeasured, and it has been caught publishing a checkable falsehood. Read it sceptically.
 
@@ -116,20 +149,20 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | retriever | split | strict | R@10 | MRR | nDCG@10 |
 | --- | --- | ---: | ---: | ---: | ---: |
-| filename-only | core | 0.0% | 68.8% | 0.691 | 0.627 |
-| filename-only | distractors | 0.0% | 68.8% | 0.691 | 0.627 |
-| filename-only | noise | 0.0% | 66.3% | 0.653 | 0.595 |
-| filename-only | full | 0.0% | 66.3% | 0.653 | 0.595 |
-| bm25 | core | 0.0% | 70.7% | 0.713 | 0.693 |
-| bm25 | distractors | 0.0% | 70.7% | 0.713 | 0.693 |
-| bm25 | noise | 0.0% | 67.5% | 0.642 | 0.623 |
-| bm25 | full | 0.0% | 67.5% | 0.642 | 0.623 |
+| filename-only | core | 0.0% | 69.9% | 0.654 | 0.610 |
+| filename-only | distractors | 0.0% | 69.9% | 0.654 | 0.610 |
+| filename-only | noise | 0.0% | 68.4% | 0.649 | 0.598 |
+| filename-only | full | 0.0% | 68.4% | 0.649 | 0.598 |
+| bm25 | core | 0.0% | 71.5% | 0.752 | 0.715 |
+| bm25 | distractors | 0.0% | 70.2% | 0.691 | 0.680 |
+| bm25 | noise | 2.4% | 67.1% | 0.686 | 0.653 |
+| bm25 | full | 2.4% | 66.5% | 0.641 | 0.625 |
 
 ## Integrity
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 168 | `384875dbdd6688be736f283847660e2acdd6a65b57b73d31a43b41eb4fb10aeb` |
+| northgate-staffing | 200 | `bd2a7c515c9bf8c27bd139f54bd7f88434f10dffc827a89c667666ed9bf38f38` |
 
 Verify with `python tools/checksums.py --check`.
 

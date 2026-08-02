@@ -9,7 +9,7 @@
   "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0004\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
-      "doc_id": "d:0017",
+      "doc_id": "d:0018",
       "title": "Meeting Minutes: VP Engineering Search for Coleman Ltd",
       "genre": "meeting_minutes",
       "date": "2016-08-26",
@@ -19,7 +19,7 @@
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         }
       ],
       "participants": [
@@ -28,21 +28,21 @@
           "name": "Jeffrey Patterson",
           "title": "Research Consultant",
           "dept": "Search",
-          "persona": "Jeffrey keeps the candidate threads moving, sitting between the principals and the research bench and making sure nothing goes quiet for long. Much of his day is scheduling and the follow-up note, so his voice is friendly, brisk, and reassuring, the tone of someone holding two nervous parties steady. He is comfortable being the one who chases the loose end and closes the loop."
+          "persona": "Jeffrey Patterson carries the searches for clients who want a consultant in the room rather than a process. He gives a line of context and then leads with the answer, in short paragraphs a busy reader can take in on a phone, and he would rather send a second note than pad the first. He came up through the research side and it still shows: he will not put a name in front of a client until he can say precisely why it belongs there."
         },
         {
           "id": "p:james.grant",
           "name": "James Grant",
           "title": "Senior Consultant",
           "dept": "Search",
-          "persona": "James is the firm's steady hand on board-director and senior-operator mandates, and his writing runs a shade more formal than the rest of the office, especially when he is describing a candidate. He favors measured, considered sentences and is careful about what circulates, naming a person's current role rather than the person. Clients who have worked with him for years still get the warmth under the formality."
+          "persona": "James Grant writes his client work under his full name and answers to Jim everywhere inside the firm, which is where most of his writing lives: the running notes, the session minutes, the quick line to a colleague about how a finalist is leaning. He orders things before he says them, so his minutes move through attendees, decisions, and owners in the same sequence every time, and they catch the reservation somebody voiced in passing as faithfully as the decision the room reached. With clients he has known for years he is on first names quickly; about candidates he stays formal, on the theory that discretion is a habit and not a policy."
         },
         {
           "id": "p:john.chang",
           "name": "John Chang",
           "title": "Research Associate",
           "dept": "Search",
-          "persona": "John maps the talent market for a search and builds the long list the consultants work from, and he is disciplined about the firm's habit of writing about candidates by their current role rather than by name. His notes are organized and precise, the raw material a principal can turn into a slate. He does his best work on the searches that reward patient, methodical sourcing."
+          "persona": "John Chang is the associate who takes the minutes, and he takes them literally: who attended, what was settled, who owns the next step. He writes formally and in short sentences, without decoration, which makes his record the one people go back to when two recollections disagree. In a session he asks more than he answers, and most of what he asks is about scope."
         },
         {
           "id": "xp:michael.martin",

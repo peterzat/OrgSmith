@@ -4,30 +4,40 @@
   "policy_version": "1.0",
   "clusters": [
     {
-      "canonical": "Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf",
+      "canonical": "Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd.eml",
       "members": [
         {
-          "path": "Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf",
+          "path": "Engagements/Coleman Ltd/2016.04.04 - Email 1 - VP Engineering Search - Coleman Ltd - Copy.eml",
           "basis": "byte_copy",
           "noise_kind": "exact_duplicate"
         }
       ]
     },
     {
-      "canonical": "Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx",
+      "canonical": "Engagements/Coleman Ltd/Meeting Minutes 2016-08-26 - Coleman Ltd.docx",
       "members": [
         {
-          "path": "Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx",
+          "path": "Engagements/Coleman Ltd/Copy of Meeting Minutes 2016-08-26 - Coleman Ltd.docx",
           "basis": "byte_copy",
           "noise_kind": "exact_duplicate"
         }
       ]
     },
     {
-      "canonical": "Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx",
+      "canonical": "Engagements/Roach, Moss and Hall/2015.08.30 - Kickoff Memo - CFO Search.docx",
       "members": [
         {
-          "path": "Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx",
+          "path": "Engagements/Roach, Moss and Hall/2015.09.24 - Email 1 - CFO Search - Roach, Moss and Hall.eml",
+          "basis": "attachment",
+          "noise_kind": ""
+        }
+      ]
+    },
+    {
+      "canonical": "Firm/Firm Overview 2018 v3.docx",
+      "members": [
+        {
+          "path": "Engagements/Sanchez-Baker/Firm Overview 2018 v3 (1).docx",
           "basis": "byte_copy",
           "noise_kind": "misfile"
         }

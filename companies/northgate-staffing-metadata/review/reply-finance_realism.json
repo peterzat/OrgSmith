@@ -2,6 +2,52 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "northgate-staffing",
   "dimension": "finance_realism",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
-  "findings": []
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-1",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": ["d:0048", "d:0050", "d:0053", "d:0055", "d:0052"],
+      "summary": "The ledger books 2020 as a normal 10% growth year and puts travel spend at its all-time high in 2020 and 2021, which is the wrong shape for a retained search boutique in those two years and the opposite of what the firm's own 2021 overview describes.",
+      "evidence": "FY2020 revenue is 2,261,000, up 10.0% on 2019, on quarters 588,485 / 562,785 / 534,633 / 575,097, so Q2 2020 sits 4.4% below Q1 and the year has no soft quarter at all. Travel runs 134,720 (FY2019), 182,900 (FY2020, up 35.8%), 206,520 (FY2021, up a further 12.9%), then falls 19.6% to 166,000 in FY2022. The firm's own 2021 overview (d:0052) says 'More of our first meetings now happen over video than across a table.' A firm that moved its first meetings to video posted its two largest travel years while doing it."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-2",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": ["d:0057", "d:0061", "d:0062", "d:0063"],
+      "summary": "The Hicks-Castillo closing report delivers 57 benchmarked roles across five job families, plus an unplanned internal equity read and a free reissue, against the same unchanged fixed fee that every earlier document in the file says bought eleven positions.",
+      "evidence": "d:0061 (period to end of July): 'Position schedule | Closed | Eleven positions, signed off in April and unchanged since', comparison group 'Twenty-two companies', 'Two surveys extracted'. d:0062 (October): 'David Weiss walked the eleven positions in the order they appear in the draft.' d:0063 (November): 'All five job families in scope have a matched comparator set', with a table of 6 + 9 + 14 + 11 + 17 = 57 roles benchmarked and 253 matched comparators, three subscription sources, a regional differential analysis, an internal equity read that 'was not in the original plan and was absorbed', and a reissue offered 'at no charge'. All of it under 'The work has been done inside the fixed fee of {{fact:f:E-2023-001.fee}} ... No variation has been raised at any point.' The ledger puts that fee at 75,000, which prices eleven positions credibly and 57 roles across five families with two data refreshes at roughly 1,300 per role."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-3",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0002", "d:0035", "d:0053"],
+      "summary": "The P&L absorbs candidate and consultant travel wholly as firm cost, with a single revenue line and no reimbursement line, in a firm whose every engagement letter bills exactly that travel to the client at cost.",
+      "evidence": "d:0002: 'Expenses are billed at cost and itemized: candidate travel, our own travel to meet candidates, and background verification ... we do not mark up an expense.' d:0035 repeats it as a standing commitment. Every workbook carries one revenue line, 'Consulting revenue', and a Travel expense that reaches 206,520 in FY2021, 8.4% of revenue and about 51,000 per fee-earning consultant for the year, with nothing on the revenue side and no contra note showing what was rebilled. A reader who takes the letters at face value cannot reconcile them with this statement in either direction."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-4",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0001", "d:0010", "d:0019", "d:0028", "d:0037", "d:0048", "d:0050", "d:0053", "d:0055"],
+      "summary": "Across eleven years the statements contain no down year, no lumpy expense and no one-off item: revenue, compensation and professional services rise in every single transition, and facilities moves only in two exact steps.",
+      "evidence": "Revenue rises every year, 562,000 to 2,984,000, ten increases and no decline. Professional Services steps 80,250 / 83,600 / 87,400 / 90,340 / 94,560 / 99,110 / 105,940 / 110,090 / 114,570 / 118,490, between 3.4% and 6.9% every year and never once down, which is not how a ten-person firm's legal and accounting spend behaves across a lease renewal, a departure and a decade. Office & Facilities holds at exactly 134,800 for four years, exactly 143,500 for four, then 153,100. Only Travel and Other ever fall. Nothing anywhere in the series reads as a one-off."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-5",
+      "dimension": "finance_realism",
+      "severity": "note",
+      "docs": [],
+      "summary": "No defect claimed: the deterministic review sample for this org contains no financial document, so the reading list handed to this dimension holds nothing from the Finance folder.",
+      "evidence": "review/sample.json lists no financial_summary entry. The nine FY workbooks (d:0001, d:0010, d:0019, d:0028, d:0037, d:0048, d:0050, d:0053, d:0055) and the finance ledger behind them were reached only by going outside the sample. Findings 1, 3 and 4 above are all invisible to a reviewer who reads the sample and stops."
+    }
+  ]
 }

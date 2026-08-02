@@ -1,84 +1,81 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0004",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0017",
+      "doc_id": "d:0018",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Working Session Minutes: Vice President of Engineering Search",
+          "text": "Working Session Minutes: VP Engineering Search for {{fact:f:E-2016-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "These minutes record our working session on the Vice President of Engineering search, held as the field narrowed to its final candidates. The firm's search team met with our client, {{fact:f:E-2016-001.client}}, to take stock and to agree how the closing weeks should run. The mood was practical, as it tends to be once a search is well advanced."
+          "text": "The session was called to settle the shortlist before reference work begins in earnest. This record follows the order we took things in: attendance, the state of the slate, the questions the client put to us, the reservations voiced, and the items each of us now owns. Where a matter was left open, the record says so."
         },
         {
           "kind": "heading",
-          "text": "Present",
+          "text": "In attendance",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "John Chang, Research Associate",
             "Jeffrey Patterson, Research Consultant",
             "James Grant, Senior Consultant",
-            "Michael Martin, Chief Operating Officer, Coleman Ltd"
+            "John Chang, Research Associate",
+            "Michael Martin, Chief Operating Officer, {{fact:f:E-2016-001.client}}"
           ]
         },
         {
           "kind": "heading",
-          "text": "Where the search stands",
+          "text": "State of the slate",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We began with a brief recap of the slate. Two candidates remain in serious contention, and we discussed each by current role, as we do while a search is live. The first is the engineering lead at a regional logistics group; the second, a divisional Vice President of Engineering at a listed software company."
+          "text": "Jeffrey Patterson reported that the slate now stands at two finalists, both of whom have met the executive team on site. The candidate we had placed third withdrew last week for personal reasons and did not leave the door open. We have not replaced that candidate, and Jeffrey Patterson recommended that we do not, given where the search sits."
         },
         {
           "kind": "paragraph",
-          "text": "A third name we had carried into the final round stepped aside a fortnight ago, citing timing on his own side, which is why the field now sits at two. James Grant observed that the remaining pair had held up well through the client interviews. Neither has given us cause for concern on availability, which is not always the case this late."
+          "text": "The two finalists divide cleanly. The first is the stronger operator on the manufacturing side and is spoken of well by former colleagues who worked for him. The second carries the broader platform background and read better to the product group."
         },
         {
           "kind": "paragraph",
-          "text": "For context, the search moved from a broad long list to this final pairing over the course of the summer, and the client's brief has held steady throughout. That stability has made the closing stage more orderly than most searches of this kind. We are now firmly in the phase of choosing between known finalists, not of widening the field."
+          "text": "Neither is a clean first choice on the evidence we have. James Grant said as much in the room, and no one disputed it. That is the question references are meant to close."
         },
         {
           "kind": "heading",
-          "text": "The client's read",
+          "text": "The client's questions",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Michael Martin offered his impressions from the final round. He was measured, as he has been throughout, and drew a careful line between the two finalists. In his reading the logistics candidate is the stronger operator, while the software candidate may prove the better fit for how his leadership team works."
+          "text": "Michael Martin asked what separates the finalists on the point he weighs most heavily, which is whether the person can hold a schedule the business can plan against. We agreed that this is a reference question and not an interview question. References will therefore weight former peers and direct reports, not former managers alone."
         },
         {
           "kind": "paragraph",
-          "text": "He asked that we not force a ranking before the references are complete, and we agreed the references should carry real weight here. John Chang confirmed that the market read is finished and that no stronger name has surfaced in recent weeks, which gives us confidence the choice lies genuinely between these two."
+          "text": "He asked as well whether the compensation conversation should open before references close. Jeffrey Patterson advised against it, on the firm's usual practice of opening that discussion only once the client is down to a single name. Michael Martin accepted the point without argument."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The last of his questions was how we intend to close if both finalists survive references. Jeffrey Patterson proposed a final meeting with the executive team, both candidates seen in the same week and in the same format, so that the comparison is made on even ground. Michael Martin agreed to arrange it on that basis."
         },
         {
           "kind": "heading",
-          "text": "References and the road to an offer",
+          "text": "Reservations recorded",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jeffrey Patterson took us through the reference plan. Each finalist will be checked with referees who have seen them lead at scale, and the inquiries will stay discreet, since neither has spoken to a current employer. James Grant will shape the questions around the client's specific concerns rather than a generic script."
+          "text": "James Grant repeated a reservation he had raised earlier in the search and asked that it be entered here. The first finalist has not run an organization through a downturn, and the role may be asked to do exactly that. Michael Martin did not treat this as disqualifying, but he asked that the references test it directly rather than in passing."
         },
         {
           "kind": "paragraph",
-          "text": "One question stayed open. Michael Martin asked whether the notice period of the logistics candidate might delay a start, and we agreed to confirm this discreetly during the reference stage instead of raising it with the candidate at this point. Nothing about it should be left to surface after an offer is made."
-        },
-        {
-          "kind": "paragraph",
-          "text": "On timing, we held off setting an offer date until the references return. Michael Martin will confirm the compensation band with his board in parallel, so that we can move quickly once a decision is made rather than lose days to internal alignment."
+          "text": "John Chang asked whether the position specification still describes the role as the executive team now understands it. Michael Martin confirmed that it does and requested no amendment. The specification therefore stands as issued, and the finalists have been assessed against it."
         },
         {
           "kind": "heading",
@@ -87,37 +84,33 @@
         },
         {
           "kind": "table",
-          "header": [
-            "Owner",
-            "Item",
-            "Timing"
-          ],
+          "header": ["Owner", "Action", "By when"],
           "rows": [
             [
-              "James Grant",
-              "Draft the reference framework around the client's concerns and open outreach to referees for both finalists",
-              "This week"
+              "Jeffrey Patterson",
+              "Complete references on both finalists, weighting former peers and direct reports on schedule reliability",
+              "Within two weeks"
             ],
             [
-              "Jeffrey Patterson",
-              "Arrange the reference calls and hold a provisional slot for the final decision",
-              "Ahead of the next call"
+              "James Grant",
+              "Put the downturn question to at least two references on the first finalist and record the answers as given",
+              "With the reference work"
             ],
             [
               "John Chang",
-              "Update the slate summary to the two finalists and confirm no further candidate warrants a second look",
+              "Circulate the reference brief to both consultants for comment before any call is placed",
               "This week"
             ],
             [
               "Michael Martin",
-              "Confirm the compensation band and offer authority with the board",
-              "Before references close"
+              "Confirm which members of the executive team will sit in the final meeting",
+              "Before our next session"
             ]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Our single priority before we next speak is to complete the reference checks on both finalists. Everything that follows, including when an offer goes out, rests on what those conversations return."
+          "text": "The next step is the reference brief. It goes out this week, and no call is placed until both consultants have marked the questions final."
         }
       ]
     }

@@ -149,6 +149,16 @@ nothing here gates:
 These are published rather than fixed because they are honest properties of
 this corpus. Read them before treating a scoring loss as your system's bug.
 
+## Difficulty tags on extraction questions
+
+Extraction questions may carry tags describing where their expected
+documents live: `scan:ocr` (a degraded raster scan whose extractable
+text is a synthetic OCR layer, with OCR-style corruptions outside the
+planted surfaces), `scan:image-only` (a scan with no text layer at all;
+the value exists only as pixels, and the org's `-metadata/scans/`
+directory archives the true page text), and `format:legacy` (a pre-2007
+`.doc`/`.xls`/`.ppt` binary).
+
 ## visibility.jsonl
 
 One question per internal person: the exact set of share documents that

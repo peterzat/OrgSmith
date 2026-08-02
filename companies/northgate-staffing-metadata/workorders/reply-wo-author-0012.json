@@ -1,0 +1,525 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0012",
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0057",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "David Mcgee\nGeneral Manager\n{{fact:f:E-2023-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Mr. Mcgee:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for the two afternoons last month, and for letting us look at your pay history before we quoted on the work. What you want is not a search, and I would have said so if it were. You want to know whether what you pay your senior people can be defended against the market you actually hire from, and what it would take to move it where the answer is no. We would like to do that for you. This letter sets down the work, what it costs, and the terms the two of us are agreeing to."
+        },
+        {
+          "kind": "heading",
+          "text": "What You Have Asked Us To Do",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will benchmark the compensation of an agreed schedule of senior positions at {{fact:f:E-2023-001.client}} against a comparison group of companies that we build with you and that you approve. For each position we will report base salary, annual incentive, any long-term or ownership element, and the total, and we will say where the position sits against the group and what it would cost to move it. The schedule of positions is settled in the first working session, and everything after that is measured against it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two limits belong at the front of the letter. We are benchmarking positions and not people, so nothing we produce will assess an individual or recommend what any named employee should be paid. And we will not name anybody, on your side or on anyone else's, in any document that comes out of this engagement. The market talks to us because we have never crossed that line."
+        },
+        {
+          "kind": "heading",
+          "text": "The Comparison Group",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The comparison group decides the answer, so we build it before we buy any data and you approve it in writing. We will propose it on three tests:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Scale. Companies in a revenue and headcount band around your own, because the same title carries a different job at a different size.",
+            "2. Competition for people. The sectors you lose people to and recruit from, which in our experience are not the same as the sectors you compete with for customers.",
+            "3. Ownership. Privately held businesses, because a listed company pays for the same position in a different currency, and comparing across that line will flatter or punish you for reasons that have nothing to do with how you pay."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Once you have approved the group it is fixed. If collection shows us that a company on it has to come off, we will tell you why and ask you before we take it off."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the Numbers Come From",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three sources, in this order. We buy the published survey data that covers your sectors at your scale, and we map every position on your schedule to the survey job codes ourselves instead of taking the titles at face value. We add the compensation detail from the searches this firm has run at this level, used only in aggregate. Where a position is thin in both, we go and have conversations, and what we learn that way is reported as a range with its method shown."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Where a position has too few comparators to support a reliable read, the report will say so and set out what we would need to close it. We will not put a quartile on data that cannot carry one."
+        },
+        {
+          "kind": "heading",
+          "text": "Who Will Do the Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sandra Fuentes, our Principal, leads the engagement and is the person to call. She runs the sessions with you and she writes the findings. David Weiss, Research Associate, does the collection, the crosswalk to the survey codes, and the analysis, and he will be in the working sessions to answer for the numbers. I am accountable for anything that leaves this firm under our name, and I read the report before you do. If at any point in the eight months you want a different conversation from the one you are having, ring me."
+        },
+        {
+          "kind": "heading",
+          "text": "Our Fee, and When We Start",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the work described above is {{fact:f:E-2023-001.fee}}, fixed. It is not an hourly rate, and it does not move with the number of positions we end up comparing or the number of conversations the thin ones require. We invoice it in three parts: one third on commencement, one third at the interim review, one third on delivery and presentation of the final report. Each invoice is payable within thirty days."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Out-of-pocket expenses are billed at cost and itemized on the invoice, and they are limited to travel to your sites and the purchase of survey data. We will not commit to any single expense above a level you set us without asking you first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Work begins {{fact:f:E-2023-001.start}}, on the assumption that a signed copy of this letter is back with us by then, and the first session goes on settling the schedule of positions."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement runs from that date until we have delivered and presented the final report, which on this scope is about eight months. Either of us may end it on thirty days' written notice. If you end it early, you pay for the work completed to that point, calculated as the proportion of the fixed fee that the completed stages represent, and we hand over everything we have produced. If we end it early, we return any part of the fee invoiced for work not done."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "What you give us stays inside the engagement team, and it is returned or destroyed at your instruction when the work is finished. We will not name you as a client of the firm, in a proposal or anywhere else, without your written permission. The obligation runs the other way as well: the purchased survey data is licensed to us and cannot be passed on, and the aggregated detail from our own files is given to you in confidence and stays inside your company."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our liability under this agreement is limited to the fee you have paid under it, and neither of us is liable to the other for indirect or consequential loss. What we are giving you is our reading of a market at a point in time, drawn from the best sources open to us. It is not a certification, and the decisions you take on pay remain yours."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This agreement is governed by the law of the state in which our office is established, and any dispute arising under it belongs in that state's courts. If a provision of it is found unenforceable, the remainder of the letter stands."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two copies are enclosed. If this matches what we discussed, please sign both and return one to me. If any line of it reads differently from what you understood, ring me and we will settle the wording before either of us signs. The next step is already in our diary: Sandra Fuentes will call your office this week to fix the half day we need with you to close the schedule of positions."
+        },
+        {
+          "kind": "sigblock",
+          "signers": ["p:kelly.chavez", "xp:david.mcgee"]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0058",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "To: Sandra Fuentes; Heather Meyer\nFrom: David Weiss, Research Associate\nRe: Compensation benchmarking for {{fact:f:E-2023-001.client}}, kickoff and the first six weeks"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The comparison group is the whole engagement, so the first six weeks go to building it and getting it approved in writing, and everything after that is collection and arithmetic measured against a group we can defend. The engagement began {{fact:f:E-2023-001.start}} and runs about eight months. Our client contact is David Mcgee, the general manager, who signed the letter and who approves the group."
+        },
+        {
+          "kind": "paragraph",
+          "text": "What he has asked for is a defensible answer, position by position, on whether compensation at {{fact:f:E-2023-001.client}} holds up against the market the company hires from, together with the cost of closing any gap he decides to close. He has not asked for a view on any individual, and the letter says so in terms. We report on positions."
+        },
+        {
+          "kind": "heading",
+          "text": "The work, in the order it happens",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Position schedule. Sandra Fuentes takes the half day with the client and comes back with the positions in scope, each with a job description and the current package structure; nothing downstream starts until that list is closed, because every later step is keyed to it.",
+            "2. Comparison group. I build it against the three tests in the engagement letter, which are scale, competition for people, and ownership, with a written reason recorded for every company on the list, and it goes to David Mcgee for approval in writing.",
+            "3. Purchased data. Heather Meyer specifies the survey purchases and handles the extraction once the group is approved; I keep the crosswalk from our position schedule to the survey job codes, which is the part of this work that most often goes wrong quietly.",
+            "4. Our own files. I pull the compensation detail from the retained searches this firm has run in the same revenue band, in aggregate only, with no company and no person identifiable in anything that comes out of it.",
+            "5. Analysis and report. Base, annual incentive, long-term or ownership element, and the total, each read against the group at the quartiles. Sandra Fuentes writes the findings; I supply the tables and the sourcing notes behind them."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Where the coverage will be thin",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "At least two positions on the draft schedule will not be covered by published survey data at the scale we need, and I expect a third once the descriptions are firm. Those go to direct conversations, which are slow and produce a range instead of a quartile."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Meyer, when a position looks thin in extraction, mark it in the crosswalk the day you see it. The report has to be honest about coverage, and coverage is easiest to describe while the collection is still in front of us."
+        },
+        {
+          "kind": "heading",
+          "text": "What does not go in writing",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "No employee of the client is named in any document we produce, and that includes internal working papers, because working papers travel. Nothing drawn from our own search files may be traceable to a company or a person; if a cut of the aggregate holds few enough people that a reader could work out who they are, it is not aggregate and it does not go in."
+        },
+        {
+          "kind": "heading",
+          "text": "Before the end of April",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Sandra Fuentes to hold the half day with the client and return the closed position schedule.",
+            "2. Me to circulate the draft comparison group with the rationale column complete, for internal review before it goes to David Mcgee.",
+            "3. Heather Meyer to have both survey purchases specified and priced, ready to raise on the day the group is approved."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will open a written thread with the client when the group is ready for approval, and the running record of the engagement will live in it. Anything ambiguous in the position schedule should reach me during the crosswalk, while it still costs an hour to settle."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0059",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dear David,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The comparison group is finished and ready for your approval, and the survey purchases can be raised against it the day it is signed off. It runs to twenty-two companies, built on the revenue band we agreed, the sectors {{fact:f:E-2023-001.client}} actually hires from, and privately held ownership only, and every company on the list carries a one-line reason for being there. I am sending the list itself this afternoon."
+        },
+        {
+          "kind": "paragraph",
+          "text": "There are two things I need from your side before collection starts. The first is the approval in writing, because the group fixes what every figure in the final report is measured against and we do not want to be moving it later. The second is a contact in your finance or personnel team who can confirm the current package structure for four of the positions, where the job description and the pay schedule do not agree with each other."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Otherwise the position schedule closed last week at eleven positions, both surveys are specified and priced, and I have started pulling the aggregate compensation detail from our own search files in the same revenue band. Nothing in that material identifies a company or a person, and nothing in the report will name an employee of yours."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the approval reaches me by the end of the month, the first cut of the data will be with you before the end of May."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best"
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0060",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Interim findings session: compensation benchmarking for {{fact:f:E-2023-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "We spent two hours at the client's offices on the first full cut of the data, and the session produced one decision, one instruction to us, and one question the client has taken away to his board. The short of it is that eight of the eleven positions sit inside the range we would expect against the comparison group, two sit below the lower quartile, and one has too little behind it to call either way."
+        },
+        {
+          "kind": "heading",
+          "text": "Attending",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "David Mcgee, General Manager, {{fact:f:E-2023-001.client}}",
+            "Sandra Fuentes, Principal, Northgate Talent Partners",
+            "David Weiss, Research Associate, Northgate Talent Partners"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "The first cut",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Weiss took the meeting through the eleven positions one at a time, showing base, annual incentive and total cash against the quartiles of the approved comparison group, and setting out for each one how many usable comparators sit behind the figure. We agreed at the start that we would look at the coverage before the number in every case, which slowed the first half of the session down and saved us an argument in the second."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The two positions below the lower quartile are both in operations, and both are roles the company has had trouble filling in the last two years. David Mcgee said that neither result surprised him, and that what he does not yet know is whether the gap sits in the base or in the shape of the package."
+        },
+        {
+          "kind": "paragraph",
+          "text": "That distinction turned out to matter more than the level. The comparison group pays a smaller base and a larger variable element for the same jobs, so a position can read as adequate on total cash and still lose people who are pricing what they are guaranteed. We will present base, incentive and total separately for every position, and the commentary will lead on the split."
+        },
+        {
+          "kind": "heading",
+          "text": "The position we cannot call",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "One position has four usable comparators in the purchased data, which will not carry a quartile. I said plainly that we would not publish a range built on four points, and that the choice in front of us was to leave the position uncalled with an explanation or to spend some of the remaining collection time on direct conversations. David Mcgee asked for the conversations. David Weiss put the number needed at six to eight and the time at about a month."
+        },
+        {
+          "kind": "heading",
+          "text": "The question the client took away",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Mcgee said he cannot put findings in front of his board without a number attached to the remedy, and asked for the cost of bringing the below-range positions up to the median of the group. We agreed to give him that as a single company total with the method shown, and not broken out in any way that identifies the people in those seats. He will confirm which board meeting the findings go to, since the report has to be built backwards from that date."
+        },
+        {
+          "kind": "heading",
+          "text": "Agreed actions",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": ["Owner", "Action", "By when"],
+          "rows": [
+            ["David Weiss", "Rebuild the two below-range positions against actual paid incentive as well as target", "Two weeks"],
+            ["David Weiss", "Circulate the costing method for the median remedy, for agreement before any figures are produced", "Two weeks"],
+            ["Sandra Fuentes", "Arrange and run the direct conversations for the position with thin comparator data", "One month"],
+            ["David Mcgee", "Confirm the board date, and give us a contact for the actual paid figures", "One week"]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing in the engagement changes on the strength of this session: the approved comparison group stands and the position schedule is unchanged. We will fix a date for the draft findings review once the costing method has been agreed and the direct conversations are underway."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0061",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Compensation benchmarking for {{fact:f:E-2023-001.client}}\nStatus report for the period to the end of July\nPrepared by David Weiss, Research Associate, Northgate Talent Partners"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is on schedule and inside its fee. Collection is finished, the analysis is drafted for nine of the eleven positions, and both open items sit on your side. Nothing in this period has changed the approved comparison group or the position schedule."
+        },
+        {
+          "kind": "heading",
+          "text": "Progress by line of work",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": ["Line of work", "Status", "Note"],
+          "rows": [
+            ["Position schedule", "Closed", "Eleven positions, signed off in April and unchanged since."],
+            ["Comparison group", "Closed", "Twenty-two companies, approved in writing; none added or removed."],
+            ["Purchased survey data", "Complete", "Two surveys extracted and crosswalked to the position schedule."],
+            ["Aggregate data from our own files", "Complete", "Compensation detail from retained searches in the same revenue band, with nothing attributable to a company or a person."],
+            ["Analysis", "Nine of eleven drafted", "Two positions held for the actual paid rebuild agreed at the July session."],
+            ["Direct conversations", "Underway", "Four booked of the six to eight needed for the position with thin comparator data."],
+            ["Costing of the remedy", "Method drafted", "With you for agreement; no figures are produced until the method is agreed."],
+            ["Draft report", "Not started", "Begins when the analysis closes."]
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What the data says so far",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Eight of the eleven positions sit inside the range we would expect against the comparison group. Two sit below the lower quartile, both of them in operations, and both are roles the company has had difficulty filling."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The more useful finding is about shape. The comparison group pays a smaller base and a larger variable element for the same jobs, so a position at {{fact:f:E-2023-001.client}} can read as adequate on total cash and still be uncompetitive to somebody weighing what they are guaranteed. The report will present base, incentive and total separately for every position, and the commentary will lead on that split."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One position cannot be called on purchased data at all. Sandra Fuentes is running the direct conversations against it. That position will be reported as a range with its method and its limits stated, or reported as uncalled if the conversations do not produce enough."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The long-term element is the weakest part of the picture and will stay weak. Roughly half the comparison group carries some ownership or deferred component, the terms of it are disclosed unevenly in the survey data, and the values are not comparable across companies without assumptions we would rather not make on your behalf. We will report what is there, describe what it excludes, and keep it out of the total cash comparison so that the cash reading stands on its own."
+        },
+        {
+          "kind": "heading",
+          "text": "August and September",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Close the two held positions, once the actual paid figures arrive.",
+            "2. Complete the direct conversations and write up the thin position.",
+            "3. Produce the costed remedy, after the method has been agreed.",
+            "4. Draft the full report, with Sandra Fuentes reviewing it before anything comes to you.",
+            "5. Hold the draft findings review, which on the present run of work falls in early October."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Three risks",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Job code matching. Two positions map imperfectly to the survey codes, and the read on them is only as good as the match we made. We will publish the full crosswalk as an appendix so that the match can be inspected.",
+            "2. The direct conversations. They depend on people who owe us nothing and who are giving up their own pay information. If we cannot reach six usable conversations the position is reported as uncalled, and we will tell you as soon as we know.",
+            "3. The board date. It is not yet confirmed, and every date after the draft findings review moves with it. Drafting can be compressed; the internal review cannot, so an early board date costs us the review and not the analysis."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and effort",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement is a fixed fee of {{fact:f:E-2023-001.fee}}, invoiced in three parts. Two invoices have been raised, one on commencement and one at this interim point, and the third falls due on delivery and presentation of the final report."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Internal hours to date are a little under half of what we planned for the engagement as a whole. The survey extraction ran cleaner than we budgeted for, and the direct conversations will absorb the difference, since they cost more time per usable data point than any other part of the work. We do not expect to come back to you on the fee. Expenses are within the level agreed and are itemized on each invoice."
+        },
+        {
+          "kind": "heading",
+          "text": "What we need from you",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Agreement on the costing method, which is with you now.",
+            "2. The actual paid incentive figures for the two held positions.",
+            "3. The board date, as soon as it is fixed."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The next report covers August and September and will carry the draft findings with it. If the board date lands earlier than the early October review assumes, tell us once it is fixed and we will work the schedule back from it."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0062",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Draft findings review: compensation benchmarking for {{fact:f:E-2023-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The draft findings were accepted with two changes, and the report can now go to a final version. Most of the ninety minutes went on the costed section, which is the part a board will argue about, and on how much method belongs in the body of a document that non-specialists will read cold."
+        },
+        {
+          "kind": "heading",
+          "text": "Attendance",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Sandra Fuentes, Principal, Northgate Talent Partners",
+            "David Weiss, Research Associate, Northgate Talent Partners",
+            "David Mcgee, General Manager, {{fact:f:E-2023-001.client}}"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Where the findings landed",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Weiss walked the eleven positions in the order they appear in the draft. Nine sit inside the range for the approved comparison group, two sit below the lower quartile, and the position that could not be called on purchased data now carries a range built from eleven direct conversations, with its method and its limits stated in the text. David Mcgee accepted all three readings without challenge, which is a better outcome than it sounds, because the argument about coverage was had in July and did not have to be had again."
+        },
+        {
+          "kind": "heading",
+          "text": "The costed section",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Mcgee asked for one addition. The draft costs the move of the two below-range positions to the median of the comparison group as a single company total, which is what we agreed in July. He pointed out that the board will ask immediately what the same move does to the positions sitting directly beneath those two, and that a report which does not answer the question will come straight back to us."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We agreed to add a second total covering the immediate knock-on, on a stated assumption about how far down the effect is allowed to run, and to label the two figures plainly enough that nobody can quote one for the other. I said the assumption has to be the client's to set and not ours to guess at, and David Mcgee will send it to us this week."
+        },
+        {
+          "kind": "heading",
+          "text": "How much method goes in the body",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The client asked for the method to come out of the body of the report, on the grounds that a board reading it cold will not get past three pages of survey mechanics. We will move the method and the full crosswalk into appendices. I asked that the body keep a short paragraph on how the comparison group was built, with a direct reference to the appendix, because the first question any board member asks is who their company was compared against, and that answer should be in front of them when they ask it."
+        },
+        {
+          "kind": "heading",
+          "text": "Naming, again",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Mcgee asked whether the two below-range positions could be identified by title in the board version. In a company of this size a title is a person. We agreed that the board version describes positions by function and level, and that the full schedule, which does carry titles, sits in the appendix that stays with the general manager."
+        },
+        {
+          "kind": "heading",
+          "text": "Agreed actions",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "David Weiss to add the knock-on total and relabel both figures, within two weeks of the client's assumption reaching us.",
+            "David Weiss to move the method and the crosswalk into appendices, leaving a summary paragraph and a reference in the body.",
+            "Sandra Fuentes to draft the two-page board summary and send it to David Mcgee ahead of the full report.",
+            "David Mcgee to send the assumption for the knock-on cost, and to confirm the distribution of the board version and who holds the appendix.",
+            "Sandra Fuentes to fix the date for the final presentation once the board date is confirmed."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The final report goes to {{fact:f:E-2023-001.client}} as one document with its appendices bound separately, and we will present it in person instead of sending it over. David Mcgee will confirm the board date this month, and the presentation is set from there."
+        }
+      ]
+    }
+  ]
+}

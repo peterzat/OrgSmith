@@ -1,468 +1,552 @@
 {
-  "schema_id": "orgsmith/authoring-deliverable@1",
-  "work_order_id": "wo:author:0003",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
-  "docs": [
+ "schema_id": "orgsmith/authoring-deliverable@1",
+ "work_order_id": "wo:author:0003",
+ "generator": {
+  "model": "claude-opus-5",
+  "effort": "xhigh"
+ },
+ "docs": [
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0011",
+   "blocks": [
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0010",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Michael Martin\nChief Operating Officer\nColeman Ltd"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Michael,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thank you for entrusting this search to us. It means a great deal that you have asked Northgate to find the person who will lead your engineering organization, and we do not take the responsibility lightly. A leadership hire of this kind sets the direction of a function for years, and we treat it that way. This letter sets out what we have agreed, so that both of us can point to the same page later if a question ever comes up. I have tried to keep the language plain, even where the letter turns to terms. Nothing here should surprise you; it is simply our understanding, written down, and I am happy to talk through any line of it before you sign."
-        },
-        {
-          "kind": "heading",
-          "text": "The assignment",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "You have engaged us, on a retained basis, to identify and recommend a Vice President of Engineering for {{fact:f:E-2016-001.client}}. We understand the seat to be a senior operating role, reporting into your leadership team, with responsibility for the engineering function and the people in it. The written brief we build together at kickoff will govern the search, and we will hold ourselves to it rather than to a generic profile. If your sense of the role changes as we go, we will change the brief with you."
-        },
-        {
-          "kind": "heading",
-          "text": "How we will work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A retained search runs in stages, and we will keep you close at each of them. We begin by mapping the market and agreeing a written specification for the role. From there we build a long list, approach the strongest names discreetly, and narrow to a slate we are willing to stand behind. You will meet that slate, we will manage the interviews and the scheduling around them, and we will complete thorough references before anyone receives an offer. Throughout, we describe candidates by their current role rather than by name in anything that circulates, and we ask you to do the same on your side. A careless word can end a good conversation, so the discretion is not a formality; it is how the work gets done."
-        },
-        {
-          "kind": "heading",
-          "text": "The people on your search",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "You will work with a small team. James Grant, our Senior Consultant, will lead the assessment of the senior candidates and bring his judgment to the shortlist. Jeffrey Patterson, our Research Consultant, will keep the search moving day to day and be your point of contact for scheduling and follow-up. John Chang, our Research Associate, will map the market and build the long list the consultants work from. I will stay close to the assignment myself and remain reachable to you at any point. If the chemistry with any of us is not right, tell me, and I will fix it."
-        },
-        {
-          "kind": "heading",
-          "text": "Fee and start",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for the assignment is {{fact:f:E-2016-001.fee}}, and the engagement commences on {{fact:f:E-2016-001.start}}. The fee is a fixed professional fee for the search, not a percentage that moves with the eventual compensation, so you know the cost of the work at the outset and we have no incentive to steer you toward a more expensive hire."
-        },
-        {
-          "kind": "heading",
-          "text": "Fees and payment",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We invoice the fee in three parts across the life of the search. The first third falls due on commencement, the second on presentation of the agreed slate, and the final third on the successful candidate's acceptance of your offer. Reasonable out-of-pocket costs, such as travel we agree in advance, are billed at cost and itemized. Invoices are payable within thirty days of receipt."
-        },
-        {
-          "kind": "heading",
-          "text": "Term, and how either of us may end it",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement continues until the role is filled or until either of us chooses to end it. If you decide to withdraw the assignment, the fee earned to that point remains payable and any portion not yet earned is not. If we find ourselves unable to serve you well, we will tell you plainly and part on fair terms. Neither of us should feel bound to a search that has stopped working, and in our experience saying so early is a kindness to both sides."
-        },
-        {
-          "kind": "heading",
-          "text": "Confidentiality",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Discretion is the heart of this work. We treat your search, your reasons for it, and the identities of the people we approach as confidential, and we expect the same care from you. Candidates who speak with us have not, as a rule, spoken to their current employers, and their trust is ours to protect. For that reason we write about candidates by their seat rather than their name until an offer is in hand, and we keep the circle of people who know the details as small as the work allows."
-        },
-        {
-          "kind": "heading",
-          "text": "What we will need from you",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A search moves at the speed of its client as much as its consultant. We will ask for prompt feedback after each round of interviews, for a single point of contact on your side so that messages do not cross, and for candor about how your thinking evolves. If your view of the role shifts as you meet people, tell us early and we will adjust the brief with you. The one thing that slows a search is silence, and we will do our part to make sure it never comes from ours."
-        },
-        {
-          "kind": "heading",
-          "text": "Limitation of liability",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will bring real care and experience to the assignment, but we do not guarantee a hire, and our responsibility to you is limited to the fee paid for the search. We are not liable for indirect or consequential losses. Once we have done our work and presented our slate, the hiring decision rests with you, as it should."
-        },
-        {
-          "kind": "heading",
-          "text": "Governing law",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This letter is governed by the law of the state in which our office sits, and any dispute under it will be resolved there. We would much prefer to settle any disagreement in conversation, and over many years we almost always have."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If this reflects our understanding, please countersign below and return one copy to Jeffrey, who will open the file and confirm your kickoff session. We are glad to be working with you on this, Michael, and we are ready to begin. The one thing we need from you now is your countersignature."
-        },
-        {
-          "kind": "sigblock",
-          "signers": [
-            "p:kelly.chavez",
-            "xp:michael.martin"
-          ]
-        }
-      ]
+     "kind": "paragraph",
+     "text": "Michael Martin\nChief Operating Officer\n{{fact:f:E-2016-001.client}}"
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0011",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "To: James Grant, John Chang\nFrom: Jeffrey Patterson\nRe: Kickoff — Vice President of Engineering search for Coleman Ltd"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our goal for this search is simple to state: to place a Vice President of Engineering that {{fact:f:E-2016-001.client}} is glad to have hired a year from now. Everything below serves that end, and I have kept the memo short so it is easy to hold in mind. The engagement opened on {{fact:f:E-2016-001.start}}, and this note sets out how we will run the early weeks so that we start clean and stay aligned. Our client sponsor is Michael Martin, and he has asked to be the single point of contact on Coleman's side, which keeps our reporting simple and our messages from crossing."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A word before the work. We do not yet know this organization as well as we will, and the kickoff conversation is where that starts. Michael Martin has offered us his time early, and we should use it to understand the shape of the team the new leader will inherit and the decisions waiting for them. Hold your questions for that session rather than assuming; the brief is only ever as good as what we learn there."
-        },
-        {
-          "kind": "heading",
-          "text": "The early work",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Market map. John Chang will chart the engineering-leadership market and identify the pools worth working, reaching into adjacent sectors where the relevant experience also sits.",
-            "Specification. James Grant and I will turn the kickoff conversation into a written brief we can hold the search to, and circulate it for the client's sign-off before we approach anyone.",
-            "Sourcing. Once the map and the brief are set, we begin discreet approaches, describing the role rather than naming the people we speak with.",
-            "Confidentiality. We write about candidates by their current seat, not their name, in anything that leaves the room, and we will ask the client to do the same.",
-            "Cadence. We will hold a short internal review each week and send the client a written update on a steady rhythm, so no one has to ask where things stand."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "None of these steps is complicated on its own. What makes a search succeed is doing them in order and not skipping ahead: a map before a list, a list before an approach, an approach before a slate. If we hold that discipline, and keep Michael Martin informed as we go, the rest tends to take care of itself."
-        },
-        {
-          "kind": "heading",
-          "text": "This week",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Before anything else, John Chang will circulate a first cut of the market map for James Grant and me to react to. I will confirm the kickoff notes with Michael Martin and lock the specification review for early next week. A good brief for this role names the two or three outcomes the new leader has to deliver in the first year, not a wish list of traits; keep that test in mind as you shape it. If either of you sees a gap in the brief as it stands, raise it now. Correcting the brief is cheap while it is still on paper, and I would like us to open the approaches with it fully settled."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The single thing that has to happen first is the market map. Everything we do after it depends on it, so let us get a first version in front of ourselves by Friday and build from there."
-        }
-      ]
+     "kind": "paragraph",
+     "text": "Dear Mr. Martin:"
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0012",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Dear Michael,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Good progress to report, and one small thing I would ask of you. Since the search opened, John Chang has built out the market map for the Vice President of Engineering role at {{fact:f:E-2016-001.client}}, and James Grant has begun reading the strongest sitting engineering leaders against the specification we agreed. We are describing candidates by their current seat rather than by name at this stage, as we always do while a search is live, and I would ask that Coleman Ltd hold to the same discretion on your side."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The ask is a modest one. So that nothing about this search travels wider than it must, we would like to route every candidate document to you alone, Michael Martin, as the client's single point of contact. If you would rather a second name be copied, tell me and we will set it up straight away."
-        },
-        {
-          "kind": "paragraph",
-          "text": "I will keep this thread moving from our side. As ever, I am your day-to-day contact — Jeffrey Patterson — with James Grant on the senior assessment and John Chang on the research bench. If anything at all is unclear, a short call is easier than a long note, and I am glad to pick up the phone."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely,"
-        }
-      ]
+     "kind": "paragraph",
+     "text": "Thank you for asking us to find your next vice president of engineering. The conversations that brought us here were good ones, and we come away with a clear sense of what the role has to carry at {{fact:f:E-2016-001.client}} over the next few years. This letter sets down what we have agreed, so that the two of us work from the same understanding and not from memory."
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0013",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Vice President of Engineering — Retained Search",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Client: Coleman Ltd",
-            "Sponsor: Michael Martin, Chief Operating Officer",
-            "Engagement opened {{fact:f:E-2016-001.start}}",
-            "A retained assignment, run to a written specification rather than a contingency scramble",
-            "Prepared by your Northgate search team for this progress review"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "The mandate",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "A Vice President of Engineering to lead the engineering function at {{fact:f:E-2016-001.client}}.",
-            "A senior operating role, reporting into the leadership team and owning the people in it.",
-            "We are looking for an operator who has scaled a function, not a first-time leader.",
-            "Someone the current team will follow, not only someone the board will approve.",
-            "The written specification agreed at kickoff governs the search from here, and we hold ourselves to it."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "How we are running it",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "John Chang is mapping the engineering-leadership market and building the long list we work from.",
-            "James Grant is assessing the strongest sitting leaders against the brief and shaping the shortlist.",
-            "Approaches are discreet; we describe candidates by their current seat, never by name, in anything that circulates.",
-            "We ask the same discretion of you, since most of the people we approach have not spoken to their employers.",
-            "Jeffrey Patterson keeps the search moving day to day and is your single point of contact."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Where we are today",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "The market map is well advanced and reaching into two adjacent sectors where the experience also sits.",
-            "The specification is agreed and already in use to calibrate every name.",
-            "The first discreet approaches are underway, and early conversations are encouraging.",
-            "Two names stand out so far, both described here by their current seat rather than by name.",
-            "No slate yet: we are still widening the field, not narrowing it, which is right for this stage."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "What comes next",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Complete the market approaches over the coming weeks and let the field settle.",
-            "Work the long list down into a shortlist we will stand behind.",
-            "Complete first references before anyone reaches your interview room.",
-            "Bring a first slate to Michael Martin for discussion, with candidates ready to meet you.",
-            "Hold the weekly rhythm of updates between now and then, so no one has to ask."
-          ]
-        }
-      ]
+     "kind": "paragraph",
+     "text": "Please read it against those conversations. If any part of it sits differently from what you understood, say so before you sign, and we will put it right."
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0014",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Working Session Minutes — Vice President of Engineering Search",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "These minutes record the working session held with our client to review progress on the Vice President of Engineering search for {{fact:f:E-2016-001.client}}. The purpose of the session was to assess the developing long list and to plan the first round of client interviews. The notes below are a summary. Where a decision was reached, it is marked as such; where a matter was left open, that is noted too."
-        },
-        {
-          "kind": "heading",
-          "text": "Present",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "John Chang, Research Associate",
-            "Jeffrey Patterson, Research Consultant",
-            "James Grant, Senior Consultant",
-            "Michael Martin, Chief Operating Officer, Coleman Ltd"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Where the search stands",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "John Chang presented the market map and the long list built from it. The list is deliberately broad at this stage, and it will narrow as the approaches return. James Grant observed that the quality of the pool is consistent with the specification, though he cautioned that two of the most attractive names may prove difficult to move."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Consistent with the firm's practice, candidates were discussed by their current role rather than by name. The group considered, in particular, an engineering lead at a regional logistics group and a divisional head of engineering at a listed software company. Both were judged worth a discreet approach. No commitment was made on either, and neither has been contacted as of this session."
-        },
-        {
-          "kind": "paragraph",
-          "text": "There was a short discussion of coverage. James Grant asked whether the map had reached far enough into the software sector, and John Chang undertook to extend it into two adjacent fields before the next review. It was agreed that a wider map was worth the additional time it would take, and that the list should not be closed prematurely. The group recorded no concern about the pace of the work to date."
-        },
-        {
-          "kind": "heading",
-          "text": "The client interviews",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Michael Martin set out how he would like the first round to run. He asked that interviews be kept to a small panel on his side, and that scheduling flow through Jeffrey Patterson to avoid crossed wires. He was measured about timing, and asked that we not compress the process at the expense of thorough references."
-        },
-        {
-          "kind": "paragraph",
-          "text": "It was agreed that a first slate would not be presented until the current approaches have run their course. James Grant will judge readiness rather than commit to a fixed date. This qualification matters, in the group's view: the field is still widening, and a premature slate would serve no one. The point was recorded so that it is not revisited without cause."
-        },
-        {
-          "kind": "heading",
-          "text": "Action items",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": [
-            "Owner",
-            "Action",
-            "Timing"
-          ],
-          "rows": [
-            [
-              "John Chang",
-              "Extend the market map into the two adjacent sectors raised in the session and refresh the long list.",
-              "Ongoing"
-            ],
-            [
-              "James Grant",
-              "Frame the approach to the two priority candidates and judge when a slate is ready to present.",
-              "Coming weeks"
-            ],
-            [
-              "Jeffrey Patterson",
-              "Coordinate first-round interview scheduling with Michael Martin and hold provisional dates.",
-              "This week"
-            ],
-            [
-              "Michael Martin",
-              "Confirm the interview panel on the client side and the compensation band with the board.",
-              "Before the first round"
-            ]
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next step is unambiguous. John Chang will complete the extended market map, since the readiness of the slate depends on it, and the group will reconvene once the current approaches have returned."
-        }
-      ]
+     "kind": "heading",
+     "text": "The Assignment",
+     "level": 2
     },
     {
-      "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0015",
-      "blocks": [
-        {
-          "kind": "heading",
-          "text": "Status Report — Vice President of Engineering Search",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Prepared for the leadership of Coleman Ltd by Jeffrey Patterson, Research Consultant. This report covers the period since our last update and marks roughly the midpoint of the engagement."
-        },
-        {
-          "kind": "heading",
-          "text": "Where we stand",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The short version is that the search is on track. We have moved from mapping the market to working a live field of candidates, and we expect to bring you a first slate in the coming weeks. Nothing has arisen that changes our confidence in filling the role for {{fact:f:E-2016-001.client}} well and on a sensible timeline. The rest of this report fills in that picture."
-        },
-        {
-          "kind": "heading",
-          "text": "What we have accomplished",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "John Chang has completed the market map and built it into a long list that we are now actively working. The map reached wider than we first planned, into two adjacent sectors where the relevant leadership experience also sits, and that breadth has paid off in the quality of the names we are speaking with."
-        },
-        {
-          "kind": "paragraph",
-          "text": "James Grant has led the assessment of the strongest candidates against the specification. He has held first exploratory conversations with several of them, all conducted discreetly and, as always, with candidates described by their current role rather than by name in anything we circulate. Those conversations have told us as much about who to pursue harder as about who to set aside."
-        },
-        {
-          "kind": "paragraph",
-          "text": "For my part, I have kept the threads moving and the scheduling clean, which at this stage is most of the work. A search of this kind lives or dies on follow-up, and no candidate we care about has been left waiting on us for an answer."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One useful outcome of the early conversations is that they have tested the specification against real people. The brief has held up well. Nothing we have heard has sent us back to redraw the role, which tells us the kickoff work was sound and that the field we are building is the right one to be building. Where a candidate has fallen short, it has been on a clear line in the brief rather than on a vague sense of fit."
-        },
-        {
-          "kind": "heading",
-          "text": "The budget",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement remains within its agreed terms. Our fixed professional fee of {{fact:f:E-2016-001.fee}} covers the search through to placement, and we do not foresee any additional cost beyond the modest, pre-agreed out-of-pocket items. You should expect no surprises on the invoice, and we will flag anything unusual well before it reaches one."
-        },
-        {
-          "kind": "heading",
-          "text": "What comes next",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Over the next several weeks we will bring the current approaches to a close and narrow the long list to a shortlist we are prepared to stand behind. We will then complete a first round of references on the leading candidates before presenting a slate, so that when you meet them you are meeting people we have already checked. We will hold to our regular rhythm of updates throughout, and I will confirm the date of the slate presentation as soon as it is firm."
-        },
-        {
-          "kind": "paragraph",
-          "text": "When the slate is ready, we will present each candidate with a written summary and our own read on strengths and risks, still by current role until you have decided to proceed. We will suggest an interview order and handle the scheduling from our side. All we will ask of you at that point is a small, consistent panel and prompt feedback after each conversation, since a slate goes stale quickly if it is left to sit."
-        },
-        {
-          "kind": "heading",
-          "text": "What we are watching",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two risks deserve mention, neither of them pressing. The first is availability: one or two of the most attractive candidates sit in roles they are not obviously looking to leave, and moving them will take patience. The second is notice periods, which can add time at the end of a search that looks fast in the middle. We are managing both by keeping the field wider than we strictly need until the shortlist is firm."
-        },
-        {
-          "kind": "paragraph",
-          "text": "There is also the constant of confidentiality. The people we are speaking with have not, as a rule, told their current employers, and we protect that carefully. It is the reason we ask that Coleman Ltd hold the same discretion on candidate identities that we do. So far the process has stayed tight, and we intend to keep it that way."
-        },
-        {
-          "kind": "paragraph",
-          "text": "In short, the search is where it should be at the halfway mark, and the next milestone is the shortlist. James Grant and John Chang will bring the field to that point over the coming weeks, and I will keep you posted the moment there is something firm to share."
-        }
-      ]
+     "kind": "paragraph",
+     "text": "Northgate will conduct a retained search for a vice president of engineering at {{fact:f:E-2016-001.client}}, reporting to you. The search runs against a written position specification that we prepare with you and that you approve before we approach anyone. That document governs the assignment. If the market tells us something the specification did not anticipate, and on a role of this kind it usually does, we bring it back to you and amend the specification openly instead of quietly widening the brief."
+    },
+    {
+     "kind": "paragraph",
+     "text": "The engagement is retained rather than contingent, and the distinction matters to how we will behave. What you are buying is a market covered properly and to a standard, including the part of it that turns out to hold nobody worth your time. We will not send you a resume to show activity."
+    },
+    {
+     "kind": "heading",
+     "text": "How the Search Will Run",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The work moves through five stages:"
+    },
+    {
+     "kind": "list",
+     "items": [
+      "1. Specification. We meet the people this executive will work with most closely, and we write the specification for your approval.",
+      "2. Research. We map the companies and the roles where a person of this description is likely to sit today, and we build a target list off that map.",
+      "3. Approach and assessment. We contact the people on the list and interview the ones worth interviewing, in person wherever the calendar allows it.",
+      "4. Slate. We present a short list with a written appraisal of each candidate, and we manage your interview process from there.",
+      "5. References and close. We take references, help you shape the offer, and stay with the search until your candidate has accepted and given notice."
+     ]
+    },
+    {
+     "kind": "paragraph",
+     "text": "In practice the stages overlap, and research continues while the first approaches are underway. You will hear from us on a regular cycle, and each report will tell you how many people we have approached, how many are in live conversation, and where the market is pushing back. Where it pushes back on something in the specification, we will say so early, while there is still time to do something about it."
+    },
+    {
+     "kind": "heading",
+     "text": "Your Team",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Jeffrey Patterson will carry the search day to day and is the person to call about anything of substance. He came up through our research side, and it shows in his habits: he will not put a name in front of you until he can say precisely why it belongs there."
+    },
+    {
+     "kind": "paragraph",
+     "text": "James Grant, a senior consultant here, works the assignment alongside him and will sit in on your interviews. John Chang handles the research behind the target list, the scheduling, and the written record of our sessions with you. I read everything that goes out to you under our name, and you are welcome to come to me directly at any point in the search."
+    },
+    {
+     "kind": "heading",
+     "text": "Fees and Payment",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Our fee for the assignment is {{fact:f:E-2016-001.fee}}. It is fixed at the outset and is not calculated from the compensation you eventually agree with your candidate, which keeps our advice on that compensation disinterested. We will invoice the fee in three equal installments: the first on commencement, the second when we present the slate, and the third when your candidate accepts. Invoices are payable within thirty days of receipt."
+    },
+    {
+     "kind": "paragraph",
+     "text": "Expenses sit outside the fee and are billed at cost. They are candidate and consultant travel, and any research we commission from outside the firm. We will agree anything material with you before we incur it, and the detail appears on the invoice."
+    },
+    {
+     "kind": "heading",
+     "text": "Term and Termination",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The engagement begins {{fact:f:E-2016-001.start}} and we expect it to run about seven months from that date through to a signed acceptance. Either of us may end it on thirty days' written notice. If you end it, you owe us the installments already due and the expenses already committed on your behalf, and nothing beyond that."
+    },
+    {
+     "kind": "paragraph",
+     "text": "If the executive we place leaves within twelve months, for any reason other than a change you make to the role or the terms of it, we will conduct one replacement search for expenses only."
+    },
+    {
+     "kind": "heading",
+     "text": "Confidentiality",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Everything we learn about {{fact:f:E-2016-001.client}} in the course of the work we hold in confidence and use only for this search. We ask the same of you for what we tell you about candidates, and here we will press the point. Most of the people we approach are content where they are and take a real risk in talking to us. Their names stay inside the interview process, they do not appear in anything that circulates, and we will not confirm to anyone outside it that a particular person is in conversation with you."
+    },
+    {
+     "kind": "paragraph",
+     "text": "For the term of the engagement and for one year after it closes, we will not approach the executive we place, or any member of your leadership team, for another client."
+    },
+    {
+     "kind": "heading",
+     "text": "Limitation of Liability",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "We will do this work with the care and skill you are entitled to expect. We verify what a candidate tells us about their record, and we will tell you plainly what we could not verify. The hiring decision is yours, and we give no warranty as to how anyone you employ will perform in the role. Our liability under this agreement is limited to the fees paid under it, except where the law does not permit that limit."
+    },
+    {
+     "kind": "heading",
+     "text": "Governing Law",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "This agreement is governed by the law of the state in which our office is established, and any dispute arising under it belongs in that state's courts. If any provision of the letter is found unenforceable, the remainder stands."
+    },
+    {
+     "kind": "paragraph",
+     "text": "If this reflects our understanding, please sign both copies and return one to me. The next step after that is a short one: Jeffrey Patterson will call your office to fix the specification meetings for the first week of the engagement, and we would like the two people this role will work with most closely in the room for one of them."
+    },
+    {
+     "kind": "sigblock",
+     "signers": [
+      "p:kelly.chavez",
+      "xp:michael.martin"
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0012",
+   "blocks": [
+    {
+     "kind": "paragraph",
+     "text": "To: James Grant; John Chang\nFrom: Jeffrey Patterson, Research Consultant\nRe: VP Engineering search for {{fact:f:E-2016-001.client}}, kickoff and plan"
+    },
+    {
+     "kind": "paragraph",
+     "text": "The thing that will decide this search is the research, so that is where the weight of our effort goes in the opening weeks. The people who can run an engineering organization through the platform work {{fact:f:E-2016-001.client}} has ahead of it are almost all employed and none of them are reading job advertisements. We will have to find them, and then we will have to give them a reason to take the call."
+    },
+    {
+     "kind": "paragraph",
+     "text": "For the record: the engagement began {{fact:f:E-2016-001.start}} and runs about seven months. Michael Martin, the chief operating officer, is our client on it, and the role reports to him. He is direct, he answers quickly, and he has told us he would rather see four candidates he can argue about than eight he cannot tell apart."
+    },
+    {
+     "kind": "heading",
+     "text": "What the client is actually buying",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "A vice president of engineering who has done this at the size the company is growing into, not the size it is now. That is the whole brief, and every judgment we make about a prospect comes back to it. Where we are unsure whether someone clears that bar, the answer is to keep looking, not to talk ourselves into the list we have."
+    },
+    {
+     "kind": "heading",
+     "text": "How the work divides",
+     "level": 2
+    },
+    {
+     "kind": "list",
+     "items": [
+      "1. Specification. I will run the two meetings on site and draft the specification off them. John Chang sits in on both and keeps the record. I want the draft with Michael Martin for approval inside two weeks of the second meeting.",
+      "2. Market map. John Chang builds the map: the companies at and just above the client's scale that have done comparable platform work, and the engineering leadership in each. I would rather have a map that is honest about its gaps than one that looks complete.",
+      "3. Target list and approaches. James Grant and I split the list by sector once the map is stable. Approaches go out in waves so that we can read the response and adjust the pitch before we have spent the whole market.",
+      "4. Assessment. Every prospect who gets past a first call gets a structured interview from one of us in person, with written notes the same day. No exceptions for people we already know.",
+      "5. Slate and client process. We present with written appraisals, then manage the client interviews, references, and the offer."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "Discipline on names",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Nothing that leaves this office names a candidate outside the interview process. In the status notes and the client materials, people are described by the role they hold and the kind of company they hold it in. James Grant is stricter about this than I am and he is right to be; follow his practice, not mine, on anything that goes into a document."
+    },
+    {
+     "kind": "heading",
+     "text": "The first three weeks",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Three things need to close out before the search is properly moving, and I want each of them owned by name."
+    },
+    {
+     "kind": "list",
+     "items": [
+      "1. John Chang to have the specification meetings in the calendar this week, and the first cut of the market map two weeks after that.",
+      "2. James Grant to review the off-limits question with me before any approach goes out. Two companies on the obvious target list sit close enough to the client that we should have Michael Martin rule on them instead of leaving us to guess.",
+      "3. Me to get the specification approved in writing. Nothing goes to a prospect until it is."
+     ]
+    },
+    {
+     "kind": "paragraph",
+     "text": "Bring me anything that looks like a problem while it is still small. I will circulate the approved specification the day it comes back from the client, and we start the first wave of approaches that week."
+    }
+   ]
+  },
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0013",
+   "blocks": [
+    {
+     "kind": "paragraph",
+     "text": "Dear Michael,"
+    },
+    {
+     "kind": "paragraph",
+     "text": "The search is on schedule, and the research has turned up more depth in the market than I expected when we drafted the specification. I am starting this thread so that the running record of the search lives in one place; I will send the substantive updates here and copy James Grant and John Chang, who are working the assignment with me."
+    },
+    {
+     "kind": "paragraph",
+     "text": "Where we stand: the specification you approved has gone out to the first wave of prospects, and we are in live conversation with nine people from the map. Two of them run engineering organizations through exactly the kind of platform change you described to me in February. I am not putting names or employers in writing until they have had that conversation inside their own companies, which is normal at this stage and is the reason good people talk to us at all."
+    },
+    {
+     "kind": "paragraph",
+     "text": "There are a couple of things I need from your side. John Chang will look for ninety minutes in your calendar in the next two weeks for a calibration session with James Grant and me, where we walk you through the map and test the specification against what the market has actually said back to us. Separately, three companies on the target list sit close enough to {{fact:f:E-2016-001.client}} that I will not approach anyone there without a ruling from you first. I will send the three names to you directly this week."
+    },
+    {
+     "kind": "paragraph",
+     "text": "Sincerely"
+    }
+   ]
+  },
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0014",
+   "blocks": [
+    {
+     "kind": "heading",
+     "text": "VP Engineering Search for {{fact:f:E-2016-001.client}}",
+     "level": 1
+    },
+    {
+     "kind": "paragraph",
+     "text": "A briefing for Michael Martin and his colleagues on where the search stands. The engagement commenced {{fact:f:E-2016-001.start}} and is scoped to run about seven months. This briefing covers the research phase and the approaches now underway."
+    },
+    {
+     "kind": "heading",
+     "text": "Where the search stands",
+     "level": 1
+    },
+    {
+     "kind": "list",
+     "items": [
+      "The position specification is approved and is the document every approach is made against.",
+      "The market map is complete for the sectors we agreed, and a second pass is open on two adjacent ones.",
+      "The first wave of approaches has gone out; a second wave follows once we have read the response to the first.",
+      "A number of conversations are live. None of them are far enough along to name in a document."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "What the market has said back",
+     "level": 1
+    },
+    {
+     "kind": "list",
+     "items": [
+      "The profile exists, but it is concentrated in companies one size larger than yours, which is what we expected and planned for.",
+      "The strongest people are not in the market. Each of them needs a reason to move, and the reason is the scope of the role and not the package.",
+      "Candidates ask early about the reporting line and about how much of the architecture decision is genuinely theirs. Clear answers there are worth more to us than anything else you can give us."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "How we are describing the role",
+     "level": 1
+    },
+    {
+     "kind": "list",
+     "items": [
+      "As ownership of the engineering organization through a change of platform, not as maintenance of the one you have.",
+      "As a seat where the executive is accountable for delivery and for the team that does it.",
+      "As a company at the point where the next stage of growth needs an engineering leader who has been there before."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "Your team at Northgate",
+     "level": 1
+    },
+    {
+     "kind": "list",
+     "items": [
+      "Jeffrey Patterson, Research Consultant, carries the search day to day and is your first call.",
+      "James Grant, Senior Consultant, works the target list and will sit in on your interviews.",
+      "John Chang, Research Associate, holds the market map, the scheduling, and the record of our sessions."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "What happens next",
+     "level": 1
+    },
+    {
+     "kind": "list",
+     "items": [
+      "A calibration session with you, to test the specification against what the market has told us.",
+      "Your ruling on the three companies we flagged as too close to {{fact:f:E-2016-001.client}} to approach without it.",
+      "Second wave of approaches, then first-round assessment interviews conducted by us."
+     ]
+    }
+   ]
+  },
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0015",
+   "blocks": [
+    {
+     "kind": "heading",
+     "text": "Working Session: VP Engineering Search for {{fact:f:E-2016-001.client}}",
+     "level": 1
+    },
+    {
+     "kind": "paragraph",
+     "text": "The session was held at the client's offices and ran ninety minutes. Its purpose was to review the interim list and to settle the compensation question before we take the search any further. One decision was reached and two questions were left open. Each is recorded below with the person who owns it."
+    },
+    {
+     "kind": "heading",
+     "text": "Present",
+     "level": 2
+    },
+    {
+     "kind": "list",
+     "items": [
+      "Michael Martin, Chief Operating Officer, {{fact:f:E-2016-001.client}}",
+      "Jeffrey Patterson, Research Consultant, Northgate Talent Partners",
+      "James Grant, Senior Consultant, Northgate Talent Partners",
+      "John Chang, Research Associate, Northgate Talent Partners"
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "The interim list",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Jeffrey Patterson took the meeting through the seven prospects currently in conversation, describing each by their present role and the scale of the organization they run. Four were assessed as likely to reach the slate. Two are strong on the platform work and thin on the size of team they have carried. One is stronger than the specification asked for and correspondingly less likely to move."
+    },
+    {
+     "kind": "paragraph",
+     "text": "The meeting agreed that the four are enough to build a slate around if one more of comparable weight can be found in the adjacent sectors now being worked."
+    },
+    {
+     "kind": "paragraph",
+     "text": "One prospect who had been in conversation since April withdrew during the week before the session, having been promoted inside their current company. Jeffrey Patterson noted that this is the second withdrawal of that kind on this search, and that both came from the same sector, which may say something about how that sector is currently retaining its engineering leadership."
+    },
+    {
+     "kind": "heading",
+     "text": "Compensation",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Michael Martin raised the compensation band, which he described as the constraint he is least able to move. James Grant said, and asked that it be recorded, that the band as written will not hold the two strongest people in the current group, and that we should learn that now instead of at offer. He did not press for a decision at the session and accepted that the client needs to take it internally."
+    },
+    {
+     "kind": "paragraph",
+     "text": "It was agreed that {{fact:f:E-2016-001.client}} will come back to us on the band, and that in the meantime we will continue to describe the role by its scope and not by its package."
+    },
+    {
+     "kind": "heading",
+     "text": "Discretion",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The client asked whether candidates could be identified by name in the papers circulated to his colleagues. Jeffrey Patterson explained our practice, which is that candidates are described by current role until they have told their own employers, and that names enter the written record only once the client interview process begins. The client accepted this without reservation."
+    },
+    {
+     "kind": "heading",
+     "text": "The specification",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "No change to the approved specification was proposed or made. The meeting reviewed the two requirements that have proved hardest to meet together, which are the scale of engineering organization the candidate has run and direct experience of a platform change, and concluded that both should stand. It was noted that the market has so far produced people who are convincing on one or the other more readily than on both."
+    },
+    {
+     "kind": "heading",
+     "text": "Decision",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The slate will be presented in the second half of June rather than in the first, so that the additional prospect can be assessed properly. The client agreed to hold his own interview dates until the presentation is fixed."
+    },
+    {
+     "kind": "heading",
+     "text": "Action items",
+     "level": 2
+    },
+    {
+     "kind": "table",
+     "header": [
+      "Owner",
+      "Action",
+      "By when"
+     ],
+     "rows": [
+      [
+       "Michael Martin",
+       "Take the compensation band internally and return a position on it",
+       "Two weeks"
+      ],
+      [
+       "James Grant",
+       "Complete the assessment interviews on the two adjacent-sector prospects",
+       "Two weeks"
+      ],
+      [
+       "John Chang",
+       "Circulate written appraisals of the four likely candidates, by role and without names",
+       "One week"
+      ],
+      [
+       "Jeffrey Patterson",
+       "Fix the slate presentation date with the client once the band is settled",
+       "Two weeks"
+      ]
+     ]
+    },
+    {
+     "kind": "paragraph",
+     "text": "The next step is the client's position on the compensation band. Everything else in this record waits on it, and the slate date will be fixed within a day of it arriving."
+    }
+   ]
+  },
+  {
+   "schema_id": "orgsmith/docir@1",
+   "doc_id": "d:0016",
+   "blocks": [
+    {
+     "kind": "heading",
+     "text": "Status Report: VP Engineering Search",
+     "level": 1
+    },
+    {
+     "kind": "paragraph",
+     "text": "Prepared for the leadership team at {{fact:f:E-2016-001.client}}, covering the period since our working session in May. The search is at its midpoint and is on schedule."
+    },
+    {
+     "kind": "heading",
+     "text": "Where the search stands",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "We have a slate. Five candidates have come through our own assessment process, four of them at or above the standard the specification sets, and the fifth strong enough that we would want you to see the comparison. The compensation band, which was the open question in May, has been settled on your side, and the two conversations that were at risk over it have both stayed live as a result. The next material step belongs to you now, not to us."
+    },
+    {
+     "kind": "paragraph",
+     "text": "It is worth recording what the market has cost us to reach that point, because it bears on how the remaining months should be run. We approached seventy-one people across the mapped companies. Thirty-one took a first conversation, nineteen were taken through to a full interview, and five are on the slate. Two prospects withdrew after being promoted where they were, which is the ordinary hazard of a search in a market this tight, and it is the reason we keep a second wave in reserve instead of closing the list early."
+    },
+    {
+     "kind": "heading",
+     "text": "Completed in this period",
+     "level": 2
+    },
+    {
+     "kind": "list",
+     "items": [
+      "1. We closed the second wave of approaches. The full target list has now been worked, including the three companies you ruled on after the April briefing, two of which you cleared and one of which we have left alone.",
+      "2. James Grant completed the assessment interviews in the adjacent sectors, which produced the fifth candidate and eliminated four others.",
+      "3. We interviewed every candidate on the slate in person, with written appraisals against the specification rather than against each other. John Chang has those appraisals ready to circulate on the day of the presentation.",
+      "4. We began preliminary reference work on the two candidates who have told their own employers they are in a process. For the rest the references wait until you have interviewed them."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "The period ahead",
+     "level": 2
+    },
+    {
+     "kind": "list",
+     "items": [
+      "1. Slate presentation. Ninety minutes with you and whoever else will interview, taking the candidates one at a time by role and record. Names are given in the room and in the written appraisals, and not before.",
+      "2. First-round client interviews, which we schedule and prepare candidates for. Two of the five will need to travel and their availability is genuinely tight; the earlier we hold dates, the less we lose here.",
+      "3. Full referencing on whoever you take to a second round, and a verification pass on the record each of them has given us.",
+      "4. Offer and close. We will advise on the package and manage the conversation with the candidate through acceptance and notice."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "Risks, and where we need you",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "Three things could cost us time between here and an accepted offer, and each of them sits at least partly on your side of the table, so I set them out before asking for anything."
+    },
+    {
+     "kind": "list",
+     "items": [
+      "1. Interview scheduling. A senior person in a live job can hold two or three conversations in a month, not ten. If your interviewers can block dates now, before the presentation, we will protect several weeks of the schedule.",
+      "2. Time between rounds. The candidates who impress you will read a long gap as a loss of interest and start listening to other approaches. We would like no more than two weeks between rounds.",
+      "3. Counteroffers. Two of the five are people their employers will fight to keep. We prepare candidates for that conversation, but the preparation only works if the offer, when it comes, is decided and not tentative."
+     ]
+    },
+    {
+     "kind": "heading",
+     "text": "Budget",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The engagement fee remains {{fact:f:E-2016-001.fee}}, fixed as set out in our agreement, and nothing in the work to date changes it. We will invoice the second of the three installments on presentation of the slate. Expenses to date are limited to candidate travel for two in-person interviews and are running well inside what we would have estimated at this point."
+    },
+    {
+     "kind": "heading",
+     "text": "Summary",
+     "level": 2
+    },
+    {
+     "kind": "paragraph",
+     "text": "The search is where it should be at the midpoint: a slate ready, the compensation question closed, and the market worked far enough that we can say with confidence what is in it and what is not. Nothing in the second half of this engagement asks you to take our word for a candidate. You will meet all five, you will have the written appraisals in front of you, and where we could not verify something in a record we will say so in the room."
+    },
+    {
+     "kind": "paragraph",
+     "text": "The one action that moves everything else is fixing the presentation date, and John Chang will call your office this week to do it. If any part of this report raises a question you want to put to me directly, my line is open."
+    },
+    {
+     "kind": "paragraph",
+     "text": "Jeffrey Patterson\nResearch Consultant\nNorthgate Talent Partners"
+    }
+   ]
+  }
+ ]
 }

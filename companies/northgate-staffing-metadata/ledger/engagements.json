@@ -24,7 +24,7 @@
           "kind": "money",
           "value": 92000,
           "rendered": "$92,000",
-          "location_policy": "body"
+          "location_policy": "signature_page"
         },
         {
           "id": "f:E-2015-001.start",
@@ -39,6 +39,13 @@
           "value": "Roach, Moss and Hall",
           "rendered": "Roach, Moss and Hall",
           "location_policy": "body"
+        },
+        {
+          "id": "f:E-2015-001.minutes-date",
+          "kind": "date",
+          "value": "2015-10-05",
+          "rendered": "2015-10-05",
+          "location_policy": "filename"
         }
       ]
     },

@@ -26,7 +26,7 @@
     ]
   },
   "doc_culture": {
-    "target_docs": 53,
+    "target_docs": 63,
     "date_range": [
       "2015-01-01",
       "2023-12-31"
@@ -36,11 +36,11 @@
       "pdf": 10,
       "xlsx": 8,
       "pptx": 2,
-      "eml": 5
+      "eml": 10
     },
-    "scanned_ratio": 0.0,
+    "scanned_ratio": 0.5,
     "legacy_ratio": 0.0,
-    "ocr_layer_rate": 0.0,
+    "ocr_layer_rate": 0.34,
     "business_calendar": {
       "holidays": [
         "2015-05-25",
@@ -66,7 +66,18 @@
       "filename_variety": true
     },
     "voice_diversify": true,
-    "mail": null,
+    "mail": {
+      "business_hours": [
+        8,
+        18
+      ],
+      "max_thread_depth": 4,
+      "mundane_emails": 5,
+      "attachments": 1,
+      "distribution_lists": 1,
+      "exempt_author_mentions": true,
+      "exempt_recipient_mentions": true
+    },
     "style_specs": true
   },
   "finance": {
@@ -94,17 +105,17 @@
     "nickname_aliases": 1,
     "multi_affiliations": 0,
     "affiliations_in_docs": false,
-    "alias_agreement": false
+    "alias_agreement": true
   },
   "hard_cases": {
-    "signature_page_facts": 0,
-    "filename_dates": 0
+    "signature_page_facts": 1,
+    "filename_dates": 1
   },
   "roster_churn": {
     "departures": 1,
     "promotions": 2,
     "hires": 5
   },
-  "acl_posture": "open",
+  "acl_posture": "departmental",
   "narrative": "Northgate Talent Partners is a retained executive search firm founded in\n2013, placing senior operators and board directors at mid-market\ncompanies and one regional health system. Search is a correspondence\nbusiness: the firm's real work product is a long thread of candidate\nconversations, and the formal documents are the scaffolding around it.\n\nThat shape is the point of this recipe. More of the share is email than\nanywhere else in the fleet: engagement confirmations, candidate slate\nupdates, scheduling, and the careful note that goes out when a finalist\nwithdraws. The formal artifacts are there too, and they matter: a\nretained search agreement with its fee schedule, a position specification\nper search, a candidate slate summary, and the quarterly numbers.\n\nTone is warm but professional, and more conversational than the rest of\nthis fleet, because a search consultant is managing two anxious parties\nat once. Consultants use first names with clients they have known for\nyears and full names when writing about a candidate. Discretion is\nconstant: candidates are described by their current role rather than\nnamed in anything that circulates widely. Two people on the roster share\na surname, and one goes by a nickname in internal notes."
 }

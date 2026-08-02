@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0001",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -12,73 +12,73 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Jason Myers\nChief Operating Officer\nRoach, Moss and Hall"
+          "text": "Jason Myers\nChief Operating Officer\n{{fact:f:E-2015-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Dear Jason,"
+          "text": "Dear Mr. Myers:"
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for entrusting us with the search for your next Chief Financial Officer. This letter sets out the terms on which we will conduct that search for {{fact:f:E-2015-001.client}}, and it records in writing what we discussed when we last met. We take a retained mandate as a partnership, and we like to begin with everything stated plainly between us. Please read what follows. If any part of it does not match your understanding, call me before you sign."
+          "text": "Thank you for the two mornings your people gave us. They were candid conversations, more candid than these usually are at this stage, and we are grateful for them. This letter sets out the terms on which we will conduct the search for your chief financial officer. It becomes our agreement when you sign the enclosed copy and return it to us."
         },
         {
           "kind": "heading",
-          "text": "The Search We Will Run",
+          "text": "The Assignment",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "You are looking for a Chief Financial Officer who can carry the finance function of {{fact:f:E-2015-001.client}} through its next stage of growth. Our work is to find that person, to test them thoroughly, and to bring you a short slate you can act on with confidence. We conduct the search on a retained basis. That means we work only for you on this mandate and give it our full attention until the seat is filled. Discretion runs through everything we do. We describe prospective candidates to you by their current role and record rather than by name, and we hold names in confidence until both sides are ready to meet."
+          "text": "You have asked us to find a chief financial officer for {{fact:f:E-2015-001.client}}. We take the work on a retained basis, which means we work it exclusively and we stay with it until the seat is filled. From what your leadership described to us, the brief is a finance executive who has carried a company through a stretch of growth without letting the discipline of the close slip, who can hold a board conversation and a controller conversation on the same afternoon, and who is comfortable being the person in the room who says no. We will put that into a written position specification in the opening weeks and ask you to correct it line by line. Nothing else in this letter matters as much as getting that document right, because every candidate we approach will be approached against it, and because it is the one page on which both of us can hold the other to account."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Will Run the Search",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "In practice the assignment moves through a handful of clear stages, and I want you to know the shape of it from the start."
+          "text": "We run a search in four movements, and we do not begin one before the movement in front of it is finished."
         },
         {
           "kind": "list",
           "items": [
-            "We agree the position specification with you and your board, so that we are all searching for the same person.",
-            "We map the market, build a long list from that map, and approach prospects with care and discretion.",
-            "We interview and assess in depth, then bring you a short slate described by fit and evidence, not by name alone.",
-            "We stay with you through client interviews, references, and the offer, and we do not step back until your new Chief Financial Officer has accepted and started."
+            "1. Specification. We meet the people who will interview, including the board members, and we write the specification you sign off. We will also settle with you at that point what the role pays and what it does not, because a specification that is silent on that attracts the wrong reader.",
+            "2. Research. We map the companies where this person is most likely to be sitting today, agree that map with you, and only then work up individuals against it. Companies first, names afterwards.",
+            "3. Approach and assessment. Our consultants make the approaches themselves, and no one else does it for them. We meet the serious candidates in person and more than once, and we take references we have chosen rather than the ones a candidate offers us.",
+            "4. Slate and close. We present a short slate with a written assessment of each candidate, run the interview process around your calendar, and stay with you through the offer and the resignation that has to follow it."
           ]
         },
         {
+          "kind": "paragraph",
+          "text": "You will hear us describe candidates by their current role rather than by name until the point they agree to meet you. That is not ceremony. The people worth having are employed and well regarded where they are, and a name that circulates is a candidate who withdraws."
+        },
+        {
           "kind": "heading",
-          "text": "The People on Your Account",
+          "text": "Your Team",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "I will oversee the engagement personally and remain your point of contact whenever you want one. Sandra Fuentes, a Principal in our search practice, will lead the assignment day to day and own the relationship with you and with every candidate she brings forward. James Grant, one of our senior consultants, will work the market at the most senior level and lend his judgment on the finalists. Jeffrey Patterson, our research consultant, keeps the search moving and will be the one who confirms schedules and closes the small loops, so that nothing goes quiet on you. You will find us easy to reach."
+          "text": "Sandra Fuentes, a Principal of this firm, leads the search and is your contact for anything touching scope, pace, or a decision that needs making. Jeffrey Patterson, our Research Consultant, builds the target list and keeps it current as the market answers back. James Grant, Senior Consultant, runs the interview calendar with your office and sits with Sandra Fuentes on the assessment work, so that two of us have met every candidate who reaches you. I hold this firm's commitment to you. If at any point the search is not going the way this letter describes, call me and say so."
         },
         {
           "kind": "heading",
-          "text": "Our Fee and When We Begin",
+          "text": "Fees, Expenses, and the Start of Work",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "For a retained search of this kind we work to a fixed professional fee of {{fact:f:E-2015-001.fee}}, which covers the assignment in full from the specification through to a completed placement. The fee is not tied to the candidate's eventual compensation. You know the cost of the search at the outset, and it does not move as the search does. We are ready to begin on {{fact:f:E-2015-001.start}}, once this letter is signed and returned, and we will hold that date for you."
+          "text": "The fee for this assignment and the schedule on which it is billed are set out on the signature page of this letter, which counsel for both sides will execute with us. Expenses are billed at cost and itemized: candidate travel, our own travel to meet candidates, and background verification. We do not bill research time, telephone, courier, or administrative support, and we do not mark up an expense. Work begins {{fact:f:E-2015-001.start}}, and we would like the specification session held in that first week, while your leadership still has the conversation fresh."
         },
         {
           "kind": "heading",
-          "text": "Fees and Payment",
+          "text": "Term and Termination",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We bill the fixed fee in three stages tied to the milestones of the assignment: at your signing of this letter, at the delivery of the short slate, and on your chosen candidate's acceptance of an offer. Invoices are payable on receipt. Reasonable direct expenses that we arrange at your request, such as candidate travel, are billed at cost and set out in full, and we will clear anything out of the ordinary with you before we commit to it."
-        },
-        {
-          "kind": "heading",
-          "text": "Term and Ending the Engagement",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement runs from the date you sign until the search is completed and our final invoice is settled. Either of us may end it earlier, in writing, and we ask for the courtesy of a short conversation first so that nothing ends on a misunderstanding. If you close the search early for a reason unrelated to our work, we will bill for the stage in progress and no further. If a Chief Financial Officer we place leaves you within the first year for reasons within our control, we will reopen the search once at no additional fee."
+          "text": "The engagement runs from the start date above until the position is filled, and either of us may end it earlier on thirty days' written notice. If you end it, you owe the portion of the retainer earned to that point together with expenses already incurred. If we end it, we will hand over the position specification, the research file, and an honest account of where every conversation in progress stands, so that whoever picks the search up is not starting from a blank page."
         },
         {
           "kind": "heading",
@@ -87,7 +87,16 @@
         },
         {
           "kind": "paragraph",
-          "text": "We treat what you share with us, and everything we learn in the course of the search, as confidential, and we use it only for this assignment. Within our office, access is limited to the people named above and to those whose work on the search requires it. We extend the same discretion to candidates. We do not disclose a prospect's interest to anyone outside your committee without their knowledge, and we describe them by their role rather than their name until you are ready to meet. Discretion is not a courtesy in our work. It is the condition that lets good people talk to us at all."
+          "text": "We treat what we learn about {{fact:f:E-2015-001.client}}, its people, and its plans as confidential, and we expect the same care in the other direction for the people we bring you. Candidate materials go to the interviewing group and no further; they are not for general circulation inside the company. Neither of us will name the other in publicity about this search without written consent. For as long as this engagement is open, and for one year after it closes, we will not approach anyone employed by you on behalf of another client."
+        },
+        {
+          "kind": "heading",
+          "text": "If the Placement Does Not Hold",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the executive we place leaves within the first year, for a reason other than a change you make to the role or to whom it reports, we will conduct one replacement search and you will owe only the out-of-pocket expenses of it. We ask one thing in return, which is that you tell us early when something is not working."
         },
         {
           "kind": "heading",
@@ -96,7 +105,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "We give this search our best professional judgment, but the choice of whom to hire is finally yours, and we cannot warrant the future performance of any person you appoint. Our liability to you arising out of this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, save in the case of our own fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss."
+          "text": "We will do this work with the care and skill of a firm that has done it many times, and we do not guarantee a hire. Taken together across all claims, our liability under this letter is limited to the amounts you have actually paid us under it, and neither of us is liable to the other for indirect or consequential loss. Nothing here limits a liability that the law does not permit us to limit."
         },
         {
           "kind": "heading",
@@ -105,15 +114,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Should a dispute arise, we will each make a genuine effort to settle it in conversation before either of us turns to any other forum."
+          "text": "This letter is governed by the law of the state in which our principal office sits, and any dispute arising under it will be brought in the courts of that state. If a court sets aside any provision of this letter, the remainder stands."
         },
         {
           "kind": "paragraph",
-          "text": "If these terms read as we agreed, please sign both copies where indicated below, keep one for your file, and return the other to me. That single step is all we need to begin. If anything here gives you pause, call me first and we will settle it before you sign. We are glad to be doing this with you."
-        },
-        {
-          "kind": "paragraph",
-          "text": "With warm regards,"
+          "text": "If this describes our understanding, please sign both copies and return one to us. Sandra Fuentes will call your office the same day to put the specification session in the calendar."
         },
         {
           "kind": "sigblock",
@@ -129,49 +134,47 @@
       "doc_id": "d:0003",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Kickoff Memo: CFO Search for Roach, Moss and Hall",
-          "level": 1
+          "kind": "paragraph",
+          "text": "To: Jeffrey Patterson; James Grant\nCc: James Weiss\nFrom: Sandra Fuentes, Principal\nRe: CFO search for {{fact:f:E-2015-001.client}} -- how we are running it"
         },
         {
           "kind": "paragraph",
-          "text": "To: Jeffrey Patterson; James Grant\nFrom: Sandra Fuentes\nRe: How we will run the CFO search"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our job on this one is simple to state and hard to do well: put a Chief Financial Officer in front of {{fact:f:E-2015-001.client}} whom their board will be glad to have hired three years from now. We agreed the engagement with the client's Chief Operating Officer, Jason Myers, and we begin the work on {{fact:f:E-2015-001.start}}, so before any of us picks up a phone I want the team aligned on the objective, on who owns what, and on the first moves. The mandate is a retained CFO search for a mid-market firm that is growing into a finance function it does not yet have, which means we are looking less for a careful caretaker of the books and more for an operator who can build one. This is a correspondence-heavy search by its nature, because the client is anxious to get the hire right and the best candidates are people who are not looking, so the way we keep both sides steady is by staying in close, unhurried contact with each of them."
+          "text": "The specification will decide this search, not the length of the list, so I want the first two weeks spent earning a document that Jason Myers and the board members who sit in on the interviews would all recognize as a description of the job they are actually hiring for, and I would like the rest of this plan to bend around that. Our engagement runs from {{fact:f:E-2015-001.start}} and is scoped at about three months. Jason Myers, the chief operating officer at {{fact:f:E-2015-001.client}}, is our contact for everything on their side, which means scheduling, feedback on candidates, and any decision we need from them, and it also means he should not be hearing about this search from three of us in three different weeks."
         },
         {
           "kind": "heading",
-          "text": "The person we are looking for",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The specification is not written yet, and settling it with Jason Myers and his board is the first real task, but the shape of the role is already clear from our conversations with the client. They want a Chief Financial Officer who has carried a company through a growth stage like the one they are in, who can stand up the reporting and controls a larger business needs, and who will be a genuine partner to a Chief Executive rather than a scorekeeper for one. Discretion matters here as it always does, so we will describe candidates to the client by their current seat and record, and we will hold names close until both sides want to meet."
-        },
-        {
-          "kind": "heading",
-          "text": "How the work divides",
+          "text": "What each of us is carrying",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Specification and calibration: I will draft the position specification and settle it with Jason Myers and the board, so that the whole team is searching against one agreed brief rather than four private ones.",
-            "Market map and long list: James Grant will lead the mapping at the senior-operator level, working the sectors where a Chief Financial Officer of this profile is actually to be found, and building the long list from that map rather than from a list we already hold.",
-            "Outreach and scheduling: Jeffrey Patterson will run the candidate threads, make the first approaches once we have agreed them, and keep every conversation moving so that no promising prospect goes quiet while we are busy elsewhere.",
-            "Engagement logistics: James Weiss is handling the paperwork, the client billing, and the meeting arrangements, so that the three of us can keep our attention on candidates and on the client."
+            "1. The specification and the client relationship are mine. I will run the briefing sessions with their leadership, write the draft, and take it back for correction as many times as it needs, and nothing goes into the market until Jason Myers has signed it off.",
+            "2. Research and the target list belong to Jeffrey Patterson. I want the company map agreed with me before any individual is worked up, with the reason each company is on it written down beside it, because the reason is the part we will be asked to defend the first time a name comes back to us from their side.",
+            "3. Process and the calendar are James Grant's: interview slots, candidate travel, and the running file, and from the point the first candidates are meeting us in person he sits with me on the assessment interviews, so that two of us have met everyone who reaches the slate.",
+            "4. The engagement administration sits with James Weiss, which is the countersigned letter, the engagement code, and the billing schedule, all of which he needs closed out before the first cycle."
           ]
         },
         {
+          "kind": "paragraph",
+          "text": "These four are not four projects running side by side. The specification disciplines the research, the research decides who we approach, and the calendar only becomes real once there is somebody to put in it. The temptation on a search with a three-month shape is to start working names in the first week so that the client can see movement, and a list built before the specification is settled has to be built a second time."
+        },
+        {
+          "kind": "paragraph",
+          "text": "There is one thing I want tested before the specification session. The role as their leadership describes it asks for someone who has sat in the chair at a company twice their size and who will also be hands-on through a close, and at the compensation they have in mind those two things do not often live in the same person. Jeffrey Patterson, bring me whatever the map says about that. If the market disagrees with the brief, the specification session is where we have the standing to say so, and I intend to use it."
+        },
+        {
           "kind": "heading",
-          "text": "First moves",
+          "text": "The first two weeks",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Because the specification gates everything else, that is where we start. This week I will get a draft of the position specification to Jason Myers, and I would like James Grant to begin the market map in parallel so that we are not sitting idle while the client reads. Jeffrey Patterson, please set a standing weekly check-in for the three of us and a first calibration call with the client once the draft specification is in their hands. If anyone sees a reason the plan above will not hold, tell me now, so we can fix it before the search is underway."
+          "text": "Before the specification session there are three things I need, and I am asking now so that nobody is doing them the night before. Jeffrey Patterson, a first cut of the company map, deliberately broad, with the sectors you think are adjacent marked as such so that we can argue about them properly. James Grant, the calendar: I want their leadership's availability and the board members' availability held for two windows, one for the specification session and one for the first slate review. James Weiss, confirmation that the letter is back countersigned before we spend anything against the engagement."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One last thing, old ground, but it belongs at the start of a search. We describe candidates by their current role and never by name in anything that leaves this office, including notes to their side, until a candidate has agreed to meet them. That habit is the reason people who are not looking still take our calls."
         }
       ]
     },
@@ -181,63 +184,66 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "CFO Search: Roach, Moss and Hall",
+          "text": "CFO Search for {{fact:f:E-2015-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "A retained search for the next Chief Financial Officer of {{fact:f:E-2015-001.client}}, prepared for the hiring committee by our search team."
+          "text": "A briefing for Jason Myers and the interview group, prepared by Sandra Fuentes, with Jeffrey Patterson on research and James Grant on process. The engagement began {{fact:f:E-2015-001.start}} and is scoped to run about three months. This briefing covers the opening phase of the work: what we have done, what the market has said back to us so far, and what we would ask of you before the slate is drawn."
         },
         {
           "kind": "heading",
-          "text": "What we set out to do",
+          "text": "Where the search stands",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "Find a Chief Financial Officer who can carry the finance function through the company's next stage of growth, not simply keep its books.",
-            "Run the search on a retained basis, working only for {{fact:f:E-2015-001.client}} on this mandate until the seat is filled.",
-            "Protect discretion throughout, describing candidates by their current role and record rather than by name until both sides are ready to meet."
+            "The position specification is settled and signed off, and every approach we have made since has been made against it.",
+            "The company map is agreed, covering the sector itself and the two adjacent ones, with the reason each company is on it recorded.",
+            "Approaches are underway. These are conversations rather than applications; almost nobody we want is looking.",
+            "There is no slate yet, and there should not be. A slate drawn at this point would be a list of the people who answered first."
           ]
         },
         {
           "kind": "heading",
-          "text": "Where the search stands today",
+          "text": "What the market is telling us",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "The engagement opened on {{fact:f:E-2015-001.start}}, and the position specification has been agreed with Jason Myers and the board, so the whole team is now searching against one settled brief.",
-            "James Grant has begun mapping the market at the senior-operator level, covering the sectors where a CFO of this profile is likely to be found, and is building the long list from that map.",
-            "Jeffrey Patterson has opened the first candidate conversations and is keeping every thread moving, so that no promising prospect goes quiet while the field is still coming together."
+            "The role reads well to operators who have been through a growth stretch, and reads as a step sideways to sitting finance chiefs at much larger companies.",
+            "The board exposure written into the specification is the part that draws people in.",
+            "Two candidates asked early how decisions actually get made and who owns the annual plan. Expect that question in your interviews.",
+            "Compensation is not an obstacle so far, though we will know more once we are talking with people who would have to leave something behind."
           ]
         },
         {
           "kind": "heading",
-          "text": "Who is on your account",
+          "text": "How we are protecting the process",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "Sandra Fuentes, Principal, leads the assignment and owns the relationship with the committee and with every candidate.",
-            "James Grant, Senior Consultant, works the market at the most senior level and weighs the finalists.",
-            "Jeffrey Patterson, Research Consultant, runs the candidate threads and keeps the search on schedule."
+            "Candidates are described by their current role and never by name in anything that circulates, including these pages.",
+            "Jeffrey Patterson holds the target list and the reasoning behind each name, so that any candidate who reaches you can be defended.",
+            "James Grant holds the interview calendar. Windows are confirmed before a candidate is told anything about dates.",
+            "Nothing about this search is put in writing outside the engagement team and your interview group."
           ]
         },
         {
           "kind": "heading",
-          "text": "What happens next",
+          "text": "What we would ask of you",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "Complete the market map and close the long list over the coming weeks.",
-            "Begin first-round interviews and assessment as strong prospects confirm their interest.",
-            "Report progress to Jason Myers at our standing check-in, and bring the committee a short slate once the field has been tested."
+            "Two half-day windows held for the interview group, so that the slate review is not waiting on calendars once it is ready.",
+            "A view from Jason Myers on whether the board members meet finalists together or separately.",
+            "Feedback within a day of each meeting. Candidates read a long silence as a decision that has already been made."
           ]
         }
       ]
@@ -248,23 +254,19 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Jason Myers\nCc: Jeffrey Patterson, James Grant"
-        },
-        {
-          "kind": "paragraph",
           "text": "Hi Jason,"
         },
         {
           "kind": "paragraph",
-          "text": "A short update on the CFO search before our call. The market map is nearly complete, James Grant has the long list close to closed, and Jeffrey Patterson has good first conversations going with several people whose current roles fit what {{fact:f:E-2015-001.client}} needs. I am keeping the whole thread orderly on our side so that nothing slips between now and when you meet a slate."
+          "text": "The search is where it should be at this point: the specification is settled, the company map is agreed, and we are into the approaches. I am opening this thread so that the running record of the {{fact:f:E-2015-001.client}} search sits in one place instead of scattered across separate notes, and I have copied Jeffrey Patterson and James Grant so that nothing waits on my being at my desk. Anything you send back on this thread reaches all three of us, which is the point of it."
         },
         {
           "kind": "paragraph",
-          "text": "The one thing I need from you before we go further is a short read from the Roach, Moss and Hall board on two points in the specification, priorities really, so that I am not sending candidates against a brief that has quietly shifted. When the formal slate summary reaches your committee it will come under my name, Sandra Fuentes, so please route any questions on it straight to me rather than to the wider team. Ten minutes on the phone works if that is easier than writing it out."
+          "text": "There are a couple of things we could use from your side. If your office can hold two half-days for the interview group over the next few weeks, we can build the slate review around them instead of chasing calendars once it is ready. The other is one line in the specification that is still doing more work than it should, the part about ownership of the annual plan, and I would like ten minutes on the phone with you to settle whether that sits with the new chief financial officer or stays where it is today. Whichever way it lands, we want it settled before candidates are sitting in front of you, because it is the first thing a serious finance person asks about."
         },
         {
           "kind": "paragraph",
-          "text": "On timing, we are comfortably inside the window we set at kickoff. Once James Grant closes the long list this week, I will send you a proposed date for the first proper review of where the field is heading, and we can fit it around your board's calendar rather than ours."
+          "text": "I have attached the plan we set at kickoff so you can see the sequence we are working to. The first written progress note will reach you in a couple of weeks, and sooner than that if anything changes you would want to know about."
         },
         {
           "kind": "paragraph",
@@ -278,12 +280,12 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: CFO Search for Roach, Moss and Hall",
+          "text": "Working Session -- CFO Search for {{fact:f:E-2015-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "These minutes record the working session held by the search team on the Chief Financial Officer search for {{fact:f:E-2015-001.client}}. The session was called to review the completed market map, to agree which prospects move into first-round interviews, and to confirm what the client will see and when."
+          "text": "The session was called to review the working list before the slate is drawn, and it reached one decision that changes the sequence: the second research pass will be widened to two adjacent sectors before any name goes in front of the client, which moves the slate review back by about a week. These minutes record who attended, what was discussed in the order it came up, what was decided, and who owns each next step."
         },
         {
           "kind": "heading",
@@ -293,76 +295,77 @@
         {
           "kind": "list",
           "items": [
-            "Sandra Fuentes, Principal",
-            "James Grant, Senior Consultant",
-            "Jeffrey Patterson, Research Consultant",
-            "Jason Myers, Chief Operating Officer, Roach, Moss and Hall"
+            "Sandra Fuentes, Principal, Northgate Talent Partners",
+            "Jeffrey Patterson, Research Consultant, Northgate Talent Partners",
+            "James Grant, Senior Consultant, Northgate Talent Partners (minutes)",
+            "Jason Myers, Chief Operating Officer, {{fact:f:E-2015-001.client}}"
           ]
         },
         {
           "kind": "heading",
-          "text": "The market map and the field",
+          "text": "The working list",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "James Grant presented the completed market map. The mapping covered the sectors agreed at kickoff, the search identified a long list of prospects across them, and the team reviewed that list one segment at a time. Consistent with the firm's practice while a search is live, prospects were discussed by their current role and record rather than by name, so that nothing about a candidate's interest travels before they are ready for it to. The field is stronger in the two segments closest to the client's own sector and thinner in the third, which the team took to reflect where a Chief Financial Officer of this profile is actually to be found."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The team then worked through which prospects should move forward. The criterion applied was fit against the agreed specification rather than the length of a resume, the segment weightings were adjusted so that outreach concentrates where the field is strongest, and the thinner third segment was left open in case a late name surfaces. No prospect was set aside for any reason other than a poorer fit with the brief."
-        },
-        {
-          "kind": "paragraph",
-          "text": "On the division of the next stage of work, James Grant, whom the team calls Jim, agreed to take the first-round interviews of the most senior prospects himself, given his experience with board-facing mandates. Jeffrey Patterson agreed to schedule those interviews and to hold the candidate threads current while the round runs, and Sandra Fuentes agreed to keep the position specification aligned with anything the client adjusts along the way."
+          "text": "Jeffrey Patterson took the room through the working list, describing each candidate by current role and by the kind of company rather than by name, as we do until a candidate has agreed to meet the client. The list falls into three groups: sitting finance chiefs at companies of roughly the client's size, deputies at larger companies who would be stepping up into the seat, and a small number of operators who have held the seat before and since moved into something broader. He was direct that the second group is where the interest is strongest and also where the uncertainty is, since a first-time chief financial officer is a judgment call that references can only partly settle."
         },
         {
           "kind": "heading",
-          "text": "What the client wants to see",
+          "text": "The reservation put on the record",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jason Myers set out how the Roach, Moss and Hall board wants the process to run from here. He asked that the team bring the committee a short slate rather than a long one, that each candidate be presented by evidence of what they have built rather than by biography alone, and that the board be given room to meet finalists without the timetable forcing a decision. Sandra Fuentes confirmed that the firm's approach already matches those preferences and that the client will see nothing until the field has been interviewed and tested."
+          "text": "Jason Myers accepted the shape of the list and then raised, twice and in different words, a concern that the candidates described to him had all come out of the same sector, and that a finance chief who has only ever worked in one industry would arrive with a narrower set of instincts than the role will need over the next several years. Sandra Fuentes took the point rather than argue it, and asked Jim to sit with Jeffrey Patterson on the second research pass so that the two of them widen the map together and do not end up reading the same list differently. Jason Myers also said, in passing and without pressing it, that the date matters less to him than the quality of the list, and the remark is recorded here because it should govern the pace from this point on."
         },
         {
           "kind": "heading",
-          "text": "Action items",
+          "text": "Interview logistics",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Grant reported that the client's office has held two half-day windows for the interview group and that the board members' availability, not the executives', is the binding constraint on both. Sandra Fuentes asked that no candidate be told a date until both windows are confirmed in writing, on the grounds that a date offered and then withdrawn costs us more with a candidate than a delay does. Jason Myers undertook to confirm the board side through his own office."
+        },
+        {
+          "kind": "heading",
+          "text": "Actions",
           "level": 2
         },
         {
           "kind": "table",
           "header": [
-            "Owner",
             "Action",
-            "By"
+            "Owner",
+            "When"
           ],
           "rows": [
             [
-              "James Grant",
-              "Begin first-round interviews with the most senior prospects on the long list and record read-outs for the team",
-              "Over the next two weeks"
+              "Widen the research map into the two adjacent sectors and re-cut the working list",
+              "Jeffrey Patterson",
+              "Before the next session"
             ],
             [
-              "Sandra Fuentes",
-              "Refine the position specification against the board's stated preferences and confirm any change with Jason Myers",
+              "Sit with research on the second pass, and hold candidate dates until both interview windows are confirmed in writing",
+              "James Grant",
+              "Before the next session"
+            ],
+            [
+              "Confirm both interview windows, including the board members' availability",
+              "Jason Myers",
               "This week"
             ],
             [
-              "Jeffrey Patterson",
-              "Schedule the first-round interviews, keep every candidate thread current, and hold a provisional date for the next joint review",
-              "Ongoing"
-            ],
-            [
-              "Jason Myers",
-              "Confirm the board members who will sit on the interview panel and the window in which they can meet",
-              "Before interviews conclude"
+              "Redraft the candidate summary format so each candidate is described by role and by the evidence behind the judgment",
+              "Sandra Fuentes",
+              "Before the slate review"
             ]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "The single item that governs the schedule from here is the first round of interviews, and every date that follows depends on when those conclude. The team will reconvene with the client once the read-outs are in hand."
+          "text": "The next session will take the re-cut list in the same order these minutes follow, and it will not be scheduled until the widened map is in hand."
         }
       ]
     },
@@ -372,12 +375,12 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: CFO Search for Roach, Moss and Hall",
+          "text": "Status Report: CFO Search for {{fact:f:E-2015-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Prepared by Sandra Fuentes, Principal, for the hiring committee of {{fact:f:E-2015-001.client}}."
+          "text": "Prepared for the leadership group at {{fact:f:E-2015-001.client}} by Sandra Fuentes, Principal. The search is on track, and the matter that should hold your attention is not the pace but the shape of the list: we have widened the research into two adjacent sectors, which sets us back the better part of a week and which we think is plainly the right call, and it means the slate you see will be broader than the one described at the briefing. The rest of this report sits behind that."
         },
         {
           "kind": "heading",
@@ -386,46 +389,65 @@
         },
         {
           "kind": "paragraph",
-          "text": "The search is on track and now at its midpoint. The field has been mapped and the first candidates interviewed, a strong group of prospects has emerged, and the work in front of us is to narrow that group to the short slate the committee will meet. We are working within the fixed fee of {{fact:f:E-2015-001.fee}} agreed at the outset, and the engagement remains on budget and on schedule."
+          "text": "We are at roughly the midpoint. The position specification has not moved since it was signed off, which is worth saying, because a specification that keeps changing under a search is the usual reason one runs long. The company map is complete and has now been extended past the original sector. Approaches are well advanced: first conversations have happened with the great majority of the working list, and second conversations are underway with the people who are serious about it. James Grant and I have between us met every candidate likely to reach the slate, in person and more than once, which is the standard we hold to before a name is put in front of a client."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things the approaches have surfaced are worth passing on now, because they will show up in your interviews. The role reads as a genuine step up to deputies at larger companies, and it reads as a lateral move to sitting finance chiefs well above your size, which is why the second of those groups has produced fewer real conversations than the map suggested it would. And the question that comes back most often is not about the numbers at all; it is about who owns the annual plan and how much room the seat has to change it. A consistent answer to that from everyone who interviews will do more for this search than anything we write down."
         },
         {
           "kind": "heading",
-          "text": "What we have done this period",
+          "text": "What has closed out in this period",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Since the last report the team has completed the market map and moved the search into interviews. James Grant has led the first-round interviews of the most senior prospects and recorded his read-outs for the rest of us, and his judgment has already thinned the field to the people who genuinely fit what the business needs of a Chief Financial Officer. Jeffrey Patterson has kept every candidate thread current, arranged the interviews without a single slot slipping, and stayed close to the prospects who are weighing a move so that none of them cools while we work."
+          "text": "Several pieces of work finished in this period, and I set them down so that your team can see where the ground is now firm."
         },
         {
-          "kind": "paragraph",
-          "text": "Partway through the period we sat down with the committee for a joint working session to review the completed market map together, and the client used that session to sharpen two priorities in the brief, which we have since folded into how we weigh prospects. Keeping the committee this close to the work means the slate, when it lands, will hold no surprises for the people who have to act on it. The specification itself has held steady since we first agreed it, which has kept the search orderly, and we have calibrated against it at each step so that the field we are building genuinely answers the brief."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Throughout, we have held to the discretion the assignment demands. Prospective candidates have been discussed with the committee by their current role and record, none has been named in anything that circulates, and no candidate's interest in the role has traveled beyond the handful of people who need to know it. Several of the strongest prospects are in current seats they are not advertising a wish to leave, and that discretion is the only reason they are willing to talk to us at all."
+          "kind": "list",
+          "items": [
+            "1. The position specification was signed off and circulated to the interview group, and every approach we have made since has been made against it.",
+            "2. Jeffrey Patterson completed the company map and then extended it, on our own initiative, into the two adjacent sectors raised at the working session.",
+            "3. First approaches are complete across the original sector, and second conversations are underway with the candidates who have real interest in the role.",
+            "4. James Grant has the interview architecture in place: two half-day windows held with your office, the board members' availability confirmed, and an agreed written format for the candidate summaries that will come to you with the slate.",
+            "5. Reference work has started early on the strongest two candidates, using references we have chosen ourselves rather than the ones we were offered."
+          ]
         },
         {
           "kind": "heading",
-          "text": "What comes next",
+          "text": "The period ahead",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Over the coming weeks the team will complete the remaining first-round interviews, test the strongest prospects more deeply against the specification, and assemble the short slate for the committee. Each candidate on that slate will come to you described by the evidence of what they have built and by their fit with your board, and we will hold their names in confidence until both sides are ready to meet. Once the committee has met the slate, we will move to references and support you through to an offer. I will set a date for the slate review as soon as the field is firm, and I would ask the committee to hold a provisional window now, so that the timetable does not stall for want of a calendar."
+          "text": "The next stretch does three things. Jeffrey Patterson re-cuts the working list against the widened map, and that piece sets the pace for everything after it. We then run the assessment interviews to a close and finish the reference work, writing each candidate up in the format James Grant agreed with your office. After that we present the slate in a session rather than by email, because the discussion in the room is what makes the written summaries useful, and we would want your interview group there for it. No candidate will be given a date until both interview windows are confirmed."
         },
         {
           "kind": "heading",
-          "text": "Risks and how we are managing them",
+          "text": "What could still go wrong",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Two risks are worth naming, neither of them pressing. The first is timing on the candidates' side: the strongest prospects for a role like this are people who are not looking to move, and one or two may need longer to decide than a fixed schedule would like, which we are managing by keeping them warm and honest about where they stand instead of forcing a pace. The second is the depth of the field in one of the three market segments, which came in thinner than the others; we have covered it by weighting our outreach toward the two segments where a Chief Financial Officer of this profile is more likely to be found, and we do not believe it puts the quality of the slate at risk. Nothing about the engagement's cost or timeline has changed since we began, and the search remains firmly on budget."
+          "text": "Three risks are worth your attention, and none of them needs a decision from you today."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. The calendar. The board members' availability, not your executives', is the binding constraint on the interview process, and a week that slips there is a week in which a candidate being courted somewhere else makes a different decision.",
+            "2. The step-up question. A good part of the strength on this list sits with deputies at larger companies who would be moving into the seat for the first time. They are the more interesting candidates and they carry the greater uncertainty, so each summary will set out exactly what the evidence for the judgment is and where that evidence runs out.",
+            "3. Discretion. Everyone on this list is employed and well regarded where they are. We describe candidates to you by their current role until they have agreed to meet, and we would ask that the summaries stay inside the interview group. It takes very little for someone who was not looking in the first place to decide the risk is not worth it."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What we need from you",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The search is healthy, the field is real, and we are on course to bring the committee a slate it can act on with confidence. The one thing I need from you now is a provisional date to meet that slate, which I will confirm the moment the field is firm."
+          "text": "Feedback speed after the interviews, more than anything else. If each interviewer can get us a view within a day of meeting a candidate, we can hold a process together; at a week, candidates start reading the silence, and the ones with options act on what they read. I will call your office next week to walk you through the re-cut list before any of it is written down."
         }
       ]
     }

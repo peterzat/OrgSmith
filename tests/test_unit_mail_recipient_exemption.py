@@ -17,6 +17,7 @@ import pytest
 from orgsmith.artifacts import load_manifest
 from orgsmith.paths import OrgPaths
 from orgsmith.render.eml import eml_recipients
+from orgsmith.schemas import MailCulture
 
 from conftest import REPO, build_culture_stages
 
@@ -34,17 +35,24 @@ def _mail_docs(paths):
     return [e for e in load_manifest(paths) if e.format == "eml"]
 
 
-def test_the_knob_defaults_off_on_every_committed_org():
+def test_the_knob_is_adopted_only_where_a_recipe_asks_for_it():
+    """The knob defaults off, so an org that predates it is untouched. The
+    exemplar adopted it at its M17 regeneration, and at least one mail org
+    has not, which is what keeps the default-off half honest."""
     from orgsmith.artifacts import load_charter
 
+    adopted, untouched = [], []
     for slug in sorted(
         p.name
         for p in (REPO / "companies").iterdir()
         if p.is_dir() and not p.name.endswith("-metadata")
     ):
         mail = load_charter(OrgPaths(root=REPO, slug=slug)).doc_culture.mail
-        if mail is not None:
-            assert not mail.exempt_recipient_mentions, slug
+        if mail is None:
+            continue
+        (adopted if mail.exempt_recipient_mentions else untouched).append(slug)
+    assert MailCulture().exempt_recipient_mentions is False
+    assert untouched, "no committed mail org still carries the pre-M17 default"
 
 
 def test_off_the_planner_still_forces_recipient_mentions(tmp_path):

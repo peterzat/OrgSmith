@@ -1,10 +1,7 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -12,153 +9,140 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Northgate Talent Partners",
-          "level": 1
+          "level": 1,
+          "text": "Northgate Talent Partners LLC: Firm Overview"
         },
         {
           "kind": "paragraph",
-          "text": "We built Northgate Talent Partners on a plain conviction. Retained search is a relationship business first, and a document business second. We opened our doors in 2013 to do one thing well, which is to help a company find the person who should lead it. The formal parts of a search matter, and we handle them with care. But they sit around the real work, and the real work is a long and careful conversation."
+          "text": "Northgate Talent Partners is a retained executive search firm. Mid-market companies bring us the hires that are hard to get right and expensive to get wrong: the operator who will carry a function through a difficult stretch, the finance or operations leader a board wants in the seat before a transaction, the outside director who asks the question nobody inside the company has thought to ask. A company runs a search like that once every few years. We run them all year, and that difference is most of what a client is buying."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The firm is small on purpose. The consultant who takes the first meeting is the consultant who writes the specification, makes the calls, and sits in the room when the finalists are argued over. Nothing gets sold by one person and worked by another. We think it is the only honest way to run a retained practice at this size, and it is also, plainly, how we like to work."
         },
         {
           "kind": "heading",
-          "text": "What we do",
-          "level": 2
+          "level": 2,
+          "text": "What we are engaged to do"
         },
         {
           "kind": "paragraph",
-          "text": "We are a retained executive search firm. Our clients are mid-market companies, along with one regional health system, and they come to us when the seat that matters most is open. We place senior operators, the people who run a business day to day, and we place directors onto boards. Every search begins with the same question. Not who is available, but who is right, and how we might reach them. Some of our best work is with people who were not looking at all, and who agreed to consider a move only because someone they trusted opened the conversation with care."
+          "text": "Our practice is senior operating roles and board seats at companies in the middle market. That covers chief executives and the leaders who report to them, the functional heads underneath, and non-executive directors brought on for a particular kind of judgment. We work on retainer rather than on contingency. The client is paying for a search, not for a placement, and in return gets a defined process, a written specification, and a consultant willing to say when the specification itself is the problem."
         },
         {
           "kind": "heading",
-          "text": "The clients we keep",
-          "level": 2
+          "level": 2,
+          "text": "How a search runs"
         },
         {
           "kind": "paragraph",
-          "text": "We work best with mid-market companies, the ones large enough that the top jobs carry real weight and small enough that a single hire changes the trajectory of the place. We also serve one regional health system, a relationship we value for the seriousness it asks of us, since a leadership choice in care is never only a business decision. Many of our engagements come from clients we have served before, or from people we once placed who now do the hiring themselves."
-        },
-        {
-          "kind": "heading",
-          "text": "Our service lines",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our practice runs along a few clear lines, and most engagements draw on more than one."
+          "text": "Every assignment moves through the same four stages, and we tell a client at the outset which of them are slow."
         },
         {
           "kind": "list",
           "items": [
-            "Retained executive search for senior operating roles, from a general manager to a chief executive.",
-            "Board director search, where the brief turns as much on temperament and governance as on a resume.",
-            "Succession work, so a client can see the bench before a seat comes open rather than after.",
-            "Confidential replacements, where discretion is the whole assignment and the search must run without a ripple."
+            "1. Specification. We sit with the hiring executive, and with whichever directors care most about the outcome, and we write down what the job actually requires. It is a working document. It usually changes once, early, and that is a good sign rather than a bad one.",
+            "2. Research. We map the market role by role and company by company, and build a long list of the people who hold the job today or are ready to. Much of this stage is quiet telephone work with executives who are not looking, and it is done carefully or not at all.",
+            "3. The slate. We interview, assess against the specification, and bring the client a short slate with written summaries of each candidate and where they are strong and where they are not. We would rather present a slate we can defend than a longer one we cannot.",
+            "4. Close. We stay in the search through references, the offer, and the first weeks in the seat. An assignment is not finished when someone says yes. It is finished when the person is working and settled."
           ]
         },
         {
           "kind": "heading",
-          "text": "A representative engagement",
-          "level": 2
+          "level": 2,
+          "text": "What a client can hold us to"
         },
         {
-          "kind": "paragraph",
-          "text": "One engagement gives a sense of how we work. This year we partnered with {{fact:f:E-2015-001.client}} on a senior leadership search, and it showed the pattern we favor. A client who trusted us with the brief. A market we mapped patiently before we named anyone. A shortlist built on fit rather than convenience. We offer it as one illustration among the searches we have run, not as the whole of our work, and we are careful never to describe one client's search to another."
-        },
-        {
-          "kind": "heading",
-          "text": "How we work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two habits sit at the center of the firm. The first is discretion. In anything that circulates, we describe a candidate by the seat they hold today, not by name, until they are genuinely in play and have agreed to be there. A search touches a person's career, and a careless line can cost someone standing they spent years building. We protect that without being asked. The second is order. James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster. He confirms each arrangement, keeps the correspondence in order, and makes sure nothing slips between a first call and a signed agreement. Because Jim holds that ground, our consultants stay where they belong, with their candidates."
+          "kind": "list",
+          "items": [
+            "1. One consultant from start to finish, so the client always knows whose telephone to pick up.",
+            "2. A written specification agreed before we approach a single candidate, so the search is measured against something both sides signed off.",
+            "3. Regular reporting in writing, including in the weeks when there is nothing good to report. Those are the weeks a client most wants to hear from us."
+          ]
         },
         {
           "kind": "heading",
-          "text": "Talk to us",
-          "level": 2
+          "level": 2,
+          "text": "Candidates, and how we speak about them"
         },
         {
           "kind": "paragraph",
-          "text": "If you are weighing a leadership decision, the next step is a conversation rather than a proposal. Call us, and we will listen first. Kelly Chavez will walk you through how a retained search would run for the seat you have in mind, what a realistic timeline looks like, and what we would need from you to do the work well. There is no cost to the conversation, and no obligation follows it."
+          "text": "Search is a confidential business and we treat it as one by habit rather than by policy. In anything that circulates past the hiring executive, a candidate is described by their current role and sector and not by name. A prospect learns our client's identity when there is a real conversation to be had and not before. It is a small discipline that costs us nothing, and it is the reason a senior person takes our call a second time."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "An example of the work"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are currently running a chief financial officer search for {{fact:f:E-2015-001.client}}. We offer it as an illustration of the assignments we take rather than as an account of the practice; the rest of this year's work belongs to the clients who engaged us and stays with them. A reference from a client who has been through a search with us will tell you more than a list of names would anyway, and we are glad to arrange one."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If a board or a chief executive is weighing a search, the next step is a conversation with Kelly Chavez, Managing Director, who takes the first call on every engagement and will say plainly whether this is the right firm for the assignment."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0016",
+      "doc_id": "d:0009",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Welcome to the Firm: Jason Bell",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Hello James,"
         },
         {
           "kind": "paragraph",
-          "text": "Welcome to Northgate Talent Partners, Jason Bell. We are glad to have you, and we mean that plainly. A search firm is only as strong as its research bench, and we have seen enough of your work to know you are going to make ours better. Take a breath, find your desk, and know that everyone here wanted you to say yes."
+          "text": "Here is where the office stands for the rest of the week, and I am copying everyone so the question does not come round twice: we close at midday today, we are shut Thursday and Friday for the holiday, the answering service has the telephones from noon until Monday morning, and the mail is being held at the post office rather than delivered, so that nothing sits in the box while we are out."
         },
         {
           "kind": "paragraph",
-          "text": "You are joining us as a Research Associate on the Search team. Your work sits at the very front of every mandate. You will map a market, find the people who belong on a list, and, more often than most, surface the one candidate nobody expected to be reachable. That instinct for the passive prospect, the operator who was not looking and did not think they could be moved, is exactly what this bench runs on. You will report to Sandra Fuentes, Principal, who leads the research effort day to day and will be your first read on any search you touch."
+          "text": "The supply order is the one thing still outstanding, and it has to go in before we lock up. If you want something added, tell James Weiss within the hour rather than on your way out, since he is placing it before he leaves."
         },
         {
           "kind": "paragraph",
-          "text": "It helps to know the kind of place you have joined. We are a retained firm, which means our clients hand us the seat that matters most to them and then wait while we fill it properly. That patience is a gift, and it is also a standard. Every name you put forward carries the firm's word behind it, so we treat the research with the same seriousness as the conversations that follow. You will feel that weight quickly, and we suspect you will come to like it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A few things to settle in your first weeks:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Sandra will pair you with a live search in your first days, so you learn our method on real work rather than in the abstract.",
-            "Keep your energy inside our discretion. We describe candidates by their seat, not their name, in anything that leaves your desk, because that habit protects people's careers.",
-            "Ask early and ask often. Nothing here is a test you are meant to pass on your own."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Your first step is simple. Sit down with Sandra Fuentes this week to walk through your opening search, and bring anything else to any of us. Kelly Chavez is glad to have you on the bench, Jason. Welcome aboard."
+          "text": "Regards"
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0024",
+      "doc_id": "d:0017",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Welcome to the Firm: David Weiss",
-          "level": 1
+          "level": 1,
+          "text": "Welcome to Northgate: Jason Bell"
         },
         {
           "kind": "paragraph",
-          "text": "Welcome to Northgate Talent Partners, David Weiss. We are pleased you said yes. And yes, you are the second Weiss on our roster, which we will sort out with good humor and the occasional misdelivered message. You are in good company, and we will make sure your mail finds you."
+          "text": "Jason Bell joined us last week as a Research Associate in the search practice. This note is partly the record of it and partly a welcome, and we mean the second part. The firm has grown one person at a time, and each person has changed how the place works, so we take a while over the decision and are pleased when it goes our way."
         },
         {
           "kind": "paragraph",
-          "text": "You join us as a Research Associate on the Search team, and your ground is the part of a search that turns a market map into real prospects. The sourcing calls. The name-clearing. The first careful conversation that tells us whether a promising seat holds a promising person. You are easy on the phone, which matters more than people tend to think, and careful in writing, which matters just as much. You will report to Sandra Fuentes, Principal, who runs the research effort and will set your searches with you."
+          "text": "Jason sits with the search team and takes the first pass at a new assignment. That means reading the position specification closely enough to argue with it, building the long list, and turning up the people who are not on anyone's obvious list. A good deal of it is telephone work with executives who are not looking to move, which is its own skill, and the notes from those calls become the part of the file the consultants actually read. He reports to Sandra Fuentes, Principal, who will decide which assignments he works and in what order."
         },
         {
           "kind": "paragraph",
-          "text": "A word on how the firm carries itself, so it is yours from the first day. We are a retained house, and discretion is not a policy here so much as a reflex. A candidate's name is the most fragile thing we hold, and we guard it until a person is truly ready to be seen. You already have that instinct. Here it becomes the way everyone works, and it is a large part of why clients keep coming back to us."
+          "text": "It is worth saying what the seat is for. A retained search is won or lost in the early weeks, before a candidate has been interviewed, because a list built on the wrong premise produces a slate that looks respectable and satisfies nobody. Research is where that gets caught. It is also the widest view of the firm: over a year Jason will touch more searches than any one consultant does, and we would rather he formed opinions about them than kept quiet."
         },
         {
           "kind": "paragraph",
-          "text": "For the first weeks, a short list to keep you oriented:"
+          "text": "For the first month, four things:"
         },
         {
           "kind": "list",
           "items": [
-            "Sandra will start you on a live mandate quickly, because our method is easier to learn by doing than by reading.",
-            "Hold the firm's discretion as your own. We describe a candidate by their current seat until they are truly in play, and never before.",
-            "When something is delicate, favor a call over an email. You already have the instinct for it; here it is simply the house rule."
+            "1. Discretion is the house rule and it does not bend. A candidate is identified by the job they hold now, never by name, in anything that travels beyond the consultant the file belongs to.",
+            "2. Everything from a call goes into the search file the same day. A note in a notebook is not a record, and the consultant reading it on a Sunday cannot ask you what you meant.",
+            "3. If a prospect asks who the client is, the answer comes from the consultant carrying the search, not from you.",
+            "4. Ask early and often. The firm is small enough that no question you have costs anybody an afternoon."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Your first step is to sit down with Sandra Fuentes this week and take up your opening search. Anything that does not have an obvious home, bring to any of us. Kelly Chavez is glad you are here, David. Welcome to the firm."
+          "text": "Kelly Chavez will find an hour with Jason in the first fortnight to go through how we describe a search to a client and what we will not put in writing. Before that, his first task is the research on an open assignment: Sandra Fuentes has the specification and the long-list format and will hand both over this week. Welcome aboard."
         }
       ]
     },
@@ -168,153 +152,99 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Welcome to the Firm: Nicole Donovan",
-          "level": 1
+          "level": 1,
+          "text": "New joiner: David Weiss"
         },
         {
           "kind": "paragraph",
-          "text": "Welcome to Northgate Talent Partners, Nicole Donovan. It is a fitting day to start, the last of the year with the next one about to open, and we are glad you will spend it with us. There is no better time to join a firm than the moment it turns toward what comes next."
+          "text": "David Weiss started with us last week as a Research Associate, and we are glad to have him. He came up through the research side of this business, and in his interviews he asked sharper questions about how we run a slate than we managed to ask him about anything. Two of us saw him separately and came back with the same note, which does not happen as often as you would think."
         },
         {
           "kind": "paragraph",
-          "text": "You are joining as a Research Associate on the Search team, and the heart of your work is the candidate profile, the tight and honest write-up a consultant circulates when a name is ready to be seen. You have a feel for framing a person's background fairly, giving a client enough to decide without overselling anyone. That honesty is worth more to us than polish, and it is harder to teach. You will report to Sandra Fuentes, Principal, who leads the research effort and will pair you to your searches."
+          "text": "David's work is the market map. Before there is a slate, before there is even a long list worth the name, somebody has to establish who holds the job today, at which companies, in which markets, and which of those people would take the call. That is his. He works a list in order and writes it up the same way, the conclusion first and the supporting detail underneath in the order he gathered it, which the consultants will come to rely on faster than he expects. He reports to Sandra Fuentes, Principal."
         },
         {
           "kind": "paragraph",
-          "text": "A little about the house you have joined. We are a retained firm, and the profiles you write travel with our name attached, so they have to be true before they are ever persuasive. We would always rather be trusted than admired. You will find that the whole bench works this way, and that the discipline of it is freeing once it becomes habit."
+          "text": "A word on why the seat matters, since from the outside it can look like clerical work. A client hires us because we know a market they only ever see from inside their own company. That knowledge sits nowhere except in the maps we build and keep current, and a map assembled carelessly is worse than no map at all, because it gets believed. David is the person who keeps ours honest. None of it is glamorous: it is telephones, trade press, annual reports, and the patience to work a list that grows longer before it gets shorter. The consultants who have been here a while will tell him the same thing, which is that the search that goes smoothly is almost always the one where this part was done properly."
         },
         {
           "kind": "paragraph",
-          "text": "A few notes for your first weeks:"
+          "text": "Practicalities for the first month:"
         },
         {
           "kind": "list",
           "items": [
-            "Sandra will put you on a live search early, so our style of profile becomes familiar in your hands.",
-            "Trust your discretion. Describe candidates by their seat until they are genuinely in play, and weigh what belongs in an email against what should wait for a call.",
-            "Write for the consultant who has thirty seconds. Clean and true beats long every time."
+            "1. Kelly Chavez will take an hour with him in his first two weeks, on how this firm describes a candidate to a client and how it does not.",
+            "2. There are now two of the same surname here. David signs his research in full, and anything intended for James Weiss in Operations should be addressed the same way, so nothing lands on the wrong desk.",
+            "3. In anything that circulates, a prospect is what they do and where, not who they are. A name goes in front of a client only when someone can say precisely why it belongs there.",
+            "4. Call notes go into the search file the day of the call, not the week of it."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Your first step is simple. Meet with Sandra Fuentes in the first days of the new year to take up your opening search, and for anything else, our doors are open. Kelly Chavez is delighted you have joined us, Nicole. Here is to a good start."
+          "text": "His first assignment is the market map on the search Sandra Fuentes is carrying now, and she will give him the specification and the target-company list this week. He should expect the first draft back with questions on it. That is the process working rather than a verdict on the work. Welcome, David."
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0032",
+      "doc_id": "d:0026",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Northgate Talent Partners, Five Years On",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Good morning Jeffrey,"
         },
         {
           "kind": "paragraph",
-          "text": "Five years is long enough to know what a firm is for. We started Northgate Talent Partners in 2013, and the conviction we started with has not moved. Retained search is a relationship business first, and a document business second. What follows is a short account of who we are now, written for a client who is meeting us for the first time."
-        },
-        {
-          "kind": "heading",
-          "text": "What has held steady",
-          "level": 2
+          "text": "The conference room is booked through next week, which I mention because you generally take it on Tuesday afternoon and it will not be free. I have put you in the front office instead from two o'clock onward, and I can move that to another afternoon if Tuesday is the only day the room would have done."
         },
         {
           "kind": "paragraph",
-          "text": "We are a retained executive search firm. We place senior operators and board directors at mid-market companies, and we have kept one regional health system among our clients since the early years. The method has not changed with our size. We map a market patiently before we put names to it. We describe candidates by the seat they hold until they are genuinely in play. And we treat every search as its own confidential matter, never to be described to another party. What we sold a client in our first year is what we sell now, and we are proud that so little of it has needed revising."
-        },
-        {
-          "kind": "heading",
-          "text": "A few engagements, offered as illustration",
-          "level": 2
+          "text": "Separately, the parking validations have run out again and the new book does not arrive until the end of the month, so I would ask everyone to hold on to what they have for visitors rather than for themselves. Let me know by Thursday whether Tuesday afternoon works, and I will lock the room bookings for the week."
         },
         {
           "kind": "paragraph",
-          "text": "We do not publish a client list, so a handful of engagements will have to stand for the work, and we offer them as examples rather than a ledger. In 2015 we partnered with {{fact:f:E-2015-001.client}} on a senior leadership search. The next year brought our work with {{fact:f:E-2016-001.client}}. In 2017 we were engaged by {{fact:f:E-2017-001.client}}, and this year by {{fact:f:E-2018-001.client}}. Each differed in its particulars, and each turned on the same thing. Reaching the right person, often someone who was not looking, through a conversation begun with care. These are a few searches among many, not the sum of what we do."
-        },
-        {
-          "kind": "heading",
-          "text": "The people who do it",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We are a small firm by design. A search is only as good as the consultant who owns it and the research bench behind them, and we have kept both deliberately tight so that no client is ever a file passed between hands. When you engage us, you know who is doing your work, and you can reach them. Kelly Chavez still takes searches herself, because the firm's standards are easiest to hold when the person who set them is in the work."
-        },
-        {
-          "kind": "heading",
-          "text": "What a client can expect",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Whatever the seat, an engagement with us tends to run the same way."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "A named consultant who owns your search from the first brief to the signed offer.",
-            "A market map before any names, so the shortlist rests on fit rather than on who happened to be easy to reach.",
-            "Candidates described by role, not by name, in anything that circulates, for as long as discretion requires it.",
-            "Straight talk when a search turns delicate, which the best of them eventually do."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Why the relationship comes first",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A retained search asks a client to trust us before there is anything to show for it. We do not take that lightly. For the length of a search we are holding two anxious parties at once, a client who needs the seat filled well and a candidate weighing perhaps the biggest decision of a career. Keeping faith with both takes patience and a great deal of care with words. That is the work we chose, and after five years it is still the work we love."
-        },
-        {
-          "kind": "heading",
-          "text": "Where to start",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "If a leadership seat is on your mind, the beginning is simple. Reach out, and Kelly Chavez will walk you through how a retained search would run for the role you are weighing, what it would ask of you, and what a sensible timeline looks like. We will listen before we propose anything at all."
+          "text": "Best regards"
         }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
-      "doc_id": "d:0040",
+      "doc_id": "d:0027",
       "blocks": [
         {
           "kind": "heading",
-          "text": "Welcome to the Firm: Larry Russell",
-          "level": 1
+          "level": 1,
+          "text": "Onboarding record: Nicole Donovan"
         },
         {
           "kind": "paragraph",
-          "text": "Welcome to Northgate Talent Partners, Larry Russell. We are glad you have joined us, and we think you will fit the bench well. Settle in at your own pace; the work you are best at rewards a steady start over a fast one."
+          "text": "Nicole Donovan joined the firm last week as a Research Associate. She has arrived in the quietest stretch of our year, which is not the worst way to start: the telephones are silent, the files are open, and she can read a search end to end before the office fills up again. She comes from work where the record was the job, and the consultants have already been asked to hand her things earlier than they think is necessary."
         },
         {
           "kind": "paragraph",
-          "text": "You come aboard as a Research Associate on the Search team, and you arrive with a temperament we prize, which is patience. Some of our mandates are long-lead searches, the ones where the right person has to be coaxed into a first conversation over weeks rather than days. Those are the searches we will trust to you. Your notes, we are told, are steady and unhurried, and you never put a candidate's name where a role will do. That care is the firm's whole reputation, held one line at a time. You will report to Sandra Fuentes, Principal, who leads our research effort and will match you to your searches."
+          "text": "Nicole will be the associate the consultants route work through. In practice that is the paper a search leaves behind: the kickoff memo, the minutes of a client session, the note confirming a slate review, the correspondence that keeps a client and a candidate informed at the same pace without either one learning something early. It is not clerical work. A search is one long conversation, and the person keeping the record of it is usually the person who knows where it stands. She reports to Sandra Fuentes, Principal, and will take work from every consultant in the practice, which means her first skill has to be saying what she can finish and when."
         },
         {
           "kind": "paragraph",
-          "text": "A note on how we carry ourselves, so it is yours from the start. We are a retained house, and we would rather run a search slowly and well than quickly and thin. Clients come to us for the seats that cannot afford a wrong hire, and they give us the room to do it right. You will not be pushed toward a weak name here, and you should never push yourself toward one either."
+          "text": "Kelly Chavez will spend an hour with her early in the new year on our correspondence standards, which are stricter than most people expect coming in. The short version is that we write as though the note will be read aloud to both parties, because sooner or later one of them forwards it. The longer version is worth the hour, and it is the one conversation here that nobody is allowed to skip."
         },
         {
           "kind": "paragraph",
-          "text": "To help you settle in, a few things for the first weeks:"
+          "text": "Four things to hold on to in the first month:"
         },
         {
           "kind": "list",
           "items": [
-            "Sandra will start you on a live mandate soon, and likely one of the patient kind, so you can work at the pace that suits you.",
-            "Keep to our discretion without exception. A candidate is a seat until they are truly in play, in every note and every message.",
-            "Take the time a good search needs. No one here will rush you toward a name you do not believe in."
+            "1. Who was copied on what is part of the record. If a client's chief executive was not on a note, then the note did not reach them, and we never assume otherwise.",
+            "2. Candidates are named in as few places as possible. Current role and sector will carry almost any sentence you need to write.",
+            "3. Nothing goes to a client the same hour it is drafted. Write it, leave it, read it once more.",
+            "4. When the news is bad, the draft comes to a principal before it goes anywhere else. A finalist who withdraws is handled well or it costs the client twice."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Your first step is to sit down with Sandra Fuentes this week and take up your opening search. Anything else, bring it to any of us. Kelly Chavez is glad to have you with us, Larry. Welcome to the firm."
+          "text": "Her first week is reading rather than drafting: one complete search file, front to back, alongside our standard engagement correspondence, so that she sees how a search sounds on the page before she is asked to write in that voice. Sandra Fuentes will pull the file and sit with her on the first morning back. Welcome, Nicole."
         }
       ]
     }

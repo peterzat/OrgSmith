@@ -2,25 +2,61 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "northgate-staffing",
   "dimension": "graph_acl_naturalness",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graph-acl-1",
+      "id": "rf:graphacl-1",
       "dimension": "graph_acl_naturalness",
       "severity": "major",
-      "docs": ["d:0006", "d:0007"],
-      "summary": "The nickname 'Jim' is attached to two different people: the firm overview assigns it to Office Manager James Weiss (framing it as the disambiguator between the roster's two Jameses), while the meeting minutes assign the same nickname to Principal James Grant.",
-      "evidence": "d:0006: 'James Weiss runs the operational spine of the office, and around here he is simply Jim, which keeps him straight from the other James on the roster.' d:0007, nine days later: 'James Grant, whom the team calls Jim, agreed to take the first-round interviews.' In a 12-person firm this self-defeats the stated disambiguation, and the alias ledger confirms the mis-wiring (James Grant carries alias 'Jim'; James Weiss's alias list is empty)."
+      "docs": ["d:0003", "d:0058"],
+      "summary": "Two kickoff memos address a colleague on the To/Cc line and hand them a task inside a folder that colleague cannot open.",
+      "evidence": "d:0003 reads 'Cc: James Weiss' and then 'James Weiss, confirmation that the letter is back countersigned before we spend anything against the engagement' -- yet James Weiss holds no grant on any Roach, Moss and Hall file, including the engagement letter he is asked to confirm. d:0058 reads 'To: Sandra Fuentes; Heather Meyer' and 'Heather Meyer, when a position looks thin in extraction, mark it in the crosswalk the day you see it' -- Heather Meyer's entire read set is the 16 firm-wide files and contains nothing from Hicks-Castillo. The same letter that opens that engagement (d:0057) names the team as 'Sandra Fuentes ... David Weiss, Research Associate' and promises 'What you give us stays inside the engagement team.'"
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graph-acl-2",
+      "id": "rf:graphacl-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0009", "d:0051", "d:0056"],
+      "summary": "Internal administrative mail is sent by whoever, not by the person who holds the function: four of the five internal emails come from someone other than the Office Manager, and each defers the actual ownership to somebody else.",
+      "evidence": "d:0009 'Office logistics' and d:0051 'IT maintenance window' both go From: James Grant (a search Principal) To: all-staff, and both hand the work off in the body: 'tell James Weiss within the hour rather than on your way out, since he is placing it before he leaves' and 'Nicole Donovan is keeping the list of what has to stay reachable.' d:0056 'Timesheet reminder' goes From: Jason Bell, Research Associate, to two peer Research Associates, and explains 'The monthly summary is compiled from the book on the first working day after it closes' -- the summary James Weiss owns per his own persona ('owns the firm's quarterly numbers'). d:0045 has the Managing Director personally arranging replacement lobby cards. The Office Manager's one email in the whole corpus (d:0026) is a one-to-one conference-room booking."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-3",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [],
+      "summary": "The permission set has no residue: every one of the 12 read sets is reproducible in closed form from the participant ledger, with zero stale, courtesy, or leftover grants across nine years.",
+      "evidence": "read(p) = all 76 files for the Managing Director; nothing for the departed associate; otherwise the 16 firm-wide files (4 Firm overviews, 5 Firm/Mail, 6 People onboarding records, 1 Template), plus the 9 Finance files if and only if the person is in Operations, plus every file in every engagement folder where the person holds a participant edge. Checked person by person: 0 grants unaccounted for and 0 missing. Nobody was ever added to a matter late or left on one after rolling off, no partner ever asked for read on a search they were not staffed to, and no grant carries a date. The single wrinkle in the whole ledger is not deliberate: 'Engagements/Sanchez-Baker/Firm Overview 2018 v3 (1).docx' is the misfiled noise copy, so the folder narrows it to the Sanchez-Baker team while the identical file in Firm/ is firm-wide."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0052", "d:0047", "d:0049"],
+      "summary": "Three of the six research associates are inert in the graph, and the two most inert are named exactly twice each, which is the recipe's minimum-mentions floor showing through.",
+      "evidence": "Larry Russell, Mary Parker and Heather Meyer author nothing, hold no engagement edge, and carry the identical 16-document read set. Russell and Parker appear in exactly two places each: their own onboarding record (d:0047, d:0049) and the 2021 firm overview (d:0052), which names them -- 'Larry Russell works the hard end of those lists here', 'Mary Parker establishes what a prospect actually owns today' -- while naming no consultant other than Kelly Chavez, in a document whose own thesis is 'The consultant a client meets first.' A client-facing overview that names two back-bench associates and no consultant is the wrong way round."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-5",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0035", "d:0006", "d:0023"],
+      "summary": "Every client has exactly one contact and their titles come from a two-value pool split evenly three and three, so no search in the book was retained by the kind of buyer the firm's own overviews say retains it.",
+      "evidence": "Jason Myers, Michael Martin and Jennifer Frazier are each 'Chief Operating Officer'; Jason Vasquez, Amy Alvarez and David Mcgee are each 'General Manager'. Nine years, six searches, no chief executive, board chair, nominating-committee chair or HR head anywhere. d:0035 opens 'Most of our work begins with the same telephone call. A chief executive or a board chair has a seat to fill', and d:0006 closes 'If a board or a chief executive is weighing a search, the next step is a conversation with Kelly Chavez.' In d:0023 a COO carries a board director search and speaks for the audit committee's decision on the chair."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graphacl-6",
       "dimension": "graph_acl_naturalness",
       "severity": "note",
       "docs": [],
-      "summary": "Every client-side sponsor the firm interfaces with holds one of only two titles, split in a clean chronological block, which reads as an assigned pool rather than an organic book of relationships.",
-      "evidence": "The sole sponsor at each of the six clients is Chief Operating Officer for 2015/2016/2017 (Jason Myers in d:0002, Michael Martin in d:0010, Jennifer Frazier in d:0019) and General Manager for 2018/2019/2023 (Jason Vasquez in d:0027, Amy Alvarez in d:0035, David Mcgee in d:0048). No CEO, board chair, or head of HR ever sponsors a search, and a board-director search (Sanchez-Baker) runs through a COO rather than the board itself."
+      "summary": "The internal correspondence graph has no work edges: every engagement email is outbound to the client and every internal email is administrative, in the org built as the fleet's mail-heavy exemplar.",
+      "evidence": "All 11 engagement emails are To: the single client contact with a static Cc of the rest of the matter team, unchanged across the four-message Howard, Carlson and Tran thread. The five internal emails are holiday closure, room booking, lobby cards, server maintenance and timesheets. Not one consultant writes to a colleague about a search, though the personas advertise exactly that traffic: James Grant's 'the quick line to a colleague about how a finalist is leaning', Jason Bell 'writes fast and short in internal threads', Nicole Donovan 'usually drafts the careful version of that news before a principal puts a name to it.' Recorded as an observation because the mundane_emails knob asks for administrative distractors by design; the gap is between what the personas promise and what the mail file holds."
     }
   ]
 }

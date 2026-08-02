@@ -78,6 +78,11 @@ _TOP_UP_GENRES = (
 
 _LEGACY_FOR = {base: legacy for legacy, base in BASE_FORMAT.items()}
 
+# Genres that assert a session happened, so CAL-01 holds them to a business
+# day. Derived versions of such a document inherit the obligation: a draft of
+# the minutes is still the minutes.
+_ATTENDANCE_GENRES = {r.genre for r in REGISTRY if r.asserts_attendance}
+
 
 def legacy_selection(culture, office: list[tuple[date, str]]) -> set[str]:
     """Which office docs become pre-2007 binaries: the oldest
@@ -165,6 +170,34 @@ class _Planner:
 
     def _clamp_range(self, d: date) -> date:
         return _clamp(d, self.range_start, self.range_end)
+
+    def _chain_member_date(
+        self, src, length: int, pos: int, spacing: int
+    ) -> date:
+        """When an earlier version of `src` was saved.
+
+        Plain arithmetic backwards from the final, except for the genres that
+        assert a session happened: a version of the minutes still carries the
+        minutes genre, and CAL-01 holds every attendance document to a
+        business day. Stepping the raw offset onto a Saturday produced a
+        weekend `meeting_minutes` and a validation failure, which is the
+        board's original weekend-session finding arriving through the noise
+        model instead of the planner.
+
+        The ceiling is the day before the source, so the tie-break's rare
+        forward step can never carry a member onto or past the document it is
+        a version of. A no-op when no calendar is declared, and a no-op for
+        every genre that asserts nothing about attendance, which is why this
+        leaves the frozen fleet byte-identical."""
+        raw = src.date - timedelta(days=(length - pos) * spacing)
+        if src.genre not in _ATTENDANCE_GENRES:
+            return raw
+        return to_business_day(
+            raw,
+            self.calendar,
+            self.range_start,
+            src.date - timedelta(days=1),
+        )
 
     def _add(self, **kw) -> None:
         problems = check_relpath(kw["path"])
@@ -1329,7 +1362,7 @@ class _Planner:
                         title=f"{src.title} (v{pos})",
                         genre=src.genre,
                         format=src.format,
-                        date=src.date - timedelta(days=(length - pos) * spacing),
+                        date=self._chain_member_date(src, length, pos, spacing),
                         authors=list(src.authors),
                         participants=[],
                         engagement=src.engagement,
