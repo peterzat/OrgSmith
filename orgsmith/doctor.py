@@ -1,9 +1,18 @@
-"""orgsmith doctor: capability probe.
+"""orgsmith doctor: capability probe, scoped by intent.
 
-Probes never fail the run for optional capabilities (LibreOffice arrives
-with a later milestone); they record what this machine can do so stages
-can choose fallbacks and skills can warn early. Required Python deps
-missing IS a failure.
+Two intents share one install, and they need different things:
+
+- **Validating and scoring** a committed org needs only pure-python
+  readers. That is what a consumer who cloned the repo for the data does,
+  and it must report healthy.
+- **Generating** an org additionally needs the rendering stack: WeasyPrint
+  (which needs system Pango) for pdfs, and LibreOffice for legacy binaries
+  when a recipe asks for them.
+
+So a missing rendering stack reports "generation not available" and exits
+0, rather than failing a machine that was never going to generate anything.
+Missing pure-python dependencies remain a hard failure, because nothing
+works without them.
 """
 
 from __future__ import annotations
@@ -37,7 +46,10 @@ _REQUIRED = [
 _OPTIONAL_BINARIES = {"soffice": "legacy .doc/.xls/.ppt conversion at render time"}
 
 
-def probe() -> tuple[dict[str, str], bool]:
+def probe() -> tuple[dict[str, str], bool, bool]:
+    """(results, ok, can_generate). `ok` covers validating and scoring, the
+    intent every install has to serve; `can_generate` additionally covers
+    the rendering stack."""
     results: dict[str, str] = {
         "python": ".".join(str(v) for v in sys.version_info[:3])
     }
@@ -49,21 +61,23 @@ def probe() -> tuple[dict[str, str], bool]:
         except ImportError as err:
             results[module] = f"MISSING ({err})"
             ok = False
-    # WeasyPrint needs system Pango; importing it proves the text stack.
+    # WeasyPrint needs system Pango, and only the render stage calls it.
+    # Absent, this box can still validate and score every committed org.
     try:
         importlib.import_module("weasyprint")
         results["weasyprint"] = "ok"
+        can_generate = True
     except (ImportError, OSError) as err:
-        results["weasyprint"] = f"MISSING ({err})"
-        ok = False
+        results["weasyprint"] = f"absent (generation only: {err})"
+        can_generate = False
     for binary, purpose in _OPTIONAL_BINARIES.items():
         found = shutil.which(binary)
         results[binary] = "ok" if found else f"absent (optional: {purpose})"
-    return results, ok
+    return results, ok, can_generate
 
 
 def run_doctor(paths: OrgPaths | None = None) -> int:
-    results, ok = probe()
+    results, ok, can_generate = probe()
     for name, value in results.items():
         print(f"  {name:<12} {value}")
 
@@ -80,6 +94,15 @@ def run_doctor(paths: OrgPaths | None = None) -> int:
         save_state(paths, state)
         print(f"doctor: probes recorded in {paths.state_json}")
     print(f"doctor: {'ok' if ok else 'REQUIRED CAPABILITIES MISSING'}")
+    if ok and not can_generate:
+        # A scope report, not a failure. Validating and scoring the
+        # committed fleet is a first-class use of this install and needs no
+        # rendering stack; say what is unavailable and why.
+        print(
+            "doctor: generation not available (WeasyPrint/Pango missing). "
+            "Validating and scoring committed orgs works; rendering a new "
+            "one does not."
+        )
     if not effort_ok:
         # A warning, not a failure: the floor is advisory and authoring is
         # still the user's call. Exit code stays keyed to capabilities.

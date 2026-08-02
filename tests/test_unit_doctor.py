@@ -14,10 +14,55 @@ pytestmark = pytest.mark.unit
 
 
 def test_probe_finds_required_capabilities():
-    results, ok = probe()
+    results, ok, can_generate = probe()
     assert ok, f"required capabilities missing: {results}"
     assert results["weasyprint"] == "ok"
+    assert can_generate
     assert "soffice" in results  # recorded either way
+
+
+def test_a_missing_rendering_stack_is_a_scope_report_not_a_failure(
+    monkeypatch, capsys
+):
+    """M17: validating and scoring a committed org needs only pure-python
+    readers, so a box without WeasyPrint/Pango is healthy for that intent.
+    It used to exit 1, which told a consumer who cloned the repo for the
+    data that their install was broken."""
+    import importlib
+
+    real = importlib.import_module
+
+    def fake(name, *args, **kwargs):
+        if name == "weasyprint":
+            raise OSError("cannot load library 'libpango-1.0.so'")
+        return real(name, *args, **kwargs)
+
+    monkeypatch.setattr(importlib, "import_module", fake)
+    results, ok, can_generate = probe()
+    assert ok and not can_generate
+    assert results["weasyprint"].startswith("absent (generation only")
+
+    assert run_doctor() == 0
+    out = capsys.readouterr().out
+    assert "doctor: ok" in out
+    assert "generation not available" in out
+
+
+def test_a_missing_pure_python_dependency_still_fails(monkeypatch):
+    """The other half of the split: nothing works without these."""
+    import importlib
+
+    real = importlib.import_module
+
+    def fake(name, *args, **kwargs):
+        if name == "pypdf":
+            raise ImportError("no module named pypdf")
+        return real(name, *args, **kwargs)
+
+    monkeypatch.setattr(importlib, "import_module", fake)
+    _, ok, _ = probe()
+    assert not ok
+    assert run_doctor() == 1
 
 
 # --- the authoring effort floor ---------------------------------------------
