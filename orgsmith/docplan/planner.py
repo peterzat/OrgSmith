@@ -767,7 +767,7 @@ class _Planner:
                 drop: set = set()
                 if exempt:
                     drop |= set(doc["authors"])
-                if exempt_to and not doc["render_params"].get("dl"):
+                if exempt_to and not doc.get("render_params", {}).get("dl"):
                     # Not for distribution-list mail: there the To header
                     # carries the list address, so the members' names are
                     # nowhere in the transport headers and the body is the

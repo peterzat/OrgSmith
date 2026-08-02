@@ -154,20 +154,20 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | retriever | split | strict | R@10 | MRR | nDCG@10 |
 | --- | --- | ---: | ---: | ---: | ---: |
-| filename-only | core | 2.3% | 54.7% | 0.563 | 0.492 |
-| filename-only | distractors | 2.3% | 54.7% | 0.563 | 0.492 |
-| filename-only | noise | 0.0% | 49.6% | 0.539 | 0.458 |
-| filename-only | full | 0.0% | 49.6% | 0.539 | 0.458 |
-| bm25 | core | 2.3% | 69.6% | 0.787 | 0.734 |
-| bm25 | distractors | 2.3% | 68.3% | 0.787 | 0.723 |
-| bm25 | noise | 0.0% | 64.8% | 0.756 | 0.673 |
-| bm25 | full | 0.0% | 63.1% | 0.756 | 0.661 |
+| filename-only | core | 2.3% | 54.7% | 0.563 | 0.493 |
+| filename-only | distractors | 2.3% | 54.7% | 0.563 | 0.493 |
+| filename-only | noise | 0.0% | 49.5% | 0.539 | 0.458 |
+| filename-only | full | 0.0% | 49.5% | 0.539 | 0.458 |
+| bm25 | core | 2.3% | 69.4% | 0.787 | 0.734 |
+| bm25 | distractors | 2.3% | 68.2% | 0.787 | 0.723 |
+| bm25 | noise | 0.0% | 64.5% | 0.756 | 0.670 |
+| bm25 | full | 0.0% | 62.7% | 0.756 | 0.658 |
 
 ## Integrity
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| ashcombe-advisory | 255 | `9af864dad9f92b89a2dd903ecf9759fdb92dd9c4d8b8d0246119cba2f4a85bea` |
+| ashcombe-advisory | 255 | `85b1e369f586bef603ed808b0f3792b83c305da07765fe57d97638ac1ad39c45` |
 
 Verify with `python tools/checksums.py --check`.
 

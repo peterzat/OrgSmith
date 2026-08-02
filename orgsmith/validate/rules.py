@@ -167,7 +167,7 @@ def ment_03(ctx: Context):
     visibly, which is why the exemplar's published `Jim` collision keeps
     validating until that org opts in."""
     from ..authoring.ingest import alias_owners
-    from ..evals.emit import _mask
+    from ..doctext import mask_surfaces
 
     owners = alias_owners(ctx.foundation)
     if not owners:
@@ -185,7 +185,7 @@ def ment_03(ctx: Context):
             for p in entry.participants + entry.authors
             if p.startswith("p:")
         }
-        text = _mask(ctx.doc_text(entry), here | signers)
+        text = mask_surfaces(ctx.doc_text(entry), here | signers)
         for alias, owner in sorted(owners.items()):
             if alias in here:
                 continue

@@ -16,10 +16,10 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~50s wall and 606 passing (14 short, 518 unit, 74 org) on a box
-with LibreOffice; 600 passing + 6 skipped without it (measured by hiding
-soffice from `PATH`, which is what CI sees). Both are green states,
-see Environment axis. No API key, no network, no model: a
+Expect ~80s wall and 857 passing + 29 skipped (16 short, 615 unit, 226 org)
+on a box with LibreOffice; 851 passing + 35 skipped without it (the six
+`@needs_soffice` conversion tests, which is what CI sees). Both are green
+states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
 the tracer -- `dev-mini` grew from 13 to 22 documents. M11b replaced the
 six pre-v2.0 fixtures with five larger ones and restored the byte pin
@@ -27,14 +27,15 @@ fleet-wide. The M13-M16 realism wave then regenerated the whole fleet under
 the wave's knobs -- a business-day calendar, a sample-book posture, the
 style/voice layer, and, per recipe, real mail threads and organizational
 noise -- and re-froze it, so the org tier now re-derives all eight fleet
-orgs plus `dev-mini` and grew to 74. The two largest, `calderwood-partners`
-and `ashcombe-advisory`, stay in their own opt-in `flagship` tier, kept out
+orgs plus `dev-mini`; with M17's answer-key and baseline checks on top it
+stands at 226. The two largest, `calderwood-partners` and
+`ashcombe-advisory`, stay in their own opt-in `flagship` tier, kept out
 of the default `bin/test` because validating their ~320 files is ~4s on its
 own.)
 
-The `flagship` tier is opt-in (`bin/test flagship`, 20 passing) and runs in
-CI on its own step; the default `bin/test` excludes it so the everyday loop
-stays fast.
+The `flagship` tier is opt-in (`bin/test flagship`, 65 passing + 5 skipped)
+and runs in CI on its own step; the default `bin/test` excludes it so the
+everyday loop stays fast.
 
 ## Entry point
 
@@ -60,7 +61,7 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 16 | < 1s | 0.40s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 608 (602 in CI) | ~70s | ~67s local |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 615 (609 in CI) | ~70s | ~67s local |
 | `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 226 (+29 skipped) | ~15s | 11.3s warm |
 | `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 65 (+5 skipped) | ~15s | 11.8s |
 
@@ -298,7 +299,7 @@ Two targets running different suites, deliberately.
 
 - **CI (`ubuntu-latest`, no LibreOffice)** is the gate: all three tiers on
   every push and PR. Six legacy tests skip there on top of the 29
-  charter-derived property skips (844 passing + 35 skipped; 850 + 29 on a
+  charter-derived property skips (851 passing + 35 skipped; 857 + 29 on a
   box with LibreOffice, measured 2026-08-02).
   Legacy *validation* is still covered here, by the org tier reading
   `brackenridge-civil`'s real `.doc`/`.xls`/`.ppt` binaries pure-Python

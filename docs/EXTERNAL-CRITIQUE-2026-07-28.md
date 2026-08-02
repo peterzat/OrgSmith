@@ -137,7 +137,7 @@ card states the non-claim explicitly.
 
 | Finding | Disposition | Where |
 | --- | --- | --- |
-| 1. Derived copies invisible to the key | **Adopted.** Equivalence clusters, verified by hash at emit; the scorer canonicalizes both sides | `evals/clusters.json`, `docs/LABEL-POLICY.md` |
+| 1. Derived copies invisible to the key | **Adopted.** Equivalence clusters, verified by hash at emit; a returned member satisfies its canonical, and the required set is never rewritten (membership is directional) | `evals/clusters.json`, `docs/LABEL-POLICY.md` |
 | 2. Mention gold planned-only | **Adopted.** Scan-derived acceptable sets on mention and alias questions | `acceptable_docs`, `docs/LABEL-POLICY.md` |
 | 2b. The `Jim` collision | **Adopted, twice.** Recorded mechanically as a diagnostic; made impossible by construction under a new knob | `evals/diagnostics.json`, `graph_targets.alias_agreement`, MENT-03 |
 | 3. Exact-set scoring | **Adopted.** Macro P/R/F1, Recall@5/@10, MRR, nDCG@10; extraction value and attribution reported separately; engagements became graph entities so participant edges score; optional dated-edge credit | `orgsmith/evals/score.py` |

@@ -106,8 +106,21 @@ def test_a_byte_identical_copy_of_a_required_doc_is_accepted(slug):
     truth = [
         {"id": q["id"], "docs": list(q["expected_docs"])} for q in questions
     ]
+
+    def swap(doc: str, required: set) -> str:
+        """The copy stands in for its source, unless the same question
+        requires the copy in its own right: membership is directional (a
+        transmittal carries the memo's bytes, the memo does not carry the
+        transmittal's body), so there the copy answers for itself and
+        dropping the source would be a real miss, not a substitution."""
+        alt = substitute.get(doc)
+        return alt if alt is not None and alt not in required else doc
+
     swapped = [
-        {"id": a["id"], "docs": [substitute.get(d, d) for d in a["docs"]]}
+        {
+            "id": a["id"],
+            "docs": [swap(d, set(a["docs"])) for d in a["docs"]],
+        }
         for a in truth
     ]
     if swapped == truth:

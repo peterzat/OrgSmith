@@ -530,7 +530,12 @@ def test_transmittal_is_an_equivalence_member_not_gold(ecology_org):
     assert (attached, trans.path, "attachment") in members
 
     # Answering with the transmittal in place of the document it carries is
-    # correct; so is answering with both.
+    # correct; so is answering with both. Only where the transmittal is not
+    # itself required: membership is directional (the email carries the
+    # memo's bytes, never the reverse), so an email that states a fact in
+    # its own body is a separate obligation, tested just below.
+    swappable = [q for q in hosted if trans.path not in q["expected_docs"]]
+    assert swappable, "every hosting question also requires the transmittal"
     for docs in ([trans.path], [attached, trans.path]):
         answers = ExtractionAnswers.model_validate(
             {
@@ -544,13 +549,43 @@ def test_transmittal_is_an_equivalence_member_not_gold(ecology_org):
                         ]
                         + docs,
                     }
-                    for q in hosted
+                    for q in swappable
                 ],
             }
         )
         result = score_extraction(ecology_org.evals_dir, answers)
-        failed = [f for f in result.failures if f["id"] in {q["id"] for q in hosted}]
+        failed = [
+            f for f in result.failures if f["id"] in {q["id"] for q in swappable}
+        ]
         assert not failed, failed
+
+    # The directional half (2026-08-02 review): where the transmittal is
+    # required in its own right, the memo it carries does not stand in for
+    # it. Collapsing the pair through the cluster map would score an answer
+    # that omitted the email correct, and would shrink the required set the
+    # ranked metrics divide by.
+    both = [q for q in hosted if trans.path in q["expected_docs"]]
+    assert both, (
+        "no question requires the transmittal beside its attachment, so "
+        "this org cannot demonstrate the directional rule"
+    )
+    answers = ExtractionAnswers.model_validate(
+        {
+            "suite": "extraction",
+            "answers": [
+                {
+                    "id": q["id"],
+                    "value": q["expected_value"],
+                    "docs": [d for d in q["expected_docs"] if d != trans.path],
+                }
+                for q in both
+            ],
+        }
+    )
+    result = score_extraction(ecology_org.evals_dir, answers)
+    missed = {f["id"]: f["docs_missing"] for f in result.failures}
+    for q in both:
+        assert missed.get(q["id"]) == [trans.path], missed
 
 
 def test_eml03_detects_a_mismatched_attachment(ecology_org, tmp_path, capsys):

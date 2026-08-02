@@ -660,8 +660,8 @@ separate boxes makes it hard to quote one as the other.
 
 ### The evidence, concretely
 
-- **879 tests** across the default three tiers (`bin/test`), keyless and
-  offline (850 pass; the 29 skips are property tests stepping over orgs whose
+- **886 tests** across the default three tiers (`bin/test`), keyless and
+  offline (857 pass; the 29 skips are property tests stepping over orgs whose
   recipe leaves the feature under test off, each naming the org and the
   reason), plus a fourth `flagship` tier (70 tests) for the two
   large pilot orgs (`calderwood-partners` and the M14 email pilot

@@ -35,14 +35,14 @@ It falls behind on `brackenridge-civil`, `saltmarsh-environmental`. Those are th
 
 | retriever | split | questions | strict | R@5 | R@10 | MRR | nDCG@10 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| filename-only | core | 44 | 2.3% | 37.7% | 54.7% | 0.563 | 0.492 |
-| filename-only | distractors | 44 | 2.3% | 37.7% | 54.7% | 0.563 | 0.492 |
-| filename-only | noise | 44 | 0.0% | 36.7% | 49.6% | 0.539 | 0.458 |
-| filename-only | full | 44 | 0.0% | 36.7% | 49.6% | 0.539 | 0.458 |
-| bm25 | core | 44 | 2.3% | 56.8% | 69.6% | 0.787 | 0.734 |
-| bm25 | distractors | 44 | 2.3% | 56.8% | 68.3% | 0.787 | 0.723 |
-| bm25 | noise | 44 | 0.0% | 54.9% | 64.8% | 0.756 | 0.673 |
-| bm25 | full | 44 | 0.0% | 54.9% | 63.1% | 0.756 | 0.661 |
+| filename-only | core | 44 | 2.3% | 37.7% | 54.7% | 0.563 | 0.493 |
+| filename-only | distractors | 44 | 2.3% | 37.7% | 54.7% | 0.563 | 0.493 |
+| filename-only | noise | 44 | 0.0% | 36.7% | 49.5% | 0.539 | 0.458 |
+| filename-only | full | 44 | 0.0% | 36.7% | 49.5% | 0.539 | 0.458 |
+| bm25 | core | 44 | 2.3% | 56.7% | 69.4% | 0.787 | 0.734 |
+| bm25 | distractors | 44 | 2.3% | 56.7% | 68.2% | 0.787 | 0.723 |
+| bm25 | noise | 44 | 0.0% | 54.5% | 64.5% | 0.756 | 0.670 |
+| bm25 | full | 44 | 0.0% | 54.5% | 62.7% | 0.756 | 0.658 |
 
 ## brackenridge-civil
 

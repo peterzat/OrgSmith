@@ -149,8 +149,12 @@ def load_canonical_map(evals_dir: Path) -> dict[str, str]:
 
     A document that carries byte-identical evidence to another (a derived
     exact duplicate, a misfiled copy, a transmittal email attaching it)
-    answers every question its canonical answers, so scoring maps both the
-    expected and the returned sets through this table before comparing.
+    answers every question its canonical answers, so returning a member
+    *satisfies* the requirement for its canonical. The table is never used
+    to rewrite the required set: membership is directional (a transmittal
+    carries the memo's bytes, but the memo does not carry the transmittal's
+    body), so collapsing a required pair would let a system that omitted
+    one of them score correct.
 
     Returns an empty map when the org emitted no clusters.json, which makes
     canonicalization the identity function: a pre-M17 `evals/` directory
@@ -166,8 +170,45 @@ def load_canonical_map(evals_dir: Path) -> dict[str, str]:
     }
 
 
-def _canonicalize(docs, canonical: dict[str, str]) -> set[str]:
-    return {canonical.get(d, d) for d in docs}
+def _cover(
+    raw: list[str],
+    required: set[str],
+    acceptable: set[str],
+    canonical: dict[str, str],
+) -> tuple[set[str], list[str], list[str]]:
+    """Grade one answer list against a required set, without rewriting it.
+
+    Returns (covered, condensed, extra). A required document covers ITSELF
+    even when it is also a cluster member (a transmittal that is required in
+    its own right is not satisfied by the memo it carries), which is why the
+    membership test runs second. A member of a cluster whose canonical is
+    required covers that canonical. Acceptable documents are dropped: they
+    occupy no rank and earn no penalty. Everything else is extra, reported
+    as the path the system actually wrote.
+
+    `condensed` is the answer in wire order, each covering document replaced
+    by the required document it covers, deduped keeping the first occurrence,
+    so the system's own ordering survives into the rank-aware metrics."""
+    covered: set[str] = set()
+    condensed: list[str] = []
+    extra: list[str] = []
+    for doc in raw:
+        if doc in required:
+            target = doc
+        else:
+            source = canonical.get(doc)
+            if source is not None and source in required:
+                target = source
+            elif doc in acceptable:
+                continue
+            else:
+                extra.append(doc)
+                target = canonical.get(doc, doc)
+        if target in required:
+            covered.add(target)
+        if target not in condensed:
+            condensed.append(target)
+    return covered, condensed, extra
 
 
 def _score_docset(
@@ -189,16 +230,19 @@ def _score_docset(
     strict headline, where abstaining is the correct answer. Visibility
     passes `ranked=False`: it is a raw exact set with no notion of rank.
 
-    M17: both sides are canonicalized through the equivalence clusters
-    first, so returning a byte-identical copy of an expected document (or
-    both the copy and the original) is correct rather than an error. Then
-    the question's acceptable documents are dropped from the answer: their
-    rendered text carries the same evidence, so returning one is never
-    penalized, and they are never required, so missing one costs nothing.
+    M17: the required set is the question's own `expected_docs`, never
+    rewritten. Equivalence clusters only let an answer *satisfy* a required
+    document, so returning a byte-identical copy of an expected document (or
+    both the copy and the original) is correct rather than an error, while a
+    required transmittal and the memo it carries stay two distinct
+    obligations. Then the question's acceptable documents are dropped from
+    the answer: their rendered text carries the same evidence, so returning
+    one is never penalized, and they are never required, so missing one
+    costs nothing.
 
-    Order matters. Canonicalization runs first because a cluster member
-    stands in for its original; acceptable documents are dropped second and
-    are never cluster members, so the two relaxations cannot interfere."""
+    Order matters. Coverage runs first because a cluster member stands in
+    for its original; acceptable documents are dropped second and are never
+    cluster members, so the two relaxations cannot interfere."""
     canonical = canonical or {}
     given = {a.id: a.docs for a in answers.answers}
     gradable = [
@@ -212,23 +256,15 @@ def _score_docset(
     f1s: list[float] = []
     per_question: list[dict] = []
     for q in gradable:
-        expected = _canonicalize(q.expected_docs, canonical)
-        acceptable = set(q.acceptable_docs) - expected
+        required = set(q.expected_docs)
+        acceptable = set(q.acceptable_docs) - required
         raw = [d.strip() for d in given.get(q.id, [])]
-        # The condensed list: canonicalized, acceptable documents removed so
-        # they occupy no rank and earn no penalty, deduped keeping the first
-        # occurrence so the system's own ordering survives.
-        condensed: list[str] = []
-        for doc in raw:
-            doc = canonical.get(doc, doc)
-            if doc not in acceptable and doc not in condensed:
-                condensed.append(doc)
-        got = set(condensed)
+        covered, condensed, extra = _cover(raw, required, acceptable, canonical)
 
-        if ranked and expected:
-            hits = len(expected & got)
+        if ranked and required:
+            hits = len(covered)
             precision = hits / len(condensed) if condensed else 0.0
-            recall = hits / len(expected)
+            recall = hits / len(required)
             precisions.append(precision)
             recalls.append(recall)
             f1s.append(
@@ -236,9 +272,9 @@ def _score_docset(
                 if precision + recall
                 else 0.0
             )
-            per_question.append(_rank_metrics(expected, condensed))
+            per_question.append(_rank_metrics(required, condensed))
 
-        if got == expected:
+        if covered == required and not extra:
             result.correct += 1
             continue
         result.failures.append(
@@ -249,16 +285,11 @@ def _score_docset(
                 # answer, so say that rather than listing "extra" documents
                 # against an empty expected set.
                 "abstention_expected": not q.answerable,
-                "missing": sorted(expected - got),
+                "missing": sorted(required - covered),
                 # Report what the system actually returned, not its
                 # canonical form, so a failure line names a real path.
                 # Acceptable documents never appear here: they were dropped.
-                "extra": sorted(
-                    d
-                    for d in raw
-                    if canonical.get(d, d) not in expected
-                    and canonical.get(d, d) not in acceptable
-                ),
+                "extra": sorted(extra),
                 "answered": q.id in given,
             }
         )
@@ -339,10 +370,10 @@ def score_extraction(
     for q in gradable:
         answer = given.get(q.id)
         raw_docs = [d.strip() for d in answer.docs] if answer else []
-        expected_docs = _canonicalize(q.expected_docs, canonical)
-        got_docs = _canonicalize(raw_docs, canonical)
+        required = set(q.expected_docs)
+        covered, _condensed, extra = _cover(raw_docs, required, set(), canonical)
         value_ok = answer is not None and answer.value.strip() == q.expected_value
-        docs_ok = answer is not None and got_docs == expected_docs
+        docs_ok = answer is not None and covered == required and not extra
         result.value_correct += int(value_ok)
         result.attribution_correct += int(docs_ok)
         if value_ok and docs_ok:
@@ -357,10 +388,8 @@ def score_extraction(
                 "value_ok": value_ok,
                 "expected_value": q.expected_value,
                 "got_value": answer.value if answer else None,
-                "docs_missing": sorted(expected_docs - got_docs),
-                "docs_extra": sorted(
-                    d for d in raw_docs if canonical.get(d, d) not in expected_docs
-                ),
+                "docs_missing": sorted(required - covered),
+                "docs_extra": sorted(extra),
             }
         )
     return result

@@ -18,6 +18,7 @@ from ..artifacts import (
     load_manifest,
     load_mention_map,
 )
+from ..doctext import mask_surfaces
 from ..paths import OrgPaths
 from ..schemas import (
     AliasSighting,
@@ -383,19 +384,6 @@ def scan_corpus(paths: OrgPaths, manifest, engagements, foundation) -> dict:
     return texts
 
 
-def _mask(text: str, surfaces) -> str:
-    """Text with the given surfaces removed, so a scan for a short token
-    cannot match inside a longer planned name (an alias `Jim` standing
-    inside a planned `Jim Halpert` belongs to Halpert, not to whoever
-    registered `Jim`)."""
-    import re as _re
-
-    for surface in sorted(surfaces, key=len, reverse=True):
-        if surface:
-            text = _re.sub(rf"(?<!\w){_re.escape(surface)}(?!\w)", " ", text)
-    return text
-
-
 def build_retrieval(
     charter, foundation, engagements, manifest, mention_map, texts=None
 ) -> list[RetrievalQuestion]:
@@ -489,7 +477,7 @@ def build_retrieval(
                         if entity != owner
                         for s in surfaces
                     }
-                    text = _mask(text, others)
+                    text = mask_surfaces(text, others)
                 if surface_in_text(surface, text):
                     hits.add(path)
             return hits
@@ -809,7 +797,7 @@ def build_diagnostics(
                 here = planned.get(path, {})
                 if alias in here.get(person.id, set()):
                     continue  # planned: this document may say it
-                masked = _mask(
+                masked = mask_surfaces(
                     text,
                     {
                         s

@@ -61,9 +61,16 @@ still become acceptable, which is the point: it visibly names them.
 ## Equivalence clusters
 
 `clusters.json` groups documents that carry byte-identical evidence to a
-canonical document. Scoring maps both the expected and the returned sets
-through it before comparing, so returning a copy in place of its original,
-or beside it, is correct.
+canonical document. Scoring maps the returned set through it: a member
+*satisfies* a requirement for its canonical, so returning a copy in place
+of its original, or beside it, is correct.
+
+The required set is never rewritten. Membership is directional (a
+transmittal carries the memo's bytes; the memo does not carry the
+transmittal's covering note), so a document that is required in its own
+right has to be returned in its own right. Where a transmittal states a
+fact itself, it and the document it carries are two required documents, and
+returning only one of them is a miss.
 
 Two membership bases, both **verified at emit time, never taken from a
 label**:

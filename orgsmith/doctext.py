@@ -17,6 +17,23 @@ from __future__ import annotations
 import re
 
 
+def mask_surfaces(text: str, surfaces) -> str:
+    """Text with the given surfaces removed, so a scan for a short token
+    cannot match inside a longer planned name (an alias `Jim` standing
+    inside a planned `Jim Halpert` belongs to Halpert, not to whoever
+    registered `Jim`).
+
+    Public because it is a shared contract, not one module's helper: the
+    eval emitter's alias diagnostics and the MENT-03 validator rule must
+    mask identically or they disagree about the same document. Longest
+    surface first, and the same non-word lookarounds `surface_in_text`
+    uses, so masking and scanning agree on what a standalone token is."""
+    for surface in sorted(surfaces, key=len, reverse=True):
+        if surface:
+            text = re.sub(rf"(?<!\w){re.escape(surface)}(?!\w)", " ", text)
+    return text
+
+
 def image_only(entry) -> bool:
     """A scan with no OCR layer exposes no extractable text by design."""
     return bool(entry.render_params.get("scan")) and not entry.render_params.get(
