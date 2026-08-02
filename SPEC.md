@@ -12,7 +12,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
 
 ### Acceptance Criteria
 
-- [ ] **Byte-copy equivalence clusters.** Every derived byte-copy
+- [x] **Byte-copy equivalence clusters.** Every derived byte-copy
   (`exact_duplicate`, `misfile`, byte-identity verified by hash at emit time,
   never assumed from the kind label) and every transmittal carrying a
   byte-identical attachment is an equivalence-class member of its source,
@@ -26,7 +26,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   fleet-wide property test (every byte-identical derived copy of a required
   doc is accepted), so they survive the regenerations.
 
-- [ ] **Rendered-truth acceptance for mention and alias questions.** Mention
+- [x] **Rendered-truth acceptance for mention and alias questions.** Mention
   and alias questions carry scan-derived acceptable documents: word-boundary
   hits for the canonical full name or exact alias token in extracted document
   text, beyond the planned set. Acceptable docs are never penalized and never
@@ -40,7 +40,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   stated limitations; every emitted `evals/README.md` cites the policy
   version.
 
-- [ ] **Fact-value consistency diagnostics.** Every extraction
+- [x] **Fact-value consistency diagnostics.** Every extraction
   `expected_value` surface is scanned corpus-wide at emit. Hits outside
   required-plus-clusters are recorded in an emitted diagnostics artifact
   (value collisions, unplanned-alias sightings, incidental-mention counts),
@@ -68,7 +68,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   payload. Ground-truth answers score 100% on every suite, org, and split,
   fleet-wide, before and after the regenerations.
 
-- [ ] **Graph contract covers participation and dates** (cut-line eligible
+- [x] **Graph contract covers participation and dates** (cut-line eligible
   per plan). Engagement entities enter the scored contract and participant
   edges stop being stripped: northgate's 22 participant edges are scorable
   end-to-end by naming engagements (pre-regen checkpoint; property test
@@ -76,21 +76,21 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   credit ratio is reported; a dateless answer file validates and scores
   identical edge precision/recall to v2.1.1.
 
-- [ ] **Unanswerable questions exist and score** (cut-line eligible per
+- [x] **Unanswerable questions exist and score** (cut-line eligible per
   plan). Empty-gold questions are emitted with an answerable-false marker
   instead of being dropped (the hollowell p:sharon.woods question exists
   pre-regen); abstention or returning only acceptable docs scores correct,
   an invented answer fails with an abstention-expected failure, and ranked
   aggregates skip unanswerables.
 
-- [ ] **Derived evals are stable and tamper-evident.** `emit-evals` is
+- [x] **Derived evals are stable and tamper-evident.** `emit-evals` is
   byte-idempotent on all nine orgs; a new EVAL-01 validator re-derives
   committed `evals/` and fails on any drifted, missing, or extra file
   (mutating one byte of a committed evals file yields a finding; an org
   whose evals were never emitted skips visibly); `tools/checksums.py
   --check` passes whenever the turn is at rest.
 
-- [ ] **Alias-agreement discipline.** A default-off charter knob gates two
+- [x] **Alias-agreement discipline.** A default-off charter knob gates two
   ingest rejections (a registered alias token in resolved authored text
   without a planned mention for that doc; an alias registered to one person
   appearing in another person's persona) and a validate-time MENT-03 twin.
@@ -99,7 +99,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   (recorded checkpoint), and a synthetic-org unit test keeps proving the
   rejection and the rule after the regen.
 
-- [ ] **Keyless baselines.** Filename-only and BM25 retrieval baselines
+- [x] **Keyless baselines.** Filename-only and BM25 retrieval baselines
   (pure Python, offline, deterministic, documented tokenizer and
   tie-breaking) produce ordinary answer files scored by the ordinary scorer,
   with committed per-org summaries for all nine orgs plus a fleet baselines
@@ -107,7 +107,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   scores appear in each data card. No vector, embedding, or model baseline
   ships.
 
-- [ ] **Per-org data cards.** A derived data-card emitter writes a card for
+- [x] **Per-org data cards.** A derived data-card emitter writes a card for
   each of the nine orgs stating: feature matrix from the charter, document
   counts (authored/static/derived, format mix), question counts per family
   with difficulty tags and answerable counts, split cardinalities with an
@@ -124,7 +124,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   mention-gold disagreements are a policy gap closed by acceptable sets, not
   a wrong ledger), and the disposition table.
 
-- [ ] **Onboarding and docs are reconciled.** The README start-here count
+- [x] **Onboarding and docs are reconciled.** The README start-here count
   matches the fleet table (53 authored and static plus 13 derived, 66 in
   all); "read northgate and stop" gains coverage pointers naming the org
   that exercises each capability the exemplar lacks pre-regen; metric
@@ -246,4 +246,4 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
 *Prior spec (2026-07-28): fit-and-finish turn closing and hardening BYO,
 reconciling docs, pruning the backlog; 7/7 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-29","title":"M17: the answer-key turn","criteria_total":16,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-07-29","title":"M17: the answer-key turn","criteria_total":16,"criteria_met":10} -->
