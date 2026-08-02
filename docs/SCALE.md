@@ -3,14 +3,15 @@
 What size should a generated org be? Three different answers, because
 there are three different jobs. This document settles the targets and the
 reasoning. **The reference fleet landed at M11 (2026-07-17); the flagship
-is M17 and is not built.** (M12 split: the capability layer landed as M12a,
+is M18 and is not built.** (M12 split: the capability layer landed as M12a,
 the committed `calderwood-partners` pilot, and the window-defeating flagship
-renumbered to M17, after the M13-M16 realism wave.)
+renumbered to M18, after the M13-M16 realism wave and the M17 answer-key
+turn.)
 
 **Milestone numbers here follow the M8 renumbering** (SPEC.md states it
 once): the roster/finance/brief work is M8, the document-supply model and
 realistic lengths are M9, parallel authoring and the scale fixes are M10,
-the reference fleet is M11, and the flagship is M17. Earlier drafts of this
+the reference fleet is M11, and the flagship is M18. Earlier drafts of this
 file numbered the fleet M10 and the flagship M11.
 
 **Two measurement bases appear below.** The original reasoning was
@@ -28,7 +29,7 @@ constants.
 | --- | --- | --- | --- |
 | fixtures | ~20 docs | regression oracles | now (`dev-mini`, 22 docs) |
 | reference fleet | ~30-60 per org | prove breadth | **landed M11** (6 orgs, 258 docs) |
-| flagship | one org, large enough to defeat a context window | prove scale | M17 |
+| flagship | one org, large enough to defeat a context window | prove scale | M18 |
 
 These are three jobs, not three points on one line. Conflating them is
 what produced the contradiction this document exists to resolve: an

@@ -55,11 +55,14 @@ whose formulas recompute to the values the finance ledger says. The
 `-metadata` directory is the answer key.
 
 **Start here: [`northgate-staffing`](companies/northgate-staffing/).** The
-firm above, 53 documents across eight years, and its [answer
-key](companies/northgate-staffing-metadata/). Real files in your browser,
-nothing to clone, install, or authenticate. It is the org we consider our best
-current example, so it is also the one our review board was pointed at, and
-[every flaw it found is published below](#what-is-not-modeled-today).
+firm above, 66 documents across eight years (53 authored and static, plus 13
+derived noise files), its [answer key](companies/northgate-staffing-metadata/),
+and its [data card](companies/northgate-staffing-metadata/DATA-CARD.md), which
+states in one page what it exercises and what it does not. Real files in your
+browser, nothing to clone, install, or authenticate. It is the org we consider
+our best current example, so it is also the one our review board was pointed
+at, and [every flaw it found is published
+below](#what-is-not-modeled-today).
 
 Six more companies are committed beside it, [the fleet](#what-ships-today)
 exists to show breadth (1999–2025, legacy binaries, degraded scans,
@@ -110,7 +113,16 @@ before any prose existed, every question has a computed answer:
   you can measure exactly what your OCR pipeline lost.
 
 `score` grades an external system's answers against any suite with
-per-question attribution, from nothing but the `evals/` directory. Ground
+per-question attribution, from nothing but the `evals/` directory. Retrieval
+reports a strict exact-set headline plus macro precision/recall/F1 and the
+rank-aware metrics (Recall@5, Recall@10, MRR, nDCG@10) computed from your
+answer list's own order; extraction reports value accuracy and attribution
+accuracy separately rather than only their conjunction; the people graph
+reports per-edge-kind recall and optional dated-edge credit. Two keyless
+retrievers ([docs/BASELINES.md](docs/BASELINES.md)) put a floor under all of
+it, so you can tell a hard question from a structurally easy one. What counts
+as a right answer is a versioned contract:
+[docs/LABEL-POLICY.md](docs/LABEL-POLICY.md). Ground
 truth scores 100% by construction, which is the sanity check that the
 harness is measuring what you think.
 
@@ -135,6 +147,24 @@ them. **If you are here to eyeball the output, read
 [`northgate-staffing`](companies/northgate-staffing/) and stop.** The rest of
 the table is here to show the axes the generator moves along (era, sector, ACL
 posture, format mix, mail, noise), not to be read end to end.
+
+**Unless you came for a specific hard case, in which case the exemplar is the
+wrong org.** It is a clean, open-ACL, all-modern-format firm, and it
+deliberately leaves most of the difficulty knobs off. Go straight to the org
+that exercises what you need:
+
+| you want | read |
+| --- | --- |
+| degraded scans with a synthetic OCR layer | [`saltmarsh-environmental`](companies/saltmarsh-environmental/), [`verdant-health`](companies/verdant-health/) |
+| pre-2007 `.doc`/`.xls`/`.ppt` binaries | [`brackenridge-civil`](companies/brackenridge-civil/) |
+| real multi-message mail threads | [`ashcombe-advisory`](companies/ashcombe-advisory/), [`hollowell-ip`](companies/hollowell-ip/), [`meridian-actuarial`](companies/meridian-actuarial/) |
+| a restricted (departmental) ACL | [`calderwood-partners`](companies/calderwood-partners/), [`hollowell-ip`](companies/hollowell-ip/), [`meridian-actuarial`](companies/meridian-actuarial/), [`saltmarsh-environmental`](companies/saltmarsh-environmental/) |
+| a fee that lives only on a signature page, or a date only in a filename | [`meridian-actuarial`](companies/meridian-actuarial/) |
+| duplicate/draft/misfile noise around the answers | [`northgate-staffing`](companies/northgate-staffing/), [`calderwood-partners`](companies/calderwood-partners/), [`ashcombe-advisory`](companies/ashcombe-advisory/) |
+| scale (218 documents) | [`calderwood-partners`](companies/calderwood-partners/) |
+
+Every org's data card states its own feature matrix, so the table above is a
+shortcut rather than the record.
 
 Document spans below are the real dates on the files, not the window the
 recipe allowed:
@@ -196,7 +226,7 @@ sample, deterministic duplicates and drafts, and the style/voice layer. Its
 measurements and six-dimension board findings are in its
 [`GENERATION-REPORT.md`](companies/calderwood-partners-metadata/GENERATION-REPORT.md),
 and it validates clean (29 rules run, 0 errors). The full window-defeating
-flagship is M17; this is the same capability at a tenth the scale.
+flagship is M18; this is the same capability at a tenth the scale.
 
 #### The M14 email pilot
 
@@ -480,7 +510,7 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 35-rule validator ties every document back to the
+- After rendering, a 37-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
@@ -546,7 +576,7 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 relying on for any given claim.
 
 **Oracles, strongest, and where all the facts live.** An oracle recomputes
-the answer from ground truth. The 35-rule validator and the eval suites are
+the answer from ground truth. The 37-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
 is why the airlock exists: the model never sees a value it is placing, so
@@ -630,16 +660,18 @@ separate boxes makes it hard to quote one as the other.
 
 ### The evidence, concretely
 
-- **602 tests** across the default three tiers (`bin/test`), keyless and
-  offline (596 pass with six legacy-format tests skipped where LibreOffice is
-  absent, as in CI), plus a fourth `flagship` tier (20 tests) for the two
+- **879 tests** across the default three tiers (`bin/test`), keyless and
+  offline (850 pass; the 29 skips are property tests stepping over orgs whose
+  recipe leaves the feature under test off, each naming the org and the
+  reason), plus a fourth `flagship` tier (70 tests) for the two
   large pilot orgs (`calderwood-partners` and the M14 email pilot
   `ashcombe-advisory`), run on their own so the everyday loop stays fast;
   the `org` tier validates the
   eight fleet fixtures (plus `dev-mini`), derives every recipe, re-derives every
-  fixture's structure byte-identically, and checks each fleet recipe's internal
-  coherence in ~5s, while `bin/test flagship` re-validates the two largest,
-  `calderwood-partners` and `ashcombe-advisory`, in ~4s.
+  fixture's structure byte-identically, re-derives every answer key and every
+  baseline summary, and checks each fleet recipe's internal
+  coherence in ~11s, while `bin/test flagship` re-validates the two largest,
+  `calderwood-partners` and `ashcombe-advisory`, in ~12s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
   capability added since has had to keep them loading, validating, and
@@ -916,7 +948,7 @@ a signature page and a date lives only in a filename. **`hollowell-ip`**,
 runs as real threads (the `doc_culture.mail` block); the exemplar
 **`northgate-staffing`**, **`calderwood-partners`**, and **`ashcombe-advisory`**
 carry the organizational-noise suite (duplicates, drafts, misfiles). **`dev-mini`**
-is deliberately bare: it is the regression oracle the ~510-test unit tier builds
+is deliberately bare: it is the regression oracle the ~600-test unit tier builds
 on, so it stays small and cheap rather than proving breadth. Its one exception
 is `style_specs`, on since M15: the per-person voice ledger is cheap, and a
 tracer is the right place to prove it end to end.
@@ -965,7 +997,7 @@ tracer is the right place to prove it end to end.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 35-rule validator, capability
+- The airlock, checkpoint/resume, the 37-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - The quality instrument, which measures the one thing the validator
@@ -1014,7 +1046,19 @@ and distribution lists). M15 added organizational noise, persona voice, and a
 distributional dashboard, and M16 regenerated the whole fleet under the wave's
 knobs, re-froze it, and cut the v2.1 release.
 
-**After the wave: M17, one flagship org large enough to defeat a context
+**M17 made the answer key tell the truth about the rendered corpus.** An
+external reviewer cloned the repo, parsed all 66 exemplar documents, ran the
+validator, and found that the evaluation layer mistook planned provenance for
+rendered truth: a byte-identical duplicate of an expected document scored as
+an error, mention gold came from the plan rather than from the text, scoring
+was an exact-set unit test with no ranking, and the advertised four-point
+degradation curve was two-point on every org. The turn added equivalence
+clusters, scan-derived acceptable sets, ranked metrics, keyless baselines,
+per-org data cards, a versioned label policy, and a validator rule (EVAL-01)
+that re-derives the committed answer key. The critique and its disposition
+are in [docs/EXTERNAL-CRITIQUE-2026-07-28.md](docs/EXTERNAL-CRITIQUE-2026-07-28.md).
+
+**Next: M18, one flagship org large enough to defeat a context
 window.** The whole committed fleet is ~280 documents; you can fit that in a
 1M-token context and answer questions about it without retrieving anything,
 which means it cannot prove a retrieval system works. The pilots are the right

@@ -189,6 +189,19 @@ graph_targets:
   #                              # current-employer domain even on prior-era
   #                              # documents (the ledger owns a single email
   #                              # field).
+  # alias_agreement: true        # M17: a registered nickname may appear in
+  #                              # authored text only where the plan placed
+  #                              # it, and no persona may claim a nickname
+  #                              # the ledger registered to somebody else.
+  #                              # Enforced at persona ingest and authoring
+  #                              # ingest, twinned at validate time by
+  #                              # MENT-03. Turn it on with
+  #                              # nickname_aliases >= 1; without a
+  #                              # registered nickname there is nothing to
+  #                              # disagree about. Default off, so an org
+  #                              # generated before the discipline keeps
+  #                              # validating (see the exemplar's published
+  #                              # "Jim" residual).
 
 # hard_cases:                    # facts planted to be hard to find (optional, default 0)
 #   signature_page_facts: 1      # fees appearing ONLY on the letter's signature page

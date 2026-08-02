@@ -59,10 +59,26 @@ pull request, and is the actual gate.
 
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
-| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 14 | < 1s | 0.19s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 465 (459 in CI) | ~20s | ~30s local / ~15s CI |
-| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 72 | ~8s | 3.6s warm |
-| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 20 | ~5s | ~4s |
+| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 16 | < 1s | 0.40s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 608 (602 in CI) | ~70s | ~67s local |
+| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 226 (+29 skipped) | ~15s | 11.3s warm |
+| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 65 (+5 skipped) | ~15s | 11.8s |
+
+Measured 2026-08-02 at the close of M17. The `org` tier's skips are property
+tests stepping over orgs whose recipe leaves the feature under test off (no
+transmittal mail, no mundane mail, no clusters); each names the org and the
+reason, so a skip is never silent.
+
+**The `org` tier's budget moved from ~8s to ~15s at M17, deliberately.** The
+answer key is now derived partly from what the rendered documents actually
+contain, so re-deriving it (EVAL-01) and recomputing the keyless baselines
+both extract text from every committed document. That cost is real and is
+recorded rather than gated: the tier went 3.6s -> 11.3s warm, of which the
+text extraction is the overwhelming majority. Two things keep it bounded: a
+session-scoped shared reader in `tests/conftest.py` (`committed_doctext`),
+so the org tier extracts each document once rather than once per module, and
+the retrieval baselines index each corpus once per split rather than once
+per question. Neither is a wall-clock assert; see the budget note below.
 
 Budgets come from SPEC.md and are stated, not enforced: a wall-clock
 assert on a shared runner is a flaky test, and this suite has none.
@@ -281,7 +297,9 @@ control, so its false-positive rate is unmeasured (BACKLOG:
 Two targets running different suites, deliberately.
 
 - **CI (`ubuntu-latest`, no LibreOffice)** is the gate: all three tiers on
-  every push and PR. Six legacy tests skip (545 passing + 6 skipped).
+  every push and PR. Six legacy tests skip there on top of the 29
+  charter-derived property skips (844 passing + 35 skipped; 850 + 29 on a
+  box with LibreOffice, measured 2026-08-02).
   Legacy *validation* is still covered here, by the org tier reading
   `brackenridge-civil`'s real `.doc`/`.xls`/`.ppt` binaries pure-Python
   (olefile, xlrd) with `soffice` absent -- a stronger check than the
