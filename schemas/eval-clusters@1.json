@@ -1,0 +1,84 @@
+{
+  "$defs": {
+    "EvalCluster": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical": {
+          "title": "Canonical",
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "$ref": "#/$defs/EvalClusterMember"
+          },
+          "title": "Members",
+          "type": "array"
+        }
+      },
+      "required": [
+        "canonical",
+        "members"
+      ],
+      "title": "EvalCluster",
+      "type": "object"
+    },
+    "EvalClusterMember": {
+      "additionalProperties": false,
+      "description": "One document carrying byte-identical evidence to its cluster's\ncanonical source.\n\n`basis` records how it was verified, never merely labeled:\n  byte_copy   the rendered file hashes equal to the canonical's\n  attachment  a transmittal email carries the canonical as a\n              byte-identical MIME part\n`noise_kind` is the manifest's derivation label for a byte_copy, kept\nso a consumer holding only `evals/` can see the lineage; it is\ndescriptive, and membership never rests on it.",
+      "properties": {
+        "basis": {
+          "enum": [
+            "byte_copy",
+            "attachment"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "noise_kind": {
+          "default": "",
+          "title": "Noise Kind",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "basis"
+      ],
+      "title": "EvalClusterMember",
+      "type": "object"
+    }
+  },
+  "$id": "orgsmith/eval-clusters@1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Equivalence classes for scoring: returning a member in place of, or\nbeside, its canonical is never an error, because the member visibly\ncontains the same evidence.\n\nNear-duplicates (drafts, version-chain members, stale templates) are\ndeliberately absent: telling a draft from its final is a capability\nunder test, not a scoring accident.",
+  "properties": {
+    "clusters": {
+      "items": {
+        "$ref": "#/$defs/EvalCluster"
+      },
+      "title": "Clusters",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "orgsmith/eval-clusters@1",
+      "default": "orgsmith/eval-clusters@1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "clusters"
+  ],
+  "title": "EvalClusters",
+  "type": "object"
+}

@@ -24,21 +24,26 @@ from orgsmith.schemas import (
     VisibilityAnswers,
 )
 
-from conftest import REPO, build_culture_stages
+from conftest import REPO, build_culture_stages, build_rendered
 
 pytestmark = pytest.mark.unit
 
+# Scans and an OCR layer, no legacy: emit-evals needs a rendered share
+# (M17), and rendering legacy binaries needs LibreOffice, which CI
+# deliberately does not have. The legacy difficulty tag is derived from the
+# manifest, so it is proven below against a planned-only org instead.
 FORMAT_LINES = (
     "  scanned_ratio: 0.67\n"
     "  ocr_layer_rate: 0.5\n"
-    "  legacy_ratio: 0.5\n"
 )
+
+LEGACY_LINES = FORMAT_LINES + "  legacy_ratio: 0.5\n"
 
 
 @pytest.fixture(scope="module")
 def format_org(tmp_path_factory):
-    paths = build_culture_stages(
-        tmp_path_factory.mktemp("evals-fmt"), FORMAT_LINES
+    paths = build_rendered(
+        build_culture_stages(tmp_path_factory.mktemp("evals-fmt"), FORMAT_LINES)
     )
     assert run_acl(paths) == 0
     assert run_emit_evals(paths) == 0
@@ -80,8 +85,28 @@ def test_extraction_questions_carry_difficulty_tags(format_org):
         }
         assert got == want, q["id"]
         seen |= got
-    # The recipe puts all three properties in play.
-    assert seen == {"scan:ocr", "scan:image-only", "format:legacy"}
+    # The recipe puts both scan properties in play (legacy below).
+    assert seen == {"scan:ocr", "scan:image-only"}
+
+
+def test_legacy_hosts_earn_the_format_tag(tmp_path):
+    """The `format:legacy` difficulty tag is derived from the manifest, so it
+    is provable without LibreOffice: plan a legacy-bearing org and read the
+    extraction questions straight off the builder, no render, no emit."""
+    from orgsmith.artifacts import load_engagements, load_manifest
+    from orgsmith.evals.emit import build_extraction
+    from orgsmith.schemas import BASE_FORMAT
+
+    paths = build_culture_stages(tmp_path, LEGACY_LINES)
+    manifest = [e for e in load_manifest(paths) if e.authoring != "derived"]
+    by_path = {e.path: e for e in manifest}
+    questions = build_extraction(load_engagements(paths), manifest)
+    tagged = [q for q in questions if "format:legacy" in q.tags]
+    assert tagged, "no extraction question hosted on a legacy binary"
+    for q in questions:
+        hosts = [by_path[p] for p in q.expected_docs]
+        legacy = any(h.format in BASE_FORMAT for h in hosts)
+        assert ("format:legacy" in q.tags) == legacy, q.id
 
 
 def test_readme_documents_tags_only_when_present(format_org):
@@ -158,8 +183,12 @@ def test_ground_truth_scores_100_over_format_org(format_org):
 )
 def test_committed_fixture_evals_reemit_byte_identically(slug, tmp_path):
     src = REPO / "companies" / f"{slug}-metadata"
-    dst = tmp_path / "companies" / f"{slug}-metadata"
-    shutil.copytree(src, dst)
+    shutil.copytree(src, tmp_path / "companies" / f"{slug}-metadata")
+    # M17: the share comes too. Equivalence clusters are decided by hashing
+    # the rendered files, so re-emission is only meaningful with them present.
+    shutil.copytree(
+        REPO / "companies" / slug, tmp_path / "companies" / slug
+    )
     paths = OrgPaths(root=tmp_path, slug=slug)
     assert run_emit_evals(paths) == 0
     committed = sorted(p.name for p in (src / "evals").iterdir())

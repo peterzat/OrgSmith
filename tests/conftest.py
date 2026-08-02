@@ -413,3 +413,18 @@ def run_authoring(paths: OrgPaths, max_batches: int = 20) -> int:
             ingest_author_batch(paths, wo_id)
             batches += 1
     raise AssertionError("authoring did not converge")
+
+
+def build_rendered(paths: OrgPaths) -> OrgPaths:
+    """Take a docplan-stage org through the scripted airlock and render.
+
+    M17 made render a prerequisite of emit-evals: the answer key is derived
+    partly from what the rendered files actually contain (byte-identity for
+    the equivalence clusters), so a fixture that only planned an org can no
+    longer emit suites over it."""
+    from orgsmith.render import run_render
+
+    run_enrichment(paths)
+    run_authoring(paths)
+    assert run_render(paths) == 0
+    return paths

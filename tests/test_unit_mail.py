@@ -482,12 +482,20 @@ def test_transmittal_carries_byte_identical_attachment(ecology_org):
         assert int(t.render_params["thread_pos"]) == 0
 
 
-def test_transmittal_attributed_in_extraction_evals(ecology_org):
+def test_transmittal_is_an_equivalence_member_not_gold(ecology_org):
+    """M17: a transmittal used to be unioned into `expected_docs` wherever
+    its attached document was an answer, which put an email in the canonical
+    answer set for a fact that lives in a memo. It is an equivalence-cluster
+    member instead: the required set names only the document, and returning
+    either the document or the email that carries it byte-identically scores
+    correct."""
     import json
 
     from orgsmith.acl import run_acl
     from orgsmith.assemble import run_assemble
     from orgsmith.evals.emit import run_emit_evals
+    from orgsmith.evals.score import score_extraction
+    from orgsmith.schemas import ExtractionAnswers
 
     assert run_assemble(ecology_org) == 0
     assert run_acl(ecology_org) == 0
@@ -500,14 +508,49 @@ def test_transmittal_attributed_in_extraction_evals(ecology_org):
         .read_text()
         .splitlines()
     ]
-    # every extraction question that names the attached doc also credits the
-    # transmittal email that carries it byte-identically.
+    hosted = [q for q in extraction if attached in q["expected_docs"]]
+    assert hosted, "the attached document hosts no extraction fact"
+    # The transmittal appears in a required set only for facts it states
+    # itself, never merely because it attaches a document that states them.
+    own = set(trans.facts_refs) | {k.fact_id for k in trans.key_facts}
     for q in extraction:
-        if attached in q["expected_docs"]:
-            assert trans.path in q["expected_docs"], q["fact_id"]
-    assert any(
-        trans.path in q["expected_docs"] for q in extraction
-    ), "transmittal never attributed a fact"
+        if trans.path in q["expected_docs"]:
+            assert q["fact_id"] in own, q["fact_id"]
+    assert any(q["fact_id"] not in own for q in hosted), (
+        "every attached fact is also stated by the transmittal, so this "
+        "org cannot demonstrate the gold-union removal"
+    )
+
+    clusters = json.loads((ecology_org.evals_dir / "clusters.json").read_text())
+    members = {
+        (c["canonical"], m["path"], m["basis"])
+        for c in clusters["clusters"]
+        for m in c["members"]
+    }
+    assert (attached, trans.path, "attachment") in members
+
+    # Answering with the transmittal in place of the document it carries is
+    # correct; so is answering with both.
+    for docs in ([trans.path], [attached, trans.path]):
+        answers = ExtractionAnswers.model_validate(
+            {
+                "suite": "extraction",
+                "answers": [
+                    {
+                        "id": q["id"],
+                        "value": q["expected_value"],
+                        "docs": [
+                            d for d in q["expected_docs"] if d != attached
+                        ]
+                        + docs,
+                    }
+                    for q in hosted
+                ],
+            }
+        )
+        result = score_extraction(ecology_org.evals_dir, answers)
+        failed = [f for f in result.failures if f["id"] in {q["id"] for q in hosted}]
+        assert not failed, failed
 
 
 def test_eml03_detects_a_mismatched_attachment(ecology_org, tmp_path, capsys):

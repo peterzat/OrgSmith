@@ -38,6 +38,7 @@ from conftest import (
     build_acl_stages,
     build_hardcase_stages,
     build_knobbed_stages,
+    build_rendered,
 )
 
 pytestmark = pytest.mark.unit
@@ -45,7 +46,9 @@ pytestmark = pytest.mark.unit
 
 @pytest.fixture(scope="module")
 def org(tmp_path_factory):
-    paths = build_knobbed_stages(tmp_path_factory.mktemp("evals-org"))
+    paths = build_rendered(
+        build_knobbed_stages(tmp_path_factory.mktemp("evals-org"))
+    )
     assert run_emit_evals(paths) == 0
     return paths
 
@@ -291,7 +294,7 @@ def test_extraction_covers_committed_fixtures():
 
 
 def test_extraction_location_tags_on_hardcase_org(tmp_path):
-    paths = build_hardcase_stages(tmp_path)
+    paths = build_rendered(build_hardcase_stages(tmp_path))
     assert run_emit_evals(paths) == 0
     questions = _extraction_questions(paths)
     by_loc = {}
@@ -425,7 +428,7 @@ def test_committed_dev_mini_has_no_ambiguity_tags():
 
 @pytest.fixture(scope="module")
 def acl_org(tmp_path_factory):
-    paths = build_acl_stages(tmp_path_factory.mktemp("evals-acl"))
+    paths = build_rendered(build_acl_stages(tmp_path_factory.mktemp("evals-acl")))
     assert run_emit_evals(paths) == 0
     return paths
 

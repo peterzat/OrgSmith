@@ -1,0 +1,66 @@
+{
+  "schema_id": "orgsmith/eval-clusters@1",
+  "slug": "ashcombe-advisory",
+  "clusters": [
+    {
+      "canonical": "Engagements/Barrera Group/2017.02.18 - Kickoff Memo - Corporate Positioning.docx",
+      "members": [
+        {
+          "path": "Engagements/Barrera Group/2017.03.15 - Email 1 - Corporate Positioning - Barrera Group.eml",
+          "basis": "attachment",
+          "noise_kind": ""
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group.eml",
+      "members": [
+        {
+          "path": "Engagements/Barrera Group/2017.03.23 - Email 5 - Corporate Positioning - Barrera Group FINAL FINAL.eml",
+          "basis": "byte_copy",
+          "noise_kind": "exact_duplicate"
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx",
+      "members": [
+        {
+          "path": "Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml",
+          "basis": "attachment",
+          "noise_kind": ""
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Gallegos, Pope and Marsh/2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml",
+      "members": [
+        {
+          "path": "Engagements/Suarez-Jones/Copy of 2024.03.18 - Email 6 - Reputation Audit - Gallegos, Pope and Marsh.eml",
+          "basis": "byte_copy",
+          "noise_kind": "misfile"
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor.eml",
+      "members": [
+        {
+          "path": "Engagements/Kirby-Taylor/2022.05.27 - Email 2 - Media Relations Program - Kirby-Taylor - Copy.eml",
+          "basis": "byte_copy",
+          "noise_kind": "exact_duplicate"
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Kirby-Taylor/Meeting Minutes 2022-06-15 - Kirby-Taylor.docx",
+      "members": [
+        {
+          "path": "Firm/Meeting Minutes 2022-06-15 - Kirby-Taylor (1).docx",
+          "basis": "byte_copy",
+          "noise_kind": "misfile"
+        }
+      ]
+    }
+  ]
+}

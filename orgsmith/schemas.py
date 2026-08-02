@@ -32,6 +32,7 @@ SCHEMA_IDS = {
     "manifest_entry": "orgsmith/manifest-entry@1",
     "mention_map": "orgsmith/mention-map@1",
     "graph_expected": "orgsmith/graph-expected@1",
+    "eval_clusters": "orgsmith/eval-clusters@1",
     "work_order": "orgsmith/work-order@1",
     "enrichment_deliverable": "orgsmith/enrichment-deliverable@1",
     "authoring_deliverable": "orgsmith/authoring-deliverable@1",
@@ -1072,6 +1073,43 @@ class ExtractionQuestion(StrictModel):
     expected_docs: list[str]  # share-relative paths, sorted
     location: LocationPolicy = "body"
     tags: list[str] = []
+
+
+class EvalClusterMember(StrictModel):
+    """One document carrying byte-identical evidence to its cluster's
+    canonical source.
+
+    `basis` records how it was verified, never merely labeled:
+      byte_copy   the rendered file hashes equal to the canonical's
+      attachment  a transmittal email carries the canonical as a
+                  byte-identical MIME part
+    `noise_kind` is the manifest's derivation label for a byte_copy, kept
+    so a consumer holding only `evals/` can see the lineage; it is
+    descriptive, and membership never rests on it.
+    """
+
+    path: str  # share-relative
+    basis: Literal["byte_copy", "attachment"]
+    noise_kind: str = ""
+
+
+class EvalCluster(StrictModel):
+    canonical: str  # share-relative path of the document the members carry
+    members: list[EvalClusterMember]
+
+
+class EvalClusters(StrictModel):
+    """Equivalence classes for scoring: returning a member in place of, or
+    beside, its canonical is never an error, because the member visibly
+    contains the same evidence.
+
+    Near-duplicates (drafts, version-chain members, stale templates) are
+    deliberately absent: telling a draft from its final is a capability
+    under test, not a scoring accident."""
+
+    schema_id: Literal["orgsmith/eval-clusters@1"] = SCHEMA_IDS["eval_clusters"]
+    slug: str
+    clusters: list[EvalCluster]
 
 
 class RetrievalAnswerItem(StrictModel):

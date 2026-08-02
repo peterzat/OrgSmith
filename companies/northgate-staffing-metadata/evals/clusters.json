@@ -1,0 +1,36 @@
+{
+  "schema_id": "orgsmith/eval-clusters@1",
+  "slug": "northgate-staffing",
+  "clusters": [
+    {
+      "canonical": "Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED.pdf",
+      "members": [
+        {
+          "path": "Engagements/Coleman Ltd/2016.02.25 - Engagement Letter - Coleman Ltd - EXECUTED - Copy.pdf",
+          "basis": "byte_copy",
+          "noise_kind": "exact_duplicate"
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Coleman Ltd/2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx",
+      "members": [
+        {
+          "path": "Engagements/Coleman Ltd/Copy of 2016.06.18 - Status Report - Coleman Ltd v2 FINAL.docx",
+          "basis": "byte_copy",
+          "noise_kind": "exact_duplicate"
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Davis and Sons/2018.09.23 - Status Report - Davis and Sons v2 FINAL.docx",
+      "members": [
+        {
+          "path": "Finance/2018.09.23 - Status Report - Davis and Sons v2 FINAL (1).docx",
+          "basis": "byte_copy",
+          "noise_kind": "misfile"
+        }
+      ]
+    }
+  ]
+}

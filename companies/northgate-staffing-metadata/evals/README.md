@@ -62,6 +62,31 @@ way. Entities may carry `ambiguity:<class>` tags (surname-collision,
 nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
 
+## clusters.json
+
+Equivalence classes: documents that carry byte-identical evidence to a
+`canonical` document. Two membership bases, both verified when the suites
+were emitted rather than taken from a label:
+
+- `byte_copy`: a derived noise file (an exact duplicate, or a copy misfiled
+  into the wrong folder) whose rendered bytes hash equal to the canonical's.
+- `attachment`: a transmittal email carrying the canonical document as a
+  byte-identical MIME attachment.
+
+**Scoring canonicalizes through this file.** Returning a member in place of,
+or beside, its canonical is correct on retrieval and extraction: the member
+literally contains the answer, so scoring it as an error would punish a
+system for being right. Members occupy no rank of their own and earn no
+extra credit.
+
+Near-duplicates are deliberately **not** members: a draft, a version-chain
+member, and a stale template all resemble their source without matching it,
+and telling them apart is a capability under test. They stay ordinary
+distractors.
+
+An `evals/` directory with no `clusters.json` scores exactly as it did
+before clusters existed: canonicalization falls back to identity.
+
 ## visibility.jsonl
 
 One question per internal person: the exact set of share documents that
@@ -96,3 +121,10 @@ answers.json --evals-dir <this directory>`. Ground-truth answers score 100%
 on every split by construction, because every expected answer is in `core`,
 which every split contains. That is the sanity check that the split machinery
 did not drop an answer, not a claim about any system.
+
+Splits are a **retrieval and extraction** device.
+
+The visibility suite is graded over the whole share by nature: the question
+is which documents a person may read, which every document in the corpus
+answers one way or the other. It therefore contributes no documents to
+`core` and is not gradable on `core` or `distractors`. Grade it on `full`.

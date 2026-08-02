@@ -20,6 +20,9 @@ from ..artifacts import (
 )
 from ..paths import OrgPaths
 from ..schemas import (
+    EvalCluster,
+    EvalClusterMember,
+    EvalClusters,
     ExtractionQuestion,
     GraphEntityExpected,
     GraphExpected,
@@ -95,6 +98,36 @@ nickname-alias, multi-affiliation); the scorer reports per-class recall
 alongside the overall score when tags are present.
 """
 
+# Appended only when the org holds equivalence clusters (an org with no
+# derived byte-copies and no transmittal mail emits an empty clusters.json
+# and no section).
+_README_CLUSTERS = """
+## clusters.json
+
+Equivalence classes: documents that carry byte-identical evidence to a
+`canonical` document. Two membership bases, both verified when the suites
+were emitted rather than taken from a label:
+
+- `byte_copy`: a derived noise file (an exact duplicate, or a copy misfiled
+  into the wrong folder) whose rendered bytes hash equal to the canonical's.
+- `attachment`: a transmittal email carrying the canonical document as a
+  byte-identical MIME attachment.
+
+**Scoring canonicalizes through this file.** Returning a member in place of,
+or beside, its canonical is correct on retrieval and extraction: the member
+literally contains the answer, so scoring it as an error would punish a
+system for being right. Members occupy no rank of their own and earn no
+extra credit.
+
+Near-duplicates are deliberately **not** members: a draft, a version-chain
+member, and a stale template all resemble their source without matching it,
+and telling them apart is a capability under test. They stay ordinary
+distractors.
+
+An `evals/` directory with no `clusters.json` scores exactly as it did
+before clusters existed: canonicalization falls back to identity.
+"""
+
 # Appended only when extraction questions carry difficulty tags, so
 # pre-M5 orgs (no scans, no legacy binaries) re-emit byte-identical
 # README files.
@@ -149,20 +182,111 @@ answers.json --evals-dir <this directory>`. Ground-truth answers score 100%
 on every split by construction, because every expected answer is in `core`,
 which every split contains. That is the sanity check that the split machinery
 did not drop an answer, not a claim about any system.
+
+Splits are a **retrieval and extraction** device.
+"""
+
+# Appended after the splits section only when the org emits a visibility
+# suite, so an org without an ACL overlay never mentions one.
+_README_SPLITS_VISIBILITY = """
+The visibility suite is graded over the whole share by nature: the question
+is which documents a person may read, which every document in the corpus
+answers one way or the other. It therefore contributes no documents to
+`core` and is not gradable on `core` or `distractors`. Grade it on `full`.
 """
 
 
-def _attachment_map(manifest) -> dict[str, list[str]]:
-    """{attached-source path: [transmittal email paths]} (M14). A transmittal
-    email carries a rendered share document byte-identically, so wherever that
-    document is an expected answer the transmittal is an equally valid source.
-    Derived from the manifest, so pre-M14 orgs get an empty map."""
-    out: dict[str, list[str]] = {}
+# Derived kinds whose rendered bytes can equal their source's. Membership is
+# still decided by hashing (a `misfile` of a doc whose renderer stamps a path
+# would not hash equal, and must not be claimed as one); this set only says
+# which kinds are worth hashing. Drafts, version-chain members, and stale
+# templates are excluded by doctrine, not by hash: telling a near-duplicate
+# from its final is a capability under test, so they may never be acceptable.
+_BYTE_COPY_KINDS = ("exact_duplicate", "misfile")
+
+
+def build_clusters(paths: OrgPaths, manifest) -> EvalClusters:
+    """Equivalence classes of documents carrying byte-identical evidence.
+
+    Two membership bases, both verified at emit time rather than trusted:
+
+      byte_copy   a derived noise doc whose rendered file hashes equal to
+                  its manifest source's. The `noise_kind` label picks the
+                  candidates; the hash decides.
+      attachment  a transmittal email carrying a share document as a
+                  byte-identical MIME part (the M14 map, which used to be
+                  unioned into gold and is an equivalence class instead).
+
+    Membership is transitive through the canonical: a duplicate of a
+    transmittal resolves to the document the transmittal carries. A member
+    whose file (or whose source's file) is missing is silently no member,
+    because there are no bytes to compare; MAN-01 and FILE-01 own that
+    failure, and a missing file can only ever make scoring stricter."""
+    from ..state import sha256_file
+
+    by_id = {e.doc_id: e for e in manifest}
+    digests: dict[str, str] = {}
+
+    def digest(path: str) -> str | None:
+        if path not in digests:
+            f = paths.share_dir / path
+            digests[path] = sha256_file(f) if f.is_file() else ""
+        return digests[path] or None
+
+    # member path -> (canonical path, basis, noise_kind), before transitive
+    # resolution to a root canonical.
+    parent: dict[str, tuple[str, str, str]] = {}
+
     for e in manifest:
-        ap = e.render_params.get("attach_path")
-        if ap and e.authoring != "derived":
-            out.setdefault(str(ap), []).append(e.path)
-    return out
+        if e.authoring == "derived" and e.noise_kind in _BYTE_COPY_KINDS:
+            source = by_id.get(e.noise_of or "")
+            if source is None:
+                continue
+            mine, theirs = digest(e.path), digest(source.path)
+            if mine is not None and mine == theirs:
+                parent[e.path] = (source.path, "byte_copy", e.noise_kind)
+        attach = e.render_params.get("attach_path")
+        if attach and e.authoring != "derived":
+            carried = str(attach)
+            if _carries_bytes(paths, e.path, carried):
+                parent[e.path] = (carried, "attachment", "")
+
+    def root(path: str) -> str:
+        seen = {path}
+        while path in parent:
+            path = parent[path][0]
+            if path in seen:  # a cycle cannot happen; never loop if it does
+                break
+            seen.add(path)
+        return path
+
+    grouped: dict[str, list[EvalClusterMember]] = {}
+    for member, (_canonical, basis, kind) in parent.items():
+        grouped.setdefault(root(member), []).append(
+            EvalClusterMember(path=member, basis=basis, noise_kind=kind)
+        )
+    clusters = [
+        EvalCluster(
+            canonical=canonical,
+            members=sorted(members, key=lambda m: m.path),
+        )
+        for canonical, members in sorted(grouped.items())
+    ]
+    return EvalClusters(slug=paths.slug, clusters=clusters)
+
+
+def _carries_bytes(paths: OrgPaths, eml_path: str, carried: str) -> bool:
+    """Whether a transmittal's MIME attachment is byte-identical to the share
+    document it claims to carry. EML-03 fails the org when it is not; here a
+    mismatch simply means no equivalence, so a broken attachment can never
+    relax scoring."""
+    from ..render.eml import eml_attachment_bytes
+
+    message = paths.share_dir / eml_path
+    source = paths.share_dir / carried
+    if not message.is_file() or not source.is_file():
+        return False
+    return eml_attachment_bytes(message) == source.read_bytes()
 
 
 def build_retrieval(
@@ -170,15 +294,12 @@ def build_retrieval(
 ) -> list[RetrievalQuestion]:
     questions: list[tuple[str, list[str], list[str]]] = []
 
-    attach_map = _attachment_map(manifest)
-
     def docs_with_fact(ref: str) -> list[str]:
-        hosts = {e.path for e in manifest if ref in e.facts_refs}
-        # M14: a transmittal email carries its source byte-identically, so it
-        # is an equally valid place to find that source's facts.
-        for src in list(hosts):
-            hosts.update(attach_map.get(src, ()))
-        return sorted(hosts)
+        # M17: a transmittal email carrying this document byte-identically is
+        # NOT unioned into the required set any more. It is an equivalence
+        # member instead (clusters.json), so returning either satisfies the
+        # question while the required set stays the canonical answer.
+        return sorted({e.path for e in manifest if ref in e.facts_refs})
 
     for eng in engagements.engagements:
         questions.append(
@@ -317,7 +438,6 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
     (body facts) or key_facts (which also carry filename-only facts that
     never enter facts_refs); pre-key_facts manifests still work through
     facts_refs alone."""
-    attach_map = _attachment_map(manifest)
     questions: list[ExtractionQuestion] = []
     serial = 0
     for eng in engagements.engagements:
@@ -328,12 +448,9 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
                 if fact.id in e.facts_refs
                 or any(k.fact_id == fact.id for k in e.key_facts)
             ]
-            host_paths = {e.path for e in host_entries}
-            # M14: a transmittal attaches its source byte-identically, so it
-            # is an equally valid host for that source's facts.
-            for src in list(host_paths):
-                host_paths.update(attach_map.get(src, ()))
-            hosts = sorted(host_paths)
+            # M17: a transmittal attaching this document is an equivalence
+            # member (clusters.json), not a unioned host. See docs_with_fact.
+            hosts = sorted({e.path for e in host_entries})
             if not hosts:
                 continue
             suffix = fact.id.rsplit(".", 1)[-1]
@@ -440,7 +557,7 @@ def build_graph_expected(charter, foundation, graph) -> GraphExpected:
     return GraphExpected(slug=charter.slug, entities=entities, edges=scorable)
 
 
-def build_splits(manifest, questions, extraction, visibility) -> dict:
+def build_splits(manifest, questions, extraction) -> dict:
     """Nested corpus splits for a retrieval degradation curve (M12,
     external-validity-program). A split is the set of documents a system
     searches; the answer key is unchanged, so a system's recall stays perfect
@@ -455,6 +572,16 @@ def build_splits(manifest, questions, extraction, visibility) -> dict:
       noise        core + derived noise (duplicates and drafts)
       full         the whole corpus (distractors and noise together)
 
+    M17: splits are a retrieval and extraction device only. They used to
+    union the visibility suite's gold into `core` as well, and because
+    ACL-02 guarantees every document is readable by someone, that made
+    `core` the whole authored corpus on every org in the fleet: the
+    advertised four-point curve was a two-point one everywhere. Visibility
+    is graded over the full share by nature (the question is "what may this
+    person read?", which every document answers one way or the other), so
+    it no longer contributes answers here and is not gradable on the
+    core/distractors splits. See docs/EVAL-SPLITS.md.
+
     Derived, never stored: a pure function of the manifest and the suites."""
     authored = {e.path for e in manifest if e.authoring != "derived"}
     derived = {e.path for e in manifest if e.authoring == "derived"}
@@ -464,12 +591,9 @@ def build_splits(manifest, questions, extraction, visibility) -> dict:
         answer_paths.update(q.expected_docs)
     for q in extraction:
         answer_paths.update(q.expected_docs)
-    for q in visibility:
-        answer_paths.update(q.expected_docs)
-    # A noise document can be ACL-grantable (it sits in the share), so the
-    # visibility suite may name it. It is still never an answer for the split
-    # curve: keep derived docs out of core so core/distractors carry only
-    # authored docs and noise appears only in the noise/full splits.
+    # Derived docs are never answers for the split curve: keep them out of
+    # core so core/distractors carry only authored docs and noise appears
+    # only in the noise/full splits.
     answer_paths -= derived
     return {
         "core": sorted(answer_paths),
@@ -481,7 +605,13 @@ def build_splits(manifest, questions, extraction, visibility) -> dict:
 
 def run_emit_evals(paths: OrgPaths) -> int:
     state = load_state(paths)
-    require_stages(state, "charter", "foundation", "fabric", "docplan")
+    # M17: render is a prerequisite. The answer key is now derived partly
+    # from what the rendered files actually contain (byte-identity for the
+    # equivalence clusters), not only from what the plan says they should,
+    # so the share has to exist before the suites can be honest about it.
+    require_stages(
+        state, "charter", "foundation", "fabric", "docplan", "render"
+    )
 
     charter = load_charter(paths)
     foundation = load_foundation(paths)
@@ -517,8 +647,12 @@ def run_emit_evals(paths: OrgPaths) -> int:
     write_jsonl("retrieval.jsonl", questions)
     write_jsonl("extraction.jsonl", extraction)
     write_model(paths.evals_dir / "graph_expected.json", expected)
+    clusters = build_clusters(paths, manifest)
+    write_model(paths.evals_dir / "clusters.json", clusters)
 
     readme = _README.format(slug=charter.slug)
+    if clusters.clusters:
+        readme += _README_CLUSTERS
     new_tags = ("scan:ocr", "scan:image-only", "format:legacy")
     if any(t in q.tags for q in extraction for t in new_tags):
         readme += _README_FORMAT_TAGS
@@ -535,7 +669,7 @@ def run_emit_evals(paths: OrgPaths) -> int:
             f"run `python -m orgsmith acl {charter.slug}`)"
         )
 
-    splits = build_splits(manifest, questions, extraction, visibility)
+    splits = build_splits(manifest, questions, extraction)
     (paths.evals_dir / "splits.json").write_text(
         json.dumps(
             {"slug": charter.slug, "splits": splits}, indent=2, ensure_ascii=False
@@ -544,6 +678,8 @@ def run_emit_evals(paths: OrgPaths) -> int:
         encoding="utf-8",
     )
     readme += _README_SPLITS
+    if visibility:
+        readme += _README_SPLITS_VISIBILITY
     (paths.evals_dir / "README.md").write_text(readme, encoding="utf-8")
     print(
         f"emit-evals: {len(questions)} retrieval questions, "

@@ -106,3 +106,10 @@ answers.json --evals-dir <this directory>`. Ground-truth answers score 100%
 on every split by construction, because every expected answer is in `core`,
 which every split contains. That is the sanity check that the split machinery
 did not drop an answer, not a claim about any system.
+
+Splits are a **retrieval and extraction** device.
+
+The visibility suite is graded over the whole share by nature: the question
+is which documents a person may read, which every document in the corpus
+answers one way or the other. It therefore contributes no documents to
+`core` and is not gradable on `core` or `distractors`. Grade it on `full`.

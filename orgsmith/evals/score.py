@@ -79,13 +79,47 @@ def load_split_corpus(evals_dir: Path, split: str) -> set[str]:
     return set(splits[split])
 
 
+def load_canonical_map(evals_dir: Path) -> dict[str, str]:
+    """{member path: canonical path} from clusters.json (M17).
+
+    A document that carries byte-identical evidence to another (a derived
+    exact duplicate, a misfiled copy, a transmittal email attaching it)
+    answers every question its canonical answers, so scoring maps both the
+    expected and the returned sets through this table before comparing.
+
+    Returns an empty map when the org emitted no clusters.json, which makes
+    canonicalization the identity function: a pre-M17 `evals/` directory
+    scores byte-identically through this scorer."""
+    path = evals_dir / "clusters.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text("utf-8"))
+    return {
+        member["path"]: cluster["canonical"]
+        for cluster in data.get("clusters", [])
+        for member in cluster.get("members", [])
+    }
+
+
+def _canonicalize(docs, canonical: dict[str, str]) -> set[str]:
+    return {canonical.get(d, d) for d in docs}
+
+
 def _score_docset(
-    questions: list[RetrievalQuestion], answers, corpus: set[str] | None = None
+    questions: list[RetrievalQuestion],
+    answers,
+    corpus: set[str] | None = None,
+    canonical: dict[str, str] | None = None,
 ) -> RetrievalResult:
     """Exact doc-set matching, shared by the retrieval and visibility
     suites (identical answers contract). When `corpus` is given (a split), a
     question whose expected answers are not all in the split is not gradable
-    there and is skipped, so ground truth scores 100% on every split."""
+    there and is skipped, so ground truth scores 100% on every split.
+
+    M17: both sides are canonicalized through the equivalence clusters
+    first, so returning a byte-identical copy of an expected document (or
+    both the copy and the original) is correct rather than an error."""
+    canonical = canonical or {}
     given = {a.id: a.docs for a in answers.answers}
     gradable = [
         q
@@ -94,8 +128,9 @@ def _score_docset(
     ]
     result = RetrievalResult(total=len(gradable), correct=0)
     for q in gradable:
-        expected = set(q.expected_docs)
-        got = {d.strip() for d in given.get(q.id, [])}
+        expected = _canonicalize(q.expected_docs, canonical)
+        raw = [d.strip() for d in given.get(q.id, [])]
+        got = _canonicalize(raw, canonical)
         if got == expected:
             result.correct += 1
             continue
@@ -104,7 +139,11 @@ def _score_docset(
                 "id": q.id,
                 "tags": q.tags,
                 "missing": sorted(expected - got),
-                "extra": sorted(got - expected),
+                # Report what the system actually returned, not its
+                # canonical form, so a failure line names a real path.
+                "extra": sorted(
+                    d for d in raw if canonical.get(d, d) not in expected
+                ),
                 "answered": q.id in given,
             }
         )
@@ -114,7 +153,12 @@ def _score_docset(
 def score_retrieval(
     evals_dir: Path, answers: RetrievalAnswers, corpus: set[str] | None = None
 ) -> RetrievalResult:
-    return _score_docset(load_questions(evals_dir), answers, corpus)
+    return _score_docset(
+        load_questions(evals_dir),
+        answers,
+        corpus,
+        load_canonical_map(evals_dir),
+    )
 
 
 def load_visibility_questions(evals_dir: Path) -> list[RetrievalQuestion]:
@@ -152,6 +196,7 @@ def score_extraction(
     evals_dir: Path, answers: ExtractionAnswers, corpus: set[str] | None = None
 ) -> ExtractionResult:
     questions = load_extraction_questions(evals_dir)
+    canonical = load_canonical_map(evals_dir)
     given = {a.id: a for a in answers.answers}
     gradable = [
         q
@@ -161,9 +206,11 @@ def score_extraction(
     result = ExtractionResult(total=len(gradable), correct=0)
     for q in gradable:
         answer = given.get(q.id)
-        got_docs = {d.strip() for d in answer.docs} if answer else set()
+        raw_docs = [d.strip() for d in answer.docs] if answer else []
+        expected_docs = _canonicalize(q.expected_docs, canonical)
+        got_docs = _canonicalize(raw_docs, canonical)
         value_ok = answer is not None and answer.value.strip() == q.expected_value
-        docs_ok = answer is not None and got_docs == set(q.expected_docs)
+        docs_ok = answer is not None and got_docs == expected_docs
         if value_ok and docs_ok:
             result.correct += 1
             continue
@@ -176,8 +223,10 @@ def score_extraction(
                 "value_ok": value_ok,
                 "expected_value": q.expected_value,
                 "got_value": answer.value if answer else None,
-                "docs_missing": sorted(set(q.expected_docs) - got_docs),
-                "docs_extra": sorted(got_docs - set(q.expected_docs)),
+                "docs_missing": sorted(expected_docs - got_docs),
+                "docs_extra": sorted(
+                    d for d in raw_docs if canonical.get(d, d) not in expected_docs
+                ),
             }
         )
     return result
