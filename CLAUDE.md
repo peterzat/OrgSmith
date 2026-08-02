@@ -48,35 +48,44 @@ README.md for the product shape and SPEC.md for the current unit of work.
   anywhere in the repo (enforced by a short-tier test; see
   `tests/test_short.py` for the check).
 
-## Frozen-fixture carve-out, answer-key turn (M17), opened 2026-08-02
+## Frozen-fixture carve-out, answer-key turn (M17): CLOSED as of 2026-08-02
 
-The frozen-fixtures rule is suspended in the following scoped way and no
-other: **`northgate-staffing` may be regenerated exactly once, wholesale**,
-under a recipe enriched with existing knobs (departmental ACL, mail threads
-with mundane traffic and both mention exemptions, scans with an OCR layer,
-signature-page and filename-date hard cases) plus the new
-`graph_targets.alias_agreement`. Regeneration is always wholesale (delete and
-re-run the full pipeline from the recipe), never an in-place edit of ledgers,
-manifest, or prose.
+The M17 carve-out is **closed**. `northgate-staffing` was regenerated once,
+wholesale, under a recipe enriched with existing knobs (departmental ACL, mail
+threads with mundane traffic and both mention exemptions, scans with an OCR
+layer, signature-page and filename-date hard cases) plus
+`graph_targets.alias_agreement`, then boarded and re-frozen. `PINNED = SLUGS`
+is enforced fleet-wide again and was green at every commit, including mid-turn.
 
-No other org's frozen artifacts move. `dev-mini`, `ashcombe-advisory`,
-`calderwood-partners`, `brackenridge-civil`, `saltmarsh-environmental`,
-`verdant-health`, `hollowell-ip`, and `meridian-actuarial` stay frozen; their
-derived artifacts re-emit freely, as always. The two mail demonstrators were
-in the original M17 plan and are **deliberately out of this carve-out** (user
-decision, 2026-08-02): the recipient-exemption knob they need is landed and
-proven inert, but they are not re-run, and their data cards record the
-full-name-in-body device as an open residual.
+Additive evolution was never suspended and remains in force. Both knobs added
+this turn (`graph_targets.alias_agreement`,
+`mail.exempt_recipient_mentions`) landed default-off with inert schema
+defaults on the existing `orgsmith/<kind>@<ver>` schema ids, drew nothing from
+existing seed streams, and were proven inert against the frozen fleet before
+the exemplar turned them on. A test now asserts both halves of that
+grandfathering: an org that adopted a knob runs its rule clean, and an org
+that did not still skips visibly. Any post-turn capability lands the same way.
 
-`PINNED = SLUGS` stays enforced and must be green at every commit, including
-mid-turn. Additive evolution is NOT suspended: both new knobs
-(`graph_targets.alias_agreement`, `mail.exempt_recipient_mentions`) landed
-default-off with inert schema defaults, drew nothing from existing seed
-streams, and were proven inert against the frozen fleet before this org
-turned them on.
+`evals/`, `acl.json`, `GENERATION-REPORT.md`, `review/`, `baselines/`,
+`DATA-CARD.md`, and PERMISSIONS.md remain derived and may always be
+re-emitted. Regenerating a committed org's ledgers, manifest, or authored
+prose again requires a fresh, user-approved carve-out.
 
-The carve-out closes when northgate is regenerated, boarded, and re-frozen,
-at which point this paragraph is replaced by closure language.
+**The mail demonstrators were deliberately left out** (user decision,
+2026-08-02). `hollowell-ip` and `meridian-actuarial` still carry the
+full-name-in-body device described below; the
+`mail.exempt_recipient_mentions` knob that would close it is landed and
+proven inert, but the orgs were not re-run. Their data cards record it.
+
+Residual on the exemplar, recorded not fixed (board findings are published,
+never prose-fixed): the recipient exemption removed the device from
+person-to-person mail but not from distribution-list mail, where the To
+header carries the list address rather than member names, so MENT-01 still
+needs the body mention. The result is a broadcast that greets one person by
+first name and then names them in full to the room. Closing that needs
+either a mention model that understands list membership or a planner that
+stops giving a broadcast a single participant, and it is its own unit of
+work.
 
 ## Frozen-fixture carve-out, realism wave (M13-M16): CLOSED as of M16 (2026-07-28)
 

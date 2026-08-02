@@ -16,6 +16,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from orgsmith import __version__  # noqa: E402
+
 ORGS = [
     "ashcombe-advisory", "brackenridge-civil", "calderwood-partners",
     "hollowell-ip", "meridian-actuarial", "northgate-staffing",
@@ -59,7 +62,7 @@ def render() -> str:
         rows.append((slug, digest, n))
         fleet.update(f"{slug}:{digest}\n".encode())
     lines = [
-        "# Checksum manifest — OrgSmith v2.1.1",
+        f"# Checksum manifest — OrgSmith v{__version__}",
         "",
         "SHA-256 rollup per committed org, over every committed file under",
         "`companies/<slug>/` and `companies/<slug>-metadata/` in sorted path order",

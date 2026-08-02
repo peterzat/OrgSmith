@@ -55,7 +55,7 @@ whose formulas recompute to the values the finance ledger says. The
 `-metadata` directory is the answer key.
 
 **Start here: [`northgate-staffing`](companies/northgate-staffing/).** The
-firm above, 66 documents across eight years (53 authored and static, plus 13
+firm above, 76 documents across eight years (63 authored and static, plus 13
 derived noise files), its [answer key](companies/northgate-staffing-metadata/),
 and its [data card](companies/northgate-staffing-metadata/DATA-CARD.md), which
 states in one page what it exercises and what it does not. Real files in your
@@ -171,7 +171,7 @@ recipe allowed:
 
 | company | docs | share | answer key | data card |
 | --- | --- | --- | --- | --- |
-| **the exemplar**, a 12-person executive search firm, 2015–2023, business calendar, sample book, the full noise suite | 66 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) | [card](companies/northgate-staffing-metadata/DATA-CARD.md) |
+| **the exemplar**, a 12-person executive search firm, 2015–2023, departmental ACL, mail threads, scans, both hard cases, the full noise suite | 76 | [northgate-staffing](companies/northgate-staffing/) | [key](companies/northgate-staffing-metadata/) | [card](companies/northgate-staffing-metadata/DATA-CARD.md) |
 | 25-person management consultancy, 2008–2022, the largest here, duplicate/draft noise | 218 | [calderwood-partners](companies/calderwood-partners/) | [key](companies/calderwood-partners-metadata/) | [card](companies/calderwood-partners-metadata/DATA-CARD.md) |
 | 16-person comms advisory, 2017–2024, the email pilot: real threads plus the full noise suite | 104 | [ashcombe-advisory](companies/ashcombe-advisory/) | [key](companies/ashcombe-advisory-metadata/) | [card](companies/ashcombe-advisory-metadata/DATA-CARD.md) |
 | 12-person actuarial consultancy, 2016–2024, a roster that grows, real mail threads | 72 | [meridian-actuarial](companies/meridian-actuarial/) | [key](companies/meridian-actuarial-metadata/) | [card](companies/meridian-actuarial-metadata/DATA-CARD.md) |
@@ -181,13 +181,13 @@ recipe allowed:
 | 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) | [card](companies/verdant-health-metadata/DATA-CARD.md) |
 | 7-person consultancy, 2019–2023, the test fixture | 23 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) | [card](companies/dev-mini-metadata/DATA-CARD.md) |
 
-Eight fleet companies (plus `dev-mini`), 1999–2025: ~32 MB of browsable share, plus ~13 MB of ground truth beside it.
+Eight fleet companies (plus `dev-mini`), 1999–2025: ~33 MB of browsable share, plus ~14 MB of ground truth beside it.
 
 | | fleet |
 | --- | --- |
 | companies | 8 (+ `dev-mini`) |
 | people (internal) | 101 |
-| planned documents | 635 (497 model-authored + 73 deterministic workbooks + 65 derived noise) |
+| planned documents | 645 (507 model-authored + 73 deterministic workbooks + 65 derived noise) |
 | engagements | 59 |
 | mean words per authored doc | ~540 |
 | mean length against what the brief asked | ~1.0 |
@@ -206,12 +206,12 @@ and ships its six-dimension adversarial board findings beside it.
 
 Per company: 7–25 people, 31–218 documents, 4–22 engagements, a 5–15 year span.
 
-By format: 329 `.docx`, 137 `.eml`, 69 `.xlsx`, 68 `.pdf`, 24 `.doc`, 20
+By format: 314 `.docx`, 147 `.eml`, 65 `.pdf`, 64 `.xlsx`, 24 `.doc`, 20
 `.pptx`, 9 `.xls`, 2 `.ppt`.
 
-By genre: 121 engagement emails, 105 sets of meeting minutes, 84 status
-reports, 78 financial summaries, 71 kickoff memos, 69 engagement letters, 64
-onboarding records, 28 firm overviews, 22 briefing decks, 16 internal emails.
+By genre: 126 engagement emails, 105 sets of meeting minutes, 76 status
+reports, 73 financial summaries, 67 kickoff memos, 66 engagement letters, 64
+onboarding records, 28 firm overviews, 22 briefing decks, 21 internal emails.
 
 #### The largest org: calderwood-partners
 
@@ -316,15 +316,25 @@ under two seconds, with an exact answer key, instead of failing silently on
 ### What is not modeled today
 
 Our own adversarial review board read the exemplar above,
-`northgate-staffing`, and said it better than we could. As of the M13-M16
-realism wave, that exemplar is **regenerated with the wave's knobs turned on**
-(business calendar, sample-book posture, the per-author voice layer, and the
-full organizational-noise suite), so this section is no longer a list of knobs
-left off. It is what the board found once the knobs were on. The current
-findings are **6 major, 1 minor, 1 note across six dimensions**, all in
-`companies/northgate-staffing-metadata/review/findings/`, against a corpus that
-validates clean: 27 rules run, 8 skipped for knobs it still leaves off, 0
-errors.
+`northgate-staffing`, and said it better than we could. As of M17 that
+exemplar is **regenerated again**, this time with the difficulty knobs on that
+it used to leave off: a departmental ACL, real mail threads with mundane
+internal traffic, scans with and without an OCR layer, a fee that lives only
+on a signature page, a date that lives only in a filename, and the
+alias-agreement discipline. So this section is not a list of knobs left off.
+It is what the board found with them on.
+
+The current findings are **2 blockers, 15 major, 16 minor, 4 notes across six
+dimensions**, all in `companies/northgate-staffing-metadata/review/findings/`,
+against a corpus that validates clean: 34 rules run, 3 skipped, 0 errors.
+
+That is a lot more findings than the previous exemplar's eight, and the
+increase is the point rather than a regression. The old org left most of the
+hard knobs off, so most of the surface a reviewer could criticize did not
+exist; turning them on created mail threads, a real access posture, and six
+more engagements' worth of prose to be wrong about. A corpus that exercises
+more has more to find. Read the count as coverage, not as decay, and read the
+findings themselves rather than the number.
 
 **First, what the wave closed on the exemplar itself.** The defects this
 section used to quote at length are gone from `northgate-staffing`, fixed by
@@ -351,52 +361,73 @@ regenerating it rather than by our say-so:
   used to count on every author do not appear in the regenerated exemplar; the
   `style_specs` + `voice_diversify` layer removed the named constructions.
 
+**And what M17 closed on top of that.**
+
+- **The `Jim` collision is gone by construction.** The retired exemplar's
+  headline residual, caught independently by four of six reviewers, was a
+  nickname the ledger registered to one James while a different James's
+  model-authored persona claimed it, so the firm overview called the wrong man
+  Jim and the prose faithfully reported a source that disagreed with itself.
+  `graph_targets.alias_agreement` now rejects that at both ends: a persona
+  claiming somebody else's registered nickname fails enrichment ingest, and
+  authored prose using one where the plan placed no mention fails authoring
+  ingest, with `MENT-03` enforcing the same on committed state. This turn's
+  narrative reviewer verified the result independently: "Jim" occurs exactly
+  once in 76 documents, in the one document whose plan places it. The alias is
+  also recorded mechanically in `evals/diagnostics.json`, so the same class of
+  defect is now visible without a board at all.
+- **The exemplar poses the hard cases it used to advertise and skip.** A fee
+  that lives only on a signature page, a date that lives only in a filename,
+  scans with and without an OCR layer, a departmental ACL where twelve people
+  hold read sets ranging from 0 to 76 documents, and mail that runs as real
+  threads.
+
 **Then, what the board found once those were fixed.** With the loud, checkable
 defects closed, the board had to find subtler things, and the residue is more
 honest about where the generator actually stands:
 
 - **Cross-document voice is still the hard one, and it has no scheduled fix.**
-  The named tics are gone, but same-genre documents by *different* authors
-  still emerge as near-clones under synonym substitution, which is exactly the
-  failure the same-genre n-gram metric cannot see. On the exemplar the board
-  reads a "one thing" closer that isolates the next action in a lapidary final
-  sentence across genres and authors, and five executive-search status reports
-  that collapse to one template across five first-person "I" authors (the pair
-  d:0008 and d:0031 among them). This is the whole reason the board exists:
-  every document is authored by a fresh worker that never saw a sibling, so no
-  author can self-check for it, and it is the one finding class present in
-  **every org in the fleet**.
-- **A fact-layer contradiction, faithfully rendered.** The firm's 2015 overview
-  (d:0006) says Office Manager "James Weiss... around here he is simply Jim,
-  which keeps him straight from the other James on the roster." Nine days
-  later, the CFO-search minutes (d:0007) say "James Grant, whom the team calls
-  Jim." The nickname meant to disambiguate the two Jameses lands on both. The
-  cause is in the ground truth, not the prose: `foundation.json` carries the
-  alias `Jim` on James Grant while James Weiss's persona text claims it, so the
-  generator faithfully rendered a source that contradicts itself. Four of the
-  six reviewers caught it independently. This is a new class of finding the
-  wave surfaced: not sloppy prose, but a structured layer that disagrees with
-  itself, which the prose then reports accurately.
-- **The people-graph filler shows a seam.** To satisfy a minimum-mentions
+  The M17 regeneration improved the *per-person* half measurably: three
+  reviewers' minutes now read as three visibly different writers, and the
+  five-status-reports-on-one-template collapse is reduced. What replaced it is
+  the *per-genre outline*. Two kickoff memos by two authors two years apart are
+  the same memo re-skinned, sharing sentences verbatim; six engagement-opening
+  emails run one script across five authors. The same-genre n-gram metric saw
+  one of those pairs and missed the rest, which is exactly why the board
+  exists. Every document is authored by a fresh worker that never saw a
+  sibling, so no author can self-check for it, and it is the one finding class
+  present in **every org in the fleet**.
+- **A document that describes a different engagement from its own folder.** The
+  Hicks-Castillo closing report says five job families and 57 roles where the
+  five documents before it in the same folder say eleven positions against a
+  twenty-two-company comparison group. Three reviewers reached it independently
+  from three dimensions. No planted fact is contradicted and the validator is
+  clean, because position counts are prose rather than ledger facts, which is
+  precisely the gap: the oracle cannot see a corpus contradicting itself in the
+  space the ledger does not own.
+- **The people-graph filler still shows a seam.** To satisfy a minimum-mentions
   target, a kickoff memo can name and task a colleague who is not an engagement
   participant, and the participant-scoped ACL then denies that same person read
-  access to the very document that tasks them. It reads as two mechanisms
-  (mention quota, access derivation) derived independently and never reconciled.
+  access to the very document that tasks them. Two mechanisms derived
+  independently and never reconciled. It survived the regeneration.
+- **The firm has no 2020.** Revenue rises 10% with no soft quarter, and the two
+  largest travel years in an eleven-year ledger are the two years the sector
+  could not fly, in a corpus whose own 2021 overview says more first meetings
+  now happen over video. The finance model is a smooth growth curve with no
+  shocks in it, which is the `event-simulation` entry in `BACKLOG.md` arriving
+  as a finding.
 
-**One fleet-wide artifact the wave introduced, its worst symptom since fixed.**
-The ingest mention check requires an email author to spell the recipient's full
-legal name in the body (a first-name greeting alone does not satisfy it), so the
-mail demonstrators put it there. On `hollowell-ip` that device produced a
-`To:/Cc:` banner at the top of the message body, and the `.eml` renderer emitted
-it on top of the real headers, a duplicated recipient block visible the instant
-the message opened. That renderer bug is fixed as of v2.1.1: the renderer now
-strips an authored header banner from `.eml` bodies and reads the recipient from
-the transport headers instead, so the mention check still passes and a committed
-test asserts no fleet mail body carries a header banner. The device underneath
-remains. The recipient's full name still appears in the prose to satisfy the
-mention check, and exempting a mail recipient from its required body mentions
-(the way `exempt_author_mentions` already exempts the author), then re-rendering
-the mail orgs, is its own unit of work.
+**One fleet-wide artifact, half closed.** The ingest mention check requires an
+email author to spell the recipient's full legal name in the body, so the mail
+orgs put it there. `mail.exempt_recipient_mentions` (M17) stops the planner
+forcing it, and the regenerated exemplar's person-to-person mail is free of the
+device. It is **not** closed on distribution-list mail: a broadcast's `To`
+header carries the list address rather than member names, so `MENT-01` still
+needs the body mention, and the result is a note that greets one person by
+first name and then names them in full to the room. Nor is it closed on
+`hollowell-ip` and `meridian-actuarial`, which were not regenerated this turn;
+their data cards record it. The related `To:/Cc:` banner bug was fixed in
+v2.1.1 and a committed test asserts no fleet mail body carries a header banner.
 
 **What we think is important about this exemplar.** The point of regenerating
 `northgate-staffing` under the newest version of the framework is not that the
@@ -661,7 +692,7 @@ separate boxes makes it hard to quote one as the other.
 ### The evidence, concretely
 
 - **886 tests** across the default three tiers (`bin/test`), keyless and
-  offline (857 pass; the 29 skips are property tests stepping over orgs whose
+  offline (859 pass; the 27 skips are property tests stepping over orgs whose
   recipe leaves the feature under test off, each naming the org and the
   reason), plus a fourth `flagship` tier (70 tests) for the two
   large pilot orgs (`calderwood-partners` and the M14 email pilot
@@ -931,7 +962,7 @@ those are fleet-wide, so they are not columns here. The columns are what still
 | `calderwood-partners` | departmental |  | 0.3 | 0.5 | ✓ | ✓ | ✓ | ✓ |  | ✓ |  | ✓ | 12/2/3 |
 | `hollowell-ip` | departmental |  |  |  | ✓ |  |  | ✓ |  | ✓ | ✓ |  | 4/1/1 |
 | `meridian-actuarial` | departmental |  |  |  | ✓ | ✓ | ✓ |  |  | ✓ | ✓ |  | 5/1/2 |
-| `northgate-staffing` | open |  |  |  |  |  | ✓ | ✓ |  | ✓ |  | ✓ | 5/1/2 |
+| `northgate-staffing` | departmental |  | 0.5 | 0.34 | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | 5/1/2 |
 | `saltmarsh-environmental` | departmental |  | 0.6 | 0.5 | ✓ | ✓ |  |  | ✓ | ✓ |  |  | 4/1/1 |
 | `verdant-health` | open |  | 0.5 |  |  |  |  |  | ✓ | ✓ |  |  | 1/1/1 |
 | `dev-mini` | open |  |  |  |  |  |  |  |  |  |  |  | 1/1/1 |
@@ -942,12 +973,17 @@ at 1.0 means *every* office document is a real pre-2007 OLE container (24
 those carry a synthetic OCR layer. **`saltmarsh-environmental`** and
 **`verdant-health`** are where a contact changes employer mid-history, with
 dated `works_at` edges and era-correct resolution per document date.
-**`meridian-actuarial`** carries both hard-case knobs, so a fee lives only on
-a signature page and a date lives only in a filename. **`hollowell-ip`**,
-**`meridian-actuarial`**, and **`ashcombe-advisory`** are where engagement mail
-runs as real threads (the `doc_culture.mail` block); the exemplar
-**`northgate-staffing`**, **`calderwood-partners`**, and **`ashcombe-advisory`**
-carry the organizational-noise suite (duplicates, drafts, misfiles). **`dev-mini`**
+**`meridian-actuarial`** and, since M17, the exemplar
+**`northgate-staffing`** carry both hard-case knobs, so a fee lives only on a
+signature page and a date lives only in a filename. **`hollowell-ip`**,
+**`meridian-actuarial`**, **`ashcombe-advisory`**, and
+**`northgate-staffing`** are where engagement mail runs as real threads (the
+`doc_culture.mail` block); **`northgate-staffing`**,
+**`calderwood-partners`**, and **`ashcombe-advisory`**
+carry the organizational-noise suite (duplicates, drafts, misfiles). The
+exemplar is the only org carrying all four of a departmental ACL, threads,
+scans, and both hard cases at once, which is what makes it the one to read
+first. **`dev-mini`**
 is deliberately bare: it is the regression oracle the ~600-test unit tier builds
 on, so it stays small and cheap rather than proving breadth. Its one exception
 is `style_specs`, on since M15: the per-person voice ledger is cheap, and a

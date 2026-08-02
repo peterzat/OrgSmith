@@ -102,3 +102,15 @@ rejected. Read before drafting a new SPEC.md; swept at turn close.
 - **Why deferred:** each is refused for its own reason above; none is refused for cost alone. The common thread is that three of the four require weakening or extending an oracle (FILE-01, the ledger's single-value facts, MAN-01), and this repo's whole argument is that the oracles are the part you can trust.
 - **Revisit criteria:** a consumer reports that a retrieval or extraction system passes here and fails on real shares specifically because nothing is corrupt, contradictory, or dangling (that turns a judgment call into a measured gap); or fact histories with validity intervals are specced for another reason, at which point contradictory corrections become nearly free; or an eval suite is added that scores as-of-a-date answers; or the personal-material exclusion is revisited under an explicit policy about synthetic material concerning synthetic people.
 - **Origin:** spec 2026-07-22 (M15; user-accepted exclusions at adoption, logged by the final criterion).
+
+### mundane-broadcast-names-a-recipient-in-the-body
+- **A distribution-list broadcast greets one person by first name and then names them in full to the room**, because `mail.exempt_recipient_mentions` deliberately does not apply to DL mail: the `To` header carries the list address rather than member names, so MENT-01 still needs the body mention. Found by the M17 board on the regenerated exemplar (`d:0009`, `d:0051`, flagged independently by document_plausibility and narrative_consistency).
+- **Why deferred:** the exemption landed and closed the device on person-to-person mail, which was the fleet-wide artifact M17 set out to fix. Closing the DL half needs either a mention model that understands list membership or a planner that stops giving a broadcast a single participant, and either is a capability change plus a regeneration.
+- **Revisit criteria:** a mail org is regenerated for any other reason; or the mention model gains list-membership awareness; or a consumer reports the broadcast prose as unrealistic.
+- **Origin:** spec 2026-07-29 (M17 board, `northgate-staffing`).
+
+### exemplar-has-no-2020
+- **The exemplar's finance ledger has no COVID**: revenue rises 10% with no soft quarter across 2015-2023, and its two largest travel years are 2020 and 2021, in a corpus whose own 2021 overview says more first meetings now happen over video. Found by the M17 board (finance_realism).
+- **Why deferred:** the finance model is a smooth growth curve by construction, and adding era shocks is the `event-simulation` entry's territory rather than a knob. Faking one firm's 2020 by hand would be a prose fix to a ledger-shaped problem.
+- **Revisit criteria:** `event-simulation` is specced; or a recipe needs a declared era shock (a named year with a revenue and travel multiplier); or a board finds the same flatness on a second org, which would make it a fleet property rather than one recipe's.
+- **Origin:** spec 2026-07-29 (M17 board, `northgate-staffing`).

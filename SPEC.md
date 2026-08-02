@@ -50,7 +50,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   its registered owner; a synthetic-collision unit test proves the recording
   path.
 
-- [ ] **Splits become a real degradation axis.** `build_splits` stops
+- [x] **Splits become a real degradation axis.** `build_splits` stops
   unioning visibility gold into the answer set; `distractors` strictly
   exceeds `core` on every org with mundane traffic (ashcombe, hollowell,
   meridian pre-regen; northgate post-regen). The visibility suite's
@@ -58,7 +58,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   self-checks are updated accordingly, and EVAL-SPLITS.md describes splits
   as a retrieval/extraction device.
 
-- [ ] **Ranked and separated scoring.** For retrieval, `score` reports the
+- [x] **Ranked and separated scoring.** For retrieval, `score` reports the
   cluster-canonical strict headline (map through clusters, drop acceptable,
   exact-compare to required), macro precision/recall/F1, Recall@5, Recall@10,
   MRR, and nDCG@10 computed from answer-list order per the plan's metric
@@ -134,7 +134,7 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
   WeasyPrint/Pango stack as generation-unavailable (warning, exit 0) while
   validation-only use passes.
 
-- [ ] **The exemplar is regenerated under the carve-out.**
+- [x] **The exemplar is regenerated under the carve-out.**
   northgate-staffing is regenerated once, wholesale, under its enriched
   recipe (departmental ACL, mail threads with mundane traffic and both
   mention exemptions, scanned_ratio with an OCR layer, signature-page and
@@ -246,4 +246,4 @@ two mail demonstrators (recipient-mention exemption), closing at v2.2.0.
 *Prior spec (2026-07-28): fit-and-finish turn closing and hardening BYO,
 reconciling docs, pruning the backlog; 7/7 criteria met.*
 
-<!-- SPEC_META: {"date":"2026-07-29","title":"M17: the answer-key turn","criteria_total":16,"criteria_met":10} -->
+<!-- SPEC_META: {"date":"2026-07-29","title":"M17: the answer-key turn","criteria_total":16,"criteria_met":13} -->
