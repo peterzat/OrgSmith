@@ -7,6 +7,7 @@ import pytest
 
 from orgsmith.acl import run_acl
 from orgsmith.assemble import run_assemble
+from orgsmith.evals.emit import run_emit_evals
 from orgsmith.paths import OrgPaths
 from orgsmith.render import run_render
 from orgsmith.validate import run_validate
@@ -23,9 +24,12 @@ def knobbed_org(tmp_path_factory):
     run_authoring(paths)
     assert run_render(paths) == 0
     assert run_assemble(paths) == 0
-    # ACL overlay (open posture: the recipe sets no acl_posture) so the
-    # no-skip assertion below keeps meaning "every rule really ran".
+    # ACL overlay (open posture: the recipe sets no acl_posture) and the
+    # eval suites, so the no-skip assertion below keeps meaning "every rule
+    # really ran". EVAL-01 is the one rule gated on an artifact rather than
+    # a charter knob, so an org that never emitted suites would skip it.
     assert run_acl(paths) == 0
+    assert run_emit_evals(paths) == 0
     return paths
 
 
@@ -41,7 +45,8 @@ def test_knobbed_org_validates_clean_with_all_rules(knobbed_org, capsys):
     payload = json.loads(capsys.readouterr().out)
     for rule in ("MENT-01", "MENT-02", "GRAPH-01", "GRAPH-02",
                  "GRAPH-03", "GRAPH-04", "AFF-01", "AFF-02", "EML-01",
-                 "EML-02", "EML-03", "DL-01", "SCAN-01", "SCAN-02"):
+                 "EML-02", "EML-03", "DL-01", "SCAN-01", "SCAN-02",
+                 "EVAL-01"):
         assert rule in payload["rules_run"], rule
     # Every charter-gated rule must find its knob on here, with one
     # exception: legacy stays off because rendering it needs LibreOffice

@@ -146,6 +146,54 @@ def sty_01(ctx: Context):
         )
 
 
+def _needs_evals(ctx: Context) -> str | None:
+    if not ctx.paths.evals_dir.is_dir():
+        return "evals/ was never emitted for this org"
+    return None
+
+
+def eval_01(ctx: Context):
+    """M17: the committed answer key re-derives byte-identical from ground
+    truth. `evals/` was the one derived artifact nothing checked, which made
+    a hand-edited question indistinguishable from a generated one.
+
+    Recompute-and-compare, the ACL-03 pattern, extended to drift in either
+    direction: a missing file, an unexpected extra file, and a changed byte
+    are all findings. Reuses the validator's shared doc-text reader, so
+    re-deriving costs no second extraction pass over the corpus.
+
+    Grandfathering note: this is the one rule that keys off artifact absence
+    rather than a charter knob, because `evals/` has no knob to read. An org
+    that never emitted suites skips visibly. Deleting a committed `evals/`
+    directory to dodge the rule still moves the org's CHECKSUMS.md digest."""
+    from ..evals.emit import derive_evals
+
+    texts = {
+        e.path: ctx.doc_text(e)
+        for e in ctx.manifest
+        if (ctx.paths.share_dir / e.path).is_file()
+    }
+    want = derive_evals(ctx.paths, texts)
+    got = {
+        p.name: p.read_text("utf-8")
+        for p in sorted(ctx.paths.evals_dir.iterdir())
+        if p.is_file()
+    }
+    for name in sorted(set(want) - set(got)):
+        yield ("emitted eval file is missing", f"evals/{name}")
+    for name in sorted(set(got) - set(want)):
+        yield (
+            "unexpected file in evals/ (emit-evals does not write it)",
+            f"evals/{name}",
+        )
+    for name in sorted(set(want) & set(got)):
+        if want[name] != got[name]:
+            yield (
+                "committed eval file does not re-derive from ground truth",
+                f"evals/{name}",
+            )
+
+
 def _needs_scan(ctx: Context) -> str | None:
     if ctx.charter.doc_culture.scanned_ratio == 0:
         return "scanned_ratio is 0 for this recipe"
@@ -1464,6 +1512,8 @@ RULES = [
          "OLE containers", leg_01, available=_needs_legacy),
     Rule("FILE-01", "ERROR", "every manifest doc opens in its native reader",
          file_01),
+    Rule("EVAL-01", "ERROR", "committed evals re-derive from ground truth",
+         eval_01, available=_needs_evals),
     Rule("MAN-01", "ERROR", "manifest and share tree match 1:1", man_01),
     Rule("PROV-01", "ERROR", "every rendered file carries the synthetic marker",
          prov_01),

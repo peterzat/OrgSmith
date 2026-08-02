@@ -33,7 +33,6 @@ from ..schemas import (
     ValueCollision,
     dump_json,
     surface_in_text,
-    write_model,
 )
 from ..state import load_state, require_stages
 
@@ -900,16 +899,14 @@ def build_splits(manifest, questions, extraction) -> dict:
     }
 
 
-def run_emit_evals(paths: OrgPaths) -> int:
-    state = load_state(paths)
-    # M17: render is a prerequisite. The answer key is now derived partly
-    # from what the rendered files actually contain (byte-identity for the
-    # equivalence clusters), not only from what the plan says they should,
-    # so the share has to exist before the suites can be honest about it.
-    require_stages(
-        state, "charter", "foundation", "fabric", "docplan", "render"
-    )
+def derive_evals(paths: OrgPaths, texts=None) -> dict[str, str]:
+    """Every file `emit-evals` would write, as {filename: text}. Pure: it
+    reads committed state and writes nothing.
 
+    Split out from the writer so the EVAL-01 validator can re-derive the
+    suites and compare them to what is committed. `texts` accepts a
+    pre-computed rendered-text scan (the validator already holds one), so
+    re-deriving during validation costs no second extraction pass."""
     charter = load_charter(paths)
     foundation = load_foundation(paths)
     engagements = load_engagements(paths)
@@ -925,7 +922,8 @@ def run_emit_evals(paths: OrgPaths) -> int:
 
     # One extraction pass over the whole rendered corpus, shared by the
     # acceptable-set scan and the diagnostics scan.
-    texts = scan_corpus(paths, manifest, engagements, foundation)
+    if texts is None:
+        texts = scan_corpus(paths, manifest, engagements, foundation)
     clusters = build_clusters(paths, manifest)
     cluster_members = {
         m.path for c in clusters.clusters for m in c.members
@@ -953,21 +951,21 @@ def run_emit_evals(paths: OrgPaths) -> int:
     expected = build_graph_expected(charter, foundation, graph, engagements)
     acl = load_acl(paths)
 
-    paths.evals_dir.mkdir(parents=True, exist_ok=True)
+    files: dict[str, str] = {}
 
-    def write_jsonl(name: str, items) -> None:
-        lines = [
-            json.dumps(q.model_dump(mode="json"), ensure_ascii=False)
-            for q in items
-        ]
-        (paths.evals_dir / name).write_text(
-            "\n".join(lines) + "\n", encoding="utf-8"
+    def jsonl(items) -> str:
+        return (
+            "\n".join(
+                json.dumps(q.model_dump(mode="json"), ensure_ascii=False)
+                for q in items
+            )
+            + "\n"
         )
 
-    write_jsonl("retrieval.jsonl", questions)
-    write_jsonl("extraction.jsonl", extraction)
-    write_model(paths.evals_dir / "graph_expected.json", expected)
-    write_model(paths.evals_dir / "clusters.json", clusters)
+    files["retrieval.jsonl"] = jsonl(questions)
+    files["extraction.jsonl"] = jsonl(extraction)
+    files["graph_expected.json"] = dump_json(expected)
+    files["clusters.json"] = dump_json(clusters)
     diagnostics = build_diagnostics(
         paths,
         manifest,
@@ -978,7 +976,7 @@ def run_emit_evals(paths: OrgPaths) -> int:
         clusters,
         texts,
     )
-    write_model(paths.evals_dir / "diagnostics.json", diagnostics)
+    files["diagnostics.json"] = dump_json(diagnostics)
 
     readme = _README.format(
         slug=charter.slug, policy_version=LABEL_POLICY_VERSION
@@ -994,35 +992,63 @@ def run_emit_evals(paths: OrgPaths) -> int:
     new_tags = ("scan:ocr", "scan:image-only", "format:legacy")
     if any(t in q.tags for q in extraction for t in new_tags):
         readme += _README_FORMAT_TAGS
-    visibility_note = ""
     visibility = []
     if acl is not None:
         visibility = build_visibility(foundation, acl)
-        write_jsonl("visibility.jsonl", visibility)
+        files["visibility.jsonl"] = jsonl(visibility)
         readme += _README_VISIBILITY
-        visibility_note = f", {len(visibility)} visibility questions"
-    else:
-        print(
-            "emit-evals: visibility suite skipped (no ledger/acl.json; "
-            f"run `python -m orgsmith acl {charter.slug}`)"
-        )
 
     splits = build_splits(manifest, questions, extraction)
-    (paths.evals_dir / "splits.json").write_text(
+    files["splits.json"] = (
         json.dumps(
-            {"slug": charter.slug, "splits": splits}, indent=2, ensure_ascii=False
+            {"slug": charter.slug, "splits": splits},
+            indent=2,
+            ensure_ascii=False,
         )
-        + "\n",
-        encoding="utf-8",
+        + "\n"
     )
     readme += _README_SPLITS
     if visibility:
         readme += _README_SPLITS_VISIBILITY
-    (paths.evals_dir / "README.md").write_text(readme, encoding="utf-8")
+    files["README.md"] = readme
+    return files
+
+
+def run_emit_evals(paths: OrgPaths) -> int:
+    state = load_state(paths)
+    # M17: render is a prerequisite. The answer key is now derived partly
+    # from what the rendered files actually contain (byte-identity for the
+    # equivalence clusters), not only from what the plan says they should,
+    # so the share has to exist before the suites can be honest about it.
+    require_stages(
+        state, "charter", "foundation", "fabric", "docplan", "render"
+    )
+
+    files = derive_evals(paths)
+    paths.evals_dir.mkdir(parents=True, exist_ok=True)
+    for name, text in files.items():
+        (paths.evals_dir / name).write_text(text, encoding="utf-8")
+
+    counts = {
+        name: sum(1 for line in files[name].splitlines() if line.strip())
+        for name in ("retrieval.jsonl", "extraction.jsonl")
+    }
+    entities = len(json.loads(files["graph_expected.json"])["entities"])
+    if "visibility.jsonl" not in files:
+        print(
+            "emit-evals: visibility suite skipped (no ledger/acl.json; "
+            f"run `python -m orgsmith acl {paths.slug}`)"
+        )
+        visibility_note = ""
+    else:
+        visibility_note = (
+            f", {sum(1 for line in files['visibility.jsonl'].splitlines() if line.strip())}"
+            " visibility questions"
+        )
     print(
-        f"emit-evals: {len(questions)} retrieval questions, "
-        f"{len(extraction)} extraction questions, "
-        f"{len(expected.entities)} graph entities"
+        f"emit-evals: {counts['retrieval.jsonl']} retrieval questions, "
+        f"{counts['extraction.jsonl']} extraction questions, "
+        f"{entities} graph entities"
         f"{visibility_note} -> {paths.evals_dir}"
     )
     return 0
