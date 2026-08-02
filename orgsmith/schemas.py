@@ -1400,8 +1400,36 @@ class SimilarPair(StrictModel):
     jaccard: float
 
 
+class StructurePair(StrictModel):
+    """Two same-genre docs scored on what they CONTAIN (M17b).
+
+    `shape` compares the block skeleton and `openers` compares the first
+    content word of each prose unit; both are ordered-sequence ratios over
+    tokens carrying no authored sentence, so a thorough paraphrase moves
+    neither. Reported beside `SimilarPair` rather than replacing it: each
+    axis ranks pairs the other misses (docs/REVIEW-CALIBRATION.md).
+
+    A measurement, never a verdict, and explicitly never a rule: two status
+    reports SHOULD share a shape, and a firm that files them any other way is
+    the unrealistic one.
+    """
+
+    doc_a: str
+    doc_b: str
+    genre: Genre
+    shape: float
+    openers: float
+
+
 class CorpusMetrics(StrictModel):
     schema_id: Literal["orgsmith/corpus-metrics@1"] = SCHEMA_IDS["corpus_metrics"]
     slug: str
     docs: list[DocMetric]
     similar_pairs: list[SimilarPair] = []
+    # The strongest same-genre structural pairs, and how many were scored
+    # before the cap. Shape ratios are dense where Jaccard is sparse, so this
+    # list is truncated where `similar_pairs` is not; the count is what makes
+    # the truncation visible rather than silent. Both default inert, so a
+    # metrics file written before M17b still loads against this schema id.
+    structural_pairs: list[StructurePair] = []
+    structural_pairs_considered: int = 0

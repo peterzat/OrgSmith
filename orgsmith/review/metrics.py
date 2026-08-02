@@ -22,7 +22,14 @@ import itertools
 
 from ..artifacts import load_manifest
 from ..paths import OrgPaths
-from ..schemas import CorpusMetrics, DocMetric, SimilarPair, write_model
+from ..schemas import (
+    CorpusMetrics,
+    DocMetric,
+    SimilarPair,
+    StructurePair,
+    write_model,
+)
+from . import structure
 from .corpus import (
     briefed_targets,
     jaccard,
@@ -76,11 +83,50 @@ def compute(paths: OrgPaths) -> CorpusMetrics:
     # Strongest overlap first; doc ids break ties so the order is total and
     # the file is byte-stable.
     pairs.sort(key=lambda p: (-p.jaccard, p.doc_a, p.doc_b))
-    return CorpusMetrics(slug=paths.slug, docs=docs, similar_pairs=pairs)
+
+    # M17b's structural axis, over authored `batchable` documents only. A
+    # derived document is a byte copy (or a stale-template variant) of its
+    # source, so it would score ~1.0 on shape against it and crowd the list
+    # with the noise stages rather than the author.
+    authored_batchable = {
+        e.doc_id: authored[e.doc_id] for e in entries if e.authoring == "batchable"
+    }
+    structural, considered = structure.compute_pairs(
+        authored_batchable,
+        {e.doc_id: e.genre for e in entries},
+    )
+    return CorpusMetrics(
+        slug=paths.slug,
+        docs=docs,
+        similar_pairs=pairs,
+        structural_pairs=structural,
+        structural_pairs_considered=considered,
+    )
 
 
 def flagged_pairs(metrics: CorpusMetrics) -> list[SimilarPair]:
     return [p for p in metrics.similar_pairs if p.jaccard >= SIMILAR_JACCARD]
+
+
+# How many structural rows the report prints. A row count, not a threshold:
+# the axis has no validated cut point (docs/REVIEW-CALIBRATION.md), so the
+# report shows a fixed-length reading list instead of pretending one exists.
+STRUCTURAL_ROWS = 10
+
+
+def top_structural_pairs(
+    metrics: CorpusMetrics, limit: int = STRUCTURAL_ROWS
+) -> list[StructurePair]:
+    return metrics.structural_pairs[:limit]
+
+
+def jaccard_of(metrics: CorpusMetrics, doc_a: str, doc_b: str) -> float:
+    """The lexical score for a pair, or 0.0 when the pair shares no 4-gram
+    (`similar_pairs` drops the zeros)."""
+    for p in metrics.similar_pairs:
+        if p.doc_a == doc_a and p.doc_b == doc_b:
+            return p.jaccard
+    return 0.0
 
 
 class AuthorRange:

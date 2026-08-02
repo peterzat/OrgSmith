@@ -82,6 +82,53 @@
       ],
       "title": "SimilarPair",
       "type": "object"
+    },
+    "StructurePair": {
+      "additionalProperties": false,
+      "description": "Two same-genre docs scored on what they CONTAIN (M17b).\n\n`shape` compares the block skeleton and `openers` compares the first\ncontent word of each prose unit; both are ordered-sequence ratios over\ntokens carrying no authored sentence, so a thorough paraphrase moves\nneither. Reported beside `SimilarPair` rather than replacing it: each\naxis ranks pairs the other misses (docs/REVIEW-CALIBRATION.md).\n\nA measurement, never a verdict, and explicitly never a rule: two status\nreports SHOULD share a shape, and a firm that files them any other way is\nthe unrealistic one.",
+      "properties": {
+        "doc_a": {
+          "title": "Doc A",
+          "type": "string"
+        },
+        "doc_b": {
+          "title": "Doc B",
+          "type": "string"
+        },
+        "genre": {
+          "enum": [
+            "engagement_letter",
+            "kickoff_memo",
+            "meeting_minutes",
+            "status_report",
+            "company_overview",
+            "financial_summary",
+            "briefing_deck",
+            "engagement_email",
+            "onboarding_record",
+            "internal_email"
+          ],
+          "title": "Genre",
+          "type": "string"
+        },
+        "openers": {
+          "title": "Openers",
+          "type": "number"
+        },
+        "shape": {
+          "title": "Shape",
+          "type": "number"
+        }
+      },
+      "required": [
+        "doc_a",
+        "doc_b",
+        "genre",
+        "shape",
+        "openers"
+      ],
+      "title": "StructurePair",
+      "type": "object"
     }
   },
   "$id": "orgsmith/corpus-metrics@1",
@@ -112,6 +159,19 @@
     "slug": {
       "title": "Slug",
       "type": "string"
+    },
+    "structural_pairs": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/StructurePair"
+      },
+      "title": "Structural Pairs",
+      "type": "array"
+    },
+    "structural_pairs_considered": {
+      "default": 0,
+      "title": "Structural Pairs Considered",
+      "type": "integer"
     }
   },
   "required": [
