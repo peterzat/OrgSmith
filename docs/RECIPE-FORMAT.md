@@ -166,6 +166,36 @@ engagements:
   #   whole client list, so the paperwork and the financial summaries describe
   #   one firm. A coherence choice, not a finance change; report records the
   #   fee/revenue ratio either way.
+  # scope:                    # M17b, default absent (off). Declares what an
+  #   unit: positions         #   engagement is MEASURED in, so the ledger owns
+  #   unit_range: [8, 14]     #   the quantities documents would otherwise
+  #   comparator: peer companies  #   invent. Each becomes a planted fact, so
+  #   comparator_range: [18, 26]  #   every document that states a quantity
+  #   pipeline:               #   cites one ledger object and two documents in
+  #     - candidates sourced  #   one folder cannot disagree. Rendered
+  #     - candidates screened #   surfaces carry the unit noun ("11 positions",
+  #     - candidates presented   # never "11"): a bare numeral matches inside
+  #     - offers extended     #   $11,000 and inside every date.
+  #   pipeline_top_range: [40, 70]
+  #   pipeline_retention: [0.35, 0.6]
+  #
+  #   The pipeline is an ORDERED funnel, widest first. Each stage retains a
+  #   drawn fraction of the one before, bounded at 1.0, so it is non-increasing
+  #   by construction and floored at 1 (never "0 offers extended"). A document
+  #   cites a stage only once its own date says that stage is complete, so the
+  #   engagement letter cites none and a closing report cites all of them --
+  #   the same fact ids the earlier documents cited.
+  #
+  #   Which genres cite what is a property of the genre, in docplan/registry.py
+  #   (scope_refs): letters and kickoffs state scope; minutes state the funnel;
+  #   status reports state everything their date permits; decks state scope and
+  #   comparators; mail states none. SCOPE-01 recomputes the whole planting
+  #   from the charter and rejects a widened funnel. Every scope fact also
+  #   becomes an extraction and a retrieval question automatically.
+  #
+  #   Plurality is the recipe author's job: a unit_range reaching 1 renders
+  #   "1 positions". Nothing downstream can fix that, because the surface has
+  #   to match the document verbatim.
 
 graph_targets:
   external_orgs: 3

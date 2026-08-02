@@ -417,6 +417,45 @@ honest about where the generator actually stands:
   shocks in it, which is the `event-simulation` entry in `BACKLOG.md` arriving
   as a finding.
 
+**What M17b built in response, and what it does not yet claim.** The two
+blockers above are one fact at two scales: every document is authored by a
+fresh-context worker that never sees a sibling, so the corpus diverges where
+continuity is required and converges where variation is required. M17b is the
+capability turn that answers both, and **no fixture was regenerated for it**,
+so every finding quoted above is still present in the committed exemplar. The
+proof is the next flagship generation, not this turn.
+
+- **Against divergence:** `engagements.scope` (default off) makes an
+  engagement's unit of work, comparison group and funnel into planted facts,
+  so a document cites a ledger object instead of inventing a number, and a
+  document cites a funnel stage only once its own date says the stage is
+  complete. Two reports on one engagement then state the same quantity because
+  they cite the same fact id. `SCOPE-01` recomputes the planting from the
+  charter; ingest rejects a literal count in prose. The Hicks-Castillo failure
+  becomes inexpressible rather than merely unlikely.
+- **Against convergence:** `doc_culture.outline_variety` (default off) has the
+  plan deal each authored document a section skeleton from a per-genre pool,
+  with no two consecutive same-genre documents sharing one, and authoring
+  ingest enforces the skeleton it briefed -- including what an outline
+  *forbids*, which is what stops "the same five numbered owners in the same
+  order" recurring. What this proves today is plumbing and block-shape counts
+  under a scripted author. **Whether real prose stops converging is settled by
+  the next generation, and "impossible by construction" would be an overclaim:
+  a finite pool cycles, and the guarantee is no adjacent and no
+  within-engagement repeat.**
+- **Against the measurement gap:** a structural similarity axis
+  (`orgsmith/review/structure.py`) scores same-genre pairs on block skeleton
+  and on positional openers, neither of which a paraphrase moves. Calibrated
+  against this board's own findings in `docs/REVIEW-CALIBRATION.md`: it ranks
+  the `rf:voice-1` blocker 5th of 161 pairs where the lexical metric does not
+  flag it at all, and it **misses** `rf:voice-4` entirely at rank 78. It never
+  gates.
+- **Not addressed, and no keyless proxy will address it:** `rf:voice-3`, a
+  single rhetorical move recurring in fourteen documents across eight authors
+  and five genres, paraphrased each time. It is not a pair, not a shape, and
+  not an n-gram. Recognizing it needs semantics, which is what the board is
+  for.
+
 **One fleet-wide artifact, half closed, and be precise about which half.**
 The ingest mention check requires an email author to spell the recipient's
 full legal name in the body, so the mail orgs put it there.

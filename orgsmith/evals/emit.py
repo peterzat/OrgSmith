@@ -424,6 +424,22 @@ def build_retrieval(
             docs_with_fact(f"f:{eng.id}.client"),
             ["fact:text", eng.id],
         )
+        # M17b: one retrieval question per planted scope quantity. This is
+        # where the cross-document family the 2026-07-28 critique asked for
+        # actually lands -- a funnel stage is stated by the minutes that
+        # closed it AND by every later status report, so the answer set has
+        # several documents rather than one. Emitted only for facts this
+        # engagement actually carries, so a knob-off org asks none of them
+        # and its committed suites re-emit byte-identically.
+        for fact in eng.facts:
+            if fact.kind != "count":
+                continue
+            ask(
+                f"Which documents state how many {count_noun(fact)} the "
+                f"{eng.title} engagement records?",
+                docs_with_fact(fact.id),
+                ["fact:count", eng.id],
+            )
 
     for entry in manifest:
         if entry.genre == "financial_summary":
@@ -544,7 +560,45 @@ _EXTRACTION_TEMPLATES = {
         "On what date was the working session for the {title} engagement "
         "held?"
     ),
+    # M17b scope quantities. `{noun}` is the recipe's declared noun phrase.
+    "scope": "How many {noun} were in scope for the {title} engagement?",
+    "comparators": (
+        "How many {noun} were in the comparison group for the {title} "
+        "engagement?"
+    ),
 }
+
+# Every funnel stage shares one template; the stage phrase is the noun.
+_PIPELINE_TEMPLATE = "How many {noun} are recorded for the {title} engagement?"
+
+
+def count_noun(fact) -> str:
+    """The noun phrase a scope count counts, read back off its own rendered
+    surface ("11 positions" -> "positions").
+
+    Taken from the LEDGER rather than from the charter on purpose:
+    `build_extraction` is a pure function of (engagements, manifest) and
+    EVAL-01 recomputes it from exactly those two, so reaching for a charter
+    to build a question string would add a dependency for something the fact
+    already carries. `render_count` writes "<value> <noun>", so the split is
+    total.
+
+    Recipe authors own plurality: a `unit_range` reaching 1 renders "1
+    positions". Nothing here can fix that, and nothing should try -- the
+    surface has to match the document verbatim.
+    """
+    return fact.rendered.split(" ", 1)[1]
+
+
+def _extraction_text(fact, eng) -> str:
+    suffix = fact.id.rsplit(".", 1)[-1]
+    if suffix.startswith("pipeline-"):
+        return _PIPELINE_TEMPLATE.format(noun=count_noun(fact), title=eng.title)
+    template = _EXTRACTION_TEMPLATES.get(suffix)
+    if template is None:
+        return f"What is the value of the planted fact {fact.id}?"
+    noun = count_noun(fact) if fact.kind == "count" else ""
+    return template.format(title=eng.title, noun=noun)
 
 
 def _difficulty_tags(entries) -> list[str]:
@@ -585,13 +639,7 @@ def build_extraction(engagements, manifest) -> list[ExtractionQuestion]:
             hosts = sorted({e.path for e in host_entries})
             if not hosts:
                 continue
-            suffix = fact.id.rsplit(".", 1)[-1]
-            template = _EXTRACTION_TEMPLATES.get(suffix)
-            text = (
-                template.format(title=eng.title)
-                if template
-                else f"What is the value of the planted fact {fact.id}?"
-            )
+            text = _extraction_text(fact, eng)
             serial += 1
             questions.append(
                 ExtractionQuestion(

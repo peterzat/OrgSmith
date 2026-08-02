@@ -535,3 +535,106 @@ def test_ingest_rejects_a_literal_count_in_prose(tmp_path, capsys):
     ok = paths.workorders_dir / "good-count.json"
     ok.write_text(_json.dumps(good))
     assert ingest_author(paths, ok) == 0
+
+
+# --- scored questions (A3) --------------------------------------------------
+
+
+@pytest.fixture(scope="module")
+def scored(tmp_path_factory):
+    """A knob-on org taken all the way through render and emit-evals, so the
+    suites are derived from real hosts rather than from a plan."""
+    from orgsmith.acl import run_acl
+    from orgsmith.evals.emit import run_emit_evals
+
+    from conftest import build_rendered
+
+    paths = build_knobbed_stages(tmp_path_factory.mktemp("scope-evals"))
+    build_rendered(paths)
+    # The acl stage writes the derived ledgers DL-01 and STY-01 recompute;
+    # this org turns both knobs on, so skipping it would fail those rules
+    # for reasons that have nothing to do with scope.
+    assert run_acl(paths) == 0
+    assert run_emit_evals(paths) == 0
+    return paths
+
+
+def _suite(paths, name):
+    return [
+        json.loads(line)
+        for line in (paths.evals_dir / name).read_text().splitlines()
+        if line.strip()
+    ]
+
+
+def test_every_planted_scope_fact_becomes_an_extraction_question(scoped_org, scored):
+    from orgsmith.artifacts import load_engagements, load_manifest
+
+    facts = load_engagements(scored).fact_index()
+    hosted = {
+        ref
+        for e in load_manifest(scored)
+        for ref in e.facts_refs
+    }
+    counts = {f.id for f in facts.values() if f.kind == "count"} & hosted
+    assert counts, "the knob is on; some scope fact must be hosted"
+    asked = {q["fact_id"] for q in _suite(scored, "extraction.jsonl")}
+    assert counts <= asked, sorted(counts - asked)
+
+
+def test_scope_questions_read_as_english_not_as_a_fact_id(scored):
+    """The fallback prompt is "What is the value of the planted fact
+    f:E-2019-001.pipeline-candidates-screened?", which is not a question a
+    human would ask. Every scope question names its noun instead."""
+    from orgsmith.artifacts import load_engagements
+
+    facts = load_engagements(scored).fact_index()
+    scope_qs = [
+        q
+        for q in _suite(scored, "extraction.jsonl")
+        if facts[q["fact_id"]].kind == "count"
+    ]
+    assert scope_qs
+    for q in scope_qs:
+        assert "planted fact" not in q["question"], q["question"]
+        assert q["question"].startswith("How many "), q["question"]
+        noun = facts[q["fact_id"]].rendered.split(" ", 1)[1]
+        assert noun in q["question"]
+        assert "fact:count" in q["tags"]
+
+
+def test_a_scope_question_is_answered_by_several_documents(scored):
+    """The cross-document family the 2026-07-28 critique asked for and M17
+    deferred: one fact, several hosts. A funnel stage is stated by the
+    minutes that closed it and by every later status report."""
+    from orgsmith.artifacts import load_engagements
+
+    facts = load_engagements(scored).fact_index()
+    multi = [
+        q
+        for q in _suite(scored, "extraction.jsonl")
+        if facts[q["fact_id"]].kind == "count" and len(q["expected_docs"]) > 1
+    ]
+    assert multi, (
+        "no scope fact is hosted by two documents; the cross-document "
+        "question family is the point of position gating"
+    )
+
+
+def test_scope_retrieval_questions_exist_and_are_answerable(scored):
+    rows = [
+        q for q in _suite(scored, "retrieval.jsonl")
+        if "fact:count" in q["tags"]
+    ]
+    assert rows
+    for q in rows:
+        assert q["expected_docs"], q["question"]
+        assert q["question"].startswith("Which documents state how many ")
+
+
+def test_eval_01_is_green_on_the_knob_on_org(scored, capsys):
+    capsys.readouterr()
+    assert run_validate(scored, as_json=True) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert "EVAL-01" in payload["rules_run"]
+    assert "SCOPE-01" in payload["rules_run"]
