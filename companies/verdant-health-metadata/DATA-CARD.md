@@ -33,6 +33,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `4` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `4` |
 | `graph_targets.external_people` | `4` |
@@ -124,7 +125,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| verdant-health | 105 | `c5f7254416577453acbabe521662ac21a8fed4cc30ca1172323ea3b22a4dcb26` |
+| verdant-health | 105 | `599fda716a1fe2bd2c3a425ef4fdb6cb4fd87c87986ca9b4c889c9a36a4ba537` |
 
 Verify with `python tools/checksums.py --check`.
 

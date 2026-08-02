@@ -33,6 +33,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `5` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `5` |
 | `graph_targets.external_people` | `5` |
@@ -119,7 +120,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| brackenridge-civil | 127 | `298fb75d6a2fa186de4f3c37a347183927af1897344d7fe726f664d0f9a9941a` |
+| brackenridge-civil | 127 | `0266fdd672da2ae28eba03af4da656a81e8499567da01e9058b2e32f16831758` |
 
 Verify with `python tools/checksums.py --check`.
 

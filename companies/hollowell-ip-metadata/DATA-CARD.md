@@ -39,6 +39,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `5` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `5` |
 | `graph_targets.external_people` | `5` |
@@ -124,7 +125,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| hollowell-ip | 181 | `40eb78d473274e2d57b1501de3afff3ceff6ba491f6b4bd010a631633673e6c0` |
+| hollowell-ip | 181 | `0d7e53b35a3d2ea4375101ed18ba8c0a4c4a7d408e3d49d46fd6eda1f4678f8a` |
 
 Verify with `python tools/checksums.py --check`.
 

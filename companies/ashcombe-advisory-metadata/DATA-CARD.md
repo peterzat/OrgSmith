@@ -47,6 +47,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `6` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `8` |
 | `graph_targets.external_people` | `10` |
@@ -167,7 +168,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| ashcombe-advisory | 255 | `b2ac4402b540ac422d7adeb0ad912b527c42ee3e41ac2d20a9fe6a35853a5315` |
+| ashcombe-advisory | 255 | `f285cc5ee59f660ba136b660226cbb03366032202209c037c6e64e05a13ccd16` |
 
 Verify with `python tools/checksums.py --check`.
 

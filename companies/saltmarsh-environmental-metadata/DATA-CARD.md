@@ -33,6 +33,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `5` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `5` |
 | `graph_targets.external_people` | `5` |
@@ -123,7 +124,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| saltmarsh-environmental | 126 | `81ecc039f9355b83ab3232791b10bfcb0bce6bfde5e718d55522fa8e056322d8` |
+| saltmarsh-environmental | 126 | `c85403862f02274c091e9edca27e0bead348cd139e31892b4cc0cad6724167be` |
 
 Verify with `python tools/checksums.py --check`.
 

@@ -33,6 +33,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `3` |
 | `engagements.book_is_sample` | `False` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `3` |
 | `graph_targets.external_people` | `3` |

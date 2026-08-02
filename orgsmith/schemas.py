@@ -329,6 +329,69 @@ class FinanceProfile(StrictModel):
     expense_ratio: float = Field(gt=0.0, lt=1.0)
 
 
+class ScopeProfile(StrictModel):
+    """What an engagement is measured in, so the LEDGER owns the quantities
+    (M17b).
+
+    M17's board found a closing report describing a different engagement from
+    the five documents before it in its own folder: eleven positions became
+    57 roles, a 22-company comparison group became 253 comparators. The
+    validator could not see any of it, because those numbers were prose. A
+    fresh-context author invents a plausible quantity every time it needs
+    one, and two authors invent different ones.
+
+    Declaring this block makes each quantity a planted `Fact` with an id,
+    so every document that states it cites the same ledger object and a
+    document cannot contradict its own folder.
+
+    Every `rendered` surface carries its unit noun ("11 positions", never
+    "11"). A bare numeral would match inside `$11,000` and inside every date,
+    and `build_diagnostics` scans every expected value corpus-wide, so bare
+    numerals would swamp the value-collision report with false hits.
+    """
+
+    # The engagement's unit of work: what there are N of. A plural noun
+    # phrase, used verbatim in the rendered surface.
+    unit: str = Field(min_length=1)
+    unit_range: tuple[int, int]
+    # The comparison group the work is measured against.
+    comparator: str = Field(min_length=1)
+    comparator_range: tuple[int, int]
+    # An ordered funnel of stage noun phrases, widest first. Empty = no
+    # funnel, which is a legitimate profile: not every engagement has one.
+    pipeline: list[str] = []
+    pipeline_top_range: tuple[int, int] = (0, 0)
+    # Fraction of the previous stage that survives into the next, drawn per
+    # stage. Bounded at or below 1.0, which is what makes the funnel
+    # non-increasing by construction rather than by a repair pass.
+    pipeline_retention: tuple[float, float] = (0.0, 0.0)
+
+    @model_validator(mode="after")
+    def _check(self) -> "ScopeProfile":
+        for name in ("unit_range", "comparator_range", "pipeline_top_range"):
+            lo, hi = getattr(self, name)
+            if lo > hi:
+                raise ValueError(f"{name} low bound exceeds its high bound")
+        if self.pipeline:
+            if len(self.pipeline) != len(set(self.pipeline)):
+                raise ValueError(
+                    "pipeline stage phrases must be distinct; they become "
+                    "fact ids"
+                )
+            if self.pipeline_top_range[0] < 1:
+                raise ValueError(
+                    "pipeline_top_range must start at 1 or more when a "
+                    "pipeline is declared; a funnel with no top has no stages"
+                )
+            lo, hi = self.pipeline_retention
+            if not (0.0 < lo <= hi <= 1.0):
+                raise ValueError(
+                    "pipeline_retention must satisfy 0 < low <= high <= 1; "
+                    "above 1.0 the funnel would widen"
+                )
+        return self
+
+
 class EngagementPlan(StrictModel):
     count: int = Field(gt=0)
     # Service-line names used for engagement titles; empty = fabric's
@@ -347,6 +410,12 @@ class EngagementPlan(StrictModel):
     # finance change: revenue stays independent, and a firm presenting sample
     # engagements alongside larger revenue is coherent.
     book_is_sample: bool = False
+    # M17b: declare what an engagement is measured in and the fabric plants
+    # the quantities as facts, so documents cite one ledger object instead of
+    # each inventing a number. Default None: absent from the recipe, nothing
+    # is planted, no value is drawn from the new seed stream, and every
+    # committed ledger re-derives byte-identical.
+    scope: ScopeProfile | None = None
 
 
 class GraphTargets(StrictModel):
@@ -631,7 +700,11 @@ class Fact(StrictModel):
     document text."""
 
     id: str = Field(pattern=r"^f:[A-Za-z0-9.\-]+$")
-    kind: Literal["money", "date", "text"]
+    # "count" is M17b's engagement scope quantities. Widening the Literal is
+    # additive on the existing `orgsmith/engagements@1` id: no committed fact
+    # carries the new kind, so every frozen ledger loads and re-derives
+    # unchanged.
+    kind: Literal["money", "date", "text", "count"]
     value: Union[int, str]
     rendered: str
     location_policy: LocationPolicy = "body"

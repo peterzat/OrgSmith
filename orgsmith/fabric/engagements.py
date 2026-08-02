@@ -7,6 +7,7 @@ fact-echo validator finds it verbatim in the rendered text.
 
 from __future__ import annotations
 
+import re
 from datetime import date, timedelta
 
 from ..schemas import (
@@ -96,6 +97,119 @@ def minutes_date(
 def _employed_at(person, when: date) -> bool:
     emp = person.employment
     return emp.start <= when and (emp.end is None or emp.end >= when)
+
+
+# --- engagement scope quantities (M17b) ------------------------------------
+# The ledger owns the numbers documents used to invent. Pure and RNG-free
+# apart from one NEW per-engagement stream, so SCOPE-01 recomputes the whole
+# planting from the charter as tamper evidence.
+
+
+def stage_slug(phrase: str) -> str:
+    """A stage noun phrase as a fact-id fragment: lowercase, non-alphanumerics
+    collapsed to single hyphens. `Fact.id` admits letters, digits, dots and
+    hyphens, so this is the whole alphabet available."""
+    return "-".join(w for w in re.split(r"[^A-Za-z0-9]+", phrase.lower()) if w)
+
+
+def render_count(value: int, noun: str) -> str:
+    """"11 positions", never "11".
+
+    The unit noun is not decoration. `build_diagnostics` scans every planted
+    value across the whole corpus for collisions, and a bare "11" occurs
+    inside `$11,000`, inside `2011-03-04`, and in any document that happens
+    to number eleven of anything. The noun is what makes a scope count
+    findable and what keeps the value-collision report readable.
+    """
+    return f"{value:,} {noun}"
+
+
+def pipeline_counts(profile, rand) -> list[int]:
+    """The funnel, widest first, non-increasing by construction.
+
+    Each stage retains a drawn fraction of the previous one, and the fraction
+    is bounded at 1.0 by the schema, so the sequence cannot widen. The floor
+    of 1 stops a long funnel with a low retention from reaching zero, which
+    would render "0 offers extended" in a document whose own date says the
+    stage is complete.
+    """
+    if not profile.pipeline:
+        return []
+    lo, hi = profile.pipeline_top_range
+    counts = [rand.randint(lo, hi)]
+    r_lo, r_hi = profile.pipeline_retention
+    for _ in profile.pipeline[1:]:
+        counts.append(max(1, int(counts[-1] * rand.uniform(r_lo, r_hi))))
+    return counts
+
+
+def pipeline_stage_dates(start: date, end: date, stages: int) -> list[date]:
+    """When each funnel stage is complete: evenly across the engagement, with
+    the last stage landing on the end date.
+
+    RNG-free and shared with docplan's position gating, so the plan and
+    SCOPE-01 agree on which stages a document dated D is allowed to cite.
+    A document cannot report a stage that has not happened yet, which is what
+    makes the divergence blocker inexpressible rather than merely unlikely.
+    """
+    if stages <= 0:
+        return []
+    duration = (end - start).days
+    return [
+        start + timedelta(days=int(duration * (i + 1) / stages))
+        for i in range(stages)
+    ]
+
+
+def scope_facts_for(profile, eid: str, seed: int) -> list[Fact]:
+    """Every scope fact for one engagement.
+
+    Drawn from `fabric.engagements.scope` keyed by the engagement id rather
+    than from one ledger-wide stream, so an engagement's quantities are a
+    pure function of (seed, id) and do not shift when a neighbour's draw
+    count changes. Same reason `_staff` has its own stream.
+    """
+    rand = rng(seed, "fabric.engagements.scope", eid)
+    units = rand.randint(*profile.unit_range)
+    comparators = rand.randint(*profile.comparator_range)
+    facts = [
+        Fact(
+            id=f"f:{eid}.scope",
+            kind="count",
+            value=units,
+            rendered=render_count(units, profile.unit),
+        ),
+        Fact(
+            id=f"f:{eid}.comparators",
+            kind="count",
+            value=comparators,
+            rendered=render_count(comparators, profile.comparator),
+        ),
+    ]
+    for phrase, count in zip(profile.pipeline, pipeline_counts(profile, rand)):
+        facts.append(
+            Fact(
+                id=f"f:{eid}.pipeline-{stage_slug(phrase)}",
+                kind="count",
+                value=count,
+                rendered=render_count(count, phrase),
+            )
+        )
+    return facts
+
+
+def plant_scope_facts(charter: Charter, eids: list[str]) -> dict[str, list[Fact]]:
+    """{engagement_id: [scope facts]}, or {} when the recipe declares no
+    scope profile.
+
+    The knob-off path constructs no RNG and draws nothing, which is what
+    keeps the frozen fleet byte-identical. SCOPE-01 calls this same function
+    to recompute a committed ledger's scope facts from the charter alone.
+    """
+    profile = charter.engagements.scope
+    if profile is None:
+        return {}
+    return {eid: scope_facts_for(profile, eid, charter.seed) for eid in eids}
 
 
 # --- affiliation-aware participant selection (M6+) -------------------------
@@ -409,6 +523,17 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
     for eng in engagements[: min(hard.signature_page_facts, len(engagements))]:
         fee = next(f for f in eng.facts if f.id == f"f:{eng.id}.fee")
         fee.location_policy = "signature_page"
+    # Scope quantities (M17b): appended to the existing `facts` list rather
+    # than carried in a new Engagement field, because `dump_json` serializes
+    # every field and a defaulted one would write a new key into all nine
+    # committed ledgers. Runs after the affiliation post-pass so a reassigned
+    # client cannot change what was planted: scope is a property of the work,
+    # not of who bought it.
+    for eng, facts in plant_scope_facts(
+        charter, [e.id for e in engagements]
+    ).items():
+        next(e for e in engagements if e.id == eng).facts.extend(facts)
+
     cal = calendar_holidays(charter)
     for eng in engagements[: min(hard.filename_dates, len(engagements))]:
         md = minutes_date(eng.start, eng.end, range_start, range_end, cal)

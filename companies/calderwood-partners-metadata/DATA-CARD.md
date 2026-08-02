@@ -41,6 +41,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `22` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `12` |
 | `graph_targets.external_people` | `14` |
@@ -152,7 +153,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| calderwood-partners | 505 | `3b913917b1e604fbd9fecbe6fb3ad5c525f512036dd45d3d3b83d25023ca297c` |
+| calderwood-partners | 505 | `c3b1e4307bfe22c0f6aef22a8f33b45d8fd366bc468922c46afcc603f502e394` |
 
 Verify with `python tools/checksums.py --check`.
 

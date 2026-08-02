@@ -47,6 +47,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `engagements` | `on` |
 | `engagements.count` | `6` |
 | `engagements.book_is_sample` | `True` |
+| `engagements.scope` | `off` |
 | `graph_targets` | `on` |
 | `graph_targets.external_orgs` | `6` |
 | `graph_targets.external_people` | `6` |
@@ -162,7 +163,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 200 | `08c159a223ad7c2757dd86f74767fa08f15716eca1350763b1ab419f2e595352` |
+| northgate-staffing | 200 | `11a9358a35d9354dc9a8ef8a0ad00a5b9c83f8885752949a491a6b10a36e1b35` |
 
 Verify with `python tools/checksums.py --check`.
 

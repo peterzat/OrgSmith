@@ -130,6 +130,17 @@
           "title": "Count",
           "type": "integer"
         },
+        "scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScopeProfile"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "services": {
           "default": [],
           "items": {
@@ -421,6 +432,102 @@
         }
       },
       "title": "RosterChurn",
+      "type": "object"
+    },
+    "ScopeProfile": {
+      "additionalProperties": false,
+      "description": "What an engagement is measured in, so the LEDGER owns the quantities\n(M17b).\n\nM17's board found a closing report describing a different engagement from\nthe five documents before it in its own folder: eleven positions became\n57 roles, a 22-company comparison group became 253 comparators. The\nvalidator could not see any of it, because those numbers were prose. A\nfresh-context author invents a plausible quantity every time it needs\none, and two authors invent different ones.\n\nDeclaring this block makes each quantity a planted `Fact` with an id,\nso every document that states it cites the same ledger object and a\ndocument cannot contradict its own folder.\n\nEvery `rendered` surface carries its unit noun (\"11 positions\", never\n\"11\"). A bare numeral would match inside `$11,000` and inside every date,\nand `build_diagnostics` scans every expected value corpus-wide, so bare\nnumerals would swamp the value-collision report with false hits.",
+      "properties": {
+        "comparator": {
+          "minLength": 1,
+          "title": "Comparator",
+          "type": "string"
+        },
+        "comparator_range": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Comparator Range",
+          "type": "array"
+        },
+        "pipeline": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Pipeline",
+          "type": "array"
+        },
+        "pipeline_retention": {
+          "default": [
+            0.0,
+            0.0
+          ],
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Pipeline Retention",
+          "type": "array"
+        },
+        "pipeline_top_range": {
+          "default": [
+            0,
+            0
+          ],
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Pipeline Top Range",
+          "type": "array"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "unit_range": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Unit Range",
+          "type": "array"
+        }
+      },
+      "required": [
+        "unit",
+        "unit_range",
+        "comparator",
+        "comparator_range"
+      ],
+      "title": "ScopeProfile",
       "type": "object"
     }
   },

@@ -1010,6 +1010,74 @@ def acl_03(ctx: Context):
 # --- AFF (affiliation-aware documents) --------------------------------------
 
 
+def _needs_scope(ctx: Context) -> str | None:
+    if ctx.charter.engagements.scope is None:
+        return "recipe declares no engagements.scope profile"
+    return None
+
+
+def scope_01(ctx: Context):
+    """M17b: the planted scope quantities recompute exactly from the charter.
+
+    Ids, values and rendered surfaces are compared one for one against
+    `plant_scope_facts`, the same function the fabric planted them with, and
+    the funnel is re-checked for monotonicity and completeness per
+    engagement. The planting is a pure function of (seed, engagement id), so
+    any drift is tamper evidence rather than a legitimate re-derive.
+
+    Grandfathers by charter, the AFF-01/STY-01 idiom: skips visibly when the
+    recipe declares no scope profile, and a profile declared with the facts
+    missing from the ledger is a finding, never a skip.
+    """
+    from ..fabric.engagements import plant_scope_facts, stage_slug
+
+    planted = plant_scope_facts(
+        ctx.charter, [e.id for e in ctx.engagements.engagements]
+    )
+    stages = ctx.charter.engagements.scope.pipeline
+    for eng in ctx.engagements.engagements:
+        want = {f.id: f for f in planted[eng.id]}
+        got = {f.id: f for f in eng.facts if f.id in want}
+        missing = sorted(set(want) - set(got))
+        if missing:
+            yield (
+                f"scope profile is declared but the ledger is missing "
+                f"{len(missing)} scope fact(s): {', '.join(missing)}",
+                eng.id,
+            )
+            continue
+        for fid, expected in want.items():
+            actual = got[fid]
+            if (actual.kind, actual.value, actual.rendered) != (
+                expected.kind,
+                expected.value,
+                expected.rendered,
+            ):
+                yield (
+                    f"{fid} does not recompute from the charter: ledger has "
+                    f"kind={actual.kind!r} value={actual.value!r} "
+                    f"rendered={actual.rendered!r}, recomputation says "
+                    f"kind={expected.kind!r} value={expected.value!r} "
+                    f"rendered={expected.rendered!r}",
+                    eng.id,
+                )
+        # The funnel is checked on the LEDGER's own values rather than on the
+        # recomputation, so a ledger that recomputes cleanly but was planted
+        # by a future widening retention still fails here.
+        counts = [
+            got[f"f:{eng.id}.pipeline-{stage_slug(s)}"].value for s in stages
+        ]
+        for i in range(1, len(counts)):
+            if counts[i] > counts[i - 1]:
+                yield (
+                    f"funnel widens at stage {i + 1}: "
+                    f"{stages[i - 1]!r}={counts[i - 1]} then "
+                    f"{stages[i]!r}={counts[i]}. A funnel is non-increasing; "
+                    f"a later stage cannot carry more than the one feeding it",
+                    eng.id,
+                )
+
+
 def _needs_affiliation_docs(ctx: Context) -> str | None:
     if not ctx.charter.graph_targets.affiliations_in_docs:
         return "affiliations_in_docs knob is off for this recipe"
@@ -1543,6 +1611,9 @@ RULES = [
          available=_needs_acl),
     Rule("ACL-03", "ERROR", "grants and PERMISSIONS.md match the posture",
          acl_03, available=_needs_acl),
+    Rule("SCOPE-01", "ERROR", "engagement scope quantities recompute from "
+         "the charter; funnels are monotone", scope_01,
+         available=_needs_scope),
     Rule("AFF-01", "ERROR", "clients and external participants recompute "
          "affiliation-aware", aff_01, available=_needs_affiliation_docs),
     Rule("AFF-02", "ERROR", "multi-affiliation people appear under both "

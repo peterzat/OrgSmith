@@ -100,6 +100,22 @@ KNOB_LINES = (
 MENTIONS_FROM = "  min_mentions_per_person: 1\n"
 MENTIONS_TO = "  min_mentions_per_person: 2\n"
 
+# M17b: the engagement scope profile, appended inside the `engagements:`
+# block. Kept here rather than in KNOB_LINES because those land under
+# `graph_targets:`.
+SCOPE_ANCHOR = "engagements:\n  count: 3\n"
+SCOPE_LINES = (
+    "  scope:\n"
+    "    unit: positions\n"
+    "    unit_range: [8, 14]\n"
+    "    comparator: peer companies\n"
+    "    comparator_range: [18, 26]\n"
+    "    pipeline: [candidates sourced, candidates screened, "
+    "candidates presented, offers extended]\n"
+    "    pipeline_top_range: [40, 70]\n"
+    "    pipeline_retention: [0.35, 0.6]\n"
+)
+
 
 def write_hardcase_recipe(
     root: Path, slug: str = "dev-mini", sig: int = 1, fn: int = 1
@@ -233,6 +249,12 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     text = text.replace(anchor, anchor + KNOB_LINES)
     assert MENTIONS_FROM in text
     text = text.replace(MENTIONS_FROM, MENTIONS_TO)
+    # M17b: an engagement scope profile so SCOPE-01 finds its knob on here
+    # too (the zero-skip test keys off this org). A four-stage funnel, so
+    # the monotonicity and position-gating paths are exercised rather than
+    # merely reachable.
+    assert SCOPE_ANCHOR in text
+    text = text.replace(SCOPE_ANCHOR, SCOPE_ANCHOR + SCOPE_LINES)
     # Widen the date range by two years. M8's staffing rotation shifted
     # dev-mini's engagement dates, and its 2019-2023 window with 3
     # engagements can no longer place the multi-affiliation person on both
