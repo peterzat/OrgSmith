@@ -30,6 +30,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from ..seeds import rng
+
 
 @dataclass(frozen=True)
 class GenreRule:
@@ -248,3 +250,411 @@ REGISTRY: tuple[GenreRule, ...] = (
         filename="{date:%Y.%m.%d} - {subject}.eml",
     ),
 )
+
+
+# --------------------------------------------------------------------------
+# Per-document section skeletons (M17b, part B)
+# --------------------------------------------------------------------------
+#
+# M17's board: "per-person voice genuinely works now; what recurs is the
+# per-genre outline." Two kickoff memos by two authors two years apart came
+# back as the same memo re-skinned -- same five numbered owners in the same
+# order, same open-questions pair -- because every fresh-context author is
+# asked for the same document. The fix is not a better prompt (M16 already
+# proved a banned-construction list only stops literal strings); it is to
+# stop asking every kickoff memo to contain the same things.
+#
+# `forbids` is what actually does the work. "The same five numbered owners
+# in the same order" cannot recur in a variant that may not contain a list.
+# A directive is a suggestion an author can drift from; a forbidden block
+# kind is checked at ingest.
+
+
+@dataclass(frozen=True)
+class Section:
+    """One thing a document must contain.
+
+    `form` is the DocIR block kind the section is expected to arrive as, and
+    is what ingest counts: a `list` section means the deliverable must carry
+    at least that many list blocks. `directive` is the brief text -- what
+    this section is FOR, not what to call it. Variants that differ only in
+    section naming would leave the underlying document identical, which is
+    the defect, so directives name different content.
+    """
+
+    form: str  # heading | paragraph | list | table | sigblock
+    directive: str
+
+
+@dataclass(frozen=True)
+class Outline:
+    id: str
+    sections: tuple[Section, ...]
+    # Block kinds this variant may NOT contain. Never forbid a form another
+    # mechanism requires of the genre: minutes must be able to list
+    # attendees (MENT-01 reads those names) and an engagement letter must be
+    # able to carry its sigblock (LOC-01 puts the fee on the signature page).
+    forbids: tuple[str, ...] = ()
+
+
+def _s(form: str, directive: str) -> Section:
+    return Section(form=form, directive=directive)
+
+
+# Three to four variants per longform authored genre. The two mail genres
+# are deliberately absent: a 110-250 word note has one shape, and imposing
+# four sections on it produces worse prose than the repetition it would
+# prevent. `assign_outlines` leaves any genre with no pool unassigned, so
+# adding one later is a pool entry and nothing else.
+OUTLINES: dict[str, tuple[Outline, ...]] = {
+    "kickoff_memo": (
+        Outline(
+            id="km-risk-first",
+            sections=(
+                _s("paragraph", "open on the single risk that will decide "
+                   "this engagement, before any objective is stated"),
+                _s("paragraph", "what the team will do differently because "
+                   "of that risk"),
+                _s("paragraph", "the objectives, framed as consequences of "
+                   "the approach above"),
+                _s("paragraph", "what the team needs from the client, in "
+                   "prose, with no enumeration"),
+            ),
+            forbids=("list", "table"),
+        ),
+        Outline(
+            id="km-owner-table",
+            sections=(
+                _s("table", "workstreams and their owners, as the FIRST "
+                   "block of the document"),
+                _s("paragraph", "why the work is split this way"),
+                _s("paragraph", "the sequencing constraint between the "
+                   "workstreams"),
+            ),
+            forbids=("list",),
+        ),
+        Outline(
+            id="km-question-led",
+            sections=(
+                _s("heading", "a title naming the decision at stake"),
+                _s("paragraph", "the questions this engagement exists to "
+                   "answer, stated as questions"),
+                _s("list", "how each question gets answered, one item per "
+                   "question, in the same order"),
+                _s("paragraph", "what is explicitly out of scope"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="km-narrative",
+            sections=(
+                _s("paragraph", "the client's situation as the team "
+                   "understands it today"),
+                _s("paragraph", "the approach, as a continuous argument "
+                   "rather than a set of workstreams"),
+                _s("paragraph", "the first two weeks, concretely"),
+            ),
+            forbids=("list", "table"),
+        ),
+    ),
+    "status_report": (
+        Outline(
+            id="sr-exception",
+            sections=(
+                _s("paragraph", "what is off track and what is being done "
+                   "about it -- lead with the exception, not the summary"),
+                _s("table", "the quantities this period, one row per "
+                   "measure"),
+                _s("paragraph", "what the client must decide before the "
+                   "next report"),
+            ),
+            forbids=("list",),
+        ),
+        Outline(
+            id="sr-narrative",
+            sections=(
+                _s("paragraph", "the period in one continuous account, "
+                   "start to finish"),
+                _s("paragraph", "the quantities, stated inside the prose "
+                   "rather than tabulated"),
+                _s("paragraph", "the outlook, with its assumptions named"),
+            ),
+            forbids=("list", "table"),
+        ),
+        Outline(
+            id="sr-risk-register",
+            sections=(
+                _s("heading", "a title naming the period"),
+                _s("paragraph", "progress against the plan"),
+                _s("list", "the open risks, each with its owner and its "
+                   "trigger"),
+                _s("paragraph", "what changed in the risk picture since "
+                   "the last report"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="sr-decision-log",
+            sections=(
+                _s("paragraph", "the decisions this period asked the client "
+                   "for, and which are still open"),
+                _s("list", "the work completed, one item each"),
+                _s("list", "the work in flight, one item each"),
+                _s("paragraph", "what the next period depends on"),
+            ),
+            forbids=("table",),
+        ),
+    ),
+    "engagement_letter": (
+        Outline(
+            id="el-terms-first",
+            sections=(
+                _s("paragraph", "the client's inside address and salutation"),
+                _s("paragraph", "the commercial terms, stated before the "
+                   "description of the work"),
+                _s("paragraph", "scope and approach"),
+                _s("paragraph", "the standard clauses, each as its own "
+                   "short headed paragraph"),
+                _s("sigblock", "signed by the author and the client contact"),
+            ),
+            forbids=("list", "table"),
+        ),
+        Outline(
+            id="el-scope-schedule",
+            sections=(
+                _s("paragraph", "the client's inside address and salutation"),
+                _s("paragraph", "scope, in prose"),
+                _s("table", "the schedule of deliverables and their timing"),
+                _s("paragraph", "the standard clauses, each as its own "
+                   "short headed paragraph"),
+                _s("sigblock", "signed by the author and the client contact"),
+            ),
+            forbids=("list",),
+        ),
+        Outline(
+            id="el-enumerated-scope",
+            sections=(
+                _s("paragraph", "the client's inside address and salutation"),
+                _s("list", "the scope, one item per deliverable"),
+                _s("paragraph", "the team and how it is staffed"),
+                _s("paragraph", "the standard clauses, each as its own "
+                   "short headed paragraph"),
+                _s("sigblock", "signed by the author and the client contact"),
+            ),
+            forbids=("table",),
+        ),
+    ),
+    "meeting_minutes": (
+        # No variant forbids `list`: MENT-01 reads the attendee names, and a
+        # firm that minutes a session without listing who was there is the
+        # unrealistic one.
+        Outline(
+            id="mm-decisions-first",
+            sections=(
+                _s("list", "attendees, full names"),
+                _s("paragraph", "the decisions taken, before any discussion "
+                   "is recounted"),
+                _s("paragraph", "the discussion that produced them"),
+                _s("list", "actions with owners"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="mm-action-table",
+            sections=(
+                _s("list", "attendees, full names"),
+                _s("paragraph", "discussion summary"),
+                _s("table", "actions, owners and due dates"),
+            ),
+        ),
+        Outline(
+            id="mm-chronological",
+            sections=(
+                _s("list", "attendees, full names"),
+                _s("paragraph", "the session in the order it happened, "
+                   "including what was raised and dropped"),
+                _s("paragraph", "what was left unresolved and who carries it"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="mm-by-topic",
+            sections=(
+                _s("list", "attendees, full names"),
+                _s("paragraph", "the first topic and where it landed"),
+                _s("paragraph", "the second topic and where it landed"),
+                _s("paragraph", "who carries what out of the session, in "
+                   "prose rather than as an action list"),
+            ),
+            forbids=("table",),
+        ),
+    ),
+    "briefing_deck": (
+        Outline(
+            id="bd-bulleted",
+            sections=(
+                _s("heading", "title slide naming the engagement"),
+                _s("list", "the situation, 3-5 bullets"),
+                _s("heading", "a slide title for the findings"),
+                _s("list", "the findings, 3-5 bullets"),
+                _s("heading", "next steps"),
+                _s("list", "next steps, 3-5 bullets"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="bd-data-led",
+            sections=(
+                _s("heading", "title slide naming the engagement"),
+                _s("table", "the quantities, as the deck's second block"),
+                _s("heading", "a slide title for what the numbers mean"),
+                _s("paragraph", "the reading of those numbers, in prose"),
+                _s("heading", "next steps"),
+                _s("list", "next steps, 3-5 bullets"),
+            ),
+        ),
+        Outline(
+            id="bd-question-slides",
+            sections=(
+                _s("heading", "a title slide posing the question"),
+                _s("paragraph", "why the question matters now"),
+                _s("heading", "a slide title giving the answer"),
+                _s("list", "the evidence, 3-5 bullets"),
+                _s("heading", "what we need to proceed"),
+                _s("paragraph", "the ask, in prose"),
+            ),
+            forbids=("table",),
+        ),
+    ),
+    "onboarding_record": (
+        Outline(
+            id="or-welcome",
+            sections=(
+                _s("paragraph", "welcome, naming the new employee"),
+                _s("paragraph", "their role and where it sits in the "
+                   "practice"),
+                _s("paragraph", "first-period expectations, in prose"),
+            ),
+            forbids=("list", "table"),
+        ),
+        Outline(
+            id="or-checklist",
+            sections=(
+                _s("paragraph", "welcome, naming the new employee"),
+                _s("list", "first-week logistics, one item each"),
+                _s("paragraph", "who to go to for what"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="or-role-table",
+            sections=(
+                _s("paragraph", "welcome, naming the new employee"),
+                _s("table", "responsibilities and who they are shared with"),
+                _s("paragraph", "how the first review will work"),
+            ),
+            forbids=("list",),
+        ),
+    ),
+    "company_overview": (
+        Outline(
+            id="co-service-lines",
+            sections=(
+                _s("paragraph", "what the firm does, in one paragraph"),
+                _s("list", "the service lines"),
+                _s("paragraph", "representative client work"),
+            ),
+            forbids=("table",),
+        ),
+        Outline(
+            id="co-history",
+            sections=(
+                _s("paragraph", "how the firm came to do what it does"),
+                _s("paragraph", "what that history means for how it works "
+                   "now"),
+                _s("paragraph", "representative client work"),
+            ),
+            forbids=("list", "table"),
+        ),
+        Outline(
+            id="co-capability-table",
+            sections=(
+                _s("paragraph", "what the firm does, in one paragraph"),
+                _s("table", "capabilities and the sectors they serve"),
+                _s("paragraph", "representative client work"),
+            ),
+            forbids=("list",),
+        ),
+    ),
+}
+
+
+def outline_by_id(genre: str, outline_id: str) -> Outline | None:
+    for outline in OUTLINES.get(genre, ()):
+        if outline.id == outline_id:
+            return outline
+    return None
+
+
+def assign_outlines(charter, rows) -> list[str | None]:
+    """Deal each authored document a section skeleton.
+
+    `rows` is [(genre, authoring, engagement)] in manifest order; the return
+    is aligned to it, carrying an outline id or None. Pure and module-level
+    so OUT-01 recomputes it with the same code that planned it.
+
+    A CONSTRAINED DRAW rather than the shuffled cycles the M17b plan
+    sketched, because cycles deliver only the adjacency property. Two
+    documents of one genre in one engagement can sit two apart in the global
+    genre order (concurrent engagements interleave), and two cycles can put
+    the same variant at those two positions. Both properties the spec asks
+    for are stated directly here instead: a pick may not repeat the previous
+    document of its genre, and may not repeat any variant already used by
+    that genre inside the same engagement.
+
+    THE EXACT BOUNDARY, because "impossible by construction" would be an
+    overclaim and a vague guarantee is worse than a bounded one. Write k for
+    the pool size and j for how many documents of this genre the engagement
+    has already taken. A pick must avoid j variants and the previous one, so
+    a candidate exists whenever j <= k - 2 -- that is, **both properties hold
+    together for the first k-1 documents of a genre within one engagement.**
+    Pools are sized against that: 4 variants for the genres a single
+    engagement repeats (minutes, status reports), so up to 3 per engagement
+    is guaranteed.
+
+    Past that the constraints RELAX, adjacency last, because OUT-01 enforces
+    adjacency as a rule while within-engagement uniqueness is a property of
+    the deal. So an engagement that outruns its pool reuses a variant it has
+    already used, and never repeats one back to back. A finite pool cycles;
+    this is where.
+
+    Exactly one draw per assigned document, from a per-genre stream, so the
+    deal is deterministic across runs and independent of every other genre.
+    """
+    if not charter.doc_culture.outline_variety:
+        return [None] * len(rows)
+    rands: dict = {}
+    last: dict = {}
+    used: dict = {}
+    out: list[str | None] = []
+    for genre, authoring, engagement in rows:
+        pool = OUTLINES.get(genre)
+        if authoring != "batchable" or not pool:
+            out.append(None)
+            continue
+        rand = rands.get(genre)
+        if rand is None:
+            rand = rands[genre] = rng(charter.seed, "docplan.outline", genre)
+        ids = [o.id for o in pool]
+        seen = used.setdefault((genre, engagement), set())
+        blocked = last.get(genre)
+        candidates = [i for i in ids if i != blocked and i not in seen]
+        if not candidates:  # engagement has outrun the pool
+            candidates = [i for i in ids if i != blocked]
+        if not candidates:  # a single-variant pool
+            candidates = ids
+        pick = rand.choice(candidates)
+        out.append(pick)
+        last[genre] = pick
+        seen.add(pick)
+    return out

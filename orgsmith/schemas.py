@@ -286,6 +286,18 @@ class DocCulture(StrictModel):
     # contact became "the committee". Default off: every committed manifest,
     # mention map and ACL is byte-identical without it.
     client_facing_reports: bool = False
+    # M17b: the plan deals each authored document a section skeleton from a
+    # per-genre pool, so two documents of one genre are not asked to contain
+    # the same things. M17's board found per-person voice working and the
+    # per-genre OUTLINE recurring, which makes the defect a property of what
+    # each document is asked FOR rather than of how anyone writes -- and M16
+    # already proved a banned-construction list in the brief only stops
+    # literal strings. Default off: no document carries a skeleton, the
+    # docplan.outline stream is never drawn from, and every committed
+    # manifest re-derives byte-identical. The skeleton id rides in
+    # `render_params`, as M12 did for `noise_of`: a new ManifestEntry field
+    # would write a key into every committed manifest line.
+    outline_variety: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":

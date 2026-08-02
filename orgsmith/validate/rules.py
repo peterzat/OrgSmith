@@ -1010,6 +1010,75 @@ def acl_03(ctx: Context):
 # --- AFF (affiliation-aware documents) --------------------------------------
 
 
+def _needs_outlines(ctx: Context) -> str | None:
+    if not ctx.charter.doc_culture.outline_variety:
+        return "doc_culture.outline_variety is off for this recipe"
+    return None
+
+
+def out_01(ctx: Context):
+    """M17b: the section-skeleton deal recomputes from the charter.
+
+    Recomputed with `assign_outlines`, the same module-level function the
+    planner dealt with, over the manifest in the order it dealt them
+    (date, path). The deal is a pure function of (seed, genre, position), so
+    a `render_params["outline"]` that does not recompute is tamper evidence.
+
+    The no-adjacent-repeat property is then asserted on the LEDGER's own
+    values rather than on the recomputation, so a manifest that recomputes
+    cleanly but was planned by some future dealer that lost the property
+    still fails here.
+
+    Grandfathers by charter: skips visibly when the knob is off, and a knob
+    on with a batchable document carrying no outline is a finding.
+    """
+    from ..docplan.registry import OUTLINES, assign_outlines
+
+    ordered = sorted(ctx.manifest, key=lambda e: (e.date, e.path))
+    want = assign_outlines(
+        ctx.charter,
+        [(e.genre, e.authoring, e.engagement) for e in ordered],
+    )
+    last: dict = {}
+    for entry, expected in zip(ordered, want):
+        got = entry.render_params.get("outline")
+        if expected is None:
+            if got is not None:
+                yield (
+                    f"carries outline {got!r} but the deal assigns none to "
+                    f"this document ({entry.authoring} {entry.genre})",
+                    entry.path,
+                )
+            continue
+        if got is None:
+            yield (
+                f"outline_variety is on but this {entry.genre} carries no "
+                f"outline; the deal assigns {expected!r}",
+                entry.path,
+            )
+            continue
+        if got != expected:
+            yield (
+                f"outline does not recompute from the charter: manifest has "
+                f"{got!r}, recomputation says {expected!r}",
+                entry.path,
+            )
+            continue
+        if got not in {o.id for o in OUTLINES.get(entry.genre, ())}:
+            yield (
+                f"outline {got!r} is not in the {entry.genre} pool",
+                entry.path,
+            )
+            continue
+        if last.get(entry.genre) == got and len(OUTLINES[entry.genre]) > 1:
+            yield (
+                f"two consecutive {entry.genre} documents share outline "
+                f"{got!r}; the deal must not repeat adjacently",
+                entry.path,
+            )
+        last[entry.genre] = got
+
+
 def _needs_scope(ctx: Context) -> str | None:
     if ctx.charter.engagements.scope is None:
         return "recipe declares no engagements.scope profile"
@@ -1614,6 +1683,9 @@ RULES = [
     Rule("SCOPE-01", "ERROR", "engagement scope quantities recompute from "
          "the charter; funnels are monotone", scope_01,
          available=_needs_scope),
+    Rule("OUT-01", "ERROR", "section skeletons recompute; no two adjacent "
+         "same-genre documents share one", out_01,
+         available=_needs_outlines),
     Rule("AFF-01", "ERROR", "clients and external participants recompute "
          "affiliation-aware", aff_01, available=_needs_affiliation_docs),
     Rule("AFF-02", "ERROR", "multi-affiliation people appear under both "

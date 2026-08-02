@@ -290,7 +290,13 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
         # M15: style specs on so STY-01 finds its knob here too. Set here
         # rather than inherited: base_recipe_text strips it from the copy so
         # unrelated fixtures are not switched on by a recipe edit.
-        "  style_specs: true\n",
+        "  style_specs: true\n"
+        # M17b: section skeletons on so OUT-01 finds its knob here too (the
+        # zero-skip test keys off this org), and the client-facing report
+        # override, which has no rule of its own but must keep planning and
+        # authoring cleanly alongside every other knob.
+        "  outline_variety: true\n"
+        "  client_facing_reports: true\n",
     )
     text = text.replace("target_docs: 23", "target_docs: 16")
     (dest / "ORG-CHARTER.md").write_text(text)

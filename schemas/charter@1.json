@@ -91,6 +91,11 @@
           "title": "Ocr Layer Rate",
           "type": "number"
         },
+        "outline_variety": {
+          "default": false,
+          "title": "Outline Variety",
+          "type": "boolean"
+        },
         "scanned_ratio": {
           "default": 0.0,
           "maximum": 1.0,

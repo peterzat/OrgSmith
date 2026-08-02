@@ -34,7 +34,7 @@ from ..fabric.engagements import (
 from ..naming import check_relpath, sanitize_component
 from ..paths import OrgPaths
 from ..seeds import rng
-from .registry import REGISTRY, GenreRule
+from .registry import REGISTRY, GenreRule, assign_outlines
 from ..schemas import (
     BASE_FORMAT,
     Charter,
@@ -972,6 +972,24 @@ class _Planner:
         self.plan_legacy()
 
         self.planned.sort(key=lambda d: (d["date"], d["path"]))
+
+        # M17b: deal section skeletons after the sort (so the deal order is
+        # the manifest order OUT-01 recomputes from) and before doc ids
+        # exist (the deal keys off genre and engagement, never off an id).
+        # The id rides in render_params rather than a ManifestEntry field:
+        # dump_json serializes every field, so a defaulted one would write a
+        # new key into all nine committed manifests.
+        outlines = assign_outlines(
+            self.charter,
+            [
+                (d["genre"], d.get("authoring", "batchable"), d.get("engagement"))
+                for d in self.planned
+            ],
+        )
+        for doc, outline_id in zip(self.planned, outlines):
+            if outline_id is not None:
+                doc.setdefault("render_params", {})["outline"] = outline_id
+
         entries = []
         seen_paths: set[str] = set()
         for i, doc in enumerate(self.planned, start=1):
