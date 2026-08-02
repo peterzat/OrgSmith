@@ -48,6 +48,36 @@ README.md for the product shape and SPEC.md for the current unit of work.
   anywhere in the repo (enforced by a short-tier test; see
   `tests/test_short.py` for the check).
 
+## Frozen-fixture carve-out, answer-key turn (M17), opened 2026-08-02
+
+The frozen-fixtures rule is suspended in the following scoped way and no
+other: **`northgate-staffing` may be regenerated exactly once, wholesale**,
+under a recipe enriched with existing knobs (departmental ACL, mail threads
+with mundane traffic and both mention exemptions, scans with an OCR layer,
+signature-page and filename-date hard cases) plus the new
+`graph_targets.alias_agreement`. Regeneration is always wholesale (delete and
+re-run the full pipeline from the recipe), never an in-place edit of ledgers,
+manifest, or prose.
+
+No other org's frozen artifacts move. `dev-mini`, `ashcombe-advisory`,
+`calderwood-partners`, `brackenridge-civil`, `saltmarsh-environmental`,
+`verdant-health`, `hollowell-ip`, and `meridian-actuarial` stay frozen; their
+derived artifacts re-emit freely, as always. The two mail demonstrators were
+in the original M17 plan and are **deliberately out of this carve-out** (user
+decision, 2026-08-02): the recipient-exemption knob they need is landed and
+proven inert, but they are not re-run, and their data cards record the
+full-name-in-body device as an open residual.
+
+`PINNED = SLUGS` stays enforced and must be green at every commit, including
+mid-turn. Additive evolution is NOT suspended: both new knobs
+(`graph_targets.alias_agreement`, `mail.exempt_recipient_mentions`) landed
+default-off with inert schema defaults, drew nothing from existing seed
+streams, and were proven inert against the frozen fleet before this org
+turned them on.
+
+The carve-out closes when northgate is regenerated, boarded, and re-frozen,
+at which point this paragraph is replaced by closure language.
+
 ## Frozen-fixture carve-out, realism wave (M13-M16): CLOSED as of M16 (2026-07-28)
 
 The realism-wave carve-out is **closed**. All eight fleet orgs plus `dev-mini`

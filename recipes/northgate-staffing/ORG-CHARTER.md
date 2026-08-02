@@ -19,11 +19,37 @@ titles:
   Operations: [Office Manager]
 
 doc_culture:
-  # Recorded from a docplan run: 6 engagements, 9 fiscal years, 5 hires.
+  # Recorded from a docplan run: 6 engagements, 11 fiscal years, 5 hires,
+  # yielding 54 authored + 9 static, plus 13 derived noise files.
   # The email-leaning firm of the fleet: search runs on correspondence.
-  target_docs: 53
+  target_docs: 63
   date_range: [2015-01-01, 2023-12-31]
-  format_mix: {docx: 24, pdf: 10, xlsx: 8, pptx: 2, eml: 5}
+  format_mix: {docx: 24, pdf: 10, xlsx: 8, pptx: 2, eml: 10}
+  # M17: the exemplar demonstrates the headline surface. A newcomer is
+  # told to read this org, and it used to leave every difficulty knob
+  # off: no scans, no hard cases, no threads, an ACL under which
+  # everyone read everything. Each knob below is proven on another
+  # fleet org; what is new here is that they are on together.
+  #
+  # Signed agreements come back as scans: half the pdfs, and a third of
+  # those keep a synthetic OCR layer, so the org carries BOTH hard
+  # cases -- a scan you can extract badly and a scan you cannot extract
+  # at all, whose true page text is archived as ground truth. Legacy
+  # binaries stay off: a firm founded in 2013 producing pre-2007 .doc
+  # files would be era-wrong.
+  scanned_ratio: 0.5
+  ocr_layer_rate: 0.34
+  # M17: search runs on correspondence, so this is the org where mail
+  # threads belong. Mundane internal traffic is what finally gives the
+  # split curve a real distractor gap: documents that answer nothing.
+  mail:
+    business_hours: [8, 18]
+    max_thread_depth: 4
+    mundane_emails: 5
+    attachments: 1
+    distribution_lists: 1
+    exempt_author_mentions: true
+    exempt_recipient_mentions: true
   # M16: minuted sessions and engagement mail land on business days. The
   # board found this firm's Saturday 2016-05-28 and 2023-07-04 client
   # sessions; a declared holiday per year (plus the always-excluded
@@ -68,8 +94,28 @@ graph_targets:
   min_mentions_per_person: 2
   surname_collisions: 1
   nickname_aliases: 1
+  # M17: the nickname is the exemplar's published residual. The ledger
+  # registered "Jim" to one James while the other James's persona claimed
+  # it, so the firm overview called the wrong man Jim and no fact check
+  # could see it. With this on, ingest rejects a persona that claims
+  # somebody else's registered nickname and rejects authored prose that
+  # uses one where the plan placed no mention; MENT-03 enforces the same
+  # on committed state. The collision is now impossible by construction.
+  alias_agreement: true
 
-acl_posture: open
+# M17: a fee that lives ONLY on the signature page of the engagement
+# letter, and a meeting date that lives ONLY in the minutes filename.
+# Both are proven on meridian-actuarial; the exemplar carries them so the
+# org a newcomer reads actually poses the hard cases the README advertises.
+hard_cases:
+  signature_page_facts: 1
+  filename_dates: 1
+
+# M17: was `open`, under which 11 people read all 66 documents and the one
+# departed person read none -- a visibility suite with nothing to discriminate.
+# Departmental scopes reads to the matter team plus the CEO-equivalent, so
+# "which documents may this person read?" becomes a real question.
+acl_posture: departmental
 
 roster_churn:
   departures: 1
