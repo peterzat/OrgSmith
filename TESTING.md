@@ -16,8 +16,8 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~85s wall and 956 passing + 27 skipped (16 short, 712 unit, 228 org)
-on a box with LibreOffice; 948 passing + 35 skipped without it (the six
+Expect ~85s wall and 960 passing + 27 skipped (16 short, 716 unit, 228 org)
+on a box with LibreOffice; 952 passing + 35 skipped without it (the six
 `@needs_soffice` conversion tests, which is what CI sees). Both are green
 states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
@@ -63,7 +63,7 @@ pull request, and is the actual gate.
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
 | `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 16 | < 1s | 0.40s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 712 (706 in CI) | ~75s | ~71s local |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 716 (710 in CI) | ~75s | ~71s local |
 | `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 228 (+27 skipped) | ~15s | 11.0s warm |
 | `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 65 (+5 skipped) | ~15s | 11.8s |
 

@@ -307,7 +307,15 @@ def _integrity_lines(paths: OrgPaths) -> list[str]:
     if errors:
         lines += ["", "THE ORG DOES NOT VALIDATE. First findings:"]
         for f in errors[:10]:
-            lines.append(f"- {f['rule']} [{f['target']}] {_cell(f['message'])}")
+            # The target is escaped for the same reason as the message beside
+            # it: a MAN-01 target is a raw filesystem name off
+            # `share_dir.rglob("*")` (`check_relpath` guards manifest entries,
+            # not strays), so an embedded newline would forge a second list
+            # item and a pipe would break a row, in an artifact that persists.
+            lines.append(
+                f"- {f['rule']} [{_cell(str(f['target']))}] "
+                f"{_cell(str(f['message']))}"
+            )
     return lines
 
 

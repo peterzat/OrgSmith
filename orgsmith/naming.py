@@ -85,11 +85,22 @@ def doc_id_filename(doc_id: str, suffix: str) -> str:
 
 
 def strip_control(text: str, keep: str = "\n\t") -> str:
-    """Neutralize control characters in untrusted strings bound for a
-    terminal (escape sequences can rewrite or hide earlier output).
-    Control characters not in `keep` become U+FFFD."""
+    """Neutralize control and format characters in untrusted strings bound for
+    a terminal or a persisted report. Characters of Unicode category Cc or Cf
+    that are not in `keep` become U+FFFD.
+
+    Cc covers the escape sequences that rewrite or hide earlier output. Cf is
+    here for the same reason by a different mechanism: U+202E RIGHT-TO-LEFT
+    OVERRIDE, the isolates U+2066-U+2069 and U+200B are format characters, and
+    they visually reorder the remainder of a line, so a tampered path or
+    principal can be made to display as an untampered one (Trojan Source,
+    CVE-2021-42574). Widened here rather than at each call site so the
+    validate printer, `review.report._cell` and every later caller are covered
+    at once."""
     return "".join(
-        "�" if unicodedata.category(ch) == "Cc" and ch not in keep else ch
+        "�"
+        if unicodedata.category(ch) in ("Cc", "Cf") and ch not in keep
+        else ch
         for ch in text
     )
 

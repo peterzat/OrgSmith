@@ -137,6 +137,66 @@ def test_findings_printer_neutralizes_a_smuggled_escape(org_copy, capsys):
     assert not forged, f"a smuggled newline forged a finding line: {forged}"
 
 
+def test_findings_printer_survives_a_non_str_target(org, capsys, monkeypatch):
+    """The printer must not raise on the finding it exists to report.
+
+    Sanitizing replaced an f-string, which coerced anything; `strip_control`
+    iterates its argument and so needs a `str`. Rules yield `str` targets
+    today, but they build `share_dir / rel` paths constantly and one already
+    wraps a target in an explicit `str(...)`, so yielding a `Path` or an `int`
+    is a mistake with precedent. It must degrade to an ugly line, never to a
+    traceback out of the validator's own reporting path.
+    """
+    import orgsmith.validate as v
+
+    hostile = [
+        {"rule": "FAKE-01", "severity": "ERROR",
+         "message": "path target", "target": org.root / "companies"},
+        {"rule": "FAKE-02", "severity": "ERROR",
+         "message": "int target", "target": 42},
+    ]
+    monkeypatch.setattr(v, "collect", lambda ctx, selected=None: (hostile, []))
+
+    assert v.run_validate(org) == 1  # printed, and the ERRORs still count
+    out = capsys.readouterr().out
+    assert "FAKE-01" in out and "FAKE-02" in out
+    assert "[42]" in out
+
+
+def test_findings_printer_neutralizes_a_bidi_override(org_copy, capsys):
+    """Trojan Source (CVE-2021-42574) against the same printer.
+
+    U+202E and the isolates are category Cf, not Cc, so the escape-only
+    sanitizer passed them through and a hostile ledger string could reverse
+    the remainder of the line it printed -- a tampered principal displaying
+    as an untampered one. Same read-the-wrong-thing outcome the Cc pass
+    exists to stop, so the sanitizer covers Cf too.
+    """
+    foundation = org_copy.foundation_json
+    # RLO + isolates: rendered raw, these reorder the rest of the finding.
+    hostile = '"reports_to": "p:x\\u202egnitcarahc\\u2066 \\u2069dedips"'
+    text = foundation.read_text()
+    corrupted = text.replace('"reports_to": null', hostile, 1)
+    assert corrupted != text
+    foundation.write_text(corrupted)
+
+    assert run_validate(org_copy) == 1
+    out = capsys.readouterr().out
+    for ch in ("‮", "⁦", "⁩"):
+        assert ch not in out, f"a bidi format character reached the terminal: {ch!r}"
+    assert "gnitcarahc" in out  # content survives, only the reordering dies
+
+
+def test_strip_control_keeps_the_characters_callers_ask_to_keep():
+    """Widening to Cf must not eat the whitespace `keep` exempts, which the
+    report's `_cell` relies on (`keep="\\n"` before it folds newlines)."""
+    from orgsmith.naming import strip_control
+
+    assert strip_control("a\nb\tc") == "a\nb\tc"
+    assert strip_control("a\nb", keep="") == "a�b"
+    assert strip_control("a​b") == "a�b"
+
+
 def test_json_output_is_not_mangled_by_the_printer_sanitizer(org_copy):
     """The sanitizer is on the human printer only. `--json` output is
     consumed by tooling and by several tests, so it must keep the ledger's

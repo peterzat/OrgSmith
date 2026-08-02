@@ -77,17 +77,24 @@ def run_validate(paths: OrgPaths, as_json: bool = False, only=None) -> int:
         # drops newlines too, so a smuggled newline cannot forge a second
         # finding line. Matches the ingest and score printers.
         # (SECURITY.md, carried NOTE, closed 2026-08-02.)
+        #
+        # `str()` before sanitizing: `strip_control` iterates its argument and
+        # so requires a `str`, while the f-string it replaced coerced anything.
+        # Rules yield `str` targets today, but they build paths constantly and
+        # a yielded `Path` or `int` would raise out of the one printer that
+        # must survive bad input. Coercion restores that robustness here rather
+        # than relying on every rule author to remember it.
         for s in skipped:
             print(
-                f"SKIP {strip_control(s['rule'], keep='')}: "
-                f"{strip_control(s['reason'], keep='')}"
+                f"SKIP {strip_control(str(s['rule']), keep='')}: "
+                f"{strip_control(str(s['reason']), keep='')}"
             )
         for f in findings:
             print(
-                f"{strip_control(f['severity'], keep='')} "
-                f"{strip_control(f['rule'], keep='')} "
-                f"[{strip_control(f['target'], keep='')}] "
-                f"{strip_control(f['message'], keep='')}"
+                f"{strip_control(str(f['severity']), keep='')} "
+                f"{strip_control(str(f['rule']), keep='')} "
+                f"[{strip_control(str(f['target']), keep='')}] "
+                f"{strip_control(str(f['message']), keep='')}"
             )
         print(
             f"validate: {ran} rules run, {len(skipped)} skipped, "

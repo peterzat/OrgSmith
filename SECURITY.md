@@ -2,148 +2,201 @@
 
 ## Security Review — 2026-08-02 (scope: paths)
 
-**Summary:** Reviewed the fourteen in-airlock files carrying the M17b
-batch-boundary turn (~1,600 added lines since the last baseline `6bd7d77`):
-engagement scope quantities as ledger facts, per-document section skeletons,
-the client-facing-report participant override, the structural-similarity
-axis, the SCOPE-01/OUT-01 rules, and the ingest outline gate. No secret, no
-injection path, no PII, no new dependency. The two new rules do not extend
-the standing `validate`-printer NOTE, because both repr-escape every
-untrusted value they quote.
+**Summary:** Reviewed the eight files named for this run at `f0aacdc`, which
+is the previous baseline `e35e6eb` plus the two standing-NOTE closures (the
+`validate` printer sanitizer and the `count_noun` guard) and the M17b fix
+pass. No secret, no injection path into a filesystem or process sink, no PII,
+no new dependency. Two NOTEs, both on the same theme and both new: the
+sanitizer the last entry closed its carried NOTE with neutralizes control
+characters but not the Unicode format characters that reorder a terminal line,
+and the persisted integrity dashboard escapes a finding's message but not its
+target.
 
-**The carried NOTE is CLOSED as of this entry** (2026-08-02, at the user's
-instruction to clear the notes before pushing). `run_validate`'s human
-printer now routes every field of every finding and skip through
-`strip_control(..., keep="")`, so this file records zero open findings.
+Neither is a regression. The printer fix does what it claimed against the
+attack it was written for (ANSI escapes, smuggled newlines), and it now also
+covers the raw third-party parser text that `fin_02` and `file_01` quote,
+which no per-rule `!r` would have caught. These are the next layer down.
+
+**Both were FIXED before this entry was committed** (user instruction: clear
+the notes before pushing), so this file records zero open findings.
+`strip_control` now neutralizes Unicode category Cf as well as Cc, which
+covers the validate printer, `review.report._cell` and every later caller at
+once; `_integrity_lines` now routes a finding's target through `_cell` beside
+its message. Measured first: no Cf character appears anywhere in the repo, so
+the widening moved no committed byte, and the org and flagship tiers are
+unchanged. Three tests added (bidi override neutralized, `keep` still
+honored, non-`str` target survives).
+
+Reviewed at `f0aacdc` plus the uncommitted `str()` coercion the concurrent
+code-review pass added to the same printer. Line numbers are cited against the
+working tree. The coercion changes neither finding: `str()` is the identity on
+the `str` values both concern, and `strip_control` still handles category Cc
+only.
 
 ### Findings
 
 ```
-[NOTE, FIXED] orgsmith/validate/rules.py:332,579,616,707,812-813,956,1168,1489 —
-validate findings interpolate unconstrained ledger strings and third-party
-parser exception text, and the plain-text printer emits them raw. Carried
-forward from 2026-08-02 (`6bd7d77`), unchanged; line numbers re-derived at
-this commit.
-  Attack vector: an operator validates an org directory obtained from
-    someone else (`python -m orgsmith validate <slug>`, or `validate
-    companies/<slug>`). A hostile `ledger/finance.json` (`LedgerCheck.name`
-    / `.detail`), `ledger/graph.json` (`GraphEdge.src` / `.dst`),
-    `ledger/acl.json` (`AclGrant.person`), or `foundation.json`
-    (`Person.reports_to`) embeds an ANSI escape sequence; the rule quotes it
-    into a finding message and `validate/__init__.py:68` prints
-    `f"{severity} {rule} [{target}] {message}"` with no neutralization. The
-    escape can rewrite or hide earlier findings on the terminal, which is
-    exactly the outcome `strip_control` was introduced to prevent.
-  Evidence: the four models above declare bare `str` fields
-    (schemas.py:520,525,608-610,674-676,682-684), so pydantic constrains
-    nothing. The rule messages interpolate them without `!r` (contrast
-    acl_02's `{doc!r}` at rules.py:973, which repr-escapes correctly).
-    `orgsmith/validate/__init__.py` imports no sanitizer, while
-    `foundation/ingest.py`, `authoring/ingest.py:424`, `evals/score.py`,
-    `review/ingest.py`, `airlock.py` and `datacard.py` all route untrusted
-    text through `strip_control` with the same stated rationale.
-  Remediation: wrap the two plain-text prints in
-    `orgsmith/validate/__init__.py` in `strip_control(..., keep="")`, one
-    finding per line, matching the score-failure printer.
-  FIXED 2026-08-02, exactly as remediated. Sanitized at the PRINTER rather
-    than at each interpolation site, so the rules that do not yet quote with
-    `!r` are covered and a rule added later cannot reintroduce it. `keep=""`
-    drops newlines too, so a smuggled one cannot forge a second finding
-    line. `--json` output is deliberately left raw: it is consumed by
-    tooling, and `json.dumps` already escapes control characters.
-    Regression-tested both ways in `tests/test_unit_validate.py`
-    (`test_findings_printer_neutralizes_a_smuggled_escape`,
-    `test_json_output_is_not_mangled_by_the_printer_sanitizer`); the first
-    was proven to fail against the pre-fix printer.
+[NOTE, FIXED] orgsmith/naming.py:91-94, reached via orgsmith/validate/__init__.py:87-98
+— the finding printer neutralizes control characters but not the bidi format
+characters that visually reorder the line it prints.
+  Attack vector: the same operation the printer fix was written for. An
+    operator validates an org tree obtained from someone else (`validate`
+    takes "slug or companies/<slug> path", cli.py:62). A hostile
+    `ledger/finance.json` (`LedgerCheck.name` / `.detail`), `ledger/graph.json`
+    (`GraphEdge.src` / `.dst`), `ledger/acl.json` (`AclGrant.person`),
+    `foundation.json` (`Person.reports_to`), or a manifest `path` embeds
+    U+202E RIGHT-TO-LEFT OVERRIDE or a bidi isolate. It survives pydantic,
+    survives the printer, and reaches the terminal, where it reverses the
+    remainder of the finding line. That is the same read-the-wrong-thing
+    outcome as an ANSI escape by a different mechanism (Trojan Source,
+    CVE-2021-42574): a tampered path or principal can be made to display as
+    an untampered one.
+  Evidence: `strip_control` neutralizes a character only when
+    `unicodedata.category(ch) == "Cc"` (naming.py:92). U+202E, U+2066-U+2069
+    and U+200B are category Cf and pass through unchanged; measured directly,
+    and measured again through the printer's own expression on a
+    `LedgerCheck` carrying one. The four models above declare bare `str`
+    fields (schemas.py:633, 715-718, 786-788, 795), and the messages that
+    quote them interpolate raw rather than with `!r` (rules.py:332, 579, 616,
+    623, 626, 707, 812-813, 956). `repr()` does escape Cf, which is exactly
+    why the `!r` sites (rules.py:973, 1140-1146, 1158, 1047-1064) are already
+    clean. `check_relpath` admits the character in a manifest path as well
+    (naming.py:23-50: NFC-stable, not in FORBIDDEN_CHARS, ord >= 32), so
+    `entry.path`, the most common finding target, can carry one; verified.
+    `review/report.py:48` (`_cell`) calls the same sanitizer and inherits the
+    same gap on the artifact that persists.
+  Remediation: widen the neutralization in `strip_control` to the bidi
+    controls, either by treating category Cf as control or by naming
+    U+202A-U+202E, U+2066-U+2069 and U+200E/U+200F explicitly. One change
+    covers the validate printer, `_cell`, and every other caller, which is
+    the same argument that put the last fix at the printer rather than at
+    each interpolation site.
 ```
 
-The severity assessment that held it at NOTE is unchanged and is why it was
-never urgent: the reachable input is an org tree the operator chose to trust
-enough to validate, and the supported third-party ingress points (`score
---evals-dir`, `--answers`) were already guarded. It is fixed now because it
-was cheap and it had been carried across two reviews.
+```
+[NOTE, FIXED] orgsmith/review/report.py:310 — the integrity dashboard escapes a
+finding's message but not its target, and a MAN-01 target is a raw filesystem
+name.
+  Attack vector: the same hostile org tree, one verb further on (`report
+    <slug>`, cli.py:107; CLAUDE.md lists GENERATION-REPORT.md among the
+    derived artifacts that "may always be re-emitted"). The tree
+    carries a file in the share that the manifest does not list, named with an
+    embedded newline. `man_01` yields that name verbatim as the finding target
+    (rules.py:739-740, from `share_dir.rglob("*")` with no name validation:
+    `check_relpath` guards manifest entries, not strays). `_integrity_lines`
+    then writes `f"- {f['rule']} [{f['target']}] {_cell(f['message'])}"` into
+    GENERATION-REPORT.md, so the newline forges a second list item whose text
+    the attacker chose. A `|` in the same position breaks a row wherever this
+    pattern is reused in a table.
+  Evidence: report.py:310 is the one place a finding field reaches the
+    persisted report unescaped; the message beside it goes through `_cell`,
+    whose own docstring gives the reason ("this artifact PERSISTS: unlike a
+    rejection printer that scrolls past, a forged row here is what a human
+    reads later", report.py:39-48). Confirmed that a share file can carry a
+    newline in its name and that `rglob` + `relative_to` hand it through
+    intact. The producer, `collect` (validate/__init__.py:17-33), returns
+    findings unsanitized by design: the consumer sanitizes, and this consumer
+    half does.
+  Remediation: `_cell(f['target'])`. Note the sink is outside this run's file
+    list; the producer is inside it, which is how it surfaced.
+```
 
 ### Verified this turn
 
-- **The new validator rules do not widen the raw-string surface.** SCOPE-01
-  quotes ledger values only through `!r` (rules.py:1126-1130), and its other
-  interpolations are recomputed fact ids, which pass `Fact.id`'s
-  `^f:[A-Za-z0-9.\-]+$` pattern at construction (schemas.py:721), and the
-  charter's own stage phrases, also repr-escaped (rules.py:1143-1146). Its
-  finding target is `Engagement.id`, pattern `^E-\d{4}-\d{3}$`
-  (schemas.py:733). OUT-01 repr-escapes the manifest value it quotes
-  (rules.py:1046,1057,1064) and otherwise interpolates `Literal`-constrained
-  genre and authoring fields; its target is `entry.path`, which
-  `check_relpath` re-checks at every manifest load.
-- **The client-facing-report override does not widen read access.** The
-  planner adds `eng.external_participants` to a status report's manifest
-  participants when `doc_culture.client_facing_reports` is on
-  (planner.py:253-268). `derive_acl` never reads `ManifestEntry.participants`:
-  grants come from `eng.internal_participants` plus the CEO-equivalent, then
-  are intersected with the currently-employed roster, which drops external
-  ids outright (acl.py:110-136). Traced every other consumer of
-  `entry.participants` (render/eml.py:113 is eml-only and `status_report` is
-  docx; authoring/ingest.py:67-69 is onboarding-only; contexts.py:399,609-638;
-  rules.py:185). No path from the knob to a grant.
-- **Recipe-supplied scope strings reach no dangerous sink.** `unit`,
-  `comparator` and the pipeline phrases flow to three places: a `Fact.id`
-  fragment via `stage_slug`, which collapses everything outside
-  `[A-Za-z0-9]` to hyphens and is then re-validated by the id pattern
-  (engagements.py:110-114); a `Fact.rendered` surface, which reaches
-  documents only as block text and is `html.escape`d by the PDF renderer
-  (render/pdf.py:119-183) and set as run text by python-docx/pptx; and a
-  brief hint plus eval question text, which are JSON-serialized. No filename,
-  no path join, no shell, no SQL.
-- **Model output that persists is still gated before the write.**
-  `_check_outline` (authoring/ingest.py:276-325) is collected into the same
-  `problems` list as every other check, and `run_ingest` returns 1 at
-  ingest.py:417-425 before the DocIR write loop at 430-436. Problem strings
-  are `strip_control(p, keep="")`-wrapped one per line. The outline itself is
-  resolved from the MANIFEST, not from the model-visible brief
-  (contexts.py:182-196), so a deliverable cannot argue its way out of the
-  rule it is checked against.
-- **The new report section cannot forge a table row.** `_structural_lines`
-  (review/report.py:158-204) is the one place in this turn that writes into
-  `GENERATION-REPORT.md` without `_cell`. Every value it interpolates is
-  type-constrained: `genre` is the `Genre` `Literal` (schemas.py:849-860),
-  the doc ids are `ManifestEntry.doc_id` (`^d:\d{4}$`), and the rest are
-  floats. `run_report` recomputes `CorpusMetrics` from committed DocIR on
-  every run and never reads `corpus_metrics.json` back (report.py:437-439,
-  metrics.py:211-213), so a tampered metrics artifact has no path into the
-  report. Model output elsewhere in the file still goes through `_cell`
-  (report.py:39-48).
-- **No new randomness, subprocess, network, or dependency.**
-  `docplan.outline` and `fabric.engagements.scope` are new `seeds.rng`
-  streams, seeded by sha256 rather than by `hash()`, so they are deterministic
-  across processes and disturb no existing stream. `mask_surfaces` moved from
-  `evals/emit.py` to `doctext.py` byte-identical, keeps its `re.escape`, and
-  has no stale callers. `pyproject.toml` changed only its version string;
-  `requirements.txt`, `requirements.lock`, the Dockerfile and CI are untouched
-  in this range. Nothing in scope reads an environment variable.
-- **No secret, in tree or history.** Pattern scan across the diff and across
-  every commit in `6bd7d77..HEAD` touching these paths is clean. No email
-  address, phone number, or real-person name appears in any of them;
-  `tests/conftest.py` writes only under pytest fixture roots.
-- **`count_noun` on a mutated ledger: filed as robustness, and FIXED.**
-  `evals/emit.py` did `fact.rendered.split(" ", 1)[1]`, which raises
-  `IndexError` for a hand-edited `count` fact whose rendered surface has no
-  space. Unreachable from any recipe (`render_count` cannot produce one, and
-  `ScopeProfile` now rejects a blank noun at parse), and the outcome was a
-  traceback in a local offline CLI with no disclosure or privilege
-  consequence — robustness, not security. Now uses `partition`, so
-  `emit-evals` completes and SCOPE-01 reports the tamper. Covered by two
-  tests in `tests/test_unit_scope_facts.py`.
+- **The printer fix holds against what it was written for.** All four finding
+  fields and both skip fields route through `strip_control(..., keep="")`
+  (`orgsmith/validate/__init__.py`:87-98), so ESC (U+001B), the C1 CSI
+  (U+009B) and a
+  smuggled newline are all neutralized; measured. It also covers the two
+  raw-text classes no per-rule `!r` would have reached: third-party parser
+  exception text (`xlrd` at rules.py:616, every native reader at 707) and
+  workbook cell values read back off an attacker-supplied `.xlsx`
+  (rules.py:623, 626). The `--json` branch is safe for a different reason than
+  the file records: `json.dumps` there runs with the default
+  `ensure_ascii=True`, so control characters and bidi controls alike are
+  emitted as `\uXXXX` literals.
+- **The two new rules do not widen the raw-string surface.** SCOPE-01's new
+  branches quote through `!r` (rules.py:1158) or interpolate `Fact.id` values
+  that satisfy `^f:[A-Za-z0-9.\-]+$` (rules.py:1121; schemas.py:741).
+  Confirmed that pydantic v2's `pattern` anchors fully here: a trailing
+  newline is rejected, so the `$`-before-final-newline bypass does not apply.
+- **No path traversal anywhere in scope.** `entry.path` and
+  `render_params["attach_path"]` are re-checked by `check_relpath` at every
+  manifest load (artifacts.py:99-109), the planner re-checks before planning
+  one (planner.py:205-207), and `DocIR.doc_id` carries `^d:\d{4}$` at parse
+  (schemas.py:1055). The eval writer's filenames are eight hardcoded literals
+  (emit.py:1010-1058), never derived from ledger content.
+- **No new sink of any kind.** None of the eight files imports `subprocess`,
+  `os.system`, `eval`, `pickle`, a network library, or reads an environment
+  variable. `requirements.txt`, `requirements.lock`, the Dockerfile and CI are
+  untouched in `e35e6eb..HEAD`, which changed only these files, two other test
+  files, and docs.
+- **The outline work removes a trust step rather than adding one.**
+  `outline_for` resolves the skeleton from the hardcoded registry pool by id
+  (contexts.py:182-196; registry.py:592-596), so a tampered
+  `render_params["outline"]` selects nothing rather than injecting brief text,
+  and the brief cannot drift from what OUT-01 recomputes against. Every string
+  the new guidance emits comes from `OUTLINES`, not from the manifest.
+- **No new model-output-into-prompt path.** `persona` remains the only
+  model-authored field carried into a later brief (contexts.py:467), which
+  prior reviews considered and did not flag; the deliverable it steers is
+  still gated by the deterministic ingest checks before any write. The new
+  `_fact_hint` noun comes from the recipe, not from the ledger or the model
+  (contexts.py:166-170).
+- **No secret, in tree or history.** Pattern scan across all eight files and
+  across the last three commits touching each is clean; the only hits are the
+  word "token" in prose. No email address, phone number, or real-person name
+  appears in any of them.
+
+### Considered and not filed
+
+- **Symlinked write targets under an untrusted org root.**
+  `run_emit_evals` writes with `Path.write_text` (emit.py:1075), which follows
+  a symlink, so an `evals/README.md` symlinked to a dotfile inside a received
+  org tree would be overwritten with partly attacker-influenced text. Not
+  filed for two reasons: the premise is running a generation-side verb on
+  someone else's tree, which is a long step past the `validate` premise the
+  threat model actually supports, and the property is repo-wide rather than
+  specific to anything in scope (every `write_model`, `save_manifest` and
+  render sink behaves the same). Recorded so a future decision to support
+  third-party trees more broadly starts from it rather than rediscovering it.
+- **Symlinks on the read side.** `man_01`'s `rglob`/`is_file` and every
+  `share_dir / entry.path` join follow symlinks, so a hostile tree can point
+  the validator at files outside it. No finding echoes document text, the one
+  rule that echoes parsed content is `fin_02` (five cells of a "Summary"
+  sheet, rules.py:618-626), and the output goes to the operator's own terminal
+  with no channel back. Below the reporting bar.
+- **Validator crashes on tampered non-string types.** `fin_02` does
+  `int(e.render_params["year"])` (rules.py:597) with no guard, so a manifest
+  tampered to `"year": "x"` raises instead of yielding a finding, the same
+  shape as the SCOPE-01 `TypeError` the code review fixed. Robustness in a
+  local offline CLI with no disclosure or privilege consequence, and the
+  project has already classified this class that way.
+- **Third-party parsers on hostile files.** Unchanged from the prior
+  assessment except that the threat model has widened: with a received org
+  tree in scope, an XXE or decompression-bomb payload no longer needs
+  committed-fixture write access. Still not filed, because parser-config
+  certainty across python-docx, openpyxl, python-pptx, pypdf, pikepdf, xlrd
+  and olefile is under the 80% bar without reading each one's parser setup,
+  which is outside this run's file list, and the airlock blocks any
+  external-DTD network fetch. Worth its own scoped pass if validating
+  third-party trees becomes a documented feature rather than a supported
+  accident.
+- **Dependency, supply-chain and infrastructure dimensions** were out of scope
+  for this path-scoped run: no dependency manifest, CI config or Dockerfile is
+  in the file list, and none changed in this range.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-08-02, scope paths, commit 6bd7d77): the fifteen files of
-the M17 answer-key turn, covering the new baselines, data cards, doc-text
-reader, cluster/diagnostics emitters, ranked scorer, alias-agreement ingest
-gates and the EVAL-01/MENT-03 rules. No secret, no injection path, no PII;
-0 BLOCK / 0 WARN / 1 NOTE, that NOTE being the raw `validate` plain-text
-printer carried forward above.*
+*Prior review (2026-08-02, scope paths, commit e35e6eb): the fourteen
+in-airlock files of the M17b batch-boundary turn (scope facts, per-document
+skeletons, the client-facing-report override, the structural axis, SCOPE-01
+and OUT-01, the ingest outline gate). No secret, no injection path, no PII;
+0 BLOCK / 0 WARN / 0 NOTE, the entry having closed the carried `validate`
+plain-text printer NOTE at the printer and the `count_noun` IndexError as
+robustness.*
 
-<!-- SECURITY_META: {"date":"2026-08-02","commit":"e35e6eb180aff01202061e51b9cda08160ddc206","scope":"paths","scanned_files":["orgsmith/__init__.py","orgsmith/authoring/contexts.py","orgsmith/authoring/ingest.py","orgsmith/docplan/planner.py","orgsmith/docplan/registry.py","orgsmith/evals/emit.py","orgsmith/fabric/engagements.py","orgsmith/review/metrics.py","orgsmith/review/report.py","orgsmith/review/structure.py","orgsmith/schemas.py","orgsmith/validate/rules.py","pyproject.toml","tests/conftest.py"],"block":0,"warn":0,"note":0} -->
+<!-- SECURITY_META: {"date":"2026-08-02","commit":"f0aacdca02396f413ba07f9d164583bf5576c18b","scope":"paths","scanned_files":["orgsmith/authoring/contexts.py","orgsmith/docplan/planner.py","orgsmith/docplan/registry.py","orgsmith/evals/emit.py","orgsmith/schemas.py","orgsmith/validate/__init__.py","orgsmith/validate/rules.py","tests/test_unit_validate.py"],"block":0,"warn":0,"note":0} -->

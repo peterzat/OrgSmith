@@ -522,3 +522,27 @@ def test_report_splits_integrity_from_realism(authored_org):
     ):
         assert text.index(section) > realism, section
     assert "measure" in text  # the never-gate framing survives
+
+
+def test_integrity_dashboard_escapes_a_finding_target(authored_org, monkeypatch):
+    """The dashboard escaped a finding's message but not its target.
+
+    A MAN-01 target is a raw filesystem name off `share_dir.rglob("*")` --
+    `check_relpath` guards manifest entries, not strays -- and this artifact
+    PERSISTS, so an embedded newline forged a second list item and a pipe
+    broke a row. The target is now escaped like the message beside it.
+    """
+    import orgsmith.validate as v
+
+    hostile = [{
+        "rule": "MAN-01", "severity": "ERROR",
+        "message": "file on the share is not in the manifest",
+        "target": "stray.docx\n- MAN-01 [x] forged | cell",
+    }]
+    monkeypatch.setattr(v, "collect", lambda ctx, selected=None: (hostile, []))
+
+    text = render_report(authored_org, compute(authored_org))
+    lines = [ln for ln in text.splitlines() if "MAN-01" in ln]
+    assert len(lines) == 1, f"the smuggled newline forged a list item: {lines}"
+    assert "forged" in lines[0]  # content survives, only the break dies
+    assert "\\|" in lines[0], "an unescaped pipe can break a table row"
