@@ -1,238 +1,184 @@
 # SPEC
 
-## Spec — 2026-08-02 — M17b: the batch-boundary turn
+## Spec — 2026-08-03 — M17c: the controlled proof
 
-**Goal:** Close the structural gap that produced both of M17's board blockers:
-a fresh-context worker never sees a sibling, so the corpus diverges where
-continuity is required and converges where variation is required. Make the
-ledger own the quantities documents currently invent, make the plan own a
-per-document skeleton, and give the realism instrument an axis that can see
-paraphrased outline repetition. Capability only, no regeneration: the M18
-flagship is the proof, and this turn is the gate before it.
+**Goal:** Settle whether M17b's outline and scope work actually changes
+authored prose, on a mid-size org rather than on the flagship. Generate one
+new recipe twice through the live airlock, control arm knobs off and
+treatment arm knobs on, so the structural axis reads a real before/after
+instead of a cross-recipe comparison. De-risk M18 against an unproven
+capability for a fraction of its cost, and give the board the first
+discrimination test it has ever had.
 
 ### Acceptance Criteria
 
-- [x] **Engagement scope quantities become ledger facts.** A default-off
-  recipe knob declares an engagement's unit of work, comparison group, and an
-  ordered funnel; the fabric plants them as additional entries in the existing
-  `Engagement.facts` list with a strictly non-increasing funnel, drawing only
-  from a NEW seed stream. Each rendered surface carries its unit noun rather
-  than a bare numeral, so a planted count cannot match inside a currency
-  amount or a date and cannot swamp the value-collision diagnostic. Every
-  committed org re-derives its ledger byte-identical with the knob absent, and
-  a knob-off org draws zero values from the new stream.
+- [ ] **One new recipe, generated twice, with the M17b knobs as the only
+  variable.** A new recipe under `recipes/` produces a control arm with
+  `engagements.scope` absent and `doc_culture.outline_variety` and
+  `doc_culture.client_facing_reports` off, and a treatment arm with all
+  three on. Same slug family, same seed, both arms authored through the live
+  `/forge` airlock with model and effort recorded per batch. Each arm scores
+  at least 120 same-genre pairs (`structural_pairs_considered`), so the
+  comparison is over a distribution rather than a handful.
 
-- [x] **A document cannot contradict its own folder about a planted
-  quantity.** Documents cite scope facts through the placeholder machinery, so
-  the same ledger object appears in every document that states it; a document
-  cites a funnel stage only when its own date implies that stage is complete.
-  Demonstrated on a synthetic engagement where an early and a late document
-  both state the same stage and resolve to the same rendered surface. With the
-  knob off, every committed manifest re-derives byte-identical.
+- [x] **The evidence standard is fixed before the numbers exist.** A dated
+  document, committed before either arm is authored, states what result
+  would count as the outline work having changed the prose, what result
+  would count as it not having, and what the measurement cannot distinguish
+  either way. Verifiable from git order: the standard's commit precedes the
+  first authoring commit.
 
-- [x] **SCOPE-01 recomputes the planted quantities.** A new validator rule
-  re-derives them from the charter and compares ids, values, and rendered
-  surfaces exactly, and asserts the funnel is monotone and complete per
-  engagement. It grandfathers by charter: skips visibly when the knob is off,
-  and a knob on with the ledger mutated is a finding, never a skip. A mutated
-  value yields a finding in a test.
+- [ ] **The control is exact where it must be, and its residue is
+  enumerated.** Across arms the share tree (file paths) and the manifest's
+  doc ids, genres, dates, and authors are identical, and `foundation.json`
+  and the finance and people ledgers are byte-identical. Every remaining
+  difference is enumerated and attributed to a named knob rather than
+  hand-waved. Shown by diff, recorded in the write-up.
 
-- [x] **Scope facts become scored questions automatically.** Every planted
-  scope fact emits an extraction question with a readable prompt, so a knob-on
-  org gains cross-document questions where one fact is hosted by several
-  documents. `emit-evals` stays byte-idempotent on all nine committed orgs and
-  EVAL-01 stays green fleet-wide, because no committed org adopts the knob.
+- [ ] **The structural axis is compared over every scored pair, not the
+  printed top 50.** The comparison reports each arm's full same-genre
+  distribution, with shape and openers reported separately, so a shift in
+  the body of the distribution cannot hide behind the truncated reading
+  list. `STRUCTURAL_TOP_N` bounds what the report prints and must not bound
+  what the comparison reads.
 
-- [x] **A client-facing report briefs its client reader.** A default-off knob
-  makes the status-report genre brief the engagement's client contact rather
-  than the internal team only, closing the audience limb of the narrative
-  blocker. Off, every committed manifest is byte-identical; on, the planned
-  mentions for that genre include the client contact.
+- [ ] **The board is asked the voice question on both arms without being
+  told which is which.** Neither arm's slug, path, nor dispatch prompt
+  announces which is the control or that an experiment exists. The two
+  verdicts are recorded side by side. The write-up states plainly that this
+  measures whether the board can discriminate two arms, not a false-positive
+  rate against known-good prose, so `board-negative-control` gains a
+  measurement without being closed by it.
 
-- [x] **The plan assigns a per-document skeleton.** A default-off knob makes
-  the docplan deal each authored document a section skeleton from a per-genre
-  pool, drawing only from a NEW seed stream, recorded without adding any field
-  to `ManifestEntry`. The deal is deterministic across runs, and **no two
-  consecutive same-genre documents share a skeleton**, which also means no two
-  documents of one genre inside a single engagement share one. Knob off, no
-  document carries a skeleton and the stream is never drawn from.
+- [ ] **The treatment arm gets a full six-dimension board and its findings
+  ship beside it.** Unflattering findings included, in the house pattern. Any
+  comparison of its voice cluster against the exemplar's is labelled as
+  uncontrolled, because the recipes differ.
 
-- [x] **OUT-01 recomputes the skeleton assignment** and fails on a tampered
-  record, asserting the no-adjacent-repeat property. Grandfathers by charter,
-  as above.
+- [ ] **The knobs' first live exercise is reported including what went
+  wrong.** Per-arm authoring-ingest rejection counts, every case where the
+  outline machinery briefed a skeleton a worker could not satisfy or
+  rejected a deliverable a reader would call conforming, and every scope fact
+  whose rendered surface reads badly. Recorded rather than fixed silently. If
+  the enforcement has to change, the generator changes; the enforcement is not
+  softened to let a deliverable through.
 
-- [x] **Authoring ingest enforces the skeleton it briefed.** A deliverable
-  that omits a section form its outline requires, or carries a block kind its
-  outline forbids, is rejected with an actionable message; a conforming
-  deliverable passes. Inert when the brief carries no outline, so knob-off
-  work orders and deliverables are byte-identical.
+- [ ] **The treatment arm is committed and frozen; the control arm is not.**
+  The treatment arm validates clean, scores 100% on every eval split by
+  construction, joins `PINNED = SLUGS`, and ships its data card,
+  `GENERATION-REPORT.md`, `evals/`, `acl.json` and PERMISSIONS.md as derived
+  artifacts. Its test-tier placement (`org` or `flagship`) is a deliberate
+  decision recorded in TESTING.md with the measured added wall-clock. The
+  control arm stays in gitignored `scratch/` on the `ab-probe` precedent.
 
-- [x] **Skeleton variety is measured, not asserted.** A knob-off scripted
-  corpus yields exactly one distinct block-shape signature per genre; a
-  knob-on corpus of the same recipe yields at least `min(pool size, documents
-  in that genre)`. Asserted as counts, never as a similarity threshold.
+- [ ] **No committed fixture moves and no carve-out is opened.** The nine
+  existing orgs' ledgers, manifests, and authored prose are untouched;
+  `PINNED = SLUGS` is green at every commit including mid-turn. Adding a
+  tenth org is not a regeneration.
 
-- [x] **The realism instrument gains a structural axis.** A new metric scores
-  same-genre authored pairs on document structure and on positional openers,
-  reported in `GENERATION-REPORT.md` beside the existing lexical score rather
-  than replacing it, and byte-stable across two runs. It is never a validator
-  rule and no number it produces becomes an assert. A constructed
-  paraphrase-twin (same structure, disjoint vocabulary) scores high
-  structurally and near zero lexically; a constructed same-words-different-
-  shape pair inverts.
+- [ ] **The docs reconcile to what the generation found, in either
+  direction.** README's M17b paragraph stating that the proof is the next
+  generation is replaced by what this generation settled, including a null or
+  negative result stated as such. `docs/REVIEW-CALIBRATION.md` gains the
+  second-org calibration of the structural axis. `BACKLOG.md`'s
+  `cross-document-voice` records the outcome against its own revisit
+  criterion.
 
-- [x] **The new axis is calibrated against the board's own findings.**
-  `docs/REVIEW-CALIBRATION.md` records, as a dated measurement, where the
-  structural axis ranks the pairs the M17 board named on the frozen exemplar
-  (including the `rf:voice-1` blocker pair `d:0021`/`d:0039`, which the lexical
-  metric does not flag), the pairs it misses, and the stated limit that no
-  keyless proxy sees `rf:voice-3`-style paraphrased recurrence across genres.
-
-- [x] **The turn closes without moving a fixture.** No committed org's
-  ledgers, manifest, or authored prose is regenerated; `PINNED = SLUGS` is
-  green at every commit including mid-turn; derived artifacts re-emit in the
-  order metrics/report, then checksums, then data cards. The BACKLOG sweep
-  lands: `packaging-and-archival` is closed or rewritten (its text is
-  factually stale, since `pyproject.toml` now carries `[build-system]` and
-  `[project.scripts]`, and a `Dockerfile` and `requirements.lock` exist), and
-  `cross-document-voice` gains the structural-instrument annotation. Full
-  `bin/test` (short, unit, org, flagship) passes keyless and offline.
+- [ ] **Full `bin/test` passes keyless and offline** across short, unit, org,
+  and flagship tiers, with the new org's tier costs measured rather than
+  assumed.
 
 ### Context
 
-- **Adopted from plan**
-  `~/.claude/plans/consider-what-we-ve-just-witty-bentley.md` (approved
-  2026-08-02). It carries the increment order, the prototype measurements
-  behind the structural axis, the concrete schema shapes, and a risk
-  assessment. Read it before implementing; do not re-derive decisions
-  recorded there.
+- **Adopted from the 2026-08-03 proposal in the prior SPEC entry**, with two
+  scoping decisions taken by the user at spec time: prove on a mid-size org
+  before the flagship, and author a real knobs-off control arm rather than
+  comparing against the committed fleet. Both were the proposal's own
+  recommended readings of its open questions.
 
-- **Where this came from.** M17's board returned 37 findings on the freshly
-  regenerated exemplar, including two blockers. `rf:narr-1` (with
-  `rf:docplaus-4`, `rf:finance-2`) is divergence: a closing report describing
-  a different engagement from its own folder, invisible to the validator
-  because the quantities are prose rather than ledger facts. `rf:voice-1`
-  (with `rf:voice-2/4/6`) is convergence: two kickoff memos by different
-  authors two years apart, the same memo re-skinned. The board's own note
-  `rf:voice-7` is the diagnosis worth trusting: per-person voice works now, so
-  the defect is in what each document is asked to contain.
+- **Why an intermediate turn.** M17b landed four default-off knobs and a
+  structural axis and adopted none of them anywhere. What is proven today is
+  plumbing and block-shape counts under a scripted author. The flagship is
+  ~334 batches (`docs/SCALE.md`), roughly nine times any run to date, and
+  running it against an unexercised capability risks discovering at document
+  900 that the outline enforcement misbehaves. This turn is ~10-18 batches per
+  arm.
 
-- **What this turn does not claim, and the spec must not imply.** With no
-  regeneration, the skeleton work is proven as plumbing and as block-shape
-  counts under the scripted author; whether real prose stops converging is
-  settled by the next generation, not here. "Impossible by construction" is an
-  overclaim: a finite pool cycles, and the real guarantee is no adjacent and
-  no within-engagement repeat. The skeleton work does not address
-  `rf:voice-3`, a paraphrased move recurring across five genres and eight
-  authors, and no keyless proxy will.
+- **What makes the control cheap and exact.** Both new seed streams are keyed
+  per item (`rng(seed, "fabric.engagements.scope", eid)` in
+  `fabric/engagements.py:172`, `rng(seed, "docplan.outline", genre)` in
+  `docplan/registry.py:652`), so turning the knobs on advances no other
+  stream. Roster, engagements, finance, dates, authors, and the document set
+  are expected to be identical across arms for that reason. That expectation
+  is what criterion three verifies rather than assumes.
 
-- **Two constraints that will bite silently.** `dump_json` serializes every
-  model field, so adding a field to `Fact`, `Engagement`, or `ManifestEntry`
-  writes a new key into every committed ledger and manifest line and breaks
-  the byte pin on all nine orgs; scope quantities go in the existing `facts`
-  list and the skeleton id rides in `render_params`, as M12 did for
-  `noise_of`. Separately, `datacard._knob_rows` walks the charter model, so
-  every new knob rewrites all nine data cards and each knob-adding increment
-  must re-emit them in the same commit.
+- **What the treatment arm changes and where.** `engagements.scope` plants
+  additional entries in the existing `Engagement.facts` list;
+  `outline_variety` rides the skeleton id in `render_params`, not in a new
+  `ManifestEntry` field; `client_facing_reports` adds the engagement's client
+  contact to the status-report mention plan, which may move ACL grants and
+  PERMISSIONS.md. `GenreRule.scope_refs` is already populated on five genre
+  rows in `docplan/registry.py`, so the registry needs no recipe action.
 
-- **The exemplar is frozen this turn**, which is why doc-id anchors
-  (`d:0021`/`d:0039`) are legitimate calibration checkpoints here, where M17
-  had to avoid them.
+- **Two serialization traps, unchanged from M17b.** `dump_json` serializes
+  every model field, so adding a field to `Fact`, `Engagement`, or
+  `ManifestEntry` writes a key into all nine committed ledgers and breaks the
+  byte pin. `datacard._knob_rows` walks the charter model, so a new knob
+  rewrites all nine data cards. Re-emission order when metrics move:
+  metrics/report, then `tools/checksums.py`, then `data-card` for every org.
+
+- **The measurement may come back null or negative, and that is a result.**
+  Nothing in these criteria requires the outline work to have helped. The
+  pre-registered standard exists precisely so the conclusion cannot be chosen
+  after the numbers are seen, and criterion ten requires the README to say
+  what happened either way. A turn that proves the knob does not change prose
+  is a successful turn and saves the flagship from carrying it.
+
+- **Nothing that is not an oracle may gate.** The structural axis stays a
+  measurement: no threshold it produces enters a test tier or a validator
+  rule, this turn included. The board judges, the metric measures, the human
+  decides.
+
+- **Scratchpad exposure.** Two arms at ~10-18 batches each is roughly the
+  M11b exposure (38 batches), not the flagship's ninefold, so the prompt-level
+  mitigation in `/forge` Step 3b is unchanged
+  (`concurrent-workers-share-one-scratchpad`). Recorded here so it is on the
+  record before the batches run.
 
 - **Hard rules in force.** Airlock: `orgsmith/` never calls a model or the
   network; all tiers keyless and offline; no LLM grades an LLM in an automated
-  tier. Additive evolution: knobs default off with inert schema defaults on
-  existing schema ids, randomness only from new `seeds.py` streams, proven
-  inert before anything adopts them. Committed fixtures are frozen and no
-  carve-out is open. Nothing that is not an oracle may gate: no metric
-  threshold becomes a bar, and the new axis is reported, never enforced.
+  tier. Additive evolution: any new capability lands default-off with inert
+  schema defaults on the existing `orgsmith/<kind>@<ver>` schema ids, drawing
+  only from new `seeds.py` streams. Committed fixtures are frozen. Validator
+  rules grandfather by charter, never by artifact absence. The new org's
+  generated names must not collide with a screened real firm; a validator rule
+  already checks this.
 
 - **House practices (zat.env).** Small committable increments with tests in
   the same increment; run the relevant tier after each change; do not stack
-  untested changes. Verification over prompting: M16 already proved that a
-  banned-construction list in authoring guidance only stops literal strings,
-  which is why this turn moves the fix into the plan rather than the prompt.
-  Do not reword or reorder these criteria; check off only when verified.
-  Committing is local; pushing is the user's call.
+  untested changes. Verification over prompting. Do not reword or reorder
+  these criteria; check off only when verified. Committing is local; pushing
+  is the user's call.
 
-- **BACKLOG overlap.** `cross-document-voice` (ACTIVE) is the direct target
-  and both of its revisit criteria have fired. `event-simulation` is adjacent:
-  the board's finance findings (`exemplar-has-no-2020`) are its territory and
-  stay out of scope. `packaging-and-archival` is factually stale and is swept
-  at close. `board-negative-control` fired again and stays open.
-  `mundane-broadcast-names-a-recipient-in-the-body` is untouched here.
+- **BACKLOG.** `cross-document-voice` and `board-negative-control` are ACTIVE
+  in this spec. `concurrent-workers-share-one-scratchpad` is noted above and
+  stays open; its flagship trigger has not fired. `packaging-and-archival`,
+  `event-simulation`, `generator-fingerprinting`, and
+  `mundane-broadcast-names-a-recipient-in-the-body` are out of scope.
 
-- **Out of scope.** Any fleet regeneration; the M18 flagship; era shocks in
-  the finance model; inbound mail modelling; the DL-broadcast naming device;
-  and anything asserting that authored prose improved, which is the board's
-  job and needs a generation.
+- **Out of scope.** The M18 flagship; any regeneration of a committed org;
+  era shocks in the finance model; inbound mail modelling; the DL-broadcast
+  naming device; `rf:voice-3`, which no keyless proxy reaches; and closing
+  `board-negative-control`, which needs known-good prose rather than two arms.
 
-- **Baselines for this turn.** Suite green at `0d39895`: 16 short, 615 unit,
-  228 org (+27 skipped), 65 flagship (+5 skipped); 886 collected across the
-  default tiers. Nine committed orgs, `PINNED = SLUGS` fleet-wide, v2.2.0
-  tagged and pushed.
+- **Baselines for this turn.** Suite green at `71ce014`: 16 short, 716 unit,
+  228 org (+27 skipped), 65 flagship (+5 skipped). Nine committed orgs,
+  `PINNED = SLUGS` fleet-wide, v2.3.0 tagged and pushed. `CODEREVIEW.md` and
+  `SECURITY.md` both record zero open findings.
 
 ---
-*Prior spec (2026-07-29): M17, the answer-key turn; 13/16 criteria met, with
-the verbatim-critique criterion and the two mail-demonstrator regenerations
-deliberately left out of scope.*
+*Prior spec (2026-08-02): M17b, the batch-boundary turn; 12/12 criteria met,
+four default-off knobs and a structural similarity axis landed with no fixture
+regenerated.*
 
-### Proposal (2026-08-03)
-
-**What happened.** M17b landed in 13 commits, tagged and pushed as `v2.3.0`.
-Three mechanisms, all default-off and none adopted by any committed recipe:
-`engagements.scope` makes an engagement's quantities planted facts that
-documents cite position-gated (`SCOPE-01`); `doc_culture.outline_variety`
-deals each document a section skeleton whose forbidden block kinds ingest
-enforces (`OUT-01`); `orgsmith/review/structure.py` scores same-genre pairs
-on block shape and positional openers. `doc_culture.client_facing_reports`
-closes the audience limb. No fixture was regenerated, `PINNED = SLUGS` held
-throughout, and the fleet's ledgers, manifests and prose are untouched.
-
-**What was learned, both corrections worth carrying.** The calibration
-measured the structural axis against the board's *actual* doc sets and
-corrected the adopting plan: ranks 2/5/3/**78**, not the predicted 1/4/5/6,
-and `rf:voice-4` is a clean miss that both proxies share. Separately,
-writing the variety test found a real gap in the dealer — adjacency plus
-within-engagement uniqueness does **not** imply corpus variety (three letters
-in three engagements can come back A, B, A), which needed a per-genre cycle.
-Both are recorded where the next reader will hit them.
-
-**Review state.** Two `/codereview` passes (7 WARN, then 1 WARN on the first
-pass's own fix), three `/codefix` cycles, all fixed. `/security` twice: its
-NOTE carried across two prior reviews is closed, plus two it found in the
-fix — `strip_control` now covers Unicode `Cf` (Trojan Source, CVE-2021-42574)
-and the persisted integrity dashboard escapes finding targets. Both files
-record zero open findings. Suite 16/716/228(+27)/65(+5).
-
-**Questions and directions.**
-- **M18, the flagship, is the designated proof and the obvious next turn.**
-  M17b proves plumbing and block-shape counts under a scripted author; only a
-  real generation settles whether prose stops converging. The flagship must
-  therefore run with `outline_variety` and `engagements.scope` **on**, or the
-  turn proves nothing about M17b.
-- **The sharpest scoping question: prove on a mid-size org first, or go
-  straight to ~2,000 documents?** The flagship is ~334 authoring batches
-  (`docs/SCALE.md`), roughly nine times any run to date, against an unproven
-  capability. A single knobs-on org, boarded, would de-risk it for a fraction
-  of the cost — at the price of a turn.
-- **What evidence would actually settle it?** The board is not reproducible
-  and has no negative control. The structural axis now offers a keyless
-  before/after: same recipe, knobs off versus on, compare the rank
-  distribution. Naming the evidence standard before generating matters more
-  than usual here, because the expensive artifact arrives first.
-- **A new org needs no carve-out** (it is not a frozen fixture); regenerating
-  any fleet org still does.
-
-### Revisit candidates
-
-- `cross-document-voice` — its revisit criterion is now exactly the flagship:
-  "generated with `outline_variety` on and a board reads the result".
-- `concurrent-workers-share-one-scratchpad` — names "M12 is specced, which
-  multiplies the exposure by ~9" as a trigger; the flagship is that run, and
-  the mitigation is still prompt-level.
-- `board-negative-control` — the structural axis is the first keyless
-  instrument that partly corroborates board voice findings (3 of 4 named
-  pairs surfaced, 1 missed), which is a cross-check the entry has never had.
-
-<!-- SPEC_META: {"date":"2026-08-02","title":"M17b: the batch-boundary turn","criteria_total":12,"criteria_met":12} -->
+<!-- SPEC_META: {"date":"2026-08-03","title":"M17c: the controlled proof","criteria_total":11,"criteria_met":1} -->
