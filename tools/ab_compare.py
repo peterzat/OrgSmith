@@ -26,6 +26,7 @@ Deterministic, offline, model-free. Run from the repo root:
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
 import statistics
 import sys
@@ -35,7 +36,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from orgsmith.artifacts import load_manifest  # noqa: E402
 from orgsmith.paths import OrgPaths  # noqa: E402
 from orgsmith.review import structure  # noqa: E402
-from orgsmith.review.corpus import load_authored  # noqa: E402
+from orgsmith.review.corpus import (  # noqa: E402
+    jaccard,
+    load_authored,
+    prose_text,
+    shingles,
+)
 
 # Every same-genre pair, not the reading list. `compute_pairs` defaults to
 # STRUCTURAL_TOP_N = 50 because that is how many rows a human will read in
@@ -83,8 +89,16 @@ def _manifest(paths: OrgPaths) -> list[dict]:
     ]
 
 
-def compare(control: OrgPaths, treatment: OrgPaths) -> tuple[list[str], list[str]]:
-    """(attributed differences, unattributed differences)."""
+def compare(
+    control: OrgPaths, treatment: OrgPaths
+) -> tuple[list[str], list[str], bool]:
+    """(attributed differences, unattributed differences, identity check ran).
+
+    The third value is False on the early-return paths, where the manifests
+    are too far apart for a per-entry comparison to mean anything. Callers
+    must not read the absence of an identity complaint as a clean identity
+    check: on those paths the fields were never compared at all.
+    """
     attributed: list[str] = []
     unattributed: list[str] = []
 
@@ -116,7 +130,7 @@ def compare(control: OrgPaths, treatment: OrgPaths) -> tuple[list[str], list[str
             f"manifest length differs: {len(ma)} vs {len(mb)}. The arms are "
             "not planning the same corpus; nothing downstream is comparable."
         )
-        return attributed, unattributed
+        return attributed, unattributed, False
 
     counts: dict[str, int] = {}
     for x, y in zip(ma, mb):
@@ -124,7 +138,7 @@ def compare(control: OrgPaths, treatment: OrgPaths) -> tuple[list[str], list[str
             unattributed.append(
                 f"manifest order diverged at {x.get('doc_id')} / {y.get('doc_id')}"
             )
-            return attributed, unattributed
+            return attributed, unattributed, False
         for field in set(x) | set(y):
             if x.get(field) != y.get(field):
                 counts[field] = counts.get(field, 0) + 1
@@ -139,7 +153,7 @@ def compare(control: OrgPaths, treatment: OrgPaths) -> tuple[list[str], list[str
         else:
             note(f"manifest:{field}", f"manifest:{field} differs in {n} of {len(ma)}")
 
-    return attributed, unattributed
+    return attributed, unattributed, True
 
 
 def arm_pairs(paths: OrgPaths) -> list:
@@ -160,6 +174,70 @@ def arm_pairs(paths: OrgPaths) -> list:
         eligible, {e.doc_id: e.genre for e in entries}, top_n=ALL_PAIRS
     )
     return pairs
+
+
+def outline_of(paths: OrgPaths) -> dict[str, str]:
+    """{doc_id: outline id} for every document the plan dealt a skeleton.
+
+    Empty for a control arm, which is what makes the same-skeleton split
+    below a treatment-arm analysis only.
+    """
+    out = {}
+    for entry in _manifest(paths):
+        outline = (entry.get("render_params") or {}).get("outline")
+        if outline:
+            out[entry["doc_id"]] = outline
+    return out
+
+
+def split_by_outline(pairs: list, outlines: dict[str, str]) -> tuple[list, list, list]:
+    """(same skeleton, different skeleton, unknown).
+
+    The first discriminating comparison in docs/M17C-EVIDENCE-STANDARD.md.
+    Treatment pairs whose two documents were dealt the SAME outline were
+    asked for the same things in the same order, exactly as every
+    control-arm document of that genre was. If those still score like the
+    control's pairs, the outline work relocated the convergence into groups
+    of the pool size rather than reducing it, and that is the smaller claim
+    the standard says must be reported instead.
+    """
+    same, different, unknown = [], [], []
+    for pair in pairs:
+        a, b = outlines.get(pair.doc_a), outlines.get(pair.doc_b)
+        if a is None or b is None:
+            unknown.append(pair)
+        elif a == b:
+            same.append(pair)
+        else:
+            different.append(pair)
+    return same, different, unknown
+
+
+def lexical_scores(paths: OrgPaths) -> list[tuple[str, str, str, float]]:
+    """Same-genre 4-gram Jaccard, as (doc_a, doc_b, genre, score).
+
+    The second discriminating comparison, and the standard calls it the most
+    informative number the experiment produces: a skeleton constrains what a
+    document contains, not which words it uses, so a drop here is far less
+    mechanically forced than a drop in shape.
+
+    ZEROS ARE KEPT, which is the one place this deliberately diverges from
+    `metrics.compute`. That function drops non-overlapping pairs because it
+    is building a reading list. Dropping them here would let the two arms'
+    pair counts differ for a reason that has nothing to do with the
+    treatment, and a mean over "pairs that happened to overlap at all" is
+    not comparable across arms.
+    """
+    authored = load_authored(paths)
+    entries = [e for e in load_manifest(paths) if e.doc_id in authored]
+    eligible = {e.doc_id: e for e in entries if e.authoring == "batchable"}
+    grams = {d: shingles(prose_text(authored[d])) for d in eligible}
+    scores = []
+    for a, b in itertools.combinations(sorted(grams), 2):
+        if eligible[a].genre != eligible[b].genre:
+            continue
+        scores.append((a, b, eligible[a].genre, jaccard(grams[a], grams[b])))
+    return scores
 
 
 def _dist(values: list[float]) -> dict:
@@ -215,12 +293,39 @@ def report_structure(control: OrgPaths, treatment: OrgPaths) -> int:
             ]
             print(_row(name, _dist(vals)))
 
-    genres = sorted({p.genre for p in arms["treatment"]} | {p.genre for p in arms["control"]})
+    genres = sorted(
+        {p.genre for p in arms["treatment"]} | {p.genre for p in arms["control"]}
+    )
     print("\nper genre, combined:")
     for genre in genres:
         for name, pairs in arms.items():
             vals = [(p.shape + p.openers) / 2 for p in pairs if p.genre == genre]
             print(_row(f"{genre}/{name}", _dist(vals)))
+
+    # Discriminating comparison 1: same-skeleton treatment pairs against the
+    # control's pairs. The headline above is close to mechanically guaranteed;
+    # this is not.
+    outlines = outline_of(treatment)
+    same, different, unknown = split_by_outline(arms["treatment"], outlines)
+    print("\nsame-skeleton split (treatment), combined:")
+    if not outlines:
+        print("  treatment arm carries no outline ids; is outline_variety on?")
+    else:
+        combined = lambda ps: [(p.shape + p.openers) / 2 for p in ps]  # noqa: E731
+        print(_row("control (all pairs)", _dist(combined(arms["control"]))))
+        print(_row("treatment same skeleton", _dist(combined(same))))
+        print(_row("treatment diff skeleton", _dist(combined(different))))
+        if unknown:
+            print(_row("treatment unassigned", _dist(combined(unknown))))
+        print(
+            "  Read: if 'same skeleton' sits near 'control (all pairs)', the "
+            "outline work relocated convergence rather than reducing it."
+        )
+
+    # Discriminating comparison 2: the lexical axis, which no outline controls.
+    print("\nlexical 4-gram Jaccard (zeros kept), same-genre:")
+    for name, paths in (("control", control), ("treatment", treatment)):
+        print(_row(name, _dist([s for _, _, _, s in lexical_scores(paths)])))
     return 0
 
 
@@ -244,14 +349,17 @@ def main(argv: list[str] | None = None) -> int:
 
     control = OrgPaths(root=args.control, slug=args.slug)
     treatment = OrgPaths(root=args.treatment, slug=args.slug)
-    attributed, unattributed = compare(control, treatment)
+    attributed, unattributed, identity_checked = compare(control, treatment)
 
-    identical = [
-        f
-        for f in IDENTITY_FIELDS
-        if not any(u.startswith(f"manifest:{f} ") for u in unattributed)
-    ]
-    print(f"identity fields identical: {', '.join(identical)}")
+    if identity_checked:
+        identical = [
+            f
+            for f in IDENTITY_FIELDS
+            if not any(u.startswith(f"manifest:{f} ") for u in unattributed)
+        ]
+        print(f"identity fields identical: {', '.join(identical)}")
+    else:
+        print("identity fields: NOT CHECKED (bailed before the per-entry comparison)")
     print(f"\nattributed differences ({len(attributed)}):")
     for line in attributed:
         print(f"  {line}")

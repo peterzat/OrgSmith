@@ -20,7 +20,7 @@ from orgsmith.charter import parse_charter_md
 from orgsmith.schemas import dump_json
 
 from conftest import REPO
-from tools.ab_control import ARM_KNOBS, strip_arm_knobs
+from tools.ab_control import ARM_KNOBS, main, strip_arm_knobs
 
 pytestmark = pytest.mark.unit
 
@@ -110,15 +110,49 @@ def test_narrative_brief_is_byte_identical_across_arms():
     assert treatment.narrative.strip(), "a charter with no brief proves nothing"
 
 
-def test_deriving_from_a_control_arm_is_an_error():
+def test_deriving_from_a_control_arm_is_an_error(tmp_path):
     """Running the tool twice must not silently yield two identical arms.
 
     The failure mode is quiet and expensive: two knob-off corpora authored at
     full cost that differ only by sampling noise, reported as a null result.
+    The guard lives in `main()`, so this drives `main()`: asserting only that
+    a second strip removes nothing would cover the precondition the guard
+    keys on and leave the guard itself untested.
     """
-    _, control_text = None, strip_arm_knobs(_recipe_text())[0]
-    _, removed = strip_arm_knobs(control_text)
-    assert removed == [], (
-        "stripping an already-stripped recipe removed something; the tool's "
-        "own guard against deriving twice keys on this being empty"
+    control_text, _ = strip_arm_knobs(_recipe_text())
+    src = tmp_path / "src" / "recipes" / SLUG
+    src.mkdir(parents=True)
+    (src / "ORG-CHARTER.md").write_text(control_text)
+    out = tmp_path / "out"
+
+    with pytest.raises(SystemExit) as exc:
+        main([SLUG, "--root", str(out), "--source-root", str(tmp_path / "src")])
+    assert exc.value.code != 0
+    assert not out.exists(), (
+        "the guard must fire before the derived recipe is written; a second "
+        "control arm on disk is what would get authored at full cost"
+    )
+
+
+def test_deriving_in_place_is_an_error(tmp_path):
+    """`--root` equal to `--source-root` must not overwrite the treatment arm.
+
+    Stripping in place destroys the only copy of the knobs-on recipe while the
+    run prints its normal success line, and the double-derive guard above
+    cannot catch it: `removed` is non-empty on the run that does the damage.
+    Both arms then become controls and the experiment reports a null result
+    that is an artifact of the tooling.
+    """
+    treatment = _recipe_text()
+    root = tmp_path / "repo"
+    recipe = root / "recipes" / SLUG / "ORG-CHARTER.md"
+    recipe.parent.mkdir(parents=True)
+    recipe.write_text(treatment)
+
+    with pytest.raises(SystemExit) as exc:
+        main([SLUG, "--root", str(root), "--source-root", str(root)])
+    assert exc.value.code != 0
+    assert recipe.read_text() == treatment, (
+        "the treatment recipe must survive byte-for-byte; a stripped one on "
+        "disk is a silently destroyed arm"
     )

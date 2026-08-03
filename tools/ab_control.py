@@ -90,6 +90,15 @@ def main(argv: list[str] | None = None) -> int:
     if not src.is_file():
         raise SystemExit(f"no treatment recipe at {src}")
 
+    dest = args.root / "recipes" / args.slug / "ORG-CHARTER.md"
+    if src.resolve() == dest.resolve():
+        raise SystemExit(
+            f"source and destination are the same file ({src}). Deriving in "
+            "place would strip the knobs out of the treatment recipe, leaving "
+            "two control arms and an experiment that measures nothing. Pass "
+            "--root pointing at a separate control root."
+        )
+
     control, removed = strip_arm_knobs(src.read_text())
     if not removed:
         raise SystemExit(
@@ -98,7 +107,6 @@ def main(argv: list[str] | None = None) -> int:
             "produce two identical arms and measure nothing."
         )
 
-    dest = args.root / "recipes" / args.slug / "ORG-CHARTER.md"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(control)
     print(f"control arm: stripped {', '.join(removed)} -> {dest}")
