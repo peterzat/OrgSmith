@@ -177,4 +177,62 @@ flagship is the proof, and this turn is the gate before it.
 the verbatim-critique criterion and the two mail-demonstrator regenerations
 deliberately left out of scope.*
 
+### Proposal (2026-08-03)
+
+**What happened.** M17b landed in 13 commits, tagged and pushed as `v2.3.0`.
+Three mechanisms, all default-off and none adopted by any committed recipe:
+`engagements.scope` makes an engagement's quantities planted facts that
+documents cite position-gated (`SCOPE-01`); `doc_culture.outline_variety`
+deals each document a section skeleton whose forbidden block kinds ingest
+enforces (`OUT-01`); `orgsmith/review/structure.py` scores same-genre pairs
+on block shape and positional openers. `doc_culture.client_facing_reports`
+closes the audience limb. No fixture was regenerated, `PINNED = SLUGS` held
+throughout, and the fleet's ledgers, manifests and prose are untouched.
+
+**What was learned, both corrections worth carrying.** The calibration
+measured the structural axis against the board's *actual* doc sets and
+corrected the adopting plan: ranks 2/5/3/**78**, not the predicted 1/4/5/6,
+and `rf:voice-4` is a clean miss that both proxies share. Separately,
+writing the variety test found a real gap in the dealer — adjacency plus
+within-engagement uniqueness does **not** imply corpus variety (three letters
+in three engagements can come back A, B, A), which needed a per-genre cycle.
+Both are recorded where the next reader will hit them.
+
+**Review state.** Two `/codereview` passes (7 WARN, then 1 WARN on the first
+pass's own fix), three `/codefix` cycles, all fixed. `/security` twice: its
+NOTE carried across two prior reviews is closed, plus two it found in the
+fix — `strip_control` now covers Unicode `Cf` (Trojan Source, CVE-2021-42574)
+and the persisted integrity dashboard escapes finding targets. Both files
+record zero open findings. Suite 16/716/228(+27)/65(+5).
+
+**Questions and directions.**
+- **M18, the flagship, is the designated proof and the obvious next turn.**
+  M17b proves plumbing and block-shape counts under a scripted author; only a
+  real generation settles whether prose stops converging. The flagship must
+  therefore run with `outline_variety` and `engagements.scope` **on**, or the
+  turn proves nothing about M17b.
+- **The sharpest scoping question: prove on a mid-size org first, or go
+  straight to ~2,000 documents?** The flagship is ~334 authoring batches
+  (`docs/SCALE.md`), roughly nine times any run to date, against an unproven
+  capability. A single knobs-on org, boarded, would de-risk it for a fraction
+  of the cost — at the price of a turn.
+- **What evidence would actually settle it?** The board is not reproducible
+  and has no negative control. The structural axis now offers a keyless
+  before/after: same recipe, knobs off versus on, compare the rank
+  distribution. Naming the evidence standard before generating matters more
+  than usual here, because the expensive artifact arrives first.
+- **A new org needs no carve-out** (it is not a frozen fixture); regenerating
+  any fleet org still does.
+
+### Revisit candidates
+
+- `cross-document-voice` — its revisit criterion is now exactly the flagship:
+  "generated with `outline_variety` on and a board reads the result".
+- `concurrent-workers-share-one-scratchpad` — names "M12 is specced, which
+  multiplies the exposure by ~9" as a trigger; the flagship is that run, and
+  the mitigation is still prompt-level.
+- `board-negative-control` — the structural axis is the first keyless
+  instrument that partly corroborates board voice findings (3 of 4 named
+  pairs surfaced, 1 missed), which is a cross-check the entry has never had.
+
 <!-- SPEC_META: {"date":"2026-08-02","title":"M17b: the batch-boundary turn","criteria_total":12,"criteria_met":12} -->
