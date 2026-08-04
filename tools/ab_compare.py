@@ -268,14 +268,37 @@ def _row(label: str, d: dict) -> str:
     )
 
 
-def report_structure(control: OrgPaths, treatment: OrgPaths) -> int:
-    """Both arms' full same-genre distributions, shape and openers separately.
+def noise_floor(control: list, replicate: list) -> dict:
+    """How far apart two runs of the SAME arm land, per summary statistic.
+
+    The control replicate shares the control's recipe and seed, so its work
+    orders are byte-identical and the only thing that varied is the model's
+    sampling. Whatever separates these two is what a control-to-treatment gap
+    has to clear before it means anything.
+
+    One replicate pair gives one sample, not a variance. This returns a
+    magnitude to compare against, never a significance test, and nothing
+    downstream may turn it into a threshold.
+    """
+    a = _dist([(p.shape + p.openers) / 2 for p in control])
+    b = _dist([(p.shape + p.openers) / 2 for p in replicate])
+    if not a or not b:
+        return {}
+    return {k: abs(a[k] - b[k]) for k in ("mean", "p50", "p75", "p90") if k in a}
+
+
+def report_structure(
+    control: OrgPaths, treatment: OrgPaths, replicate: OrgPaths | None = None
+) -> int:
+    """Every arm's full same-genre distribution, shape and openers separately.
 
     Reported, never judged. This function computes no verdict and applies no
     threshold; what counts as a change is written down in
     docs/M17C-EVIDENCE-STANDARD.md before either arm was authored.
     """
     arms = {"control": arm_pairs(control), "treatment": arm_pairs(treatment)}
+    if replicate is not None:
+        arms["replicate"] = arm_pairs(replicate)
     for name, pairs in arms.items():
         if not pairs:
             print(
@@ -292,6 +315,18 @@ def report_structure(control: OrgPaths, treatment: OrgPaths) -> int:
                 for p in pairs
             ]
             print(_row(name, _dist(vals)))
+
+    if "replicate" in arms:
+        floor = noise_floor(arms["control"], arms["replicate"])
+        print("\nnoise floor (control vs its own replicate, combined):")
+        print(
+            "  "
+            + "  ".join(f"|d {k}|={v:.4f}" for k, v in floor.items())
+            + "\n  Read: a control-to-treatment gap smaller than the matching "
+            "number here is indistinguishable from authoring nondeterminism. "
+            "One replicate pair, so this is a magnitude to beat, not a "
+            "variance or a significance test."
+        )
 
     genres = sorted(
         {p.genre for p in arms["treatment"]} | {p.genre for p in arms["control"]}
@@ -324,7 +359,10 @@ def report_structure(control: OrgPaths, treatment: OrgPaths) -> int:
 
     # Discriminating comparison 2: the lexical axis, which no outline controls.
     print("\nlexical 4-gram Jaccard (zeros kept), same-genre:")
-    for name, paths in (("control", control), ("treatment", treatment)):
+    lex_arms = [("control", control), ("treatment", treatment)]
+    if replicate is not None:
+        lex_arms.append(("replicate", replicate))
+    for name, paths in lex_arms:
         print(_row(name, _dist([s for _, _, _, s in lexical_scores(paths)])))
     return 0
 
@@ -335,9 +373,15 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--control", type=Path, required=True, help="control arm root")
     ap.add_argument("--treatment", type=Path, required=True, help="treatment arm root")
     ap.add_argument(
+        "--replicate",
+        type=Path,
+        default=None,
+        help="control-replicate arm root; adds the noise floor to --structure",
+    )
+    ap.add_argument(
         "--structure",
         action="store_true",
-        help="report both arms' full structural distributions (needs authored prose)",
+        help="report every arm's full structural distribution (needs authored prose)",
     )
     args = ap.parse_args(argv)
 
@@ -345,6 +389,7 @@ def main(argv: list[str] | None = None) -> int:
         return report_structure(
             OrgPaths(root=args.control, slug=args.slug),
             OrgPaths(root=args.treatment, slug=args.slug),
+            OrgPaths(root=args.replicate, slug=args.slug) if args.replicate else None,
         )
 
     control = OrgPaths(root=args.control, slug=args.slug)

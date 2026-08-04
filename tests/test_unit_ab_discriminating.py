@@ -101,3 +101,27 @@ def test_lexical_zeros_are_kept_so_the_arms_stay_comparable():
 def test_identical_text_scores_one_and_anchors_the_axis():
     text = "the quarterly review covered scope schedule and budget in that order"
     assert jaccard(shingles(text), shingles(text)) == pytest.approx(1.0)
+
+
+def test_noise_floor_is_a_magnitude_per_statistic():
+    """The replicate's whole job: give the control-to-treatment gap something
+    to beat. Two runs of the same arm differ only by model sampling, so the
+    spread between them is what noise looks like on this corpus."""
+    from tools.ab_compare import noise_floor
+
+    control = [_pair("d:0001", "d:0002", shape=0.60, openers=0.60)]
+    replicate = [_pair("d:0001", "d:0002", shape=0.50, openers=0.50)]
+
+    floor = noise_floor(control, replicate)
+
+    assert floor["mean"] == pytest.approx(0.10)
+    assert set(floor) == {"mean", "p50", "p75", "p90"}
+
+
+def test_noise_floor_is_absent_not_zero_when_an_arm_is_missing():
+    """An unauthored replicate must not read as 'zero noise', which would make
+    every observed gap look significant."""
+    from tools.ab_compare import noise_floor
+
+    assert noise_floor([_pair("d:0001", "d:0002")], []) == {}
+    assert noise_floor([], [_pair("d:0001", "d:0002")]) == {}

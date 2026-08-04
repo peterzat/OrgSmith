@@ -23,6 +23,24 @@ difference between the arms' deterministic artifacts must map to one of those
 three knobs. Measured at planning time: 59 authored documents per arm, **245
 same-genre pairs**, across all seven genres that carry an outline pool.
 
+**Persona enrichment is run once and shared, not run per arm.** Enrichment is
+a model pass that writes persona prose into `foundation.json`, and every
+authoring worker reads it. Run separately per arm it would differ by model
+nondeterminism, so each arm's authors would be told different things about the
+same people, and that difference would sit inside the measured gap. The two
+arms' enrichment work orders were verified byte-identical before the pass ran
+(the knobs do not reach it), so one deliverable was ingested into all arms and
+`foundation.json` is byte-identical across them.
+
+**A third arm: a control replicate.** Same recipe and the same seed as the
+control, authored a second time. Its only difference from the control is the
+model's own sampling, so the spread between control and replicate is a direct
+estimate of authoring nondeterminism. This is what lets the turn say whether a
+control-to-treatment gap is larger than run-to-run noise, and it supersedes
+the limitation recorded below, which was written when the turn budgeted two
+arms. Note what it does and does not bound: it is one replicate pair, so it
+gives a noise *sample*, not a variance estimate with a confidence interval.
+
 ## The primary comparison, and why it is the weakest one
 
 The structural axis (`orgsmith/review/structure.py`) over every one of the
@@ -72,15 +90,14 @@ or that a second arm exists. Recorded side by side.
 - **`rf:voice-3`.** A single rhetorical move recurring across genres and
   authors, paraphrased each time, is not a pair, not a shape and not an
   n-gram. Neither axis reaches it and no keyless proxy will.
-- **Run-to-run noise, and this is the sharpest limitation.** One run per arm.
-  Authoring is model-nondeterministic, and **nothing here estimates how much
-  two runs of the *same* arm would differ.** Without a same-arm replicate,
-  any difference between the arms is confounded with ordinary sampling
-  variation, and no observed gap can be called larger than noise. A third run
-  (a control replicate, ~10 further batches) is what would close this; it is
-  not budgeted in this turn, and every number this turn reports is therefore
-  a single-sample comparison. Read accordingly, and do not quote a delta as
-  an effect size.
+- **Run-to-run noise, now bounded rather than unbounded.** This limitation was
+  written when the turn budgeted two arms, and the control replicate described
+  above answers it in part: the control-to-replicate spread is a measured
+  sample of authoring nondeterminism, and a control-to-treatment gap smaller
+  than it means nothing. What the replicate still does not buy is a variance
+  estimate. One replicate pair gives one number, not a distribution, so
+  "larger than the noise sample we drew" is the strongest available claim and
+  a delta must still not be quoted as an effect size.
 - **A false-positive rate for the board.** Boarding both arms blind measures
   whether the board can *discriminate* two corpora. It does not measure how
   often the board manufactures a finding against prose that is fine, because
