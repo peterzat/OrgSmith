@@ -104,6 +104,37 @@ and the within-batch ones should be reported separately rather than pooled.
 Recorded here, before the numbers exist, so the split cannot be chosen later
 to suit them.
 
+**And the premise behind that split turns out to be wrong, which is a larger
+finding than this turn.** README.md states three times that a worker "never
+sees a sibling" (lines 398, 422, 680) and that "nothing in the pipeline holds
+two authored documents at once" (line 680). Both are false, and checkably so:
+
+- `BATCH_SIZE = 6` (`orgsmith/authoring/contexts.py:31`). One worker is handed
+  up to six documents and authors them together. Observed batch sizes on this
+  run: 6, 6, 6, 1, 5, 6. Holding two authored documents at once is not an
+  accident, it is the unit of work.
+- Workers also read **across** batches. A control-arm worker reported reading
+  an already-ingested reply from an earlier batch specifically to avoid
+  repeating its section names, openings and closings. Nothing in
+  `.claude/skills/forge-author/SKILL.md` grants or forbids this; the committed
+  org's DocIR is simply on disk and readable.
+- README.md line 638 already says so, listing "sibling documents" among what a
+  batch reads when it accounts for token cost. The document contradicts itself
+  about its own central mechanism.
+
+This does not damage the comparison: both arms have the property equally. It
+does change the diagnosis the comparison is testing. `BACKLOG.md`'s
+`cross-document-voice` attributes per-genre convergence to authors who cannot
+self-check because they never see a sibling. They can, within a batch always
+and across batches sometimes, and they demonstrably do (one worker cut shared
+six-grams among its own documents from 34 to 3). So convergence survives
+*despite* partial sibling awareness, which makes it a harder problem than the
+stated diagnosis, not an easier one.
+
+Correcting README.md and the BACKLOG entry is docs work for this turn's close
+(criterion ten). Recorded here first because it was found mid-run and the
+finding is independent of how the numbers land.
+
 ## What this cannot settle, stated in advance
 
 - **Whether the prose got better.** Both axes measure difference, not
