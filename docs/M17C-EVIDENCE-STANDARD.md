@@ -83,6 +83,27 @@ single most informative number this experiment produces.
 the voice dimension on both arms with neither dispatch told which arm it read
 or that a second arm exists. Recorded side by side.
 
+## An interpretive caveat, recorded mid-run before any numbers existed
+
+**Workers suppress convergence within their own batch, and that is not the
+knob.** A batch hands one worker several documents at once, so unlike the
+cross-batch case it *can* see its siblings. Observed live on the control arm:
+one worker reported cutting shared six-grams among its own six documents from
+34 to 3 by rewriting passages it noticed repeating, and another reported
+deliberately giving two same-genre minutes different shapes. Both arms get
+this for free, so it does not bias the comparison between them, but it does
+mean neither arm's absolute variety is attributable to the outline work, and
+a same-batch pair is not independent of a cross-batch pair.
+
+Two consequences for reading the result. Same-genre pairs whose documents came
+from one batch have already been de-duplicated by a human-like editor; pairs
+spanning batches have not. And because batches are engagement-grouped rather
+than random, that split is not evenly distributed across genres. If the
+analysis wants a clean read, the comparison to trust is cross-batch pairs,
+and the within-batch ones should be reported separately rather than pooled.
+Recorded here, before the numbers exist, so the split cannot be chosen later
+to suit them.
+
 ## What this cannot settle, stated in advance
 
 - **Whether the prose got better.** Both axes measure difference, not
