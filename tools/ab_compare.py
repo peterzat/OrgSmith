@@ -269,22 +269,50 @@ def _row(label: str, d: dict) -> str:
 
 
 def noise_floor(control: list, replicate: list) -> dict:
-    """How far apart two runs of the SAME arm land, per summary statistic.
+    """How far apart two runs of the SAME arm land.
 
     The control replicate shares the control's recipe and seed, so its work
     orders are byte-identical and the only thing that varied is the model's
     sampling. Whatever separates these two is what a control-to-treatment gap
     has to clear before it means anything.
 
-    One replicate pair gives one sample, not a variance. This returns a
-    magnitude to compare against, never a significance test, and nothing
-    downstream may turn it into a threshold.
+    Two figures, because they answer different questions and the gap between
+    them is itself the diagnostic:
+
+    - `mean`/`p50`/`p75`/`p90` -- the AGGREGATE `|delta|` per summary
+      statistic. The like-for-like comparator for the treatment's own
+      aggregate delta, computed by the same estimator.
+    - `paired_mean`/`paired_p90` over `paired_n` -- the per-pair spread of
+      `|control - replicate|` across the pair keys the two arms share. The
+      arms plan the same corpus, so nearly every key exists in both.
+      Summary statistics CANCEL: two runs in which every pair moved can
+      report an aggregate delta of 0.0, and a floor of zero is failure
+      toward significance. When the paired spread is large while the
+      aggregate deltas are near zero, cancellation is hiding real
+      volatility and the aggregate comparison must not be read on its own.
+
+    One replicate pair gives one sample, not a variance. BOTH values are
+    magnitudes to compare against, never significance tests, and nothing
+    downstream may turn either into a threshold.
     """
     a = _dist([(p.shape + p.openers) / 2 for p in control])
     b = _dist([(p.shape + p.openers) / 2 for p in replicate])
     if not a or not b:
         return {}
-    return {k: abs(a[k] - b[k]) for k in ("mean", "p50", "p75", "p90") if k in a}
+    out = {k: abs(a[k] - b[k]) for k in ("mean", "p50", "p75", "p90") if k in a}
+    rep = {(p.doc_a, p.doc_b): (p.shape + p.openers) / 2 for p in replicate}
+    paired = _dist(
+        [
+            abs((p.shape + p.openers) / 2 - rep[(p.doc_a, p.doc_b)])
+            for p in control
+            if (p.doc_a, p.doc_b) in rep
+        ]
+    )
+    if paired:
+        out["paired_n"] = paired["n"]
+        out["paired_mean"] = paired["mean"]
+        out["paired_p90"] = paired["p90"]
+    return out
 
 
 def report_structure(
@@ -319,13 +347,24 @@ def report_structure(
     if "replicate" in arms:
         floor = noise_floor(arms["control"], arms["replicate"])
         print("\nnoise floor (control vs its own replicate, combined):")
+        agg = {k: v for k, v in floor.items() if not k.startswith("paired_")}
+        print("  aggregate: " + "  ".join(f"|d {k}|={v:.4f}" for k, v in agg.items()))
+        if "paired_mean" in floor:
+            print(
+                f"  paired ({floor['paired_n']} shared pair keys): "
+                f"mean |d|={floor['paired_mean']:.4f}  "
+                f"p90 |d|={floor['paired_p90']:.4f}"
+            )
+        elif agg:
+            print("  paired: the two arms share no pair key; NOT a measured zero")
         print(
-            "  "
-            + "  ".join(f"|d {k}|={v:.4f}" for k, v in floor.items())
-            + "\n  Read: a control-to-treatment gap smaller than the matching "
-            "number here is indistinguishable from authoring nondeterminism. "
-            "One replicate pair, so this is a magnitude to beat, not a "
-            "variance or a significance test."
+            "  Read: a control-to-treatment gap smaller than the matching "
+            "aggregate number here is indistinguishable from authoring "
+            "nondeterminism. The paired figure is the per-pair movement the "
+            "aggregate cancels: when it is large while the aggregate deltas "
+            "are near zero, the aggregate comparison is hiding volatility and "
+            "must not be read on its own. One replicate pair, so both are "
+            "magnitudes to beat, not a variance or a significance test."
         )
 
     genres = sorted(

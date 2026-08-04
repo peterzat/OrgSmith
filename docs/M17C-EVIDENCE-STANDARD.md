@@ -1,14 +1,34 @@
-# M17c evidence standard, fixed 2026-08-03 before either arm was authored
+# M17c evidence standard, fixed 2026-08-03, amended during the run
 
 What would count as M17b's outline work having changed authored prose, what
 would count as it not having, and what this measurement cannot settle either
-way. Written and committed **before** either arm was authored, so the
-conclusion cannot be chosen after the numbers exist. SPEC.md (2026-08-03)
-criterion two; verifiable from git order.
+way. The analysis specification below was written and committed **before**
+either arm was authored, so the conclusion cannot be chosen after the numbers
+exist. SPEC.md (2026-08-03) criterion two; verifiable from git order.
 
 Nothing in this document gates anything. No number below is a threshold, no
 test tier reads any of it, and no validator rule derives from it. It is a
 statement of what the authors will accept as an answer, recorded in advance.
+
+## Amendment log
+
+Kept because a pre-registration that is silently edited is not one. Every
+entry is dated against the state of the run, and **no amendment has changed
+what counts as evidence**: the three comparisons below are as first written.
+Amendments so far either tighten the control or narrow what may be claimed.
+
+- **2026-08-03, before any authoring.** Persona enrichment shared across arms
+  rather than run per arm (closes a confound). A third arm added, the control
+  replicate, with `noise_floor` as its instrument.
+- **2026-08-04, control arm at 19/59 authored, no comparison run.** The
+  within-batch convergence caveat, and the instruction to report cross-batch
+  and within-batch pairs separately rather than pooled. Narrows the claim.
+- **2026-08-04, control arm at 30/59, no comparison run.** The finding that
+  the "never sees a sibling" premise is false. Narrows the claim and corrects
+  a diagnosis; changes no analysis.
+- **2026-08-04.** `noise_floor` gained a paired per-pair spread after review
+  found the aggregate form could report zero noise on runs where every pair
+  moved. A correction to an instrument, not to the standard.
 
 ## The setup
 

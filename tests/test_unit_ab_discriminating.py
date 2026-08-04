@@ -115,7 +115,45 @@ def test_noise_floor_is_a_magnitude_per_statistic():
     floor = noise_floor(control, replicate)
 
     assert floor["mean"] == pytest.approx(0.10)
-    assert set(floor) == {"mean", "p50", "p75", "p90"}
+    assert set(floor) == {
+        "mean",
+        "p50",
+        "p75",
+        "p90",
+        "paired_n",
+        "paired_mean",
+        "paired_p90",
+    }
+
+
+def test_noise_floor_reports_the_per_pair_movement_the_aggregate_cancels():
+    """Summary statistics cancel, and this measurement may not fail toward
+    significance. Both runs here have identical distributions, so every
+    aggregate |delta| is 0.0, while every single pair moved by 0.30. Reading
+    the aggregate alone would put the floor at zero, and a treatment gap made
+    entirely of authoring nondeterminism would clear it and be written up as
+    an effect. The arms share a recipe and a seed, so their pair keys match
+    and the paired comparison is always available.
+    """
+    from tools.ab_compare import noise_floor
+
+    control = [
+        _pair("d:0001", "d:0002", shape=0.60, openers=0.60),
+        _pair("d:0003", "d:0004", shape=0.30, openers=0.30),
+    ]
+    replicate = [
+        _pair("d:0001", "d:0002", shape=0.30, openers=0.30),
+        _pair("d:0003", "d:0004", shape=0.60, openers=0.60),
+    ]
+
+    floor = noise_floor(control, replicate)
+
+    assert floor["mean"] == pytest.approx(0.0)
+    assert floor["p50"] == pytest.approx(0.0)
+    assert floor["p90"] == pytest.approx(0.0)
+    assert floor["paired_n"] == 2
+    assert floor["paired_mean"] == pytest.approx(0.30)
+    assert floor["paired_p90"] == pytest.approx(0.30)
 
 
 def test_noise_floor_is_absent_not_zero_when_an_arm_is_missing():
@@ -125,3 +163,18 @@ def test_noise_floor_is_absent_not_zero_when_an_arm_is_missing():
 
     assert noise_floor([_pair("d:0001", "d:0002")], []) == {}
     assert noise_floor([], [_pair("d:0001", "d:0002")]) == {}
+
+
+def test_noise_floor_omits_the_paired_figure_when_no_pair_key_is_shared():
+    """Same failure direction as an absent arm: with nothing to pair, the
+    paired spread is unmeasured, and an unmeasured spread must be absent
+    rather than reported as 0.0."""
+    from tools.ab_compare import noise_floor
+
+    floor = noise_floor(
+        [_pair("d:0001", "d:0002", shape=0.60, openers=0.60)],
+        [_pair("d:0003", "d:0004", shape=0.60, openers=0.60)],
+    )
+
+    assert floor["mean"] == pytest.approx(0.0)
+    assert "paired_mean" not in floor and "paired_n" not in floor
