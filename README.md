@@ -166,6 +166,59 @@ that exercises what you need:
 Every org's data card states its own feature matrix, so the table above is a
 shortcut rather than the record.
 
+**If you are choosing a benchmark corpus rather than a hard case, pick by
+measured difficulty instead.** The table above answers "which org contains
+the feature I need". It does not answer "which org is actually hard", and
+those are different questions with different answers. Every number below is
+read from [`docs/BASELINES.md`](docs/BASELINES.md), where two keyless
+retrievers answer each org's own retrieval suite. Regenerate them yourself
+with `python -m orgsmith baseline --fleet`.
+
+| org | questions | filename-only | BM25 | body reading pays | noise hurts |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `calderwood-partners` | 108 | 0.507 | 0.716 | **+0.209** | 0.030 |
+| `ashcombe-advisory` | 44 | 0.458 | 0.658 | **+0.200** | 0.076 |
+| `hollowell-ip` | 35 | 0.583 | 0.691 | +0.108 | -0.001 |
+| `meridian-actuarial` | 40 | 0.600 | 0.696 | +0.096 | 0.004 |
+| `northgate-staffing` | 41 | 0.598 | **0.625** | +0.027 | **0.090** |
+| `dev-mini` | 22 | 0.729 | 0.748 | +0.019 | 0.000 |
+| `verdant-health` | 26 | 0.671 | 0.682 | +0.011 | 0.000 |
+| `saltmarsh-environmental` | 35 | 0.679 | 0.676 | **-0.003** | 0.000 |
+| `brackenridge-civil` | 34 | 0.729 | 0.706 | **-0.023** | 0.000 |
+
+nDCG@10 on the `full` split. "Body reading pays" is BM25 minus filename-only:
+how much a retriever gains by opening the documents at all. "Noise hurts" is
+the same retriever's `core` score minus its `full` score: how much the
+distractor and noise splits cost it.
+
+Four ways to read that, and they point at four different orgs:
+
+- **Want the most questions?** `calderwood-partners`, 108 of the fleet's 385,
+  more than twice any other org. If you need enough questions for a
+  difference between two systems to mean anything, this is the only org that
+  supplies them on its own.
+- **Want the hardest corpus?** `northgate-staffing`, where BM25 scores lowest
+  in the fleet (0.625) *and* loses the most to noise (0.090). The exemplar is
+  not merely the showpiece; it is also the one where a lexical retriever does
+  worst. That is a coincidence of it carrying the most knobs at once, not a
+  design goal, but it means "read the exemplar first" and "start with the
+  hard one" happen to agree.
+- **Want to prove your system reads documents?** `calderwood-partners` or
+  `ashcombe-advisory`, where opening the files is worth about +0.20 nDCG. A
+  system that does not beat the filename-only floor on these two is not
+  reading.
+- **Want to catch a system that games filenames?** `brackenridge-civil` or
+  `saltmarsh-environmental`, the two orgs where filename matching **beats**
+  BM25. Their synthetic OCR layer degrades exactly the document text a
+  body-reading retriever depends on while leaving filenames intact, so on
+  these two the lazy strategy wins. If your system's advantage evaporates
+  here, it was reading filenames.
+
+The last row of that list is the one worth dwelling on, because it is a
+property of the corpus rather than a defect in either retriever, and it is
+the sort of thing a benchmark that reported one headline number per org would
+hide completely.
+
 Document spans below are the real dates on the files, not the window the
 recipe allowed:
 
@@ -205,6 +258,31 @@ records what actually authored it, batch by batch, in its `GENERATION-REPORT.md`
 and ships its six-dimension adversarial board findings beside it.
 
 Per company: 7–25 people, 31–218 documents, 4–22 engagements, a 5–15 year span.
+
+**Fleet status: nine committed orgs, all frozen and byte-pinned.** Every org
+above is re-derived byte-identically by the `org` test tier on every run
+(`PINNED = SLUGS` in `tests/test_org_regen.py`), so a change that would move
+any committed ledger, manifest, or authored document fails the suite rather
+than landing quietly. Regenerating one requires an explicit, recorded
+carve-out; the last one closed at M17 and none is open. Derived artifacts
+(`evals/`, `acl.json`, `GENERATION-REPORT.md`, `review/`, `baselines/`,
+`DATA-CARD.md`, `PERMISSIONS.md`) are exempt and may always be re-emitted.
+
+**A tenth recipe is committed without a company beside it, on purpose.**
+[`recipes/quillon-harbor/`](recipes/quillon-harbor/) is the source for a
+controlled A/B experiment: one recipe generated more than once, with the
+M17b outline and scope knobs as the only variable, to settle whether those
+knobs change authored prose. Its arms are generated into gitignored
+`scratch/` rather than `companies/`, because an experiment's arms are
+measurements rather than exhibits, and committing them would put two
+near-identical orgs in a fleet whose whole point is that each member
+demonstrates something different. What the experiment found will be recorded
+here when it concludes, including a null or negative result. The analysis
+standard was fixed and committed before either arm was authored
+([`docs/M17C-EVIDENCE-STANDARD.md`](docs/M17C-EVIDENCE-STANDARD.md)) so the
+conclusion cannot be chosen after the numbers exist, and what the run has
+surfaced so far is logged as it happens in
+[`docs/M17C-RUN-LOG.md`](docs/M17C-RUN-LOG.md).
 
 By format: 314 `.docx`, 147 `.eml`, 65 `.pdf`, 64 `.xlsx`, 24 `.doc`, 20
 `.pptx`, 9 `.xls`, 2 `.ppt`.
