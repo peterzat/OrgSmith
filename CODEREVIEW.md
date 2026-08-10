@@ -1,116 +1,134 @@
 # CODEREVIEW
 
-## Review — 2026-08-04 (commit: 836a1dd) — M17c replicate arm and noise floor
+## Review — 2026-08-10 (commit: c5b9994) — the sibling-premise docs correction
 
 **Review scope:** Full review (the prior entry records `block: 1`, so the
-refresh conditions do not hold). Three files changed since `origin/main`:
-`tools/ab_compare.py`, `tests/test_unit_ab_discriminating.py`,
-`docs/M17C-EVIDENCE-STANDARD.md`.
+refresh conditions do not hold). Three files changed since `origin/main`, all
+Markdown: `README.md`, `BACKLOG.md`,
+`.claude/skills/forge-review/SKILL.md`. Reviewed at full tier rather than
+light because `.claude/skills/` is product in this repo (CLAUDE.md, "the
+skills ARE the product"), and a SKILL.md is executed prompt content rather
+than prose a reader merely reads.
 
-**Summary:** Adds a third arm (a control replicate at the same seed) and a
-`noise_floor()` to give the control-to-treatment gap a magnitude to clear,
-plus the mid-run within-batch caveat in the evidence standard. One BLOCK in
-`noise_floor` itself: as written it can report zero noise on runs that moved
-substantially, which is the one direction this measurement must never fail in.
+**Summary:** Removes the "never sees a sibling" mechanism claim from the four
+README spots, the BACKLOG `cross-document-voice` entry, and the forge-review
+board prompt, ahead of the SPEC criterion-ten docs reconciliation, on the
+grounds that the repo is pausing mid-turn. The direction is right and the
+`BATCH_SIZE` half is exact. One BLOCK: the replacement text asserts a fresh
+absolute in the same direction as the claim it removes, contradicting the
+second half of the very finding it cites.
 
-**Tests:** 16 short, 739 unit, 230 org (+27 skipped). No regression (737 before the fix; the deltas are the two new tests).
+**Tests:** 16 short, 739 unit, 230 org (+27 skipped), 65 flagship (+5
+skipped). All four tiers green, unchanged from the pre-edit baseline. No
+fixture touched; `PINNED = SLUGS` green.
 
 **External reviewers:** None configured.
 
+**Security:** `/security` run on the five files changed since the prior scan
+(`9dcc15c`): the two `ab_*` tools and their three test modules. Zero findings
+(0 BLOCK / 0 WARN / 0 NOTE). It also refreshed the stale `ab_compare.py` line
+citations this review's predecessor deliberately carried (257, 262 → 449,
+454; the referenced code is unmodified) and closed the in-place-overwrite
+footgun as fixed.
+
 ### Findings
 
-**[BLOCK] tools/ab_compare.py — `noise_floor` compares distribution summaries
-where a paired per-pair comparison is available, and can report zero noise on
-runs where every pair moved.**
+**[BLOCK] `README.md:398,422,681,1096`, `BACKLOG.md:103`,
+`.claude/skills/forge-review/SKILL.md:79` — the correction replaces one
+absolute false claim with a weaker absolute false claim in the same
+direction.**
 
-The control and its replicate share a recipe and a seed, so their manifests
-are byte-identical (verified: `cmp` on the two `manifest.jsonl` files passes).
-Every pair key `(doc_a, doc_b)` therefore exists in *both* arms, and the two
-runs can be compared pair by pair. `noise_floor` instead summarizes each arm
-separately and subtracts the summaries:
+The source finding this commit cites (`docs/M17C-EVIDENCE-STANDARD.md:129-145`)
+records two facts. The edit encodes the first and contradicts the second.
 
-```python
-a = _dist([(p.shape + p.openers) / 2 for p in control])
-b = _dist([(p.shape + p.openers) / 2 for p in replicate])
-return {k: abs(a[k] - b[k]) for k in ("mean", "p50", "p75", "p90") if k in a}
-```
+1. Within a batch, a worker holds up to six documents. `BATCH_SIZE = 6`
+   (`orgsmith/authoring/contexts.py:31`), applied as `batch[:BATCH_SIZE]`
+   (`:493`), so it is a cap and "up to six" is exact. Correctly stated.
+2. Across batches: "Workers also read **across** batches. A control-arm worker
+   reported reading an already-ingested reply from an earlier batch
+   specifically to avoid repeating its section names, openings and closings.
+   Nothing in `.claude/skills/forge-author/SKILL.md` grants or forbids this;
+   the committed org's DocIR is simply on disk and readable."
 
-Summary statistics cancel. Demonstrated:
+Verified independently: `grep -n "sibling\|corpus\|other documents"
+.claude/skills/forge-author/SKILL.md` returns nothing. There is no
+prohibition. A worker's view is bounded by what its brief supplies, not by
+anything the pipeline enforces.
 
-```
-truth: every pair moved by 0.30 between the two runs
-noise_floor reports: {'mean': 0.0, 'p50': 0.0, 'p75': 0.0, 'p90': 0.0}
-a paired per-pair mean |delta| would report: 0.3
-```
+The new text asserts the negation of (2) in six places:
 
-Why this is a BLOCK rather than a refinement. The replicate exists for exactly
-one purpose: to be the bar a control-to-treatment gap must clear before the
-turn may claim the outline work did anything. A floor that reads 0.0 when
-per-pair movement is 0.30 fails **toward** significance. A treatment gap that
-is entirely authoring nondeterminism would clear a floor of zero and be
-written up as an effect. That is the false conclusion the user spent ten extra
-authoring batches specifically to prevent, and the turn's whole claim to being
-a controlled experiment rests on this number.
+- `README.md:398` — "and never the rest of the corpus"
+- `README.md:422` — "no authoring worker sees more than its own batch"
+- `README.md:681` — "It never sees the rest of the corpus"
+- `README.md:1096` — "since a worker sees only its own batch"
+- `.claude/skills/forge-review/SKILL.md:79` — "and never the rest of the corpus"
+- `BACKLOG.md:103` — "What no author sees is the corpus"
 
-Suggested fix: report both, because they answer different questions and the
-gap between them is itself the diagnostic.
+The BACKLOG bullet is self-contradictory within itself: it says workers "read
+across batches too" and then "what no author sees is the corpus", four
+sentences apart.
 
-- Keep the aggregate delta: it is the like-for-like comparator for the
-  treatment's own aggregate delta, computed by the same estimator.
-- Add a paired per-pair spread over the shared pair keys (mean and p90 of
-  `|score_control(pair) - score_replicate(pair)|`). When this is large while
-  the aggregate delta is near zero, cancellation is hiding real volatility,
-  and the aggregate comparison should not be trusted on its own.
+Why BLOCK rather than WARN. This commit exists for one purpose, to remove a
+false mechanism claim from the documents a reader actually reaches, and its
+own message cites cross-batch reading as the evidence. Shipping it with a
+fresh absolute in the same direction reinstates the defect at one remove and
+makes the next reader's correction harder, because the text will now look
+recently audited. The `SKILL.md` copy is the operational one: it would again
+prime every `cross_document_voice` reviewer with a mechanism description that
+the project's own evidence document contradicts, which is the specific harm
+the commit was written to stop.
 
-Both are magnitudes to read, never thresholds; the existing docstring
-prohibition against turning this into a significance test still stands and
-should be carried onto the new value.
+Suggested fix: state the bound as **briefing**, not capability. A worker is
+briefed its own batch, up to six documents; the rest of the corpus's DocIR is
+on disk, and has been read across batches at least once, but nothing briefs it
+and nothing requires it, so any cross-batch self-check is incidental rather
+than systematic. The "at corpus scale" framing already used at `README.md:678`
+and `:1095` is the defensible one and should carry: no worker reviews the
+whole corpus, whatever it may read alongside its brief.
 
 ### Fixes Applied
 
-`/codefix`, verified by re-review against the finding's own demonstration:
+`/codefix`, verified by re-review of all six sites:
 
-- **[BLOCK] tools/ab_compare.py** — `noise_floor` keeps the aggregate delta
-  per statistic (the like-for-like comparator for the treatment's own
-  aggregate delta) and adds a paired per-pair spread over the pair keys the
-  arms share: `paired_n`, `paired_mean`, `paired_p90`. Re-ran the case that
-  demonstrated the bug: aggregate mean/p50/p75/p90 still read 0.0, and
-  `paired_mean`/`paired_p90` now read 0.30, so the cancellation is visible
-  instead of silent. The print block splits into `aggregate:` and `paired (N
-  shared pair keys):`, and an unmeasured paired spread is flagged "NOT a
-  measured zero" rather than omitted silently. The never-a-threshold
-  prohibition is carried onto both values.
-- Two tests added, including the finding's exact scenario.
+- **[BLOCK]** The bound is restated as **briefing** rather than capability
+  everywhere. `README.md:397` "is briefed its own batch, up to six documents,
+  and nothing briefs it on the rest of the corpus"; `:422` "no authoring
+  worker is briefed beyond its own batch"; `:1101` "is briefed only its own
+  batch". `README.md:679` carries the full nuance, since it is the passage
+  that justifies the board: the DocIR is on disk and has been read across
+  batches at least once, but nothing briefs a worker on it and nothing
+  requires the check, so a cross-batch self-check is incidental rather than
+  systematic, and no worker reviews the whole corpus.
+- **[BLOCK]** `BACKLOG.md:103`'s internal contradiction is resolved: "What no
+  author reviews is the corpus", followed by the briefing/requirement
+  distinction, so the bullet's own "workers read across batches too" no longer
+  contradicts its conclusion four sentences later.
+- **[BLOCK]** `.claude/skills/forge-review/SKILL.md:78` rewritten, the
+  operational site: a `cross_document_voice` reviewer is now primed with the
+  briefing bound and the on-disk caveat, ending on "no worker reviews the
+  whole corpus".
 
-Author-applied afterwards, and recorded rather than folded in silently:
+Re-review confirms no site retains an absolute claim about what a worker
+*can* see. Two surviving greps for the old phrasing are correct in context and
+were left alone: `BACKLOG.md:103` quotes "they never see a sibling" in order to
+refute it in the next sentence, and `README.md:664`'s "the model never sees a
+value it is placing" is the airlock, an unrelated and true claim.
 
-- `docs/M17C-EVIDENCE-STANDARD.md` gained an **amendment log**. `/codefix`
-  deliberately left the file alone on the grounds that editing a
-  pre-registration post-hoc compromises what makes it evidence, which is the
-  right instinct; but the header claimed the document was fixed before
-  authoring while it had in fact been amended twice mid-run. An inaccurate
-  provenance claim inside the pre-registration is worse than a visible
-  amendment log, so the log now dates every amendment against the state of
-  the run and states that none changed what counts as evidence.
-
-### Carried, not fixed
-
-- `SECURITY.md` cites `tools/ab_compare.py` line numbers (257, 262) that this
-  change shifts. The referenced code is unmodified, so the finding is intact
-  and only the citations are stale. Left for the next `/security` pass rather
-  than hand-edited, since editing a scan's own record outside a scan is how
-  that record stops being trustworthy.
+Tests after the fix: 16 short, 739 unit, 230 org (+27 skipped), 65 flagship
+(+5 skipped). Identical to baseline, no regression.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-08-03, commit 9dcc15c): the M17c deterministic scaffolding
-(recipe, control derivation, attribution check, pre-registered standard). One
-BLOCK, `ab_control.py` destroying the treatment recipe when source and
-destination coincided, and three WARN, all fixed across two `/codefix` cycles
-plus one author-applied fix whose review-integrity caveat is carried forward
-below. `/security` clean at 0/0/0.*
+*Prior review (2026-08-04, commit 836a1dd): the M17c replicate arm and noise
+floor. One BLOCK, `noise_floor` comparing distribution summaries where a
+paired per-pair comparison was available, which could report zero noise on
+runs where every pair moved and so failed toward significance. Fixed by
+reporting both an aggregate delta and a paired spread, verified against the
+finding's own demonstration case, plus an author-applied amendment log in the
+evidence standard. `SECURITY.md`'s stale `ab_compare.py` line citations were
+carried for the next `/security` pass rather than hand-edited.*
 
-<!-- REVIEW_META: {"date":"2026-08-04","commit":"836a1dd","reviewed_up_to":"836a1dd","base":"origin/main","tier":"full","block":1,"warn":0,"note":0} -->
+<!-- REVIEW_META: {"date":"2026-08-10","commit":"c5b9994","reviewed_up_to":"c5b9994","base":"origin/main","tier":"full","block":1,"warn":0,"note":0,"resolved":true} -->

@@ -76,12 +76,14 @@ reason about the org inherits your blind spots.
 | `cross_document_voice` | Did one person write everything? |
 
 `cross_document_voice` is the reason this board exists. An authoring worker
-sees its own batch, up to six documents, and never the rest of the corpus,
-so it can self-check a pair it wrote together but not a pair two authors and
-two years apart. The n-gram metric only catches literal reuse — two
-documents can share zero 4-grams and still be visibly the same writer,
-with the same paragraph shapes and the same rhetorical moves. Give that
-reviewer the whole sample.
+is briefed its own batch, up to six documents; the rest of the corpus's DocIR
+is on disk and workers have read across batches, but nothing briefs a worker
+on it and nothing requires the check. So a worker can self-check a pair it
+wrote together, but no worker reviews the whole corpus, and a pair two authors
+and two years apart is beyond it. The n-gram metric only catches literal
+reuse — two documents can share zero 4-grams and still be visibly the same
+writer, with the same paragraph shapes and the same rhetorical moves. Give
+that reviewer the whole sample.
 
 Worker prompt, per dimension:
 
