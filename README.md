@@ -148,10 +148,68 @@ them. **If you are here to eyeball the output, read
 the table is here to show the axes the generator moves along (era, sector, ACL
 posture, format mix, mail, noise), not to be read end to end.
 
-**Unless you came for a specific hard case, in which case the exemplar is the
-wrong org.** It is a clean, open-ACL, all-modern-format firm, and it
-deliberately leaves most of the difficulty knobs off. Go straight to the org
-that exercises what you need:
+### Why a fleet, and not just the best one
+
+Two questions arrive in this order for most readers: *why are there nine of
+these*, and *are they different levels of quality?* Both have short answers.
+
+**They are specimens, and the axes do not compose into one org.** A corpus
+cannot be all-modern-format *and* all pre-2007 binaries, open-ACL *and*
+departmental, 40 documents (cheap enough to validate in the default test tier)
+*and* 218 (large enough to be a scale test). The fleet is not accumulated
+attempts kept out of sentiment; each org carries shapes that are mutually
+exclusive with another's.
+
+**"Just use the biggest" does not work.**
+[`calderwood-partners`](companies/calderwood-partners/) is the largest at 218
+documents and 108 eval questions, and it is *not* the hardest: BM25 scores
+0.716 on it, near the top of the fleet. It has no scans, no legacy binaries, no
+mail threads, and neither hard case.
+
+**"Just use the best" does not work either, and this is the sharper point.**
+[`northgate-staffing`](companies/northgate-staffing/) is the best-equipped org
+and the hardest corpus here, which is why it is the one to read first. It still
+sets `legacy_ratio` to 0 and carries no multi-affiliation, so
+[`brackenridge-civil`](companies/brackenridge-civil/) (every office document a
+real pre-2007 OLE container) and
+[`saltmarsh-environmental`](companies/saltmarsh-environmental/) /
+[`verdant-health`](companies/verdant-health/) (a contact who changes employer
+mid-history, with dated `works_at` edges) hold capabilities the exemplar does
+not. **The best single org is not a superset of the fleet.**
+
+### Are they different levels of quality?
+
+**Correctness is uniform and enforced; realism coverage is not, by design.**
+Every committed org validates clean, scores 100% on its own eval suites by
+construction, and re-derives byte-identically in CI on every run. There is no
+quality tier, and no org is "older and therefore sloppier".
+
+What does differ is **vintage, in exactly one place**:
+
+| | authored by | capability set |
+| --- | --- | --- |
+| `northgate-staffing` | `claude-opus-5` | the M13-M16 realism wave plus M17's `alias_agreement` and `exempt_recipient_mentions` |
+| the other eight | `claude-opus-4-8[1m]` | the M13-M16 realism wave |
+
+The M13-M16 wave regenerated **every** org wholesale and re-froze them, so the
+style/voice layer, the business-day calendar and the sample-book posture are
+fleet-wide. M17 then regenerated the exemplar alone with two more knobs. That
+is the entire spread: **two vintages, not nine**, on one schema id
+(`orgsmith/state@1`) with no drift between them.
+
+The model difference is the one worth knowing about, because [model choice is
+the single biggest lever on the prose](#which-model-should-write-your-documents)
+and OrgSmith pins none. The exemplar is the newer and better-written corpus.
+The other eight are one coherent vintage, not eight.
+
+**Nothing in the fleet carries the M17b knobs** (`outline_variety`,
+`engagements.scope`, `client_facing_reports`). Those are exactly what M17c
+tested and found [not ready to ship](#what-m17c-measured-and-the-answer-is-mixed).
+
+**If you came for a specific hard case, the exemplar may still be the wrong
+org.** It carries a departmental ACL, mail threads, scans with an OCR layer,
+both location hard cases and the full noise suite, but it leaves legacy formats
+and multi-affiliation off. Go straight to the org that exercises what you need:
 
 | you want | read |
 | --- | --- |
@@ -303,7 +361,7 @@ noise distribution: a business-day calendar, an engagement book declared a
 sample, deterministic duplicates and drafts, and the style/voice layer. Its
 measurements and six-dimension board findings are in its
 [`GENERATION-REPORT.md`](companies/calderwood-partners-metadata/GENERATION-REPORT.md),
-and it validates clean (29 rules run, 0 errors). The full window-defeating
+and it validates clean (30 rules run, 9 skipped, 0 errors). The full window-defeating
 flagship is M18; this is the same capability at a tenth the scale.
 
 #### The M14 email pilot
@@ -404,7 +462,7 @@ It is what the board found with them on.
 
 The current findings are **2 blockers, 15 major, 16 minor, 4 notes across six
 dimensions**, all in `companies/northgate-staffing-metadata/review/findings/`,
-against a corpus that validates clean: 34 rules run, 3 skipped, 0 errors.
+against a corpus that validates clean: 34 rules run, 5 skipped, 0 errors.
 
 That is a lot more findings than the previous exemplar's eight, and the
 increase is the point rather than a regression. The old org left most of the
@@ -711,7 +769,7 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 37-rule validator ties every document back to the
+- After rendering, a 39-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
@@ -777,7 +835,7 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 relying on for any given claim.
 
 **Oracles, strongest, and where all the facts live.** An oracle recomputes
-the answer from ground truth. The 37-rule validator and the eval suites are
+the answer from ground truth. The 39-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
 is why the airlock exists: the model never sees a value it is placing, so
@@ -1159,7 +1217,7 @@ carry the organizational-noise suite (duplicates, drafts, misfiles). The
 exemplar is the only org carrying all four of a departmental ACL, threads,
 scans, and both hard cases at once, which is what makes it the one to read
 first. **`dev-mini`**
-is deliberately bare: it is the regression oracle the ~600-test unit tier builds
+is deliberately bare: it is the regression oracle the ~740-test unit tier builds
 on, so it stays small and cheap rather than proving breadth. Its one exception
 is `style_specs`, on since M15: the per-person voice ledger is cheap, and a
 tracer is the right place to prove it end to end.
@@ -1208,7 +1266,7 @@ tracer is the right place to prove it end to end.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 37-rule validator, capability
+- The airlock, checkpoint/resume, the 39-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - The quality instrument, which measures the one thing the validator

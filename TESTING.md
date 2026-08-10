@@ -16,8 +16,8 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~85s wall and 960 passing + 27 skipped (16 short, 716 unit, 228 org)
-on a box with LibreOffice; 952 passing + 35 skipped without it (the six
+Expect ~85s wall and 985 passing + 27 skipped (16 short, 739 unit, 230 org)
+on a box with LibreOffice; 977 passing + 35 skipped without it (the six
 `@needs_soffice` conversion tests, which is what CI sees). Both are green
 states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
