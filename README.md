@@ -335,8 +335,9 @@ knobs change authored prose. Its arms are generated into gitignored
 measurements rather than exhibits, and committing them would put two
 near-identical orgs in a fleet whose whole point is that each member
 demonstrates something different. All three arms are now generated and
-measured; [the result is above](#why-we-think-the-output-is-any-good), and it
-is mixed enough that **no arm was committed**. The analysis standard was fixed
+measured; [the result is
+below](#what-m17c-measured-and-the-answer-is-mixed), and it is mixed enough
+that **no arm was committed**. The analysis standard was fixed
 and committed before any arm was authored
 ([`docs/M17C-EVIDENCE-STANDARD.md`](docs/M17C-EVIDENCE-STANDARD.md)) so the
 conclusion could not be chosen after the numbers existed, and everything the
@@ -593,12 +594,13 @@ and the result is below.
   not an n-gram. Recognizing it needs semantics, which is what the board is
   for.
 
-**What M17c measured, and the answer is mixed.** One recipe
-([`quillon-harbor`](recipes/quillon-harbor/)) was generated three times through
-the live airlock: a control with the knobs off, a treatment with them on, and a
-second control at the same seed to measure how much two identical runs differ
-on their own. 177 documents, 39 authoring batches, zero ingest rejections. The
-analysis was [fixed and committed before any of it was
+### What M17c measured, and the answer is mixed
+
+One recipe ([`quillon-harbor`](recipes/quillon-harbor/)) was generated three
+times through the live airlock: a control with the knobs off, a treatment with
+them on, and a second control at the same seed to measure how much two
+identical runs differ on their own. 177 documents, 39 authoring batches, zero
+ingest rejections. The analysis was [fixed and committed before any of it was
 authored](docs/M17C-EVIDENCE-STANDARD.md); what the run surfaced along the way
 is in [`docs/M17C-RUN-LOG.md`](docs/M17C-RUN-LOG.md).
 
@@ -634,7 +636,8 @@ The honest summary: the mechanism works, the pools and the fact surfaces do
 not, and finding that on a 59-document org rather than at flagship scale is
 what the turn was for.
 
-**One fleet-wide artifact, half closed, and be precise about which half.**
+### One fleet-wide artifact, half closed, and be precise about which half
+
 The ingest mention check requires an email author to spell the recipient's
 full legal name in the body, so the mail orgs put it there.
 `mail.exempt_recipient_mentions` (M17) stops the planner *requiring* it, and on
@@ -657,7 +660,9 @@ then names them in full to the room (`BACKLOG.md`,
 their data cards record it. The related `To:/Cc:` banner bug was fixed in
 v2.1.1 and a committed test asserts no fleet mail body carries a header banner.
 
-**What we think is important about this exemplar.** The point of regenerating
+### What we think is important about this exemplar
+
+The point of regenerating
 `northgate-staffing` under the newest version of the framework is not that the
 board fell silent. It did not. It is *which* findings survived. Everything the
 generator can settle by construction (a business-day calendar, a sample-book
