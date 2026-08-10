@@ -12,7 +12,7 @@ discrimination test it has ever had.
 
 ### Acceptance Criteria
 
-- [ ] **One new recipe, generated twice, with the M17b knobs as the only
+- [x] **One new recipe, generated twice, with the M17b knobs as the only
   variable.** A new recipe under `recipes/` produces a control arm with
   `engagements.scope` absent and `doc_culture.outline_variety` and
   `doc_culture.client_facing_reports` off, and a treatment arm with all
@@ -28,21 +28,21 @@ discrimination test it has ever had.
   either way. Verifiable from git order: the standard's commit precedes the
   first authoring commit.
 
-- [ ] **The control is exact where it must be, and its residue is
+- [x] **The control is exact where it must be, and its residue is
   enumerated.** Across arms the share tree (file paths) and the manifest's
   doc ids, genres, dates, and authors are identical, and `foundation.json`
   and the finance and people ledgers are byte-identical. Every remaining
   difference is enumerated and attributed to a named knob rather than
   hand-waved. Shown by diff, recorded in the write-up.
 
-- [ ] **The structural axis is compared over every scored pair, not the
+- [x] **The structural axis is compared over every scored pair, not the
   printed top 50.** The comparison reports each arm's full same-genre
   distribution, with shape and openers reported separately, so a shift in
   the body of the distribution cannot hide behind the truncated reading
   list. `STRUCTURAL_TOP_N` bounds what the report prints and must not bound
   what the comparison reads.
 
-- [ ] **The board is asked the voice question on both arms without being
+- [x] **The board is asked the voice question on both arms without being
   told which is which.** Neither arm's slug, path, nor dispatch prompt
   announces which is the control or that an experiment exists. The two
   verdicts are recorded side by side. The write-up states plainly that this
@@ -50,12 +50,12 @@ discrimination test it has ever had.
   rate against known-good prose, so `board-negative-control` gains a
   measurement without being closed by it.
 
-- [ ] **The treatment arm gets a full six-dimension board and its findings
+- [x] **The treatment arm gets a full six-dimension board and its findings
   ship beside it.** Unflattering findings included, in the house pattern. Any
   comparison of its voice cluster against the exemplar's is labelled as
   uncontrolled, because the recipes differ.
 
-- [ ] **The knobs' first live exercise is reported including what went
+- [x] **The knobs' first live exercise is reported including what went
   wrong.** Per-arm authoring-ingest rejection counts, every case where the
   outline machinery briefed a skeleton a worker could not satisfy or
   rejected a deliverable a reader would call conforming, and every scope fact
@@ -71,12 +71,12 @@ discrimination test it has ever had.
   decision recorded in TESTING.md with the measured added wall-clock. The
   control arm stays in gitignored `scratch/` on the `ab-probe` precedent.
 
-- [ ] **No committed fixture moves and no carve-out is opened.** The nine
+- [x] **No committed fixture moves and no carve-out is opened.** The nine
   existing orgs' ledgers, manifests, and authored prose are untouched;
   `PINNED = SLUGS` is green at every commit including mid-turn. Adding a
   tenth org is not a regeneration.
 
-- [ ] **The docs reconcile to what the generation found, in either
+- [x] **The docs reconcile to what the generation found, in either
   direction.** README's M17b paragraph stating that the proof is the next
   generation is replaced by what this generation settled, including a null or
   negative result stated as such. `docs/REVIEW-CALIBRATION.md` gains the
@@ -87,6 +87,35 @@ discrimination test it has ever had.
 - [ ] **Full `bin/test` passes keyless and offline** across short, unit, org,
   and flagship tiers, with the new org's tier costs measured rather than
   assumed.
+
+### Deferred, with cause (2026-08-10)
+
+Two criteria are deliberately unmet. Recorded here rather than checked off or
+quietly dropped.
+
+- **Criterion eight (commit and freeze the treatment arm): declined.** The
+  arm's six-dimension board returned 5 blockers, three of them one defect: a
+  count fact renders carrying its own noun ("12 acquisition targets") and
+  authors wrote the noun again, so 12 of 59 documents ship "15 acquisition
+  targets targets" into the rendered `.docx`, including an executed engagement
+  letter. Four engagements also read "of the 12 candidates... 64 have been
+  screened", because `unit_range` and `pipeline_top_range` do not nest.
+  Committed fixtures freeze, so committing would make those permanent in the
+  newest fleet member. This turn exists to de-risk M18 against an unproven
+  capability; committing the first output of a capability it just proved
+  defective would defeat that. Criterion seven's own rule applies: the
+  generator changes, the enforcement is not softened.
+- **Criterion eleven (tier costs for the new org): not applicable while
+  eight is declined.** No new org joined a tier, so there is no added
+  wall-clock to measure. Full `bin/test` passes keyless and offline across all
+  four tiers (16 short, 739 unit, 230 org +27 skipped, 65 flagship +5
+  skipped), unchanged from the turn's baseline.
+
+**The measurement stands and must not be re-run to rescue these.** The
+comparison was pre-registered and run once. Fixing the generator and
+re-authoring the treatment arm would produce a second number chosen after
+seeing the first; any such re-run belongs in a later turn, labelled as a
+follow-up with a changed treatment, with the M17c result left as it is.
 
 ### Context
 
@@ -181,4 +210,4 @@ discrimination test it has ever had.
 four default-off knobs and a structural similarity axis landed with no fixture
 regenerated.*
 
-<!-- SPEC_META: {"date":"2026-08-03","title":"M17c: the controlled proof","criteria_total":11,"criteria_met":1} -->
+<!-- SPEC_META: {"date":"2026-08-03","title":"M17c: the controlled proof","criteria_total":11,"criteria_met":9} -->

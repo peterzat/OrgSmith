@@ -255,3 +255,80 @@ report prints both columns side by side rather than replacing one.
   board's d:0046. The shipped instrument measures 2/5/3/78 against the
   board's actual doc sets. The plan's numbers are superseded; they are named
   here so nobody re-derives them and concludes the code changed.
+
+## Second-org calibration: `quillon-harbor`, three arms (2026-08-10)
+
+The section above measures the axis on one frozen corpus. M17c ran it on a
+second org, generated three times from one recipe, which is the first chance
+to see the instrument's *run-to-run* behaviour rather than its rank order on a
+single sample. 245 same-genre pairs per arm.
+
+### What two identical runs do to the numbers
+
+The control and its replicate share a recipe, a seed and a byte-identical
+manifest, and differ only in that the prose was authored twice. That gives the
+axis a noise measurement it has never had:
+
+| statistic | control | replicate | delta |
+| --- | ---: | ---: | ---: |
+| combined mean | 0.3721 | 0.3803 | **0.0082** |
+| combined p50 | 0.3752 | 0.3636 | 0.0116 |
+| combined p90 | 0.5608 | 0.5765 | 0.0157 |
+
+**Aggregate statistics are stable to about 0.01 across identical runs.**
+Individual pairs are not: the paired per-pair movement over the 245 shared
+pair keys is **0.1097 mean, 0.2158 at p90**.
+
+That gap is the calibration result that matters, and it is a constraint on how
+this instrument may be read:
+
+- **Arm-level means are usable.** A mean-to-mean difference above roughly 0.01
+  is larger than run-to-run noise.
+- **Individual pair scores are not.** A single pair moves by ~0.11 on average
+  between two runs of the same configuration. **No conclusion may rest on one
+  pair's score**, including any pair in the printed top-N reading list. The
+  ranked list is a reading aid for a human, never evidence on its own.
+
+The first section's ranks (`rf:voice-1` at 5th of 161, and so on) are ordinal
+positions on one corpus. Nothing above invalidates them, and nothing above
+licenses reading a *score* off that list.
+
+### The instrument's premise, checked against two blind boards
+
+Two `cross_document_voice` reviewers read the control and treatment arms
+blind. Neither was told an experiment existed, and neither was shown this
+document. Both independently concluded that the lexical metric was the
+misleading one and that shape was the real signal:
+
+- "the low lexical number is the misleading one here: this reads as a
+  generator with one idea successfully paraphrasing itself... A firm reusing a
+  template would repeat its governing-law clause verbatim and vary the deal
+  narrative; this corpus does the opposite."
+- "the repetitions are never verbatim... which is the signature of one writer
+  regenerating from one remembered shape rather than an organization reusing
+  paper."
+
+That is convergent, independent support for why `structure.py` exists, from
+readers with no stake in it. It is not a validation of any threshold, because
+neither reviewer was shown a score.
+
+### What the axis could not see
+
+Recorded so the instrument's blind spots stay on the record beside its
+successes:
+
+- **Cross-genre shape convergence is invisible to it.** It scores same-genre
+  pairs only. In the treatment arm an `onboarding_record` and a
+  `company_overview` were dealt structurally identical skeletons
+  (paragraph/table/paragraph) and written by the same author; that pair is
+  never scored. An outline pool that reduced intra-genre repetition while
+  reusing one shape across genres would score as a success here and still look
+  uniform to a reader.
+- **It cannot see the fact surface.** The treatment arm's board returned three
+  blockers for a rendering defect ("15 acquisition targets targets") in 12 of
+  59 documents. Block shape is unaffected by it, so the axis scores those
+  documents normally.
+- **The measured shift was real and partly relocation.** Treatment combined
+  mean 0.3087 against control 0.3721, but the 50 treatment pairs dealt the
+  *same* skeleton scored 0.4019, worse than a typical control pair. An
+  aggregate improvement can hide a subgroup getting worse; report the split.

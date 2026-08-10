@@ -11,6 +11,351 @@ generator between batches would author an arm's early documents against a
 different configuration from its late ones and destroy the comparison the arms
 exist to support.
 
+## THE RESULT
+
+All three arms authored, 59/59 each, 39 batches, zero ingest rejections. The
+comparison below is `tools/ab_compare.py --structure` run once, as
+pre-registered. Raw output is reproducible with the command in
+`docs/M17C-EVIDENCE-STANDARD.md`.
+
+### The attribution check passes
+
+7 differences between control and treatment, every one mapping to a declared
+knob, exit 0: `engagements.json` and `manifest:facts_refs`/`key_facts` (45 of
+77) to `engagements.scope`; `mention_map.json`, `manifest:mentions` and
+`manifest:participants` (10 of 77) to `client_facing_reports`;
+`manifest:render_params` (59 of 77) to `outline_variety`. Identity fields
+(`doc_id`, `genre`, `date`, `authors`, `path`, `format`, `engagement`,
+`title`, `rev`, `authoring`) identical. Criterion three is closed by the
+purpose-built check, not only by hand.
+
+### Structural axis, combined (shape + openers), 245 same-genre pairs per arm
+
+| arm | mean | p50 | p75 | p90 |
+| --- | ---: | ---: | ---: | ---: |
+| control | 0.3721 | 0.3752 | 0.4718 | 0.5608 |
+| treatment | **0.3087** | 0.2871 | 0.4000 | 0.5133 |
+| replicate | 0.3803 | 0.3636 | 0.4546 | 0.5765 |
+
+Lower is less similar. **Control-to-treatment gap: 0.0634.**
+
+Against the two noise measures, which answer different questions:
+
+- **Aggregate floor 0.0082** (control mean vs replicate mean). The gap is
+  **7.7x** this. Read like-for-like, mean against mean, the shift is real: two
+  identical configurations produce means that differ by 0.008, and the knob
+  moved the mean by 0.063.
+- **Paired per-pair 0.1097 mean, 0.2158 p90.** The gap is **0.58x** this. An
+  *individual pair* moves more between two identical runs than the arm-level
+  mean moves between control and treatment.
+
+Both readings are correct and they bound different claims. The arm-level shift
+survives; **no individual pair's movement may be attributed to the
+treatment**, because per-pair noise exceeds the whole effect. Anyone reading
+the printed top-50 list pair by pair would be reading noise.
+
+### The discriminating comparison: convergence is relocated as much as reduced
+
+This is the split the evidence standard named in advance as the thing to
+check, and it is the most important number here.
+
+| population | n | mean |
+| --- | ---: | ---: |
+| control, all pairs | 245 | 0.3721 |
+| treatment, **same** skeleton | 50 | **0.4019** |
+| treatment, **different** skeleton | 195 | 0.2849 |
+
+The standard's pre-written reading: "if 'same skeleton' sits near 'control
+(all pairs)', the outline work relocated the convergence into groups of the
+pool size rather than reducing it."
+
+It does not merely sit near it. It sits **above** it. The 50 pairs dealt the
+same skeleton are *more* alike than a typical control pair, while the 195
+dealt different skeletons are less alike. So the knob buys variety between
+skeleton groups and pays for it with tighter convergence inside them. SCOPE-B
+predicted the 20.4% share from pool arithmetic before any prose existed; this
+is what that share costs.
+
+### The lexical axis shows nothing
+
+| arm | mean 4-gram Jaccard |
+| --- | ---: |
+| control | 0.0073 |
+| treatment | 0.0066 |
+| replicate | 0.0077 |
+
+The control-to-treatment difference is 0.0007; the control-to-replicate spread
+is 0.0004. The gap is **1.7x** noise, on one replicate. The standard calls
+this "the most informative number the experiment produces", because a skeleton
+constrains what a document contains, not which words it uses, so a drop here
+would be far less mechanically forced than a drop in shape.
+
+**There is no such drop.** The outline work moves shape and does not move word
+choice. Given CONF-02, where a shared skeleton drove two workers to the same
+opening bullet independently, the honest statement is that this measurement
+cannot show the knob helping lexically and has one concrete instance of a
+shared skeleton hurting lexically.
+
+### Per genre, and the one that did not move
+
+Treatment is below both controls in six of seven genres. The exception:
+
+| genre | control | treatment | replicate |
+| --- | ---: | ---: | ---: |
+| engagement_letter | 0.4861 | **0.4927** | 0.5257 |
+
+`engagement_letter` treatment is *above* control, inside the control-replicate
+spread, so it did not move. Its pool holds 3 variants against 8 documents,
+giving 7 same-skeleton pairs of 28. Whatever the knob does elsewhere, it did
+nothing measurable to the engagement letters.
+
+### What this settles
+
+- The outline work **does** change the shape of authored prose at the arm
+  level, by an amount that clears the like-for-like noise floor 7.7x. This is
+  the first evidence on real prose rather than a scripted author, and M17b's
+  claim that the mechanism was unproven is now answered.
+- It changes it **partly by relocation**: same-skeleton pairs end up more
+  similar than control's typical pair.
+- It does **not** change word choice measurably.
+- It did nothing to engagement letters.
+- No individual pair comparison is trustworthy at this noise level.
+
+What it does not settle, and no doc may imply otherwise: whether any of this
+made the prose *better*. Both axes measure difference, not quality. The board
+is the instrument for that question and has not run.
+
+## THE BLIND BOARD, both arms, side by side
+
+Two `cross_document_voice` reviewers, fresh contexts, neither told that an
+experiment exists, that there is another arm, or which arm it held. Paths were
+the neutral `scratch/arms/alpha` and `scratch/arms/beta`;
+`scratch/arms/ASSIGNMENT.txt`, which names the arms, was moved out of the
+reviewable tree first.
+
+| | control (alpha) | treatment (beta) |
+| --- | ---: | ---: |
+| **variety score (0-10)** | **4** | **5** |
+| blocker | **1** | **0** |
+| major | 5 | 6 |
+| minor | 2 | 2 |
+| note | 1 | 1 |
+| total findings | 9 | 9 |
+
+**The direction favours the treatment on both counts that carry weight.** The
+control drew a blocker; the treatment drew none, and its reviewer said so
+explicitly: "No blocker is honest here: every individual document survives a
+careful read." The control's blocker was the exemplar's failure mode exactly,
+two kickoff memos nine years apart by different authors, "the same memo
+re-skinned" with five parallel constructions in the same order.
+
+**How much weight this can carry: not much on its own.** One reviewer per arm,
+no calibration between them, on a 0-10 scale invented for this comparison. Two
+uncalibrated readers scoring one corpus could differ by a point. The
+blocker/no-blocker split is the sturdier signal, because it is a categorical
+judgement each reviewer made against the same rubric, but it is still n=1.
+
+**On the headline question the board did not discriminate at all.** Both
+reviewers answered the dimension's own question the same way: yes, one person
+appears to have written everything. Whatever the knob moved, it did not move
+that verdict.
+
+**Both reviewers independently rejected the lexical metric, unprompted.** This
+is the most valuable thing the boards produced, because two fresh contexts
+reached it separately, on different arms, with no theory supplied:
+
+- Control's reviewer: "the low lexical number is the misleading one here: this
+  reads as a generator with one idea successfully paraphrasing itself... A
+  firm reusing a template would repeat its governing-law clause verbatim and
+  vary the deal narrative; this corpus does the opposite."
+- Treatment's reviewer: "the report's lexical instrument correctly finds
+  nothing... the repetitions are never verbatim... which is the signature of
+  one writer regenerating from one remembered shape rather than an
+  organization reusing paper."
+
+That is convergent, independent support for the premise behind
+`orgsmith/review/structure.py`: on this corpus lexical overlap is a decoy and
+shape is the signal. It also locates the residual convergence at the
+sentence-move level, which is `rf:voice-3` territory and, per CLAUDE.md, beyond
+both the structural axis and the outline work.
+
+**What this is not.** It is not a false-positive-rate measurement. Both arms
+are generated prose of unknown quality, so a reviewer finding nine things in
+each tells us nothing about how often a board manufactures a finding against
+prose that is fine. `board-negative-control` in `BACKLOG.md` gains a
+measurement of *discrimination between two arms* and is **not** closed by it,
+exactly as SPEC criterion five requires this write-up to state.
+
+**Residual leak, disclosed.** The skill requires passing each org's real
+validator summary so reviewers do not re-litigate oracle-proven facts. Those
+differ between arms (27 rules run against 29), so a reviewer with deep
+knowledge of this codebase could in principle infer which arm had extra knobs
+on. Neither reviewer's report shows any sign of having done so, and neither
+mentions knobs, rules, or an experiment. Recorded rather than hidden.
+
+## THE TREATMENT ARM'S FULL BOARD: 5 blockers, and the run log was corroborated from the files
+
+Six fresh-context reviewers, none told an experiment exists, none given any
+finding in this log. Merged into the arm's `GENERATION-REPORT.md`.
+
+| dimension | blocker | major | minor | note | total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| cross_document_voice | 0 | 6 | 2 | 1 | 9 |
+| document_plausibility | 1 | 4 | 2 | 0 | 7 |
+| finance_realism | 0 | 3 | 2 | 1 | 6 |
+| graph_acl_naturalness | 0 | 5 | 1 | 1 | 7 |
+| narrative_consistency | 3 | 7 | 1 | 2 | 13 |
+| org_realism | 1 | 4 | 2 | 1 | 8 |
+| **total** | **5** | **29** | **10** | **6** | **50** |
+
+**Three dimensions independently raised REND-01 as a blocker**, two of them
+verifying it in the rendered `.docx` binaries rather than the DocIR. Counts
+given: 10, 12, and 6 documents. The `document_plausibility` reviewer supplied
+the denominator that matters: "The other 80 placements handle it correctly, so
+it is per-batch, not systematic." It reaches an executed engagement letter
+(`d:0040`: "the candidate universe, which stands today at **12 acquisition
+targets carve-out situations**").
+
+`org_realism` diagnosed why nothing caught it: "The DocIR is innocent... this
+is a fact-surface defect the author could not see. The validator is green
+because the fact *is* present; presence is all it checks."
+
+**The board corroborated this log's findings without access to it.** Every
+item below was found independently, from the files:
+
+| this log | found by | as |
+| --- | --- | --- |
+| REND-01 | org_realism, document_plausibility, narrative_consistency | blocker x3 |
+| SCOPE-D | narrative_consistency, org_realism, finance_realism, document_plausibility | blocker + majors |
+| SCOPE-A | org_realism, document_plausibility | `rf:org-5`, `rf:docplaus-3` |
+| OUT-B2 (dates omitted) | document_plausibility | `rf:docplaus-6` |
+| OUT-C (3-slide decks) | document_plausibility | `rf:docplaus-7` |
+
+### SCOPE-D's remedy, corrected by the board
+
+This log proposed fixing SCOPE-D by making `unit_range` and
+`pipeline_top_range` nest. The `narrative_consistency` reviewer found
+something better, and it changes the recommendation:
+
+> "Four engagements (Morse, Beck, Ingram, and Blankenship's d:0036) reconcile
+> the two figures explicitly and read correctly — **so the fix is a briefing
+> constraint, not a ledger change.**"
+
+Half the engagements handled the same ledger correctly by stating the
+relationship explicitly. So the ranges are usable as they stand; what is
+missing is a brief that tells the author what `scope` denotes relative to the
+funnel. That is cheaper than re-deriving ranges and does not disturb any
+committed org. **The remedy proposed under SCOPE-D above is superseded by
+this one.**
+
+### Findings that are not about the knobs, and are not new
+
+Two reproduce known fleet-wide defects in a brand-new recipe, which is
+evidence they are generator-level rather than recipe-level:
+
+- **The people-graph seam the README documents for the exemplar.**
+  `graph_acl_naturalness` found four instances of a person given named work in
+  a document their ACL denies them (`d:0033` tasks James Lawson; he holds 15
+  grants, none under `Engagements/`). Survived the M17 regeneration, and now
+  survives into a fresh recipe.
+- **The firm has no 2020, and here the prose knows it does.** `finance_realism`
+  found `d:0048` (Jun 2020) with an analyst joining "from his kitchen table, as
+  most of us still are" and `d:0049` noting "a good deal of the market went
+  quiet this spring", against an FY2020 workbook making Q2 2020 the year's
+  *largest* quarter, +22% on Q1, travel only 12% below 2019. Sharper than the
+  exemplar's version, because the authored prose references the pandemic while
+  the finance model sails through it. This is `event-simulation` in
+  `BACKLOG.md` arriving with better evidence than it had.
+
+Two more worth carrying, both confirmed from two dimensions independently:
+
+- **No partner appears in any engagement document after 2015-08-31**, and
+  neither partner can *read* a post-2015 mandate, while `d:0064` has the
+  Managing Partner promising "I will run the engagement myself and will be at
+  every session with your directors" (she appears in 0 of 44 engagement
+  documents) and `d:0066` claims "the people whose names are on the engagement
+  letter are the people who do the work".
+- **Four of eight engagements commence on a non-working day**: three weekends
+  plus 2016-07-04, which the recipe's own `business_calendar.holidays` lists.
+  The calendar is declared and the engagement start dates do not respect it.
+
+## AIRLOCK-01: the airlock stops the model transcribing a ledger value; it does not stop the model inventing a value the ledger does not own
+
+The most consequential finding in this log, and it is about the project rather
+than the turn. Found by comparing the control arm against its own replicate,
+which is precisely what the replicate was bought for, and it paid off before
+the comparison was even run.
+
+**The measurement.** Nineteen documents have now been authored in *both*
+control runs. Same recipe, same seed, same manifest (verified byte-identical),
+same model, same effort, same prompt. Counting distinct multi-digit integers
+appearing in prose:
+
+| doc | alpha | gamma |
+| --- | ---: | ---: |
+| `d0014` (briefing deck) | 0 | 9 |
+| `d0015` (meeting minutes) | 0 | 3 |
+| `d0016` (status report) | 0 | 5 |
+| `d0017` (meeting minutes) | 0 | 1 |
+| **all 19 shared docs** | **0** | **18** |
+
+The gamma worker built an explicit, internally consistent funnel and said so:
+"238 universe / 61 screened (24 first tier, 37 second) -> May 5 deck 11
+approached, 0 NDAs -> ... -> Aug 31 all 61 approached, 12 NDAs, 9 meetings, 3
+indications, 2 live." Its alpha counterpart wrote none. Both deliverables
+passed ingest.
+
+**Why ingest accepted both, correctly.** The literal scan rejects a value the
+*ledger owns* appearing in prose. `engagements.scope` is off in the control, so
+the ledger owns no funnel counts, so there is nothing for the scan to match.
+The airlock's guarantee is "the model never writes a value it was not shown",
+and that guarantee held perfectly here: nothing was transcribed. What is not
+guaranteed is the converse, and it is the part a consumer will care about:
+
+> **A number can enter the corpus that no ledger owns, and therefore that the
+> answer key cannot check.**
+
+For a project whose stated value proposition is that `-metadata/` is the
+answer key for everything in `<slug>/`, this is a real gap. A consumer
+building an extraction eval against gamma's `d:0014` finds "238" in the
+document and nothing in ground truth to score it against. It is not wrong, it
+is unverifiable, which in a synthetic corpus is a different and worse
+category.
+
+**Worker-level, not gradual.** Control workers were inconsistent about this by
+their own report. Two refused explicitly: "`engagements.scope` is null, so no
+funnel counts exist in the ledger; I wrote no quantities of my own anywhere",
+and "I deliberately used no invented counts... since inventing quantities could
+contradict a scope ledger." A third built the funnel above. This is a binary
+choice made once per worker with large content consequences, not smooth
+phrasing variance.
+
+**Three consequences for this turn's measurement.**
+
+1. **The noise floor may be blind to the largest real difference between the
+   two control runs.** `noise_floor` compares block shape and positional
+   openers. A document that grows a nine-number funnel keeps its shape. So the
+   floor could read small while the two runs differ in whether documents make
+   quantitative claims at all.
+2. **It confounds the treatment comparison in a way the standard did not
+   anticipate.** The treatment arm carries funnel numbers *by construction*,
+   from `engagements.scope`. "Treatment documents cite quantities and control
+   documents do not" is therefore partly the knob and partly this coin flip,
+   and on this evidence the coin lands on "invent them" some of the time.
+3. **It is an argument in favour of the `engagements.scope` knob that is
+   independent of prose quality.** Whatever the outline work turns out to have
+   done, planting funnel facts in the ledger converts an invented, unverifiable
+   number into a checkable one. That is the airlock working as designed, and it
+   is a better reason to want the knob than anything the structural axis will
+   report.
+
+**Not fixed here.** The arm is mid-flight and this is a generator-level
+question, not a deliverable-level one. The cheap mitigation is a brief-level
+prohibition on inventing quantities when no count fact is briefed; the
+thorough one is an ingest check that flags multi-digit integers in prose that
+match no ledger value, which would be noisy and needs design. Recorded for the
+write-up and for `BACKLOG.md`.
+
 ## Criterion three, verified: the control is exact and its residue is two knobs
 
 Checked once both arms were rendered and assembled. Byte-identical across
@@ -238,28 +583,39 @@ party doing the named thing. "Carve-Out Advisory for BDS" therefore reads as
 **BDS divesting a unit**, which is a sell-side posture, and a seller does not
 screen and contact acquisition targets.
 
-The `author-0009` worker could not write both, said so, and chose the reading
-the facts permit: it framed all six documents with **BDS as the acquirer**,
-buying corporate carve-outs out of larger parents. Its own words: "If the
-ledger intends the sell-side reading, the whole batch is framed the wrong way
-round; the `.scope` hint is what forces the choice."
+The `author-0009` worker could not write both and said so: "If the ledger
+intends the sell-side reading, the whole batch is framed the wrong way round;
+the `.scope` hint is what forces the choice." It reported having framed all six
+documents with BDS as the acquirer.
 
-**Why this is worse than the earlier instances.** The ledger owns facts, and
-prose is supposed to be replaceable around them. Here a fact *hint* reached
-past the sentence it belongs in and determined the client's role in its own
-transaction across six documents. Nothing rejected it, because nothing checks
-that an engagement's facts agree with its name: `SCOPE-01` recomputes that the
-planting matches the charter, not that the vocabulary matches the mandate. The
-validator is green on an engagement whose documents describe the client doing
-the opposite of what the engagement is called.
+**Corrected against the authored text, 2026-08-10.** This entry originally
+repeated that self-report as fact. Checking the shipped DocIR does not support
+it at that strength. Counting framing vocabulary in the carve-out documents
+across all three arms:
 
-For a project whose stated hard rule is "facts are load-bearing; prose is
-replaceable", this is the load-bearing part bearing the wrong load. The
-remedy is the same one SCOPE-A needs (a per-kind scope profile, or an
-engagement-kind field the profile can key off), and it is worth noting that
-the cheapest partial mitigation is unrelated to either: **an engagement whose
-name implies a side should not be dealt pipeline facts describing the other
-side**, which is checkable without any new modelling.
+| doc | alpha (control) | gamma (replicate) | beta (treatment) |
+| --- | --- | --- | --- |
+| `d0040` letter | separat:5 | divest:2, seller:2, disposal:1, separat:3 | seller:1, separat:2 |
+| `d0045` status | separat:1, **acquir:3** | seller:1, separat:2 | seller:1, separat:3 |
+
+The treatment arm reads as separation/sell-side, much like the controls, and
+the one document with heavy acquisition vocabulary is in the **control** arm.
+So the mismatch did not flip the engagement's framing in the delivered prose,
+and the strong form of this finding is withdrawn.
+
+**What survives, and it is narrower.** The funnel is still described as the
+firm screening and contacting candidates, which is buy-side *activity*
+attached to a mandate whose name implies the other side, and the worker did
+have to choose a reading in order to write at all. That is a real cost of the
+mismatch. It is a strain visible to a careful reader, not a corpus asserting
+the opposite of its own engagement name.
+
+**Why the correction matters more than the finding.** The self-report was
+confident, specific, and wrong about its own output. Worker reports are
+evidence about what a worker *believed it was doing*, and this log leans on
+them heavily. Every finding here that rests only on a worker's description of
+its own text should be read at that discount until checked against the DocIR,
+which is cheap and was not done before this entry was first written.
 
 ## OUT-C: skeletons that contradict their own genre's stated contract
 
@@ -438,10 +794,55 @@ and a clean self-report, not a new problem.
 
 ## REND-01: a doubled noun in ingested prose, and ingest cannot see it
 
-The one outright **rendering defect** found so far, as opposed to a design
-limitation. Reported by the `author-0011` worker about another worker's
-already-ingested batch, and confirmed by inspection: `d:0021` in
-`reply-wo-author-0005.json` carries four occurrences, not the one reported.
+The one outright **rendering defect**, as opposed to a design limitation, and
+on measurement it is systemic rather than the one-off it was first reported
+as. Raised by the `author-0011` worker about another worker's batch, then
+measured across the whole treatment arm by resolving every count fact's
+rendered noun and checking the words that follow its placeholder.
+
+**Eleven occurrences across eight documents**, all ingested, all validated
+clean, all rendered:
+
+| doc | placeholder renders as | author then wrote |
+| --- | --- | --- |
+| `d0012` | 40 comparable transactions | comparable transactions |
+| `d0020` | 15 acquisition targets | candidate targets |
+| `d0021` | 15 acquisition targets | targets |
+| `d0022` | 15 acquisition targets | acquisition targets |
+| `d0022` | 25 comparable transactions | comparable transactions |
+| `d0024` | 15 acquisition targets | targets |
+| `d0024` | 25 comparable transactions | transactions close |
+| `d0038` | 13 acquisition targets | acquisition targets |
+| `d0038` | 33 comparable transactions | comparable transactions |
+| `d0045` | 26 comparable transactions | comparable transactions |
+| `d0046` | 64 targets screened | candidates screened |
+
+So the corpus ships sentences reading "40 comparable transactions comparable
+transactions" and "15 acquisition targets acquisition targets". This is not a
+subtle infelicity; it is visibly broken English in a corpus whose selling
+point is that it reads like a real firm wrote it.
+
+**A compound instance worth quoting**, from `d0045`, which fails three ways in
+one sentence and is the single clearest artifact this run produced:
+
+> "Of the `{{scope}}` candidates in the approved universe, `{{screened}}` have
+> been screened against the criteria agreed with `{{client}}` at kickoff, and
+> `{{contacted}}` of the survivors have..."
+
+resolving to:
+
+> "Of the **12 acquisition targets** candidates in the approved universe,
+> **64 targets screened** have been screened ... and **32 targets contacted**
+> of the survivors have..."
+
+Three doubled nouns, and an arithmetic impossibility on top: 64 screened out
+of a universe of 12. That last part is **SCOPE-D arriving in shipped prose**,
+and the hazard is live in **ten documents** that cite `scope` and
+`pipeline-targets-screened` together (`d0008`, `d0012`, `d0016`, `d0024`,
+`d0036`, `d0038`, `d0045`, `d0055`, `d0062`, `d0068`).
+
+Earlier detail, retained: `d:0021` alone carries four occurrences, not the one
+originally reported.
 
 `render_count` renders a count fact as "`<n> <noun>`", so
 `f:E-2016-001.scope` resolves to "15 acquisition targets". The author then
@@ -549,6 +950,28 @@ A fourth instance of the skeleton-versus-persona tension already recorded
 under OUT-A: `el-*` and `km-owner-table` forbid list blocks while that
 author's persona "prefers numbered lists over bullet points", resolved by
 enumerating in prose.
+
+### OUT-A1: the persona-versus-structure tension is NOT created by the outline knob
+
+Recorded to stop OUT-A being over-read, and found on the arm that has no
+skeletons at all. A control-replicate worker authoring the fairness opinion
+reported: "three docs carry the author habit 'avoids lists entirely' while
+their genre guidance requires a list block (kickoff memo) or strict slide
+lists (deck); I let genre structure govern and expressed the habit as
+prose-heavy sections elsewhere."
+
+That is the same conflict OUT-A attributes to skeletons, occurring with
+`outline_variety` off, between the **persona style spec and the genre default**.
+The M16 style layer and the genre registry already disagreed with each other;
+the outline pools add a third voice to an argument that was already running.
+
+So the honest reading of OUT-A is narrower than it first appears: the
+skeletons did not introduce persona-structure conflict, they added to it. What
+the skeletons *did* introduce, and what has no pre-existing analogue in the
+control, is the OUT-B class, briefs that cannot be satisfied at all, and the
+OUT-C class, briefs that breach their own genre's stated contract. Those two
+are properly charged to the knob. The persona tension is not, and the
+write-up must not bill it that way.
 
 ### OUT-B1: the category behind two of these, skeletons that ask for content the airlock forbids inventing
 

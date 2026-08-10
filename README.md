@@ -276,13 +276,13 @@ knobs change authored prose. Its arms are generated into gitignored
 `scratch/` rather than `companies/`, because an experiment's arms are
 measurements rather than exhibits, and committing them would put two
 near-identical orgs in a fleet whose whole point is that each member
-demonstrates something different. What the experiment found will be recorded
-here when it concludes, including a null or negative result. The analysis
-standard was fixed and committed before either arm was authored
+demonstrates something different. All three arms are now generated and
+measured; [the result is above](#why-we-think-the-output-is-any-good), and it
+is mixed enough that **no arm was committed**. The analysis standard was fixed
+and committed before any arm was authored
 ([`docs/M17C-EVIDENCE-STANDARD.md`](docs/M17C-EVIDENCE-STANDARD.md)) so the
-conclusion cannot be chosen after the numbers exist, and what the run has
-surfaced so far is logged as it happens in
-[`docs/M17C-RUN-LOG.md`](docs/M17C-RUN-LOG.md).
+conclusion could not be chosen after the numbers existed, and everything the
+run surfaced is in [`docs/M17C-RUN-LOG.md`](docs/M17C-RUN-LOG.md).
 
 By format: 314 `.docx`, 147 `.eml`, 65 `.pdf`, 64 `.xlsx`, 24 `.doc`, 20
 `.pptx`, 9 `.xls`, 2 `.ppt`.
@@ -501,8 +501,8 @@ blockers above are one fact at two scales: no authoring worker is briefed
 beyond its own batch, so the corpus diverges where continuity is required and
 converges where variation is required. M17b is the capability turn that
 answers both, and **no fixture was regenerated for it**, so every finding
-quoted above is still present in the committed exemplar. The proof is the
-next flagship generation, not this turn.
+quoted above is still present in the committed exemplar. M17c then tested it,
+and the result is below.
 
 - **Against divergence:** `engagements.scope` (default off) makes an
   engagement's unit of work, comparison group and funnel into planted facts,
@@ -534,6 +534,47 @@ next flagship generation, not this turn.
   and five genres, paraphrased each time. It is not a pair, not a shape, and
   not an n-gram. Recognizing it needs semantics, which is what the board is
   for.
+
+**What M17c measured, and the answer is mixed.** One recipe
+([`quillon-harbor`](recipes/quillon-harbor/)) was generated three times through
+the live airlock: a control with the knobs off, a treatment with them on, and a
+second control at the same seed to measure how much two identical runs differ
+on their own. 177 documents, 39 authoring batches, zero ingest rejections. The
+analysis was [fixed and committed before any of it was
+authored](docs/M17C-EVIDENCE-STANDARD.md); what the run surfaced along the way
+is in [`docs/M17C-RUN-LOG.md`](docs/M17C-RUN-LOG.md).
+
+- **The outline work does change the shape of real prose.** Same-genre
+  structural similarity fell from 0.372 (control) to 0.309 (treatment) over 245
+  pairs per arm. The two identical control runs differ by 0.008, so the shift
+  is **7.7x** the like-for-like noise. M17b's claim was plumbing; this is the
+  first evidence on authored prose.
+- **It changes it partly by relocating convergence, not removing it.** The 50
+  treatment pairs dealt the *same* skeleton score **0.402**, which is *worse*
+  than a typical control pair. The 195 dealt different skeletons score 0.285.
+  A pool of 3-4 variants against up to 13 same-genre documents cannot do
+  otherwise, and the evidence standard named this outcome in advance.
+- **It does not change word choice at all.** Lexical 4-gram overlap: control
+  0.0073, treatment 0.0066, replicate 0.0077. The treatment gap is smaller than
+  the spread between two identical runs.
+- **A blind board could barely tell the arms apart.** Two voice reviewers, told
+  nothing of any experiment, scored variety 4 (control) and 5 (treatment) out
+  of 10, and the control drew a blocker where the treatment drew none. Both
+  reached the same verdict on the dimension's own question: yes, one person
+  appears to have written everything. Both, unprompted, judged the lexical
+  metric misleading and the shape the real signal.
+- **The knobs are not ready to ship, and the board says so.** The treatment
+  arm's six-dimension board returned **5 blockers**, three of them the same
+  defect: a count fact renders as "12 acquisition targets" and authors wrote
+  the noun again, so 12 of 59 documents carry "15 acquisition targets targets"
+  into the rendered `.docx`, including an executed engagement letter. The
+  scope count and the funnel counts also do not nest, so four engagements read
+  "of the 12 candidates... 64 have been screened". **Neither arm was
+  committed**, and no fixture moved.
+
+The honest summary: the mechanism works, the pools and the fact surfaces do
+not, and finding that on a 59-document org rather than at flagship scale is
+what the turn was for.
 
 **One fleet-wide artifact, half closed, and be precise about which half.**
 The ingest mention check requires an email author to spell the recipient's
