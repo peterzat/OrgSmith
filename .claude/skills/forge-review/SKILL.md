@@ -75,13 +75,13 @@ reason about the org inherits your blind spots.
 | `graph_acl_naturalness` | Do the who-knows-whom and who-can-read-what patterns look organic, or assembled? |
 | `cross_document_voice` | Did one person write everything? |
 
-`cross_document_voice` is the reason this board exists. Nothing in the
-pipeline holds two authored documents at once: every document is written
-by a fresh worker that has never seen a sibling. No author can self-check
-it, and the n-gram metric only catches literal reuse — two documents can
-share zero 4-grams and still be visibly the same writer, with the same
-paragraph shapes and the same rhetorical moves. Give that reviewer the
-whole sample.
+`cross_document_voice` is the reason this board exists. An authoring worker
+sees its own batch, up to six documents, and never the rest of the corpus,
+so it can self-check a pair it wrote together but not a pair two authors and
+two years apart. The n-gram metric only catches literal reuse — two
+documents can share zero 4-grams and still be visibly the same writer,
+with the same paragraph shapes and the same rhetorical moves. Give that
+reviewer the whole sample.
 
 Worker prompt, per dimension:
 

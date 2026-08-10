@@ -394,9 +394,10 @@ honest about where the generator actually stands:
   the same memo re-skinned, sharing sentences verbatim; six engagement-opening
   emails run one script across five authors. The same-genre n-gram metric saw
   one of those pairs and missed the rest, which is exactly why the board
-  exists. Every document is authored by a fresh worker that never saw a
-  sibling, so no author can self-check for it, and it is the one finding class
-  present in **every org in the fleet**.
+  exists. A worker sees its own batch of up to six documents and never the
+  rest of the corpus, so a pair two authors and two years apart is beyond any
+  author's self-check, and it is the one finding class present in **every org
+  in the fleet**.
 - **A document that describes a different engagement from its own folder.** The
   Hicks-Castillo closing report says five job families and 57 roles where the
   five documents before it in the same folder say eleven positions against a
@@ -418,12 +419,12 @@ honest about where the generator actually stands:
   as a finding.
 
 **What M17b built in response, and what it does not yet claim.** The two
-blockers above are one fact at two scales: every document is authored by a
-fresh-context worker that never sees a sibling, so the corpus diverges where
-continuity is required and converges where variation is required. M17b is the
-capability turn that answers both, and **no fixture was regenerated for it**,
-so every finding quoted above is still present in the committed exemplar. The
-proof is the next flagship generation, not this turn.
+blockers above are one fact at two scales: no authoring worker sees more than
+its own batch, so the corpus diverges where continuity is required and
+converges where variation is required. M17b is the capability turn that
+answers both, and **no fixture was regenerated for it**, so every finding
+quoted above is still present in the committed exemplar. The proof is the
+next flagship generation, not this turn.
 
 - **Against divergence:** `engagements.scope` (default off) makes an
   engagement's unit of work, comparison group and funnel into planted facts,
@@ -675,9 +676,11 @@ human reader in the project had noticed.
 board of fresh-context reviewers across six dimensions. A critic shares
 blind spots with the generator that produced the text, so the board's scope
 is exactly what no proxy reaches, above all **cross-document voice**, the
-one dimension no author can ever self-check, because nothing in the pipeline
-holds two authored documents at once. Every document is written by a fresh
-worker that has never seen a sibling.
+one dimension no author can self-check at corpus scale. A worker holds one
+batch, up to six documents (`BATCH_SIZE` in
+`orgsmith/authoring/contexts.py`), and can compare those against each other.
+It never sees the rest of the corpus, and the pairs that converge are mostly
+cross-batch, across authors and years.
 
 Three consequences worth being explicit about:
 
@@ -1092,11 +1095,11 @@ tracer is the right place to prove it end to end.
   length against the words its brief asked for, same-genre n-gram
   overlap) and writes GENERATION-REPORT.md; `/forge-review` dispatches a
   read-only board of fresh-context reviewers across six dimensions,
-  including the cross-document voice check no author can perform on
-  itself, because nothing in the pipeline holds two authored documents at
-  once. Neither gates: the metric measures, the board judges, the human
-  decides. Each batch records the model and effort that authored it, as a
-  report and never as a check.
+  including the cross-document voice check no author can perform at
+  corpus scale, since a worker sees only its own batch. Neither gates:
+  the metric measures, the board judges, the human decides. Each batch
+  records the model and effort that authored it, as a report and never
+  as a check.
 - Skills: `/forge` (orchestrator), `forge-author` (per-batch worker with
   a fresh context, which is what lets large orgs span sessions), and
   `/forge-review` + `forge-reviewer` (the board).
