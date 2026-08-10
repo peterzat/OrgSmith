@@ -213,7 +213,8 @@ and multi-affiliation off. Go straight to the org that exercises what you need:
 
 | you want | read |
 | --- | --- |
-| degraded scans with a synthetic OCR layer | [`saltmarsh-environmental`](companies/saltmarsh-environmental/), [`verdant-health`](companies/verdant-health/) |
+| degraded scans carrying a synthetic OCR layer (imperfect text to extract) | [`saltmarsh-environmental`](companies/saltmarsh-environmental/), [`brackenridge-civil`](companies/brackenridge-civil/), [`calderwood-partners`](companies/calderwood-partners/), [`northgate-staffing`](companies/northgate-staffing/) |
+| image-only scans with **no text layer at all** (your pipeline must OCR them) | [`verdant-health`](companies/verdant-health/) |
 | pre-2007 `.doc`/`.xls`/`.ppt` binaries | [`brackenridge-civil`](companies/brackenridge-civil/) |
 | real multi-message mail threads | [`ashcombe-advisory`](companies/ashcombe-advisory/), [`hollowell-ip`](companies/hollowell-ip/), [`meridian-actuarial`](companies/meridian-actuarial/) |
 | a restricted (departmental) ACL | [`calderwood-partners`](companies/calderwood-partners/), [`hollowell-ip`](companies/hollowell-ip/), [`meridian-actuarial`](companies/meridian-actuarial/), [`saltmarsh-environmental`](companies/saltmarsh-environmental/) |
