@@ -1,176 +1,89 @@
 # CODEREVIEW
 
-## Review — 2026-08-10 (commit: 6d6058c) — M17c results, the fleet rationale, and staleness fixes
+## Review — 2026-08-10 (commit: 1c0e132) — the OCR picker split and the board-yield backlog entry
 
-**Review scope:** Full review (the prior entry records `block: 1`, so the
-refresh conditions do not hold). Five files changed since `origin/main`, all
-Markdown: `README.md`, `BACKLOG.md`, `docs/M17C-RUN-LOG.md`,
-`docs/REVIEW-CALIBRATION.md`, `.claude/skills/forge-review/SKILL.md`. Reviewed
-at full tier rather than light because `.claude/skills/` is product in this
-repo (CLAUDE.md, "the skills ARE the product") and a SKILL.md is executed
-prompt content.
+**Review scope:** Light review. Two files changed since `origin/main`, both
+plain Markdown with no executed content: `README.md` (3 lines) and
+`BACKLOG.md` (one appended entry). No code, no configuration, no skill file, so
+the tier rule's light path applies: factual accuracy, broken references, and
+secret leaks only. No test run, no security chain, no external reviewers, no
+fix loop.
 
-**Summary:** Lands the M17c measurement and board results, adds the fleet
-rationale a newcomer needs, and corrects four stale claims. The substance
-checks out: every factual claim I spot-checked against the code or the
-comparison output is correct, and all nine file links resolve. One BLOCK: both
-in-page anchors introduced in this change are broken, one of them pointing at
-the wrong section entirely and describing the target's position wrongly.
+**Summary:** Splits the scans row of the README's picker table after finding it
+mislabelled `verdant-health`, and records the board-yield-versus-corpus-size
+measurement in `BACKLOG.md`. Both changes are assertions of fact and both
+re-verify. One WARN, author-applied: a wiki-link convention imported from
+another system that GitHub does not render.
 
-**Tests:** 16 short, 739 unit, 230 org (+27 skipped), 65 flagship (+5
-skipped). All four tiers green, unchanged. No fixture touched.
+**External reviewers:** Skipped (light review).
 
-**External reviewers:** None configured.
-
-**Security:** Skipped. No code changes since the last scan (commit `c5b9994`);
-`git log <meta-commit>..HEAD -- ':!*.md'` is empty and this diff is Markdown
-only. Carried forward: 0 BLOCK / 0 WARN / 0 NOTE.
+**Security:** Skipped. No code changes since the scan at `c5b9994`;
+`git log <meta-commit>..HEAD -- ':!*.md'` is empty. Carried forward 0/0/0.
 
 ### Findings
 
-**[BLOCK] `README.md:338` and `README.md:596` — both anchors introduced by this
-change are broken, and one points at the wrong section and the wrong
-direction.**
+**[WARN] `BACKLOG.md:119` — `[[board-negative-control]]` uses a wiki-link
+syntax this repo does not use and GitHub does not render.**
 
-Two in-page links were added. Neither resolves.
+The appended entry cross-references a sibling backlog entry as
+`[[board-negative-control]]`. That is the double-bracket convention from the
+agent memory-file system, not a Markdown link: GitHub renders it literally as
+`[[board-negative-control]]`, so the reader sees stray brackets rather than a
+reference.
 
-1. **`README.md:596` defines no anchor.** The text is
-   `**What M17c measured, and the answer is mixed.**` — a bold paragraph
-   lead-in, not a Markdown heading. GitHub generates anchors from headings
-   only, so `#what-m17c-measured-and-the-answer-is-mixed` does not exist.
-   Verified: `grep -E "^#{1,6} .*what.m17c.measured" README.md` returns
-   nothing, while the same probe finds the other two anchor targets used
-   nearby.
+Evidence: `grep -c '\[\[' BACKLOG.md` returns 1, and it is this line. Every
+other cross-reference in the file uses backticks (`` `docs/SCALE.md` ``,
+`` `graph_targets.alias_agreement` ``, `` `mundane-broadcast-names-a-recipient-in-the-body` ``)
+or plain prose. The convention was imported from a different context by the
+author rather than taken from the file it was written into.
 
-2. **`README.md:338` points at the wrong section, and says "above" for
-   something below it.** It reads:
+WARN rather than BLOCK: it is cosmetic, the referenced entry is named in full
+so a reader can still find it, and nothing depends on it resolving.
 
-   > All three arms are now generated and measured; [the result is
-   > above](#why-we-think-the-output-is-any-good) ...
-
-   `## Why we think the output is any good` begins at line 736. The M17c
-   result is at line 596, inside `## Scale and representativeness`. So the
-   link sends the reader past the content it promises, into a different
-   section, and the word "above" is wrong in both senses: the target heading
-   is below line 338, and so is the actual result.
-
-Why BLOCK rather than WARN. This change exists to orient a newcomer, and both
-defects are in the navigation a newcomer follows first: one link is dead, the
-other is confidently wrong about where the thing it names lives. A reader who
-clicks it lands in the wrong section and has no reason to suspect the link
-rather than their own reading. That is worse than no link. It also repeats, in
-new text, the class of defect this same session already corrected twice in this
-file (the sibling-premise claim, and the exemplar described as open-ACL two
-paragraphs above a table saying departmental).
-
-Suggested fix: promote the line 596 lead-in to a real `###` heading, which is
-consistent with the enclosing section's existing structure (`### What ships
-today`, `### Why a fleet, and not just the best one`, `### Are they different
-levels of quality?`, `### Where that sits against a real firm`, `### What is
-not modeled today`), then point both references at
-`#what-m17c-measured-and-the-answer-is-mixed` and change "above" to "below" at
-line 338.
+**Author-applied, and recorded rather than folded in silently.** The light path
+has no `/codefix` step, the defect is one line in text written minutes earlier
+in this same session, and shipping it would put visibly broken rendering in the
+register. Changed to `` `board-negative-control` ``, matching the file's own
+style.
 
 ### Verified clean
 
-Recorded because the diff is large and mostly assertions of fact:
-
-- **All nine file links added resolve** (`companies/*` x4, `recipes/quillon-harbor/`,
-  `docs/BASELINES.md`, `docs/M17C-EVIDENCE-STANDARD.md`, `docs/M17C-RUN-LOG.md`).
-- **The two other anchors used nearby resolve**
-  (`#why-we-think-the-output-is-any-good`, `#which-model-should-write-your-documents`).
-- **The four staleness fixes are correct against the code**: `RULES` has 39
-  entries; `validate calderwood-partners` prints "30 rules run, 9 skipped";
-  `validate northgate-staffing` prints "34 rules run, 5 skipped"; the unit tier
-  is 739.
-- **The fleet-rationale claims check out**: `northgate-staffing` has
-  `legacy_ratio 0.0` and no multi-affiliation, `brackenridge-civil` has
-  `legacy_ratio 1.0`, `acl_posture` for the exemplar is `departmental`, and the
-  two-vintage split (`claude-opus-5` for the exemplar, `claude-opus-4-8[1m]`
-  for the other eight, one schema id) is what `state.json` records.
-- **The M17c numbers match the comparison output** saved at
-  `scratchpad/m17c-comparison.txt` and the board tallies match the ingested
-  findings files.
-
-**[WARN] `README.md:597` — the new heading swallows ~140 lines that are not
-about M17c.**
-
-Introduced by the BLOCK fix, and flagged by `/codefix` itself rather than
-found later, which is the right call. Promoting the M17c lead-in to `###`
-terminates `### What is not modeled today` at line 597, so everything from 598
-to the next heading at 738 now renders under "What M17c measured" in GitHub's
-outline. That range is the `mail.exempt_recipient_mentions` fleet-wide
-artifact, the distribution-list residual, and the section's closing
-scope-and-mechanics paragraphs. None of it concerns M17c.
-
-Less severe than the BLOCK: every link resolves, the content is intact, and it
-reads correctly top to bottom. Only the collapsed-outline view mis-nests. But
-it is the same family of defect in the same newcomer-facing document, and the
-fix is symmetric and one line.
-
-Suggested fix: `README.md:639` already opens with the bold lead-in
-`**One fleet-wide artifact, half closed, and be precise about which half.**`.
-Promote it to `### One fleet-wide artifact, half closed, and be precise about
-which half` the same way, so the mail material becomes its own sibling
-subsection and the M17c heading scopes only the M17c result. Check no in-page
-anchor targets the old bold text before changing it.
+- **The picker-table correction is right.** `verdant-health` is
+  `scanned_ratio 0.5, ocr_layer_rate 0.0`, and `orgsmith/schemas.py:249` defines
+  the field as "fraction of those scans carrying a synthetic OCR text layer
+  (the rest are image-only)", so every one of its scans is image-only. The old
+  row listed it under "degraded scans with a synthetic OCR layer", which is the
+  opposite of what it ships. The replacement OCR-layer row names all four orgs
+  that actually have one (`brackenridge-civil` 0.5, `calderwood-partners` 0.5,
+  `northgate-staffing` 0.34, `saltmarsh-environmental` 0.5); the previous row
+  named two of the four.
+- **All five file links added resolve.**
+- **The published yield figures re-derive.** Spot-checked the two endpoints
+  that carry the argument: `calderwood-partners` 168 sampled / 8 findings =
+  0.048, `northgate-staffing` 51 sampled / 37 findings = 0.725. The entry
+  states the per-org numbers inline so the comparison can be re-derived without
+  re-running any board, which is the right call for a claim about an
+  instrument.
+- **The backlog entry meets the register's own gates**: specific description
+  naming a what and a where, a concrete why-deferred, and four concrete revisit
+  criteria rather than a history note.
+- **No secret, credential, or PII** in either file; the diff is board statistics
+  and prose.
 
 ### Fixes Applied
 
-`/codefix` cycle 1, verified by re-review:
-
-- **[BLOCK]** `README.md:597` lead-in promoted to
-  `### What M17c measured, and the answer is mixed`, a sibling of the other
-  `###` subsections under `## Scale and representativeness`. The anchor now
-  resolves.
-- **[BLOCK]** `README.md:338` now reads "the result is below" and points at
-  `#what-m17c-measured-and-the-answer-is-mixed`. Direction and target both
-  correct: reference at 339, target at 597.
-- Verified independently: a slug pass over the file resolves all 13 in-page
-  anchor references, and all nine file links added by this change exist.
-
-`/codefix` cycle 2:
-
-- **[WARN]** `README.md:639` bold lead-in promoted to
-  `### One fleet-wide artifact, half closed, and be precise about which half`,
-  symmetric with cycle 1. Pre-checked, as the finding asked: no anchor anywhere
-  in the repo targeted the old bold text, so nothing broke.
-
-**Author-applied afterwards, and recorded rather than folded in silently.**
-`/codefix` correctly reported that the prescribed one-line fix *moved* the
-mis-nest rather than closing it: lines 662-737, the exemplar rationale and the
-section's closers, then rendered under the new mail heading. It declined to
-invent a fourth heading on the grounds that this "is a judgment call about
-document structure rather than a defect fix", which is the right boundary for
-a fixer to hold. Deciding the structure is the author's call, so I made it:
-`README.md:663`'s lead-in is now
-`### What we think is important about this exemplar`.
-
-The enclosing `### What is not modeled today` had accumulated four unrelated
-blocks behind one heading; that was pre-existing, and this change surfaced it
-by adding anchors. Final structure under `## Scale and representativeness`:
-
-| line | heading | scopes |
-| ---: | --- | --- |
-| 453 | What is not modeled today | 454-596 |
-| 597 | What M17c measured, and the answer is mixed | 598-638 |
-| 639 | One fleet-wide artifact, half closed... | 640-662 |
-| 663 | What we think is important about this exemplar | 664-740 |
-
-Verified after all three edits: 6 in-page references, 29 headings, **0 dead
-anchors, 0 duplicate slugs**. Four tiers green and unchanged: 16 short, 739
-unit, 230 org (+27 skipped), 65 flagship (+5 skipped).
+- **[WARN] `BACKLOG.md:119`** — author-applied, above.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-08-10, commit c5b9994): the sibling-premise docs
-correction. One BLOCK, the correction replacing one absolute false claim with a
-weaker absolute false claim in the same direction, contradicting the second
-half of the finding it cited; fixed by restating the bound as briefing rather
-than capability at all six sites. `/security` clean at 0/0/0, and it refreshed
-the stale `ab_compare.py` line citations the review before it had carried.*
+*Prior review (2026-08-10, commit 6d6058c): the M17c results and fleet
+rationale. One BLOCK, both in-page anchors introduced by the change being
+broken, one pointing at the wrong section and calling it "above" when it was
+below; and one WARN it introduced, the fix heading swallowing ~140 unrelated
+lines. Both fixed over two `/codefix` cycles plus one author-applied structural
+decision `/codefix` correctly declined as out of its remit.*
 
-<!-- REVIEW_META: {"date":"2026-08-10","commit":"6d6058c","reviewed_up_to":"6d6058c","base":"origin/main","tier":"full","block":1,"warn":1,"note":0} -->
+<!-- REVIEW_META: {"date":"2026-08-10","commit":"1c0e132","reviewed_up_to":"1c0e132","base":"origin/main","tier":"light","block":0,"warn":1,"note":0} -->
