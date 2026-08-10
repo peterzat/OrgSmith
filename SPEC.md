@@ -210,4 +210,61 @@ follow-up with a changed treatment, with the M17c result left as it is.
 four default-off knobs and a structural similarity axis landed with no fixture
 regenerated.*
 
+### Proposal (2026-08-10)
+
+**What happened.** M17c generated `quillon-harbor` three times through the live
+airlock (control, treatment, control-replicate): 177 documents, 39 batches,
+**zero ingest rejections**. 9 of 11 criteria met; 8 and 11 declined with cause
+rather than dropped.
+
+The measurement, pre-registered and run once: the outline work **does** move
+authored shape, same-genre structural similarity 0.372 to 0.309 over 245 pairs
+per arm against a 0.008 run-to-run floor, so 7.7x the like-for-like noise. But
+it **relocates** convergence as much as it reduces it (the 50 same-skeleton
+pairs score 0.402, worse than a typical control pair), it does **not** move word
+choice (lexical 0.0073/0.0066/0.0077, treatment gap under the control-replicate
+spread), and per-pair noise of 0.110 means no single pair's score may be read as
+an effect. A blind board scored variety 4 (control) against 5 (treatment) with a
+blocker on the control and none on the treatment, but answered the dimension's
+own question identically on both. Both reviewers independently judged the
+lexical metric misleading and shape the real signal.
+
+**Neither arm was committed.** The treatment arm's six-dimension board returned
+**5 blockers**, three of them one fact-surface defect: a count fact renders
+carrying its own noun and authors wrote the noun again, so 12 of 59 documents
+ship "15 acquisition targets targets" into the rendered `.docx`, including an
+executed engagement letter. `scope` and the funnel counts also do not nest, so
+four engagements read "of the 12 candidates... 64 have been screened". No
+committed fixture moved and no carve-out opened.
+
+Also this turn: `docs/M17C-RUN-LOG.md` records nine findings from the knobs'
+first live exercise, including that the airlock does not stop a worker inventing
+quantities no ledger owns (0 vs 18 such numbers across two identical control
+runs). `docs/REVIEW-CALIBRATION.md` gained a second-org calibration. A newcomer
+pass on README added the fleet rationale and fixed four stale claims, including
+a validator described as 29-, 34- and 37-rule in four places when `RULES` has 39.
+A fleet audit found **`ashcombe-advisory` is a third org carrying the
+recipient-mention defect**, and the only one where a board rates it a blocker.
+
+**Questions and directions.**
+
+1. **Fix the scope knob and re-run the treatment arm?** The board corrected the
+   remedy this log first proposed: four of eight engagements reconcile `scope`
+   against the funnel correctly, so the fix is a **briefing constraint, not a
+   ledger change**. Add a doubled-noun ingest check (mechanical, catches all 12),
+   then re-run and commit a clean `quillon-harbor`. Any re-measurement must be
+   labelled a follow-up with a changed treatment, not a second draw on the
+   pre-registration.
+2. **A mail-regeneration carve-out for the three orgs?** `ashcombe-advisory`,
+   `hollowell-ip`, `meridian-actuarial` all run `exempt_recipient_mentions: off`
+   and the fix is landed and proven inert. Ashcombe is the strongest case.
+3. **Can the board work at flagship scale at all?** `board-yield-at-scale`
+   records findings-per-sampled-document falling from 0.725 (northgate, 51
+   sampled) to 0.048 (calderwood, 168 sampled) at the same coverage band. M18 is
+   ~12x calderwood. Cheapest probe is re-boarding calderwood and measuring the
+   yield a second time.
+4. **Does M18 go before or after 1-3?** Three of this turn's findings gate it:
+   the scope knob is not ready, the board may not scale, and the airlock permits
+   unverifiable invented quantities.
+
 <!-- SPEC_META: {"date":"2026-08-03","title":"M17c: the controlled proof","criteria_total":11,"criteria_met":9} -->
