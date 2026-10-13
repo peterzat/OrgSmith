@@ -1,252 +1,185 @@
 # CODEREVIEW
 
-## Review — 2026-10-13 (commit: 03f6442) — M17d: M18 readiness, the tenth org, v2.4.0
+## Review — 2026-10-13 (commit: 0c231b9) — M17e: the mail-org carve-out, v2.5.0
 
-**Review scope:** Full review (the prior review's commit `1c0e132` is already
-in `origin/main`, so the refresh focus set covers the whole range). 31 commits,
-300 files. Code read in full: `orgsmith/` (schemas, fabric engagements and
-finance, docplan planner, authoring contexts and ingest, review digest and
-numbers, state lock, CLI, validator rules), `drivers/`, `tools/`, the four
-skills, and every new or changed test. The `quillon-harbor` fixture was checked
-structurally (validates clean, knobs effective, existing orgs differ from
-`origin/main` only in derived `charter.json`, `DATA-CARD.md`, and
-`GENERATION-REPORT.md`) and scanned by `/security`; its authored prose was not
-re-read.
+**Review scope:** Refresh review in form, full in effect. The prior review's
+commit `03f6442` is already in `origin/main`, so the focus set is the whole
+range: 9 commits, 642 files (`origin/main..0c231b9`). Code read in full:
+the changed parts of `orgsmith/` (schemas, fabric engagements, docplan
+planner, authoring contexts, the DL-01 rule) with their callers (mention
+planning, top-up and alias passes, `render/eml.py`, `acl.py`, evals
+emission), `tools/mail_device.py`, and every new or changed test. The three
+regenerated orgs were checked structurally against the ledgers (knobs
+effective, no overview names an unfinished engagement's client, list notes
+plan no recipients). Their authored prose was not re-read beyond the three
+first overviews, and `/security` scanned all 616 surface files.
 
-**Summary:** Five default-off generator knobs (business-day engagement starts,
-oversight titles, scope by service, era shocks, scope-aware briefs), the REND-01
-doubled-noun ingest check, the unowned-number measurement, the state lock, the
-board digest, BYO effort and truncation handling, the skill-command short-tier
-test, the tenth committed org, and v2.4.0. Two WARNs, both in new knobs, and
-both latent: neither fires on any committed org. Both were fixed by `/codefix`
-in one cycle, each with a unit test, and the full suite is unchanged apart from
-the two new tests.
+**Summary:** Two default-off knobs (`mail.broadcasts_address_the_list`,
+`doc_culture.overview_cites_finished_work`), a DL-01 branch for the first,
+the device-count tool, two re-hosted tests, the wholesale regeneration of
+`ashcombe-advisory`, `hollowell-ip` and `meridian-actuarial` under the M17e
+carve-out, docs, and v2.5.0. One WARN, in a new test that asserted nothing it
+claimed about the knob-on brief, fixed by `/codefix` in one cycle; the suite
+is unchanged. The ten NOTEs are recorded, not fixed.
 
 **External reviewers:**
 None configured.
 
 **Built-in review:**
-`/code-review high`: 10 findings, 10 kept after Step 6 (3 merged with inline
-findings, 1 kept as a WARN, 6 as NOTEs). One detail was rejected after
-checking: its claim that a base-year shock also inflates later years' Travel.
+`/code-review high`: 10 findings, 10 kept after Step 6 (two merged into one
+entry; 1 WARN, the rest NOTEs). Two details rejected after checking: that the
+unit fixture's top-up actually drifts with the knob on (a direct off/on
+comparison differs only in the two list notes), and that `run_authoring(on) >= 0`
+would hide an ingest failure (`ingest_author_batch` asserts `== 0`).
 
 ### Findings
 
-**[WARN, fixed] `orgsmith/fabric/finance.py:103-105, 118-119` — an era shock on the
-expense base year permanently resizes every later year's expenses. (also
-claude-code)**
-  Evidence: the shock is applied to `year_revenues[year]` inside the revenue
-  loop, and the expense anchors are then calibrated on
-  `base_rev = year_revenues[base_year]` (`base_year = founded + 1`). A shock
-  declared on that year therefore sizes Compensation, Office & Facilities,
-  Professional Services, and Other for the firm's whole life. Reproduced on the
-  committed `quillon-harbor` charter with the shock moved to 2013
-  (revenue 0.6, travel 0.4): 2014 revenue is unchanged (3,419,000) but 2014
-  Compensation drops from 1,752,400 to 1,051,400 and total expenses from
-  2,755,150 to 1,769,230, and every later year stays about 40% low. That
-  breaks the stated contract (`EraShock` docstring, `orgsmith/schemas.py:342-
-  352`: "Multipliers apply to the year's drawn values and to nothing else...
-  the following year returns to it"; SPEC criterion: "the following year
-  returning to trend"). `tests/test_unit_era_shock.py` only exercises 2020, so
-  the base-year case is untested. (The built-in's claim that Travel is also
-  inflated is wrong: Travel's anchor and its `year_revenue / base_rev` ratio
-  cancel, so non-shock Travel is unchanged.) A shock small enough to round the
-  base year's revenue to 0 would also divide by zero in the Travel line.
-  Latent: no committed org shocks its base year (`quillon-harbor` shocks 2020).
-  Suggested fix: calibrate the anchors on the base year's UNSHOCKED revenue
-  (keep the pre-shock value alongside `year_revenues`), so the shock touches
-  only its own year's drawn values; this is byte-identical for every committed
-  org. Add a unit test that shocks `founded + 1` and asserts every later year's
-  expenses match the unshocked build.
+**[WARN, fixed] `tests/test_unit_overview_finished.py:63-83` — the brief test checks no
+brief. (also claude-code)**
+  Evidence: `test_the_brief_agrees_with_the_plan_and_ingests` calls
+  `run_next_batch(on)` once and filters that state's work orders for
+  `company_overview` briefs. Reproduced on the same fixture: the first batch
+  holds 0 overview briefs (the plan's two overviews, `d:0004` with 0 client
+  facts and `d:0022` with 3, are batched later), so the `for b in briefs`
+  loop never runs and neither the `"confidential"`/`"has completed"` nor the
+  `"no completed client engagements"` assertion executes. The trailing
+  `authored_hash` check does not cover the gap either: neither the scripted
+  author nor ingest reads `firm_digest` (grep of `tests/conftest.py` and
+  `orgsmith/authoring/ingest.py`), so plan/digest agreement is not what that
+  check tests. Net effect: the knob-on digest text in
+  `orgsmith/authoring/contexts.py:356-375` (both the `finished_only` branch
+  and the `book_is_sample` suffix) has no executing test, and the docstring's
+  claim that a disagreement "would be an ingest rejection" is not true of the
+  digest.
+  Suggested fix: drive `run_next_batch` until no new batch appears (as
+  `tests/test_unit_mail_broadcast.py::test_the_brief_tells_the_author_to_address_the_group`
+  does) before collecting briefs, assert `briefs` is non-empty and that both
+  an empty and a non-empty overview were seen, and assert each non-empty
+  digest lists exactly the brief's `{{fact:...}}` client refs (the real
+  agreement property). Correct the docstring's ingest claim.
 
-**[WARN, fixed] `orgsmith/fabric/engagements.py:303-316`, `orgsmith/validate/rules.py:1101-1119` —
-an `oversight_titles` entry that no charter title matches makes the knob
-silently inert and OVR-01 pass vacuously. (claude-code)**
-  Evidence: `oversight_candidates` filters people by
-  `p.title_at(eng.start) in titles`, and nothing checks the configured titles
-  against `charter.titles` (the source of every staff title,
-  `orgsmith/foundation/scaffold.py:118-131`). A typo (`[Partners]` for
-  `Partner`) leaves every engagement with no eligible senior, `assign_oversight`
-  adds nobody, and OVR-01 runs (the knob is on) and yields nothing because
-  `eligible` is empty. The org ships with the knob on and the defect it exists
-  to fix unfixed, which is the silent pass CLAUDE.md's grandfathering rule
-  forbids ("a knob that is on with its artifact missing is a failure").
-  Latent: `quillon-harbor`'s `[Partner, Managing Partner]` both appear in its
-  titles, and all eight of its engagements carry a senior.
-  Suggested fix: reject an `oversight_titles` entry that appears in no
-  `charter.titles` list (a check on the charter model, or at charter parse),
-  so a typo fails at the charter stage. Add a unit test for the rejection.
-  Committed charters are unaffected (only `quillon-harbor` sets the knob).
+**[NOTE] `orgsmith/authoring/contexts.py:88-93` — the mundane-mail genre brief
+still says "Name the colleagues involved." (claude-code)** With
+`broadcasts_address_the_list` on, a list note's brief has no participants,
+and the appended delivery guidance (`contexts.py:452-461`) says to name a
+colleague only where the note is about them. The two instructions pull
+against each other. Measured with no effect: 0 of the 7 list bodies across
+the three regenerated orgs name a colleague. A fix would be knob-gated, since
+the genre text is in every committed brief.
 
-**[NOTE] `orgsmith/schemas.py:670-675` — the new title check echoes unknown
-titles raw.** From the `/security` post-fix re-check. A crafted `charter.json`
-in a received tree reaches `validate` as an uncaught `ValueError` whose message
-carries the titles unescaped, bypassing `strip_control`. Reproduced on a
-scratch copy (terminal escape sequences reached stderr). The run still exits
-non-zero, and the exposure is not new: an unexpected `charter.json` key and
-`_check_scope_services` (line 522) print raw the same way. Local fix:
-`strip_control(t, keep="")` on each title (and in `_check_scope_services`). Complete fix:
-sanitize the validation error where `validate` loads a received tree, as
-ingest already does (`orgsmith/authoring/ingest.py:396-399`).
+**[NOTE] `orgsmith/docplan/planner.py:757-768`, `947-985`;
+`tests/test_unit_mail_broadcast.py:66-80` — emptying a broadcast's
+participants feeds the top-up and alias passes. (also claude-code)** The
+dropped mentions lower `have` in the `min_mentions_per_person` top-up, which
+can then append that person to a minutes, kickoff, status, or overview
+document; with the top-up at 0, a person whose only mention was on a
+broadcast and who carries an alias makes docplan exit ("cannot plant
+nickname alias"). Both are loud or only move an opt-in org's plan, but
+`test_only_broadcasts_change` compares only `internal_email` entries while
+its docstring says every other document plans exactly as before, and
+`docs/RECIPE-FORMAT.md` says "no other note moves" (true of notes only).
+`exempt_recipient_mentions` has the same interaction.
 
-**[NOTE] `orgsmith/schemas.py:361-364` — `EraShock.quarters` accepts `inf`.**
-From the `/security` post-fix re-check. `q > 0` admits `.inf`, which turns
-the normalized quarter weights into NaN and crashes `_split_exact`. Only an
-operator's own recipe reaches it. `math.isfinite` in the validator closes it.
-(The same re-check notes a pre-existing divide-by-zero for a `base_revenue`
-of 500 or less, which rounds the base year's revenue to 0. That predates this
-range.)
+**[NOTE] `orgsmith/docplan/planner.py:811-815`, `820` — the overview docstring
+is stale under the knob. (also claude-code)** It still says the anchor (first
+start + 30 days) is chosen "so the earliest one has a client to cite" and
+that each overview names clients whose engagement has begun. With
+`overview_cites_finished_work` on, the first overview is client-less by
+construction (all three regenerated orgs; their authored first overviews
+describe the practice and name no client, which reads fine).
 
-**[NOTE] `orgsmith/review/numbers.py:44` — a run of more than 4300 digits in
-authored prose crashes `report`.** From `/security`. `int()` on a 4301+ digit
-match raises `ValueError` under Python 3.10.12's integer-string limit, and
-nothing in the schema or ingest bounds a digit run. Fix in `numbers.py` only
-(skip or cap matches longer than about 18 digits); `tools/probe_numbers.py`
-shares the line but its sha256 is pinned in the pre-registration.
+**[NOTE] `orgsmith/authoring/contexts.py:343-345` — the finished-only digest
+dates completed work by start year. (claude-code)** `span` is built from
+`e.start.year`, so "has completed 1 client engagement(s) across 2016" can
+describe an engagement that finished in 2017. End years would match the
+wording.
 
-**[NOTE] `orgsmith/docplan/planner.py:377-427` — the closing-stage post-pass
-states a funnel's final tally before that stage completes. (also claude-code)**
-Already on the register as `closing-stage-reported-early` (BACKLOG.md), with
-a real observed case (`d:0024`). Two things the entry does not say: the
-`_scope_refs_for` docstring (`planner.py:335-347`) still claims position
-gating makes the divergence "inexpressible rather than merely unlikely", which
-is no longer true of the closing document; and the post-pass changes the
-output of an existing knob (`engagements.scope`) rather than landing behind a
-new one. That is inert for the frozen fleet only because no committed org had
-scope on before this turn.
+**[NOTE] `tools/mail_device.py:54-55` — `planned_list_mentions` is zero by
+construction under the knob. (also claude-code)** It counts planned mentions
+of `e.participants`, which the knob empties, rather than planned mentions of
+any colleague other than the author. The published zeros still hold (every
+list note in the three orgs plans no mention at all, checked directly), and
+the before-counts (85/46/62, 4/3/3, 39/39, 20/20, 24/24) reproduce against
+`61abcbd`. The tool has no test.
 
-**[NOTE] `drivers/config.py:115`, `drivers/forge_external.py:404` — a 64000
-output cap on a non-streaming request with a 600s timeout. (also claude-code)**
-The Anthropic shape sends `max_tokens=64000` through a non-streaming `urlopen`
-with a 600s timeout. The API sends nothing until the reply is finished, so a
-reply that actually approaches the cap (adaptive thinking spends from it) can
-exceed 600s and surface as a generic network failure, not as the named
-truncation. Verified against the API reference: `output_config.effort` is GA
-with no beta header, accepts `low` through `max`, and Claude Opus 5.5 defaults
-to `medium`, so the effort plumbing itself is correct. Streaming, or a cap and
-timeout sized together, would close it.
+**[NOTE] `orgsmith/validate/rules.py` — `overview_cites_finished_work` has no
+validator rule. (also claude-code)** `broadcasts_address_the_list` got a
+DL-01 branch; a knob-on manifest whose overview cites a live engagement
+passes `validate`, and only the org-tier byte pin catches it for committed
+orgs. The spec did not ask for a rule, and several older knobs have none.
 
-**[NOTE] `drivers/providers.py:173` — effort and the 64000 cap are sent for
-any `ORGSMITH_ANTHROPIC_MODEL`. (claude-code)** An override to an older model
-that rejects `output_config.effort` (Sonnet 4.5, Haiku 4.5) now gets HTTP 400 on
-every request where v2.3.0 worked. It fails loud, and the docs steer users to
-frontier models.
+**[NOTE] `orgsmith/schemas.py:241` — `broadcasts_address_the_list` is accepted
+with `distribution_lists: 0`. (claude-code)** The knob is then inert, but the
+defect it fixes cannot occur without lists, so nothing passes vacuously.
+Low.
 
-**[NOTE] `drivers/config.py:74` — OpenAI-shape providers, including `local`,
-now default to 16384 output tokens. (claude-code)** A small-context local
-server can reject `max_tokens=16384` plus a long work order. Fails loud,
-`--max-tokens` overrides it, and `--check` now prints the cap.
+**[NOTE] `tests/test_org_evals_acceptance.py:186` — the org-tier unanswerable
+test now skips on every committed org. (claude-code)** Its path is re-hosted
+on a synthetic org (`tests/test_unit_evals_unanswerable.py`), each skip names
+its reason, and TESTING.md records the move, so this meets CLAUDE.md's
+re-host rule.
 
-**[NOTE] `tools/ab_control.py:38` — `ARM_KNOBS` does not know the M17d knobs.
-(claude-code)** The docstring's command runs against the live
-`recipes/quillon-harbor`, which now carries `scope_by_service`,
-`oversight_titles`, `engagement_starts`, and `era_shocks`; the derived control
-would strip `engagements.scope` but keep `scope_by_service`, so it would still
-plant scope facts. The tool's tests moved to the frozen M17c recipe, so nothing
-catches this. Mitigated by "experiments run on pinned code", but the tool could
-refuse a recipe carrying knobs it has not classified.
+**[NOTE] `orgsmith/schemas.py:685-696` — the oversight-title check echoes a
+received tree's strings raw.** From `/security`, carried and re-confirmed at
+HEAD: a crafted `charter.json` can write escape sequences to the terminal
+through `validate`'s traceback; `_check_scope_services` (543-548) has the
+same pattern. Fix: `strip_control` on each title, or sanitize the validation
+error where `validate` loads a tree.
 
-**[NOTE] `orgsmith/authoring/ingest.py:250-252` — `_noun_stem` does not match
-`-ies`/`-es` plurals to their singulars.** `companies`/`company`,
-`businesses`/`business`, and `processes`/`process` stem differently, so the
-check is weaker than the criterion's "singular or plural". Low impact: a
-modifier word still matches ("comparable company" after "N comparable
-companies" is caught by "comparable").
-
-**[NOTE] `orgsmith/review/numbers.py:33` — decimals, times, and similar split
-into integer fragments. (claude-code)** "4.25%" counts 25 and "10:30" counts
-10 and 30. This follows the pre-registered counting rule exactly, and it is a
-measurement that never gates.
-
-**[NOTE] `orgsmith/authoring/ingest.py:279`, `orgsmith/review/numbers.py` —
-duplicated parsing. (claude-code)** The noun read off a count's rendered
-surface duplicates `orgsmith/evals/emit.py:count_noun`, and `numbers_in`
-copies `tools/probe_numbers.py`. The second copy is pinned by a test and the
-tool by its hash, which is a reason worth stating where the copy is defined.
-
-**[NOTE] `orgsmith/fabric/engagements.py:282-286` — the `services is None`
-branch of `plant_scope_facts` has only test callers. (claude-code)** Both
-production callers (`build_engagements`, `scope_01`) pass `scope_services(...)`,
-and the two paths differ when `scope` is None and `scope_by_service` is set
-(`{}` against `{eid: []}`).
+**[NOTE] `orgsmith/review/numbers.py:44` — a 4301+ digit run in authored prose
+crashes `report`.** From `/security`, carried (file outside this range).
 
 ### Verified clean
 
-- **No committed org's ledgers, manifest, or authored prose moved.** Against
-  `origin/main`, the nine existing orgs differ only in `charter.json` (the new
-  knob fields at their inert defaults: 7 lines added and 3 removed per org,
-  5 and 2 for `dev-mini`), `DATA-CARD.md`, and `GENERATION-REPORT.md`, all
-  derived.
-- **The knobs are inert when off and effective when on.** The new streams
-  (`fabric.engagements.scope_by_service`, `fabric.engagements.oversight`) are
-  new names. The start shift is RNG-free and runs before the duration draw.
-  Oversight is an append-only post-pass. `has_scope` and `profile_for_service`
-  reduce to the M17b behavior when `scope_by_service` is empty. On
-  `quillon-harbor`, all eight engagement starts are business days
-  (2016-07-05 follows the declared 2016-07-04) and every engagement carries an
-  eligible senior.
-- **State lock** covers every verb that calls `save_state` except `doctor`,
-  which is excluded on purpose. Reentrancy is per resolved path, and the
-  concurrency test races real subprocesses.
-- **Board digest** excludes exactly what the board writes (`review/` and
-  `GENERATION-REPORT.md`; `report` and `review --sample/--ingest` write
-  nothing else), and the skill verifies before `report`.
-- **Docs:** every relative link in the changed Markdown resolves. CLAUDE.md is
-  99 lines, and the validator has 40 rules, as the skill and README now say.
+- **Freeze:** the other seven orgs differ from `61abcbd` only in
+  `charter.json` (the two new fields at their defaults) and `DATA-CARD.md`;
+  their ledgers, manifests, prose, work orders, and recipes are unchanged.
+- **Knobs effective on the three orgs:** every list-addressed note plans no
+  participant and no mention; every overview's `facts_refs` equals the
+  engagements that ended before its date, and no overview's prose carries an
+  unfinished engagement's client name or fact id; oversight added a senior to
+  5, 2, and 3 engagements and 3 starts moved, as the write-up says.
+- **Docs:** README totals reproduce (147 `.eml`, 453 fleet questions, 1,148
+  default-tier tests with 31 skips, 76 flagship), CHECKSUMS.md is current,
+  and `northgate-staffing` still has 2 of 2 broadcasts naming a colleague, as
+  stated.
 
 ### Tests
 
-Baseline before the fix loop: short 19, unit 824, org 261 passed with 30
-skipped, flagship 71 passed with 5 skipped, all keyless and offline. After
-`/codefix`: short 19, unit 826 (the two new tests), org 261 passed with 30
-skipped, flagship 71 passed with 5 skipped. The org tier includes
-`PINNED = SLUGS`, so the committed fleet still re-derives byte-identical. The
-30 org-tier skips are the documented per-org feature-off parametrizations
-(for example "poses no unanswerable question"), not silent skips of a hosted
-fixture.
+Baseline: short 19, unit 837, org 261 passed with 31 skipped, flagship 71
+passed with 5 skipped, keyless and offline, exit 0. After `/codefix`:
+identical counts, exit 0. The org tier includes `PINNED = SLUGS`, so the
+committed fleet still re-derives byte-identical.
 
 ### Security
 
-`/security` over the 263-file surface since `c5b9994`: 0 BLOCK, 0 WARN,
-1 NOTE (the 4300-digit `report` crash above). No secret in the scoped files,
-the range diff, or the rendered Office and PDF files; dependency pins are
-unchanged from `aef75a9`. The post-fix re-check over the four files
-`/codefix` touched found nothing in the fixes themselves and added one NOTE
-(the raw title echo above). SECURITY.md now records 0/0/2 and is uncommitted.
+`/security` over the 616-file surface since `03f6442`: 0 BLOCK, 0 WARN,
+2 NOTE (both above, both carried). No secret in the scoped files, the
+rendered Office and PDF files, or the range diff. The post-fix re-check of
+`tests/test_unit_overview_finished.py` found nothing. SECURITY.md is updated
+and uncommitted.
 
 ### Fixes Applied
 
-- **[WARN] `orgsmith/fabric/finance.py:95-124`** (also claude-code): the
-  revenue loop now keeps each year's pre-shock revenue in `trend_revenues`,
-  and `base_rev` reads from it, so a shock changes only its own year's drawn
-  values. This also removes the divide-by-zero for a base-year shock that
-  rounds revenue to 0. New test:
-  `test_a_shock_on_the_expense_base_year_leaves_every_other_year_untouched`
-  (`tests/test_unit_era_shock.py`), which shocks dev-mini's first full year
-  and asserts every other year equals the unshocked build. Re-reviewed:
-  committed orgs are unaffected (only `quillon-harbor` declares a shock, on
-  2020), and the shock year's Travel still tracks its shocked revenue, as the
-  comment says.
-- **[WARN] `orgsmith/schemas.py:664-675`** (claude-code): `Charter._check`
-  rejects an `oversight_titles` entry that is not in any `charter.titles`
-  list or the scaffold's generic fallbacks (`Director, {dept}`,
-  `{dept} Associate`). Re-reviewed against `orgsmith/foundation/scaffold.py`:
-  those are the only title sources (promotions move up the same lists, and
-  enrichment does not touch titles). New test:
-  `test_an_oversight_title_no_one_can_hold_is_rejected_at_parse`
-  (`tests/test_unit_oversight.py`). All ten committed charters still load.
+- **[WARN] `tests/test_unit_overview_finished.py:61-94`** (also claude-code):
+  `test_the_brief_agrees_with_the_plan_and_ingests` now drives
+  `run_next_batch` until no new batch appears, asserts it found overview
+  briefs including at least one with client facts and one without, and checks
+  that each non-empty digest's `{{fact:...}}` ids equal the brief's fact ids.
+  The docstring no longer claims an ingest rejection would catch a
+  disagreement. Re-reviewed: the loop matches the one in
+  `tests/test_unit_mail_broadcast.py`, and the module's 4 tests pass.
 
-The changes are uncommitted: `orgsmith/fabric/finance.py`,
-`orgsmith/schemas.py`, `tests/test_unit_era_shock.py`,
-`tests/test_unit_oversight.py`, plus `CODEREVIEW.md` and `SECURITY.md`.
+The change is uncommitted: `tests/test_unit_overview_finished.py`, plus
+`CODEREVIEW.md` and `SECURITY.md`.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-08-10, commit 1c0e132): light review of a README picker-table
-correction and a BACKLOG entry. One WARN (a wiki-link syntax GitHub does not
-render), applied by the author.*
+*Prior review (2026-10-13, commit 03f6442): M17d, full review; 0 BLOCK, 2 WARN
+(an era shock on the expense base year, an oversight title no one can hold),
+both fixed by `/codefix` with tests, and 12 NOTEs recorded.*
 
-<!-- REVIEW_META: {"date":"2026-10-13","commit":"03f6442","reviewed_up_to":"03f6442553c9989f3cdb0742af2c3639d5d74c13","base":"origin/main","tier":"full","block":0,"warn":2,"note":12} -->
+<!-- REVIEW_META: {"date":"2026-10-13","commit":"0c231b9","reviewed_up_to":"0c231b99047a8a62ef0d2b0757bc614cb8e020fd","base":"origin/main","tier":"refresh","block":0,"warn":1,"note":10} -->

@@ -59,24 +59,36 @@ def test_off_overviews_still_cite_engagements_begun(off):
 
 
 def test_the_brief_agrees_with_the_plan_and_ingests(on):
-    """Plan and brief share one function; the scripted author writes every
-    briefed placeholder, so a disagreement would be an ingest rejection."""
+    """Every overview brief's digest names exactly the brief's client facts
+    (the plan's finished engagements), and the batch then ingests."""
+    import re
+
     from orgsmith.artifacts import load_work_order
     from orgsmith.authoring.contexts import run_next_batch
     from orgsmith.state import load_state
 
     run_enrichment(on)
-    assert run_next_batch(on) == 0
+    prev = -1
+    while True:
+        assert run_next_batch(on) == 0
+        n = len(load_state(on).author_batches)
+        if n == prev:
+            break
+        prev = n
     briefs = [
         b
         for ref in load_state(on).author_batches.values()
         for b in load_work_order(on.workorders_dir / ref.workorder).docs
         if b.genre == "company_overview"
     ]
+    assert briefs
+    assert any(not b.facts for b in briefs) and any(b.facts for b in briefs)
     for b in briefs:
         if b.facts:
             assert "confidential" in b.firm_digest
             assert "has completed" in b.firm_digest
+            cited = set(re.findall(r"\{\{fact:([^}]+)\}\}", b.firm_digest))
+            assert cited == {f.id for f in b.facts}, b.doc_id
         else:
             assert "no completed client engagements" in b.firm_digest
     assert run_authoring(on) >= 0
