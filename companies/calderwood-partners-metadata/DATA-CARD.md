@@ -156,7 +156,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| calderwood-partners | 505 | `6fe7a83db8301c4157347f93d7dcbe43b8512784b0ce0c7821df5ca5ea14d36c` |
+| calderwood-partners | 505 | `b34c0a44e834a0a912bd2540bcd35ae5c624140d8b37c04fc6a09f4d01a46a2f` |
 
 Verify with `python tools/checksums.py --check`.
 

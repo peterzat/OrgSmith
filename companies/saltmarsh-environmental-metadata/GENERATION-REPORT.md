@@ -27,7 +27,7 @@ The other 9 cost zero model tokens: 9 static (rendered from the deterministic le
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 30 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, MENT-03, EML-01, EML-02, EML-03, DL-01, LEG-01.
+Validator: 30 rules run, 0 error(s), 0 warning(s); skipped by charter knob: NOISE-01, MENT-03, OVR-01, SCOPE-01, OUT-01, EML-01, EML-02, EML-03, DL-01, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score saltmarsh-environmental --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -90,6 +90,16 @@ Pre-registered voice patterns over 31 authored documents. This is a RANGE across
 | `two-asks-opener` | 'Two asks. First ... Second ...' engagement-email opener | 0 | 0 |
 | `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 0 | 0 |
 | `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 0 | 0 |
+
+### Numbers no ledger owns
+
+3 number(s) in authored prose that no ledger value accounts for, across 3 of 31 documents (distinct values per document; values under 10 and years not counted). The airlock keeps the model from transcribing a value the ledger owns; it does not keep it from inventing one, and an invented number is one the answer key cannot score. A measurement, never a gate.
+
+| doc | count | values |
+| --- | ---: | --- |
+| d:0014 | 1 | 13 |
+| d:0015 | 1 | 13 |
+| d:0017 | 1 | 13 |
 
 ### Per-author similarity proxies
 

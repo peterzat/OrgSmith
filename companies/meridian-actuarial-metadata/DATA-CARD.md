@@ -130,7 +130,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| meridian-actuarial | 198 | `78357ed8a3a920cd2c9fc18248905ec930ed8b76781231c5226d3e7c5453697e` |
+| meridian-actuarial | 198 | `1aa4b0c082e1cd770d3d5804fb87e27775a5e13876436573c99447335ddf8da1` |
 
 Verify with `python tools/checksums.py --check`.
 

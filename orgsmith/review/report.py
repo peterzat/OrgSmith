@@ -20,6 +20,7 @@ from ..paths import OrgPaths
 from ..schemas import CorpusMetrics
 from ..state import load_state
 from .ingest import load_findings
+from .numbers import unowned_lines
 from .metrics import (
     LONG_RATIO,
     SHORT_RATIO,
@@ -430,6 +431,10 @@ def render_report(paths: OrgPaths, metrics: CorpusMetrics) -> str:
         "### Cross-document voice",
         "",
         *_voice_lines(paths),
+        "",
+        "### Numbers no ledger owns",
+        "",
+        *unowned_lines(paths),
         "",
         "### Per-author similarity proxies",
         "",

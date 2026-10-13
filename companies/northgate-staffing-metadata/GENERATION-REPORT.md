@@ -33,7 +33,7 @@ The other 22 cost zero model tokens: 9 static (rendered from the deterministic l
 
 Recomputation against ground truth. These hold exactly or the org is broken -- and they say nothing about how real the prose reads. No realism number appears here.
 
-Validator: 34 rules run, 0 error(s), 0 warning(s); skipped by charter knob: AFF-01, AFF-02, LEG-01.
+Validator: 34 rules run, 0 error(s), 0 warning(s); skipped by charter knob: OVR-01, SCOPE-01, OUT-01, AFF-01, AFF-02, LEG-01.
 
 Eval suites derive from the ledgers and score 100% by construction (`python -m orgsmith score northgate-staffing --suite ... --answers ...` grades an external system). Structure re-derives byte-identically from the recipe (the org-tier byte pin).
 
@@ -95,6 +95,14 @@ Pre-registered voice patterns over 54 authored documents. This is a RANGE across
 | `two-asks-opener` | 'Two asks. First ... Second ...' engagement-email opener | 0 | 0 |
 | `workstreams-heading` | a 'Workstreams' section heading (the kickoff-memo template) | 0 | 0 |
 | `next-steps-heading` | a 'Next Steps' section heading (kickoff and deck closer) | 0 | 0 |
+
+### Numbers no ledger owns
+
+8 number(s) in authored prose that no ledger value accounts for, across 1 of 54 documents (distinct values per document; values under 10 and years not counted). The airlock keeps the model from transcribing a value the ledger owns; it does not keep it from inventing one, and an invented number is one the answer key cannot score. A measurement, never a gate.
+
+| doc | count | values |
+| --- | ---: | --- |
+| d:0063 | 8 | 11, 14, 17, 38, 44, 52, 58, 61 |
 
 ### Per-author similarity proxies
 
