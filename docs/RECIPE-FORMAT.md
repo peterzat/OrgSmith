@@ -161,7 +161,12 @@ doc_culture:
   #                             # non-mail document: with
   #                             # graph_targets.min_mentions_per_person on, the
   #                             # top-up pass names a person who fell below the
-  #                             # floor in another document.
+  #                             # floor in another document. The nickname pass
+  #                             # can also move: an aliased person whose first
+  #                             # host mention is dropped gets the alias on the
+  #                             # next host, which may be another mail note (not
+  #                             # observed; every committed alias sits in
+  #                             # meeting minutes).
   #                             # Observed at M17e: hollowell-ip's Sharon Woods
   #                             # moved from three mail notes into a kickoff
   #                             # memo her ACL denies (BACKLOG
