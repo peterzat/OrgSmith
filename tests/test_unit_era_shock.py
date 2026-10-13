@@ -86,3 +86,18 @@ def test_a_year_declared_twice_is_rejected_at_parse(tmp_path):
     dest = _recipe(tmp_path, SHOCK + SHOCK.replace("  era_shocks:\n", ""))
     with pytest.raises(Exception, match="same year twice"):
         parse_charter_md((dest / "ORG-CHARTER.md").read_text(), "dev-mini")
+
+
+def test_a_shock_on_the_expense_base_year_leaves_every_other_year_untouched(
+    plain, tmp_path
+):
+    # dev-mini is founded 2018, so 2019 is the first full year, the one the
+    # expense anchors calibrate on. The shock must not resize later years.
+    _recipe(tmp_path, SHOCK.replace("2020", "2019").replace("0.8\n", "0.6\n", 1))
+    years = {y.year: y for y in load_finance(build_pure_stages(tmp_path)).years}
+    for year in plain:
+        if year == 2019:
+            continue
+        assert years[year].model_dump() == plain[year].model_dump(), year
+    assert years[2019].revenue == int(round(plain[2019].revenue * 0.6, -3))
+    assert years[2019].expenses["Compensation"] == plain[2019].expenses["Compensation"]

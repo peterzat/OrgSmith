@@ -16,6 +16,7 @@ import shutil
 import pytest
 
 from orgsmith.artifacts import load_charter, load_engagements, load_foundation, load_manifest
+from orgsmith.charter import parse_charter_md
 from orgsmith.fabric.engagements import oversight_candidates
 from orgsmith.paths import OrgPaths
 from orgsmith.validate import run_validate
@@ -115,3 +116,13 @@ def test_ovr_01_skips_visibly_when_the_knob_is_off(plain, capsys):
     assert "OVR-01" not in report["rules_run"]
     (skip,) = [s for s in report["skipped"] if s["rule"] == "OVR-01"]
     assert "oversight_titles" in skip["reason"]
+
+
+def test_an_oversight_title_no_one_can_hold_is_rejected_at_parse():
+    """A typo would leave the knob on, nobody eligible, and OVR-01 passing
+    vacuously; it has to fail at the charter stage instead."""
+    text = base_recipe_text().replace(
+        SCOPE_ANCHOR, SCOPE_ANCHOR + "  oversight_titles: [Managing Partners]\n"
+    )
+    with pytest.raises(Exception, match="no staff member can hold: Managing Partners"):
+        parse_charter_md(text, "dev-mini")

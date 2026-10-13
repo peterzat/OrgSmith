@@ -661,6 +661,18 @@ class Charter(StrictModel):
             raise ValueError("headcount entries must be positive")
         if self.doc_culture.date_range[0].year < self.founded:
             raise ValueError("date_range must not start before founding year")
+        # A title no one can hold would leave the oversight knob silently
+        # inert and OVR-01 passing vacuously. Every staff title comes from a
+        # `titles` list or the scaffold's generic per-dept fallback.
+        known = {t for ts in self.titles.values() for t in ts}
+        known |= {f"Director, {d}" for d in self.headcount}
+        known |= {f"{d} Associate" for d in self.headcount}
+        unknown = sorted(set(self.engagements.oversight_titles) - known)
+        if unknown:
+            raise ValueError(
+                "engagements.oversight_titles names title(s) no staff member "
+                "can hold: " + ", ".join(unknown)
+            )
         return self
 
 

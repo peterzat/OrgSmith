@@ -92,6 +92,9 @@ def build_finance(charter: Charter, foundation: Foundation) -> FinanceLedger:
     # --- revenue (unchanged) ---
     revenue = float(charter.finance.base_revenue)
     year_revenues: dict[int, int] = {}
+    # Pre-shock revenue per year: the expense anchors calibrate on it, so a
+    # shock on the base year touches only that year's drawn values.
+    trend_revenues: dict[int, int] = {}
     quarters_by_year: dict[int, list[int]] = {}
     for year in range(charter.founded, end_year + 1):
         if year == charter.founded:
@@ -100,6 +103,7 @@ def build_finance(charter: Charter, foundation: Foundation) -> FinanceLedger:
         else:
             year_revenue = int(round(revenue, -3))
             revenue *= 1.0 + charter.finance.growth_rate * rand.uniform(0.8, 1.2)
+        trend_revenues[year] = year_revenue
         shock = shocks.get(year)
         if shock is not None:
             year_revenue = int(round(year_revenue * shock.revenue, -3))
@@ -117,7 +121,7 @@ def build_finance(charter: Charter, foundation: Foundation) -> FinanceLedger:
     # expense_ratio sizes the P&L once, here, and then stops applying. See
     # FinanceProfile.expense_ratio for why that is the honest reading of it.
     base_year = min(charter.founded + 1, end_year)
-    base_rev = year_revenues[base_year]
+    base_rev = trend_revenues[base_year]
     anchors = dict(
         zip(
             [c for c, _ in _EXPENSE_CATEGORIES],
