@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.0` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `off` |
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `off` |
@@ -127,7 +128,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| verdant-health | 105 | `895f483d699630bb0e09a19c870317d75bad63657b097ccffa477c09ee431028` |
+| verdant-health | 105 | `44992ed93df69c129dfd726574981a769ec9ef729fcb776db13b55dbd2f3892a` |
 
 Verify with `python tools/checksums.py --check`.
 

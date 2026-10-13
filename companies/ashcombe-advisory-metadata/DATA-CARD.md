@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.0` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `on` |
 | `doc_culture.noise.duplicates` | `2` |
 | `doc_culture.noise.drafts` | `3` |
@@ -170,7 +171,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| ashcombe-advisory | 255 | `043a5d373c02036afe307f4b56f4b50f1ac74868619b8c723ee07fda0a098d51` |
+| ashcombe-advisory | 255 | `ec10c81c087fb316cf8246a117834bb192a85bf8f08f834fc4005baf3c383fb6` |
 
 Verify with `python tools/checksums.py --check`.
 

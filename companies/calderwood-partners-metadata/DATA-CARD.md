@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.5` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `on` |
 | `doc_culture.noise.duplicates` | `15` |
 | `doc_culture.noise.drafts` | `20` |
@@ -155,7 +156,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| calderwood-partners | 505 | `900963955e9b5c5c934ad5db7edb85a4e520e60412ac29357e900c1c468a84b3` |
+| calderwood-partners | 505 | `e634bcb18fb039dd5b07ce2b6a3fffc807ae9038b94e2cdcf52cc91814833cd2` |
 
 Verify with `python tools/checksums.py --check`.
 

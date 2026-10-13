@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.5` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `off` |
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `off` |
@@ -126,7 +127,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| saltmarsh-environmental | 126 | `9d181bb9db09d51df69e89e905e6db969e6a62f5053bdc9891a1f27aaf613005` |
+| saltmarsh-environmental | 126 | `1fb7674024812849d93b5326a82a2d7f703b3eb123175a0d7d52be531eb04a83` |
 
 Verify with `python tools/checksums.py --check`.
 

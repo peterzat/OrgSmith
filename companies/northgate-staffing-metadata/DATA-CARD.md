@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.34` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `on` |
 | `doc_culture.noise.duplicates` | `2` |
 | `doc_culture.noise.drafts` | `2` |
@@ -165,7 +166,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 200 | `b9179cc6f0e33d5ad123fe7ef6befa70696a8427cdb733157a921d281bd96fda` |
+| northgate-staffing | 200 | `0ab9fb83c81b23d0e058ec65f322e8e8191d3edf7670f84b5ec1bb0ef6035b83` |
 
 Verify with `python tools/checksums.py --check`.
 

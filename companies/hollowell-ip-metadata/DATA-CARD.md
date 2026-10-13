@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.0` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `off` |
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `on` |
@@ -127,7 +128,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| hollowell-ip | 181 | `bdb9281bfefb69fe6c283409183c272583ad3e23ce803313e622170385dcbe04` |
+| hollowell-ip | 181 | `149057b5be6a76a87103195ef06c7a19cfdf3d99c0188492a4bc91596220c8e9` |
 
 Verify with `python tools/checksums.py --check`.
 

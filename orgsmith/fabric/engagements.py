@@ -494,10 +494,21 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
 
     engagements: list[Engagement] = []
     serial_by_year: dict[int, int] = {}
+    cal_spec = charter.doc_culture.business_calendar
+    start_calendar = (
+        frozenset(cal_spec.holidays)
+        if cal_spec is not None and cal_spec.engagement_starts
+        else None
+    )
     for idx in range(charter.engagements.count):
         year = chosen_years[idx]
         start = date(year, rand.randint(2, 8), rand.randint(1, 28))
         start = min(max(start, start_floor), start_cap)
+        if start_calendar is not None:
+            # M17d: RNG-free and before `end` is drawn, so the draw sequence
+            # is unchanged and only the dates move; the duration draw lands
+            # on the shifted start.
+            start = to_business_day(start, start_calendar, start_floor, start_cap)
         end = start + timedelta(days=rand.randint(90, 270))
         end = min(end, range_end - timedelta(days=14))
 

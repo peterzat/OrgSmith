@@ -66,6 +66,12 @@ doc_culture:
   # excluded; the holiday list may be empty. Validated by CAL-01.
   # business_calendar:
   #   holidays: [2021-07-05, 2021-12-24]   # declared, inside date_range
+  #   engagement_starts: true  # M17d, default false. The calendar also governs
+  #                            # engagement START dates (and the `start` fact):
+  #                            # each moves to the nearest business day. M17c
+  #                            # found 4 of 8 engagements starting on a weekend
+  #                            # or a declared holiday. CAL-01 checks the starts
+  #                            # only when this is on.
   # Corpus noise (M12), optional, default off (absent). Plants derived
   # documents from authored sources with no model pass: exact byte-duplicates
   # and near-duplicate drafts. Each is labeled in the manifest with its source

@@ -22,6 +22,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.legacy_ratio` | `0.0` |
 | `doc_culture.ocr_layer_rate` | `0.0` |
 | `doc_culture.business_calendar` | `on` |
+| `doc_culture.business_calendar.engagement_starts` | `False` |
 | `doc_culture.noise` | `off` |
 | `doc_culture.voice_diversify` | `True` |
 | `doc_culture.mail` | `on` |
@@ -129,7 +130,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| meridian-actuarial | 198 | `92903f3119834ef239646ff75d67817050485154c6bf775a5ca28ad44444c18a` |
+| meridian-actuarial | 198 | `5404dcc2176c039ff234cae9a7467c25e280efc378c54bca3423bc0006d30e53` |
 
 Verify with `python tools/checksums.py --check`.
 

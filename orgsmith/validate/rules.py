@@ -401,6 +401,19 @@ def cal_01(ctx: Context):
                 f"genre must land on a business day",
                 e.path,
             )
+    # M17d: with `engagement_starts` on, the engagement itself starts on a
+    # business day too. Charter-gated inside the rule: the attendance half
+    # above has run since M12 and must keep running on every calendar org,
+    # while this half binds only the orgs that turned the knob on.
+    if ctx.charter.doc_culture.business_calendar.engagement_starts:
+        for eng in ctx.engagements.engagements:
+            if eng.start.weekday() >= 5 or eng.start in holidays:
+                why = "a weekend" if eng.start.weekday() >= 5 else "a declared holiday"
+                yield (
+                    f"engagement starts {eng.start} ({eng.start:%A}), {why}; "
+                    f"business_calendar.engagement_starts requires a business day",
+                    eng.id,
+                )
 
 
 def noise_01(ctx: Context):

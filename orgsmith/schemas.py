@@ -102,6 +102,14 @@ class BusinessCalendar(StrictModel):
     deterministic and consumes no RNG, so it perturbs no seed stream."""
 
     holidays: list[date] = []
+    # M17d: the calendar also governs engagement START dates. M17c found four
+    # of quillon-harbor's eight engagements commencing on a non-working day,
+    # three weekends plus 2016-07-04, which the recipe's own holiday list
+    # declares: the fabric drew the start with no shift. When true, the start
+    # (and the `start` fact every letter cites) moves to the nearest business
+    # day. Default False: no start moves and every committed ledger
+    # re-derives byte-identical.
+    engagement_starts: bool = False
 
 
 class NoiseModel(StrictModel):
