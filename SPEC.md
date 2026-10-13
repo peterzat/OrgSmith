@@ -150,8 +150,9 @@ Three things this turn learned matter more than its counts:
   contradiction sits at a split. `oversight-senior-takes-the-junior-slot`:
   M17d's appended senior lands where the planner reads the most junior member
   (minutes by a senior 0/8 to 6/8 on ashcombe). And the mail knobs, by removing
-  forced mentions, fed `mention-filler-acl-seam`: hollowell's major ACL finding
-  is a person the top-up moved out of mail and into a memo she cannot read.
+  forced mentions, fed `mention-filler-acl-seam`: half of hollowell's major ACL
+  finding is a person the top-up moved out of mail and into a memo she cannot
+  read.
 - **An answer-key defect, fleet-wide.** 11 of 11 departed staff keep an
   open-ended `works_at` edge in `graph_expected.json`
   (`graph-departures-have-no-end-edge`).

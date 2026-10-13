@@ -154,11 +154,14 @@ doc_culture:
   #                             # broadcast greets one drawn colleague by
   #                             # first name and names them in full to the
   #                             # list. The recipient draw still runs, so no
-  #                             # other note moves; DL-01 checks it when on.
-  #                             # Both mail knobs remove planned mentions, and
-  #                             # with graph_targets.min_mentions_per_person
-  #                             # on, the top-up pass then names a person who
-  #                             # fell below the floor in another document.
+  #                             # other mail note moves; DL-01 checks it when
+  #                             # on. Every mail knob that drops a planned
+  #                             # mention (this one, exempt_recipient_mentions,
+  #                             # exempt_author_mentions) can still move a
+  #                             # non-mail document: with
+  #                             # graph_targets.min_mentions_per_person on, the
+  #                             # top-up pass names a person who fell below the
+  #                             # floor in another document.
   #                             # Observed at M17e: hollowell-ip's Sharon Woods
   #                             # moved from three mail notes into a kickoff
   #                             # memo her ACL denies (BACKLOG

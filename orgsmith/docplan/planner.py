@@ -810,12 +810,12 @@ class _Planner:
     def _emit_firm_periodic(self, rule: GenreRule) -> None:
         """Firm overviews across the range, one every period_years, anchored
         just after the first engagement so the earliest one has a client to
-        cite. Each names exactly the clients whose engagement has begun by its
-        date (by fact id); the brief's date-scoped digest keeps it from
-        claiming anything later than itself. With
-        `doc_culture.overview_cites_finished_work` (M17e) it names only
-        engagements that have ended by its date, so the earliest overview
-        usually names none."""
+        cite (without the M17e knob below). Each names exactly the clients
+        whose engagement has begun by its date (by fact id); the brief's
+        date-scoped digest keeps it from claiming anything later than itself.
+        With `doc_culture.overview_cites_finished_work` (M17e) it names only
+        engagements that ended before its date (`overview_engagements`), so
+        the earliest overview usually names none."""
         engs = self.engagements.engagements
         if not engs:
             return
