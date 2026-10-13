@@ -1,270 +1,229 @@
 # SPEC
 
-## Spec — 2026-08-03 — M17c: the controlled proof
+## Spec — 2026-10-13 — M17d: M18 readiness
 
-**Goal:** Settle whether M17b's outline and scope work actually changes
-authored prose, on a mid-size org rather than on the flagship. Generate one
-new recipe twice through the live airlock, control arm knobs off and
-treatment arm knobs on, so the structural axis reads a real before/after
-instead of a cross-recipe comparison. De-risk M18 against an unproven
-capability for a fraction of its cost, and give the board the first
-discrimination test it has ever had.
+**Goal:** Clear what M17c found standing between the project and the M18
+flagship, re-baselined for Claude Opus 5.5. Fix the generator defects the
+last board traced to the generator rather than the model, measure whether
+the new model changes authored prose before anyone regenerates for it,
+measure whether the board's recall survives a larger reading list, and
+commit a clean tenth org that exercises the fixes. No committed org is
+regenerated and no carve-out opens.
 
 ### Acceptance Criteria
 
-- [x] **One new recipe, generated twice, with the M17b knobs as the only
-  variable.** A new recipe under `recipes/` produces a control arm with
-  `engagements.scope` absent and `doc_culture.outline_variety` and
-  `doc_culture.client_facing_reports` off, and a treatment arm with all
-  three on. Same slug family, same seed, both arms authored through the live
-  `/forge` airlock with model and effort recorded per batch. Each arm scores
-  at least 120 same-genre pairs (`structural_pairs_considered`), so the
-  comparison is over a distribution rather than a handful.
+- [ ] **The Opus 5.5 probe is pre-registered, exactly controlled, and
+  reported in either direction.** A dated evidence standard, committed
+  before the first probe work order is dispatched, states what result would
+  count as Opus 5.5 changing authored prose against the M17c Opus 5 control
+  arms, what would count as it not, and the sha256 of every grading script
+  it names. A fourth `quillon-harbor` control arm (`delta`) is authored on
+  `claude-opus-5-5` at the effort the M17c arms recorded, from code pinned
+  at the pre-registration commit. Its deterministic artifacts, persona
+  enrichment, and every work order are byte-identical to `alpha`'s, so the
+  model is the only variable; any work order that differs is enumerated
+  rather than assumed away. The write-up reports structural and lexical
+  similarity against the `alpha`/`gamma` noise floor, unowned numbers,
+  words against brief, and a blind voice verdict on `delta` and `alpha` by
+  reviewers of the same model, re-verifies the grader hashes, and states
+  the conclusion the standard's own reading gives, null included. The arm
+  stays uncommitted in `scratch/`.
 
-- [x] **The evidence standard is fixed before the numbers exist.** A dated
-  document, committed before either arm is authored, states what result
-  would count as the outline work having changed the prose, what result
-  would count as it not having, and what the measurement cannot distinguish
-  either way. Verifiable from git order: the standard's commit precedes the
-  first authoring commit.
+- [ ] **Five generator fixes land as default-off knobs, proven inert
+  against the frozen fleet.** With every new knob off, all nine committed
+  orgs load, validate clean, and re-derive byte-identical structure
+  (`PINNED = SLUGS` green at every commit). Each knob draws randomness from
+  no existing `seeds.py` stream, has a unit test showing its effect when on,
+  and is documented in `docs/RECIPE-FORMAT.md`. With each knob on:
+  - engagement start dates (and the `start` fact) land on a business day
+    under the recipe's declared calendar;
+  - every engagement whose span a recipe-named senior title covers carries
+    one such person as an internal participant, and so reaches that
+    engagement's mentions and ACL grants;
+  - an engagement's scope vocabulary follows its service line, and a
+    service declared to have no funnel gets no pipeline facts, with SCOPE-01
+    recomputing the per-service planting exactly;
+  - a declared era shock scales a named fiscal year's revenue and travel,
+    with every finance tie-out still holding and the following year
+    returning to trend;
+  - a scope-on brief tells the author that a count placeholder renders its
+    own noun, and that scope and pipeline counts must not be written as
+    shares, subsets, or remainders of one another (scope-off briefs are
+    byte-identical to before).
 
-- [x] **The control is exact where it must be, and its residue is
-  enumerated.** Across arms the share tree (file paths) and the manifest's
-  doc ids, genres, dates, and authors are identical, and `foundation.json`
-  and the finance and people ledgers are byte-identical. Every remaining
-  difference is enumerated and attributed to a named knob rather than
-  hand-waved. Shown by diff, recorded in the write-up.
+- [ ] **Authoring ingest rejects a doubled count noun.** A deliverable whose
+  text follows a count-fact placeholder, within the same clause, with a word
+  that repeats a word of that fact's own noun phrase (singular or plural) is
+  rejected with the doc id and fact id named. Every one of the eleven M17c
+  REND-01 occurrences in `scratch/arms/beta` is rejected by the check when
+  replayed, and no deliverable of `alpha`, `gamma`, or any committed org's
+  `workorders/` reply is.
 
-- [x] **The structural axis is compared over every scored pair, not the
-  printed top 50.** The comparison reports each arm's full same-genre
-  distribution, with shape and openers reported separately, so a shift in
-  the body of the distribution cannot hide behind the truncated reading
-  list. `STRUCTURAL_TOP_N` bounds what the report prints and must not bound
-  what the comparison reads.
+- [ ] **Unowned numbers are measured and never gate.** `report` writes, for
+  every org, a count of integers in authored prose that no ledger value
+  accounts for, per document and in total. It reproduces the direction of
+  the M17c `alpha`/`gamma` split (fewer in `alpha`), and no test tier or
+  validator rule thresholds it.
 
-- [x] **The board is asked the voice question on both arms without being
-  told which is which.** Neither arm's slug, path, nor dispatch prompt
-  announces which is the control or that an experiment exists. The two
-  verdicts are recorded side by side. The write-up states plainly that this
-  measures whether the board can discriminate two arms, not a false-positive
-  rate against known-good prose, so `board-negative-control` gains a
-  measurement without being closed by it.
+- [ ] **A tenth org is committed and frozen.** `quillon-harbor`, re-authored
+  as a labelled follow-up to M17c's treatment arm with this turn's knobs on,
+  is generated through the live `/forge` airlock on `claude-opus-5-5`,
+  validates clean, scores 100% on every eval split by construction, joins
+  `PINNED = SLUGS`, and ships its data card, `GENERATION-REPORT.md`,
+  `evals/`, `acl.json` and PERMISSIONS.md. A full six-dimension board ships
+  beside it, unflattering findings included. The commit rule is fixed now:
+  a blocker that traces to a mechanical defect the generator should have
+  prevented (a fact surface, a ledger contradiction, a rendering error)
+  declines the commit with cause, as M17c did; a prose-judgment blocker
+  ships as a published finding. Its test-tier placement is recorded in
+  TESTING.md with the measured added wall-clock.
 
-- [x] **The treatment arm gets a full six-dimension board and its findings
-  ship beside it.** Unflattering findings included, in the house pattern. Any
-  comparison of its voice cluster against the exemplar's is labelled as
-  uncontrolled, because the recipes differ.
+- [ ] **The board's recall is measured at two reading-list sizes.** A
+  deterministic tool plants a fixed set of known defects into a scratch copy
+  of `calderwood-partners` (never the committed fixture). Reviewers on two
+  dimensions read a small and a large reading list, both containing every
+  planted document, without being told an experiment exists. Predictions
+  are committed before dispatch. Recall per defect kind per list size is
+  reported in `docs/REVIEW-CALIBRATION.md`, `board-yield-at-scale` records
+  the result against its own revisit criterion, and the write-up states that
+  this is a recall measurement and not a false-positive rate.
 
-- [x] **The knobs' first live exercise is reported including what went
-  wrong.** Per-arm authoring-ingest rejection counts, every case where the
-  outline machinery briefed a skeleton a worker could not satisfy or
-  rejected a deliverable a reader would call conforming, and every scope fact
-  whose rendered surface reads badly. Recorded rather than fixed silently. If
-  the enforcement has to change, the generator changes; the enforcement is not
-  softened to let a deliverable through.
+- [ ] **BYO authoring sends what it records.** An Anthropic-shape request
+  carries the configured effort and the generator record stamps the same
+  value; a reply cut off at the output limit fails with a message naming the
+  truncation and the limit instead of entering the repair loop; the default
+  output limit fits a full six-document batch; the Anthropic default model
+  is `claude-opus-5-5`. Covered by unit tests on a stubbed transport, keyless
+  and offline.
 
-- [ ] **The treatment arm is committed and frozen; the control arm is not.**
-  The treatment arm validates clean, scores 100% on every eval split by
-  construction, joins `PINNED = SLUGS`, and ships its data card,
-  `GENERATION-REPORT.md`, `evals/`, `acl.json` and PERMISSIONS.md as derived
-  artifacts. Its test-tier placement (`org` or `flagship`) is a deliberate
-  decision recorded in TESTING.md with the measured added wall-clock. The
-  control arm stays in gitignored `scratch/` on the `ab-probe` precedent.
+- [ ] **Concurrent ingest cannot lose an update.** Two processes ingesting
+  disjoint deliverables into the same org at once both land in `state.json`,
+  shown by a unit test that races them.
 
-- [x] **No committed fixture moves and no carve-out is opened.** The nine
-  existing orgs' ledgers, manifests, and authored prose are untouched;
-  `PINNED = SLUGS` is green at every commit including mid-turn. Adding a
-  tenth org is not a regeneration.
+- [ ] **The board's read-only rule is checked, not just asked for.**
+  `/forge-review` records a digest of the org before dispatch and verifies
+  it after; the digest changes when a DocIR, ledger, manifest, or rendered
+  file changes and ignores the board's own outputs (`review/`,
+  `GENERATION-REPORT.md`). Unit-tested.
 
-- [x] **The docs reconcile to what the generation found, in either
-  direction.** README's M17b paragraph stating that the proof is the next
-  generation is replaced by what this generation settled, including a null or
-  negative result stated as such. `docs/REVIEW-CALIBRATION.md` gains the
-  second-org calibration of the structural axis. `BACKLOG.md`'s
-  `cross-document-voice` records the outcome against its own revisit
-  criterion.
+- [ ] **The skills name only commands that exist, and dispatch with an
+  explicit model and effort.** A short-tier test parses every
+  `orgsmith` command line in `.claude/skills/*/SKILL.md` against the real CLI
+  parser and fails on an unknown verb or flag, and every repo script a skill
+  names exists. `/forge` and `/forge-review` pass the worker model and
+  effort at dispatch, and workers stamp the effort they were dispatched with.
 
-- [ ] **Full `bin/test` passes keyless and offline** across short, unit, org,
-  and flagship tiers, with the new org's tier costs measured rather than
-  assumed.
+- [ ] **The M17c findings are on the durable register.** Every M17c run-log
+  finding that names a generator defect or gates M18 (AIRLOCK-01, REND-01,
+  SCOPE-A, SCOPE-D, MENT-A, off-calendar engagement starts, partners absent
+  from engagements) has a `BACKLOG.md` entry or is recorded as closed by this
+  turn, and `exemplar-has-no-2020` records that its second-org criterion
+  fired.
 
-### Deferred, with cause (2026-08-10)
+- [ ] **CLAUDE.md is a map, not a history.** The carve-out narratives move
+  to a file under `docs/`, CLAUDE.md keeps every hard rule and operational
+  fact (re-emission order, the serialization traps, the current freeze
+  status), and it is under 100 lines.
 
-Two criteria are deliberately unmet. Recorded here rather than checked off or
-quietly dropped.
-
-- **Criterion eight (commit and freeze the treatment arm): declined.** The
-  arm's six-dimension board returned 5 blockers, three of them one defect: a
-  count fact renders carrying its own noun ("12 acquisition targets") and
-  authors wrote the noun again, so 12 of 59 documents ship "15 acquisition
-  targets targets" into the rendered `.docx`, including an executed engagement
-  letter. Four engagements also read "of the 12 candidates... 64 have been
-  screened", because `unit_range` and `pipeline_top_range` do not nest.
-  Committed fixtures freeze, so committing would make those permanent in the
-  newest fleet member. This turn exists to de-risk M18 against an unproven
-  capability; committing the first output of a capability it just proved
-  defective would defeat that. Criterion seven's own rule applies: the
-  generator changes, the enforcement is not softened.
-- **Criterion eleven (tier costs for the new org): not applicable while
-  eight is declined.** No new org joined a tier, so there is no added
-  wall-clock to measure. Full `bin/test` passes keyless and offline across all
-  four tiers (16 short, 739 unit, 230 org +27 skipped, 65 flagship +5
-  skipped), unchanged from the turn's baseline.
-
-**The measurement stands and must not be re-run to rescue these.** The
-comparison was pre-registered and run once. Fixing the generator and
-re-authoring the treatment arm would produce a second number chosen after
-seeing the first; any such re-run belongs in a later turn, labelled as a
-follow-up with a changed treatment, with the M17c result left as it is.
+- [ ] **The docs reconcile to what the turn found, and it ships.** README,
+  `docs/MODEL-AB.md` (Round 3), `docs/RECIPE-FORMAT.md`,
+  `docs/BYO-AUTHORING.md`, `docs/REVIEW-CALIBRATION.md`, `BACKLOG.md`,
+  `CHECKSUMS.md`, and every data card state the final state. The mail-org
+  carve-out is written as a proposal, not executed. The version is bumped,
+  full `bin/test` passes keyless and offline across all four tiers, no
+  committed org's ledgers, manifest, or authored prose differ from
+  `aef75a9`, and the branch is pushed after `/codereview` passes.
 
 ### Context
 
-- **Adopted from the 2026-08-03 proposal in the prior SPEC entry**, with two
-  scoping decisions taken by the user at spec time: prove on a mid-size org
-  before the flagship, and author a real knobs-off control arm rather than
-  comparing against the committed fleet. Both were the proposal's own
-  recommended readings of its open questions.
+- **Adopted from this session's analysis (2026-10-13)**, run autonomously at
+  the user's instruction ("proceed autonomously with your recommendations,
+  finish by updating docs, README, backlog, and then push"). It supersedes
+  the M17c proposal's four questions, answering each: fix the scope knob and
+  re-run (criteria two, three, five), propose the mail carve-out (twelve),
+  probe the board at scale (six), and hold M18 until all three are done.
 
-- **Why an intermediate turn.** M17b landed four default-off knobs and a
-  structural axis and adopted none of them anywhere. What is proven today is
-  plumbing and block-shape counts under a scripted author. The flagship is
-  ~334 batches (`docs/SCALE.md`), roughly nine times any run to date, and
-  running it against an unexercised capability risks discovering at document
-  900 that the outline enforcement misbehaves. This turn is ~10-18 batches per
-  arm.
+- **Why the probe runs first and on pinned code.** The probe's control is
+  the M17c arms, authored by `claude-opus-5` at `xhigh` on the code at
+  `aef75a9`. Any change to briefs, ingest, or render between those arms and
+  `delta` would sit inside the measured gap. So `delta` runs from a git
+  worktree pinned at the pre-registration commit, whose code is
+  `aef75a9`'s, while this turn's code changes land in the main tree. "Keep a
+  floor of checks that never moves mid-experiment" (the essay at
+  agent-hypervisor.ai/posts/agent-first-repos), and hash the grader.
 
-- **What makes the control cheap and exact.** Both new seed streams are keyed
-  per item (`rng(seed, "fabric.engagements.scope", eid)` in
-  `fabric/engagements.py:172`, `rng(seed, "docplan.outline", genre)` in
-  `docplan/registry.py:652`), so turning the knobs on advances no other
-  stream. Roster, engagements, finance, dates, authors, and the document set
-  are expected to be identical across arms for that reason. That expectation
-  is what criterion three verifies rather than assumes.
+- **The Opus 5.5 facts this turn relies on** (platform docs, checked
+  2026-10-13): 1M-token context, so M18's sizing premise in
+  `docs/SCALE.md` is unchanged; 128K max output; `output_config.effort`
+  with an omitted effort now running at `medium`; adaptive thinking always
+  on, and its output counts against `max_tokens`. Worktree isolation for
+  subagents branches from the default branch, so it does not carry
+  in-flight work orders and does not close
+  `concurrent-workers-share-one-scratchpad`.
 
-- **What the treatment arm changes and where.** `engagements.scope` plants
-  additional entries in the existing `Engagement.facts` list;
-  `outline_variety` rides the skeleton id in `render_params`, not in a new
-  `ManifestEntry` field; `client_facing_reports` adds the engagement's client
-  contact to the status-report mention plan, which may move ACL grants and
-  PERMISSIONS.md. `GenreRule.scope_refs` is already populated on five genre
-  rows in `docplan/registry.py`, so the registry needs no recipe action.
+- **What the five knobs touch, measured before writing them.**
+  `fabric/engagements.py:436` draws the start date with no calendar shift
+  (`to_business_day` is in the same file); in `alpha` 4 of 8 starts are a
+  weekend or the declared 2016-07-04 holiday. `_staff`
+  (`engagements.py:271`) draws teams uniformly from the delivery department
+  with no seniority. `ScopeProfile` is recipe-wide (`plant_scope_facts`),
+  consumed by the planner, the brief, and SCOPE-01. The brief's count line
+  reads "count of <noun>; place where the number belongs" while the
+  placeholder renders the number with its noun, which is REND-01's cause.
+  `fabric/finance.py` has no notion of an era.
 
-- **Two serialization traps, unchanged from M17b.** `dump_json` serializes
-  every model field, so adding a field to `Fact`, `Engagement`, or
-  `ManifestEntry` writes a key into all nine committed ledgers and breaks the
-  byte pin. `datacard._knob_rows` walks the charter model, so a new knob
-  rewrites all nine data cards. Re-emission order when metrics move:
+- **Serialization traps, unchanged.** `dump_json` writes every field, so a
+  new field on `Charter`'s sub-models rewrites all nine `charter.json` files
+  and, through `datacard._knob_rows`, all nine data cards. A new field on
+  `Fact`, `Engagement`, or `ManifestEntry` would rewrite committed ledgers
+  and break the pin; avoid it. Re-emission order when metrics move:
   metrics/report, then `tools/checksums.py`, then `data-card` for every org.
 
-- **The measurement may come back null or negative, and that is a result.**
-  Nothing in these criteria requires the outline work to have helped. The
-  pre-registered standard exists precisely so the conclusion cannot be chosen
-  after the numbers are seen, and criterion ten requires the README to say
-  what happened either way. A turn that proves the knob does not change prose
-  is a successful turn and saves the flagship from carrying it.
-
-- **Nothing that is not an oracle may gate.** The structural axis stays a
-  measurement: no threshold it produces enters a test tier or a validator
-  rule, this turn included. The board judges, the metric measures, the human
-  decides.
-
-- **Scratchpad exposure.** Two arms at ~10-18 batches each is roughly the
-  M11b exposure (38 batches), not the flagship's ninefold, so the prompt-level
-  mitigation in `/forge` Step 3b is unchanged
-  (`concurrent-workers-share-one-scratchpad`). Recorded here so it is on the
-  record before the batches run.
+- **Nothing that is not an oracle may gate.** The structural axis, the
+  unowned-number count, and the recall numbers are measurements. No
+  threshold any of them produces enters a test tier or a validator rule.
+  Ingest's doubled-noun check is an oracle (a fact surface plus the text the
+  author wrote), so it may reject.
 
 - **Hard rules in force.** Airlock: `orgsmith/` never calls a model or the
-  network; all tiers keyless and offline; no LLM grades an LLM in an automated
-  tier. Additive evolution: any new capability lands default-off with inert
-  schema defaults on the existing `orgsmith/<kind>@<ver>` schema ids, drawing
-  only from new `seeds.py` streams. Committed fixtures are frozen. Validator
-  rules grandfather by charter, never by artifact absence. The new org's
-  generated names must not collide with a screened real firm; a validator rule
-  already checks this.
+  network. Additive evolution with new seed streams only. Committed fixtures
+  frozen; adding a tenth org is not a regeneration. Validator rules
+  grandfather by charter, never by artifact absence. Committing is local;
+  pushing goes through `/codereview`.
 
 - **House practices (zat.env).** Small committable increments with tests in
-  the same increment; run the relevant tier after each change; do not stack
-  untested changes. Verification over prompting. Do not reword or reorder
-  these criteria; check off only when verified. Committing is local; pushing
-  is the user's call.
+  the same increment; run the relevant tier after each change; if a change
+  breaks a passing test, revert and rethink rather than editing the test;
+  two failed fixes in a row means stop and re-plan. Re-baseline on each
+  model generation, and prefer measurement to folklore: MODEL-AB exists
+  because "use the strongest model" was never measured. Precision over
+  recall for every reviewer this turn dispatches.
 
-- **BACKLOG.** `cross-document-voice` and `board-negative-control` are ACTIVE
-  in this spec. `concurrent-workers-share-one-scratchpad` is noted above and
-  stays open; its flagship trigger has not fired. `packaging-and-archival`,
-  `event-simulation`, `generator-fingerprinting`, and
-  `mundane-broadcast-names-a-recipient-in-the-body` are out of scope.
+- **BACKLOG.** `board-yield-at-scale` and `cross-document-voice` are engaged
+  (criteria six and one); `board-negative-control` is touched but not
+  closed (recall is not a false-positive rate);
+  `concurrent-workers-share-one-scratchpad` stays open with its mitigation
+  unchanged (~13 + ~13 batches, the M17c exposure);
+  `exemplar-has-no-2020` and `mail-audience-internal-vs-external` are
+  engaged by criteria two and twelve. `event-simulation`,
+  `external-validity-program`, `generator-fingerprinting`,
+  `packaging-and-archival`, `state-json-mixes-execution-and-provenance`,
+  and `recipe-coherence-test-has-no-floor` are out of scope.
 
-- **Out of scope.** The M18 flagship; any regeneration of a committed org;
-  era shocks in the finance model; inbound mail modelling; the DL-broadcast
-  naming device; `rf:voice-3`, which no keyless proxy reaches; and closing
-  `board-negative-control`, which needs known-good prose rather than two arms.
+- **Out of scope.** Regenerating any committed org (the mail carve-out is
+  proposed only); the M18 flagship; changing the global zat.env skills
+  (using Claude Code's built-in `/code-review` as a second finder is a
+  zat.env change); a false-positive-rate measurement for the board.
 
-- **Baselines for this turn.** Suite green at `71ce014`: 16 short, 716 unit,
-  228 org (+27 skipped), 65 flagship (+5 skipped). Nine committed orgs,
-  `PINNED = SLUGS` fleet-wide, v2.3.0 tagged and pushed. `CODEREVIEW.md` and
-  `SECURITY.md` both record zero open findings.
+- **Baselines for this turn.** Suite green at `aef75a9`: 16 short, 739 unit,
+  230 org (+27 skipped), 65 flagship (+5 skipped). Nine committed orgs,
+  `PINNED = SLUGS`, v2.3.0 tagged and pushed; M17c closed at 9/11 with no
+  version bump.
 
 ---
-*Prior spec (2026-08-02): M17b, the batch-boundary turn; 12/12 criteria met,
-four default-off knobs and a structural similarity axis landed with no fixture
-regenerated.*
+*Prior spec (2026-08-03): M17c, the controlled proof; 9/11 criteria met. The
+outline knob moved authored shape 7.7x the noise floor but relocated
+convergence and left word choice unmoved, and the treatment arm was declined
+for commit over a doubled-noun rendering defect.*
 
-### Proposal (2026-08-10)
-
-**What happened.** M17c generated `quillon-harbor` three times through the live
-airlock (control, treatment, control-replicate): 177 documents, 39 batches,
-**zero ingest rejections**. 9 of 11 criteria met; 8 and 11 declined with cause
-rather than dropped.
-
-The measurement, pre-registered and run once: the outline work **does** move
-authored shape, same-genre structural similarity 0.372 to 0.309 over 245 pairs
-per arm against a 0.008 run-to-run floor, so 7.7x the like-for-like noise. But
-it **relocates** convergence as much as it reduces it (the 50 same-skeleton
-pairs score 0.402, worse than a typical control pair), it does **not** move word
-choice (lexical 0.0073/0.0066/0.0077, treatment gap under the control-replicate
-spread), and per-pair noise of 0.110 means no single pair's score may be read as
-an effect. A blind board scored variety 4 (control) against 5 (treatment) with a
-blocker on the control and none on the treatment, but answered the dimension's
-own question identically on both. Both reviewers independently judged the
-lexical metric misleading and shape the real signal.
-
-**Neither arm was committed.** The treatment arm's six-dimension board returned
-**5 blockers**, three of them one fact-surface defect: a count fact renders
-carrying its own noun and authors wrote the noun again, so 12 of 59 documents
-ship "15 acquisition targets targets" into the rendered `.docx`, including an
-executed engagement letter. `scope` and the funnel counts also do not nest, so
-four engagements read "of the 12 candidates... 64 have been screened". No
-committed fixture moved and no carve-out opened.
-
-Also this turn: `docs/M17C-RUN-LOG.md` records nine findings from the knobs'
-first live exercise, including that the airlock does not stop a worker inventing
-quantities no ledger owns (0 vs 18 such numbers across two identical control
-runs). `docs/REVIEW-CALIBRATION.md` gained a second-org calibration. A newcomer
-pass on README added the fleet rationale and fixed four stale claims, including
-a validator described as 29-, 34- and 37-rule in four places when `RULES` has 39.
-A fleet audit found **`ashcombe-advisory` is a third org carrying the
-recipient-mention defect**, and the only one where a board rates it a blocker.
-
-**Questions and directions.**
-
-1. **Fix the scope knob and re-run the treatment arm?** The board corrected the
-   remedy this log first proposed: four of eight engagements reconcile `scope`
-   against the funnel correctly, so the fix is a **briefing constraint, not a
-   ledger change**. Add a doubled-noun ingest check (mechanical, catches all 12),
-   then re-run and commit a clean `quillon-harbor`. Any re-measurement must be
-   labelled a follow-up with a changed treatment, not a second draw on the
-   pre-registration.
-2. **A mail-regeneration carve-out for the three orgs?** `ashcombe-advisory`,
-   `hollowell-ip`, `meridian-actuarial` all run `exempt_recipient_mentions: off`
-   and the fix is landed and proven inert. Ashcombe is the strongest case.
-3. **Can the board work at flagship scale at all?** `board-yield-at-scale`
-   records findings-per-sampled-document falling from 0.725 (northgate, 51
-   sampled) to 0.048 (calderwood, 168 sampled) at the same coverage band. M18 is
-   ~12x calderwood. Cheapest probe is re-boarding calderwood and measuring the
-   yield a second time.
-4. **Does M18 go before or after 1-3?** Three of this turn's findings gate it:
-   the scope knob is not ready, the board may not scale, and the airlock permits
-   unverifiable invented quantities.
-
-<!-- SPEC_META: {"date":"2026-08-03","title":"M17c: the controlled proof","criteria_total":11,"criteria_met":9} -->
+<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":0} -->
