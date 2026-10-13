@@ -57,7 +57,7 @@ nothing on.
 | Variable | Meaning |
 | --- | --- |
 | `ORGSMITH_AUTHOR_PROVIDER` | Active provider: `openai`, `anthropic`, `google`, `openrouter`, `local`. Unset = BYO mode off. |
-| `ORGSMITH_AUTHOR_EFFORT` | Stamped into the `generator` record (default `high`). Advisory for non-Claude providers. |
+| `ORGSMITH_AUTHOR_EFFORT` | Effort for the Anthropic provider (default `high`; one of `low`, `medium`, `high`, `xhigh`, `max`). Sent as `output_config.effort` and stamped into the `generator` record. The OpenAI-shape providers have no effort parameter, so their stamp records `provider-default` rather than a value nothing sent. |
 | `ORGSMITH_AUTHOR_MODEL` | Optional global model override (else the per-provider default). |
 
 ## Providers
@@ -79,6 +79,25 @@ prints the effective model, so a stale default is visible before a token is
 spent. Reasoning models that reject `max_tokens` (OpenAI o-series) are best
 reached through a gateway or the `local` entry.
 
+**Output cap and truncation.** Each provider has its own default `max_tokens`
+(64,000 for Anthropic, 16,384 for the OpenAI shape; `--max-tokens` overrides
+it). Anthropic's is large because Opus 5.5 always thinks before it answers and
+the thinking spends from the same cap as the deliverable; a six-document batch
+of DocIR JSON is already ~6K tokens before any thinking. The OpenAI shape stays
+under `gpt-4.1`'s 32,768 ceiling. A reply the provider cuts off at the cap
+(`stop_reason: max_tokens`, or `finish_reason: length`) stops the run with a
+line naming the truncation and the cap. It does not enter the repair loop,
+which would re-send the same request into the same limit under the wrong
+diagnosis. The default `--timeout` is 600 seconds, because a non-streaming
+request returns only when the whole reply is written.
+
+**Effort, and why it is sent rather than recorded.** Before M17d the driver
+stamped `ORGSMITH_AUTHOR_EFFORT` into the generator record and sent nothing. On
+Opus 5.5 a request that omits effort runs at `medium`, below the authoring floor
+(`orgsmith/effort.py`), so a BYO run could author below the floor while its
+provenance said it met it. The Anthropic request now carries the effort the
+record names, and an effort outside the known levels fails `--check`.
+
 ## Model choice
 
 OrgSmith's authoring is strict. Every fact briefed for a document must appear as
@@ -99,12 +118,15 @@ So the OpenAI and OpenRouter defaults are `gpt-4.1`, not `gpt-4o`. The
 recommendations for the other providers are by analogy (the strong tier of each
 family), not separately measured:
 
-- **Anthropic:** `claude-sonnet-5` or Opus. The committed fleet is authored on
-  Opus, and MODEL-AB Round 2 showed Sonnet is a capable author.
+- **Anthropic:** `claude-opus-5-5`, the default. The committed fleet is
+  authored on Opus, and MODEL-AB Round 2 found that Sonnet, while a capable
+  author, used 1.89x the tokens for identical work, so its cost case failed
+  before its quality case did. `claude-sonnet-5-5` is a reasonable override if
+  you measure otherwise.
 - **Google:** `gemini-2.5-pro`, not `gemini-2.5-flash`. The cheap tier will miss
   the placeholder discipline the way `gpt-4o` did.
 - **OpenRouter:** route to a frontier model (`openai/gpt-4.1`,
-  `anthropic/claude-sonnet-5`, `google/gemini-2.5-pro`); a cheap or small routed
+  `anthropic/claude-opus-5-5`, `google/gemini-2.5-pro`); a cheap or small routed
   model fails the same way.
 - **local:** use the largest, strongest instruction-following model your
   hardware runs. Small local models (7-14B) will not hold the discipline; a
@@ -134,7 +156,8 @@ Code dependency:
 
 Flags: `--provider NAME` (override the selection for one run), `--root DIR`,
 `--only enrich|author` (restrict which model pass runs; the pure stages always
-run), `--max-retries N` (default 2), `--timeout SECONDS`, `--dry-run`.
+run), `--max-retries N` (default 2), `--timeout SECONDS` (default 600),
+`--max-tokens N` (default: the provider's own), `--dry-run`.
 
 Resume works the same way `/forge` resumes: state is file-derived in
 `state.json`, and the serial `--ingest` is a single-writer merge, so a killed
@@ -143,7 +166,7 @@ run is safe to re-run.
 ### Generator provenance
 
 Each deliverable is stamped with a truthful `generator` record,
-`{"model": "<provider>:<model>", "effort": "<effort>"}`, which `report`
+`{"model": "<provider>:<model>", "effort": "<effort sent>"}`, which `report`
 surfaces in `GENERATION-REPORT.md`. As always, the record is a note for a
 human, never a validator oracle.
 

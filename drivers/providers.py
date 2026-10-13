@@ -23,7 +23,9 @@ import urllib.request
 from .config import Provider, base_url_for, base_url_scheme_ok, key_for
 
 ANTHROPIC_VERSION = "2023-06-01"
-DEFAULT_MAX_TOKENS = 8192
+# The fallback cap for a caller that names none. The driver passes each
+# provider's own `default_max_tokens` instead (drivers.config).
+DEFAULT_MAX_TOKENS = 16384
 
 
 def _log(message: str) -> None:
@@ -49,14 +51,20 @@ def call_provider(
     system: str,
     user: str,
     model: str,
-    timeout: int = 120,
+    timeout: int = 600,
     max_tokens: int = DEFAULT_MAX_TOKENS,
+    effort: str | None = None,
 ) -> str | None:
     """Return the assistant's text, or None on any operational failure.
 
     Dispatches on `provider.shape`. Never raises for a network/HTTP/parse
     failure: it logs one stderr line tagged with the provider name and returns
-    None.
+    None. A reply the provider cut off at `max_tokens` is also None, with a
+    line naming the truncation: a truncated deliverable is unbalanced JSON,
+    and handing it to the repair loop would re-send the same request into the
+    same limit under the wrong diagnosis.
+
+    `effort` is sent only by the Anthropic shape, as `output_config.effort`.
     """
     key = key_for(provider)
     if provider.key_required and not key:
@@ -79,6 +87,7 @@ def call_provider(
             return _call_anthropic(
                 base_url, key, system=system, user=user, model=model,
                 timeout=timeout, max_tokens=max_tokens, name=provider.name,
+                effort=effort,
             )
         return _call_openai_compatible(
             base_url, key, system=system, user=user, model=model,
@@ -131,6 +140,9 @@ def _call_openai_compatible(
     if not choices:
         _log(f"[{name}] empty response (no choices); skipping")
         return None
+    if choices[0].get("finish_reason") == "length":
+        _log(_truncated(name, max_tokens, "finish_reason length"))
+        return None
     text = (choices[0].get("message") or {}).get("content")
     if not text or not text.strip():
         _log(f"[{name}] empty response (no content); skipping")
@@ -138,9 +150,16 @@ def _call_openai_compatible(
     return text
 
 
+def _truncated(name: str, max_tokens: int, reason: str) -> str:
+    return (
+        f"[{name}] reply truncated at the output limit (max_tokens={max_tokens}, "
+        f"{reason}); raise --max-tokens and re-run"
+    )
+
+
 def _call_anthropic(
     base_url: str, key: str | None, *, system: str, user: str, model: str,
-    timeout: int, max_tokens: int, name: str,
+    timeout: int, max_tokens: int, name: str, effort: str | None = None,
 ) -> str | None:
     headers = {"anthropic-version": ANTHROPIC_VERSION}
     if key:
@@ -151,9 +170,14 @@ def _call_anthropic(
         "system": system,
         "messages": [{"role": "user", "content": user}],
     }
+    if effort:
+        body["output_config"] = {"effort": effort}
     payload = _post_json(
         f"{base_url}/messages", headers=headers, body=body, timeout=timeout
     )
+    if payload.get("stop_reason") == "max_tokens":
+        _log(_truncated(name, max_tokens, "stop_reason max_tokens"))
+        return None
     blocks = payload.get("content") or []
     parts = [b.get("text", "") for b in blocks if b.get("type") == "text"]
     text = "".join(parts)

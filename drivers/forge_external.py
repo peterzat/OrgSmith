@@ -38,7 +38,7 @@ from orgsmith.schemas import AuthoringDeliverable, EnrichmentDeliverable
 from orgsmith.state import load_state
 
 from .config import (
-    author_effort,
+    effort_sent,
     base_url_for,
     key_for,
     load_provider_env,
@@ -48,7 +48,7 @@ from .config import (
     select_provider,
     selected_provider_name,
 )
-from .providers import DEFAULT_MAX_TOKENS, call_provider
+from .providers import call_provider
 
 SYSTEM_PROMPT = """\
 You are an author inside a synthetic-organization document-generation
@@ -197,6 +197,7 @@ def author_and_ingest(
             model=resolved.model,
             timeout=resolved.timeout,
             max_tokens=resolved.max_tokens,
+            effort=resolved.effort if resolved.provider.sends_effort else None,
         )
         if text is None:
             raise DriverError(
@@ -363,7 +364,10 @@ def check(explicit: str | None) -> int:
     print(f"BYO authoring: provider={provider.name} shape={provider.shape}")
     print(f"  base_url: {base_url_for(provider) or '(unset)'}")
     print(f"  model:    {model_for(provider) or '(unset)'}")
-    print(f"  effort:   {author_effort()}")
+    sent = effort_sent(provider)
+    note = "" if provider.sends_effort else " (this API has no effort parameter)"
+    print(f"  effort:   {sent}{note}")
+    print(f"  max_tokens: {provider.default_max_tokens} (override with --max-tokens)")
     key_state = "present" if key_for(provider) is not None else "absent"
     print(f"  api key:  {key_state} ({provider.key_env})")
     print(f"  config:   {path} ({file_state})")
@@ -395,8 +399,13 @@ def _build_parser() -> argparse.ArgumentParser:
         help="restrict which model pass runs (pure stages always run)",
     )
     parser.add_argument("--max-retries", type=int, default=2)
-    parser.add_argument("--timeout", type=int, default=120)
-    parser.add_argument("--max-tokens", type=int, default=DEFAULT_MAX_TOKENS)
+    # Long, because a non-streaming request returns only once the whole
+    # deliverable (and, on Anthropic, the thinking before it) is written.
+    parser.add_argument("--timeout", type=int, default=600)
+    parser.add_argument(
+        "--max-tokens", type=int, default=None,
+        help="output cap per request (default: the provider's own)",
+    )
     parser.add_argument(
         "--dry-run", action="store_true",
         help="resolve the provider and print what would run, without calling it",
@@ -449,9 +458,9 @@ def main(argv=None) -> int:
         base_url=base_url_for(provider),
         model=model,
         generator_model=f"{provider.name}:{model}",
-        effort=author_effort(),
+        effort=effort_sent(provider),
         timeout=args.timeout,
-        max_tokens=args.max_tokens,
+        max_tokens=args.max_tokens or provider.default_max_tokens,
         max_retries=args.max_retries,
     )
 

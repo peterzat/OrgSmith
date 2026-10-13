@@ -275,7 +275,7 @@ def test_repair_loop_reprompts_with_rejection(tmp_path, monkeypatch):
     paths, wo_path = _make_wo(tmp_path, "foundation-0001.json", "wo:foundation:0001")
     prompts = []
 
-    def fake_call(provider, *, system, user, model, timeout, max_tokens):
+    def fake_call(provider, *, system, user, model, timeout, max_tokens, effort=None):
         prompts.append(user)
         return _enrichment_json()
 
@@ -419,3 +419,127 @@ def test_check_selected_ready(monkeypatch):
 def test_check_bogus_provider_errors(monkeypatch):
     monkeypatch.setenv("ORGSMITH_AUTHOR_PROVIDER", "bogus")
     assert check(None) == 2
+
+
+# --- M17d: send what is recorded, and fail loudly on truncation -------------
+
+
+def _urlopen_capturing(payload, seen):
+    def _open(req, timeout=None):
+        seen.append(json.loads(req.data.decode("utf-8")))
+        return _FakeResp(payload)
+
+    return _open
+
+
+def test_anthropic_request_carries_effort(monkeypatch):
+    monkeypatch.setenv(PROVIDERS["anthropic"].key_env, "sk-ant")
+    seen: list[dict] = []
+    monkeypatch.setattr(
+        urllib.request, "urlopen",
+        _urlopen_capturing({"content": [{"type": "text", "text": "ok"}]}, seen),
+    )
+    providers.call_provider(
+        PROVIDERS["anthropic"], system="s", user="u", model="m", effort="xhigh"
+    )
+    assert seen[0]["output_config"] == {"effort": "xhigh"}
+
+
+def test_anthropic_request_without_effort_sends_none(monkeypatch):
+    monkeypatch.setenv(PROVIDERS["anthropic"].key_env, "sk-ant")
+    seen: list[dict] = []
+    monkeypatch.setattr(
+        urllib.request, "urlopen",
+        _urlopen_capturing({"content": [{"type": "text", "text": "ok"}]}, seen),
+    )
+    providers.call_provider(PROVIDERS["anthropic"], system="s", user="u", model="m")
+    assert "output_config" not in seen[0]
+
+
+def test_openai_request_never_carries_effort(monkeypatch):
+    monkeypatch.setenv(PROVIDERS["openai"].key_env, "sk-test")
+    seen: list[dict] = []
+    monkeypatch.setattr(
+        urllib.request, "urlopen",
+        _urlopen_capturing({"choices": [{"message": {"content": "ok"}}]}, seen),
+    )
+    providers.call_provider(
+        PROVIDERS["openai"], system="s", user="u", model="m", effort="high"
+    )
+    assert "output_config" not in seen[0] and "effort" not in json.dumps(seen[0])
+
+
+def test_anthropic_truncation_is_named_not_repaired(monkeypatch, capsys):
+    monkeypatch.setenv(PROVIDERS["anthropic"].key_env, "sk-ant")
+    monkeypatch.setattr(
+        urllib.request, "urlopen",
+        _urlopen_returning(
+            {"stop_reason": "max_tokens", "content": [{"type": "text", "text": '{"a":'}]}
+        ),
+    )
+    out = providers.call_provider(
+        PROVIDERS["anthropic"], system="s", user="u", model="m", max_tokens=123
+    )
+    assert out is None
+    err = capsys.readouterr().err
+    assert "truncated" in err and "max_tokens=123" in err
+
+
+def test_openai_truncation_is_named_not_repaired(monkeypatch, capsys):
+    monkeypatch.setenv(PROVIDERS["openai"].key_env, "sk-test")
+    monkeypatch.setattr(
+        urllib.request, "urlopen",
+        _urlopen_returning(
+            {"choices": [{"finish_reason": "length", "message": {"content": '{"a":'}}]}
+        ),
+    )
+    out = providers.call_provider(
+        PROVIDERS["openai"], system="s", user="u", model="m", max_tokens=77
+    )
+    assert out is None
+    assert "max_tokens=77" in capsys.readouterr().err
+
+
+def test_stamp_records_the_effort_actually_sent(monkeypatch):
+    monkeypatch.setenv("ORGSMITH_AUTHOR_EFFORT", "xhigh")
+    assert config.effort_sent(PROVIDERS["anthropic"]) == "xhigh"
+    # A shape with no effort parameter never claims one.
+    assert config.effort_sent(PROVIDERS["openai"]) == config.EFFORT_NOT_SENT
+
+
+def test_driver_passes_effort_only_to_a_shape_that_sends_it(tmp_path, monkeypatch):
+    paths, wo_path = _make_wo(tmp_path, "foundation-0001.json", "wo:foundation:0001")
+    calls: list[dict] = []
+
+    def fake_call(*a, **k):
+        calls.append(k)
+        return _enrichment_json()
+
+    monkeypatch.setattr(forge_external, "call_provider", fake_call)
+    monkeypatch.setattr(forge_external, "run_cli", lambda *a, **k: (0, "ok"))
+    author_and_ingest(
+        paths, _resolved("anthropic", "claude-opus-5-5"), "foundation", wo_path,
+        EnrichmentDeliverable,
+    )
+    author_and_ingest(paths, _resolved("openai"), "foundation", wo_path, EnrichmentDeliverable)
+    assert calls[0]["effort"] == "high" and calls[1]["effort"] is None
+
+
+def test_defaults_fit_a_full_batch_and_name_the_current_opus():
+    anthropic = PROVIDERS["anthropic"]
+    assert anthropic.default_model == "claude-opus-5-5"
+    assert anthropic.sends_effort
+    # A six-document batch at ~700 words a document is ~6K tokens of DocIR
+    # JSON before adaptive thinking, which spends from the same cap.
+    assert anthropic.default_max_tokens >= 32000
+    # gpt-4.1 rejects a cap above 32,768; the OpenAI-shape default stays under it.
+    assert all(
+        p.default_max_tokens <= 32768 for p in PROVIDERS.values() if p.shape == "openai"
+    )
+
+
+def test_invalid_effort_is_not_ready(monkeypatch):
+    monkeypatch.setenv(PROVIDERS["anthropic"].key_env, "sk-ant")
+    monkeypatch.setenv("ORGSMITH_AUTHOR_EFFORT", "turbo")
+    missing = config.missing_requirements(PROVIDERS["anthropic"])
+    assert any("valid effort" in m for m in missing)

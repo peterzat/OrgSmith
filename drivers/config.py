@@ -26,6 +26,11 @@ from urllib.parse import urlparse
 
 DEFAULT_EFFORT = "high"
 
+# Recorded in the generator stamp when the provider's API has no effort
+# parameter to send. The stamp must describe what the request carried, so a
+# shape that cannot carry an effort never claims one.
+EFFORT_NOT_SENT = "provider-default"
+
 # Outbound requests may only go to an http(s) endpoint. base_url is operator-set
 # (env or the user's providers.env), so this is defense in depth, not a guard
 # against untrusted input: it refuses a stray file:/ftp:/gopher: scheme before it
@@ -62,6 +67,14 @@ class Provider:
     base_url_env: str
     model_env: str
     key_required: bool = True  # local/self-hosted endpoints may need no key
+    # The output cap sent per request. Per provider, because one number cannot
+    # serve both shapes: an Anthropic reply's adaptive thinking spends from
+    # the same budget as the deliverable, so a six-document batch needs far
+    # more than 8192, while gpt-4.1 rejects a cap above its 32,768 ceiling.
+    default_max_tokens: int = 16384
+    # Whether the API accepts an effort setting the driver can send. Only the
+    # Anthropic Messages shape does (`output_config.effort`).
+    sends_effort: bool = False
 
 
 # The four named providers plus a generic OpenAI-compatible `local` entry. The
@@ -93,9 +106,14 @@ PROVIDERS: dict[str, Provider] = {
         shape="anthropic",
         default_base_url="https://api.anthropic.com/v1",
         key_env="ANTHROPIC_API_KEY",
-        default_model="claude-sonnet-5",
+        # Opus, not Sonnet: docs/MODEL-AB.md Round 2 found Sonnet used 1.89x
+        # the tokens for identical work, so its cost case failed before its
+        # quality case did, and the committed fleet is authored on Opus.
+        default_model="claude-opus-5-5",
         base_url_env="ORGSMITH_ANTHROPIC_BASE_URL",
         model_env="ORGSMITH_ANTHROPIC_MODEL",
+        default_max_tokens=64000,
+        sends_effort=True,
     ),
     "google": Provider(
         name="google",
@@ -214,6 +232,15 @@ def author_effort() -> str:
     return os.environ.get("ORGSMITH_AUTHOR_EFFORT", DEFAULT_EFFORT)
 
 
+def effort_sent(provider: Provider) -> str:
+    """The effort the request will actually carry, which is what the
+    generator stamp records. Before M17d the stamp recorded the configured
+    effort whether or not it was sent, and an Anthropic request that omits
+    effort now runs at `medium`, below the authoring floor, so a BYO run
+    could author below the floor while its provenance said it met it."""
+    return author_effort() if provider.sends_effort else EFFORT_NOT_SENT
+
+
 def missing_requirements(provider: Provider) -> list[str]:
     """What a selected provider still needs before it can author. Empty means
     ready. Used by `--check` to fail loud when a provider is chosen but not
@@ -228,4 +255,12 @@ def missing_requirements(provider: Provider) -> list[str]:
         missing.append(f"model ({provider.model_env})")
     if provider.key_required and key_for(provider) is None:
         missing.append(f"api key ({provider.key_env})")
+    if provider.sends_effort:
+        from orgsmith.effort import EFFORT_ORDER
+
+        if author_effort() not in EFFORT_ORDER:
+            missing.append(
+                f"a valid effort (ORGSMITH_AUTHOR_EFFORT={author_effort()!r}; "
+                f"one of {', '.join(EFFORT_ORDER)})"
+            )
     return missing
