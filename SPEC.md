@@ -125,7 +125,7 @@ regenerated and no carve-out opens.
   fact (re-emission order, the serialization traps, the current freeze
   status), and it is under 100 lines.
 
-- [ ] **The docs reconcile to what the turn found, and it ships.** README,
+- [x] **The docs reconcile to what the turn found, and it ships.** README,
   `docs/MODEL-AB.md` (Round 3), `docs/RECIPE-FORMAT.md`,
   `docs/BYO-AUTHORING.md`, `docs/REVIEW-CALIBRATION.md`, `BACKLOG.md`,
   `CHECKSUMS.md`, and every data card state the final state. The mail-org
@@ -229,7 +229,9 @@ for commit over a doubled-noun rendering defect.*
 ### Proposal (2026-10-13)
 
 **What happened.** M17d ran autonomously at the user's instruction and met
-12 of 13 criteria before the push (the thirteenth is the push itself). No
+13 of 13 criteria; it was pushed to `origin/main` at `fa813f5` after a
+`/codereview` with 0 BLOCK (2 WARN fixed, 12 NOTE recorded) and a clean
+`/security`. No
 committed org was regenerated; `PINNED = SLUGS` held at every commit, and
 the nine existing orgs' ledgers, manifests and prose are byte-identical to
 `aef75a9`.
@@ -287,4 +289,4 @@ the nine existing orgs' ledgers, manifests and prose are byte-identical to
 - `overview-names-live-mandates`: found by four reviewers on two boards;
   cheap and knob-shaped. 27 more entries in BACKLOG.md.
 
-<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":12} -->
+<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":13} -->
