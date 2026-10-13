@@ -188,3 +188,9 @@ rejected. Read before drafting a new SPEC.md; swept at turn close.
 - **Why deferred:** the fix is a brief scoped to `company_overview`, which changes every brief of every `book_is_sample` org, so it lands as a knob or with a regeneration.
 - **Revisit criteria:** a board flags it on a second org; or the overview briefing is touched; or `book_is_sample` is adopted by a new org.
 - **Origin:** `docs/M17D-BOARD-RECALL.md` (incidental findings); spec 2026-10-13.
+
+### closing-stage-reported-early
+- **The closing-stage post-pass (M17d) can make a mid-engagement document report the funnel's final tally.** `_host_closing_stages` hands every stage no earlier document cites to the engagement's latest pipeline-citing document, so no planted fact goes unstated. Where that document sits well before the funnel closes, it states a final count early. Observed on the tenth org: `quillon-harbor`'s recapitalization has one pipeline document, a status report a week into lender outreach (`d:0024`, 50% of the engagement), which now carries the final term-sheet count; its author wrote them as early indicative term sheets, which reads coherently but strains.
+- **Why deferred:** the alternative was worse. Before M17d every scope-on engagement planted a final stage no document could cite (a ledger fact absent from the answer key, against `docs/RECIPE-FORMAT.md`'s promise), and strict date gating cannot host it because no document is dated at the engagement's end. The full fix is a planner that dates a closing document after the funnel completes for every engagement with a pipeline, which changes document supply and is its own unit of work.
+- **Revisit criteria:** a board flags a final tally reported early; or the planner's per-engagement document supply is touched; or M18 is specced with scope on, where every engagement's closing document matters.
+- **Origin:** spec 2026-10-13 (M17d, found by the `author-0016` worker re-authoring `d:0024`).
