@@ -101,6 +101,14 @@ def main(argv=None) -> int:
         "--sample", action="store_true", help="deterministic stratified reading list"
     )
     g.add_argument("--ingest", metavar="FILE", help="merge review findings")
+    g.add_argument(
+        "--digest", action="store_true",
+        help="print a digest of everything the board may read (read-only check)",
+    )
+    g.add_argument(
+        "--verify-digest", metavar="HEX",
+        help="exit 1 if the org changed since --digest printed HEX",
+    )
     p_rev.add_argument("--json", action="store_true", dest="as_json")
 
     _add_slug(
@@ -276,6 +284,10 @@ def _run_org_verb(args, paths, parser) -> int:
             from .review import run_sample
 
             return run_sample(paths, as_json=args.as_json)
+        if args.digest or args.verify_digest:
+            from .review.digest import run_digest
+
+            return run_digest(paths, verify=args.verify_digest)
         from .review import run_review_ingest
 
         return run_review_ingest(paths, Path(args.ingest))
