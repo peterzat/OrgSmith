@@ -65,7 +65,7 @@ regenerated and no carve-out opens.
   the M17c `alpha`/`gamma` split (fewer in `alpha`), and no test tier or
   validator rule thresholds it.
 
-- [ ] **A tenth org is committed and frozen.** `quillon-harbor`, re-authored
+- [x] **A tenth org is committed and frozen.** `quillon-harbor`, re-authored
   as a labelled follow-up to M17c's treatment arm with this turn's knobs on,
   is generated through the live `/forge` airlock on `claude-opus-5-5`,
   validates clean, scores 100% on every eval split by construction, joins
@@ -226,4 +226,65 @@ outline knob moved authored shape 7.7x the noise floor but relocated
 convergence and left word choice unmoved, and the treatment arm was declined
 for commit over a doubled-noun rendering defect.*
 
-<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":11} -->
+### Proposal (2026-10-13)
+
+**What happened.** M17d ran autonomously at the user's instruction and met
+12 of 13 criteria before the push (the thirteenth is the push itself). No
+committed org was regenerated; `PINNED = SLUGS` held at every commit, and
+the nine existing orgs' ledgers, manifests and prose are byte-identical to
+`aef75a9`.
+
+- **Five default-off knobs** (business-day engagement starts, partner
+  oversight with a new rule OVR-01, per-service scope profiles on a new seed
+  stream, declared era shocks, the scope-on brief changes) and the REND-01
+  ingest check, which replays exactly M17c's eleven doubled nouns and
+  nothing else. `report` now measures numbers no ledger owns.
+- **The Opus 5.5 probe, pre-registered and run on pinned code**: against
+  byte-identical work orders, no structural axis moved and lexical overlap
+  rose 6.75x the floor. A blind reviewer answered "not one person" on the
+  Opus 5.5 arm, n = 1. By its own rule: a newer model is not a reason to
+  regenerate the fleet.
+- **The recall probe hit a ceiling** (12/12 planted defects at 50 and at 168
+  documents) and showed findings per reviewer nearly flat in corpus size, so
+  `board-yield-at-scale`'s drop is mostly a denominator.
+- **`quillon-harbor` is the tenth committed org**, built on `claude-opus-5-5`
+  with every fix on. Building it exposed a latent M17b defect (the final
+  funnel stage was planted and never stated, on every scope-on engagement
+  ever generated) and a process bug (`tools/checksums.py` recorded an
+  untracked org as 0 files); both are fixed in code with tests. Its board:
+  1 blocker (the fleet-wide flat-fee model) and 22 majors, against M17c's
+  treatment arm's 5 blockers.
+- **Agent-first changes:** a state lock on every state-writing verb, a board
+  digest, a short-tier test that skills name only real commands, explicit
+  model and effort at dispatch, BYO authoring that sends the effort it
+  records, and a CLAUDE.md cut from 178 lines to 99.
+
+**Questions and directions.**
+
+1. **Approve the mail-org carve-out?** `ashcombe-advisory`, `hollowell-ip`
+   and `meridian-actuarial` would be regenerated with
+   `mail.exempt_recipient_mentions` on (BACKLOG
+   `mail-orgs-recipient-mention-carve-out`). The probe removes the case for
+   folding a model swap into it, so the case is the mail device alone.
+2. **M18 or a generator turn first?** M17c's three gates are closed, but the
+   tenth org's boards found knob-shaped generator gaps that a 2,000-document
+   flagship would multiply: firm overviews naming live mandates, brief text
+   read back as content, a roster that never promotes below VP, count
+   magnitudes authors cannot see, and (for a transaction-driven recipe) the
+   flat-fee model. A short generator turn would land them as knobs.
+3. **Shard the flagship's board.** Recall of loud defects held at 168
+   documents, but subtle-defect recall at length is unmeasured; the cheap
+   course is no reviewer reading more than about 50 documents. A re-run of
+   the recall probe with quieter plants, rendered after planting, would
+   measure what sharding protects.
+4. **Scope on the flagship?** It works, with two recorded residuals:
+   `closing-stage-reported-early` and `authors-cannot-see-a-count-magnitude`.
+
+**Revisit candidates.**
+
+- `mail-orgs-recipient-mention-carve-out`: its criterion is user approval.
+- `board-yield-at-scale`: M18 is next, and the board must be sharded first.
+- `overview-names-live-mandates`: found by four reviewers on two boards;
+  cheap and knob-shaped. 27 more entries in BACKLOG.md.
+
+<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":12} -->
