@@ -354,6 +354,12 @@ def assign_oversight(charter: Charter, foundation: Foundation, engagements) -> N
     made lead, so the lead and its documents do not move), ties drawn from
     the NEW `fabric.engagements.oversight` stream keyed by engagement id.
     Knob off returns before touching anything or constructing an RNG.
+
+    Appending does move the team's LAST slot, which the planner reads as its
+    most-junior member: the senior takes the meeting minutes
+    (`author_role="junior"`) and every second engagement-thread message.
+    Found by the M17e boards; committed orgs carry it, so a fix lands as a
+    default-off placement knob (BACKLOG oversight-senior-takes-the-junior-slot).
     """
     if not charter.engagements.oversight_titles:
         return

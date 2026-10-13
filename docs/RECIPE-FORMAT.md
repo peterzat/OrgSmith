@@ -279,6 +279,11 @@ engagements:
   #   from the new fabric.engagements.oversight stream), and a team that
   #   already has one keeps it. M17c's board found no partner in any
   #   engagement document after 2015. OVR-01 recomputes eligibility.
+  #   Known side effect (M17e boards): appended last, the senior lands in the
+  #   team's most-junior slot, which takes the meeting minutes and every
+  #   second engagement-thread message. On the four orgs that adopted it the
+  #   partner keeps the minutes with associates in the room (BACKLOG
+  #   oversight-senior-takes-the-junior-slot).
 
 graph_targets:
   external_orgs: 3
