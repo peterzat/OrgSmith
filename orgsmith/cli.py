@@ -204,7 +204,25 @@ def main(argv=None) -> int:
         )
 
     paths = org_paths(args.slug, args.root)
+    if args.verb in _STATE_WRITERS:
+        from .state import state_lock
 
+        with state_lock(paths):
+            return _run_org_verb(args, paths, parser)
+    return _run_org_verb(args, paths, parser)
+
+
+# The verbs that load state.json, change it, and save it whole. Each runs
+# under `state_lock`, so two of them on one org cannot interleave a
+# read-modify-write (M17d). `doctor` is excluded: it writes probes only when
+# given a slug, takes no part in a generation window, and must stay runnable
+# against a wedged org.
+_STATE_WRITERS = frozenset(
+    {"charter", "foundation", "fabric", "docplan", "author", "render", "assemble"}
+)
+
+
+def _run_org_verb(args, paths, parser) -> int:
     if args.verb == "charter":
         from .charter import run_charter
 

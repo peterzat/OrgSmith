@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Annotated, Literal
 
@@ -127,6 +129,59 @@ def load_state(paths: OrgPaths) -> OrgState:
 
 def save_state(paths: OrgPaths, state: OrgState) -> None:
     write_model(paths.state_json, state)
+
+
+# Depth per locked directory, so a stage that calls another stage in the same
+# process re-enters instead of deadlocking on its own lock: flock locks belong
+# to an open file description, and a second open of the same directory in one
+# process would wait on the first.
+_HELD: dict[str, int] = {}
+
+
+@contextmanager
+def state_lock(paths: OrgPaths):
+    """Exclusive advisory lock over one org's `state.json` read-modify-write.
+
+    Every stage loads state, works, and saves it whole, so two processes
+    overlapping would each save over the other's update. M10 made that safe
+    by convention: `/forge` runs every `--ingest` itself, one at a time, and
+    tells its workers never to ingest. That is a rule in a prompt. This makes
+    it a property of the CLI (M17d): a second writer on the same org waits.
+
+    The lock is a `flock` on the org's metadata directory itself, so it leaves
+    no lock file in a committed tree. Before the first stage has created that
+    directory there is no state to race on, and nothing is locked. Advisory
+    and POSIX-only; on a platform without `fcntl` it is a no-op, which is the
+    behavior before this existed.
+    """
+    try:
+        import fcntl
+    except ImportError:  # pragma: no cover - non-POSIX
+        yield
+        return
+    target = paths.meta_dir
+    if not target.is_dir():
+        yield
+        return
+    key = str(target.resolve())
+    if _HELD.get(key):
+        _HELD[key] += 1
+        try:
+            yield
+        finally:
+            _HELD[key] -= 1
+        return
+    fd = os.open(target, os.O_RDONLY)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        _HELD[key] = 1
+        try:
+            yield
+        finally:
+            _HELD[key] = 0
+            fcntl.flock(fd, fcntl.LOCK_UN)
+    finally:
+        os.close(fd)
 
 
 def require_stages(state: OrgState, *names: str) -> None:
