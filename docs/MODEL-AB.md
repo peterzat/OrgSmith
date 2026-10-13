@@ -16,7 +16,11 @@ license a conclusion about a mid-tier model, and because the cost case for
 one deserved a number rather than an intuition. **Round 2's headline is
 that the cost case failed before the quality case did: Sonnet used 1.89x
 the tokens for identical work, which at standard pricing makes it more
-expensive than Opus, not less.**
+expensive than Opus, not less.** The third
+([Round 3](#round-3-opus-5-against-opus-55-2026-10-13)) is one Opus
+generation against the next, run to decide whether a new model is a reason
+to regenerate the frozen fleet. **It is not: Opus 5.5 moved no structural
+axis and raised lexical overlap.**
 
 ## Setup
 
@@ -406,3 +410,44 @@ and re-measure the control whenever the briefs change.** Round 1's headline
 number was invalidated by an unrelated milestone raising word targets, and
 nothing flagged it. Round 2's numbers will be invalidated the same way the
 next time the genre registry moves.
+
+
+# Round 3: Opus 5 against Opus 5.5 (2026-10-13)
+
+**Result: a new Opus generation is not, by itself, a reason to regenerate.**
+Against byte-identical work orders, Opus 5.5 moved no structural axis, raised
+same-genre lexical overlap by 6.75 times the noise floor, and wrote 5.3%
+fewer words. A blind reviewer answered "no" to "did one person write
+everything?" on the Opus 5.5 arm and "yes" on the Opus 5 arm, the first "no"
+any probe here has produced, at n = 1 and from a reviewer on Opus 5.5's own
+model.
+
+The full pre-registration, controls, and result are in
+[docs/M17D-OPUS55-PROBE.md](M17D-OPUS55-PROBE.md). In brief:
+
+- **The control is the strongest this document has had.** M17c left two Opus
+  5 control arms of one recipe (`quillon-harbor`) at `xhigh`, so the
+  run-to-run noise floor was already measured. The probe authored a fourth
+  arm on `claude-opus-5-5` at `xhigh` from a git worktree pinned at the
+  pre-registration commit. Every one of the 13 authoring work orders, and
+  the enrichment order, was byte-identical to the Opus 5 arm's. Rounds 1 and
+  2 could only control the ledgers and manifest, because each arm wrote its
+  own personas; here the personas were shared too.
+- **Structure did not move**: combined, shape, and openers gaps of 0.07x,
+  0.47x and 0.83x their floors.
+- **Word choice moved the wrong way**: lexical 4-gram overlap 0.0102 against
+  0.0073 and 0.0077. Exploratory reading: the rise is almost all engagement
+  letters, where a firm reusing its standard terms is realistic.
+- **Invented numbers: uninformative.** 0, inside the Opus 5 runs' own 0-18
+  range.
+- **Cost**: 1.46M subagent tokens for 59 documents, about 24,800 per
+  document. Not compared against Opus 5, whose usage was not captured.
+
+**What it does not show.** Eight of the fleet's nine orgs were authored on
+`claude-opus-4-8[1m]`; this compares Opus 5 with Opus 5.5 and does not
+measure 4.8. Every axis measures difference, not quality. One run per arm.
+
+**The rule this adds to Rounds 1 and 2:** a model generation is a variable
+like any other. The pre-registered rule said what would license a
+model-swap regeneration before any prose existed, and the result did not
+meet it, which saved a fleet run.

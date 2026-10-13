@@ -151,3 +151,91 @@ Kept because a pre-registration that is silently edited is not one. No
 amendment may change what counts as evidence.
 
 - (none yet)
+
+## The result, 2026-10-13
+
+Run once, as registered, from the worktree pinned at `ac4c1e2`. **All six
+grader hashes re-verified identical at measurement time.** Nothing above
+this section was edited after the first probe work order was dispatched.
+
+### The control held exactly
+
+- `delta` authored 59 of 59 documents in 13 batches with **zero ingest
+  rejections**, `claude-opus-5-5` at `xhigh` on every batch, and validates
+  clean on the same 27 rules as `alpha`.
+- `tools/ab_compare.py --control alpha --treatment delta`: **zero
+  differences** in the deterministic artifacts, identity fields identical.
+- **All 13 authoring work orders byte-identical** to `alpha`'s
+  same-numbered orders, and the enrichment order too. The model was the only
+  variable.
+
+### Each axis against its floor
+
+Gap is `delta` minus the mean of `alpha` and `gamma`; the floor is the
+`alpha`/`gamma` spread on the same axis. Lower similarity is more varied.
+
+| axis | alpha | gamma | delta | gap | floor | gap / floor | reading |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| structural, combined | 0.3721 | 0.3803 | 0.3756 | -0.0006 | 0.0082 | 0.07 | did not move |
+| structural, shape | 0.5483 | 0.5886 | 0.5872 | +0.0188 | 0.0403 | 0.47 | did not move |
+| structural, openers | 0.1959 | 0.1720 | 0.1640 | -0.0200 | 0.0239 | 0.83 | did not move |
+| lexical 4-gram | 0.0073 | 0.0077 | 0.0102 | +0.0027 | 0.0004 | 6.75 | **moved, toward MORE similar** |
+| unowned numbers | 0 | 18 | 0 | | [0, 18] | | inside the range: uninformative |
+| authored words | 39,763 | 39,761 | 37,668 | -5.3% | | | **moved, shorter** (just past the 5% line); every doc still inside 75%-150% of brief |
+
+**Exploratory, not registered:** the lexical rise is concentrated in one
+genre. Same-genre 4-gram overlap in engagement letters is 0.0481 against
+0.0270 and 0.0334; every other genre sits inside or near the control range.
+A firm reusing its own standard terms would show exactly this, and M17c's
+reviewer said the control arm did the opposite ("a firm reusing a template
+would repeat its governing-law clause verbatim and vary the deal
+narrative; this corpus does the opposite"), so the rise may read as more
+realistic rather than less. That is a reading, not a measurement, and it
+was not registered.
+
+### The blind voice verdict
+
+Both reviewers on `claude-opus-5-5` at `xhigh`, neutral paths, the assignment
+sealed outside the reviewable tree until both had reported, and every model
+id removed from the copies (work orders, `state.json` generator records, the
+report's provenance table, and `alpha`'s M17c board findings).
+
+| | delta (Opus 5.5) | alpha (Opus 5), re-read now | alpha, as M17c's reviewer read it |
+| --- | ---: | ---: | ---: |
+| blocker / major / minor / note | 0 / 2 / 4 / 2 | 0 / 3 / 1 / 2 | 1 / 5 / 2 / 1 |
+| variety score (0-10) | 5 | 4 | 4 |
+| does one person appear to have written everything? | **no** | **yes** | yes |
+
+The categorical answers favour `delta`: the only "no" either probe has
+produced. Both reviewers converged on the same residual on their own arm:
+paraphrased replays across years and authors, and one shared stock of moves
+underneath varied surfaces. `delta`'s reviewer named a failure the others
+did not: seniority does not show in the prose, so analysts write with
+partners' assurance.
+
+**Re-reading `alpha` is itself a calibration datum.** The same corpus drew a
+blocker and five majors from M17c's `claude-opus-5` reviewer and no blocker
+and three majors from this one. Reviewer-to-reviewer spread on a fixed
+corpus is at least that large, which is the scale any single board verdict
+in this repo has to be read against (`board-negative-control`).
+
+### What the result licenses
+
+Read by the rule fixed above, before any of this existed: **regeneration for
+the model alone is not supported.** No structural axis moved, and the one
+similarity axis that moved by three spreads (lexical) moved toward more
+similarity, which the standard names as a "not supported" outcome. The
+blind verdict is the single signal in `delta`'s favour; it is n = 1 per arm,
+and its reviewer runs on `delta`'s own model, the affinity confound this
+standard named in advance.
+
+The practical reading: a new Opus generation is not, by itself, a reason to
+regenerate the frozen fleet. What would be is a generator change the board
+can see, landed as a knob. That is what M17d spent its regeneration budget on
+instead: one new org (`quillon-harbor`) built with the turn's fixes on.
+
+### Cost, for the record
+
+1,464,500 subagent tokens across the 13 batches (71K to 160K per batch), 3.5
+to 11 minutes of wall time per batch at K = 4. Not compared: the M17c arms'
+usage was not captured.
