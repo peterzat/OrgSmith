@@ -166,8 +166,39 @@ def _fact_hint(fact, charter: Charter) -> str:
     if fact.kind == "count" and charter.engagements.scope is not None:
         noun = scope_noun(fact.id, charter.engagements.scope)
         if noun:
-            return f"count of {noun}; place where the number belongs"
+            # M17d (REND-01): this used to end "place where the number
+            # belongs", but the placeholder renders the number WITH its noun,
+            # and eleven M17c placements wrote the noun again ("15
+            # acquisition targets targets"). The hint now says what renders.
+            return (
+                f"count of {noun}; renders as the number together with its "
+                f"noun (\"N {noun}\"), so place it where that whole phrase "
+                f"belongs and do not write the noun again after it"
+            )
     return _KIND_HINTS[fact.kind]
+
+
+# M17d (SCOPE-D): a scope count and the funnel counts are separately drawn
+# quantities, and nothing makes them nest. M17c's treatment arm wrote "of the
+# 12 candidates... 64 have been screened" in four engagements, while four
+# others handled the same ledger correctly by never relating the two, so the
+# fix is a briefing constraint rather than a ledger change.
+_SCOPE_NESTING = (
+    " The scope and comparator counts and the pipeline stage counts are "
+    "separate measures of this engagement. Never write one as a share, "
+    "subset, or remainder of another (no \"of the N\", \"N of which\", or "
+    "\"out of\" linking them), and do not do arithmetic across them."
+)
+
+
+def _scope_guidance(body_refs: list[str], facts) -> str:
+    """The nesting constraint, for a brief that carries both kinds of scope
+    count. Empty otherwise, which includes every brief of an org with no scope
+    profile, so knob-off briefs stay byte-identical."""
+    counts = [ref for ref in body_refs if facts[ref].kind == "count"]
+    has_pipeline = any(".pipeline-" in ref for ref in counts)
+    has_other = any(".pipeline-" not in ref for ref in counts)
+    return _SCOPE_NESTING if has_pipeline and has_other else ""
 
 
 _BLOCK_NAMES = {
@@ -611,6 +642,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                 guidance += _style_guidance(
                     style_specs[entry.authors[0]], entry.genre
                 )
+            guidance += _scope_guidance(body_refs, facts)
             guidance += outline_text
             briefs.append(
                 DocBrief(

@@ -235,6 +235,67 @@ def _check_doc(doc: DocIR, brief: DocBrief) -> list[str]:
     return problems
 
 
+# Words that end a placeholder's clause for the doubled-noun check: a count
+# followed by "and", "of those", "were approached" or "to date" is ordinary
+# prose, and the check must not reach past them for a match.
+_CLAUSE_BREAK_WORDS = frozenset(
+    "a an and are as at be been but by for from had has have in into is it of "
+    "on or so than that the their then these this those through to was we "
+    "were which while who with".split()
+)
+_FOLLOWING_WORD = re.compile(r"[ \t]+([A-Za-z][A-Za-z'-]*)")
+
+
+def _noun_stem(word: str) -> str:
+    word = word.lower()
+    return word[:-1] if len(word) > 3 and word.endswith("s") else word
+
+
+def check_doubled_count_noun(doc: DocIR, facts) -> list[str]:
+    """Reject a count placeholder followed by its own noun (REND-01, M17d).
+
+    A count fact renders WITH its noun: `f:E-2016-001.scope` becomes "15
+    acquisition targets". M17c's treatment arm shipped eleven placements where
+    the author wrote the noun again ("scoped at {{...scope}} targets"), so the
+    rendered corpus read "15 acquisition targets targets", in an executed
+    engagement letter among others. Ingest could not see it: the placeholder
+    was briefed, present, and unduplicated, and the defect exists only in the
+    resolved surface.
+
+    This is an oracle, not a style check: it compares the words the author
+    wrote straight after the placeholder against the noun phrase the fact
+    itself renders. Up to two following words are read, stopping at
+    punctuation, another placeholder, or a clause word ("and", "of", "were"),
+    and singular and plural match. A different noun after the count ("12
+    acquisition targets carve-out situations") is not this check's to judge;
+    the brief now tells the author the placeholder supplies its noun.
+    """
+    problems = []
+    for chunk in _chunks(doc).split("\n"):
+        for match in _PLACEHOLDER.finditer(chunk):
+            fact = facts.get(match.group(1))
+            if fact is None or fact.kind != "count":
+                continue
+            noun = fact.rendered.split(" ", 1)[1] if " " in fact.rendered else ""
+            stems = {_noun_stem(w) for w in re.findall(r"[A-Za-z]+", noun)}
+            following: list[str] = []
+            pos = match.end()
+            while len(following) < 2:
+                word = _FOLLOWING_WORD.match(chunk, pos)
+                if word is None or word.group(1).lower() in _CLAUSE_BREAK_WORDS:
+                    break
+                following.append(word.group(1))
+                pos = word.end()
+            repeated = [w for w in following if _noun_stem(w) in stems]
+            if repeated:
+                problems.append(
+                    f"{fact.id} renders as {fact.rendered!r} and is followed by "
+                    f"{' '.join(following)!r}, which repeats its noun; the "
+                    f"placeholder supplies the noun, so do not write it again"
+                )
+    return problems
+
+
 def _check_hard_cases(doc: DocIR, entry, facts) -> list[str]:
     """Non-body facts must not surface in authored text in any guise: not
     as a placeholder (render or the filename owns their placement), not as
@@ -363,6 +424,8 @@ def run_ingest(paths: OrgPaths, deliverable_path: Path) -> int:
             for p in _check_doc(doc, brief):
                 problems.append(f"{doc.doc_id}: {p}")
             entry = entries.get(doc.doc_id)
+            for p in check_doubled_count_noun(doc, facts):
+                problems.append(f"{doc.doc_id}: {p}")
             if entry is not None:
                 for p in _check_hard_cases(doc, entry, facts):
                     problems.append(f"{doc.doc_id}: {p}")
