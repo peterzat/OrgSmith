@@ -139,9 +139,9 @@ from being one.
 
 ### What ships today
 
-All eight fleet orgs are committed and public in [`companies/`](companies/):
+All nine fleet orgs are committed and public in [`companies/`](companies/):
 every `<slug>/` is a real file share you can click through and every
-`<slug>-metadata/` is its answer key, sitting right next to it. A ninth
+`<slug>-metadata/` is its answer key, sitting right next to it. A tenth
 committed org, the test fixture [`dev-mini`](companies/dev-mini/), sits beside
 them. **If you are here to eyeball the output, read
 [`northgate-staffing`](companies/northgate-staffing/) and stop.** The rest of
@@ -150,7 +150,7 @@ posture, format mix, mail, noise), not to be read end to end.
 
 ### Why a fleet, and not just the best one
 
-Two questions arrive in this order for most readers: *why are there nine of
+Two questions arrive in this order for most readers: *why are there ten of
 these*, and *are they different levels of quality?* Both have short answers.
 
 **They are specimens, and the axes do not compose into one org.** A corpus
@@ -189,12 +189,14 @@ What does differ is **vintage, in exactly one place**:
 | | authored by | capability set |
 | --- | --- | --- |
 | `northgate-staffing` | `claude-opus-5` | the M13-M16 realism wave plus M17's `alias_agreement` and `exempt_recipient_mentions` |
+| `quillon-harbor` | `claude-opus-5-5` | the realism wave plus M17b's outline and scope knobs and M17d's five generator fixes (a new org, not a regeneration) |
 | the other eight | `claude-opus-4-8[1m]` | the M13-M16 realism wave |
 
 The M13-M16 wave regenerated **every** org wholesale and re-froze them, so the
 style/voice layer, the business-day calendar and the sample-book posture are
-fleet-wide. M17 then regenerated the exemplar alone with two more knobs. That
-is the entire spread: **two vintages, not nine**, on one schema id
+fleet-wide. M17 then regenerated the exemplar alone with two more knobs, and
+M17d added `quillon-harbor` as a new org built with that turn's fixes. That is
+the entire spread: **three vintages, not ten**, on one schema id
 (`orgsmith/state@1`) with no drift between them.
 
 The model difference is the one worth knowing about, because [model choice is
@@ -202,9 +204,11 @@ the single biggest lever on the prose](#which-model-should-write-your-documents)
 and OrgSmith pins none. The exemplar is the newer and better-written corpus.
 The other eight are one coherent vintage, not eight.
 
-**Nothing in the fleet carries the M17b knobs** (`outline_variety`,
-`engagements.scope`, `client_facing_reports`). Those are exactly what M17c
-tested and found [not ready to ship](#what-m17c-measured-and-the-answer-is-mixed).
+**Only `quillon-harbor` carries the M17b knobs** (`outline_variety`,
+`engagements.scope`, `client_facing_reports`). M17c tested them and found them
+[not ready to ship](#what-m17c-measured-and-the-answer-is-mixed); M17d fixed
+what M17c found and committed the result
+([below](#what-m17d-did-with-it)).
 
 **If you came for a specific hard case, the exemplar may still be the wrong
 org.** It carries a departmental ACL, mail threads, scans with an OCR layer,
@@ -221,6 +225,9 @@ and multi-affiliation off. Go straight to the org that exercises what you need:
 | a fee that lives only on a signature page, or a date only in a filename | [`meridian-actuarial`](companies/meridian-actuarial/) |
 | duplicate/draft/misfile noise around the answers | [`northgate-staffing`](companies/northgate-staffing/), [`calderwood-partners`](companies/calderwood-partners/), [`ashcombe-advisory`](companies/ashcombe-advisory/) |
 | scale (218 documents) | [`calderwood-partners`](companies/calderwood-partners/) |
+| engagement quantities (scope counts and a deal funnel) owned by the answer key | [`quillon-harbor`](companies/quillon-harbor/) |
+| per-document section skeletons, so same-genre documents differ in shape | [`quillon-harbor`](companies/quillon-harbor/) |
+| a declared bad year in the finance (2020) | [`quillon-harbor`](companies/quillon-harbor/) |
 
 Every org's data card states its own feature matrix, so the table above is a
 shortcut rather than the record.
@@ -297,12 +304,12 @@ Eight fleet companies (plus `dev-mini`), 1999–2025: ~33 MB of browsable share,
 
 | | fleet |
 | --- | --- |
-| companies | 8 (+ `dev-mini`) |
-| people (internal) | 101 |
-| planned documents | 645 (507 model-authored + 73 deterministic workbooks + 65 derived noise) |
-| engagements | 59 |
-| mean words per authored doc | ~540 |
-| mean length against what the brief asked | ~1.0 |
+| companies | 9 (+ `dev-mini`) |
+| people (internal) | 122 |
+| planned documents | 722 (566 model-authored + 83 deterministic workbooks + 73 derived noise) |
+| engagements | 67 |
+| mean words per authored doc | ~550 |
+| mean length against what the brief asked | ~0.9 (prose words, each placeholder counted as one word though it renders as several) |
 
 This is the fleet after the M13-M16 realism wave: each org was regenerated once,
 wholesale, under recipes with the wave's knobs turned on (a business-day
@@ -311,45 +318,42 @@ where the recipe declares them, real mail threads and organizational noise),
 then re-frozen. Every org is built on the full stack: rosters that hire,
 promote, and lose people; expense lines each computed from what drives them;
 document volume driven by the firm's real activity rather than a fixed skeleton.
-Every org was authored by `claude-opus-4-8[1m]` at effort `xhigh`, and **every
-authored document lands close to the words its brief asked for**. Each org
+Eight of the ten were authored by `claude-opus-4-8[1m]`, `northgate-staffing`
+by `claude-opus-5`, and `quillon-harbor` by `claude-opus-5-5`, all at effort
+`xhigh`, and **authored documents land close to the words their briefs asked
+for**. Each org
 records what actually authored it, batch by batch, in its `GENERATION-REPORT.md`,
 and ships its six-dimension adversarial board findings beside it.
 
 Per company: 7–25 people, 31–218 documents, 4–22 engagements, a 5–15 year span.
 
-**Fleet status: nine committed orgs, all frozen and byte-pinned.** Every org
+**Fleet status: ten committed orgs, all frozen and byte-pinned.** Every org
 above is re-derived byte-identically by the `org` test tier on every run
 (`PINNED = SLUGS` in `tests/test_org_regen.py`), so a change that would move
 any committed ledger, manifest, or authored document fails the suite rather
 than landing quietly. Regenerating one requires an explicit, recorded
-carve-out; the last one closed at M17 and none is open. Derived artifacts
+carve-out; the last one closed at M17 and none is open. Adding a new org,
+as M17d did, is not a regeneration. Derived artifacts
 (`evals/`, `acl.json`, `GENERATION-REPORT.md`, `review/`, `baselines/`,
 `DATA-CARD.md`, `PERMISSIONS.md`) are exempt and may always be re-emitted.
 
-**A tenth recipe is committed without a company beside it, on purpose.**
-[`recipes/quillon-harbor/`](recipes/quillon-harbor/) is the source for a
-controlled A/B experiment: one recipe generated more than once, with the
-M17b outline and scope knobs as the only variable, to settle whether those
-knobs change authored prose. Its arms are generated into gitignored
-`scratch/` rather than `companies/`, because an experiment's arms are
-measurements rather than exhibits, and committing them would put two
-near-identical orgs in a fleet whose whole point is that each member
-demonstrates something different. All three arms are now generated and
-measured; [the result is
-below](#what-m17c-measured-and-the-answer-is-mixed), and it is mixed enough
-that **no arm was committed**. The analysis standard was fixed
-and committed before any arm was authored
-([`docs/M17C-EVIDENCE-STANDARD.md`](docs/M17C-EVIDENCE-STANDARD.md)) so the
-conclusion could not be chosen after the numbers existed, and everything the
-run surfaced is in [`docs/M17C-RUN-LOG.md`](docs/M17C-RUN-LOG.md).
+**The tenth org is the follow-up to an experiment, committed on purpose.**
+[`quillon-harbor`](companies/quillon-harbor/) was first the source for M17c's
+controlled A/B experiment: one recipe generated three times, its arms kept in
+gitignored `scratch/` because an experiment's arms are measurements rather than
+exhibits. [The result](#what-m17c-measured-and-the-answer-is-mixed) was mixed
+enough that no arm was committed. M17d fixed the generator defects that run
+surfaced, generated the recipe once more with the fixes on, and committed it: a
+labelled follow-up with a changed treatment, not a second draw on M17c's
+pre-registration. The M17c recipe as it ran is frozen at
+[`tests/fixtures/m17c-quillon-harbor/`](tests/fixtures/m17c-quillon-harbor/).
 
-By format: 314 `.docx`, 147 `.eml`, 65 `.pdf`, 64 `.xlsx`, 24 `.doc`, 20
-`.pptx`, 9 `.xls`, 2 `.ppt`.
+By format: 366 `.docx`, 147 `.eml`, 74 `.xlsx`, 73 `.pdf`, 27 `.pptx`, 24
+`.doc`, 9 `.xls`, 2 `.ppt`.
 
-By genre: 126 engagement emails, 105 sets of meeting minutes, 76 status
-reports, 73 financial summaries, 67 kickoff memos, 66 engagement letters, 64
-onboarding records, 28 firm overviews, 22 briefing decks, 21 internal emails.
+By genre: 126 engagement emails, 119 sets of meeting minutes, 89 status
+reports, 83 financial summaries, 77 kickoff memos, 74 engagement letters, 72
+onboarding records, 32 firm overviews, 29 briefing decks, 21 internal emails.
 
 #### The largest org: calderwood-partners
 
@@ -637,6 +641,49 @@ The honest summary: the mechanism works, the pools and the fact surfaces do
 not, and finding that on a 59-document org rather than at flagship scale is
 what the turn was for.
 
+### What M17d did with it
+
+M17d (2026-10-13) fixed what M17c found, measured two things M18 depends on,
+and committed the result as the tenth org. No committed org was regenerated.
+
+- **Five generator fixes, each a default-off knob proven inert against the
+  frozen fleet.** Engagement starts honour the declared business calendar;
+  a recipe-named senior sits on every engagement it can cover; scope
+  vocabulary follows the service line, so a fairness opinion carries no deal
+  funnel; a recipe can declare an era shock (a 2020 the finance notices); and
+  the count-noun trap is closed at both ends (the brief now says a count
+  placeholder renders its own noun, and ingest rejects one followed by that
+  noun, replaying exactly M17c's eleven defects and nothing else). Building
+  the tenth org also surfaced a latent M17b defect: the final funnel stage
+  completed on each engagement's last day, after every document, so it was
+  planted and never stated. The closing pipeline document now reports it.
+- **[`quillon-harbor`](companies/quillon-harbor/) is committed**, authored by
+  `claude-opus-5-5` with every fix on, and validates clean on 31 rules with
+  zero ingest rejections. Its six-dimension board returned **1 blocker, 22
+  majors, 19 minors and 5 notes**, against M17c's treatment arm's 5 blockers,
+  and no reviewer found a doubled noun, a weekend start, a partnerless team, or
+  a 2020 the workbooks ignore. The one blocker is the fee model: every
+  engagement in every org draws one flat fee, so an M&A sell-side mandate
+  carries no success fee. That is a fabric-level realism gap shared by the
+  whole fleet, not a fact-surface or rendering defect, so by the commit rule
+  fixed before the board ran it ships as a published finding and is filed in
+  `BACKLOG.md`. A first board, read before the closing-stage fix re-authored
+  six documents, returned no blockers and 24 majors; the spread between the
+  two is the reviewer-to-reviewer noise `docs/REVIEW-CALIBRATION.md` records.
+  The full findings ship in its
+  [`GENERATION-REPORT.md`](companies/quillon-harbor-metadata/GENERATION-REPORT.md).
+- **A newer Opus is not a reason to regenerate the fleet.** A pre-registered
+  probe re-authored M17c's control manifest on `claude-opus-5-5` from code
+  pinned in a separate worktree, against byte-identical work orders: no
+  structural axis moved, and word-level overlap went up
+  ([docs/M17D-OPUS55-PROBE.md](docs/M17D-OPUS55-PROBE.md)).
+- **The board's per-document yield is mostly a denominator.** Twelve planted
+  defects were found on a 50-document and a 168-document reading list alike
+  (a ceiling: the plants were too loud), while each reviewer's finding count
+  stayed nearly flat, so findings per document fell 2.7x on list size alone
+  ([docs/M17D-BOARD-RECALL.md](docs/M17D-BOARD-RECALL.md)). Findings per
+  document must not compare orgs of different sizes.
+
 ### One fleet-wide artifact, half closed, and be precise about which half
 
 The ingest mention check requires an email author to spell the recipient's
@@ -775,7 +822,7 @@ surface prose, through an airlock:
   number cannot be mistranscribed. Ingest rejects deliverables that miss a
   required placeholder, invent people, or write a literal value where a
   placeholder belongs.
-- After rendering, a 39-rule validator ties every document back to the
+- After rendering, a 40-rule validator ties every document back to the
   ledger: planted facts and planned name mentions appear verbatim in
   extractable text, hard-case location policies hold (a
   signature-page-only fee appears on exactly that pdf page and nowhere
@@ -841,7 +888,7 @@ Coding](https://agent-hypervisor.ai/posts/bitter-lesson-of-agentic-coding/):
 relying on for any given claim.
 
 **Oracles, strongest, and where all the facts live.** An oracle recomputes
-the answer from ground truth. The 39-rule validator and the eval suites are
+the answer from ground truth. The 40-rule validator and the eval suites are
 oracles: they do not ask whether a document *seems* right, they recompute
 what it must contain from the ledgers and fail the org if it doesn't. This
 is why the airlock exists: the model never sees a value it is placing, so
@@ -1215,6 +1262,7 @@ those are fleet-wide, so they are not columns here. The columns are what still
 | `hollowell-ip` | departmental |  |  |  | ✓ |  |  | ✓ |  | ✓ | ✓ |  | 4/1/1 |
 | `meridian-actuarial` | departmental |  |  |  | ✓ | ✓ | ✓ |  |  | ✓ | ✓ |  | 5/1/2 |
 | `northgate-staffing` | departmental |  | 0.5 | 0.34 | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | 5/1/2 |
+| `quillon-harbor` | departmental |  |  |  |  |  | ✓ | ✓ |  | ✓ |  | ✓ | 8/1/3 |
 | `saltmarsh-environmental` | departmental |  | 0.6 | 0.5 | ✓ | ✓ |  |  | ✓ | ✓ |  |  | 4/1/1 |
 | `verdant-health` | open |  | 0.5 |  |  |  |  |  | ✓ | ✓ |  |  | 1/1/1 |
 | `dev-mini` | open |  |  |  |  |  |  |  |  |  |  |  | 1/1/1 |
@@ -1235,13 +1283,17 @@ signature page and a date lives only in a filename. **`hollowell-ip`**,
 carry the organizational-noise suite (duplicates, drafts, misfiles). The
 exemplar is the only org carrying all four of a departmental ACL, threads,
 scans, and both hard cases at once, which is what makes it the one to read
-first. **`dev-mini`**
-is deliberately bare: it is the regression oracle the ~740-test unit tier builds
+first. **`quillon-harbor`** is the only org carrying the M17b and M17d
+capabilities: engagement scope facts by service line (including a closing
+funnel tally), per-document section skeletons, client-facing status reports,
+partner oversight, business-day engagement starts, and a declared 2020.
+**`dev-mini`**
+is deliberately bare: it is the regression oracle the ~820-test unit tier builds
 on, so it stays small and cheap rather than proving breadth. Its one exception
 is `style_specs`, on since M15: the per-person voice ledger is cheap, and a
 tracer is the right place to prove it end to end.
 
-- The full pipeline, end to end, proven on all eight, every one generated on
+- The full pipeline, end to end, proven on all nine, every one generated on
   the full stack through the live airlock and byte-pinned.
 - Access-control ground truth: the recipe's `acl_posture` derives
   `ledger/acl.json` (exactly which internal people may read which
@@ -1285,7 +1337,7 @@ tracer is the right place to prove it end to end.
   archived as ground truth) and legacy conversion (oldest office docs
   become verified `.doc`/`.xls`/`.ppt` via LibreOffice at generation
   time; validation reads them back pure-Python via olefile and xlrd).
-- The airlock, checkpoint/resume, the 39-rule validator, capability
+- The airlock, checkpoint/resume, the 40-rule validator, capability
   probing (`doctor`), and machine-readable pipeline status (`status
   --json`).
 - The quality instrument, which measures the one thing the validator
@@ -1346,13 +1398,25 @@ per-org data cards, a versioned label policy, and a validator rule (EVAL-01)
 that re-derives the committed answer key. The critique and its disposition
 are in [docs/EXTERNAL-CRITIQUE-2026-07-28.md](docs/EXTERNAL-CRITIQUE-2026-07-28.md).
 
+**M17d re-baselined the project for Claude Opus 5.5** and closed the three
+M17c findings that gated the flagship: the scope knob's defects are fixed and
+exercised in a committed org, a newer model was measured rather than assumed
+to help, and the board's falling yield turned out to be mostly a denominator
+(see [What M17d did with it](#what-m17d-did-with-it)). Two smaller agent-first
+changes ride along: every state-writing verb takes a lock, so parallel ingest
+is safe in code rather than by convention, and the board proves it left the
+org untouched (`review --digest`).
+
 **Next: M18, one flagship org large enough to defeat a context
-window.** The whole committed fleet is ~280 documents; you can fit that in a
-1M-token context and answer questions about it without retrieving anything,
+window.** The whole committed fleet is 722 documents and about 310,000
+authored words; you can fit that in a 1M-token context (Opus 5.5's window
+too) and answer questions about it without retrieving anything,
 which means it cannot prove a retrieval system works. The pilots are the right
 capabilities at a fraction of the scale; the flagship spends the ~1.3 days of
 authoring the full size costs. See [docs/SCALE.md](docs/SCALE.md) for how big
-that has to be and why resume becomes the only reason it is possible.
+that has to be and why resume becomes the only reason it is possible. Its board
+should be sharded so no reviewer reads more than about 50 documents: recall of
+loud defects held at 168, but recall of subtle ones at length is unmeasured.
 
 Known and logged rather than hidden: `BACKLOG.md` carries the board's
 unmeasured false-positive rate and the remaining fleet-wide findings M12a did
@@ -1377,9 +1441,10 @@ in [Claude Code](https://claude.com/claude-code) running
 adversarial code review with builder/verifier separation, and a pre-push
 gate that blocks unreviewed code.
 
-The committed fleet was authored through the same airlock this repo ships,
-by `claude-opus-4-8[1m]` (all eight fleet orgs and `dev-mini` at `/effort
-xhigh`). Every org's `GENERATION-REPORT.md` records what actually wrote
+The committed fleet was authored through the same airlock this repo ships:
+`claude-opus-4-8[1m]` for seven fleet orgs and `dev-mini`, `claude-opus-5` for
+`northgate-staffing`, and `claude-opus-5-5` for `quillon-harbor`, all at
+`/effort xhigh`. Every org's `GENERATION-REPORT.md` records what actually wrote
 it, batch by batch, self-reported, and treated as a record rather than an
 oracle for the reason [Round 1
 found](#which-model-should-write-your-documents).

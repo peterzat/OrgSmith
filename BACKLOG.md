@@ -188,9 +188,46 @@ rejected. Read before drafting a new SPEC.md; swept at turn close.
 - **Why deferred:** the fix is a brief scoped to `company_overview`, which changes every brief of every `book_is_sample` org, so it lands as a knob or with a regeneration.
 - **Revisit criteria:** a board flags it on a second org; or the overview briefing is touched; or `book_is_sample` is adopted by a new org.
 - **Origin:** `docs/M17D-BOARD-RECALL.md` (incidental findings); spec 2026-10-13.
+- **Annotated 2026-10-13 (M17d tenth-org boards): it is a family, not one knob.** Both `quillon-harbor` boards found other brief text read back as in-world content: M17d's own SCOPE-D sentence (three status reports tell the client the counts are "separate measures"), the recipe narrative's "sector and revenue band" in 28 of 59 documents, and persona sketches copied into letters and minutes. Any instruction a brief states, an author may repeat to the reader; a fix has to phrase constraints as what not to write rather than as facts about the documents.
 
 ### closing-stage-reported-early
 - **The closing-stage post-pass (M17d) can make a mid-engagement document report the funnel's final tally.** `_host_closing_stages` hands every stage no earlier document cites to the engagement's latest pipeline-citing document, so no planted fact goes unstated. Where that document sits well before the funnel closes, it states a final count early. Observed on the tenth org: `quillon-harbor`'s recapitalization has one pipeline document, a status report a week into lender outreach (`d:0024`, 50% of the engagement), which now carries the final term-sheet count; its author wrote them as early indicative term sheets, which reads coherently but strains.
 - **Why deferred:** the alternative was worse. Before M17d every scope-on engagement planted a final stage no document could cite (a ledger fact absent from the answer key, against `docs/RECIPE-FORMAT.md`'s promise), and strict date gating cannot host it because no document is dated at the engagement's end. The full fix is a planner that dates a closing document after the funnel completes for every engagement with a pipeline, which changes document supply and is its own unit of work.
 - **Revisit criteria:** a board flags a final tally reported early; or the planner's per-engagement document supply is touched; or M18 is specced with scope on, where every engagement's closing document matters.
 - **Origin:** spec 2026-10-13 (M17d, found by the `author-0016` worker re-authoring `d:0024`).
+
+### fee-model-has-no-success-fees
+- **Every engagement in every org draws one flat fee (`fee = rand.randint(60, 240) * 500`, `fabric/engagements.py`), whatever the service.** Right for the fleet's consultancies, wrong for an M&A boutique: `quillon-harbor`'s second board rated it its only blocker (a sell-side auction at a flat $55,000 with a tail clause written for a success fee it lacks; eight fees averaging $83,250 against $3-6M of revenue, implying 40-80 mandates a year for 12-20 people). Its first board rated the same finding major. The ledger and the prose agree, so no validator can see it.
+- **Why deferred:** a fee structure (retainer plus success fee, contingent on a closing the fabric would have to model) changes the engagements ledger's money facts, which every committed org carries, so it lands only as a default-off knob, and it was found after M17d's knobs were fixed.
+- **Revisit criteria:** a recipe for another transaction-driven sector (investment banking, real estate brokerage, recruiting on contingency) is written; or `event-simulation` models deal closings; or a board rates it a blocker on a second org.
+- **Origin:** `quillon-harbor` boards, spec 2026-10-13 (M17d).
+
+### overview-names-live-mandates
+- **Firm overviews name clients whose confidential mandates are still in progress.** Found by four reviewers across both `quillon-harbor` boards: the August 2014 overview offers the Armstrong sale as "an example from this year's work" a month in, beside text saying targets are named only in privileged documents, and the 2023 overview names a strategic review seven weeks into it. The planner's `firm_digest` picks client names from engagements that have started by the overview's date, without regard to whether they have ended.
+- **Why deferred:** restricting the digest to finished engagements changes every overview brief of every org, so it lands as a knob (or with a recipe-level confidentiality posture), and it was found after M17d's knobs were fixed.
+- **Revisit criteria:** the firm digest is touched; or a recipe declares a confidentiality-sensitive practice (M&A, litigation, executive search) that should never name live clients; or a board flags it on a second org.
+- **Origin:** `quillon-harbor` boards, spec 2026-10-13 (M17d).
+
+### roster-promotes-too-rarely
+- **Nobody below VP is ever promoted.** `quillon-harbor`'s nine analysts, hired 2014-2022, are all still analysts in 2023, and four associates sit in one seat for a decade; the `northgate-staffing` board recorded the same ("not one associate promoted in seven years"). `roster_churn.promotions` is a small absolute count per recipe, not a rate that scales with headcount and tenure.
+- **Why deferred:** promotions move titles across every document date, so a rate-based model changes rosters and therefore committed ledgers; it lands only as a knob, and this turn did not scope it.
+- **Revisit criteria:** a recipe with a professional-services pyramid is written for M18; or `roster_churn` is touched; or a third board flags it.
+- **Origin:** `quillon-harbor` boards and the M17 `northgate-staffing` board; filed spec 2026-10-13.
+
+### noise-version-chain-copies-time-anchored-text
+- **A derived version chain dates its earlier drafts before the events their copied text reports.** `quillon-harbor`'s `d:0074` (dated 2016-08-27) and `d:0075` (2016-09-01) carry their final's text unchanged, including calls that began 2016-08-29 and counts "as of last Friday". The noise stage dates chain members 2 to 7 days before the final and copies the final's prose; for a dated status report, earlier copies become anachronisms.
+- **Why deferred:** a draft that differs from its final needs authored or transformed text, which the deterministic noise stage cannot produce without a model pass; restricting chains to undated genres changes which documents carry noise, so it lands as a knob.
+- **Revisit criteria:** the noise model is touched; or a board flags it on a second org; or version chains are scored by an eval.
+- **Origin:** `quillon-harbor` second board (narrative_consistency), spec 2026-10-13 (M17d).
+
+### authors-cannot-see-a-count-magnitude
+- **A count placeholder hides its value, so an author's adjectives can contradict it.** `quillon-harbor`'s sell-side documents call a 145-buyer list "short on purpose" and "not an auction" beside 103 contacts and 14 final bids, because the brief briefed the scope as "count of prospective buyers" and nothing about its size. The airlock is working as designed (a value never reaches the model); what is missing is a magnitude band a brief could carry without the value, such as "in the low hundreds".
+- **Why deferred:** a magnitude band is information about a ledger value, so it needs a deliberate airlock decision (is a band a value?) before it becomes a brief field; and the recipe could have chosen a universe that matches its narrative.
+- **Revisit criteria:** a board flags an adjective contradicting a briefed count on a second org; or the brief's count hint is touched for any other reason; or M18 is specced with scope on.
+- **Origin:** `quillon-harbor` boards (narrative_consistency, document_plausibility), spec 2026-10-13 (M17d).
+
+### onboarding-guidance-contradicts-its-target
+- **The onboarding-record genre guidance asks for "2-4 short paragraphs" while the registry targets 450 words.** Five of `quillon-harbor`'s ten onboarding records came in under 75% of brief, all from one batch whose author said it chose the guidance over the target. The two instructions disagree, and the length metric reports the authors who follow the guidance as off brief.
+- **Why deferred:** changing either the guidance or the target changes every onboarding brief of every org; it lands as a registry change with its own measurement, not as a side edit.
+- **Revisit criteria:** the genre registry's targets or guidance are touched; or another org's onboarding records fall off brief together.
+- **Origin:** `quillon-harbor` GENERATION-REPORT, spec 2026-10-13 (M17d).

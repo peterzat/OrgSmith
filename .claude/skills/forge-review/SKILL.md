@@ -5,7 +5,7 @@ description: Adversarial review board for a generated org. Usage /forge-review <
 
 # /forge-review — the board
 
-You are the review board's chair. The 39-rule validator already proves the
+You are the review board's chair. The 40-rule validator already proves the
 documents agree with their ledgers. Your board answers the one question
 nothing else in this repo asks: **does this read like a real firm wrote
 it?**
