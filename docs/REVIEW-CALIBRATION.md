@@ -372,3 +372,31 @@ put it at 4 of 10 on variety. **Severity spread between two readers of a fixed
 corpus is at least one blocker and two majors**, and that is the scale against
 which a single board's severity counts should be read. The categorical
 answer held.
+
+## The reviewer model moves the count (2026-10-13, M17e)
+
+Not pre-registered, and confounded by construction: recorded because it bears
+on how any board count should be read. The M17e carve-out regenerated three
+orgs and boarded each on six dimensions with `claude-opus-5-5` reviewers at
+`xhigh`. Their previous boards read the previous corpora with other models.
+
+| org | documents read | previous board (model) | M17e board |
+| --- | ---: | --- | --- |
+| `ashcombe-advisory` | 73 | 42 (`claude-fable-5`) | 45 |
+| `hollowell-ip` | 54 | 7 (`claude-opus-4-8[1m]`) | 40 |
+| `meridian-actuarial` | 61 | 9 (`claude-opus-4-8[1m]`) | 38 |
+
+The corpora changed too, by design, so this does not isolate the reviewer.
+Two things make the reviewer the likelier driver of the hollowell and
+meridian jumps: most of the new findings are generator-level properties both
+corpora share (one client officer per engagement, a firm with no address,
+flat facilities lines, threads that are the firm talking to itself), and the
+one defect class the regeneration removed, the mail device, fell out of all
+three boards as expected. The tenth org's two `claude-opus-5-5` boards (47
+findings on the second) sit in the same band.
+
+**Reading rule:** a board count is a property of the reviewer model as well as
+of the corpus, so counts from boards on different models are not a quality
+comparison. Compare recurrence, finding by finding, as M17e's write-up does.
+This sharpens `board-yield-at-scale` and does not replace a negative control
+(`board-negative-control`).

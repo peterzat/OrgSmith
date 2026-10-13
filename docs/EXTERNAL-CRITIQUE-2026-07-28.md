@@ -167,7 +167,9 @@ ashcombe's emitted gold.
 - It did not regenerate `hollowell-ip` or `meridian-actuarial`. The
   recipient-mention exemption knob that would close their full-name-in-body
   device is landed and proven inert, but the orgs were not re-run; their data
-  cards record the device.
+  cards record the device. (Superseded 2026-10-13: the M17e carve-out
+  regenerated both, and `ashcombe-advisory`, with the knob on, and measured
+  the device gone; see `docs/FREEZE-LOG.md`.)
 - It did not add a negative control for the review board. That remains open
   (`BACKLOG.md`, `board-negative-control`), though one finding class — the
   alias collision — moved from critic to oracle this turn.
