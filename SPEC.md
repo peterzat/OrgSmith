@@ -1,292 +1,129 @@
 # SPEC
 
-## Spec — 2026-10-13 — M17d: M18 readiness
+## Spec — 2026-10-13 — M17e: the mail-org carve-out
 
-**Goal:** Clear what M17c found standing between the project and the M18
-flagship, re-baselined for Claude Opus 5.5. Fix the generator defects the
-last board traced to the generator rather than the model, measure whether
-the new model changes authored prose before anyone regenerates for it,
-measure whether the board's recall survives a larger reading list, and
-commit a clean tenth org that exercises the fixes. No committed org is
-regenerated and no carve-out opens.
+**Goal:** Close both halves of the fleet's mail-mention device and the
+live-mandate leak the M17d boards found, then regenerate the three mail orgs
+once under those fixes and M17d's knobs, under a recorded, user-approved
+carve-out. Every doc and README states the final state before the turn ships.
 
 ### Acceptance Criteria
 
-- [x] **The Opus 5.5 probe is pre-registered, exactly controlled, and
-  reported in either direction.** A dated evidence standard, committed
-  before the first probe work order is dispatched, states what result would
-  count as Opus 5.5 changing authored prose against the M17c Opus 5 control
-  arms, what would count as it not, and the sha256 of every grading script
-  it names. A fourth `quillon-harbor` control arm (`delta`) is authored on
-  `claude-opus-5-5` at the effort the M17c arms recorded, from code pinned
-  at the pre-registration commit. Its deterministic artifacts, persona
-  enrichment, and every work order are byte-identical to `alpha`'s, so the
-  model is the only variable; any work order that differs is enumerated
-  rather than assumed away. The write-up reports structural and lexical
-  similarity against the `alpha`/`gamma` noise floor, unowned numbers,
-  words against brief, and a blind voice verdict on `delta` and `alpha` by
-  reviewers of the same model, re-verifies the grader hashes, and states
-  the conclusion the standard's own reading gives, null included. The arm
-  stays uncommitted in `scratch/`.
+- [ ] **The carve-out is opened, scoped, and closed on the record.** CLAUDE.md
+  and `docs/FREEZE-LOG.md` record an M17e carve-out, approved by the user on
+  2026-10-13, scoped to `ashcombe-advisory`, `hollowell-ip` and
+  `meridian-actuarial` only. When the turn closes it is recorded closed,
+  `PINNED = SLUGS` is enforced fleet-wide, and the other seven committed orgs'
+  ledgers, manifests and authored prose are byte-identical to `61abcbd`.
 
-- [x] **Five generator fixes land as default-off knobs, proven inert
-  against the frozen fleet.** With every new knob off, all nine committed
-  orgs load, validate clean, and re-derive byte-identical structure
-  (`PINNED = SLUGS` green at every commit). Each knob draws randomness from
-  no existing `seeds.py` stream, has a unit test showing its effect when on,
-  and is documented in `docs/RECIPE-FORMAT.md`. With each knob on:
-  - engagement start dates (and the `start` fact) land on a business day
-    under the recipe's declared calendar;
-  - every engagement whose span a recipe-named senior title covers carries
-    one such person as an internal participant, and so reaches that
-    engagement's mentions and ACL grants;
-  - an engagement's scope vocabulary follows its service line, and a
-    service declared to have no funnel gets no pipeline facts, with SCOPE-01
-    recomputing the per-service planting exactly;
-  - a declared era shock scales a named fiscal year's revenue and travel,
-    with every finance tie-out still holding and the following year
-    returning to trend;
-  - a scope-on brief tells the author that a count placeholder renders its
-    own noun, and that scope and pipeline counts must not be written as
-    shares, subsets, or remainders of one another (scope-off briefs are
-    byte-identical to before).
+- [ ] **A distribution-list broadcast names no one it was not about.** A new
+  default-off mail knob gives list-addressed mail no individual recipients, so
+  no colleague is a required body mention of a broadcast and the brief names
+  no single recipient. With the knob off, every committed manifest, mention map
+  and brief re-derives byte-identical; it draws from no existing seed stream;
+  a unit test shows the effect when on; `docs/RECIPE-FORMAT.md` documents it.
+  BACKLOG `mundane-broadcast-names-a-recipient-in-the-body` records it closed
+  for every org that adopts it.
 
-- [x] **Authoring ingest rejects a doubled count noun.** A deliverable whose
-  text follows a count-fact placeholder, within the same clause, with a word
-  that repeats a word of that fact's own noun phrase (singular or plural) is
-  rejected with the doc id and fact id named. Every one of the eleven M17c
-  REND-01 occurrences in `scratch/arms/beta` is rejected by the check when
-  replayed, and no deliverable of `alpha`, `gamma`, or any committed org's
-  `workorders/` reply is.
+- [ ] **A firm overview names only finished engagements.** A new default-off
+  knob limits an overview's client placeholders, in both the plan's required
+  facts and the brief's digest, to engagements that ended before its date, and
+  an overview dated before any engagement ends claims no client work. Inert
+  when off, unit-tested when on, documented in `docs/RECIPE-FORMAT.md`.
 
-- [x] **Unowned numbers are measured and never gate.** `report` writes, for
-  every org, a count of integers in authored prose that no ledger value
-  accounts for, per document and in total. It reproduces the direction of
-  the M17c `alpha`/`gamma` split (fewer in `alpha`), and no test tier or
-  validator rule thresholds it.
+- [ ] **The three mail orgs are regenerated once, through the live airlock.**
+  Each is generated wholesale on `claude-opus-5-5` at `xhigh` with
+  `mail.exempt_recipient_mentions`, the new list-mail knob, the overview
+  knob, `business_calendar.engagement_starts`, `engagements.oversight_titles`
+  and a declared 2020 `finance.era_shocks` on. Each validates clean, scores
+  100% on every eval split by construction, has every planted fact hosted,
+  and re-freezes under `PINNED = SLUGS` with its data card,
+  `GENERATION-REPORT.md`, `evals/`, `acl.json`, PERMISSIONS.md, baselines and
+  checksums re-emitted.
 
-- [x] **A tenth org is committed and frozen.** `quillon-harbor`, re-authored
-  as a labelled follow-up to M17c's treatment arm with this turn's knobs on,
-  is generated through the live `/forge` airlock on `claude-opus-5-5`,
-  validates clean, scores 100% on every eval split by construction, joins
-  `PINNED = SLUGS`, and ships its data card, `GENERATION-REPORT.md`,
-  `evals/`, `acl.json` and PERMISSIONS.md. A full six-dimension board ships
-  beside it, unflattering findings included. The commit rule is fixed now:
-  a blocker that traces to a mechanical defect the generator should have
-  prevented (a fact surface, a ledger contradiction, a rendering error)
-  declines the commit with cause, as M17c did; a prose-judgment blocker
-  ships as a published finding. Its test-tier placement is recorded in
-  TESTING.md with the measured added wall-clock.
+- [ ] **The mail devices are measured gone, not assumed gone.** For each
+  regenerated org, a count reported in the write-up: planned person-to-person
+  mail mentions of a recipient (expected zero), planned colleague mentions on
+  list-addressed mail (expected zero), and how many authored mail bodies still
+  name a recipient in full by the author's choice. The same counts for the
+  committed versions are reported beside them.
 
-- [x] **The board's recall is measured at two reading-list sizes.** A
-  deterministic tool plants a fixed set of known defects into a scratch copy
-  of `calderwood-partners` (never the committed fixture). Reviewers on two
-  dimensions read a small and a large reading list, both containing every
-  planted document, without being told an experiment exists. Predictions
-  are committed before dispatch. Recall per defect kind per list size is
-  reported in `docs/REVIEW-CALIBRATION.md`, `board-yield-at-scale` records
-  the result against its own revisit criterion, and the write-up states that
-  this is a recall measurement and not a false-positive rate.
+- [ ] **Each regenerated org gets a full six-dimension board, read-only
+  proven.** Every board runs with `review --digest` recorded before dispatch
+  and verified after. Findings ship beside each org, unflattering ones
+  included, and the write-up compares each org's blocker and major counts with
+  its pre-carve-out board, labelled as a different corpus rather than a
+  controlled comparison.
 
-- [x] **BYO authoring sends what it records.** An Anthropic-shape request
-  carries the configured effort and the generator record stamps the same
-  value; a reply cut off at the output limit fails with a message naming the
-  truncation and the limit instead of entering the repair loop; the default
-  output limit fits a full six-document batch; the Anthropic default model
-  is `claude-opus-5-5`. Covered by unit tests on a stubbed transport, keyless
-  and offline.
+- [ ] **Every doc and README states the final state.** README (fleet table,
+  vintages, picker and fixture tables, every quoted finding about the three
+  orgs, the mail-artifact section, totals, roadmap), CLAUDE.md, FREEZE-LOG,
+  TESTING (counts and measured tier times), `docs/RECIPE-FORMAT.md`, BACKLOG
+  (closed entries recorded, new findings filed), CHECKSUMS, every data card,
+  and the baselines and distributions dashboards. No doc still describes the
+  three orgs as carrying the mail device, unless a measured count says so.
 
-- [x] **Concurrent ingest cannot lose an update.** Two processes ingesting
-  disjoint deliverables into the same org at once both land in `state.json`,
-  shown by a unit test that races them.
-
-- [x] **The board's read-only rule is checked, not just asked for.**
-  `/forge-review` records a digest of the org before dispatch and verifies
-  it after; the digest changes when a DocIR, ledger, manifest, or rendered
-  file changes and ignores the board's own outputs (`review/`,
-  `GENERATION-REPORT.md`). Unit-tested.
-
-- [x] **The skills name only commands that exist, and dispatch with an
-  explicit model and effort.** A short-tier test parses every
-  `orgsmith` command line in `.claude/skills/*/SKILL.md` against the real CLI
-  parser and fails on an unknown verb or flag, and every repo script a skill
-  names exists. `/forge` and `/forge-review` pass the worker model and
-  effort at dispatch, and workers stamp the effort they were dispatched with.
-
-- [x] **The M17c findings are on the durable register.** Every M17c run-log
-  finding that names a generator defect or gates M18 (AIRLOCK-01, REND-01,
-  SCOPE-A, SCOPE-D, MENT-A, off-calendar engagement starts, partners absent
-  from engagements) has a `BACKLOG.md` entry or is recorded as closed by this
-  turn, and `exemplar-has-no-2020` records that its second-org criterion
-  fired.
-
-- [x] **CLAUDE.md is a map, not a history.** The carve-out narratives move
-  to a file under `docs/`, CLAUDE.md keeps every hard rule and operational
-  fact (re-emission order, the serialization traps, the current freeze
-  status), and it is under 100 lines.
-
-- [x] **The docs reconcile to what the turn found, and it ships.** README,
-  `docs/MODEL-AB.md` (Round 3), `docs/RECIPE-FORMAT.md`,
-  `docs/BYO-AUTHORING.md`, `docs/REVIEW-CALIBRATION.md`, `BACKLOG.md`,
-  `CHECKSUMS.md`, and every data card state the final state. The mail-org
-  carve-out is written as a proposal, not executed. The version is bumped,
-  full `bin/test` passes keyless and offline across all four tiers, no
-  committed org's ledgers, manifest, or authored prose differ from
-  `aef75a9`, and the branch is pushed after `/codereview` passes.
+- [ ] **It ships.** Version bumped, full `bin/test` passes keyless and offline
+  across all four tiers, and the branch is pushed after `/codereview` passes.
 
 ### Context
 
-- **Adopted from this session's analysis (2026-10-13)**, run autonomously at
-  the user's instruction ("proceed autonomously with your recommendations,
-  finish by updating docs, README, backlog, and then push"). It supersedes
-  the M17c proposal's four questions, answering each: fix the scope knob and
-  re-run (criteria two, three, five), propose the mail carve-out (twelve),
-  probe the board at scale (six), and hold M18 until all three are done.
+- **Direction, decided at the user's instruction.** The user approved the
+  carve-out ("1. approved") and left the next turn to me ("2. your call",
+  "continue autonomously"), asking that docs and READMEs be fully updated
+  before the turn exits. M18 is out of scope: at ~334 authoring batches it
+  exceeds this session's budget. A carve-out regeneration is also the
+  cheapest place to exercise knobs, so the turn lands two more first and
+  adopts them in the same regeneration rather than regenerating twice.
 
-- **Why the probe runs first and on pinned code.** The probe's control is
-  the M17c arms, authored by `claude-opus-5` at `xhigh` on the code at
-  `aef75a9`. Any change to briefs, ingest, or render between those arms and
-  `delta` would sit inside the measured gap. So `delta` runs from a git
-  worktree pinned at the pre-registration commit, whose code is
-  `aef75a9`'s, while this turn's code changes land in the main tree. "Keep a
-  floor of checks that never moves mid-experiment" (the essay at
-  agent-hypervisor.ai/posts/agent-first-repos), and hash the grader.
+- **Why the list-mail fix is a planner change, not an exemption.**
+  `plan_mentions` already exempts a person-to-person recipient
+  (`mail.exempt_recipient_mentions`) because the To header names them. It
+  deliberately does not exempt list mail, whose To header is the list address.
+  The device's cause is upstream: `_emit_mundane` gives a list broadcast one
+  or two randomly drawn colleagues as participants, and the planner then
+  requires their names in the body. The draw must stay (it is on the existing
+  `docplan.email.mundane` stream); only what the knob does with it may change.
 
-- **The Opus 5.5 facts this turn relies on** (platform docs, checked
-  2026-10-13): 1M-token context, so M18's sizing premise in
-  `docs/SCALE.md` is unchanged; 128K max output; `output_config.effort`
-  with an omitted effort now running at `medium`; adaptive thinking always
-  on, and its output counts against `max_tokens`. Worktree isolation for
-  subagents branches from the default branch, so it does not carry
-  in-flight work orders and does not close
-  `concurrent-workers-share-one-scratchpad`.
+- **Why the overview fix touches two places.** `_emit_firm_periodic` writes the
+  overview's required `facts_refs` from engagements started by its date, and
+  `contexts._firm_digest` briefs the same set. They must agree or ingest
+  rejects the brief's own deliverable.
 
-- **What the five knobs touch, measured before writing them.**
-  `fabric/engagements.py:436` draws the start date with no calendar shift
-  (`to_business_day` is in the same file); in `alpha` 4 of 8 starts are a
-  weekend or the declared 2016-07-04 holiday. `_staff`
-  (`engagements.py:271`) draws teams uniformly from the delivery department
-  with no seniority. `ScopeProfile` is recipe-wide (`plant_scope_facts`),
-  consumed by the planner, the brief, and SCOPE-01. The brief's count line
-  reads "count of <noun>; place where the number belongs" while the
-  placeholder renders the number with its noun, which is REND-01's cause.
-  `fabric/finance.py` has no notion of an era.
+- **The M17d knobs each regenerated org adopts**, with values fixed in its
+  recipe: oversight titles are the senior titles the recipe already declares;
+  the 2020 shock is sized for the sector and named in the recipe comment.
+  `scope_by_service` and `outline_variety` are not adopted: they need
+  per-recipe vocabulary and pool design this turn does not do.
 
-- **Serialization traps, unchanged.** `dump_json` writes every field, so a
-  new field on `Charter`'s sub-models rewrites all nine `charter.json` files
-  and, through `datacard._knob_rows`, all nine data cards. A new field on
-  `Fact`, `Engagement`, or `ManifestEntry` would rewrite committed ledgers
-  and break the pin; avoid it. Re-emission order when metrics move:
-  metrics/report, then `tools/checksums.py`, then `data-card` for every org.
+- **Serialization and re-emission, unchanged.** New charter fields rewrite
+  every `charter.json` and data card (derived). Re-emission order: `charter`,
+  `report`, `tools/checksums.py` (only after the orgs are committed: it reads
+  `git ls-files`, and refuses an org with none), then `data-card` for every org.
 
-- **Nothing that is not an oracle may gate.** The structural axis, the
-  unowned-number count, and the recall numbers are measurements. No
-  threshold any of them produces enters a test tier or a validator rule.
-  Ingest's doubled-noun check is an oracle (a fact surface plus the text the
-  author wrote), so it may reject.
+- **Hard rules in force.** Airlock; additive evolution with new seed streams;
+  grandfather by charter; nothing that is not an oracle may gate; the board is
+  read-only and proves it. Committing is local; pushing goes through
+  `/codereview`.
 
-- **Hard rules in force.** Airlock: `orgsmith/` never calls a model or the
-  network. Additive evolution with new seed streams only. Committed fixtures
-  frozen; adding a tenth org is not a regeneration. Validator rules
-  grandfather by charter, never by artifact absence. Committing is local;
-  pushing goes through `/codereview`.
+- **House practices (zat.env).** Small committable increments with tests;
+  verify commits in a clean worktree while an uncommitted org is in
+  `companies/`; gate every commit on the test exit status, never on a piped
+  summary; revert rather than edit a test to accommodate a regression.
 
-- **House practices (zat.env).** Small committable increments with tests in
-  the same increment; run the relevant tier after each change; if a change
-  breaks a passing test, revert and rethink rather than editing the test;
-  two failed fixes in a row means stop and re-plan. Re-baseline on each
-  model generation, and prefer measurement to folklore: MODEL-AB exists
-  because "use the strongest model" was never measured. Precision over
-  recall for every reviewer this turn dispatches.
+- **BACKLOG.** Engaged: `mail-orgs-recipient-mention-carve-out` (executed),
+  `mundane-broadcast-names-a-recipient-in-the-body`,
+  `overview-names-live-mandates`, `mail-audience-internal-vs-external`.
+  Annotated if touched: `exemplar-has-no-2020`, `mention-filler-acl-seam`,
+  `board-yield-at-scale`. Out of scope: everything else, including M18.
 
-- **BACKLOG.** `board-yield-at-scale` and `cross-document-voice` are engaged
-  (criteria six and one); `board-negative-control` is touched but not
-  closed (recall is not a false-positive rate);
-  `concurrent-workers-share-one-scratchpad` stays open with its mitigation
-  unchanged (~13 + ~13 batches, the M17c exposure);
-  `exemplar-has-no-2020` and `mail-audience-internal-vs-external` are
-  engaged by criteria two and twelve. `event-simulation`,
-  `external-validity-program`, `generator-fingerprinting`,
-  `packaging-and-archival`, `state-json-mixes-execution-and-provenance`,
-  and `recipe-coherence-test-has-no-floor` are out of scope.
-
-- **Out of scope.** Regenerating any committed org (the mail carve-out is
-  proposed only); the M18 flagship; changing the global zat.env skills
-  (using Claude Code's built-in `/code-review` as a second finder is a
-  zat.env change); a false-positive-rate measurement for the board.
-
-- **Baselines for this turn.** Suite green at `aef75a9`: 16 short, 739 unit,
-  230 org (+27 skipped), 65 flagship (+5 skipped). Nine committed orgs,
-  `PINNED = SLUGS`, v2.3.0 tagged and pushed; M17c closed at 9/11 with no
-  version bump.
+- **Baselines.** Suite green at `61abcbd`: 19 short, 824 unit, 261 org (+30
+  skipped), 71 flagship (+5 skipped). Ten committed orgs, v2.4.0, pushed.
 
 ---
-*Prior spec (2026-08-03): M17c, the controlled proof; 9/11 criteria met. The
-outline knob moved authored shape 7.7x the noise floor but relocated
-convergence and left word choice unmoved, and the treatment arm was declined
-for commit over a doubled-noun rendering defect.*
+*Prior spec (2026-10-13): M17d, M18 readiness; 13/13. Five default-off knobs,
+a pre-registered Opus 5.5 probe that found no reason to regenerate for the
+model, a board recall probe that hit a ceiling, and a tenth org; pushed at
+`61abcbd`.*
 
-### Proposal (2026-10-13)
-
-**What happened.** M17d ran autonomously at the user's instruction and met
-13 of 13 criteria; it was pushed to `origin/main` at `fa813f5` after a
-`/codereview` with 0 BLOCK (2 WARN fixed, 12 NOTE recorded) and a clean
-`/security`. No
-committed org was regenerated; `PINNED = SLUGS` held at every commit, and
-the nine existing orgs' ledgers, manifests and prose are byte-identical to
-`aef75a9`.
-
-- **Five default-off knobs** (business-day engagement starts, partner
-  oversight with a new rule OVR-01, per-service scope profiles on a new seed
-  stream, declared era shocks, the scope-on brief changes) and the REND-01
-  ingest check, which replays exactly M17c's eleven doubled nouns and
-  nothing else. `report` now measures numbers no ledger owns.
-- **The Opus 5.5 probe, pre-registered and run on pinned code**: against
-  byte-identical work orders, no structural axis moved and lexical overlap
-  rose 6.75x the floor. A blind reviewer answered "not one person" on the
-  Opus 5.5 arm, n = 1. By its own rule: a newer model is not a reason to
-  regenerate the fleet.
-- **The recall probe hit a ceiling** (12/12 planted defects at 50 and at 168
-  documents) and showed findings per reviewer nearly flat in corpus size, so
-  `board-yield-at-scale`'s drop is mostly a denominator.
-- **`quillon-harbor` is the tenth committed org**, built on `claude-opus-5-5`
-  with every fix on. Building it exposed a latent M17b defect (the final
-  funnel stage was planted and never stated, on every scope-on engagement
-  ever generated) and a process bug (`tools/checksums.py` recorded an
-  untracked org as 0 files); both are fixed in code with tests. Its board:
-  1 blocker (the fleet-wide flat-fee model) and 22 majors, against M17c's
-  treatment arm's 5 blockers.
-- **Agent-first changes:** a state lock on every state-writing verb, a board
-  digest, a short-tier test that skills name only real commands, explicit
-  model and effort at dispatch, BYO authoring that sends the effort it
-  records, and a CLAUDE.md cut from 178 lines to 99.
-
-**Questions and directions.**
-
-1. **Approve the mail-org carve-out?** `ashcombe-advisory`, `hollowell-ip`
-   and `meridian-actuarial` would be regenerated with
-   `mail.exempt_recipient_mentions` on (BACKLOG
-   `mail-orgs-recipient-mention-carve-out`). The probe removes the case for
-   folding a model swap into it, so the case is the mail device alone.
-2. **M18 or a generator turn first?** M17c's three gates are closed, but the
-   tenth org's boards found knob-shaped generator gaps that a 2,000-document
-   flagship would multiply: firm overviews naming live mandates, brief text
-   read back as content, a roster that never promotes below VP, count
-   magnitudes authors cannot see, and (for a transaction-driven recipe) the
-   flat-fee model. A short generator turn would land them as knobs.
-3. **Shard the flagship's board.** Recall of loud defects held at 168
-   documents, but subtle-defect recall at length is unmeasured; the cheap
-   course is no reviewer reading more than about 50 documents. A re-run of
-   the recall probe with quieter plants, rendered after planting, would
-   measure what sharding protects.
-4. **Scope on the flagship?** It works, with two recorded residuals:
-   `closing-stage-reported-early` and `authors-cannot-see-a-count-magnitude`.
-
-**Revisit candidates.**
-
-- `mail-orgs-recipient-mention-carve-out`: its criterion is user approval.
-- `board-yield-at-scale`: M18 is next, and the board must be sharded first.
-- `overview-names-live-mandates`: found by four reviewers on two boards;
-  cheap and knob-shaped. 27 more entries in BACKLOG.md.
-
-<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":13} -->
+<!-- SPEC_META: {"date":"2026-10-13","title":"M17e: the mail-org carve-out","criteria_total":8,"criteria_met":0} -->
