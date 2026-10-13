@@ -27,8 +27,16 @@ pytestmark = pytest.mark.unit
 SLUG = "quillon-harbor"
 
 
+# The M17c treatment recipe, frozen as a fixture (M17d). The live
+# recipes/quillon-harbor evolved into the tenth fleet org's recipe, with
+# knobs M17c never had; these tests are about the M17c experiment's tooling,
+# so they are re-hosted on the recipe that experiment actually ran, verified
+# byte-identical to scratch/arms/beta's copy when it was frozen.
+M17C_RECIPE = REPO / "tests" / "fixtures" / "m17c-quillon-harbor" / "ORG-CHARTER.md"
+
+
 def _recipe_text():
-    return (REPO / "recipes" / SLUG / "ORG-CHARTER.md").read_text()
+    return M17C_RECIPE.read_text()
 
 
 def _arms():
