@@ -155,6 +155,14 @@ doc_culture:
   #                             # first name and names them in full to the
   #                             # list. The recipient draw still runs, so no
   #                             # other note moves; DL-01 checks it when on.
+  #                             # Both mail knobs remove planned mentions, and
+  #                             # with graph_targets.min_mentions_per_person
+  #                             # on, the top-up pass then names a person who
+  #                             # fell below the floor in another document.
+  #                             # Observed at M17e: hollowell-ip's Sharon Woods
+  #                             # moved from three mail notes into a kickoff
+  #                             # memo her ACL denies (BACKLOG
+  #                             # mention-filler-acl-seam).
   # Voice, two knobs, both optional and default off:
   # voice_diversify: true   # M12, v1: per-author register from a seed stream
   #                         # plus a brief-level ban on the constructions the

@@ -732,6 +732,10 @@ What is comparable is recurrence, finding by finding:
   planner reads the most junior team member, so the partner now keeps the
   minutes: minutes written by a senior went 0/8 to 6/8 on ashcombe. A knob this
   turn adopted caused the second; fixing it in these orgs is another carve-out.
+  The mail knobs themselves fed a third: removing a colleague's forced mail
+  mentions dropped her below `min_mentions_per_person`, and the top-up pass
+  named her in a kickoff memo her ACL denies (hollowell's major
+  `rf:graph-1`; `BACKLOG.md`, `mention-filler-acl-seam`).
 - **One answer-key defect, fleet-wide:** all 11 departed employees keep an
   open-ended `works_at` edge in the graph answer key, so the dated-edge
   diagnostic rewards a system for missing a departure. It is the first entry

@@ -812,7 +812,10 @@ class _Planner:
         just after the first engagement so the earliest one has a client to
         cite. Each names exactly the clients whose engagement has begun by its
         date (by fact id); the brief's date-scoped digest keeps it from
-        claiming anything later than itself."""
+        claiming anything later than itself. With
+        `doc_culture.overview_cites_finished_work` (M17e) it names only
+        engagements that have ended by its date, so the earliest overview
+        usually names none."""
         engs = self.engagements.engagements
         if not engs:
             return

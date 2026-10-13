@@ -65,8 +65,11 @@ def test_on_a_broadcast_has_no_individual_recipient(on):
 
 def test_only_broadcasts_change(off, on):
     """The recipient draw still runs, so no later note moves: every other
-    document plans exactly as before, and each broadcast differs only in
-    its participants and the mentions they forced."""
+    internal note plans exactly as before, and each broadcast keeps its path,
+    date, authors and render params. Documents outside the mail genre are not
+    checked here: the mentions a broadcast stops forcing count toward
+    `min_mentions_per_person`, so with that floor on, the top-up pass may name
+    the same person elsewhere (docs/RECIPE-FORMAT.md)."""
     a = {e.doc_id: e for e in load_manifest(off)}
     b = {e.doc_id: e for e in load_manifest(on)}
     assert a.keys() == b.keys()
