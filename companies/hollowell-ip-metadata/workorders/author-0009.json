@@ -6,7 +6,7 @@
   "org_name": "Hollowell Patent Group PLLC",
   "org_type": "intellectual property law",
   "narrative": "Hollowell Patent Group is a patent boutique founded in 2016 by a partner\nwho left a general-practice firm and took two clients with her. It\nprosecutes and defends portfolios for a medical device manufacturer, a\nuniversity licensing office, and a pair of venture-backed hardware\nstartups. Docketing is the firm's religion: a missed date is the only\nmistake it cannot absorb.\n\nThe share reads like a practice that bills by the matter. Engagement\nletters are explicit about scope, conflicts, and what happens if a client\ndoes not pay. Portfolio reviews are long, structured, and organized by\nfamily. Freedom-to-operate memoranda are hedged with care and marked as\nprivileged. Client updates go out as short emails against a docket\nnumber, and the occasional deck is for a board that wants the portfolio\non one page.\n\nTone is precise, formal, and allergic to overstatement: counsel who\nwrites \"this does not infringe\" without qualification is writing a\nliability. Attorneys use full names and titles in anything a client\nreads. One partner goes by a shortened first name in internal minutes and\nher full legal name on every letter and signature block, which is exactly\nhow a real firm's documents behave and exactly what makes resolving her a\nproblem worth testing.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0049",
@@ -19,7 +19,7 @@
           "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
+          "persona": "Handles much of the university licensing office's prosecution and is practiced at translating inventor disclosures into claim language a licensee can value. She is patient with academic inventors and firm with their timelines, and her notes to them are courteous but leave no room to miss a response date. Her technical writing is orderly, with headings that track the claim structure."
         }
       ],
       "participants": [
@@ -28,14 +28,21 @@
           "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
+          "persona": "Handles much of the university licensing office's prosecution and is practiced at translating inventor disclosures into claim language a licensee can value. She is patient with academic inventors and firm with their timelines, and her notes to them are courteous but leave no room to miss a response date. Her technical writing is orderly, with headings that track the claim structure."
         },
         {
           "id": "p:kelly.snyder",
           "name": "Kelly Snyder",
           "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
+          "persona": "Works mostly on the hardware startup matters and has a feel for founders who want the answer before the analysis. Her client updates are short and plain, with the caveats kept in a separate paragraph so they cannot be skimmed past. Internally she is the associate most likely to flag that a proposed filing strategy outruns a client's budget."
+        },
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Runs the firm the way she reviews a claim set: every word has to earn its place, and nothing goes to a client without her knowing who owns the next deadline. Her engagement letters are blunt about scope, conflicts, and nonpayment because she has seen what vagueness costs a small practice. In writing she is formal and economical, prefers a qualified sentence to a confident one, and closes internal notes with a short list of who does what."
         },
         {
           "id": "xp:cynthia.hunter",
@@ -53,16 +60,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:kelly.snyder",
-          "surface": "Kelly Snyder",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:cynthia.hunter",
-          "surface": "Cynthia Hunter",
-          "kind": "person"
-        },
         {
           "entity": "x:jackson-inc",
           "surface": "Jackson Inc",
@@ -82,11 +79,11 @@
       "date": "2024-05-24",
       "authors": [
         {
-          "id": "p:kelly.snyder",
-          "name": "Kelly Snyder",
-          "title": "Associate",
-          "dept": "Prosecution",
-          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Runs the firm the way she reviews a claim set: every word has to earn its place, and nothing goes to a client without her knowing who owns the next deadline. Her engagement letters are blunt about scope, conflicts, and nonpayment because she has seen what vagueness costs a small practice. In writing she is formal and economical, prefers a qualified sentence to a confident one, and closes internal notes with a short list of who does what."
         }
       ],
       "participants": [
@@ -95,14 +92,21 @@
           "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
+          "persona": "Handles much of the university licensing office's prosecution and is practiced at translating inventor disclosures into claim language a licensee can value. She is patient with academic inventors and firm with their timelines, and her notes to them are courteous but leave no room to miss a response date. Her technical writing is orderly, with headings that track the claim structure."
         },
         {
           "id": "p:kelly.snyder",
           "name": "Kelly Snyder",
           "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
+          "persona": "Works mostly on the hardware startup matters and has a feel for founders who want the answer before the analysis. Her client updates are short and plain, with the caveats kept in a separate paragraph so they cannot be skimmed past. Internally she is the associate most likely to flag that a proposed filing strategy outruns a client's budget."
+        },
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Runs the firm the way she reviews a claim set: every word has to earn its place, and nothing goes to a client without her knowing who owns the next deadline. Her engagement letters are blunt about scope, conflicts, and nonpayment because she has seen what vagueness costs a small practice. In writing she is formal and economical, prefers a qualified sentence to a confident one, and closes internal notes with a short list of who does what."
         },
         {
           "id": "xp:cynthia.hunter",
@@ -121,13 +125,18 @@
       ],
       "mentions": [
         {
-          "entity": "p:kelly.snyder",
-          "surface": "Kelly Snyder",
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
           "kind": "person"
         },
         {
           "entity": "p:ashley.williams",
           "surface": "Ashley Williams",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kelly.snyder",
+          "surface": "Kelly Snyder",
           "kind": "person"
         },
         {
@@ -142,7 +151,7 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'Let me be direct:' and similar throat-clearing; 'Two asks. First... Second...' as an opener.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -158,7 +167,7 @@
           "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
+          "persona": "Handles much of the university licensing office's prosecution and is practiced at translating inventor disclosures into claim language a licensee can value. She is patient with academic inventors and firm with their timelines, and her notes to them are courteous but leave no room to miss a response date. Her technical writing is orderly, with headings that track the claim structure."
         }
       ],
       "participants": [
@@ -167,14 +176,21 @@
           "name": "Ashley Williams",
           "title": "Patent Agent",
           "dept": "Prosecution",
-          "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
+          "persona": "Handles much of the university licensing office's prosecution and is practiced at translating inventor disclosures into claim language a licensee can value. She is patient with academic inventors and firm with their timelines, and her notes to them are courteous but leave no room to miss a response date. Her technical writing is orderly, with headings that track the claim structure."
         },
         {
           "id": "p:kelly.snyder",
           "name": "Kelly Snyder",
           "title": "Associate",
           "dept": "Prosecution",
-          "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
+          "persona": "Works mostly on the hardware startup matters and has a feel for founders who want the answer before the analysis. Her client updates are short and plain, with the caveats kept in a separate paragraph so they cannot be skimmed past. Internally she is the associate most likely to flag that a proposed filing strategy outruns a client's budget."
+        },
+        {
+          "id": "p:mary.bradley",
+          "name": "Mary Bradley",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Runs the firm the way she reviews a claim set: every word has to earn its place, and nothing goes to a client without her knowing who owns the next deadline. Her engagement letters are blunt about scope, conflicts, and nonpayment because she has seen what vagueness costs a small practice. In writing she is formal and economical, prefers a qualified sentence to a confident one, and closes internal notes with a short list of who does what."
         }
       ],
       "engagement_summary": "Trademark Clearance for Jackson Inc, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -197,6 +213,11 @@
         {
           "entity": "p:kelly.snyder",
           "surface": "Kelly Snyder",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mary.bradley",
+          "surface": "Mary Bradley",
           "kind": "person"
         },
         {

@@ -36,23 +36,35 @@ def _mail_docs(paths):
 
 
 def test_the_knob_is_adopted_only_where_a_recipe_asks_for_it():
-    """The knob defaults off, so an org that predates it is untouched. The
-    exemplar adopted it at its M17 regeneration, and at least one mail org
-    has not, which is what keeps the default-off half honest."""
+    """The knob defaults off, so an org that predates it is untouched, and an
+    org that adopted it plans no recipient mention.
+
+    Re-hosted at M17e. The default-off half used to be hosted on a committed
+    mail org that had not adopted the knob; the M17e carve-out regenerated
+    the last of them with it on, so that half now lives on the synthetic
+    knob-off org below (`test_off_the_planner_still_forces_recipient_mentions`),
+    as CLAUDE.md requires for a test whose host moves. What stays here is the
+    committed-fleet half: every mail org that adopted the knob honours it."""
     from orgsmith.artifacts import load_charter
 
-    adopted, untouched = [], []
+    assert MailCulture().exempt_recipient_mentions is False
+    adopted = []
     for slug in sorted(
         p.name
         for p in (REPO / "companies").iterdir()
         if p.is_dir() and not p.name.endswith("-metadata")
     ):
-        mail = load_charter(OrgPaths(root=REPO, slug=slug)).doc_culture.mail
-        if mail is None:
+        paths = OrgPaths(root=REPO, slug=slug)
+        mail = load_charter(paths).doc_culture.mail
+        if mail is None or not mail.exempt_recipient_mentions:
             continue
-        (adopted if mail.exempt_recipient_mentions else untouched).append(slug)
-    assert MailCulture().exempt_recipient_mentions is False
-    assert untouched, "no committed mail org still carries the pre-M17 default"
+        adopted.append(slug)
+        for entry in _mail_docs(paths):
+            if entry.render_params.get("dl"):
+                continue
+            recipients = set(eml_recipients(entry.authors, entry.participants)) - set(entry.authors)
+            assert not ({m.entity for m in entry.mentions} & recipients), (slug, entry.path)
+    assert adopted, "no committed mail org has adopted the knob"
 
 
 def test_off_the_planner_still_forces_recipient_mentions(tmp_path):

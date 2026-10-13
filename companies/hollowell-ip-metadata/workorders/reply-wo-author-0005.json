@@ -1,135 +1,580 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0005",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0021",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Barbara Blair\nCc: Kelly Snyder, Heather Munoz"},
-        {"kind": "paragraph", "text": "Hello Barbara,"},
-        {"kind": "paragraph", "text": "Your product descriptions and the priority list came through this morning, and that is what we needed to fix the scope. I have the searches scoped to the features you marked first, and Kelly Snyder has the United States searches running against that scope now. Two of the features are drawn loosely enough that I may come back with a short question before searching them, but nothing there holds up the rest."},
-        {"kind": "paragraph", "text": "We are not reading anything against the results yet. The reference set has to settle first, and Kelly Snyder is keeping it current as the searches turn more up. Once it is stable the claim reading starts, and Heather Munoz will review what it produces before any view on risk for {{fact:f:E-2020-001.client}} reaches you."},
-        {"kind": "paragraph", "text": "So the record stays in one place, everything on the Middleton, Sullivan and Wiley searches is on the docket under this matter, and Kelly Snyder holds that file. If a call on the scope is easier than writing the rest out, send me a couple of times that suit you and I will set one up."},
-        {"kind": "paragraph", "text": "Thanks"}
+        {
+          "kind": "paragraph",
+          "text": "Hello Barbara,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "To add to Heather's message yesterday: the search is finished and screening has started. The search covered issued patents and published applications directed at the products {{fact:f:E-2020-001.client}} identified for clearance."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Screening runs in stages. Titles and abstracts come first, to set aside documents about unrelated technology. The independent claims of what remains are then read against your product description. Anything still in question gets a full reading of its claims and specification. What survives that last stage becomes the short list we chart. When the list is ready, we will propose a working session to take you through it before any charting starts."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The claim reading is done against the product description your team sent at the start of the matter. If any feature has changed since then, please send the current drawings or specification sheets now, so that each reading is done once and against the right design."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing found so far is a conclusion about risk. Any view on a particular patent will come from Heather, in writing, after the claim review is complete."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thanks"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0022",
       "blocks": [
-        {"kind": "heading", "level": 2, "text": "Working Session — Freedom-to-Operate Analysis for Middleton, Sullivan and Wiley"},
-        {"kind": "paragraph", "text": "Minutes taken by Heather Munoz. This was a working review of where the analysis stands and what it needs next. No conclusion on risk was reached or reported, and none will be until the reading behind it is complete."},
-        {"kind": "heading", "level": 3, "text": "Attendees"},
-        {"kind": "list", "items": [
-          "Heather Munoz, Partner, Hollowell Patent Group",
-          "Richard Henderson, Patent Agent",
-          "Kelly Snyder, Associate",
-          "Barbara Blair, Director of Operations, Middleton, Sullivan and Wiley"
-        ]},
-        {"kind": "heading", "level": 3, "text": "Scope"},
-        {"kind": "paragraph", "text": "The flagged features still match what {{fact:f:E-2020-001.client}} is taking to market, with two exceptions. Two features in the descriptions are drawn loosely enough that we cannot search them cleanly. Barbara Blair will confirm the current wording on both, so the scope stays tied to the real product and not to a paraphrase of it. Richard Henderson flagged both; they read as marketing language rather than the technical description a search needs."},
-        {"kind": "paragraph", "text": "We confirmed again that the analysis covers the United States only. Markets outside it are not in scope, and we would price that work separately before starting it. Barbara Blair raised no change on that point."},
-        {"kind": "heading", "level": 3, "text": "Search coverage"},
-        {"kind": "paragraph", "text": "The United States searches on the priority families are substantially complete. Kelly Snyder ran them to the scope we set and is keeping the reference set current as later searches add to it. A small number of classes remain to run, and Kelly Snyder expects to clear those shortly."},
-        {"kind": "paragraph", "text": "The reference set is close to stable, which is the point at which reading can begin in earnest. Richard Henderson has started charting the first family, element by element, against the product descriptions. He noted several references that sit close to the claims; those come to me for a careful read rather than a quick characterization. Close here has a plain meaning: the reference reads on enough elements of a claim that whether it reads on all of them is a real question, not a formality."},
-        {"kind": "heading", "level": 3, "text": "How conclusions are handled"},
-        {"kind": "paragraph", "text": "One rule was restated for the record. Anything in the charts that touches infringement or validity comes to me, and neither Richard Henderson nor Kelly Snyder characterizes it on their own. Nothing that reads as a view on risk will reach {{fact:f:E-2020-001.client}} before the searching behind it is done and I have reviewed it. The reason is practical: an answer that runs ahead of the searching can change once the searching catches up, and a client is better served by one answer that holds than by two that do not agree."},
-        {"kind": "heading", "level": 3, "text": "Docket"},
-        {"kind": "paragraph", "text": "The docket is current. Every date and reference tied to this matter is in the engagement file, which Kelly Snyder owns, and nothing is being tracked in private notes. Barbara Blair asked how she would see progress between sessions; a short written update will go to her against the docket number rather than as a separate report. Barbara Blair will get the docket number with the first of those updates, so she can file our correspondence against it on her side."},
-        {"kind": "heading", "level": 3, "text": "Action items"},
-        {"kind": "table", "header": ["Action", "Owner"], "rows": [
-          ["Confirm the current wording of the two loosely drawn features", "Barbara Blair"],
-          ["Finish the remaining class searches on the priority families", "Kelly Snyder"],
-          ["Continue charting the first family and route close references for review", "Richard Henderson"],
-          ["Review the first family's charts and the close references", "Heather Munoz"]
-        ]}
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Minutes of Working Session"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Freedom-to-Operate Analysis for {{fact:f:E-2020-001.client}}. Held by video conference. Recorded by Heather Munoz."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Attendees"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Barbara Blair, Director of Operations, {{fact:f:E-2020-001.client}}",
+            "Heather Munoz, Partner",
+            "Richard Henderson, Patent Agent",
+            "Kelly Snyder, Associate"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Outcome"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Screening is complete. The meeting agreed the short list of third-party patents that will go to full claim review, and the order in which they will be reviewed. No change to scope was requested."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Discussion"
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Screening results. Richard Henderson reported that most search results were set aside at the abstract or independent-claim stage. Those that remain are grouped by patent family on the short list."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Barbara Blair asked how a patent earns a place on the list. Richard Henderson explained that it stays on if any claim could be read on a feature of the product as described. A place on the list says nothing yet about risk."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Product description. Barbara Blair confirmed that the description used for screening matches the current design. She will tell us of any change to a short-listed feature while the claim review is open."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Pending applications. Kelly Snyder explained that a published application cannot be cleared the way an issued patent can, because its claims may still change before grant. Each pending application of interest will go on a watch list, with status checks entered on the docket."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. File histories. Kelly Snyder will obtain the prosecution record for every short-listed patent. Amendments and arguments made to the examiner can narrow how a claim is read, and the charts must reflect them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. Form of the opinion. Barbara Blair asked whether the result could be a plain yes or no for each patent. Heather Munoz explained that the memorandum will give a view on each patent with the reasoning behind it, and that each view will be qualified."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The memorandum will be marked privileged. Heather Munoz asked that its circulation within {{fact:f:E-2020-001.client}} be limited to the people who will act on it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "6. Order of review. Richard Henderson proposed charting first the families whose claims track the product most closely. Barbara Blair agreed. Families near the end of their term will be charted last."
+        },
+        {
+          "kind": "paragraph",
+          "text": "7. Time and cost. Kelly Snyder noted that the file histories of the older families are long, and that reading them is the main variable in the time estimate. She will report if that begins to press on the budget."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Action Items"
+        },
+        {
+          "kind": "table",
+          "header": [
+            "No.",
+            "Action",
+            "Owner"
+          ],
+          "rows": [
+            [
+              "1",
+              "Circulate the short list, with a note on each patent family",
+              "Richard Henderson"
+            ],
+            [
+              "2",
+              "Obtain the file history for every short-listed patent",
+              "Kelly Snyder"
+            ],
+            [
+              "3",
+              "Set up the watch list of pending applications and enter docket status checks",
+              "Kelly Snyder"
+            ],
+            [
+              "4",
+              "Report any design change that affects a short-listed feature",
+              "Barbara Blair"
+            ],
+            [
+              "5",
+              "Begin claim charts, starting with the families ranked first",
+              "Richard Henderson"
+            ],
+            [
+              "6",
+              "Review the first claim charts before they go to the client",
+              "Heather Munoz"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Updates between sessions will go to Barbara Blair on the existing email thread for the matter. The next session will be set once the first group of claim charts has been reviewed."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0023",
       "blocks": [
-        {"kind": "paragraph", "text": "Matter: Freedom-to-Operate Analysis for Middleton, Sullivan and Wiley\nPrepared by Richard Henderson, Patent Agent, Hollowell Patent Group"},
-        {"kind": "heading", "level": 2, "text": "Where we stand"},
-        {"kind": "paragraph", "text": "The analysis is on schedule and inside its budget, and we have moved from searching into reading. The searches on the features {{fact:f:E-2020-001.client}} asked us to clear are complete, the reference set is stable, and the claim charts are underway. We have not reached any conclusion on risk yet, and I want to be plain that we will not report one until the reading behind it is finished. This report is a picture of the work, not an opinion on it."},
-        {"kind": "paragraph", "text": "We are about at the midpoint of the engagement, and the work is where it should be for that. The searching, which is the front half, is done. The reading and the written opinion are the back half, and the reading is now underway. The families divide the work cleanly, so progress from here is countable: each family gets charted, then reviewed, then folded into the opinion."},
-        {"kind": "heading", "level": 2, "text": "Completed since the last report"},
-        {"kind": "paragraph", "text": "The searching is done for the priority families. Kelly Snyder ran the United States searches to the scope we set at the front, pulled the patents and published applications that read on the identified features, and has kept the reference set current as later searches added to it. The set is now stable enough to read against, which is the milestone this period was built around. We recorded the search terms and the classes we ran, so the coverage is on the record and can be checked, not carried in anyone's memory."},
-        {"kind": "paragraph", "text": "The claim reading has started. I have begun charting the claims of the first family against the product descriptions, element by element, and Heather Munoz has reviewed that first family's charts family by family, in the structured pass she runs on work of this kind. Anything in the charts that touches infringement or validity goes to her rather than being characterized by me or by Kelly Snyder, so the conclusions stay with the partner who signs them. A chart maps each element of a claim against the corresponding part of the product, so a reference either reads on the product element by element or it does not, and the chart shows which."},
-        {"kind": "list", "items": [
-          "United States searches on the priority families, complete.",
-          "Reference set stable and current through the latest searches.",
-          "Claim charts underway, starting with the first family, element by element.",
-          "Partner review of the first family's charts, complete."
-        ]},
-        {"kind": "heading", "level": 2, "text": "The next stretch"},
-        {"kind": "paragraph", "text": "Three things carry the work from here. Kelly Snyder and I finish charting the remaining families against the same scope. Heather Munoz reviews each family's charts as it comes ready, so the review runs alongside the charting instead of waiting for all of it. When the charts and the reviews are complete, Heather Munoz begins the written freedom-to-operate opinion that carries the conclusions, and that opinion is the deliverable this engagement is built to produce. The opinion follows the families, states plainly what it covers and what it does not, and hedges where the record is close instead of resolving a question more firmly than the searching supports."},
-        {"kind": "heading", "level": 2, "text": "Budget"},
-        {"kind": "paragraph", "text": "The engagement is a fixed fee of {{fact:f:E-2020-001.fee}}, set at the outset so that {{fact:f:E-2020-001.client}} can put a question to us without watching a clock. The work is inside that fee and we expect it to stay there. The fee covers the searching, the analysis, and one written opinion; work outside it, such as an infringement or validity opinion on a single patent or an extension to markets outside the United States, we would scope and quote before starting, and none of that is in front of us now."},
-        {"kind": "heading", "level": 2, "text": "Risks and watch items"},
-        {"kind": "paragraph", "text": "Two things are worth watching. The first is the product. This analysis is only as good as the descriptions it runs against, so if anything {{fact:f:E-2020-001.client}} is taking to market changes from what we scoped, tell us early and we will fold it in before it becomes a gap in the opinion. The second is the references that sit close. A handful of them are near enough to the claims that Heather Munoz will want a careful read rather than a quick one, and a careful read is the right call on a freedom-to-operate question."},
-        {"kind": "paragraph", "text": "On dates, the docket is current and every date tied to this matter is on it. Kelly Snyder owns that file, and nothing on this engagement is tracked in anyone's private notes. A missed date is the one mistake this firm does not absorb, so the docket is checked, not assumed."}
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Status Report: Freedom-to-Operate Analysis"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Privileged and Confidential: Attorney-Client Communication"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for {{fact:f:E-2020-001.client}} by Richard Henderson, Patent Agent. Responsible partner: Heather Munoz."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "1. Where the Analysis Stands"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The analysis is at its midpoint, on schedule, and within budget. Screening is finished. Claim charts for the first group of short-listed patents are drafted and are with Heather Munoz for review."
+        },
+        {
+          "kind": "paragraph",
+          "text": "No conclusion has been reached on any patent. Conclusions belong in the final memorandum, after partner review. Nothing in this report should be read as one."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "2. Work Completed"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The following items are complete as of this report."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Search of issued patents and published applications directed at the products identified for clearance.",
+            "Screening of the search results in stages, ending in a short list grouped by patent family. The short list was reviewed and agreed at the working session with your team.",
+            "File histories obtained for every short-listed patent. Kelly Snyder has read each one for amendments and arguments that narrow how the claims can be read.",
+            "A watch list of pending applications, each entered on the firm's docket for regular status checks.",
+            "Claim charts for the first group of short-listed patents. Each chart sets every element of the independent claims beside the corresponding feature of the product, or records that the product has no such feature."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 3,
+          "text": "How the Charts Are Built"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each independent claim is charted on its own, because the independent claims of one patent can differ in scope. A dependent claim is charted only where the claim it rests on appears to read on the product. Every chart cites the column and line of the specification it relies on, and the file history where an amendment or argument limits a term."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "3. Work for the Coming Period"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The order below follows the ranking agreed at the working session. The name after each item is the person responsible for it."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Claim charts for the remaining short-listed patents. Richard Henderson.",
+            "Review of prior art for any patent where every element of a claim appears to be present in the product. The purpose is to see whether a validity position is available. Richard Henderson, with Kelly Snyder.",
+            "Notes on design alternatives where a claim element corresponds to a feature your engineering team may be able to change. These notes will be written in engineering terms, not claim language. Richard Henderson.",
+            "Partner review of each chart before it is sent to you. Heather Munoz.",
+            "Continued status checks on the watch list. Kelly Snyder."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "4. Budget"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement budget is {{fact:f:E-2020-001.fee}}. Time recorded to date is within the portion of the budget planned for screening and the first charts, and we do not expect to ask for a change."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The items in section 5 are the ones that could alter that. If any of them begins to affect cost, we will raise it with you before the time is spent."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "5. Risks"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each risk is listed with what is being done about it."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Pending applications. A pending application can issue with claims broader than those published. The watch list reduces this risk but cannot remove it. The memorandum will state the date as of which it speaks.",
+            "Design changes. The charts are read against the product description your team confirmed. A change to a charted feature means that chart must be read again. Please tell us of a proposed change as soon as it is under consideration.",
+            "File history length. Some short-listed patents have long prosecution records. Kelly Snyder has flagged their review as the largest open item in the time estimate. We will report if it moves.",
+            "Claim terms. Some claim terms have no settled meaning. Where a term could be read more than one way, the memorandum will say so and give a view under each reading.",
+            "Related filings. A short-listed family may have a continuation still pending, which can issue with new claims. Any such continuation is on the watch list, and the memorandum will identify each one."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "6. Requests"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The charts are only reliable if the product description behind them is current. Please confirm that the description approved at the working session still matches the design. Please also name an engineering contact who can answer feature questions as the remaining charts are drafted."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "7. Contacts"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions about the search or the charts can come to me. Questions about legal conclusions should go to Heather Munoz. Kelly Snyder holds the watch list and the file histories, and can answer questions on either."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0024",
       "blocks": [
-        {"kind": "heading", "level": 2, "text": "Working Session — Freedom-to-Operate Analysis for Middleton, Sullivan and Wiley"},
-        {"kind": "paragraph", "text": "Minutes taken by Heather Munoz. The analysis is in its late stage. The charting is done, the family reviews are nearly finished, and the written opinion is in draft. No conclusion on risk is stated here; the opinion carries the conclusions, and I have not signed it."},
-        {"kind": "heading", "level": 3, "text": "Attendees"},
-        {"kind": "list", "items": [
-          "Heather Munoz, Partner, Hollowell Patent Group",
-          "Richard Henderson, Patent Agent",
-          "Kelly Snyder, Associate",
-          "Barbara Blair, Director of Operations, Middleton, Sullivan and Wiley"
-        ]},
-        {"kind": "heading", "level": 3, "text": "Status"},
-        {"kind": "paragraph", "text": "Richard Henderson and Kelly Snyder have charted every priority family against the scope we set, element by element. I have reviewed most of the families family by family, in the structured pass I run on this work, and I have a short list of families left to close. Kelly Snyder has kept the reference set current through the last of the searches. Nothing new has come in from the searches for some weeks, which is what tells us the landscape is settled and the reading can be trusted as complete."},
-        {"kind": "paragraph", "text": "The features {{fact:f:E-2020-001.client}} asked us to clear are all covered by the charts. Where a reference sits close to a claim, it is flagged in the chart and carried into my review rather than resolved by the agents. That is where the careful reading is going now. What is left is judgment, not search; the material to reach a conclusion is in hand, and the conclusion is mine to reach."},
-        {"kind": "heading", "level": 3, "text": "Where the opinion stands"},
-        {"kind": "paragraph", "text": "I have started the written freedom-to-operate opinion. It is drafted in the sections tied to the families I have finished reviewing, and it is open in the sections tied to the families I have not. The opinion will hedge where the record is close and say so plainly, which is the only honest way to write one. Counsel who writes that a product does not infringe, without qualification, is writing a liability; the opinion says what the record supports and marks where it stops."},
-        {"kind": "paragraph", "text": "We will not send a partial view ahead of the finished opinion. When it is complete and I have signed it, {{fact:f:E-2020-001.client}} will have it in writing and we will walk through it."},
-        {"kind": "heading", "level": 3, "text": "Open points"},
-        {"kind": "paragraph", "text": "One question for the client side. If anything in the products has changed since we set the scope, we need it now, before the opinion is final, so it is read rather than missed. Barbara Blair will check with the product group at Middleton, Sullivan and Wiley and confirm either way. If there is a change, it needs to be read into the opinion before we sign, not discovered against the old scope afterward."},
-        {"kind": "heading", "level": 3, "text": "Docket"},
-        {"kind": "paragraph", "text": "The docket is current and every date on this matter is on it. Kelly Snyder owns the engagement file and will close out the search records as the last families are reviewed. When the opinion is signed, the file will hold the searches, the charts, the reviews, and the opinion itself, which is the complete record of what we did and why."},
-        {"kind": "heading", "level": 3, "text": "Action items"},
-        {"kind": "table", "header": ["Action", "Owner"], "rows": [
-          ["Confirm whether the products have changed since scope was set", "Barbara Blair"],
-          ["Close the reference set and search records for the matter", "Kelly Snyder"],
-          ["Finish the charting notes on the last families for review", "Richard Henderson"],
-          ["Complete the remaining family reviews and continue the written opinion", "Heather Munoz"]
-        ]}
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Working Session: Freedom-to-Operate Analysis for {{fact:f:E-2020-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Minutes recorded by Heather Munoz. The session was held by video conference."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Present"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Heather Munoz, Partner",
+            "Richard Henderson, Patent Agent",
+            "Kelly Snyder, Associate",
+            "Barbara Blair, Director of Operations, {{fact:f:E-2020-001.client}}"
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Result"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Claim charts are complete for most of the short list. On the charts reviewed, most patents appear unlikely to stand in the way of the current design, subject to the qualifications the memorandum will carry."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two questions remain open before drafting can start: validity of one patent family, and whether one product feature can be changed."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Points Discussed"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Claim charts. Richard Henderson took the meeting through the charts finished since the last session. For most patents, at least one element of each independent claim has no counterpart in the product as described."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The charts still open cover the families ranked last. Richard Henderson expects no change of approach for them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz noted that the internal risk ranking is a working tool. It will not appear in the memorandum in that form."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Validity question. Kelly Snyder reported on the file history of the family held for separate review. The applicant narrowed the claims during prosecution to obtain allowance, and that narrowing may limit how far the claims can now be read."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Richard Henderson has located prior art that bears on validity, and his review is under way. Heather Munoz said the memorandum will treat this family on its own and will not rest on invalidity alone."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Design alternatives. One claim element corresponds to a feature that may be changeable. Barbara Blair will ask the engineering team whether the feature can be modified, and what a change would cost in time."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Richard Henderson will send a note describing that claim element in engineering terms. The engineering team should not need to read the claim to answer."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Watch list. Kelly Snyder reported that no application on the watch list has issued since the last session. Docket checks continue."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Memorandum. Barbara Blair asked for a summary she can take to her leadership at {{fact:f:E-2020-001.client}}. Heather Munoz agreed to put a short summary at the front of the memorandum, with the same qualifications and the same privilege marking as the body."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Heather Munoz asked that the summary not be circulated apart from the memorandum. Barbara Blair agreed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Barbara Blair asked when the draft would be ready. Heather Munoz said drafting starts when both open questions are answered. She will propose a delivery date at that point."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Time and cost. Kelly Snyder reported that time recorded remains within the estimate. The validity review is the largest item still to come, and she will flag it if it runs long."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Actions Agreed"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Richard Henderson: send the engineering note on the claim element at issue.",
+            "Richard Henderson: finish the remaining claim charts and the validity review.",
+            "Barbara Blair: return the engineering team's answer on the feature change.",
+            "Kelly Snyder: keep docket checks on the watch list current and report any issuance at once.",
+            "Heather Munoz: review the remaining charts, then begin the draft memorandum when the validity review and the engineering answer are in."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A further session will be called only if the engineering answer changes the analysis."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0026",
       "blocks": [
-        {"kind": "paragraph", "text": "Matter: Freedom-to-Operate Analysis for Middleton, Sullivan and Wiley\nPrepared by Richard Henderson, Patent Agent, Hollowell Patent Group"},
-        {"kind": "heading", "level": 2, "text": "Bottom line"},
-        {"kind": "paragraph", "text": "The analysis is in its final stretch and inside its budget. The charting and the family reviews are done, and the written opinion is drafted and in Heather Munoz's final review. We have not reported a conclusion on risk, and we will not until Heather Munoz has signed the opinion that carries it. This update covers the work; the opinion will carry the answer. The engagement was built to produce one written freedom-to-operate opinion, and that opinion is now the last thing between the work and its delivery."},
-        {"kind": "heading", "level": 2, "text": "Completed since the last update"},
-        {"kind": "paragraph", "text": "The searching and the reading are finished. Kelly Snyder closed out the United States searches on every priority family and settled the reference set, so the record the opinion rests on is fixed. I charted the claims of each family against the product descriptions, element by element, and flagged every reference that sits close to a claim for Heather Munoz rather than characterizing it myself. The search terms and classes are on the record with the references, so the coverage behind the opinion can be checked rather than taken on trust."},
-        {"kind": "paragraph", "text": "Heather Munoz has reviewed the families family by family, in the structured pass she runs on this work, and has closed the last of them this period. Where a reference is close, she has read it carefully rather than quickly, which is the right call on a freedom-to-operate question and the reason the reviews took the time they did. That review is the substance of the engagement; the searching feeds it and the opinion records it, but the judgment is hers and it is where the value sits."},
-        {"kind": "list", "items": [
-          "United States searches on every priority family, complete and closed.",
-          "Reference set settled, so the record the opinion rests on is fixed.",
-          "Claim charts for each family, element by element against the product descriptions.",
-          "Partner review of every family, with close references read carefully.",
-          "The written freedom-to-operate opinion, drafted in full and in final review.",
-          "Search terms and classes recorded with the references, so the coverage can be checked."
-        ]},
-        {"kind": "heading", "level": 2, "text": "What remains"},
-        {"kind": "paragraph", "text": "Three things close the engagement. Heather Munoz finishes her final review of the drafted opinion. She signs it, and it goes to {{fact:f:E-2020-001.client}} in writing, with a call to walk through it. Kelly Snyder then closes the engagement file and the docket entries for the matter, so the record is complete and nothing is left in private notes. None of these steps waits on a search or a chart; the record is fixed, and what is left is the partner's read of it and the delivery."},
-        {"kind": "paragraph", "text": "We are in the final stretch. The remaining work is Heather Munoz's review and signature and the close-out, and none of it depends on anything outstanding from your side except a confirmation that the products have not changed."},
-        {"kind": "heading", "level": 2, "text": "Fee status"},
-        {"kind": "paragraph", "text": "The engagement is a fixed fee of {{fact:f:E-2020-001.fee}}, set at the outset so a question could be put to us without watching a clock, and the work has stayed inside it. The fee covers the searching, the analysis, and the one written opinion now in final review. Nothing outside that scope has come up; an infringement or validity opinion on a single patent, or an extension to markets outside the United States, would be scoped and quoted before any of it began, and none is in front of us. If the analysis had turned up something that pushed the work past a freedom-to-operate opinion, we would have raised it and priced it before going further; it did not, and the engagement ends inside the fee it started with."},
-        {"kind": "heading", "level": 2, "text": "Open risks"},
-        {"kind": "paragraph", "text": "There is little left to go wrong, and it is worth naming what there is. A reference could surface late; if one does, Heather Munoz reads it before the opinion is signed rather than after, so nothing final rests on an incomplete record. The other watch item is the product. If anything {{fact:f:E-2020-001.client}} is taking to market has changed since we set the scope, we need it before the opinion is signed, because the opinion is only as good as the descriptions it runs against. On dates, the docket is current and every date on this matter is on it. A missed date is the one mistake this firm does not absorb, and there is none outstanding on this matter."}
+        {
+          "kind": "heading",
+          "level": 1,
+          "text": "Freedom-to-Operate Analysis: Status Report"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Privileged and Confidential: Attorney-Client Communication"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Client: {{fact:f:E-2020-001.client}}. Prepared by Richard Henderson, Patent Agent. Team: Heather Munoz, Partner; Kelly Snyder, Associate."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The analysis is substantively complete. The draft memorandum is written and is with Heather Munoz for final review. What remains is her review, delivery of the signed memorandum, and a closing call to go through the conclusions."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The memorandum states a view on each patent on the short list, with the reasons for it. Each view is qualified. None should be repeated outside the memorandum without its qualifications."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Progress Since the Last Report"
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Item",
+            "Status",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Claim charts",
+              "Complete",
+              "Every short-listed patent is now charted against the confirmed product description."
+            ],
+            [
+              "Validity review",
+              "Complete",
+              "Prior art was reviewed for the family held for separate treatment at the last working session. The findings are in the draft memorandum."
+            ],
+            [
+              "Design alternatives",
+              "Complete",
+              "The engineering note went to your team. Their answer on the feature change is reflected in the draft."
+            ],
+            [
+              "File histories",
+              "Complete",
+              "Kelly Snyder's review of the prosecution records is built into each chart."
+            ],
+            [
+              "Watch list",
+              "Current",
+              "The status of each pending application was rechecked and the docket updated."
+            ],
+            [
+              "Draft memorandum",
+              "In partner review",
+              "With Heather Munoz."
+            ]
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Contents of the Memorandum"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The draft is arranged in the following order."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "A short summary at the front, carrying the same qualifications and privilege marking as the body.",
+            "The product description relied on, as confirmed by your team.",
+            "The search and screening method, and the scope of the search.",
+            "A view on each short-listed patent, grouped by family, with the claim charts attached.",
+            "Separate treatment of the family held for validity review, setting out the non-infringement and validity positions on their own terms.",
+            "The design alternative discussed with your engineering team, and their answer.",
+            "The watch list of pending applications, including pending continuations in short-listed families.",
+            "The qualifications that apply to every view in the memorandum."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Remaining Steps"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Incorporate Heather Munoz's review comments into the draft. Richard Henderson.",
+            "Sign and deliver the final memorandum, marked privileged. Heather Munoz.",
+            "Hold a closing call to take you through each conclusion and the qualifications attached to it. Heather Munoz and Richard Henderson. We suggest that those who will act on the conclusions attend.",
+            "Hand over the watch list, with the status of each pending application as of delivery. Kelly Snyder."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Budget"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work described in this report has been done within the engagement budget of {{fact:f:E-2020-001.fee}}. The remaining steps are covered by it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The file histories and the validity review took the most time in this period, as the last report expected. Both stayed within the estimate."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Monitoring the watch list after delivery is not part of the current engagement. If you want it continued, that is a separate discussion. Nothing will be docketed for it without your instruction."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Limits of the Analysis"
+        },
+        {
+          "kind": "paragraph",
+          "text": "These limits will also appear in the memorandum. They are set out here so that they are read first."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Date. The memorandum speaks as of its date. A patent that issues afterwards, including one from the watch list, is not covered.",
+            "Product description. The conclusions rest on the product description your team confirmed. A change to a charted feature should come back to us before the changed product is released.",
+            "Claim terms. Where a claim term could reasonably be read more than one way, the memorandum gives a view under each reading. A court is not bound by either.",
+            "Privilege. The memorandum is a privileged communication. Within {{fact:f:E-2020-001.client}} it should go only to those who need it to make decisions. Sharing it with anyone outside may waive privilege."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Before the Closing Call"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The conclusions are tied to the design as your engineering team last described it. Please confirm that no charted feature has changed since their answer on the feature change. If one has, the affected chart will be read again before the memorandum is signed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Please also send the names of those who will attend the closing call, so that the invitation and the memorandum go only to them."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Contacts"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions about the charts or the prior art can come to me. Questions about the conclusions should go to Heather Munoz. Kelly Snyder holds the watch list until it is handed over."
+        }
       ]
     }
   ]

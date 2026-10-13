@@ -4,7 +4,34 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Present",
+      "text": "Experience Study Working Session: Minutes",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Experience study for {{fact:f:E-2019-001.client}}. Working session held by conference call, with the first tabulations circulated to attendees the day before.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We met to settle the data the study relies on and to take a first look at the plan's experience. Recommended assumptions were not on the agenda. They follow once the tabulations are final, and nothing recorded here should be read as one. The study is being performed under ASOP No. 35, which governs the selection of demographic assumptions.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Attendees",
       "level": 2,
       "items": [],
       "header": [],
@@ -16,10 +43,11 @@
       "text": "",
       "level": 1,
       "items": [
-        "Megan Dudley, Actuarial Associate",
+        "Barbara Hall, Chief Operating Officer, {{fact:f:E-2019-001.client}}",
+        "Robert Lawrence, Managing Actuary",
         "David Sherman, Senior Analyst",
         "Jeffrey Ochoa, Actuarial Analyst",
-        "Barbara Hall, Chief Operating Officer, Estes Group"
+        "Megan Dudley, Actuarial Associate"
       ],
       "header": [],
       "rows": [],
@@ -27,7 +55,7 @@
     },
     {
       "kind": "heading",
-      "text": "Notes from the session",
+      "text": "Data relied on",
       "level": 2,
       "items": [],
       "header": [],
@@ -36,7 +64,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We met to bring Barbara Hall current on where the experience study stands and to work through the handful of questions that had come up as we assembled the data. Most of the hour went to the census, which is the part of the work everything else rests on, and the balance to a shared understanding of what the study will and will not be able to tell the board once it is finished.",
+      "text": "We started with the data, since every rate in the study rests on it. David Sherman reported that the status history now ties to the year-end census in every year of the study period. The last open item had been the group of first-year records that left the active census with no recorded change of status. Barbara Hall confirmed that they were internal transfers, which the payroll system had entered as new hires under new employee numbers. Her staff sent the old and new numbers, Megan Dudley linked them, and David reran the reconciliation. It holds.",
       "level": 1,
       "items": [],
       "header": [],
@@ -45,34 +73,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "David Sherman walked us through the reconciliation. The membership file now ties to the Estes Group payroll records within a small and explainable margin, and the exposures we need in order to count who was at risk of retiring, terminating, or dying in each year of the study period are nearly built. He was candid that a study reads only as well as the data underneath it, and that a few records still carry status codes we want confirmed before we treat the counts as final. None of this is unusual for a first study, and none of it changes the shape of the work; it simply means we hold a small number of participants open a little longer.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Jeffrey Ochoa then explained, for Barbara's benefit, how an experience study actually works. For each assumption the plan relies on, we compare what the {{fact:f:E-2019-001.client}} membership actually did over the study period against what the current assumptions predicted, and the relationship between the two is what tells us whether an assumption still fits. He was careful to frame this as measurement rather than judgment. We are counting actual against expected now; whether to recommend a change, and how large a change the data can support, comes later and belongs to the signing actuary.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "We also settled, at least in outline, which assumptions the study will speak to. Retirement and termination are where the membership gives us the most to work with, so they will carry the most weight. Mortality we will look at with the plan's size in mind, expecting to lean on a published table adjusted for whatever partial signal the data provide rather than on the plan's own experience alone. Salary increases we will study from the payroll history David has already assembled. Barbara did not need the technical detail, but she wanted to know where our judgment would enter, and we were straight with her that it enters at the end, once the counting is done and we can see which assumptions the data actually quarrel with.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Barbara also raised the questions the board is likely to raise, which was useful to hear this early. She asked whether an earlier benefit change might distort the retirement pattern we are studying, and whether the smaller membership groups would carry enough experience to support any conclusion about them. We agreed that both concerns are real, that we would flag the affected years rather than blend them silently, and that where a group is too thin to stand on its own we will say so plainly instead of dressing up a weak result.",
+      "text": "Megan raised a smaller point. A few retiree records have no date of birth. Barbara expects the benefits office can supply the dates from the original retirement applications. Megan set out what we will do if it cannot. Those records will be left out of the mortality tabulation. They will not be given an assumed age, and the study will say how many were left out.",
       "level": 1,
       "items": [],
       "header": [],
@@ -81,8 +82,62 @@
     },
     {
       "kind": "heading",
-      "text": "What we each agreed to do",
+      "text": "First look at the experience",
       "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jeffrey Ochoa took us through the tabulations. Each one compares the terminations, retirements or deaths the plan actually recorded with the number the current assumptions would have predicted. He kept the observed results apart from anything we might later recommend, and these minutes keep the same line.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "On terminations, the data show more departures than expected in the first years of service and fewer than expected after that. On retirements, the counts run below expected in the early retirement window and close to expected at older ages. On mortality, the plan recorded fewer retiree deaths than the current table predicts.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Barbara asked whether the early-service result might come from a single unusual hiring year and not from a lasting pattern. It might. Jeffrey will split those results by year of hire before we draw anything from them.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our view at this stage is limited. The plan's own experience is not large enough to set every rate by itself, and the mortality result rests on few deaths. Where the data are thin we will weight them against a published table, as ASOP No. 25 provides. The report will show the weight given, so that it can be checked.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Agreed actions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The draft recommendations depend on each of these items. We have listed them in the order they need to be done.",
+      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
@@ -94,37 +149,48 @@
       "level": 1,
       "items": [],
       "header": [
-        "Owner",
+        "No.",
         "Action",
+        "Owner",
         "Timing"
       ],
       "rows": [
         [
-          "David Sherman",
-          "Close out the census once Estes Group confirms the flagged status codes.",
-          "Before the next working session"
-        ],
-        [
-          "Jeffrey Ochoa",
-          "Complete the actual-to-expected counts for retirement and termination across the study period.",
-          "Next two weeks"
-        ],
-        [
-          "Megan Dudley",
-          "Circulate these minutes and gather the open data questions for the client in one place.",
-          "This week"
-        ],
-        [
+          "1",
+          "Supply dates of birth for the retiree records that lack them",
           "Barbara Hall",
-          "Confirm the flagged status codes and check the timing of the earlier benefit change against Estes Group's records.",
-          "As available"
+          "Within two weeks"
+        ],
+        [
+          "2",
+          "Rerun the mortality tabulation with those dates, or on the stated exclusion if they do not come",
+          "Megan Dudley",
+          "On receipt, or when the two weeks have passed"
+        ],
+        [
+          "3",
+          "Split early-service terminations by year of hire",
+          "Jeffrey Ochoa",
+          "Before the status report"
+        ],
+        [
+          "4",
+          "Issue the data summary, covering the transfer linkage and every record excluded",
+          "David Sherman",
+          "Before the status report"
+        ],
+        [
+          "5",
+          "Review the tabulations and the credibility approach before any recommendation is drafted",
+          "Robert Lawrence",
+          "Once items 3 and 4 are done"
         ]
       ],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Our next step is a simple one. Once Barbara confirms the open status codes, David closes the census and Jeffrey runs the first full set of actual-against-expected counts, and that is what we will walk through together when we next meet.",
+      "text": "Our thanks to Barbara and her staff for turning the transfer question around so quickly. We would ask for any corrections to these minutes before the draft recommendations go out, so that the minutes and the recommendations rest on the same account of the data.",
       "level": 1,
       "items": [],
       "header": [],

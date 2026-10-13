@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0009",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -20,74 +20,77 @@
         },
         {
           "kind": "paragraph",
-          "text": "This letter sets down the terms on which we will value the retiree medical benefits your company provides, and it asks for your signature so that we can begin. It follows the conversations we had this spring about what such a valuation needs to answer and what it would cost you. Nothing here should be new. The purpose of putting it in writing is that both sides work from the same understanding of scope, timing, and price before any work starts, so that there is nothing to reconstruct from memory if a question comes up later."
+          "text": "Thank you for asking us to value the retiree medical plan that {{fact:f:E-2020-001.client}} provides to its former employees and their spouses. We appreciated the time you gave us to explain how the plan works and what the company needs from this valuation. This letter records what we agreed. It sets out the work, the people who will do it, the fee, and the terms that will govern our relationship. Please read it closely, because it is the document both of us will work from."
         },
         {
           "kind": "heading",
-          "text": "The Work You Are Engaging Us to Do",
+          "text": "Scope of the Valuation",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A retiree medical valuation measures the obligation your company carries for the health benefits it has promised its retirees, and it states that obligation in the terms your financial statements need. We will perform the valuation under Accounting Standards Codification 715-60, the standard that governs postretirement benefits other than pensions, and in accordance with the actuarial standards of practice that bear on this work. The measurement rests on three things: the census of your employees and retirees, the provisions of the plan as written, and a set of assumptions about the future. We keep those three apart in the report, and we keep apart as well what the data show, what we have assumed, and what we conclude."
+          "text": "We will perform an actuarial valuation of the plan's obligation for retiree medical benefits. The valuation will cover current retirees, their covered dependents, and active employees who may become eligible for retiree coverage in the future. It will be performed as of a measurement date that we will confirm with you in writing before we request any data. The results are intended for the company's financial reporting under ASC Topic 715. They are not intended for setting retiree contributions, for budgeting, or for pricing a change to the plan, and they should not be used for those purposes without further work from us."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Will Go About It",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The valuation has four parts, and the report will document each:"
+          "text": "We will build the valuation in the same order in which the obligation itself is built. First we gather and test the data: the census of retirees and dependents, the census of active employees, the plan document and any amendments, the summary plan description, the retiree contribution schedule, and the claims or premium history for the plan. Next we develop the expected cost of coverage at each age, which is the base for everything that follows. Only then do we set the assumptions and run the valuation."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our report will keep three things in separate places. It will say what the data show. It will say what we assumed and why. It will say what we conclude from the two together. Where a result depends heavily on a single assumption, such as the rate at which medical costs are expected to rise, we will show how the result changes when that assumption changes."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will perform the work in accordance with the Actuarial Standards of Practice that apply to it, among them ASOP No. 6, which addresses the measurement of retiree group benefit obligations, and ASOP No. 23, which addresses data quality. We will rely on the data and plan information that the company and its administrators provide. We will review that information for reasonableness and internal consistency, but we will not audit it. If something does not hold together, we will raise it with you before we go further."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Under the accounting standard, the assumptions are ultimately the company's. In practice we will recommend each of them to you, with one exception. The discount rate is customarily selected by management with reference to yields on high-quality corporate bonds. We will supply information to support that choice, and we will tell you if a proposed rate falls outside what we consider reasonable, but the selection belongs to the company."
+        },
+        {
+          "kind": "heading",
+          "text": "Our Team",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will lead the engagement and sign the actuarial opinion. Jennifer Vasquez, Consulting Actuary, will manage the work from day to day and will be your first call on any question. Jeffrey Ochoa, Actuarial Analyst, will build the claims and cost analysis and draft the review of assumptions. Amanda White, Actuarial Associate, will prepare the exhibits and check the calculations before anything is sent to you. We will ask you to name one person at the company to coordinate data requests with us. If you would prefer to do that yourself, we are glad to work with you directly."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and Start of Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will begin work on {{fact:f:E-2020-001.start}}. Our fee for the engagement described in this letter is fixed at {{fact:f:E-2020-001.fee}}. That fee covers the data review, the valuation, a draft report for your comments, the final report, and a meeting with you to walk through the results. If the scope changes, for example if you ask us to price a plan amendment or to value a second plan, we will tell you the cost in writing and wait for your agreement before we do the work."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We would like the data request to go out in the first days of the engagement. For that to happen, we need the following from you before work begins:"
         },
         {
           "kind": "list",
           "items": [
-            "The employee and retiree census and the plan documents your office supplies, reconciled before we rely on them.",
-            "The assumptions the measurement requires, chief among them the discount rate, the health care cost trend, and the mortality basis, each stated and supported on its own.",
-            "The measured obligation as of the valuation date, developed in a workbook of exhibits that shows how each figure is built.",
-            "Our conclusions, set apart from the measurements, including the accounting figures your statements will disclose."
+            "1. A signed copy of this letter.",
+            "2. The name of the person who will coordinate data with us, if it is someone other than you.",
+            "3. The measurement date for the valuation and the fiscal year it supports.",
+            "4. A signed business associate agreement, which we will send under separate cover. The claims data may contain protected health information, and we will not accept a claims file until the agreement is in place."
           ]
         },
         {
           "kind": "heading",
-          "text": "How We Will Carry It Out",
+          "text": "Fees and Payment",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We reconcile your data before we use it, so that the figures we measure are the figures you actually carry. We set each assumption on its own footing and say plainly which rest on regulation and which rest on judgment. You will receive two things at the end. The first is a workbook of exhibits that carries the measurement from the census through to the disclosed figures. The second is a written report that interprets the exhibits: what we measured, what we assumed, and what we conclude, with the reasoning for each and the standards the work is performed under. The fee also covers one presentation of the results to you and your management."
-        },
-        {
-          "kind": "heading",
-          "text": "The Data We Will Rely On",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A valuation is only as sound as the records beneath it. We will rely on the census and the plan documents your staff provide, and we will reconcile them against your own records before we build anything on them. Where a record is unclear or incomplete, we will come back to you rather than fill the gap with a guess, and we will document what we relied on and the date we received it. Under the applicable standard on data quality, the accuracy and completeness of the underlying records remain your responsibility; ours is to review them for reasonableness and to disclose what we relied on."
-        },
-        {
-          "kind": "heading",
-          "text": "Who Will Do the Work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "I will sign the opinion and carry the professional responsibility for it. Jennifer Vasquez, a consulting actuary in our firm, will own the relationship and the day-to-day judgment calls on scope, and she is the person to call when a question is really about what the engagement covers. Jeffrey Ochoa, an actuarial analyst, will carry the modeling and chase any surprising result back to the assumption that produced it. Amanda White, an actuarial associate, will assemble the exhibits and run the reconciliations that feed them. You will deal mostly with Jennifer Vasquez, but the whole team stands behind the numbers."
-        },
-        {
-          "kind": "heading",
-          "text": "Our Fee and When We Begin",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our fee for the valuation is {{fact:f:E-2020-001.fee}}, a fixed amount that covers the work described above through delivery of the report and the one presentation of the results. It does not cover a re-measurement should you amend the plan, or should we be asked to value an alternative design; if that comes up, we will price it separately and in writing before we start it. Subject to your signature on this letter, we will begin the work on {{fact:f:E-2020-001.start}}."
-        },
-        {
-          "kind": "heading",
-          "text": "Billing and Payment",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We invoice monthly for the prior month's work, and each invoice is due within thirty days of its date. If a question comes up about an invoice, tell us and we will work it through before it becomes a dispute."
+          "text": "We will invoice monthly for work performed. Taken together, the invoices will not exceed the fixed fee unless you have agreed in writing to a change in scope. Invoices are payable on receipt. Our ordinary expenses are included in the fee, and we do not bill separately for them."
         },
         {
           "kind": "heading",
@@ -96,7 +99,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This agreement takes effect on the date you sign it and runs until we have delivered the valuation and you have paid our final invoice for it. Either of us may end it earlier on written notice to the other, in which case you owe us for the work performed to the date the notice takes effect, and we will hand over the work in whatever state it has reached."
+          "text": "This engagement begins when you sign this letter and ends when we deliver the final report, unless one of us ends it sooner. Either of us may end it at any time by written notice to the other. If the engagement ends early, the company will pay for the work performed up to the day the notice is received, and we will return or destroy the data you provided, as you direct."
         },
         {
           "kind": "heading",
@@ -105,16 +108,16 @@
         },
         {
           "kind": "paragraph",
-          "text": "We will hold what you give us in confidence and use it only for this valuation. Inside the firm, access is limited to the people named above and to anyone whose work on the engagement requires it. We will not disclose your data or our results to anyone outside the firm without your consent, except where the law or a professional standard requires it, and we will tell you if that ever comes up."
+          "text": "We will hold the company's information, and the information about its employees, retirees and their families, in confidence. We will use it only for this engagement and will not disclose it to anyone outside our firm without your written consent, unless the law requires us to. We ask that files be sent through our secure file transfer site and not by ordinary email. Where the business associate agreement and this letter differ on the handling of health information, the agreement controls."
         },
         {
           "kind": "heading",
-          "text": "Limitation of Liability",
+          "text": "Reliance and Limitation of Liability",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our liability to you arising out of this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, except in the case of our fraud or willful misconduct. This valuation is prepared for your use in measuring and reporting your retiree medical obligation. It is not written for a lender, an auditor, or any other third party, and we take no responsibility to anyone who relies on it for a purpose it was not written for."
+          "text": "Our report will be prepared for {{fact:f:E-2020-001.client}} and for the purpose stated in it. The company's auditors may rely on it for that purpose. No one else may rely on it without our written consent. Our total liability to the company arising from this engagement, whether in contract or otherwise, will not exceed the fees paid to us under this letter, except where the law does not permit such a limit. Neither of us will be liable to the other for lost profits or other indirect damages."
         },
         {
           "kind": "heading",
@@ -123,11 +126,16 @@
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Before either of us starts a proceeding, we will try to settle the matter through direct discussion, and failing that, through mediation."
+          "text": "This letter and the work it covers are governed by the laws of the state where our principal office is located. If any provision is found to be unenforceable, the others remain in effect."
+        },
+        {
+          "kind": "heading",
+          "text": "Acceptance",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "If these terms match your understanding, please sign both copies where shown, keep one for your file, and return the other to me. If anything reads differently from what you expected, call me before you sign and we will talk it through."
+          "text": "If this letter reflects your understanding, please sign on the line provided for the company below and return a copy to me or to Jennifer Vasquez. If anything in it differs from what you expected, please call me before you sign, and we will correct it. We look forward to working with you and your staff on this valuation."
         },
         {
           "kind": "paragraph",
@@ -148,65 +156,53 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Jennifer Vasquez, Amanda White, Linda Hanna\nFrom: Jeffrey Ochoa\nDate: July 4, 2020\nRe: Retiree medical valuation for {{fact:f:E-2020-001.client}} — engagement kickoff"
+          "text": "To: Jennifer Vasquez, Amanda White, Linda Hanna\nFrom: Jeffrey Ochoa\nRe: {{fact:f:E-2020-001.client}} retiree medical valuation, opening the work"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are ready to send the data request as soon as two administrative items clear. The engagement opened on {{fact:f:E-2020-001.start}}, the signed letter is on file, and Jason Wagner, General Manager at {{fact:f:E-2020-001.client}}, will coordinate the data for the company himself."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our objective is a valuation of the company's retiree medical obligation for its financial reporting. It should rest on data we have checked, plan terms we have confirmed against the documents, and assumptions we can defend one at a time. We do not yet know whether another actuary has valued this plan before. If one has, we want that report early. It gives us a point to reconcile to, and it shows us which assumptions the auditors have already seen."
         },
         {
           "kind": "heading",
-          "text": "The Point of This Engagement",
+          "text": "Who carries what",
           "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The deliverable is a defensible measurement of the retiree medical obligation {{fact:f:E-2020-001.client}} carries, reported under ASC 715-60, with a workbook of exhibits behind it and one presentation to the client's management. Everything below serves that. Work opens {{fact:f:E-2020-001.start}}, and we have roughly eight months, which is comfortable if the data arrive on time and tight if they do not. Our client contact is Jason Wagner, the general manager. Scope questions route through Jennifer Vasquez before they reach him, so he hears one considered answer rather than three partial ones."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One discipline governs the whole engagement, so I will state it once here. We keep what the data show, what we assume, and what we conclude in separate places, in the workbook and in the report both. Anyone drafting a paragraph that mixes the three should expect it back. The reason is not style. It is that the client, and anyone who later reads the opinion, needs to see which numbers are measured and which rest on judgment, and that distinction is easy to lose if we do not hold it from the first exhibit."
-        },
-        {
-          "kind": "heading",
-          "text": "What We Owe the Client",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two things are due at the end. The first is a workbook of exhibits that carries the measurement from the census through to the accounting figures the client's statements disclose, built so each figure can be traced to its source. The second is a written report that interprets those exhibits and names the standards the work is performed under. The fee covers both, plus one presentation of the results. It does not cover a re-measurement for a plan amendment; if the board's discussed change is adopted, that is priced separately, and Jennifer Vasquez owns that conversation."
-        },
-        {
-          "kind": "heading",
-          "text": "How the Work Divides",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Four pieces of work run in parallel, each with an owner. They are not strictly sequential, but the data piece gates the rest, so it starts first and hardest."
         },
         {
           "kind": "list",
           "items": [
-            "Data. Amanda White reconciles the census and the plan documents against the client's own records as they arrive, and logs each file and the date we received it.",
-            "Modeling. I build the valuation model and run the obligation, and chase any result that looks wrong back to the assumption behind it.",
-            "Assumptions and scope. Jennifer Vasquez sets the assumption basis with me and holds the line on what the engagement does and does not cover.",
-            "Correspondence and logistics. Linda Hanna handles the data requests to the client's staff and keeps the schedule of who owes what to whom."
+            "1. Data intake and checks: Amanda White. Log every file as it arrives. Run the edit checks on both censuses: missing or impossible birth dates, duplicate identifiers, retirees with no coverage election, dependents with no matching retiree. Reconcile headcounts by coverage tier to the enrollment reports. Every exception goes on the data log with its source and its resolution.",
+            "2. Plan provisions: Jeffrey Ochoa. Summarize eligibility, retiree contributions, spouse and surviving spouse coverage, and coordination with Medicare. Mark any point where the plan document and the summary plan description disagree. Those go to Jennifer before anything goes to the client.",
+            "3. Claims and cost by age: Jeffrey Ochoa. Build expected cost at each age from the claims or premium history, separately for retirees under and over Medicare age. The observed experience and the cost curve we recommend sit in separate exhibits. The first is a measurement. The second is a judgment, and it is labeled as one.",
+            "4. Assumptions: Jeffrey Ochoa, reviewed by Jennifer Vasquez. Health care cost trend, mortality, retirement, termination and election rates, plus yield information to support management's discount rate. The excise tax on high-cost coverage was repealed at the end of last year and does not belong in this measurement. If a prior valuation loaded for it, we show the difference rather than carry it.",
+            "5. Exhibits and checking: Amanda White. Build the exhibit shells now, so results go into a format that has already been reviewed. Check every calculation before it leaves the firm.",
+            "6. Administration: Linda Hanna. Business associate agreement, billing setup, and the tracker of files received and outstanding."
           ]
         },
         {
           "kind": "heading",
-          "text": "The Shape of the Eight Months",
+          "text": "Before the request goes out",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The engagement falls into three stretches, and I will hold us to them. The first is data: collect the census and plan documents and reconcile them, and settle the plan provisions we measure. The second is measurement: set the assumptions, run the obligation, and build the exhibits. The third is the report and the presentation. The stretches overlap at the seams, but a slip in the first pushes the whole schedule, which is why the data request goes out this week and not next."
+          "text": "The claims files will carry protected health information, so nothing is requested until the business associate agreement is countersigned. The measurement date also has to be fixed first, because the census and the claims cutoff are both keyed to it. It will probably fall at the company's fiscal year-end. That is a likely answer, not a confirmed one, and the request does not go out on a likely answer."
         },
         {
-          "kind": "heading",
-          "text": "Where We Start",
-          "level": 2
+          "kind": "list",
+          "items": [
+            "1. Linda Hanna: send the business associate agreement to Jason Wagner, set up billing, and open the client folder on the secure transfer site.",
+            "2. Amanda White: prepare the data request from our retiree medical checklist, trimmed to what this plan needs.",
+            "3. Jeffrey Ochoa: confirm the measurement date with Jason Wagner in writing.",
+            "4. Jennifer Vasquez: review the request before it goes to the client."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "The first task is data, because nothing else can move without it. Amanda White will send the client an itemized data request this week, so there is no ambiguity about what we need or in what form. I will stand up the model against last cycle's structure so it is ready when the census lands, and I will not touch a single assumption until the data are reconciled. Jennifer Vasquez will confirm the plan provisions and the measurement date with Jason Wagner, and she will pin down whether we are measuring the plan as it stands or as the board may amend it. Linda Hanna will keep the request log and flag anything that slips before it costs us a week. We meet again once the census is in hand and reconciled."
+          "text": "Once Jennifer clears the request, I will send it to Jason. From then until the files close, Amanda and I will go through the data log together each Monday, and Jennifer will get a copy of the log after each of those meetings. Questions about plan terms come to me. Questions about the files go to Amanda."
         }
       ]
     },
@@ -220,19 +216,27 @@
         },
         {
           "kind": "paragraph",
-          "text": "We are under way on the retiree medical valuation, and the one thing that would help most right now is the last of the data. Amanda White on our side has reconciled the census extract your office sent, and it ties out well. What is still open is the plan document set and the current retiree contribution schedule, which we need before we can fix the plan provisions the measurement runs on. Once those are in, Amanda White can close out the census exhibits and we can move to setting assumptions."
+          "text": "The retiree and active census files you sent are complete, and both load cleanly. Amanda White has run our edit checks, and the headcounts by coverage tier agree with the enrollment summary for {{fact:f:E-2020-001.client}}. Those counts are observed. Nothing in them depends on an assumption yet, which is the footing we want before we build anything on top of them."
         },
         {
           "kind": "paragraph",
-          "text": "One open item is really about scope rather than data, and Jennifer Vasquez is handling it so you get one considered answer instead of three partial ones: whether the valuation should reflect the plan as it stands today or as amended for the change your board discussed. A pointer on that when you have it is plenty."
+          "text": "The claims history and the plan documents are what we still need. The claims history is how we estimate the cost of coverage at each age, so the rest of the valuation waits on it. Once the files arrive, we will reconcile the claims to enrollment before we use them and send you any questions in a single list. When you can, please send:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Monthly paid claims for the most recent several years your administrator can provide, split between retirees under and over Medicare age, with enrollment for the same months",
+            "The current plan document and summary plan description, with any amendments",
+            "The retiree contribution schedule now in effect"
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "So our file stays complete, we log everything you send against your name, Jason Wagner, and the date it arrives, which is how we document what the {{fact:f:E-2020-001.client}} measurement relies on. If it is easier to route the plan documents through someone on your staff, just tell me who and I will follow up with them directly."
+          "text": "Because the claims data carry protected health information, please use the secure transfer site rather than email. If it is simpler for your administrator to send the claims to us directly, we are glad to arrange that with them. Jennifer Vasquez and Amanda White are copied here and can answer questions about the request as well."
         },
         {
           "kind": "paragraph",
-          "text": "Thanks"
+          "text": "Thanks,\nJeffrey"
         }
       ]
     },
@@ -241,13 +245,8 @@
       "doc_id": "d:0047",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Working Session: Retiree Medical Valuation for {{fact:f:E-2020-001.client}}",
-          "level": 1
-        },
-        {
           "kind": "paragraph",
-          "text": "Date: September 29, 2020. Minutes recorded by Jennifer Vasquez."
+          "text": "{{fact:f:E-2020-001.client}} retiree medical valuation. Working session held by video conference."
         },
         {
           "kind": "heading",
@@ -257,10 +256,10 @@
         {
           "kind": "list",
           "items": [
-            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors (recording)",
-            "Jeffrey Ochoa, Actuarial Analyst, Meridian Actuarial Advisors",
-            "Amanda White, Actuarial Associate, Meridian Actuarial Advisors",
-            "Jason Wagner, General Manager, {{fact:f:E-2020-001.client}}"
+            "Jason Wagner, General Manager, {{fact:f:E-2020-001.client}}",
+            "Jennifer Vasquez, Consulting Actuary",
+            "Jeffrey Ochoa, Actuarial Analyst",
+            "Amanda White, Actuarial Associate"
           ]
         },
         {
@@ -270,20 +269,54 @@
         },
         {
           "kind": "paragraph",
-          "text": "The session confirmed that the engagement can move from assembling data to setting assumptions. The census and plan documents are reconciled. No obligation figures were presented; it is too early for them."
+          "text": "The session reviewed the completed data checks and the first look at claims experience. No assumptions were set. The aim was to agree on what the data show before the team proposes assumptions."
         },
         {
           "kind": "heading",
-          "text": "Data",
+          "text": "Census and plan terms",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Amanda White reported that the census and the plan documents reconcile to the client's own records within the tolerance set at the outset. The reconciliation was run at the grouping the client's system produces, so the two sets of figures meet directly. One coding question on a small group of early retirees resolved as a plan-eligibility distinction, not a data error, and it is documented in the working papers. Reliance on each file is logged against the date it was received and the person who supplied it."
+          "text": "Amanda White reported that the census and enrollment data are closed. Every exception on the data log has been resolved with the company's staff. Jason Wagner confirmed the resolutions for retirees whose coverage elections were missing."
         },
         {
           "kind": "paragraph",
-          "text": "One item remains open on the data. The final retiree contribution schedule has not arrived, and the current draft carries a placeholder for it. Amanda White will close that item once the client sends the adopted schedule. Nothing measured so far depends on it."
+          "text": "Jennifer Vasquez noted that the plan document and the summary plan description describe surviving spouse coverage differently. The team will value the terms in the plan document. Jason Wagner will confirm that the company administers the plan on those terms."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jeffrey Ochoa reported that the plan document requires retirees to enroll in Medicare when they become eligible, with the plan paying secondary. The valuation will apply that rule to every retiree of Medicare age. Jason Wagner confirmed that this matches current practice."
+        },
+        {
+          "kind": "heading",
+          "text": "Claims experience",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jeffrey Ochoa presented paid claims by month, split between retirees under and over Medicare age. Claims fell sharply in the spring and have recovered only in part. The likely cause is care deferred during the pandemic, but the data cannot confirm that."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez set out the team's position. The lower months are measured experience and will be reported as such. They will not be used to reduce the expected cost of coverage, because there is no basis to assume they will persist. Some deferred care may return later as higher claims."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jason Wagner asked whether leaving those months out overstates the obligation. Jeffrey Ochoa answered that the earlier years carry most of the weight and are consistent with one another. The report will show the effect of including the lower months in a separate exhibit."
+        },
+        {
+          "kind": "heading",
+          "text": "Retiree contributions",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The contribution schedule arrived after the data log closed. Jennifer Vasquez asked whether contributions are set as a share of cost or as a fixed amount. Jason Wagner said the company sets them each year and follows no formula."
+        },
+        {
+          "kind": "paragraph",
+          "text": "How contributions are assumed to change is a judgment, and it affects the obligation directly. The team will ask for the contribution history before proposing an assumption."
         },
         {
           "kind": "heading",
@@ -292,32 +325,15 @@
         },
         {
           "kind": "paragraph",
-          "text": "Jeffrey Ochoa walked through the assumption basis the measurement requires. The discount rate, the health care cost trend, and the mortality basis were each discussed on their own footing. The group kept two categories apart: assumptions the accounting standard constrains, and assumptions that rest on judgment. That separation was treated as the backbone of the eventual report, since the two categories carry different weight when the firm signs its name."
+          "text": "Trend, mortality, retirement and election rates come next. Jeffrey Ochoa will draft each with the observed experience and the recommended assumption in separate columns. The discount rate remains management's selection."
         },
         {
           "kind": "paragraph",
-          "text": "The trend assumption drew the most discussion. Jeffrey Ochoa noted that the obligation is more sensitive to the health care cost trend than to any other single input, and that the report will show that sensitivity rather than bury it in a single figure. The mortality basis will use a published table with a recognized improvement scale, documented so the reader can see what was chosen and why. No values were settled at the session; they will be set and supported before the next meeting."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jason Wagner confirmed the plan provisions in effect at the measurement date and the retiree contribution schedule as it currently stands. He noted that the board has discussed a change to the contribution structure but has not adopted it. The group agreed the valuation measures the plan as it stands, and that any amendment would be priced and measured separately."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jennifer Vasquez set out which of management's questions the measurement will answer and which it will not. The obligation and its sensitivity to the trend assumption are answerable. A forecast of future contribution rates is not, and the report will say so plainly rather than imply a precision the work does not support."
+          "text": "Jennifer Vasquez will send Jason Wagner a short note on the bond yield information the team can provide. The note will say what the information supports and what it does not."
         },
         {
           "kind": "heading",
-          "text": "Schedule",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is at roughly its midpoint and on the schedule set at the start. The data stretch is closing and the measurement stretch is opening. The one dependency that could move the timeline is the outstanding contribution schedule, and the group agreed it is not a concern yet."
-        },
-        {
-          "kind": "heading",
-          "text": "Action Items",
+          "text": "Actions",
           "level": 2
         },
         {
@@ -325,34 +341,40 @@
           "header": [
             "Action",
             "Owner",
-            "Target"
+            "Needed for"
           ],
           "rows": [
             [
-              "Finalize the reconciled census and close the eligibility coding question",
-              "Amanda White",
-              "Oct 9"
-            ],
-            [
-              "Set the discount rate and trend basis with Jennifer Vasquez and document the support",
-              "Jeffrey Ochoa",
-              "Oct 16"
-            ],
-            [
-              "Confirm which management questions the report will and will not answer",
-              "Jennifer Vasquez",
-              "Oct 12"
-            ],
-            [
-              "Send the adopted plan document and the final contribution schedule",
+              "Confirm how surviving spouse coverage is administered",
               "Jason Wagner",
-              "Oct 7"
+              "Plan provisions summary"
+            ],
+            [
+              "Send history of retiree contributions",
+              "Jason Wagner",
+              "Contribution assumption"
+            ],
+            [
+              "Draft assumption review: trend, mortality, retirement, election",
+              "Jeffrey Ochoa",
+              "Assumption review with Jennifer Vasquez"
+            ],
+            [
+              "Exhibit of cost basis with and without the lower months",
+              "Jeffrey Ochoa",
+              "Status report to the company"
+            ],
+            [
+              "Check cost by age against claims totals and enrollment",
+              "Amanda White",
+              "Assumption review with Jennifer Vasquez"
+            ],
+            [
+              "Note on discount rate support",
+              "Jennifer Vasquez",
+              "Company's rate selection"
             ]
           ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "The next session will review the first obligation figures once the assumptions are set."
         }
       ]
     },
@@ -361,61 +383,89 @@
       "doc_id": "d:0048",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Retiree Medical Valuation: Status Report",
-          "level": 1
-        },
-        {
           "kind": "paragraph",
-          "text": "Prepared for {{fact:f:E-2020-001.client}} by Meridian Actuarial Advisors on October 22, 2020. Prepared by Jeffrey Ochoa, Actuarial Analyst."
+          "text": "Prepared for {{fact:f:E-2020-001.client}}\nPrepared by Jeffrey Ochoa, Actuarial Analyst, with Jennifer Vasquez, Consulting Actuary, and Amanda White, Actuarial Associate"
         },
         {
           "kind": "heading",
-          "text": "Where Things Stand",
+          "text": "Where the work stands",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The engagement is at its midpoint and on the schedule we set at the start. The character of the work has changed in a way worth naming. For the first stretch our attention was on your data, on assembling it and satisfying ourselves that it was complete and consistent, and that stretch is behind us. We have turned to the measurement itself, which is the part the opinion ultimately rests on. Nothing we have seen so far changes the shape of the engagement or the roughly eight-month path we laid out at the beginning. Measured against the fixed fee of {{fact:f:E-2020-001.fee}}, a little under half has been earned to date, which tracks the work completed and the schedule we agreed."
+          "text": "The valuation is on schedule and within budget. The data are closed, the cost of coverage by age is developed and checked, and the draft assumptions are with Jennifer Vasquez for review. We have not yet run the valuation itself. No obligation figure exists at this stage, and none should be read into anything in this report."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee remains fixed at {{fact:f:E-2020-001.fee}}. Nothing in the work so far has fallen outside the scope set out in the engagement letter, and we do not expect to ask for a change. If that view changes, we will tell you before any additional work is done."
         },
         {
           "kind": "heading",
-          "text": "What We Completed This Period",
+          "text": "Completed since the working session",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The reconciliation was the substantial piece of this period, and Amanda White carried it. She reconstructed the census and the plan detail from the files your office supplied and reconciled them, line by line, to the records you carry, working at the grouping your own system produces so the two sets of figures meet directly. A coding question on a small group of early retirees, which we flagged early rather than let it sit, turned out to be a plan-eligibility distinction and not a data error. It is now documented and closed, with the source of the difference written down so it will not be reopened. The figures we measure are therefore the figures you actually carry. That is not a small thing. It means the obligation we build from here rests on your own records and not on a reconstruction of them, and it lets us state plainly, when the report is written, exactly what we relied on and what we tested ourselves."
+          "text": "Since we last met with your team, we have closed out the items that were holding up the cost analysis."
         },
         {
-          "kind": "paragraph",
-          "text": "Alongside the reconciliation we began setting the assumptions the measurement requires, and we keep them on separate footings. The discount rate, the health care cost trend, and the mortality basis are each stated and supported on their own, and we mark which rest on regulation and which rest on judgment. Keeping those apart from the start matters, because by the end they become two different conversations, and it is far easier to hold them separate throughout than to untangle them later. Amanda White is keeping the assumption log current as we go, so that when the report is written it can show plainly which input is measured and which is assumed."
+          "kind": "list",
+          "items": [
+            "1. Plan terms. The surviving spouse question is settled. Your staff confirmed that the plan is administered according to the plan document, and we have valued it on those terms. We suggest the summary plan description be brought into line at its next revision. That is a recommendation about the document, not a finding about the obligation.",
+            "2. Cost of coverage by age. We built the expected annual cost of coverage at each age from the claims history, separately for retirees under and over Medicare age. Amanda White checked the development against the claims totals and the enrollment counts, and the two agree.",
+            "3. Deferred care exhibit. As agreed, we prepared an exhibit showing the cost basis with and without the spring months, when claims fell. The difference is measured and labeled. It is not built into the basis we recommend."
+          ]
         },
         {
           "kind": "heading",
-          "text": "The Work Ahead",
+          "text": "What the data show and what we have assumed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Over the coming weeks the center of gravity moves to the measurement of the obligation and the workbook of exhibits that carries it, from the census through to the accounting figures your statements disclose. The exhibits are built so that each figure can be traced back to its source rather than presented as a single total to be taken on trust. As they take shape, Jennifer Vasquez is settling which of management's questions the measurement can genuinely answer and which it cannot, so the report commits only to what the work supports and is candid about the rest. We will begin drafting as the figures firm up, holding to the structure we keep throughout: what the data show, what we assumed, and what we conclude, kept as three separate matters."
+          "text": "We want to be plain about which parts of this work are measurement and which are judgment, because the report will draw the same line. The census, the enrollment counts and the claims history are measurements. We tested them, and they hold together."
         },
         {
           "kind": "paragraph",
-          "text": "The fee also covers one presentation of the results to your management. We will schedule that once the report is in near-final form, so the conversation is about findings rather than drafts."
+          "text": "The cost curve by age is partly judgment. The plan's own data are thin at the oldest ages, so at those ages we blended the plan's experience with published age curves. That blending is an assumption. The draft documents it, along with the effect of relying on the plan's experience alone."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Trend, mortality, retirement and election rates are judgments. Each draft assumption sits beside what the plan's data can tell us about it, and where the data cannot tell us much, the draft says so. For the long-term trend we are using the Society of Actuaries' long-run medical cost trend model, the common reference for this kind of measurement, with our own inputs set out in the draft."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One item is neither measurement nor judgment. The excise tax on high-cost coverage was repealed at the end of last year, so the valuation does not include it. That follows from the law as it stands, and we note it only so that no one looks for it in the results."
         },
         {
           "kind": "heading",
-          "text": "What Could Move the Schedule",
+          "text": "Ahead of preliminary results",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The main thing that could move the timeline is, as it has been from the start, the data. The adopted plan document and the final retiree contribution schedule are the last items outstanding, and the measurement cannot be finalized until they are in hand. We have asked for them and do not expect a difficulty. The other thing worth naming now, so it is no surprise later, is the measurement itself. If the obligation lands materially away from what your current accrual suggests, Jennifer Vasquez will walk it through with your staff before any of us draws a conclusion from it, and we would raise it with you the moment it appears, well ahead of the final report."
+          "text": "Jennifer Vasquez will finish her review of the draft assumptions, and we will then send them to you with a short memo explaining each one. Once your staff have had a chance to respond, we will run the valuation and prepare preliminary results. Those results will come to you as a draft, with the main exhibits and a table showing how the obligation moves under different assumptions, before any report is final."
         },
         {
           "kind": "paragraph",
-          "text": "The one item that keeps us on track is the outstanding plan document set. Once it reaches us we can finalize the assumptions and give you a first honest read of the obligation. We will send a short note the moment it is in hand, and we will flag any surprise to you as soon as we see it rather than saving it for the report."
+          "text": "We will need the company's discount rate before we run the valuation, because every result depends on it. We will send you yield information on high-quality corporate bonds to support that selection. The selection itself remains with management."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks we are watching",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Claims after deferred care. If claims rebound above their earlier levels, the cost basis may need another look. We will review the most recent months your administrator can supply before results are final.",
+            "2. Discount rate timing. Results cannot be finalized until the company has selected its rate.",
+            "3. Plan changes. If the company is considering any change to retiree contributions or eligibility, please tell us now. A change adopted before the measurement date may need to be reflected, and pricing a change is outside the current scope."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions about this report can come to me or to Jennifer Vasquez. We appreciate the speed with which your staff at {{fact:f:E-2020-001.client}} have answered our data questions, which has kept the work on schedule."
         }
       ]
     },
@@ -424,118 +474,113 @@
       "doc_id": "d:0049",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "Review Session: Retiree Medical Valuation for {{fact:f:E-2020-001.client}}",
-          "level": 1
-        },
-        {
           "kind": "paragraph",
-          "text": "Date: December 28, 2020. Minutes recorded by Jennifer Vasquez."
+          "text": "{{fact:f:E-2020-001.client}} retiree medical valuation. Review of preliminary results, held by video conference."
         },
         {
           "kind": "heading",
-          "text": "In Attendance",
+          "text": "Those attending",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors (recording)",
-            "Jeffrey Ochoa, Actuarial Analyst, Meridian Actuarial Advisors",
-            "Amanda White, Actuarial Associate, Meridian Actuarial Advisors",
+            "Jennifer Vasquez, Consulting Actuary",
+            "Jeffrey Ochoa, Actuarial Analyst",
+            "Amanda White, Actuarial Associate",
             "Jason Wagner, General Manager, {{fact:f:E-2020-001.client}}"
           ]
         },
         {
           "kind": "heading",
-          "text": "Purpose",
+          "text": "Preliminary results",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The measurement is complete and the draft report is with the client for review. The session worked through the client's comments and fixed the steps to a final, signed opinion. None of the comments touched the measured obligation."
+          "text": "Jennifer Vasquez presented preliminary results using the discount rate the company selected. The results are a draft. They are not the actuarial opinion and should not be circulated outside the company. They reflect the plan terms confirmed earlier, including the treatment of surviving spouse coverage."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Amanda White reported that the results were checked independently, from the census through to the obligation. One error in the dependent records was found and corrected before the meeting. The correction did not change any conclusion."
         },
         {
           "kind": "heading",
-          "text": "The Measurement",
+          "text": "Sensitivity",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jeffrey Ochoa reported that the obligation is measured and the exhibits reconcile to the census as reconciled earlier in the engagement. The workbook carries each figure from the data through to the accounting disclosure, so every number can be traced to its source. Nothing in the result rests on a figure not tied back to the client's own records."
+          "text": "Jeffrey Ochoa walked through the sensitivity exhibit. The obligation moves most with the trend assumption and the discount rate. Mortality has a smaller effect."
         },
         {
           "kind": "paragraph",
-          "text": "The measurement reflects the plan as it stands, with the adopted contribution schedule now in place of the earlier placeholder. Jeffrey Ochoa confirmed that swapping the final schedule in did not move the obligation materially. The board's discussed amendment is not reflected, as agreed at the outset, and the report notes that it would require a separate measurement."
+          "text": "Jason Wagner asked whether the trend assumption could be lowered. Jennifer Vasquez said it could, if the company had evidence that its costs will rise more slowly than the reference model indicates. Without that evidence, the team does not recommend it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jason Wagner asked how much of the result rests on the months of deferred care. Jeffrey Ochoa answered that the recommended basis leaves those months out, as agreed at the earlier working session."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez added that claims in the most recent months have moved back toward earlier levels. That observation is consistent with the choice. It does not prove it."
         },
         {
           "kind": "heading",
-          "text": "The Draft Report",
+          "text": "Contributions",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Amanda White confirmed that the exhibits in the draft match the final workbook. The report keeps its three parts: what the data show, what was assumed, and what is concluded. The actuarial standards the opinion rests on are named, and the reliance on the client's data is stated plainly. The reliance language was read through at the session and agreed as it stands."
+          "text": "The preliminary results assume retiree contributions rise with plan costs, which is what the contribution history shows. Jennifer Vasquez noted that this is an assumption drawn from past practice, not a plan term."
         },
         {
           "kind": "paragraph",
-          "text": "Amanda White also walked the disclosure exhibit, which carries the obligation through to the figures the client's statements report. Each line ties back to an earlier exhibit, so the disclosure is not a separate calculation but the end of one chain. The group confirmed the exhibit is complete and consistent with the measurement behind it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jason Wagner presented management's comments on the draft. The comments concerned the presentation of the trend sensitivity and the wording of one assumption rationale. They did not question the obligation or the measured inputs, and the group treated that as the important point."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jennifer Vasquez confirmed which comments the report will take up and which reflect a professional judgment the firm will not move off. The presentation of the sensitivity will be reworked to read more plainly. The judgment on the trend basis stands, and the report will set out the reasoning so the reader can weigh it, whether or not they share it."
+          "text": "Jason Wagner said the company has made no decision to depart from that practice. If it does, the obligation will need to be remeasured."
         },
         {
           "kind": "heading",
-          "text": "Remaining Steps",
+          "text": "Mortality",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The engagement is in its final stretch and on the schedule agreed at the start. The remaining steps are mechanical: fold in the agreed edits, reconcile the exhibits a last time, and prepare the signed opinion. Once the report is in near-final form, Jennifer Vasquez will schedule the one presentation of the results to management."
+          "text": "The Society of Actuaries published a new mortality improvement scale this fall. Jennifer Vasquez recommends adopting it for this measurement. Its effect will be shown on its own line in the draft report so the company and its auditors can see it."
         },
         {
           "kind": "heading",
-          "text": "Action Items",
+          "text": "Report and disclosure",
           "level": 2
         },
         {
-          "kind": "table",
-          "header": [
-            "Action",
-            "Owner",
-            "Target"
-          ],
-          "rows": [
-            [
-              "Rework the trend-sensitivity exhibit for clarity and reconcile it to the workbook",
-              "Amanda White",
-              "Jan 8"
-            ],
-            [
-              "Set out the rationale for the trend basis in the report text",
-              "Jennifer Vasquez",
-              "Jan 11"
-            ],
-            [
-              "Complete the final reconciliation of the exhibits to the measurement",
-              "Jeffrey Ochoa",
-              "Jan 13"
-            ],
-            [
-              "Confirm management's remaining questions are resolved",
-              "Jason Wagner",
-              "Jan 7"
-            ]
+          "kind": "paragraph",
+          "text": "Jason Wagner asked what the auditors will need. Jennifer Vasquez said the report will include the disclosure exhibits, the rationale for each assumption, and the statement of data reliance."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez asked that the company's comments on the draft come back in writing. Each change to the report can then be traced to its source."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The auditors may contact the team directly once the report is final. Jason Wagner will let them know whom to call."
+        },
+        {
+          "kind": "heading",
+          "text": "Follow-up",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Jason Wagner: confirm that no change to retiree contributions or eligibility has been adopted or announced for the coming plan year.",
+            "2. Jeffrey Ochoa: update the claims exhibit with the most recent months the administrator can supply.",
+            "3. Amanda White: check the disclosure exhibits against the valuation output.",
+            "4. Jennifer Vasquez: draft the report and send it to the company for comment."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "The next session will review the final draft ahead of sign-off and schedule the presentation to management."
+          "text": "The next session will review the draft report."
         }
       ]
     }

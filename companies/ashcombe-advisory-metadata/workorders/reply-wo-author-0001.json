@@ -1,113 +1,400 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0001",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0002",
       "blocks": [
-        {"kind": "paragraph", "text": "Mary Frank\nDirector of Operations\n{{fact:f:E-2017-001.client}}"},
-        {"kind": "paragraph", "text": "Dear Ms. Frank:"},
-        {"kind": "paragraph", "text": "This letter sets out the terms on which our firm will act for {{fact:f:E-2017-001.client}} on the corporate positioning work we discussed, and it stands as our agreement once you have signed it. We have tried to write it plainly, so that it reads as a record of what we said to one another and not as a document to be decoded."},
-        {"kind": "paragraph", "text": "Please read it against that conversation. If any part of it sits differently from how you remember the discussion, say so before you sign, and we will put it right."},
-        {"kind": "heading", "text": "Scope of the Engagement", "level": 2},
-        {"kind": "paragraph", "text": "We will help {{fact:f:E-2017-001.client}} settle on a clear and defensible account of itself for the audiences whose view of the company counts most, and give you the language to carry that account through the announcements and conversations ahead. Our task is to see that what is already true about the company is understood by the people who need to understand it, and that the account holds steady wherever it is heard."},
-        {"kind": "paragraph", "text": "In practice that means the core positioning and the messages that express it, the written materials that carry those messages into the world, and our counsel through the announcements that will test them over the term. It does not extend to the running of the company or to decisions that are properly yours; where our advice touches those, it stays advice."},
-        {"kind": "paragraph", "text": "Our method is unhurried and, we hope, familiar in feel. We begin by listening, to you and to the people inside and outside the company who already hold a view of it, and we set a small number of core messages down in writing before we build anything on top of them."},
-        {"kind": "paragraph", "text": "From there we prepare the materials that carry those messages, and we stay close through the moments that test them. When the ground shifts, as it will over five months, we come back to you and adjust the account with you, never around you."},
-        {"kind": "heading", "text": "The Team", "level": 2},
-        {"kind": "paragraph", "text": "Daniel Valenzuela will lead the work day to day and will be your first point of contact for anything of substance. He keeps a deliberately small book of clients so that the one in front of him has his full attention, and he is the person to bring a decision to when it needs to move."},
-        {"kind": "paragraph", "text": "Michelle Rose will shape the messaging and the drafts and keep the moving parts legible as they multiply. She has a careful ear for how a company already speaks, and she will see that the language we propose sounds like {{fact:f:E-2017-001.client}} and not like us. Between them you will always know what has changed and what is still open."},
-        {"kind": "paragraph", "text": "I will keep a hand on the work myself, particularly on the announcements that carry the most weight, and nothing sensitive will go out under our name without my having read it. You are welcome to come to me directly at any point, though more often Daniel will be the faster route to an answer."},
-        {"kind": "heading", "text": "Fees and Payment", "level": 2},
-        {"kind": "paragraph", "text": "Our fee for the engagement is {{fact:f:E-2017-001.fee}}, covering the work described above through its expected close. We will invoice against that amount as the work proceeds, and our invoices are payable within thirty days of receipt."},
-        {"kind": "paragraph", "text": "The fee covers our people and their time. It does not cover out-of-pocket costs such as travel, print production, or third-party services, which we will agree with you before anything of consequence is incurred. If the shape of the work changes materially, we will raise the fee with you and settle it before that work begins."},
-        {"kind": "heading", "text": "Term and Termination", "level": 2},
-        {"kind": "paragraph", "text": "The engagement begins {{fact:f:E-2017-001.start}} and is expected to run for about five months. We will treat it as finished when the work is genuinely done, not simply when the calendar says so."},
-        {"kind": "paragraph", "text": "Either of us may bring it to a close on fourteen days' written notice. If you end it, you will owe us for work properly done up to that point and for costs already committed on your behalf, and nothing more."},
-        {"kind": "heading", "text": "Confidentiality", "level": 2},
-        {"kind": "paragraph", "text": "Everything we learn about {{fact:f:E-2017-001.client}} in the course of the work we will hold in confidence and use only for the purpose of the engagement. That obligation binds our whole team, survives the end of the engagement, and covers the fact of our involvement as much as its substance. We ask the same of you in respect of the methods and materials we share with you."},
-        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
-        {"kind": "paragraph", "text": "We will do the work with the care and skill you are entitled to expect, and we stand behind it. We do not, however, control how third parties, the press and the markets among them, will finally respond, and so our liability to you for the engagement is limited to the fees paid under it, save where the law does not permit such a limit."},
-        {"kind": "heading", "text": "Governing Law", "level": 2},
-        {"kind": "paragraph", "text": "This agreement is governed by the law of the state in which our firm is established, and any dispute under it will be resolved in that state's courts. Should any single provision be found unenforceable, the rest of the letter stands unaffected."},
-        {"kind": "paragraph", "text": "If this reflects our understanding, please sign and return one copy and keep the other for your files. Once we have it back, Daniel Valenzuela will be in touch to arrange the first conversations. We are glad to be working with you, and it is in careful hands."},
-        {"kind": "sigblock", "signers": ["p:julie.hill", "xp:mary.frank"]}
+        {
+          "kind": "paragraph",
+          "text": "Ms. Mary Frank\nDirector of Operations\n{{fact:f:E-2017-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Engagement for corporate positioning services"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Mary:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for the time you and your colleagues have spent with us in recent weeks. We are pleased to confirm the terms on which Ashcombe Advisory Partners LLC (\"Ashcombe\") will advise {{fact:f:E-2017-001.client}} (the \"Company\") on its corporate positioning. This letter records the approach we discussed, and if any part of it differs from your understanding, we would ask you to tell us before signing so that we can put it right."
+        },
+        {
+          "kind": "heading",
+          "text": "The assignment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our task is to help the Company describe itself clearly and consistently to the audiences on which its next stage depends: the investment community, customers, employees, and the press. Together with you, we will develop a positioning platform that the Company's leadership can adopt as its own, along with the core materials needed to put that platform to use."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Subject to the Company's review and approval at each stage, we expect the work to comprise the following:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "a review of how the Company presents itself today, drawing on its existing materials, its recent coverage, and confidential conversations with members of its leadership team;",
+            "a positioning statement and a supporting message framework, developed with the Company and refined through successive rounds of review;",
+            "a standard company description, together with core talking points for executives and designated spokespeople; and",
+            "recommendations on introducing the new positioning across the Company's website, press materials, and investor communications, including the order in which those changes should be made."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Services outside this description, such as support for a specific announcement or for an unforeseen reputational matter, are not included. We would be glad to discuss any such work separately, and we will not begin it without your written agreement."
+        },
+        {
+          "kind": "heading",
+          "text": "How we will work together",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will work principally through you as the Company's point of contact, and we will confirm decisions and approvals in writing as the engagement proceeds. Drafts will reach you by email with a clear note of what we need from you and by when, so that review on your side remains manageable alongside your other responsibilities."
+        },
+        {
+          "kind": "paragraph",
+          "text": "No statement or material will be released on the Company's behalf without its express approval. The Company retains final authority over all content, and we will treat every draft as confidential until it has been approved for use."
+        },
+        {
+          "kind": "heading",
+          "text": "What we will need from the Company",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The quality of this work depends on access. We will ask the Company to make members of its leadership team available for interviews and reviews, to provide its existing materials and relevant background promptly, and to inform us of any development that bears on how it should describe itself."
+        },
+        {
+          "kind": "heading",
+          "text": "Who will be working with you",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "As Managing Partner, I will have overall responsibility for the engagement and will review the positioning work at each significant stage. Daniel Valenzuela, an Advisor with the firm, will lead the work day to day and will be your principal contact for scheduling, drafts, and approvals."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle Rose, a Communications Associate, will support our review of the Company's materials and coverage, and she will maintain the media and stakeholder lists on which the later stages of the work rely. Should we need to draw on other members of the firm for particular tasks, we will let you know in advance."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the services described in this letter is a fixed fee of {{fact:f:E-2017-001.fee}}. The fee covers the full scope set out above and will change only if we agree with you in writing to change that scope."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will invoice the fee in installments over the course of the engagement, and each invoice is payable within thirty days of receipt. Reasonable out-of-pocket expenses, such as printing, courier, and media monitoring services, will be billed at cost and incurred only with your prior approval."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement will commence on {{fact:f:E-2017-001.start}}, and we anticipate that the work described above will take approximately five months to complete. Either party may terminate the engagement at any time by written notice to the other."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the engagement ends before the work is finished, the Company will pay a proportionate share of the fee for services performed, together with approved expenses incurred, through the date of termination. We will deliver to you all work in progress, and the provisions of this letter on confidentiality and limitation of liability will continue to apply."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold in confidence all non-public information the Company shares with us, use it only for the purposes of this engagement, and disclose it only to those members of our staff who require it for the work. Because the engagement may give us access to material non-public information, each member of our team is bound by the firm's policy on securities trading and disclosure. We advise other companies, some of which may operate in related fields, and we will not use the Company's confidential information in that work."
+        },
+        {
+          "kind": "paragraph",
+          "text": "These obligations do not extend to information that is or becomes public through no fault of ours, or that we are required by law to disclose. Where the law permits, we will notify you promptly before any such disclosure is made."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The Company is responsible for the accuracy and completeness of the information it provides to us and for its decisions about what it releases publicly. We will perform our services with the care and skill customary in our profession; we cannot, however, guarantee any particular coverage, market response, or other outcome."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our aggregate liability arising out of or relating to this engagement will not exceed the fees actually paid to us under this letter. Neither party will be liable to the other for indirect, incidental, or consequential damages."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter, and any dispute arising from the engagement, is governed by the laws of the state under which Ashcombe Advisory Partners LLC is organized, without regard to that state's conflict-of-laws rules. It constitutes the entire agreement between us on the matters it addresses and may be amended only in a writing signed by both parties."
+        },
+        {
+          "kind": "heading",
+          "text": "Your acceptance",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We very much look forward to working with you and your colleagues. If these terms are acceptable, please sign where indicated below and return a copy to me, after which Daniel Valenzuela will contact you to arrange our first working session."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:julie.hill"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Accepted and agreed on behalf of {{fact:f:E-2017-001.client}} by its authorized representative:"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "xp:mary.frank"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0003",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Corporate Positioning engagement team\nFrom: Daniel Valenzuela\nRe: Kickoff, Corporate Positioning for {{fact:f:E-2017-001.client}}"},
-        {"kind": "paragraph", "text": "We are under way on the corporate positioning work for {{fact:f:E-2017-001.client}}, with our start set at {{fact:f:E-2017-001.start}}. The aim is a clear, defensible account of the company for the audiences that matter to it, and the language to carry that account through the announcements ahead. This memo sets out how the work divides and what each of us picks up first, so nobody waits on a hand-off that was never assigned."},
-        {"kind": "paragraph", "text": "A word on how we will run it. We keep the account small and written down early, we route everything client-facing through one contact, and we log what we send so the record stays in order as the volume grows. None of that is new to us, but it is worth stating once at the start."},
-        {"kind": "heading", "text": "How the work divides", "level": 2},
-        {"kind": "list", "items": [
-          "Discovery. Daniel Valenzuela and Christopher Walton run the opening interviews, inside the company and with the outside voices that already hold a view of it, and bring back what we hear in a form the rest of us can use.",
-          "Core messaging. Michelle Rose turns the discovery into a first set of written messages, kept small enough to hold and to repeat without drift.",
-          "Sensitive language. Christopher Walton reviews anything bound for the press or the markets before it leaves the building, so the delicate lines are weighed twice.",
-          "Client coordination. Mary Frank is our point of contact at the company; approvals and scheduling on their side route through her, and we do not go around her.",
-          "Files and logistics. Lisa Flores stands up and keeps the engagement files and the correspondence record; Pamela Rojas holds the calendar and the meeting logistics."
-        ]},
-        {"kind": "heading", "text": "First steps", "level": 2},
-        {"kind": "list", "items": [
-          "1. Pamela Rojas books the kickoff call with Mary Frank this week and sends the invite to the team.",
-          "2. Daniel Valenzuela circulates the interview list for the company's sign-off before we approach anyone outside it.",
-          "3. Michelle Rose drafts the messaging outline from the kickoff conversation, so we have something concrete to react to.",
-          "4. Lisa Flores opens the engagement folder and the correspondence file, so nothing we produce lives only in an inbox."
-        ]},
-        {"kind": "paragraph", "text": "The first thing that has to happen is the kickoff call, and the rest keys off the date Pamela Rojas sets. Send me anything you want raised there by the end of the week, and flag now anything you are unsure of, so we settle it before we sit down with the client."}
+        {
+          "kind": "heading",
+          "text": "Memorandum",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Julie Hill; Christopher Walton; Michelle Rose; Lisa Flores; Pamela Rojas\nFrom: Daniel Valenzuela\nRe: Corporate positioning for {{fact:f:E-2017-001.client}}: kickoff and work plan"
+        },
+        {
+          "kind": "heading",
+          "text": "What the company needs from us",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The corporate positioning engagement for {{fact:f:E-2017-001.client}} opened on {{fact:f:E-2017-001.start}}. The company needs one clear account of what it does and why that matters, written so that it holds up with investors, customers, employees, and reporters, and adopted by its leadership as its own. By the end of the engagement we owe the company three things: an approved positioning platform, the core materials that carry it, and a plan for putting it into use."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Mary Frank, Director of Operations, is our contact at the company. She arranges our access to the leadership team and approves drafts on the company's behalf, and nothing we write goes to anyone else there until she has seen it."
+        },
+        {
+          "kind": "heading",
+          "text": "The work, in order",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work runs in four parts, taken roughly in this sequence, with the media and stakeholder lists kept current throughout:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Part 1, listening and audit. Collect the company's current materials (website copy, press releases, investor presentations, recruiting pages) and its recent coverage, and hold confidential interviews with members of the leadership team. Output: a findings memo for Mary Frank.",
+            "Part 2, positioning platform. Draft the positioning statement and the message framework beneath it, then take both through review with the company until they are approved.",
+            "Part 3, core materials. Turn the approved platform into a standard company description, talking points for executives, and a question and answer document for spokespeople.",
+            "Part 4, rollout plan. Recommend the order in which the new language reaches the website, press materials, and investor communications, and identify what has to change first.",
+            "Throughout, lists. Keep the company's media list current, with notes on which reporters have covered it and how each prefers to be approached, and keep a matching list of the investors and partners the rollout has to reach."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Who does what",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Name",
+            "Role on this engagement"
+          ],
+          "rows": [
+            [
+              "Julie Hill",
+              "Overall responsibility. Reviews the findings memo, the platform, and the core materials before each goes to the client."
+            ],
+            [
+              "Daniel Valenzuela",
+              "Day-to-day lead and client contact. Runs the interviews and drafts the platform."
+            ],
+            [
+              "Christopher Walton",
+              "Edits the platform and core materials for how they will read to a reporter. Last edit before Julie Hill's review."
+            ],
+            [
+              "Michelle Rose",
+              "Pulls the materials and coverage for the audit. Owns the media and stakeholder lists. Drafting support on the core materials."
+            ],
+            [
+              "Lisa Flores",
+              "Engagement paperwork, billing, and the calendar of client sessions."
+            ],
+            [
+              "Pamela Rojas",
+              "Engagement folder and filing. Room bookings and couriers for client sessions."
+            ]
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Before the first interviews",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Lisa Flores has the countersigned engagement letter on file. Lisa, please open the billing record and send the installment schedule to Mary Frank."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Pamela Rojas will set up the engagement folder on the shared drive. Every draft lives there with its version number in the file name, and nothing circulates as an attachment unless a copy is in the folder."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Michelle Rose will pull the company's current materials and recent coverage into the folder, so the audit starts from one set of documents."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. I will send Mary Frank a proposed interview list and ask her to schedule the sessions on the company's side. Christopher Walton and Julie Hill, I would like each of you to sit in on at least one."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. When the interviews are finished, I will draft the findings memo and circulate it here before anything goes to the client."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The interview list is the first item that has to move. Please send me any names you think belong on it by midweek, and I will send the list to Mary Frank as soon as I have them."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0004",
       "blocks": [
-        {"kind": "paragraph", "text": "Dear Mary,"},
-        {"kind": "paragraph", "text": "I am opening this thread so our updates on the {{fact:f:E-2017-001.client}} positioning work stay in one place, and I have attached the kickoff memo so the plan is in front of you as we go. For the file, the working contacts are set: Mary Frank on your side, and on ours Michelle Rose, who is drafting the core messaging, with me handling the engagement day to day."},
-        {"kind": "paragraph", "text": "We have made a start. Michelle Rose is turning the kickoff conversation into a first set of messages, and we expect a draft to you late this week. You will hear from us on a steady cadence from here, and each note will be tied to the piece of work it concerns, so the thread stays easy to follow."},
-        {"kind": "paragraph", "text": "One thing would help before that draft hardens: your read on which audience comes first. If the operations story and the investor story pull in different directions, tell me now and we will build to it. A short call works if that is easier than writing it out."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Dear Mary,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "I am starting this thread for status on the {{fact:f:E-2017-001.client}} positioning work, so that updates, questions, and approvals stay in one place. The kickoff memo is attached for reference; it sets out the work plan and the people on our side."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Where things stand: the audit is well under way. We have been through the materials your team sent and the company's recent coverage, and we have now held most of the leadership interviews. The findings memo will follow once the remaining interviews are done, and it will set out what we heard, where the interviews and the current materials agree, and where they do not."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three items from your side would help us finish this part of the work:\n1. Times for the interviews that are still open.\n2. The most recent investor presentation, if it differs from the version on the website.\n3. The names of anyone besides you who should receive the findings memo."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The open interview times set the pace for everything after them, so if you can send those first, I will build the rest of the schedule around them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0005",
       "blocks": [
-        {"kind": "paragraph", "text": "Hello Mary,"},
-        {"kind": "paragraph", "text": "Following Daniel Valenzuela's note, the first {{fact:f:E-2017-001.client}} messaging draft is nearly done. I will have it to you by Friday."},
-        {"kind": "paragraph", "text": "One point to settle first. I have left the investor-relations line as a placeholder for this round, since I am not sure it belongs here yet or in the next pass. I want your read on it before the wording sets."},
-        {"kind": "paragraph", "text": "For the file, final approval on the messaging sits with you, Mary Frank. I will send the draft Friday and flag that one line for your call."},
-        {"kind": "paragraph", "text": "Thanks"}
+        {
+          "kind": "paragraph",
+          "text": "Mary,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "One addition to Daniel's list, if I may. When you send the investor presentation, please include any questions that came up repeatedly in recent investor meetings, with a note of how your team answered them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions of that kind are usually the clearest evidence of where the current description of the company leaves investors uncertain. We would like the findings to take them into account before any positioning language is drafted for {{fact:f:E-2017-001.client}}."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A short, informal list is entirely sufficient."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thanks,\nJH"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0006",
       "blocks": [
-        {"kind": "paragraph", "text": "Dear Mary,"},
-        {"kind": "paragraph", "text": "Agreed on holding the investor-relations line for now. Michelle Rose will keep it marked in the draft so it is easy to pick up once you have decided."},
-        {"kind": "paragraph", "text": "Here is how I would take the {{fact:f:E-2017-001.client}} messaging from here:"},
-        {"kind": "list", "items": [
-          "1. Michelle Rose sends you the first draft on Friday, with the investor-relations line flagged.",
-          "2. We hold a short call early next week to walk through it together.",
-          "3. We settle the held line on that call and lock the rest."
-        ]},
-        {"kind": "paragraph", "text": "Sign-off on the final wording stays with you, Mary Frank. Send me two or three windows for a call next week and I will confirm one."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Dear Mary,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for the call this morning. To confirm in writing what we agreed, including Julie's request:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. You will send the investor presentation together with the recurring questions from recent investor meetings. A rough list is fine.\n2. You will book the remaining leadership interviews and send me the times.\n3. The findings memo goes to you alone first, and you will decide who else at {{fact:f:E-2017-001.client}} sees it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will hold the findings memo until the investor questions are in, so that it reflects them. When your interview times arrive, I will confirm each one in writing the same day."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0008",
       "blocks": [
-        {"kind": "paragraph", "text": "Hello Mary,"},
-        {"kind": "paragraph", "text": "The first {{fact:f:E-2017-001.client}} messaging draft is with you now. It follows the frame Daniel Valenzuela set out, and the investor-relations line is held where we left it."},
-        {"kind": "paragraph", "text": "I kept the wording close to how the company already speaks, so it reads in your voice and not ours. Mark any changes straight onto the draft and send it back, and I can turn edits the same day."},
-        {"kind": "paragraph", "text": "Noted for the file that final approval is yours, Mary Frank. Once your edits are in, we will set the short call to close out the held line."},
-        {"kind": "paragraph", "text": "Thanks"}
+        {
+          "kind": "paragraph",
+          "text": "Mary,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for sending the presentation and the investor questions so promptly. Both are helpful, and the questions in particular give us a clear sense of what investors would like explained more fully."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Daniel's summary of your call matches my understanding, and I have nothing to add to it. We will work the questions into the findings memo, which will come to you before any positioning language is drafted for {{fact:f:E-2017-001.client}}."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thanks,\nJH"
+        }
       ]
     }
   ]

@@ -35,14 +35,14 @@ It falls behind on `brackenridge-civil`, `saltmarsh-environmental`. Those are th
 
 | retriever | split | questions | strict | R@5 | R@10 | MRR | nDCG@10 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| filename-only | core | 44 | 2.3% | 37.7% | 54.7% | 0.563 | 0.493 |
-| filename-only | distractors | 44 | 2.3% | 37.7% | 54.7% | 0.563 | 0.493 |
-| filename-only | noise | 44 | 0.0% | 36.7% | 49.5% | 0.539 | 0.458 |
-| filename-only | full | 44 | 0.0% | 36.7% | 49.5% | 0.539 | 0.458 |
-| bm25 | core | 44 | 2.3% | 56.7% | 69.4% | 0.787 | 0.734 |
-| bm25 | distractors | 44 | 2.3% | 56.7% | 68.2% | 0.787 | 0.723 |
-| bm25 | noise | 44 | 0.0% | 54.5% | 64.5% | 0.756 | 0.670 |
-| bm25 | full | 44 | 0.0% | 54.5% | 62.7% | 0.756 | 0.658 |
+| filename-only | core | 44 | 2.3% | 37.9% | 55.0% | 0.563 | 0.494 |
+| filename-only | distractors | 44 | 2.3% | 37.9% | 55.0% | 0.563 | 0.494 |
+| filename-only | noise | 44 | 0.0% | 36.9% | 49.8% | 0.539 | 0.459 |
+| filename-only | full | 44 | 0.0% | 36.9% | 49.8% | 0.539 | 0.459 |
+| bm25 | core | 44 | 0.0% | 57.6% | 66.4% | 0.792 | 0.702 |
+| bm25 | distractors | 44 | 0.0% | 57.6% | 65.9% | 0.790 | 0.695 |
+| bm25 | noise | 44 | 0.0% | 54.3% | 62.9% | 0.795 | 0.657 |
+| bm25 | full | 44 | 0.0% | 55.0% | 62.7% | 0.795 | 0.654 |
 
 ## brackenridge-civil
 
@@ -87,27 +87,27 @@ It falls behind on `brackenridge-civil`, `saltmarsh-environmental`. Those are th
 
 | retriever | split | questions | strict | R@5 | R@10 | MRR | nDCG@10 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| filename-only | core | 35 | 2.9% | 46.0% | 70.7% | 0.615 | 0.583 |
-| filename-only | distractors | 35 | 2.9% | 46.0% | 70.7% | 0.615 | 0.583 |
-| filename-only | noise | 35 | 2.9% | 46.0% | 70.7% | 0.615 | 0.583 |
-| filename-only | full | 35 | 2.9% | 46.0% | 70.7% | 0.615 | 0.583 |
-| bm25 | core | 35 | 0.0% | 55.4% | 64.6% | 0.750 | 0.690 |
-| bm25 | distractors | 35 | 0.0% | 55.1% | 64.7% | 0.750 | 0.691 |
-| bm25 | noise | 35 | 0.0% | 55.4% | 64.6% | 0.750 | 0.690 |
-| bm25 | full | 35 | 0.0% | 55.1% | 64.7% | 0.750 | 0.691 |
+| filename-only | core | 35 | 2.9% | 45.3% | 69.5% | 0.598 | 0.570 |
+| filename-only | distractors | 35 | 2.9% | 45.3% | 69.5% | 0.598 | 0.570 |
+| filename-only | noise | 35 | 2.9% | 45.3% | 69.5% | 0.598 | 0.570 |
+| filename-only | full | 35 | 2.9% | 45.3% | 69.5% | 0.598 | 0.570 |
+| bm25 | core | 35 | 2.9% | 48.5% | 63.5% | 0.771 | 0.663 |
+| bm25 | distractors | 35 | 2.9% | 52.0% | 63.8% | 0.771 | 0.664 |
+| bm25 | noise | 35 | 2.9% | 48.5% | 63.5% | 0.771 | 0.663 |
+| bm25 | full | 35 | 2.9% | 52.0% | 63.8% | 0.771 | 0.664 |
 
 ## meridian-actuarial
 
 | retriever | split | questions | strict | R@5 | R@10 | MRR | nDCG@10 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| filename-only | core | 40 | 2.5% | 47.2% | 72.1% | 0.613 | 0.600 |
-| filename-only | distractors | 40 | 2.5% | 47.2% | 72.1% | 0.613 | 0.600 |
-| filename-only | noise | 40 | 2.5% | 47.2% | 72.1% | 0.613 | 0.600 |
-| filename-only | full | 40 | 2.5% | 47.2% | 72.1% | 0.613 | 0.600 |
-| bm25 | core | 40 | 2.5% | 53.2% | 66.7% | 0.724 | 0.700 |
-| bm25 | distractors | 40 | 2.5% | 53.2% | 66.3% | 0.723 | 0.696 |
-| bm25 | noise | 40 | 2.5% | 53.2% | 66.7% | 0.724 | 0.700 |
-| bm25 | full | 40 | 2.5% | 53.2% | 66.3% | 0.723 | 0.696 |
+| filename-only | core | 40 | 0.0% | 46.4% | 71.5% | 0.613 | 0.593 |
+| filename-only | distractors | 40 | 0.0% | 46.4% | 71.5% | 0.613 | 0.593 |
+| filename-only | noise | 40 | 0.0% | 46.4% | 71.5% | 0.613 | 0.593 |
+| filename-only | full | 40 | 0.0% | 46.4% | 71.5% | 0.613 | 0.593 |
+| bm25 | core | 40 | 0.0% | 56.1% | 65.6% | 0.746 | 0.690 |
+| bm25 | distractors | 40 | 0.0% | 55.8% | 65.0% | 0.746 | 0.687 |
+| bm25 | noise | 40 | 0.0% | 56.1% | 65.6% | 0.746 | 0.690 |
+| bm25 | full | 40 | 0.0% | 55.8% | 65.0% | 0.746 | 0.687 |
 
 ## northgate-staffing
 

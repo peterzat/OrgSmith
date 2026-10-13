@@ -1,109 +1,353 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0012",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0061",
       "blocks": [
-        {"kind": "paragraph", "text": "Jennifer Herrera\nVP Finance\n{{fact:f:E-2023-001.client}}"},
-        {"kind": "paragraph", "text": "Dear Ms. Herrera:"},
-        {"kind": "paragraph", "text": "This letter records the terms on which our firm will work with {{fact:f:E-2023-001.client}} on the executive messaging we discussed, and it becomes our agreement once you have signed and returned it. We have set it down in plain terms, so that it reads as a fair account of that conversation rather than as a document to be decoded."},
-        {"kind": "paragraph", "text": "Please read it alongside what we talked through. If any line here sits differently from how you understood it, say so before you sign, and we will put it right together."},
-        {"kind": "heading", "text": "What We Will Do", "level": 2},
-        {"kind": "paragraph", "text": "We will help {{fact:f:E-2023-001.client}} settle on a clear and steady account of its leadership for the audiences whose reading of the company counts most, and give your executives language they can carry into announcements, briefings, and the ordinary run of investor conversation. Our concern is that what is already true of the company is heard plainly by the people who need to hear it, and that the account holds its shape wherever it is repeated."},
-        {"kind": "paragraph", "text": "In practice this covers the core executive messages and the narrative that frames them, the written materials that carry those messages outward, and our counsel through the moments over the term that will test them. It does not reach into the running of the company or into decisions that are properly yours; where our advice touches those, it stays advice, and the call remains with you."},
-        {"kind": "heading", "text": "How We Work", "level": 2},
-        {"kind": "paragraph", "text": "Our method is unhurried and, we hope, plain in feel. We begin by listening, to your leadership and to the people inside and outside the company who already hold a view of it, and we set a small number of core messages down in writing before we build anything on top of them."},
-        {"kind": "paragraph", "text": "From there we prepare the materials that carry those messages and stay close through the moments that put them to work. When circumstances shift over the roughly five months ahead, and they will, we come back to you and adjust the account with you, and not around you."},
-        {"kind": "paragraph", "text": "Because so much of this work lives in correspondence, we keep a clear record of what we send and route anything client-facing through a single point on each side. You will always know what has changed and what is still open, and you will never have to hunt for the current version."},
-        {"kind": "heading", "text": "Who Will Do the Work", "level": 2},
-        {"kind": "paragraph", "text": "John Macias will carry the engagement day to day and will be your first point of contact for anything of substance. He does the close work on the drafts and keeps the moving parts legible, and he is the person to bring a question to when it needs a quick answer."},
-        {"kind": "paragraph", "text": "Amy Carter will support the drafting and coordination and keep our correspondence with you in good order, so that where a thread stands is always clear to whoever picks it up next. I will keep a hand on the work myself, particularly on the sensitive announcements, and nothing of weight will leave our office under our name without my having read it. You are welcome to come to me directly at any point, though John Macias will usually be the faster route to an answer."},
-        {"kind": "heading", "text": "Fees and Payment", "level": 2},
-        {"kind": "paragraph", "text": "Our fee for the engagement is {{fact:f:E-2023-001.fee}}, covering the work described above through its expected close. We will invoice against that amount as the work proceeds, and our invoices are payable within thirty days of receipt."},
-        {"kind": "paragraph", "text": "The fee covers our people and their time. It does not cover out-of-pocket costs such as travel, print production, or third-party services, which we will agree with you before anything of consequence is incurred. Should the shape of the work change materially, we will raise the fee with you and settle it before that work begins."},
-        {"kind": "heading", "text": "Term and Notice", "level": 2},
-        {"kind": "paragraph", "text": "The engagement begins {{fact:f:E-2023-001.start}} and is expected to run for about five months. We will treat it as finished when the work is genuinely done rather than when the calendar says so."},
-        {"kind": "paragraph", "text": "Either of us may bring it to a close on fourteen days' written notice. If you end it, you will owe us for work properly completed to that point and for costs already committed on your behalf, and nothing beyond that."},
-        {"kind": "heading", "text": "Confidentiality", "level": 2},
-        {"kind": "paragraph", "text": "Everything we learn about {{fact:f:E-2023-001.client}} in the course of the work we will hold in confidence and use only for the engagement. That obligation binds our whole team, survives the end of our work together, and covers the fact of our involvement as much as its substance. We ask the same of you for the methods and materials we share with you."},
-        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
-        {"kind": "paragraph", "text": "We will do the work with the care and skill you are entitled to expect, and we stand behind it. We do not, though, control how the press, the markets, or other third parties will finally respond, and so our liability to you under this engagement is limited to the fees paid under it, except where the law does not permit such a limit."},
-        {"kind": "heading", "text": "Governing Law", "level": 2},
-        {"kind": "paragraph", "text": "This agreement is governed by the law of the state in which our firm is established, and any dispute under it will be resolved in that state's courts. If any single provision is found unenforceable, the remainder of this letter stands unaffected."},
-        {"kind": "paragraph", "text": "If this reflects our understanding, please sign and return one copy and keep the other for your records. Once it is back with us, John Macias will be in touch to arrange the first conversations, and we can set the kickoff from there. We are glad to be working with the Suarez-Jones team."},
-        {"kind": "sigblock", "signers": ["p:julie.hill", "xp:jennifer.herrera"]}
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Herrera\nVP Finance\n{{fact:f:E-2023-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Executive messaging engagement"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Jennifer:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter sets out the basis on which Ashcombe Advisory Partners LLC (\"Ashcombe\") will work with {{fact:f:E-2023-001.client}} (the \"Company\") on the messaging its executive team uses with investors, analysts, employees and the press. It follows our conversations with you over recent weeks, and we have tried to record them faithfully. Where it departs from your understanding, please tell us before you sign, and we will correct it."
+        },
+        {
+          "kind": "heading",
+          "text": "The work we will undertake",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our task is to help the Company's senior leadership describe the business, its performance and its priorities in terms that hold steady from one audience to the next. By the close of the engagement, we expect the executive team to have a core narrative, supporting messages for each of its principal audiences, and talking points and question-and-answer material that its spokespeople have rehearsed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We propose to proceed in three stages. We will first review the Company's recent public statements, investor materials and internal communications, and speak with those members of the leadership team you identify. We will then draft the narrative and its supporting messages for discussion with you and, once these are settled, prepare and rehearse the materials the spokespeople will use."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will give particular attention to the agreement between what the Company tells investors and what it tells its own employees, since the two are often read side by side. The narrative will be written so that the finance function can stand behind every figure on which it relies."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each draft will pass through your review before it is shared more widely within the Company, and nothing we prepare will be used externally without the Company's written approval. The engagement does not extend to legal review of disclosures, the preparation of financial information, or the purchase of media. Where a draft touches on a matter that the Company's counsel or auditors should see, we will identify it so that their review can take place first."
+        },
+        {
+          "kind": "heading",
+          "text": "Your team at Ashcombe",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will retain overall responsibility for the engagement and will read the principal materials before they reach you. Michael Morris, a Partner of the firm, will lead the work from day to day and will be your first call on timing and priorities."
+        },
+        {
+          "kind": "paragraph",
+          "text": "John Macias, an Associate, will prepare first drafts of the narrative, statements and question-and-answer material. Amy Carter, a Communications Associate, will develop the investor-facing messages and talking points, and will check each claim against the source that supports it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We understand that you will act as the Company's principal contact for the engagement. Unless you direct otherwise, we will route drafts, questions and requests for approval through you. Should the needs of the work change, we may draw on other members of the firm, and we will tell you before any change is made to the team named here."
+        },
+        {
+          "kind": "heading",
+          "text": "How we will work together",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We propose to keep you informed through a single email thread for status and approvals, with working sessions whenever a draft is ready for discussion. We will agree the schedule of leadership interviews with you at the outset, and we will ask for the documents we need to review in a single request at the same time, so that your team is not asked for material piece by piece."
+        },
+        {
+          "kind": "heading",
+          "text": "Commencement and fee",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement will commence on {{fact:f:E-2023-001.start}}, and we anticipate that it will run for approximately five months. Should the Company's own calendar call for a different pace, we will agree any change with you in writing."
+        },
+        {
+          "kind": "paragraph",
+          "text": "For the services described in this letter, the Company will pay Ashcombe a fixed professional fee of {{fact:f:E-2023-001.fee}}. The fee covers the time of the team named above, however many rounds of drafting the agreed scope requires."
+        },
+        {
+          "kind": "heading",
+          "text": "Invoicing and payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will invoice the fee in equal monthly installments across the term of the engagement, and each invoice is payable within thirty days of receipt. Reasonable out-of-pocket expenses, such as travel to rehearsal sessions, will be billed at cost, and we will ask for your approval before incurring any expense of significance."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter takes effect when signed by both parties and continues until the work described above is complete. Either party may end the engagement at any time by written notice to the other. In that event, the Company will pay the portion of the fee attributable to work performed up to the date of notice, together with any approved expenses already incurred."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold in confidence all non-public information the Company shares with us, use it only for the purposes of this engagement, and disclose it within Ashcombe only to those working on it. Some of that information may be material, and our team will observe the Company's policies on trading and disclosure as they apply to outside advisers. These obligations continue after the engagement ends, and at its close we will return or destroy the Company's documents on request, keeping only such copies as we are required to retain for our own records."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our advice concerns communications and is not legal, accounting or investment advice; the Company retains sole responsibility for the content and accuracy of any statement it makes. To the fullest extent the law permits, Ashcombe's total liability arising from this engagement will not exceed the fees paid to us under this letter, and neither party will be liable to the other for indirect or consequential loss."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter, and any dispute that arises under it, will be construed under the laws of the state of Ashcombe's organization, without giving effect to principles of conflict of laws. Together with any variation in writing signed on behalf of both parties, it is the complete statement of our agreement on this engagement."
+        },
+        {
+          "kind": "heading",
+          "text": "Acceptance",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are glad to be working with you and your colleagues, and we look forward to the first conversations with the leadership team. If these terms reflect your understanding, please sign where indicated below and return a copy to me. Once we have it, Michael will be in touch to arrange the kickoff with your team."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Signed for Ashcombe Advisory Partners LLC and, in acceptance of these terms, on behalf of {{fact:f:E-2023-001.client}}:"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:julie.hill",
+            "xp:jennifer.herrera"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0063",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Executive Messaging engagement team\nFrom: John Macias\nRe: Kickoff — Executive Messaging for {{fact:f:E-2023-001.client}}"},
-        {"kind": "paragraph", "text": "We are under way on the executive messaging work for {{fact:f:E-2023-001.client}}, with our start set at {{fact:f:E-2023-001.start}}. The aim is a clear, steady account of the company's leadership for the audiences that matter to it, and language the executives can carry into their announcements and investor conversations. This memo sets out how the work divides and what each of us picks up first, so no one waits on a hand-off that was never made."},
-        {"kind": "paragraph", "text": "A word first on how we will keep it in order. We hold the messaging small and written down early, we route everything client-facing through one contact, and we log what we send so the record stays clean as the volume grows. None of that is new to us, but it is worth saying once at the start."},
-        {"kind": "heading", "text": "How the work divides", "level": 2},
-        {"kind": "list", "items": [
-          "Discovery. John Macias runs the opening interviews with the company's leadership and the people around them, and brings back what we hear in a form the rest of us can use.",
-          "Core messaging. Amy Carter turns the discovery into a first set of written messages, kept small enough to hold and to repeat without drift.",
-          "Materials and turnaround. Julie Bailey takes the agreed messages into the client-facing drafts and turns edits quickly when the copy needs to be clean and out the door.",
-          "Client coordination. Jennifer Herrera is our point of contact at Suarez-Jones; approvals and scheduling on their side run through her, and we keep her copied on anything that touches timing."
-        ]},
-        {"kind": "paragraph", "text": "Two things to hold in mind as we start. Jennifer Herrera has asked that we keep the leadership close to the drafts, so plan for a round of review with the executives before anything is final; and because this messaging will surface in announcements, we weigh the sensitive lines twice before they leave the office."},
-        {"kind": "heading", "text": "First steps", "level": 2},
-        {"kind": "list", "items": [
-          "1. John Macias books the kickoff call with Jennifer Herrera this week and sends the invite round to the team.",
-          "2. Amy Carter drafts the messaging outline from the kickoff conversation, so we have something concrete to react to rather than a blank page.",
-          "3. Julie Bailey opens the materials folder and the correspondence file, so nothing we produce lives only in an inbox.",
-          "4. Everyone sends me their availability for the kickoff by Wednesday, so I can offer Jennifer Herrera two or three firm windows."
-        ]},
-        {"kind": "paragraph", "text": "The first thing that has to happen is the kickoff call, and the rest keys off the date it sets. Send me anything you want raised there by the end of the week, and flag now anything you are unsure of, so we settle it before we sit down with the client."}
+        {
+          "kind": "heading",
+          "text": "Kickoff: Executive Messaging for {{fact:f:E-2023-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Michael Morris, Amy Carter, Julie Bailey\nFrom: John Macias\nRe: Objectives, who does what, and the first two weeks"
+        },
+        {
+          "kind": "heading",
+          "text": "What we are here to do",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "{{fact:f:E-2023-001.client}} has asked us to help its executive team tell one consistent story about the business. The engagement began on {{fact:f:E-2023-001.start}} and runs about five months. Jennifer Herrera, VP Finance, is our client lead. She sees every draft before it goes to the wider leadership team. The engagement letter is signed, so the scope is settled."
+        },
+        {
+          "kind": "paragraph",
+          "text": "By the end, the leadership team should have three things. The first is a core narrative. The second is a set of messages for each audience that matters to them: investors, analysts, employees and the press. The third is talking points and Q&A they have practiced out loud. Everything below serves one of those three."
+        },
+        {
+          "kind": "heading",
+          "text": "How the work splits",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Discovery. Read the public statements, investor materials and internal all-hands decks from the past year, and run the leadership interviews. Lead: John Macias, with Michael Morris in the interviews.",
+            "Core narrative. Turn what we hear into a draft narrative and its supporting messages. Lead: John Macias. Michael reviews before anything goes to Jennifer.",
+            "Investor messages and talking points. Build the investor-facing messages and check every claim against a source the company can stand behind. Lead: Amy Carter, working with Jennifer on anything that touches the numbers.",
+            "Q&A and rehearsal. Draft the hard questions and the answers, then rehearse with the spokespeople. John drafts. Amy takes the finance questions.",
+            "Consistency and style. Read each draft against house style and against the approved narrative, so the pieces agree with each other. Lead: Julie Bailey."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Ground rules",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Status and approvals go through one email thread with Jennifer. Drafts live in the shared folder, with a version number in each file name. Michael copies the whole team when a decision lands, so nobody works from an old version."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Every figure in the claims log needs a source. If a figure has none, it stays out of the draft until Jennifer confirms it. Legal review of disclosures is not part of our scope. Where a draft touches something the company's counsel should see, we flag it to Jennifer and wait."
+        },
+        {
+          "kind": "heading",
+          "text": "The first two weeks",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Everything starts with the source documents. Jennifer has offered to send them as soon as we ask, and the interviews depend on them. So the order matters."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will send Jennifer the document request on Monday. When she confirms which members of the leadership team we should speak with, Michael and I will propose interview slots."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Amy, the claims log will save us rounds of edits later. Could you start it from the investor materials as they arrive? Julie, we will be sharing a lot of drafts with one client contact. Could you set up the shared folder and a short style sheet for this account?"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michael, the interviews will go better if the leadership team knows why we are asking. Could you send Jennifer a few lines she can pass on to them?"
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the split looks wrong to anyone, tell me and I will take another pass. Otherwise, the document request goes to Jennifer on Monday, and I will copy all of you when it does."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0064",
       "blocks": [
-        {"kind": "paragraph", "text": "Good morning Jennifer,"},
-        {"kind": "paragraph", "text": "I am opening this thread so our notes on the executive messaging work for {{fact:f:E-2023-001.client}} stay in one place as we get going. For your file and ours, the working contacts are set: Jennifer Herrera on your side, and on ours Amy Carter, who is drafting the core messages, with me carrying the engagement day to day."},
-        {"kind": "paragraph", "text": "We have made a start on the Suarez-Jones messaging. We are pulling together the list for the opening interviews, and Amy Carter is shaping the first set of executive messages from what we heard at the kickoff. You will hear from us on a steady cadence from here, and each note will be tied to the piece of work it concerns, so the thread stays easy to follow."},
-        {"kind": "paragraph", "text": "One thing would help before we get much further: your read on which audience comes first for the leadership story. If the investor view and the internal view pull in different directions, tell me now and we will build to it. A short call works if that is easier than writing it out, and I will set one up on your word."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Good morning Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "I am starting this thread so that status and approvals on the executive messaging work for {{fact:f:E-2023-001.client}} sit in one place. Amy and Michael are copied, and we will all reply here."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Here is where things stand. We have finished reading the materials your team sent, including the investor presentation and the all-hands slides. All but one of the leadership interviews are done, and the notes are written up. The interviews were candid and useful. A few themes came up more than once, and they will shape the first draft. Amy has also started the claims log, which lists each figure and statement the messages will rely on, with its source."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things from your side would keep us on plan. The remaining interview is not yet on the calendar, so could you suggest a time in the next week or so? The claims log will also need a finance check, so could you let us know whether you will review it yourself or pass it to someone on your team?"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Once that last interview is done, I will send you the first draft of the core narrative."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards,"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0065",
       "blocks": [
-        {"kind": "paragraph", "text": "Jennifer,"},
-        {"kind": "paragraph", "text": "Picking up John Macias's note, I have the first set of executive messages for {{fact:f:E-2023-001.client}} in draft and will have it to you by the end of the week. It follows the frame from the kickoff, so it should read in the company's own voice rather than ours."},
-        {"kind": "paragraph", "text": "On the audience question John raised, my instinct is to lead with the investor view and let the internal story follow from it, but I would rather have your read before the wording sets. The two are close enough here that a short conversation would likely settle it."},
-        {"kind": "paragraph", "text": "For the file, final sign-off on the Suarez-Jones messaging stays with you, Jennifer Herrera. Send the draft back with anything marked and I will turn it the same day."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "I want to add one point to John's note, because the first draft of the narrative will lean on the growth priorities your leadership team described in the interviews, and some of that material is forward-looking in a way your counsel may want to see before it circulates any further inside {{fact:f:E-2023-001.client}}."
+        },
+        {
+          "kind": "paragraph",
+          "text": "With that in mind, there are two things I would ask you to decide when you have a moment:\n1. Whether counsel should review the draft narrative at the first round, alongside you, or only once you and we have settled the wording between us.\n2. Whether you would like to walk through the first draft with us on a call, with the text in front of everyone, or to receive it by email and send your comments back in writing."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Either answer works for the timing we agreed, and John will plan the next draft around whichever you choose."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0066",
       "blocks": [
-        {"kind": "paragraph", "text": "Good morning Jennifer,"},
-        {"kind": "paragraph", "text": "Thank you both. To bring the timing together in one place: Amy Carter will have the first set of executive messages for {{fact:f:E-2023-001.client}} to you by the end of the week, and I will hold a short window early next week for us to walk through it together."},
-        {"kind": "paragraph", "text": "On which audience leads, I would rather settle it with you on that call than guess at it now, so the wording sets around your view and not ours. If it helps, I will send two or three possible times this afternoon."},
-        {"kind": "paragraph", "text": "In the meantime, if anyone else on the Suarez-Jones side should see the draft before it is final, let me know and we will get it in front of them. I have you, Jennifer Herrera, as our approver on the final wording, so nothing goes out without your sign-off. I will follow up with those call windows shortly."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Good morning Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Following Michael's note, it may help to see which parts of the draft would go to counsel. So far there are three passages."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The paragraph on growth priorities for the coming years, which is forward-looking.",
+            "The description of margin improvement, which uses figures from the interviews that we have not yet matched to a published source.",
+            "A sentence on new markets, which refers to plans that have not been announced."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The rest of the draft draws on material that {{fact:f:E-2023-001.client}} has already put out publicly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If counsel does review at the first round, I can send just those three passages, each with a short note on where it came from. That should keep their read short. I will hold the draft until we hear which you prefer."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards,"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0067",
       "blocks": [
-        {"kind": "paragraph", "text": "Jennifer,"},
-        {"kind": "paragraph", "text": "Following John Macias's note, the first set of {{fact:f:E-2023-001.client}} executive messages will be with you tomorrow, a day ahead of where we landed, so you have it in hand before the call next week."},
-        {"kind": "paragraph", "text": "I have kept the draft close to how the company already speaks, so it reads in your voice rather than ours, and I have flagged the two or three lines where the audience question changes the wording. Those are the places your read will matter most."},
-        {"kind": "paragraph", "text": "Sign-off on the final wording sits with you, Jennifer Herrera. Mark any changes straight onto the draft when it arrives and send it back, and I will turn them the same day so the Suarez-Jones messaging is ready to walk through on the call."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "John's list covers the passages I had in mind, and since none of them needs to hold up the rest of the draft, I suggest we send the three marked passages to counsel now and carry on with the remainder of the narrative at the same time, so that counsel's comments and yours reach us at about the same point."
+        },
+        {
+          "kind": "paragraph",
+          "text": "To do that we need two things from you:\n1. The name and email address of the person on counsel's side who should receive the passages, or a line confirming that you would rather forward them yourself.\n2. An hour early next week for a walkthrough of the full draft, ideally with whoever at {{fact:f:E-2023-001.client}} will review the finance language, so that Amy can take their questions on the claims log in the same sitting."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If it is easier to settle both by phone, I am at my desk until about six this evening and can call you."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        }
       ]
     }
   ]

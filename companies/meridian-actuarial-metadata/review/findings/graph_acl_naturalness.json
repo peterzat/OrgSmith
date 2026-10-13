@@ -9,16 +9,120 @@
       "dimension": "graph_acl_naturalness",
       "severity": "major",
       "docs": [
-        "d:0003",
+        "d:0054",
+        "d:0016",
+        "d:0043",
+        "d:0052",
+        "d:0060",
+        "d:0072"
+      ],
+      "summary": "The firm's two actuaries split the book with no overlap: Jennifer Vasquez, who assigns and reviews every associate's work, can read none of the three engagements Robert Lawrence runs and is never named in them, so the second-actuary review the firm promises has no one able to open those files.",
+      "evidence": "d:0054: 'A second actuary reviews every opinion before it leaves the firm.' Vasquez is the only Consulting Actuary on the roster. Her 40 grants hold nothing under Engagements/Estes Group, Wells, Walsh and Martinez, or Gonzalez, Campbell and Kelly, and none of those 23 documents names her in a header or body. d:0043 and d:0052 have Michelle Banks and Karen Harris report to her ('Karen reports to Jennifer Vasquez, Consulting Actuary'), yet the only engagements either ever works on (E-2023-001, E-2024-001) sit in folders she cannot open. The mirror image holds on her engagements: in d:0016 Lawrence writes 'I will review the work at each stage, and I will sign the opinion', and he appears in none of the ten later Miller, Cook and Snyder documents as author, recipient, attendee or name. Each engagement shows exactly one senior, matching ledger team membership exactly; no engagement file ever shows both."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0042",
         "d:0045",
+        "d:0054"
+      ],
+      "summary": "The prose makes the Practice Manager the keeper of every engagement's letter, billing and file tracking, but the ACL gives Linda Hanna no read grant on any engagement document or financial summary, including the kickoff memo addressed to her.",
+      "evidence": "d:0042: 'Her work touches every engagement' and 'She will prepare and track engagement letters, issue invoices and follow up on the ones that go unpaid'; her first task is 'Read every open engagement letter and the data request that went with it.' d:0054: 'Our practice manager keeps engagement letters, data requests, deadlines and billing in order.' d:0045 is addressed 'To: Jennifer Vasquez, Amanda White, Linda Hanna' and assigns her 'Business associate agreement, billing setup, and the tracker of files received and outstanding.' Her 13 grants are the three firm overviews, the four Firm/Mail notices and the six People records; nothing under Engagements/ or Finance/. The FY2015 to FY2018 workbooks carry her predecessor Carol Cooper as author; FY2019 to FY2023, all closed with Hanna in post, carry Robert Lawrence, and he alone can read them."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-3",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0017",
+        "d:0023",
+        "d:0025",
+        "d:0065",
+        "d:0071",
+        "d:0072"
+      ],
+      "summary": "Two associates outside the ledger team are put on a kickoff memo's To line with a substantive role, then never appear again in that engagement, and neither can read the folder that names them.",
+      "evidence": "d:0017 (To: Jennifer Vasquez, David Sherman, Jennifer Johnson): 'Jennifer Johnson is joining us to work with David on the reconciliation, which is the part of this review the opinion leans on most.' None of the nine later Miller, Cook and Snyder documents names her: the d:0023 'Who is doing what' slide lists Vasquez, Sherman and Dudley, and d:0025 credits the reconciliation to David Sherman alone. d:0065 (To: Robert Lawrence, Michelle Banks, Nicole Hanna): 'Nicole Hanna will help with intake while the files come in. She will log each file on arrival and run the first checks on record counts and control totals.' She is absent from the seven later Gonzalez, Campbell and Kelly documents, including the d:0071 attendee list, and d:0072 reports 'Michelle Banks has issued the written data summary.' Neither holds any grant under Engagements/. Each is named in exactly two documents, her onboarding record and this memo, which is the recipe's min_mentions_per_person of 2 (the known BACKLOG seam mention-filler-acl-seam, reproduced here)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [
+        "d:0011",
+        "d:0018",
+        "d:0024",
+        "d:0035",
+        "d:0037",
+        "d:0066"
+      ],
+      "summary": "Each client is exactly one named person: all eight sets of minutes list the ledger team plus that one contact and nobody else, and when the firm asks a client for a second name it never arrives.",
+      "evidence": "The attendee lists in d:0011, d:0024, d:0027, d:0037, d:0047, d:0049, d:0059 and d:0071 each equal the engagement team plus its single external participant. In d:0035 Lawrence asks Barbara Hall for 'The name of someone on your HR staff whom Megan can work with on the record-level check'; d:0037 then records only that 'Her staff sent the old and new numbers'. The rest of the client side stays anonymous: 'a word from whoever runs the extract' (d:0018), 'Michelle can send the treaty and the figures directly to whoever takes it on' (d:0066). On the reserve adequacy review the Director of Operations is the only client attendee and answers for the claim-system replacement and the analysis behind an assumption change (d:0024). The charter promises exchanges with 'the client's staff', yet every engagement email in nine years is addressed to the one executive contact, and no trustee, board member, counsel, auditor or plan administrator is ever named."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-5",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [
+        "d:0017",
+        "d:0025",
+        "d:0057",
+        "d:0060",
+        "d:0072"
+      ],
+      "summary": "Who writes an engagement's kickoff memo and client status report follows the order of the ledger's participant list rather than seniority, so associates issue the client report with the signing actuary credited last.",
+      "evidence": "In all six engagements both documents come from the first-listed internal participant in engagements.json, whatever the title. The team's actuary is listed first only on Howard and Sons, and d:0012 is the only status report its lead actuary prepared. Elsewhere: 'Prepared by Karen Harris, Actuarial Associate, with Michelle Banks and Robert Lawrence.' (d:0072); 'Prepared by Michelle Banks, with David Sherman and Robert Lawrence.' (d:0060), which then tells the client 'Robert Lawrence has not yet reviewed them'; 'by Megan Dudley, with Jennifer Vasquez and David Sherman' (d:0025). The kickoff memos have an associate allocate work to her own supervisor or the Managing Actuary: 'Jennifer Vasquez leads the review day to day and will take the assumption work herself' (d:0017, from Megan Dudley); 'Objectives. Robert Lawrence, with Michelle Banks keeping the notes.' (d:0057)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-6",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [
+        "d:0015",
+        "d:0051",
+        "d:0062"
+      ],
+      "summary": "Office administration mail comes from analysts and associates while a Practice Manager is employed, and neither Practice Manager sends a single email in nine years.",
+      "evidence": "d:0015 (2017, David Sherman, Senior Analyst, to all staff, with Carol Cooper in post): 'please tell me by the end of today and I will borrow a unit from the building office'. d:0051 (2021, Sherman to Michelle Banks, with Linda Hanna in post): 'there is no need to request a replacement through us'. d:0062 (2023, Amanda White, Actuarial Associate, to all staff): 'let me know by midday Friday and I will ask them to arrange it'. Linda Hanna, who 'sits in Operations' (d:0042), authors none of the 72 documents; Carol Cooper authors only the four early financial workbooks."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-7",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": [
+        "d:0014",
+        "d:0028",
+        "d:0039",
+        "d:0051"
+      ],
+      "summary": "The ACL's open bucket makes personnel-file records and one-to-one mail readable by all eleven current staff, while engagement files are limited to three or four people and the financial summaries to one.",
+      "evidence": "d:0014 ends 'Recorded for the personnel file by Robert Lawrence, Managing Actuary.' and d:0028 says 'Robert Lawrence prepared it for the personnel file'; all six People/ records are granted to every current employee, associates included. d:0039 is Jennifer Johnson to Jeffrey Ochoa alone ('I am out all day next Tuesday for my exam') and d:0051 is David Sherman to Michelle Banks alone, yet PERMISSIONS.md grants both to all eleven current staff. The same ledger restricts every FY workbook to the Managing Actuary."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-acl-8",
+      "dimension": "graph_acl_naturalness",
+      "severity": "note",
+      "docs": [
+        "d:0042",
+        "d:0045",
+        "d:0061",
         "d:0065"
       ],
-      "summary": "Each kickoff memo that has to give a non-engagement colleague a second mention puts that person on the memo's To-line and assigns them engagement work, but the who-can-read-what ground truth grants them no access to any document of that engagement, including the memo addressed to them.",
-      "evidence": "d:0065 is addressed 'To: Michelle Banks, Nicole Hanna' and tasks 'Nicole Hanna runs valuation support and the data checks. She ties the counts and the cash flows back to the client's own summaries', yet the Gonzalez engagement's participants and every Gonzalez ACL grant are only Harris, Banks and Lawrence, so Nicole (whose only other appearance is her own onboarding, d:0061) can open none of it. The same shape recurs with Carol Cooper in d:0003 and Linda Hanna in d:0045: addressed and assigned a role, but holding no grant to their engagement's folder."
+      "summary": "The recipe's same-surname case never appears in the corpus: no document names both Linda Hanna and Nicole Hanna.",
+      "evidence": "ORG-CHARTER.md asks that 'documents that name both should not disambiguate them for the reader'. Linda Hanna is named only in d:0042 and d:0045, Nicole Hanna only in d:0061 and d:0065, and the two all-staff notices (d:0015, d:0062) name no one, so a reader never meets the collision the recipe planted."
     }
   ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

@@ -3,8 +3,35 @@
   "doc_id": "d:0031",
   "blocks": [
     {
+      "kind": "heading",
+      "text": "Memorandum",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "To: Jeffrey Ochoa, Megan Dudley\nFrom: David Sherman\nRe: Estes Group experience study",
+      "text": "To: Robert Lawrence, Jeffrey Ochoa, Megan Dudley\nFrom: David Sherman, Senior Analyst\nSubject: Experience study for {{fact:f:E-2019-001.client}}, opening plan",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The study is set up and waiting on data; the census files are the only item holding up the first counts. Work began on {{fact:f:E-2019-001.start}}. Our objective is a set of recommended assumptions for the {{fact:f:E-2019-001.client}} retirement plan, covering retirement, termination, disability, mortality, and salary increase, each supported by the plan's own experience as far as the data allow and by a stated judgment where they do not. Barbara Hall, Chief Operating Officer, is our client contact. Requests to the company go through her office, and any change to scope needs her agreement before we act on it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "One rule applies to every item below. Each table will carry the observed rate and the recommended rate in separate columns, and the two are not interchangeable. The observed rate is a measurement and should be reproducible by anyone holding the same files. The recommended rate is a judgment. Its reason belongs in the working file at the time the judgment is made, in a sentence Robert can review and, if he accepts it, carry into the report.",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,53 +40,8 @@
     },
     {
       "kind": "heading",
-      "text": "What We Are Doing",
+      "text": "How the work is divided",
       "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "This memo sets the plan for the {{fact:f:E-2019-001.client}} experience study and assigns the work. The goal is a report the board can act on: a review of the plan's recent retirement, termination, disability, mortality, and salary experience against the assumptions now in force, with recommendations where the two diverge. The deliverables are that report and a workbook of exhibits that supports every rate in it. The study is a look-back over the observation period the client confirms, so the first job is to fix that window and the population inside it before any rate is computed.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "We do this the way we do every study. What the experience shows, what the plan assumes, and what we recommend are three separate things, and they stay separate in the workbook and in the report. If a rate surprises us, we find the reason before it reaches a page. A number we cannot explain is not a finding; it is an open question, and it stays open until it is answered.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Barbara Hall, the Chief Operating Officer at Estes Group, is our point of contact. Data requests and scheduling go through her office. Any client-facing question goes through me before it goes to her, so that we speak with one voice on scope and timing.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Assignments",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Here is how the work divides:",
-      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
@@ -70,26 +52,19 @@
       "text": "",
       "level": 1,
       "items": [
-        "Data. I will reconstruct the member census and the plan's financial records, reconcile both, and document our reliance. I tie the counts to the prior study and to the client's own summaries, and I flag any gap before anything is tabulated.",
-        "Modeling. Jeffrey Ochoa builds the study model and runs the observed experience against the current assumptions. He sets no result as final until it is reviewed, and he traces any surprising rate back to the data behind it.",
-        "Exhibits and checks. Megan Dudley prepares the experience exhibits and the data checks beneath the modeling. She raises anything that does not reconcile rather than carrying it forward, and her questions are welcome the moment she has them."
+        "1. Data intake and linking: David Sherman. Load each year's census as received, link members across years, and classify every change in status. Each year's closing count must equal the following year's opening count, or the difference must be explained in the data log.",
+        "2. Client questions on data: Megan Dudley. Megan is the single contact for the client's staff on files, missing records, and corrections. Questions go out in batches, and each one states what we will assume if no answer comes back.",
+        "3. Decrement tables: Jeffrey Ochoa. Build exposures and actual decrements by age and service for retirement, termination, disability, and death, and compute expected decrements under the current assumptions. The table layouts are to be agreed with Robert before any data run through them.",
+        "4. Salary experience: Jeffrey Ochoa, with David Sherman. Measure pay increases by service for members active in consecutive years. Exclude any record where a pay change coincides with a change in status, and log the exclusions.",
+        "5. Recommendations and report: Robert Lawrence. Robert reviews each recommended assumption against its table and its stated reason, settles any open question of judgment, and signs the report."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "What Gates the Work",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "Two things gate the rest. The first is complete member and financial data from Estes Group. The second is a clean confirmation of the plan provisions the current assumptions rest on. Until both are in hand, we tabulate nothing and treat every assumption as provisional. Data quality is the usual risk on a first study for a client; expect the census to need a pass for status codes and for members whose records do not agree with the summary. On the financial side, the contribution and withdrawal history has to distinguish a refunded member from one who left a balance in the fund, because the termination experience turns on that split. We raise anything unclear with Barbara Hall's office early rather than carry it into the model.",
+      "text": "No result exists yet, and none should be described to the client as one. Until the data are closed, any figure that leaves this team, including in internal email, should be marked preliminary and should say which files it rests on.",
       "level": 1,
       "items": [],
       "header": [],
@@ -98,7 +73,7 @@
     },
     {
       "kind": "heading",
-      "text": "Where We Start",
+      "text": "Before the files arrive",
       "level": 2,
       "items": [],
       "header": [],
@@ -106,8 +81,22 @@
       "signers": []
     },
     {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "1. Megan Dudley sends the data request to Barbara Hall this week. It repeats the file list from the engagement letter and attaches our preferred layout as a suggestion only; files in the company's own format are acceptable.",
+        "2. David Sherman sets up the study files and the data log, and enters the current assumptions from the most recent valuation report so that expected decrements can be computed as soon as data are loaded.",
+        "3. Jeffrey Ochoa drafts the table shells and proposed age and service bands for Robert's review.",
+        "4. Robert Lawrence confirms the assumptions in scope against the engagement letter and sets the study period once we know which years of data the company can supply."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "Work begins on {{fact:f:E-2019-001.start}}. The data request goes to Barbara Hall's office that week; it will list the member fields and the financial records we need and the format we want them in. Jeffrey Ochoa drafts the assumption inventory for review before any assumption is treated as settled. Megan Dudley sets up the exhibit shells so that the numbers drop into a form we can check as they arrive. In the first two weeks I expect us to load the census, tie it to the prior study, and open a short list of data questions for the client; I will keep that list on our running thread so nothing waits on a request no one has sent. We hold the study until the data and the plan provisions are both confirmed.",
+      "text": "We will meet weekly while the data are open. I will circulate the data log before each meeting.",
       "level": 1,
       "items": [],
       "header": [],

@@ -51,7 +51,7 @@
         "2024-07-04",
         "2025-09-01"
       ],
-      "engagement_starts": false
+      "engagement_starts": true
     },
     "noise": null,
     "voice_diversify": true,
@@ -65,19 +65,31 @@
       "attachments": 0,
       "distribution_lists": 1,
       "exempt_author_mentions": true,
-      "exempt_recipient_mentions": false,
-      "broadcasts_address_the_list": false
+      "exempt_recipient_mentions": true,
+      "broadcasts_address_the_list": true
     },
     "style_specs": true,
     "client_facing_reports": false,
     "outline_variety": false,
-    "overview_cites_finished_work": false
+    "overview_cites_finished_work": true
   },
   "finance": {
     "base_revenue": 1320000,
     "growth_rate": 0.08,
     "expense_ratio": 0.73,
-    "era_shocks": []
+    "era_shocks": [
+      {
+        "year": 2020,
+        "revenue": 0.97,
+        "travel": 0.2,
+        "quarters": [
+          1.0,
+          0.9,
+          1.0,
+          1.05
+        ]
+      }
+    ]
   },
   "engagements": {
     "count": 5,
@@ -91,7 +103,10 @@
     "book_is_sample": true,
     "scope": null,
     "scope_by_service": {},
-    "oversight_titles": []
+    "oversight_titles": [
+      "Partner",
+      "Managing Partner"
+    ]
   },
   "graph_targets": {
     "external_orgs": 5,

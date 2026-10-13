@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -16,33 +16,50 @@
         },
         {
           "kind": "paragraph",
+          "text": "Re: Engagement for a Patent Portfolio Review"
+        },
+        {
+          "kind": "paragraph",
           "text": "Dear Mr. Smith:"
         },
         {
           "kind": "paragraph",
-          "text": "This letter sets out the terms on which the firm will review the patent portfolio of {{fact:f:E-2019-001.client}}. It follows our conversations this spring and the schedule of matters your office sent afterward, and it records what we will review, who will carry the work, what we will need from you, and the commercial terms that govern the engagement. When you have signed and returned the enclosed copy, this letter becomes the agreement between us and replaces anything discussed before it."
+          "text": "You have asked us to review the patents and patent applications held by {{fact:f:E-2019-001.client}} and to tell you, family by family, which of them justify the cost of keeping them in force and which do not. This letter confirms that engagement and records its scope, the people who will carry it out, its start date and fee, and the terms on which we will act for you, and it becomes our agreement when you sign and return the signature page."
         },
         {
           "kind": "heading",
-          "text": "The Portfolio Review",
+          "text": "The Review",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The engagement is a structured review of the patents and pending applications in the portfolio, taken one family at a time. For each family we will reconcile the docketed dates against the office record, review the prosecution history and the claims as they now stand, and identify any filing, response, or decision that is coming due. You will receive a written review organized the same way, family by family, setting out what we found and the questions we believe you should decide."
+          "text": "We will review the issued United States patents and pending United States applications that the company owns, together with their foreign counterparts, and we will organize the work by patent family so that related filings are assessed together. For each family we will report its legal status, its remaining term and the maintenance fees or annuities that will fall due over that term, the state of the recorded chain of title, and how its claims, as issued or as pending, relate to the products the company sells or intends to sell."
         },
         {
           "kind": "paragraph",
-          "text": "Some work sits outside this review and is available under a separate engagement if you ask for it. Under this letter we are not prosecuting new applications, responding to office actions, filing continuations, or preparing a freedom-to-operate opinion; where the review reaches a matter that calls for one of those, we will tell you and stop rather than begin work you have not authorized. The review is not an opinion that any patent is valid, infringed, or clear to practice, and it should not be read or relied upon as one."
+          "text": "The review ends in a written report, marked privileged, that makes a recommendation for each family: maintain it as it stands, seek further protection through a continuation or another filing, or allow it to lapse at its next payment date. Each recommendation will state the information on which it rests and the facts that would change it."
         },
         {
           "kind": "heading",
-          "text": "How the Review Will Run",
+          "text": "What the Review Does Not Cover",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We work from the office record and your own files rather than from a summary prepared by someone else. Heather Munoz will take the families in an order we set against the docket, so that the matters closest to a deadline are reviewed first and nothing urgent waits behind something that can wait. We keep the docket at the center of the work, and the review is built to surface any date at risk early enough that you can act on it deliberately rather than under pressure. You will hear from us on a regular schedule, and every update will be tied to the matter it concerns."
+          "text": "The review is not an opinion that any patent is valid or enforceable, and it is not an opinion on whether any product, the company's or a competitor's, infringes any patent; each of those is a separate opinion that requires its own investigation and its own engagement letter. Preparing new applications, responding to office actions, and representing the company in any dispute are also outside this engagement, although the report will say where the review suggests that one of those steps deserves your attention."
+        },
+        {
+          "kind": "heading",
+          "text": "Order of Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will begin by reconciling the company's docket against the records of the United States Patent and Trademark Office and the relevant foreign offices, because every later conclusion depends on knowing which matters are alive and which dates are open. We will then take the families in order of their nearest payment or response deadline, and anything we find that cannot wait for the final report will be brought to you in writing as soon as we find it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "To do this we will need the company's own docket records, its file copies for each family, the assignment and employment agreements signed by the named inventors, and a current description of its products and product plans. We will ask for all of it in a single written request in the first week of the engagement, so that you are not answering piecemeal."
         },
         {
           "kind": "heading",
@@ -51,25 +68,33 @@
         },
         {
           "kind": "paragraph",
-          "text": "Heather Munoz, a partner in the prosecution group, leads the review and is responsible for what we conclude and for what we send you. Kelly Snyder, a patent agent, keeps the portfolio docket current and reconciles the dates the review relies on. Amanda Schwartz, an associate, prepares the family-by-family write-ups under Heather Munoz's review. I read the completed review before it reaches you, as I do with everything that leaves this office, and I am the person to call if at any point you are not satisfied with the work or with the people doing it."
+          "text": "Heather Munoz, a Partner in our prosecution group, will supervise the review and sign the final report, and every legal conclusion in that report will be hers. Kelly Snyder, a registered Patent Agent, will review the prosecution histories day to day and will be your usual point of contact, and Amanda Schwartz, an Associate, will examine the chain of title for each family and map the claims against the product information you provide."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I remain responsible for the firm's relationship with the company, and you should call me directly if anything about the engagement itself, as distinct from the substance of the work, is not as you expect."
         },
         {
           "kind": "heading",
-          "text": "Conflicts",
+          "text": "Conflicts of Interest",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We have run our conflicts check for this matter and are clear to act for you. Should a conflict arise later, whether from a new client or a change in an existing one, we will bring it to you promptly and address it as our professional obligations require, which may include declining part of the work. We will not take on a matter adverse to your interests in this portfolio while this engagement is open."
+          "text": "Before sending this letter we searched our records for any representation adverse to {{fact:f:E-2019-001.client}} and found none. If a conflict comes to light during the review, we will tell you in writing at once and will not proceed on the affected matter until it is resolved."
         },
         {
           "kind": "heading",
-          "text": "When the Work Begins",
+          "text": "Start Date and Fee",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Work commences on {{fact:f:E-2019-001.start}}, subject to your signature on this letter and to our receiving the portfolio schedule, access to the prosecution files, and confirmation of who at {{fact:f:E-2019-001.client}} we should coordinate with on individual matters. We will not begin billing before that date. If you need us to hold a specific date in the meantime, tell us and we will docket it so that it is not lost while the letter is in transit."
+          "text": "Work under this letter will begin on {{fact:f:E-2019-001.start}}, provided we have received the signed signature page by then, and we expect the review to take about seven months from that date. The review is undertaken for a fixed professional fee covering the scope described above, and that fee is set out on the signature page that accompanies this letter."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Official fees charged by the patent offices, the charges of foreign associates, and similar costs are not part of the fixed fee. We will bill them at cost and will ask before incurring any that are not routine."
         },
         {
           "kind": "heading",
@@ -78,34 +103,46 @@
         },
         {
           "kind": "paragraph",
-          "text": "Our fee for the review, and the basis on which it is fixed, are stated on the signature page, which counsel for each side has executed separately, and they are not repeated here. We invoice monthly for the work of the preceding month, and each invoice is payable within thirty days of its date. Work that falls outside the review is not undertaken on assumption: if you ask for something this letter does not cover, we will quote it and wait for your written authorization before we begin. If an invoice remains unpaid beyond its terms, we may suspend work on the matter after written notice to you; because the review runs against live dockets, we will identify any date then at risk before we stop, so that a billing dispute never becomes a lost deadline."
+          "text": "We will invoice the fixed fee in monthly installments over the expected term of the review, and costs in the month in which they are incurred, and each invoice is payable within thirty days of its date. If an invoice remains unpaid sixty days after its date, we may suspend work on written notice to you, and if it remains unpaid thirty days after that notice we may withdraw from the engagement, subject to our obligations under the rules of professional conduct."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Suspension or withdrawal will never be the means by which a deadline goes unattended. Before we stop work for nonpayment, we will send you a written list of every open deadline in the portfolio that is known to us, in enough time for you to make other arrangements."
         },
         {
           "kind": "heading",
-          "text": "Term and Ending the Engagement",
+          "text": "Term and Termination",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This agreement takes effect on the date you sign below and continues until the review is delivered and our final invoice paid. Either of us may end it earlier on written notice to the other. If the engagement ends before the review is complete, you will owe us for the work performed and the expenses incurred to that point, and we will deliver our work in the state it then stands together with a written note of what remains open and any date we know to be approaching. An unfinished review is not a conclusion and should not be relied on as one."
+          "text": "This engagement runs from the start date until we have delivered the final report and answered your questions on it, and it then ends without further notice unless we have agreed in writing to continue. Either of us may end it earlier by written notice, in which case the company will owe the portion of the fixed fee that corresponds to the work completed by the date of the notice, together with any costs already incurred."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Reviewing the company's docket does not make us responsible for maintaining it. Whether during the review or after it ends, we will monitor deadlines, pay maintenance fees or annuities, or take any action before a patent office only on your written instruction for the matter concerned."
         },
         {
           "kind": "heading",
-          "text": "Confidentiality and Privilege",
+          "text": "Confidentiality",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We will hold what you give us in confidence and use it only for this engagement, and access within the firm is limited to the people named above and to those whose work on the matter requires it. We will not disclose your information outside the firm without your consent, except where a court or another authority with jurisdiction compels it, and in that event we will tell you first if we are free to do so. Our written analysis is prepared as privileged attorney work product for {{fact:f:E-2019-001.client}}; to keep that protection intact, please limit its circulation on your side and do not forward it outside the company without speaking to us first. These obligations continue after the engagement ends."
+          "text": "We will hold in confidence everything the company gives us in the course of this engagement and will use it only for the review. Our communications with you and the report itself are intended to be protected by the attorney-client privilege, and to preserve that protection we ask that you limit their circulation to the people within the company who need them and that you speak to us before sharing them with anyone outside it."
         },
         {
           "kind": "heading",
-          "text": "The Limit of Our Liability",
+          "text": "Limitation of Liability",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our liability to you arising out of this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, except in the case of our fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss, including lost profits or lost opportunity, whether or not the possibility was known in advance. Our review rests on the accuracy and completeness of the records you and the patent offices provide; where those records are wrong or incomplete, the consequences of the error are not ours to carry, though we will tell you as soon as we have reason to doubt what we have been given."
+          "text": "Our recommendations will be professional judgments based on the public records and on the information the company provides, and we cannot guarantee how any patent office, court, or competitor will act on any matter in the portfolio. We are not responsible for consequences that follow from information that was withheld from us or was inaccurate when given, or from decisions the company makes against our written advice."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing in this letter limits our liability to the company for our own professional negligence. The rules of professional conduct do not permit a lawyer to limit that liability in advance unless the client has separate counsel advising it on the point, and we have not asked you to do so."
         },
         {
           "kind": "heading",
@@ -114,11 +151,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Before either of us begins a proceeding, we will try to resolve the dispute through discussion between people with authority to settle it. This letter and its signature page are the whole of the agreement on their subject, and either may be changed only in a writing signed by both of us."
+          "text": "This letter is governed by the law of the state in which this firm maintains its principal office, without regard to that state's rules on conflicts of law. Together with its signature page it is the entire agreement between us on this review, it replaces our earlier discussions on the subject, and it may be changed only in a writing signed by both of us."
         },
         {
           "kind": "paragraph",
-          "text": "If these terms match your understanding, please sign both copies where indicated, keep one for your file, and return the other to my office. If any term does not, telephone me and we will settle it before you sign. The one thing I need from you to start the review is the signed letter; send it back and we will docket the portfolio and begin the first family."
+          "text": "If these terms are acceptable, please sign the signature page and return it to me, and Kelly Snyder will send the document request in the week the work begins."
         },
         {
           "kind": "paragraph",
@@ -138,56 +175,101 @@
       "doc_id": "d:0005",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "To: Heather Munoz, Amanda Schwartz\nFrom: Kelly Snyder\nRe: {{fact:f:E-2019-001.client}} patent portfolio review, kickoff and docket"
+          "kind": "heading",
+          "text": "Kickoff Memorandum",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "This opens the {{fact:f:E-2019-001.client}} portfolio review and sets the work for the first weeks. The engagement is a family-by-family review of the portfolio: reconcile the docketed dates against the office record, check the prosecution history and the current claim scope, and flag anything coming due. We are engaged as of {{fact:f:E-2019-001.start}}, and the docket is the first priority."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Before any substantive review, two constraints hold. No date can slip while we get organized, and every conclusion has to trace to the office record rather than to a prior summary. Keep both in mind as you work."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The scope is the existing portfolio only. We are not prosecuting new filings or responding to office actions under this engagement; if the review turns up something that needs either, it goes to Heather Munoz and then to {{fact:f:E-2019-001.client}} as a separate question, not into this work. The output is a single written review, organized family by family, that the client can act on. Keep your notes in that structure from the start, so assembling the review at the end is collation and not reconstruction."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One master date list governs the work. I keep it, it lives on the matter docket, and every date any of us relies on has to be on it and reconciled against the office record. If a date is not on the list, treat it as unconfirmed and check it before you act."
+          "text": "To: Heather Munoz, Partner; Amanda Schwartz, Associate; Sharon Woods, Docketing Manager\nFrom: Kelly Snyder, Patent Agent\nMatter: Patent Portfolio Review for {{fact:f:E-2019-001.client}}"
         },
         {
           "kind": "heading",
-          "text": "Lines of Work",
+          "text": "Objective",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review opened on {{fact:f:E-2019-001.start}}. We owe the client one recommendation per patent family: keep it, extend it, or let it lapse. Each recommendation rests on the record and states what would change it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The client contact is Gary Smith, General Manager. He reads the conclusion first. Every family summary opens with its recommendation."
+        },
+        {
+          "kind": "heading",
+          "text": "Order of Work",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "1. Docket audit. Kelly Snyder pulls every family in the portfolio and reconciles each docketed date against the office record. Any discrepancy is logged the day it is found, with the source noted so a second reader can confirm it. The audit closes only when every family reconciles.",
-            "2. File-history reconciliation. Amanda Schwartz works through the prosecution histories family by family, confirms the current claim set, and flags gaps or missing documents for retrieval. She starts with the larger families, where the histories are longest. Missing documents are logged and requested the same week.",
-            "3. Substantive review. Heather Munoz reviews each family for claim scope and prosecution posture, in the order the docket sets, and owns what we conclude. Nothing about scope is treated as settled until she has read the file. A family is not marked done until her notes are in.",
-            "4. Client updates. Status goes to Gary Smith against the matter on a regular cadence, and every note is tied to the family it concerns. Any date at risk is reported the day we see it, not at the next scheduled update. We keep the client current even in the weeks the news is thin."
+            "Docket reconciliation. Sharon Woods compares the client's docket with USPTO and foreign office records. Every open date goes on our docket as a reminder. We act on a date only on the client's written instruction.",
+            "Chain of title. Amanda Schwartz checks the recorded assignments for each family. She also reads the inventors' assignment and employment agreements. Gaps go on her issues list with a proposed fix.",
+            "Prosecution and claims. I take the families in order of nearest deadline. For each one I record status, remaining term, payment dates, and claim scope.",
+            "Product mapping. Amanda Schwartz maps the claims to the product information Gary Smith sends. Where his description is thin, we ask him. We do not fill the gap ourselves.",
+            "Recommendation and report. Heather Munoz reviews each family summary and sets the recommendation. She signs the report. Legal conclusions are hers."
           ]
         },
         {
           "kind": "heading",
-          "text": "The First Two Weeks",
+          "text": "Limits",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This is a review. It does not include new filings, office action responses, or validity and infringement opinions."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some families will look like continuation candidates. Take those to Heather Munoz with a rough cost first. The client hears the cost in the same message as the suggestion."
+        },
+        {
+          "kind": "heading",
+          "text": "Ground Rules",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "1. Kelly Snyder completes the docket audit for the full portfolio and circulates the reconciled list of dates, marking any that are close. Discrepancies go on the list with the office record cited.",
-            "2. Amanda Schwartz begins the file histories with the largest family and reports gaps as she finds them, so retrieval starts before the review reaches that family.",
-            "3. Heather Munoz sets the review order against the docket once the audit is in, urgent families first, and circulates the sequence to the team.",
-            "4. We confirm the standing update slot and the format with Gary Smith, so the client cadence is set from the start and the first status goes out on time."
+            "Client contact goes through me. Heather Munoz approves anything that carries a recommendation before it goes out.",
+            "One issues list per family, kept in the matter folder. Close an issue only with a note of how it closed.",
+            "Record time to the matter as usual. The fee is fixed, but we need to know what the review costs us.",
+            "Mark every family summary privileged and confidential. The client may circulate the report internally, so draft for that reader."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Known Risks",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "The client's docket may not match office records. Treat the office records as correct until shown otherwise.",
+            "Some inventors may have left the company. Their agreements decide whether title can be fixed without new signatures.",
+            "Product information may lag the claims work. Map only against descriptions the client has confirmed as current.",
+            "Scope drift. Whether a product is clear to sell is a freedom-to-operate question. It goes to Heather Munoz, not into the review."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Before the End of Next Week",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Today: I send Gary Smith the document request. It covers the docket export, file copies, inventor agreements, and the current product list.",
+            "Sharon Woods opens the matter on our docket and starts the reconciliation as the export arrives.",
+            "Amanda Schwartz pulls the USPTO assignment records for every family and opens the issues list.",
+            "I set up the family index in the matter folder. One row per family. One owner per row.",
+            "Team check-in each Monday, fifteen minutes, until the reconciliation closes."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Keep everything on the matter docket, including internal notes and any call with the client. If a date looks wrong or tight, raise it the same day rather than holding it for the next scheduled check. I will reconcile the master date list against the office record each week until the audit is closed, and I will flag anything that has moved."
+          "text": "Anything that touches a deadline comes to Sharon Woods and me the same day. Everything else waits for Monday."
         }
       ]
     },
@@ -201,19 +283,23 @@
         },
         {
           "kind": "paragraph",
-          "text": "I am opening this thread so our updates on the {{fact:f:E-2019-001.client}} portfolio review stay in one place and the record runs in order against the matter. For the file, the working contacts are set: Gary Smith, General Manager, on your side, and on ours Heather Munoz, who leads the review, and Amanda Schwartz, who is reconciling the prosecution files with me."
+          "text": "This thread will carry our updates on the portfolio review. The docket reconciliation is finished, and your records match the patent office records on every open deadline. Amanda Schwartz, the associate on our team, has started the title review, and I am working through the families in deadline order."
         },
         {
           "kind": "paragraph",
-          "text": "We have made a start. The patent families are pulled and on the docket, and Amanda Schwartz is reconciling each file history against the office record before Heather Munoz begins her first review pass. Nothing in the portfolio is date-critical in this window, and I will flag any deadline the moment one comes into view. You will hear from us on a set cadence, and each note will be tied to the family it concerns."
+          "text": "One item cannot wait for its turn. An older issued patent is inside its maintenance fee window, and the window closes before the review would reach that family. Heather Munoz, the partner supervising the review, will send you her recommendation on it this week. No action is needed from you until then."
         },
         {
           "kind": "paragraph",
-          "text": "One request before the work goes further. Please confirm who at {{fact:f:E-2019-001.client}} we should coordinate with on individual matters, and who holds authority to sign a filing if a response falls due mid-review, so we route it correctly the first time. A name and title for each is enough for now."
+          "text": "Three items from {{fact:f:E-2019-001.client}} would keep the work moving:\n1. Signed assignment or employment agreements for the inventors on the older families. The recorded assignments are incomplete for some of them. Copies are fine for now.\n2. Your current product list.\n3. The name of whoever handles foreign annuity payments, if that is not you."
         },
         {
           "kind": "paragraph",
-          "text": "Best"
+          "text": "A caveat on all of this. The reconciliation shows what the records say. It does not yet show which patents are worth keeping. That comes with the family review."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best,"
         }
       ]
     },
@@ -227,19 +313,23 @@
         },
         {
           "kind": "paragraph",
-          "text": "Noted, and thank you. For the file, I have recorded your confirmation that Gary Smith signs any filing that falls due for {{fact:f:E-2019-001.client}} during the review, so a response can go out on time if one comes up before we finish."
+          "text": "My recommendation is to pay the maintenance fee on the older patent now. Decide its long-term value when the review reaches its family."
         },
         {
           "kind": "paragraph",
-          "text": "Kelly Snyder is out on the docket calendar this week, so I am carrying the thread. Amanda Schwartz has finished reconciling the file histories, and I have started the substantive review, taking the families one at a time. Nothing is date-critical yet."
+          "text": "The reasons, in order:\n1. Paying keeps the patent in force for {{fact:f:E-2019-001.client}}. It commits you to nothing beyond this payment.\n2. The fee is a published official fee. Under our engagement letter it is billed at cost.\n3. A lapsed patent can sometimes be revived by petition. The petition requires a statement that the delay was unintentional, and a deliberate decision to wait would not support that statement."
         },
         {
           "kind": "paragraph",
-          "text": "I will send the first family summary once I have been through the largest one. If a deadline surfaces before then, you will hear from me the same day."
+          "text": "We pay maintenance fees only on your written instruction. A reply to this message is enough. Kelly Snyder will confirm to you once the payment is recorded."
         },
         {
           "kind": "paragraph",
-          "text": "Best"
+          "text": "Of the three items Kelly Snyder asked for, the inventor agreements come first. The title review cannot close without them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best,"
         }
       ]
     },
@@ -249,46 +339,16 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Patent Portfolio Review for {{fact:f:E-2019-001.client}}",
+          "text": "Patent Portfolio Review: {{fact:f:E-2019-001.client}}",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "Progress briefing prepared for Gary Smith, General Manager",
-            "Engagement commenced {{fact:f:E-2019-001.start}}",
-            "Review led by Heather Munoz, Partner",
-            "Prepared by Kelly Snyder, Patent Agent"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "What We Are Reviewing",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Every patent and pending application in the portfolio, taken one family at a time",
-            "Docketed dates reconciled against the office record for each family",
-            "Prosecution history and the current claim scope, family by family",
-            "Any filing, response, or decision that is coming due",
-            "What sits outside the review: no new filings and no office-action responses under this engagement"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "How the Review Runs",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Families are reviewed in docket order, the closest deadlines first",
-            "Kelly Snyder keeps the portfolio docket current and reconciles every date against the office record",
-            "Amanda Schwartz reconciles each file history and flags gaps for retrieval",
-            "Heather Munoz reviews claim scope and prosecution posture and owns the conclusions",
-            "One master date list governs the work, reconciled weekly"
+            "Status briefing for Gary Smith, General Manager.",
+            "Review under way since {{fact:f:E-2019-001.start}}.",
+            "Prepared by Kelly Snyder, Patent Agent.",
+            "Privileged and confidential. Attorney-client communication."
           ]
         },
         {
@@ -299,41 +359,68 @@
         {
           "kind": "list",
           "items": [
-            "The portfolio is pulled and fully docketed",
-            "File-history reconciliation is under way, the larger families first",
-            "The first substantive review passes are beginning",
-            "No docket date is currently at risk",
-            "Observations only at this stage; no conclusions are offered yet"
+            "Docket reconciled against patent office records. Your records and theirs agree on every open deadline.",
+            "Maintenance fee on the older patent paid on your instruction. That patent stays in the review like any other.",
+            "Earliest-filed families reviewed. Pending applications are next.",
+            "Title review under way. Current product list received; claim mapping started."
           ]
         },
         {
           "kind": "heading",
-          "text": "What the Review Will Deliver",
+          "text": "How Each Family Is Assessed",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "A single written review, organized family by family",
-            "The docket confirmed against the office record, with any correction noted and sourced",
-            "Claim scope and prosecution posture summarized for each family",
-            "Deadlines identified early enough to be acted on deliberately",
-            "The decisions we believe {{fact:f:E-2019-001.client}} should weigh"
+            "Legal status and remaining term.",
+            "Maintenance fees and annuities due through end of term.",
+            "Chain of title as recorded, checked against the inventor agreements.",
+            "Claim coverage of current and planned products.",
+            "One recommendation per family: maintain, continue, or let lapse."
           ]
         },
         {
           "kind": "heading",
-          "text": "What Comes Next",
+          "text": "Early Observations",
           "level": 1
         },
         {
           "kind": "list",
           "items": [
-            "Complete the file-history reconciliation across the portfolio",
-            "Work through the substantive review in docket order",
-            "Retrieve any documents missing from the histories",
-            "Report any date at risk to Gary Smith the day it is identified",
-            "Hold the next briefing once the first families are through review"
+            "Older issued families are largely in order.",
+            "Some may not justify their next maintenance payment. No recommendation yet.",
+            "Recorded inventor assignments are incomplete on some older families.",
+            "Most title gaps look curable by corrective assignment. That depends on the inventor agreements.",
+            "All observations are provisional until Heather Munoz signs off."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Team",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Heather Munoz, Partner. Supervises the review and signs the final report.",
+            "Kelly Snyder, Patent Agent. Day-to-day contact; prosecution histories and claims.",
+            "Amanda Schwartz, Associate. Chain of title and product mapping."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What We Need in July",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Gary Smith: planned releases for the next two years.",
+            "Gary Smith: the name of the officer who signs corrective assignments for the company.",
+            "Amanda Schwartz: draft corrective assignments for your review.",
+            "Kelly Snyder: finish the pending application families.",
+            "Working session on interim findings, to be scheduled with your office."
           ]
         }
       ]
@@ -344,35 +431,39 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Portfolio Review Working Session: {{fact:f:E-2019-001.client}}",
+          "text": "Working Session Minutes: Patent Portfolio Review for {{fact:f:E-2019-001.client}}",
           "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Minutes recorded by Heather Munoz. Working session on the {{fact:f:E-2019-001.client}} portfolio review, covering progress to date, the open items, and the assignments carried forward."
+          "text": "The issued families reviewed so far are in workable order, and the review stays on its current schedule. Three decisions were taken. They are recorded below, followed by the discussion and the open items."
         },
         {
           "kind": "heading",
-          "text": "Attendees",
+          "text": "Present",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Heather Munoz, Partner, Prosecution",
-            "Kelly Snyder, Patent Agent, Prosecution",
-            "Amanda Schwartz, Associate, Prosecution",
+            "Heather Munoz, Partner",
+            "Kelly Snyder, Patent Agent",
+            "Amanda Schwartz, Associate",
             "Gary Smith, General Manager, {{fact:f:E-2019-001.client}}"
           ]
         },
         {
           "kind": "heading",
-          "text": "Where the Review Stands",
+          "text": "Decisions",
           "level": 2
         },
         {
-          "kind": "paragraph",
-          "text": "The review is on schedule and no docket date is at risk. Kelly Snyder has closed the docket audit for the full portfolio, and the dates now reconcile against the office record, with two corrections found during the audit entered and cross-checked by a second reader. Amanda Schwartz has completed the file histories for the larger families, and the remaining families are in progress. Roughly half the portfolio has had a first substantive read; the rest is sequenced and waiting."
+          "kind": "list",
+          "items": [
+            "Corrective assignments go ahead on the older families with gaps in the recorded title.",
+            "No continuation is filed until Gary Smith has a cost estimate for it.",
+            "Lapse candidates stay in force until the final report. Any payment that falls due first comes to Gary Smith with a recommendation well ahead of its date."
+          ]
         },
         {
           "kind": "heading",
@@ -381,20 +472,43 @@
         },
         {
           "kind": "paragraph",
-          "text": "Heather Munoz walked the group through the families reviewed so far. Two families carry claims broader than the prosecution history comfortably supports, and both are marked for a closer read before any conclusion is offered; nothing about claim scope was represented as settled at this session. A third family turned up a term amended during prosecution that narrows the claim more than the file summary suggested, and that one is flagged for the same closer read."
+          "text": "Issued families. Kelly Snyder took the group through the issued families finished so far. Most are in force, with clean prosecution histories and claims that still read on products in the current list."
         },
         {
           "kind": "paragraph",
-          "text": "Gary Smith asked that the families most important to the company's current work be moved up in the review order, and the team agreed to resequence accordingly. He also asked when he could expect the first written summaries. Heather Munoz committed to sending the summary for the largest family once its closer read is complete, and to holding any scope conclusion until then."
-        },
-        {
-          "kind": "heading",
-          "text": "Docket and Deadlines",
-          "level": 2
+          "text": "Some cover products the company no longer sells. Those are the lapse candidates. Gary Smith asked that none be dropped before he has seen the final report."
         },
         {
           "kind": "paragraph",
-          "text": "The docket carried the meeting. Heather Munoz confirmed that every family now sits on the matter docket with its dates reconciled, and that the two corrections have been entered and confirmed against the office record. Gary Smith asked how the firm guards against a missed date. Heather Munoz described the weekly reconciliation and the rule that any date in question is raised the day it is found, not at the next scheduled review."
+          "text": "Title. Amanda Schwartz reported that several older families lack a recorded assignment from at least one inventor. If the inventor's employment agreement contains a present assignment of inventions, recording that agreement may close the gap; if it only promises a future assignment, a signed assignment is needed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Gary Smith will find out which of those inventors are still with the company. For anyone who has left, Amanda Schwartz will set out the options in writing."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Pending applications. One pending family has subject matter that may be worth a continuation. A continuation must be filed while the parent is still pending, so the family is flagged on our docket while the estimate is prepared."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly Snyder noted that the filing and prosecution costs of a continuation sit outside this review. Gary Smith asked for the estimate before any decision."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Foreign counterparts. Gary Smith confirmed that his office pays the foreign annuities directly. Kelly Snyder will send him the annuity dates from the reconciliation so that both calendars carry the same dates."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Maintenance fee. The fee paid in June on the older patent is recorded. That family will be reviewed in its turn, like the others."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Products. The current product list is mapped. Planned releases are not, because the release plans have not yet arrived."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Schedule. The remaining families follow in deadline order. Kelly Snyder will circulate a written status report later this month."
         },
         {
           "kind": "heading",
@@ -402,52 +516,53 @@
           "level": 2
         },
         {
-          "kind": "paragraph",
-          "text": "Two items are open. Kelly Snyder is confirming the chain of one continuation whose recorded priority date does not match the file, and Amanda Schwartz is retrieving two documents missing from the histories on the smaller families. Neither affects a live deadline, and both are due before the next session. Until the continuation chain is confirmed, its recorded priority date stays marked unconfirmed on the master list, and no conclusion for that family rests on it."
-        },
-        {
-          "kind": "heading",
-          "text": "Action Items",
-          "level": 2
-        },
-        {
           "kind": "table",
           "header": [
             "Item",
             "Owner",
-            "Due"
+            "Timing"
           ],
           "rows": [
             [
-              "Resequence the remaining families to the priority Gary Smith set at this session",
-              "Heather Munoz",
-              "This week"
+              "Confirm which inventors on the older families are still employed and locate their agreements",
+              "Gary Smith",
+              "Within two weeks"
             ],
             [
-              "Confirm the continuation chain and correct the recorded priority date",
+              "Send the foreign annuity dates from the reconciliation",
               "Kelly Snyder",
-              "Before the next session"
-            ],
-            [
-              "Complete the file histories on the remaining families and retrieve the missing documents",
-              "Amanda Schwartz",
-              "Before the next session"
-            ],
-            [
-              "Send {{fact:f:E-2019-001.client}} a short note listing the families flagged for a closer read",
-              "Heather Munoz",
               "This week"
+            ],
+            [
+              "Send release plans for the next two years",
+              "Gary Smith",
+              "Before the status report"
+            ],
+            [
+              "Draft corrective assignments for the families with recording gaps",
+              "Amanda Schwartz",
+              "Within two weeks of receiving the agreements"
+            ],
+            [
+              "Prepare a cost estimate for the continuation candidate",
+              "Kelly Snyder",
+              "Before the status report"
+            ],
+            [
+              "Circulate the written status report",
+              "Kelly Snyder",
+              "Later this month"
+            ],
+            [
+              "Review the lapse candidates and approve each recommendation",
+              "Heather Munoz",
+              "Before the final report"
             ]
           ]
         },
         {
-          "kind": "heading",
-          "text": "Next Session",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "The next working session will take the reviewed families in the resequenced order and the flagged families in detail. Heather Munoz will circulate a short agenda beforehand, with the flagged families listed first. No decision on claim scope will be asked of {{fact:f:E-2019-001.client}} until the closer read on those families is complete, and any date that surfaces in the meantime will be reported the day it is found."
+          "text": "Recorded by Heather Munoz."
         }
       ]
     }

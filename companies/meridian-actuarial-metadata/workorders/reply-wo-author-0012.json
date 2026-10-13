@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0012",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -20,101 +20,152 @@
         },
         {
           "kind": "paragraph",
-          "text": "This letter sets out the terms on which we will carry out a reinsurance pricing review for Gonzalez, Campbell and Kelly, and it asks for your signature so that we can begin. It follows our conversations this spring about taking a fresh look at the pricing behind your ceded program. Nothing here should catch you by surprise. It puts in writing what we discussed, so that you and we work from one record for the length of the engagement. We have set out what we will do, how we will do it, who will do the work, and what it will cost."
+          "text": "Thank you for asking us to review what {{fact:f:E-2024-001.client}} pays for its reinsurance. The question, as we understand it, is whether the price is reasonable for the risk your company passes to its reinsurers. We would like the answer to rest on your own records, and to be one that anyone who reads our report can follow step by step. This letter sets out the work we will do, the information we will rely on, the people who will do it, and the terms on which we will both proceed. If any part of it differs from what you expect, please tell us before you sign."
         },
         {
           "kind": "heading",
-          "text": "What We Have Been Asked to Do",
+          "text": "The question we have been asked",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "You have asked us to review the pricing of the reinsurance you cede and to tell you where it stands against the risk it covers. The work has three parts, and the report will keep them apart. (1) We take in the treaty terms and the cession, premium, and loss data your staff provide, reconcile them, and state plainly what we have relied on. (2) We measure the experience those records show and set it against the pricing now in force, treaty by treaty. (3) We give you our conclusions on where the pricing is adequate, where it is thin, and where the data do not yet let us say. We will not call a rate inadequate where the experience does not support the finding, and we will tell you plainly when that is the case."
+          "text": "A reinsurer prices a treaty on its own view of your business. Our task is to form an independent view of the same business and set the two side by side. For each treaty now in force, we will estimate the claims you would expect to cede, compare that estimate with the premium the treaty charges, and identify the terms that move your net cost. Those are chiefly the retention, any commission or allowance the reinsurer returns to you, and the provisions under which the reinsurer may change its rates."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some related questions fall outside this letter. We will not negotiate with any reinsurer on your behalf. We will not give an opinion on the accounting treatment of the reinsurance, on the reserve credit taken for it, or on the financial condition of any reinsurer. We will not review the legal wording of the treaties. If you would like help with any of these, we will propose it separately."
         },
         {
           "kind": "heading",
-          "text": "How We Will Approach It",
+          "text": "How we will approach it",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We work this the way we work every engagement, and it is worth saying outright. What the data show, what we have assumed, and what we conclude are three separate things, and they stay separate on the page. A conclusion about a treaty's pricing will name the experience under it and the judgment we brought to it, and it will never dress one up as the other. The work will be performed under the Actuarial Standards of Practice that govern a pricing review of this kind, and the report will be written to be read by the people who have to act on it, not only by another actuary."
+          "text": "The work falls into three parts. We will keep them apart throughout, and the report will present them in separate sections."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. The data. We will reconcile the ceded premiums and claim recoveries in your records to the reinsurers' statements, treaty by treaty and year by year, before we rely on either.",
+            "2. The assumptions. We will study the claims experience of the reinsured business over a recent period. Where a treaty's experience is too thin to stand on its own, we will blend it with published industry experience and state the weight given to each.",
+            "3. The conclusions. We will compare our estimate of expected claims with the premium charged under each treaty, and state what we conclude and why."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Where a conclusion depends on an assumption, the report will say so in the same place. If another reasonable assumption would change the answer, we will show how much it would change."
         },
         {
           "kind": "heading",
-          "text": "The Records We Will Rely On",
+          "text": "What we will rely on",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The review rests on the records your office keeps, so it is worth setting out what we will need. We will ask for the treaty documents, the cession and premium registers, and the loss history over the period under review. We reconcile those records against each other and against your own summaries before a single rate is measured, and we state that reliance plainly in the report. We do not audit what you send us; we check it for internal consistency and document what we relied on, so the basis of the work is visible to anyone who reads it. Where the loss data and the premium data do not tie, we resolve the difference with your staff rather than paper over it, because a review built on a figure we could not explain is not worth delivering."
+          "text": "Our findings can be no better than the records behind them. We will rely on data and documents supplied by your staff. We will review them for consistency and reasonableness, and tell you what we find, but we will not audit them. To begin, we will need:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Each reinsurance treaty now in force, with every amendment and rate schedule.",
+            "2. Ceded premium and claim recovery listings by treaty and by year for the experience period, with the reinsurers' statements for the same periods.",
+            "3. A listing of the reinsured business in force at the most recent quarter end, showing the amount retained and the amount ceded on each policy.",
+            "4. Claim listings for the reinsured business over the experience period.",
+            "5. Any rate or pricing correspondence you have received from your reinsurers, including any proposal for renewal."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Files in the form your systems already produce will do. Michelle Banks will agree the experience period and the file layout with your staff when the request goes out."
         },
         {
           "kind": "heading",
-          "text": "Who Will Do the Work",
+          "text": "Standards",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Michelle Banks will handle the intake of your treaty and cession data and the first calculations off it. Karen Harris will build the exhibits and the assumption tables the pricing rests on. I will review what they produce and sign the result. The professional responsibility for what we conclude is mine, and I take it seriously enough to send a draft back until the qualifications are right."
+          "text": "We will perform the work under the Actuarial Standards of Practice. Those that bear most directly on it are No. 23, Data Quality; No. 25, Credibility Procedures, which governs how we weight your experience against industry experience; and No. 56, Modeling. Our report will meet No. 41, Actuarial Communications."
         },
         {
           "kind": "heading",
-          "text": "Our Fee and the Start of Work",
+          "text": "The people on the work",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our fee for the review is {{fact:f:E-2024-001.fee}}, which covers the work described above through delivery of the report and one presentation of the results to your team. Subject to your signature on this letter, we will begin the work on {{fact:f:E-2024-001.start}}. Our first step is to request the treaty documents and the data behind them and to confirm the program as it stands today. If the scope grows beyond what is set out here, we will agree the change and any added fee with you in writing before we do the added work, so that no invoice ever arrives for something you did not expect."
+          "text": "I will be responsible for the engagement and will sign the report. Karen Harris, Actuarial Associate, will carry the experience analysis and the assumptions drawn from it, and will coordinate the work from week to week. Michelle Banks, Actuarial Associate, will handle the data, including the reconciliation to the reinsurers' statements and any question about a file."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Day to day, you and your staff will hear most from Karen and Michelle. If anything about the work concerns you at any point, please call me directly."
         },
         {
           "kind": "heading",
-          "text": "Invoicing and Payment",
+          "text": "Start and fee",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We bill monthly, in arrears, for the prior month's work, and each invoice falls due within thirty days of its date. If something on an invoice looks wrong to you, raise it and we will work it out before it turns into a dispute."
+          "text": "We will begin work on {{fact:f:E-2024-001.start}}. We expect the review to take about four months. Most of that schedule depends on how quickly the data reach us and how many questions they raise."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the work described in this letter is {{fact:f:E-2024-001.fee}}, and it is fixed. It covers the reconciliation, the analysis, a draft report, one meeting with you to go through the draft, and the final report."
         },
         {
           "kind": "heading",
-          "text": "Term and Termination",
+          "text": "Invoicing and payment",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This agreement begins on the day you sign it and continues until we have delivered the review and you have settled our final invoice for it. Either of us may end it sooner by written notice to the other. Should the engagement stop before the review is complete, you will owe us for the work performed to that point, and we will turn over what we have in a form you can use."
+          "text": "We will invoice the fee in two parts, the first when work begins and the second when we deliver the final report. Each invoice is payable within thirty days of receipt. We will not undertake work outside this letter without your written agreement, and any such work will be billed at our standard hourly rates."
         },
         {
           "kind": "heading",
-          "text": "Confidentiality",
+          "text": "Duration and ending the engagement",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "What you share with us stays in confidence and is used only for this review. Within the firm, access is limited to the people named above and to anyone whose work on the review requires it. We will not release your information outside the firm without your consent, except where the law or our professional standards require it, and if that happens we will tell you unless we are barred from doing so."
+          "text": "The engagement runs from the start date above until we deliver the final report and have answered your questions on it. Either of us may end it sooner by written notice to the other. In that case you will pay for the work performed up to the date of the notice, and we will return or destroy your data as you direct."
         },
         {
           "kind": "heading",
-          "text": "Limitation of Liability",
+          "text": "Confidential information",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our liability to you arising out of this engagement, whether the claim sounds in contract or in negligence, will not exceed the total fees you pay us under it, other than in the case of our fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss. Any claim must be brought within one year after we deliver the report."
+          "text": "Your treaty terms and premium records are commercially sensitive, and the claim listings may contain personal information about policyholders. We will hold all of it in confidence, keep it on secure systems, and use it only for this engagement. We will not disclose it outside our firm without your written consent, unless the law requires us to."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The report will be prepared for {{fact:f:E-2024-001.client}}. You may give it to your auditors and your regulators. You may also give it to a reinsurer, provided the report is given in full. No other party may rely on it without our written consent."
         },
         {
           "kind": "heading",
-          "text": "Governing Law",
+          "text": "Limits on our liability",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Before either of us starts a proceeding, we will try to settle the matter through discussion between people who have the authority to resolve it."
+          "text": "We will perform the work with the care and skill expected of a qualified actuary. We are not responsible for errors that arise from data or information supplied to us. Our total liability for any claim arising from this engagement will not exceed the fees paid to us under this letter."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing law",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "If these terms match your understanding, please sign both copies where shown, keep one for your records, and return the other to me. If anything here reads differently from what you expected, call me before you sign and we will settle it first. We are glad to take on this work, and we will give it the care it deserves."
+          "text": "This letter is governed by the laws of the state in which our principal office is located. If any provision is held unenforceable, the remaining provisions continue to apply."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If this letter matches your understanding, please sign below and return a copy to me. Once we have it, Michelle Banks will send the data request to your office, and we will be ready to begin on the date set out above. We look forward to the work."
         },
         {
           "kind": "paragraph",
@@ -135,47 +186,50 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Michelle Banks, Nicole Hanna\nFrom: Karen Harris\nRe: Gonzalez, Campbell and Kelly reinsurance pricing review -- kickoff"
+          "text": "To: Robert Lawrence, Michelle Banks, Nicole Hanna\nFrom: Karen Harris, Actuarial Associate\nRe: Reinsurance pricing review for {{fact:f:E-2024-001.client}}: how we are starting"
         },
         {
           "kind": "paragraph",
-          "text": "We have the reinsurance pricing review, and this note sets how we run it and what each of us owns. The engagement is signed and the scope is set. Our job now is to bring the client's data in, reconcile it, and build the exhibits the opinion rests on, in that order. Nothing gets tabulated before the data is confirmed."
+          "text": "We are ready to start, and the first thing we need is data. The engagement letter has come back signed, and the work began on {{fact:f:E-2024-001.start}}. What we owe {{fact:f:E-2024-001.client}} is an independent view of whether the premiums it pays its reinsurers are reasonable for the claims it cedes, built from its own records. The report will keep three things apart: what the data show, what we assumed, and what we conclude. We should keep them apart in our working files from the first day as well."
         },
         {
           "kind": "heading",
-          "text": "What we owe the client",
+          "text": "How the work is shared",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The deliverable is a report the client can act on, backed by a workbook of exhibits that supports every number in it. We are reviewing the pricing of the reinsurance {{fact:f:E-2024-001.client}} cedes: the loss and premium experience treaty by treaty, measured against the pricing in force, with a plain statement of where the pricing holds and where it does not. We keep apart the three things we always keep apart. What the data show, what we assume, and what we conclude each stand in their own place, in the workbook and in the report. A number we cannot explain is not a finding. It is an open question, and it stays open until someone answers it."
+          "text": "Michelle Banks owns the data. Her first task is to reconcile the ceded premiums and claim recoveries in the company's records against the reinsurers' statements, treaty by treaty and year by year. Neither source is treated as correct until the two agree or the difference is explained in the data log. Nicole Hanna will help with intake while the files come in. She will log each file on arrival and run the first checks on record counts and control totals. Where something does not tie, she will record what she found and pass it to Michelle. No file gets adjusted to make it agree."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will take the experience analysis. Once the claim listings and the in-force file reconcile, I will build an expected-claims basis for each treaty from the company's own experience. Some treaties will not have enough experience to stand alone. For those I will blend in published industry experience and record the weight given to each, so that the choice can be reviewed rather than reconstructed later. I will also check the rate schedules in the treaties against the premiums actually billed, because an error there would carry into every comparison after it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Lawrence is responsible for the engagement and will sign the report. He will review the data log before any expected-claims figure is run, and the assumptions before they feed a comparison. Early on I will also put the treaty terms that drive net cost into a single summary: the retention, any commission or allowance the reinsurer returns, and the rate-change provisions. Every result we produce should be read against that page."
         },
         {
           "kind": "heading",
-          "text": "How the work divides",
+          "text": "Working with the client",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Michelle Banks takes the data intake and the first calculations. She pulls in the treaty terms and the cession, premium, and loss files, gets them into shape, and runs the preliminary numbers before any of it reaches an exhibit. Nicole Hanna runs valuation support and the data checks. She ties the counts and the cash flows back to the client's own summaries and flags anything that does not reconcile before it travels further. I will build the exhibits and the assumption tables off their work, and I will keep the running list of open data questions so nothing waits on a request no one has sent. James Garcia, the Chief Financial Officer, is our point of contact. Data requests and scheduling go through his office. Any client-facing question goes through me first, so that we speak with one voice on scope and timing."
+          "text": "James Garcia, the Chief Financial Officer, is our contact at the company. The engagement letter told him that day-to-day contact would come from Michelle and me, and we should hold to that. Every request goes in writing and onto the request log before it is sent. That way his staff are never asked the same thing twice, and we can always show what we asked for and when it arrived."
         },
         {
           "kind": "heading",
-          "text": "How we run it",
+          "text": "The coming days",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A word on cadence, because a review like this stalls in the gaps between people. We keep one running thread with the client for data and scheduling, and everything we ask for goes on it, so nothing sits waiting on a request no one sent. Inside the team, bring me the open questions early and often. I would far rather hear that a file does not tie in week two than discover it against a delivery date. The work is performed under the actuarial standards that govern a pricing review, which means every figure we put forward has to trace back to something we can show. Keep your notes literal. Write down what a file shows and what you relied on, so that when the report reaches review the record behind it is already there."
-        },
-        {
-          "kind": "heading",
-          "text": "Where we start",
-          "level": 2
+          "text": "The data request goes out first, because nothing else can move until files arrive. Michelle has drafted it from the list in the engagement letter, and it will go to James Garcia as soon as Robert has reviewed it. It asks for the treaties with every amendment and rate schedule, the premium and recovery listings with the reinsurers' statements, the in-force listing showing amounts retained and ceded, the claim listings, and any rate correspondence from the reinsurers. It also says plainly that files in the company's own format are fine. The treaties need no reconciliation, so I will read them as soon as they arrive and start the summary of terms while the rest of the data are being checked."
         },
         {
           "kind": "paragraph",
-          "text": "Work begins on {{fact:f:E-2024-001.start}}. The first data request goes to James Garcia's office that week, and it lists the treaty documents and the cession, premium, and loss records we need, with the format we want them in. Until that data and the treaty terms are both confirmed, we tabulate nothing and treat the program as provisional. Data quality is the usual risk on a first review for a client. Expect the loss files to need a pass before they tie to the premium records, and expect at least one treaty whose terms on the page do not match how it was actually run. Raise the question the moment you have it. A discrepancy caught at intake is a note. The same discrepancy caught in a delivered report is a problem, and by then it is expensive to fix."
+          "text": "We will meet weekly while the data are open, and Michelle will circulate the log the day before each meeting. If you see a gap in the request, please tell Michelle in the next day or two so that it can go out in one piece."
         }
       ]
     },
@@ -185,27 +239,23 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: James Garcia\nCc: Michelle Banks"
-        },
-        {
-          "kind": "paragraph",
           "text": "James,"
         },
         {
           "kind": "paragraph",
-          "text": "With the engagement letter signed, I want to open our working thread for the reinsurance pricing review. Keep your replies on this chain and we will do the same, so the whole record of what we asked for and when sits in one place. This is the practical start of the {{fact:f:E-2024-001.client}} review, and the first stretch is about getting your data in and reconciled before we measure anything."
+          "text": "The reconciliation is almost done, and one item on the premium side needs your team's help before we can close it. Your staff's files reached us in good order. Michelle has tied the claim recoveries to the reinsurers' statements for every treaty and every year in the period. The ceded premiums agree as well, except in a single place: for one treaty, the premium shown for the most recent quarter in the {{fact:f:E-2024-001.client}} listing differs from the amount on the reinsurer's statement for that quarter."
         },
         {
           "kind": "paragraph",
-          "text": "To get moving, we need the treaty documents for the ceded program and the cession, premium, and loss data behind them. Michelle Banks will send you a short, specific request this week, listing the exact files and the format we would like them in. We would rather ask for exactly what we need than hand you a long generic checklist, so the request will be narrow. If you can point us to whoever on your side pulls the reinsurance accounting, we will take the detail up with them directly and keep your team at Gonzalez, Campbell and Kelly out of a long back-and-forth."
+          "text": "We do not yet know which figure is right, and we have adjusted neither. The difference could be a matter of timing, an entry made after the statement was issued, or a correction still to come. Could someone in your finance team tell us which amount was booked, and whether anything has been posted against that quarter since? Michelle can send the treaty and the figures directly to whoever takes it on."
         },
         {
           "kind": "paragraph",
-          "text": "There is no urgency this week; a first read on what is readily available is enough to get us started. If anything we ask for is easier to send in a different form than we requested, tell Michelle and we will adapt to how your systems export it. Once the files are in, I will confirm receipt and let you know what reconciles cleanly and where we will need to follow up. Thank you, and we are glad to be doing this work."
+          "text": "In the meantime we have begun the experience analysis on the claim listings, which does not depend on the premium question. We expect to have the claims side summarized by the end of next week. Once the premium item is settled, we will send you a short note on what the claims show and what we have assumed."
         },
         {
           "kind": "paragraph",
-          "text": "Regards"
+          "text": "Regards,"
         }
       ]
     },
@@ -215,27 +265,23 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: James Garcia\nCc: Karen Harris"
+          "text": "Good morning James,"
         },
         {
           "kind": "paragraph",
-          "text": "Hi James,"
+          "text": "A word on why the quarter in Karen's note matters. Our comparison for each treaty starts from the premium {{fact:f:E-2024-001.client}} actually paid. If that quarter's figure is wrong in either record, the comparison for that treaty is wrong with it."
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for the quick turnaround, and for pointing us to your reinsurance accounting group. The first extract opened without trouble and is loading cleanly on our end, and we have the treaty documents in hand, so the schedule of treaties is already taking shape."
+          "text": "To settle it, we need the following from your team:\n1. The amount booked for the quarter, and the date it was booked.\n2. Any entry posted against the quarter after the reinsurer's statement was issued.\n3. Any amendment to that treaty's rate schedule that took effect during the quarter."
         },
         {
           "kind": "paragraph",
-          "text": "To close out the data intake for the {{fact:f:E-2024-001.client}} review, three items are still open. First, the loss file gives paid amounts but not case reserves, and we need both to set the experience against the pricing. Second, the cession schedule does not show the inception year for two of the treaties, so please confirm those. Third, the premium records and the loss records use different treaty codes, and a simple mapping between them would let us tie the two together without guessing. Karen Harris flagged the treaty-code point yesterday, and we would rather build the reconciliation on your mapping than on ours."
+          "text": "Item 3 may not apply. I include it because a change of rates partway through a quarter is a common cause of a difference like this one."
         },
         {
           "kind": "paragraph",
-          "text": "None of this is urgent before next week, and we will keep the questions on this thread as they come up, a few at a time, rather than send them all at once. Once these three are settled, the treaty schedule is closed on our end and we can begin measuring the experience for Gonzalez, Campbell and Kelly."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely"
+          "text": "Sincerely,"
         }
       ]
     },
@@ -245,27 +291,19 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: James Garcia\nCc: Michelle Banks"
-        },
-        {
-          "kind": "paragraph",
           "text": "James,"
         },
         {
           "kind": "paragraph",
-          "text": "That clears the treaty terms, thank you. With the inception years confirmed and your mapping in hand, the premium and loss records tie together, and the treaty schedule for the {{fact:f:E-2024-001.client}} review is settled on our end. The mapping in particular saves us a good deal of guesswork, so thank you for pulling it together."
+          "text": "Item 3 on Robert's list can come off. Michelle went back through the treaty documents in your first set of files and found an amendment to that treaty's rate schedule, effective partway through the quarter in question. The reinsurer's statement applies the amended rates from that point on. The {{fact:f:E-2024-001.client}} listing appears to apply the old rates for the full quarter."
         },
         {
           "kind": "paragraph",
-          "text": "One piece is still open before we can measure the experience. The loss file you sent gives paid amounts only. To set the experience against the pricing, we need the case reserves alongside the paid figures, treaty by treaty, so that we work from the incurred position rather than from what has been paid out so far. The paid figures on their own understate the position on the longer-tailed treaties, which is exactly where the pricing question is sharpest. Whatever your system exports is fine; we would rather reconcile from your native report than have your staff reshape it for us."
+          "text": "That would account for the difference, but it is our reading of two documents, not a confirmed answer. We will not treat it as settled until we have your team's reply on items 1 and 2. If the booked figure does reflect the old rates, it would also help to know whether a correcting entry is planned."
         },
         {
           "kind": "paragraph",
-          "text": "Michelle Banks will fold the reserve detail in as soon as it arrives, and that closes the intake for Gonzalez, Campbell and Kelly. Once it is in, we can give you a first read on where the pricing is holding. There is no rush before next week."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Regards"
+          "text": "Regards,"
         }
       ]
     },
@@ -275,27 +313,27 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: James Garcia\nCc: Karen Harris"
+          "text": "Good morning James,"
         },
         {
           "kind": "paragraph",
-          "text": "Hi James,"
+          "text": "Karen's note on Friday leaves the premium for that quarter open. I do not want it to hold up the rest of the work, so this is how we will proceed until we hear from your team."
         },
         {
           "kind": "paragraph",
-          "text": "The reserve file arrived this morning, thank you. It opens cleanly, and the case reserves tie to the paid amounts treaty by treaty, so the incurred position reconciles to your summary line for line. That was the last file outstanding on the intake list."
+          "text": "For that quarter we will use the premium on the reinsurer's statement, because it applies the rates the amended treaty now carries. That is an assumption, not a finding, and the report to {{fact:f:E-2024-001.client}} will say so. If your team tells us the booked figure should stand, we will rerun that treaty's comparison on it and show both results."
         },
         {
           "kind": "paragraph",
-          "text": "That closes the data intake for the {{fact:f:E-2024-001.client}} review, with one small item to confirm rather than resolve. Two of the treaties changed retention partway through the period, and the file carries the later retention only. If you can tell us the date the change took effect, we will split the experience at the right point instead of assuming it. It holds nothing up; we can begin measuring now and apply the split once you confirm it."
+          "text": "So that the report describes your records correctly, we still need two answers:\n1. The amount booked for the quarter, which was item 1 on my earlier list.\n2. Whether any entry has been posted against the quarter since, or is planned, and in which period."
         },
         {
           "kind": "paragraph",
-          "text": "From here the work is ours for a while. We will take the experience for Gonzalez, Campbell and Kelly treaty by treaty and come back to you when we have a first read on where the pricing stands. If anything on the data changes on your end in the meantime, send it and we will fold it in."
+          "text": "Please send them to Michelle when they are ready."
         },
         {
           "kind": "paragraph",
-          "text": "Sincerely"
+          "text": "Sincerely,"
         }
       ]
     }

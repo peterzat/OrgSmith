@@ -3,8 +3,8 @@
   "doc_id": "d:0005",
   "blocks": [
     {
-      "kind": "paragraph",
-      "text": "To: Heather Munoz, Amanda Schwartz\nFrom: Kelly Snyder\nRe: {{fact:f:E-2019-001.client}} patent portfolio review, kickoff and docket",
+      "kind": "heading",
+      "text": "Kickoff Memorandum",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,34 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "This opens the {{fact:f:E-2019-001.client}} portfolio review and sets the work for the first weeks. The engagement is a family-by-family review of the portfolio: reconcile the docketed dates against the office record, check the prosecution history and the current claim scope, and flag anything coming due. We are engaged as of {{fact:f:E-2019-001.start}}, and the docket is the first priority.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Before any substantive review, two constraints hold. No date can slip while we get organized, and every conclusion has to trace to the office record rather than to a prior summary. Keep both in mind as you work.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The scope is the existing portfolio only. We are not prosecuting new filings or responding to office actions under this engagement; if the review turns up something that needs either, it goes to Heather Munoz and then to {{fact:f:E-2019-001.client}} as a separate question, not into this work. The output is a single written review, organized family by family, that the client can act on. Keep your notes in that structure from the start, so assembling the review at the end is collation and not reconstruction.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One master date list governs the work. I keep it, it lives on the matter docket, and every date any of us relies on has to be on it and reconciled against the office record. If a date is not on the list, treat it as unconfirmed and check it before you act.",
+      "text": "To: Heather Munoz, Partner; Amanda Schwartz, Associate; Sharon Woods, Docketing Manager\nFrom: Kelly Snyder, Patent Agent\nMatter: Patent Portfolio Review for {{fact:f:E-2019-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -49,7 +22,34 @@
     },
     {
       "kind": "heading",
-      "text": "Lines of Work",
+      "text": "Objective",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The review opened on {{fact:f:E-2019-001.start}}. We owe the client one recommendation per patent family: keep it, extend it, or let it lapse. Each recommendation rests on the record and states what would change it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The client contact is Gary Smith, General Manager. He reads the conclusion first. Every family summary opens with its recommendation.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Order of Work",
       "level": 2,
       "items": [],
       "header": [],
@@ -61,10 +61,11 @@
       "text": "",
       "level": 1,
       "items": [
-        "1. Docket audit. Kelly Snyder pulls every family in the portfolio and reconciles each docketed date against the office record. Any discrepancy is logged the day it is found, with the source noted so a second reader can confirm it. The audit closes only when every family reconciles.",
-        "2. File-history reconciliation. Amanda Schwartz works through the prosecution histories family by family, confirms the current claim set, and flags gaps or missing documents for retrieval. She starts with the larger families, where the histories are longest. Missing documents are logged and requested the same week.",
-        "3. Substantive review. Heather Munoz reviews each family for claim scope and prosecution posture, in the order the docket sets, and owns what we conclude. Nothing about scope is treated as settled until she has read the file. A family is not marked done until her notes are in.",
-        "4. Client updates. Status goes to Gary Smith against the matter on a regular cadence, and every note is tied to the family it concerns. Any date at risk is reported the day we see it, not at the next scheduled update. We keep the client current even in the weeks the news is thin."
+        "Docket reconciliation. Sharon Woods compares the client's docket with USPTO and foreign office records. Every open date goes on our docket as a reminder. We act on a date only on the client's written instruction.",
+        "Chain of title. Amanda Schwartz checks the recorded assignments for each family. She also reads the inventors' assignment and employment agreements. Gaps go on her issues list with a proposed fix.",
+        "Prosecution and claims. I take the families in order of nearest deadline. For each one I record status, remaining term, payment dates, and claim scope.",
+        "Product mapping. Amanda Schwartz maps the claims to the product information Gary Smith sends. Where his description is thin, we ask him. We do not fill the gap ourselves.",
+        "Recommendation and report. Heather Munoz reviews each family summary and sets the recommendation. She signs the report. Legal conclusions are hers."
       ],
       "header": [],
       "rows": [],
@@ -72,7 +73,34 @@
     },
     {
       "kind": "heading",
-      "text": "The First Two Weeks",
+      "text": "Limits",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "This is a review. It does not include new filings, office action responses, or validity and infringement opinions.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Some families will look like continuation candidates. Take those to Heather Munoz with a rough cost first. The client hears the cost in the same message as the suggestion.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Ground Rules",
       "level": 2,
       "items": [],
       "header": [],
@@ -84,10 +112,57 @@
       "text": "",
       "level": 1,
       "items": [
-        "1. Kelly Snyder completes the docket audit for the full portfolio and circulates the reconciled list of dates, marking any that are close. Discrepancies go on the list with the office record cited.",
-        "2. Amanda Schwartz begins the file histories with the largest family and reports gaps as she finds them, so retrieval starts before the review reaches that family.",
-        "3. Heather Munoz sets the review order against the docket once the audit is in, urgent families first, and circulates the sequence to the team.",
-        "4. We confirm the standing update slot and the format with Gary Smith, so the client cadence is set from the start and the first status goes out on time."
+        "Client contact goes through me. Heather Munoz approves anything that carries a recommendation before it goes out.",
+        "One issues list per family, kept in the matter folder. Close an issue only with a note of how it closed.",
+        "Record time to the matter as usual. The fee is fixed, but we need to know what the review costs us.",
+        "Mark every family summary privileged and confidential. The client may circulate the report internally, so draft for that reader."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Known Risks",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "The client's docket may not match office records. Treat the office records as correct until shown otherwise.",
+        "Some inventors may have left the company. Their agreements decide whether title can be fixed without new signatures.",
+        "Product information may lag the claims work. Map only against descriptions the client has confirmed as current.",
+        "Scope drift. Whether a product is clear to sell is a freedom-to-operate question. It goes to Heather Munoz, not into the review."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Before the End of Next Week",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "Today: I send Gary Smith the document request. It covers the docket export, file copies, inventor agreements, and the current product list.",
+        "Sharon Woods opens the matter on our docket and starts the reconciliation as the export arrives.",
+        "Amanda Schwartz pulls the USPTO assignment records for every family and opens the issues list.",
+        "I set up the family index in the matter folder. One row per family. One owner per row.",
+        "Team check-in each Monday, fifteen minutes, until the reconciliation closes."
       ],
       "header": [],
       "rows": [],
@@ -95,7 +170,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Keep everything on the matter docket, including internal notes and any call with the client. If a date looks wrong or tight, raise it the same day rather than holding it for the next scheduled check. I will reconcile the master date list against the office record each week until the audit is closed, and I will flag anything that has moved.",
+      "text": "Anything that touches a deadline comes to Sharon Woods and me the same day. Everything else waits for Monday.",
       "level": 1,
       "items": [],
       "header": [],

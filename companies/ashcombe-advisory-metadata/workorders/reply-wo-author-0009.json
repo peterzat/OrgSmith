@@ -1,108 +1,382 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0009",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0045",
       "blocks": [
-        {"kind": "paragraph", "text": "Sandra Mcdaniel\nDirector of Operations\n{{fact:f:E-2022-001.client}}"},
-        {"kind": "paragraph", "text": "Dear Ms. Mcdaniel:"},
-        {"kind": "paragraph", "text": "This letter records the terms on which our firm will act for {{fact:f:E-2022-001.client}} on the media relations program we discussed, and it becomes our agreement once you have countersigned it. We have kept the language plain on purpose, so that it reads back to you as the conversation we had and not as a document to be decoded."},
-        {"kind": "paragraph", "text": "Please read it against that conversation as you go. If any part of it sits differently from how you recall our meeting, say so before you sign, and we will put it right so that the paper matches what we both intend."},
-        {"kind": "heading", "text": "What We Will Do", "level": 2},
-        {"kind": "paragraph", "text": "Our purpose is to help {{fact:f:E-2022-001.client}} present a clear and defensible account of itself to the reporters and outlets whose coverage shapes how the company is understood, and to prepare you to carry that account steadily through the announcements ahead. Our task is to see that what is already true of the company reaches the people who write about it, in language that holds up wherever it is quoted."},
-        {"kind": "paragraph", "text": "In practice that means a considered press list and an approach to outreach we settle with you, the talking points and background materials that put the company's position in plain terms, watchful monitoring of how each story travels, and our counsel whenever someone has to speak for the company on the record. It does not extend to how you run the business or to decisions that are properly yours; where our advice touches those, it stays advice and no more."},
-        {"kind": "paragraph", "text": "Our method is measured and, we hope, familiar in feel. We begin by learning how the company already speaks and how it is heard today, and we set down a small number of core messages in writing before we build anything on top of them."},
-        {"kind": "paragraph", "text": "From there we prepare the materials that carry those messages to the press, and we stay close through the moments that test them. When a story turns in a direction none of us foresaw, and over four months one usually does, we come back to you and adjust the account with you rather than around you."},
-        {"kind": "heading", "text": "Your Team at the Firm", "level": 2},
-        {"kind": "paragraph", "text": "Laura Bradley will lead the program day to day and will be your first point of contact for anything of substance. She keeps a deliberately small book of engagements, so the one in front of her has her full attention, and she is the person to bring a decision to when it needs to move."},
-        {"kind": "paragraph", "text": "Kimberly Le will follow the coverage and shape the talking points, reading the landscape closely enough to tell you early how a given story is likely to run. Melissa Zimmerman will assemble the financial summaries and check every figure before it leaves us, so that no number goes out under our name that we have not stood behind."},
-        {"kind": "paragraph", "text": "I will keep a hand on the work myself, particularly on the announcements that carry the most weight, and nothing sensitive will reach the press without my having read it first. You are welcome to come to me directly at any point, though more often Laura Bradley will be the faster route to an answer."},
-        {"kind": "heading", "text": "Fees and Payment", "level": 2},
-        {"kind": "paragraph", "text": "Our fee for the program is {{fact:f:E-2022-001.fee}}, covering the work described above through its expected close. We will invoice against that amount as the work proceeds, and each invoice is payable within thirty days of the date you receive it."},
-        {"kind": "paragraph", "text": "The fee covers our people and their time. It does not include out-of-pocket costs such as newswire distribution, travel, or third-party services, which we will agree with you before anything of consequence is incurred. If the shape of the work changes materially, we will raise the fee with you and settle it together before that work begins."},
-        {"kind": "heading", "text": "Term and Termination", "level": 2},
-        {"kind": "paragraph", "text": "The program begins {{fact:f:E-2022-001.start}} and is expected to run for about four months. We will treat it as finished when the work is genuinely done, rather than simply when the calendar reaches a particular day."},
-        {"kind": "paragraph", "text": "Either of us may bring the engagement to a close on fourteen days' written notice. If you end it, you will owe us for work properly done up to that point and for costs already committed on your behalf, and nothing more."},
-        {"kind": "heading", "text": "Confidentiality", "level": 2},
-        {"kind": "paragraph", "text": "Everything we learn about {{fact:f:E-2022-001.client}} in the course of the program we will hold in confidence and use only for the purpose of the engagement. That obligation binds our whole team, survives the end of our work, and covers the fact of our involvement as much as its substance. We ask the same of you in respect of the methods and materials we share with you."},
-        {"kind": "heading", "text": "Limitation of Liability", "level": 2},
-        {"kind": "paragraph", "text": "We will carry out the work with the care and skill you are entitled to expect, and we stand behind it. We cannot, however, govern how reporters, editors, and the wider public will finally respond, and so our liability to you under this engagement is limited to the fees paid under it, save where the law does not permit such a limit."},
-        {"kind": "heading", "text": "Governing Law", "level": 2},
-        {"kind": "paragraph", "text": "This agreement is governed by the law of the state in which our firm is established, and any dispute arising under it will be resolved in that state's courts. Should any single provision be found unenforceable, the remainder of this letter stands unaffected."},
-        {"kind": "paragraph", "text": "Because the program will run largely by email, we will route what needs your sign-off through you, Sandra Mcdaniel, so that the record stays clear on both sides as the correspondence grows. Anything of real weight will still carry my own reading before it leaves us."},
-        {"kind": "paragraph", "text": "If this letter reflects our understanding, please sign both copies, keep one for your files, and return the other to me. Once it is back, Laura Bradley will write to arrange our first working session, and we will be glad to be working with you."},
-        {"kind": "sigblock", "signers": ["p:julie.hill", "xp:sandra.mcdaniel"]}
+        {
+          "kind": "paragraph",
+          "text": "Sandra Mcdaniel\nDirector of Operations\n{{fact:f:E-2022-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Engagement for a media relations program"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Sandra:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for the time you and your colleagues have given us over the past several weeks, and for the candor with which you described how Kirby-Taylor is covered today. This letter confirms the terms on which Ashcombe Advisory Partners LLC (\"Ashcombe\" or \"we\") will provide a program of media relations to {{fact:f:E-2022-001.client}} (the \"Company\"). We have tried to record the work as we discussed it, and if any part of this letter differs from your understanding, we would ask you to tell us before you sign."
+        },
+        {
+          "kind": "heading",
+          "text": "Purpose and scope",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our shared objective is that the reporters who follow the Company's sector describe it accurately and consistently, and that its spokespeople are well prepared when those reporters call. We propose to pursue that objective through planned and regular contact with the press over the term of the engagement."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Subject to the Company's review and approval at each stage, we expect the program to comprise the following:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "a review of the Company's recent coverage in print, online, and social channels, which will serve as the baseline against which the program is measured;",
+            "a core set of press materials, including a company backgrounder, a fact sheet, and biographies of the Company's designated spokespeople, drawn only from information the Company has already made public or has approved for release;",
+            "a list of target reporters and outlets, organized by beat, together with the story angles we propose to offer each of them;",
+            "proactive outreach to those reporters, and the arrangement of the interviews and briefings that follow from it;",
+            "a preparation session for each spokesperson before a first interview, and a short briefing note ahead of every interview thereafter; and",
+            "a protocol for handling inbound media inquiries, with a regular written summary of our outreach and of the coverage that results."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Support for a financing, a transaction, a crisis, or another unplanned announcement is not included in this scope. We would be pleased to discuss any such work separately, and we will not undertake it without your written agreement."
+        },
+        {
+          "kind": "heading",
+          "text": "Our approach",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will work through you as the Company's principal contact. Each pitch, statement, and set of talking points will reach you in draft, with a version label and a plain statement of what we are asking you to approve, and nothing will be offered to a reporter on the Company's behalf until you or your designee has approved it in writing."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Media relations for a company with investors to consider calls for particular care. We will take care that nothing we place with the press runs ahead of what the Company has disclosed publicly, and we will consult your finance and legal colleagues wherever a story touches on results, outlook, or a pending matter."
+        },
+        {
+          "kind": "heading",
+          "text": "The Ashcombe team",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michael Morris, a Partner of the firm, will hold senior responsibility for the program and will review the press materials and the outreach plan before they are sent to you. Laura Bradley, a Senior Associate, will lead the work from day to day and will be your first point of contact for drafts, approvals, and scheduling."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kimberly Le, a Communications Analyst, will monitor the Company's coverage and prepare the briefing notes your spokespeople receive before each interview. Melissa Zimmerman, also a Communications Analyst, will develop the background research and peer comparisons on which our story angles depend, and will check each draft against what the Company has already said in public."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will remain close to the engagement and will read the principal materials before they are released. Should we wish to involve any other member of the firm, we will let you know in advance."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and commencement",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the program described in this letter is {{fact:f:E-2022-001.fee}}. That fee covers the full scope set out above and will change only if we agree with you in writing to change the scope. The engagement will commence on {{fact:f:E-2022-001.start}}."
+        },
+        {
+          "kind": "heading",
+          "text": "Invoicing and payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will invoice the fee in monthly installments over the term of the engagement, and each invoice is payable within thirty days of its date. Out-of-pocket expenses, such as media monitoring services, newswire distribution, or travel to an interview, will be billed at cost and incurred only with your prior approval."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We expect the program to run for approximately four months from commencement, and this letter will govern the engagement for that period and for any extension we agree in writing. Either party may end the engagement at any time by written notice to the other."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the engagement ends before the program is complete, the Company will pay for services performed and approved expenses incurred through the date of termination, and we will deliver all work then in progress. The provisions of this letter on confidentiality and limitation of liability will survive its termination."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold in confidence all non-public information the Company provides to us, use it solely for this engagement, and share it only with those members of our staff who need it for the work. Each member of the team is bound by the firm's policy on material non-public information and on personal dealing in the securities of clients."
+        },
+        {
+          "kind": "paragraph",
+          "text": "These obligations do not extend to information that is or becomes public other than through us, or that we are required by law to disclose; where the law permits, we will notify you before any such disclosure. We advise other companies, and we will not use the Company's confidential information in that work."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The Company is responsible for the accuracy of the information it gives us and for its own decisions about what it releases. We will perform our services with the care customary in our profession; we cannot, however, guarantee that any reporter will cover the Company, nor can we control what is ultimately published."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our aggregate liability arising out of this engagement will not exceed the fees paid to us under this letter, and neither party will be liable to the other for indirect, incidental, or consequential damages."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter is governed by the laws of the state in which Ashcombe maintains its principal office, without regard to that state's conflict-of-laws rules. It constitutes the entire agreement between us on its subject and may be amended only in a writing signed by both parties."
+        },
+        {
+          "kind": "heading",
+          "text": "Confirming the arrangement",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We look forward to working with you and your colleagues at Kirby-Taylor. If these terms are acceptable, please sign below and return a copy to me, and Laura Bradley will then contact you to arrange our first working session."
+        },
+        {
+          "kind": "paragraph",
+          "text": "With kind regards,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:julie.hill"
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Accepted and agreed on behalf of {{fact:f:E-2022-001.client}}:"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "xp:sandra.mcdaniel"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0046",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Engagement team, {{fact:f:E-2022-001.client}} media relations program\nFrom: Laura Bradley\nRe: Kickoff, and how we will run it"},
-        {"kind": "paragraph", "text": "Here is where we are pointed, so we all start facing the same way. We are underway on the media relations program for {{fact:f:E-2022-001.client}}, with our start set at {{fact:f:E-2022-001.start}}, and our job over the coming months is to give the company a clear, defensible story for the reporters who cover it. Success looks quiet: the announcements land as the company means them to, and we are never caught reacting to a story we should have seen coming."},
-        {"kind": "paragraph", "text": "That comes down to the right press list, talking points we can all speak from, a financial summary that holds up to a hard look, and steady coordination with the client through the announcements ahead. None of this is new to us. It is worth naming once, though, so nobody waits on a hand-off that was never assigned."},
-        {"kind": "paragraph", "text": "A word on how we will run it. The program lives mostly in email, so we keep one thread per topic, we copy each other so any of us can pick up a question, and we log what we send the client so the record stays in order as the volume grows. Anything sensitive, and the sharper announcements will be, goes to Julie before it reaches the press, so please send it my way or hers if you are unsure whether it needs a partner's eye."},
-        {"kind": "heading", "text": "Where the work sits", "level": 2},
-        {"kind": "list", "items": [
-          "Media strategy and outreach. I hold the overall plan and the press list, and I keep our approach to each outlet consistent so we are not saying one thing to a trade desk and another to a wire.",
-          "Coverage and talking points. Kimberly Le tracks how the company is being written about now and drafts the talking points, so we all speak from one page the moment a reporter calls, and she is our early read on where a story is likely to head.",
-          "Financial summary. Melissa Zimmerman assembles the figures and the fact sheet, and she checks every number against its source before it leaves us; nothing the client can point at should ever be a figure we cannot defend.",
-          "Client coordination. Sandra Mcdaniel is our point of contact at {{fact:f:E-2022-001.client}}; approvals and scheduling on their side route through her, and we do not go around her."
-        ]},
-        {"kind": "heading", "text": "What happens first", "level": 2},
-        {"kind": "list", "items": [
-          "1. Kimberly Le pulls a first read on the current coverage this week, so we begin from what is actually being said rather than what we assume.",
-          "2. Melissa Zimmerman opens the financial summary and flags early any figure she needs from the client to finish it.",
-          "3. I set our first working call with Sandra Mcdaniel and send the invite round to the team once we have a time."
-        ]},
-        {"kind": "paragraph", "text": "Send me anything you want raised on that first call by Thursday, and flag now whatever you are unsure of, so we settle it between us before we sit down with the client. I will keep this thread as our home base for the program and post the call details here once Sandra Mcdaniel and I have a time. Thanks, all; we are in good shape to start."}
+        {
+          "kind": "heading",
+          "text": "Kickoff: Kirby-Taylor media relations program",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "To: Michael Morris; Kimberly Le; Melissa Zimmerman\nFrom: Laura Bradley\nRe: How we will run the {{fact:f:E-2022-001.client}} program"
+        },
+        {
+          "kind": "heading",
+          "text": "Where we are starting",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are under way. The media relations program for {{fact:f:E-2022-001.client}} opened on {{fact:f:E-2022-001.start}}, and the countersigned letter is in the engagement folder."
+        },
+        {
+          "kind": "paragraph",
+          "text": "By the end of the engagement, Kirby-Taylor should have press materials it trusts, a working relationship with the reporters who cover its sector, and spokespeople who are at ease taking their calls. The early weeks are for listening and preparation. We pitch nothing until the materials are approved."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sandra Mcdaniel, Director of Operations, is our contact at the client. She approves everything before it goes out, and she has asked for one consolidated draft at a time. We will hold ourselves to that."
+        },
+        {
+          "kind": "heading",
+          "text": "Five strands of work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The strands overlap. The first two feed everything after them, so they start now."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Coverage baseline, Kimberly Le. A review of how the company has been covered in print, online, and on social channels, with daily monitoring running from the first week. This is the yardstick we will report against.",
+            "Background and benchmarking, Melissa Zimmerman. How peer companies are covered, which reporters write about the sector, and a fact base built from what the company has already said in public. Every pitch has to agree with it.",
+            "Press materials, Laura Bradley. Backgrounder, fact sheet, and spokesperson biographies, drafted from the baseline and the fact base, then taken through Sandra's approval.",
+            "Reporter list and outreach, Laura Bradley with Kimberly Le. Targets by beat, the angle we would offer each one, and an outreach schedule once the materials are signed off.",
+            "Spokesperson preparation, Michael Morris. A session with each executive before any interview is booked, supported by the briefing notes Kimberly prepares ahead of each call."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Approvals and review",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Every draft goes to the client with a version label and one line stating what we are asking Sandra to approve. I will keep the approval log. If you are unsure whether something has been signed off, ask me before it goes anywhere."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michael Morris will see the press materials and the outreach plan before either reaches the client. Status goes to Sandra on a single email thread, so the record of decisions stays in one place."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The disclosure point in the engagement letter applies to all of us. Nothing we offer a reporter may run ahead of what the company has said publicly. Melissa's fact base is our check on that, so if a pitch needs a figure or a claim that is not in it, come to me before drafting."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will meet as a team once a week to go through the approval log and the latest coverage. I will send a standing calendar hold."
+        },
+        {
+          "kind": "heading",
+          "text": "For this week",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Kimberly: set up monitoring on the company and its senior executives, and send round a first read of recent coverage.",
+            "Melissa: begin the peer coverage comparison, and gather the company's public statements from the past year into one document.",
+            "Michael: let me know when you could hold the first preparation sessions, so I can offer dates to the client.",
+            "Me: send Sandra our request for existing materials and spokesperson names, and set up the approval log in the folder."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The materials request comes first, because the baseline and the fact base both depend on it. Please send me anything you would like added to it early this week. It goes to Sandra as soon as I have your additions."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0047",
       "blocks": [
-        {"kind": "paragraph", "text": "Hi Sandra,"},
-        {"kind": "paragraph", "text": "I wanted to open a thread where we can keep our updates on the {{fact:f:E-2022-001.client}} media program in one place, so nothing important lives only in a stray inbox. I have copied Kimberly Le and Melissa Zimmerman from our side; you will see their names as the work moves, and either of them can pick up a question if I am away from my desk."},
-        {"kind": "paragraph", "text": "We have made a start. Kimberly Le is reading through the recent coverage so we know what is already being said about the company, and Melissa Zimmerman has begun the financial summary that will sit behind the announcement. You will hear from us on a steady cadence from here, with each note tied to the piece of work it concerns."},
-        {"kind": "paragraph", "text": "Before we go much further, it would help to know who signs off on the announcement on your side, and roughly when you expect the window to open. For the record, I will treat approvals as yours to give, Sandra Mcdaniel, unless you would rather point me to someone else."},
-        {"kind": "paragraph", "text": "Best"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Sandra,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The program is on schedule, and the first round of outreach is now within reach. I am opening this thread so that status, questions, and approvals for the {{fact:f:E-2022-001.client}} media work all sit in one place."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Here is where things stand. The coverage review is finished, and daily monitoring has been running since the start of the engagement. The backgrounder and fact sheet are in second draft, with your team's comments folded in. The reporter list is grouped by beat, with a proposed angle beside each name."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing in the recent coverage of Kirby-Taylor calls for a response at this point. If that changes, I will flag it here first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "To keep to schedule, there are a couple of points where we need your help. Could you confirm which executives will speak for the company, and roughly when each could spare time for a preparation session over the next few weeks? And could you let us know whether pitches need sign-off from anyone besides you? I would like to route each draft correctly from the first one."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best,\nLaura"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0048",
       "blocks": [
-        {"kind": "paragraph", "text": "Sandra,"},
-        {"kind": "paragraph", "text": "On the financial summary Laura Bradley mentioned, I have a first draft of the fact sheet built and the historical figures reconciled against your last two filings, and the only piece still open is the most recent quarter, which I would rather take from you directly than infer from partial numbers. If you can send those figures, or point me to where they sit, I can close the sheet within a day of having them in hand."},
-        {"kind": "paragraph", "text": "Kimberly Le is drawing on the same numbers for the talking points, so I want a single reconciled set standing behind both the fact sheet and anything a spokesperson says out loud, and that is why I am holding for your confirmation instead of filling the gap with an estimate. The rest of the {{fact:f:E-2022-001.client}} summary is drafted and checked."},
-        {"kind": "paragraph", "text": "The one thing I need from you is that latest quarter, Sandra Mcdaniel; send it across whenever it is ready and I will have the finished sheet back to this thread the same day."},
-        {"kind": "paragraph", "text": "Best regards"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Sandra,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Building on Laura's note, and because the preparation sessions are the one part of the schedule that depends on your executives' calendars and not on ours, I wanted to set out how we would like to run them before you begin asking people for their time:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Each spokesperson should complete a session before any interview is booked for them, and we can hold it at your offices or by video, whichever suits the people involved.\n2. A session runs about half a day and covers the core messages for Kirby-Taylor, practice interviews built around the questions reporters are most likely to ask, and the subjects we recommend leaving to the company's formal disclosures.\n3. If an executive cannot find the time before the first round of outreach, we will leave that person out of it and bring them into a later round once their session has been held."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If you can send us the names and a rough sense of availability by the middle of next week, Laura will propose dates on this thread, and we will fit the outreach schedule for {{fact:f:E-2022-001.client}} around whatever you confirm."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,\nMichael"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0049",
       "blocks": [
-        {"kind": "paragraph", "text": "Hi Sandra,"},
-        {"kind": "paragraph", "text": "Thank you for turning the quarterly figures around so quickly; that was the piece we were waiting on, and it lets the rest fall into place. Melissa Zimmerman is finalizing the fact sheet against the numbers you sent, and it should be settled in the next day or two."},
-        {"kind": "paragraph", "text": "Kimberly Le has a first draft of the talking points ready, built on that same set of numbers so the fact sheet and the messaging stay consistent. She has also flagged a couple of angles in the current coverage that we would do well to get ahead of, and I would rather walk you through those on a call than write them all out here."},
-        {"kind": "paragraph", "text": "I think a short call early next week is the right next step for the {{fact:f:E-2022-001.client}} program. Send me two or three windows that work for you, Sandra Mcdaniel, and I will confirm one and bring Kimberly Le and Melissa Zimmerman in, so you hear the detail straight from them."},
-        {"kind": "paragraph", "text": "Best"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Sandra,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for the quick answers on the phone this morning. We now have the spokesperson names, and your confirmation that Kirby-Taylor pitches come to you alone for sign-off. I have set up our approvals that way."
+        },
+        {
+          "kind": "paragraph",
+          "text": "To be exact about what is with you now: the backgrounder (v3), the fact sheet (v2), and the reporter list (v2). Each reflects the latest comments from your team. Nothing goes to a reporter until all three are approved."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If we can have your approval or your edits by Friday, outreach for {{fact:f:E-2022-001.client}} can begin the following week. Michael's preparation sessions would run alongside it, ahead of any interviews the outreach brings in."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best,\nLaura"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0050",
       "blocks": [
-        {"kind": "paragraph", "text": "Sandra,"},
-        {"kind": "paragraph", "text": "The fact sheet is final. With the quarterly figures you sent now folded in and reconciled, every number in the {{fact:f:E-2022-001.client}} summary ties back to a source, and I have checked the totals twice against your filings so there is nothing in it I cannot stand behind."},
-        {"kind": "paragraph", "text": "Kimberly Le has matched the talking points to that same set, so the sheet and the messaging carry identical figures and a reporter working the two side by side will not find daylight between them. I have sent both across to Laura Bradley, who now has the full package in hand for the call she is setting with you."},
-        {"kind": "paragraph", "text": "Nothing further is needed from you before then, Sandra Mcdaniel; if a figure moves between now and the announcement, send it to me and I will refresh the sheet the same day."},
-        {"kind": "paragraph", "text": "Best regards"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Sandra,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for approving the backgrounder, the fact sheet, and the reporter list, which means the first round of outreach on behalf of {{fact:f:E-2022-001.client}} can begin early next week as planned. Because the work now moves from preparation into direct contact with reporters, I want to confirm how the coming weeks will run:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Laura will send you each pitch in its final form before it goes out, so that you see exactly what every reporter receives, even though the materials behind it are already approved.\n2. No interview will be confirmed for an executive until that person's preparation session has been held, and we will agree the session dates with you on this thread.\n3. Starting at the end of the first week of outreach, we will send you a short weekly summary of the reporters contacted, the responses received, and any coverage that results, together with anything from our monitoring that deserves your attention."
+        },
+        {
+          "kind": "paragraph",
+          "text": "In the meantime, if a reporter contacts anyone at Kirby-Taylor directly, please pass the inquiry to Laura or to me, so that what the caller hears matches what we are offering in the outreach."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,\nMichael"
+        }
       ]
     }
   ]

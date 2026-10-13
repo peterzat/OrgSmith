@@ -1,58 +1,254 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0013",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0070",
       "blocks": [
-        {"kind": "paragraph", "text": "To: James Garcia\nCc: Michelle Banks"},
-        {"kind": "paragraph", "text": "James,"},
-        {"kind": "paragraph", "text": "Thank you for the quick turnaround on the second extract. It reconciles cleanly. The cession schedule now ties to the premium records, and with the two treaty inception dates you confirmed last week, the schedule of treaties is settled on our side."},
-        {"kind": "paragraph", "text": "One item is still open on the loss data. That file carries paid amounts but not case reserves, and we need both to set the experience against the pricing in the {{fact:f:E-2024-001.client}} review. If your reinsurance accounting group can add the case reserves to the next extract, and confirm that the treaty codes there match the ones on the premium side, the intake is closed. Neither is pressing before next week; a first read on what is readily available is enough to keep us moving."},
-        {"kind": "paragraph", "text": "Michelle Banks is running the reconciliation and will keep her questions on this thread, a few at a time, so the whole record sits in one place. Everything your team at Gonzalez, Campbell and Kelly has sent so far has come through clean, and for this early stretch we are in good shape. I will confirm once the reserves are in and tell you what, if anything, still needs a follow-up."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "James,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The claim listing your team sent reconciles to the reinsurance statements for every year in the study except the most recent one. I believe the gap in that year is a question of timing rather than missing records, and I wanted to add that to Robert's note from yesterday before we go further."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The claims that do not yet appear on the statements were all incurred in the last few months of that year. That pattern fits statements that record a claim when it is settled, while the listing records it when it was incurred. If that is the explanation, nothing in the {{fact:f:E-2024-001.client}} data needs correcting. We would put the two sources on the same basis and carry on."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Could someone on your team confirm which basis the statements use? A line or two is enough. Until we hear, we will leave that year out of the experience comparison rather than adjust it ourselves. The earlier years are unaffected, and we have drawn no conclusions from the experience so far, so nothing you have from us depends on the answer. Michelle and I are carrying on with the rest of the listing in the meantime."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0071",
       "blocks": [
-        {"kind": "heading", "level": 1, "text": "Meeting Minutes: Reinsurance Pricing Review for {{fact:f:E-2024-001.client}}"},
-        {"kind": "paragraph", "text": "This session reviewed the state of the client data, the experience analysis now under way, and the approach we will use to develop the pricing indications. James Garcia joined from the client side for the first part of the meeting. These minutes record what was settled and what stays open at this point in the review."},
-        {"kind": "heading", "level": 2, "text": "Attendees"},
-        {"kind": "list", "items": ["Karen Harris, Actuarial Associate", "Michelle Banks, Actuarial Associate", "James Garcia, Chief Financial Officer, Gonzalez, Campbell and Kelly"]},
-        {"kind": "heading", "level": 2, "text": "Discussion"},
-        {"kind": "paragraph", "text": "Karen Harris reported that the data intake is effectively closed. The cession, premium, and loss files now reconcile to the treaty schedule, and the two open treaty inception dates have been confirmed by the client. One gap remains: the loss file gives paid amounts but not case reserves, and James Garcia agreed to have the reinsurance accounting group add them to the next extract."},
-        {"kind": "paragraph", "text": "Two smaller items stayed open. The premium and loss records still use different treaty codes, and James Garcia will confirm the mapping so the two sets can be tied together without guessing. The cession schedule is also thin for two treaties in the earliest years, and we flagged that those years may fall below our credibility standard and lean more on the benchmark."},
-        {"kind": "paragraph", "text": "Michelle Banks summarized the experience analysis. The loss ratios by treaty year are calculated on the paid data, and they will be recut once the case reserves arrive. We agreed to hold the incurred figures internally until that step is done, since a paid-only ratio understates the recent years and should not be read as the experience."},
-        {"kind": "paragraph", "text": "The group then discussed the trend and loss-development assumptions that feed the pricing. We agreed to develop the indications on the client's own experience where it is credible and to blend in an industry benchmark for the thinner treaty years, so neither source carries the weight alone. Karen Harris will document the credibility standard so the weighting is on the record before any indication is shown."},
-        {"kind": "paragraph", "text": "We noted the line the firm keeps between what the data measure, what we assume, and what we conclude. The exhibits will show the measured experience, the assumptions memo will state the trend and development we have chosen, and the pricing indication will draw only from those two. James Garcia asked that the indications arrive with that separation visible, and we agreed."},
-        {"kind": "paragraph", "text": "No change to scope or schedule came out of the session. The review is at its midpoint, the measurement work is on track, and the judgment now moves to the pricing assumptions, which is the right place for it at this stage."},
-        {"kind": "heading", "level": 2, "text": "Action Items"},
-        {"kind": "table", "header": ["Item", "Owner", "Target"], "rows": [["Add case reserves to the next loss extract", "James Garcia", "This period"], ["Confirm the treaty-code mapping between the premium and loss files", "James Garcia", "This period"], ["Recut the loss ratios once the case reserves are received", "Michelle Banks", "Next session"], ["Document the credibility standard and the blending weights", "Karen Harris", "Next session"]]},
-        {"kind": "paragraph", "text": "Minutes prepared by Michelle Banks."}
+        {
+          "kind": "heading",
+          "text": "Working Session: Reinsurance Pricing Review for {{fact:f:E-2024-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "This was the working session we planned for the middle of the review. It had three purposes: to close the open data questions, to look at the first experience results, and to agree how the comparison with the proposed reinsurance rates will be made. No view on the proposed rates was reached or offered. Nothing below should be read as one."
+        },
+        {
+          "kind": "heading",
+          "text": "Those attending",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "James Garcia, Chief Financial Officer, {{fact:f:E-2024-001.client}}",
+            "Robert Lawrence, Managing Actuary",
+            "Karen Harris, Actuarial Associate",
+            "Michelle Banks, Actuarial Associate"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Where the data stand",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle Banks reported that the data checks are complete. The in-force listing ties to the policy counts and face amounts in the company's own records. The claim listing now ties to the reinsurance statements in every year. James Garcia confirmed that the statements record a claim when it is settled, not when it is incurred. That accounts for the shortfall Karen Harris found in the most recent year. We agreed to restore that year to the study on an incurred basis and to record the adjustment in the data summary."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle also set out the extent of our reliance. We have checked the data for consistency and reasonableness. We have not audited them. The report will say so, and it will list the checks we made, as the actuarial standards of practice on data quality require."
+        },
+        {
+          "kind": "heading",
+          "text": "First look at the experience",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Karen Harris walked us through the first comparison of actual claims with the claims expected under the industry mortality table. What the data show is that claims at the younger issue ages have run below expected, and that the older ages are close to expected. There are few claims at the older ages, so the second observation carries less weight than the first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "How much weight the block's own experience should carry against the industry table is a judgment, not a measurement. Robert Lawrence said he will set out the approach in writing before any figure is used in the rate comparison, so that the choice can be read and questioned on its own. Karen will rerun the comparison once the restored year is in. Her exhibits will show the experience with and without that year."
+        },
+        {
+          "kind": "heading",
+          "text": "The rate comparison",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We then turned to the second half of the review. Karen will project the expected claim cost on the block under the assumption we settle on. Michelle will set that cost against the premiums the proposed rates would produce, by issue age and in total."
+        },
+        {
+          "kind": "paragraph",
+          "text": "James Garcia asked whether our report would say if the rates are fair. Robert explained what the review can support. The report will say whether the proposed rates are reasonable in relation to the block's experience and the assumptions it states. It will not assess the reinsurer's expenses, its margin, or its financial strength, because none of the data we hold bears on those questions. James accepted that and asked that the report say it plainly. We agreed that it will."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The comparison has to be made against the full proposal. The rate schedule we hold covers only part of the issue age range, and James undertook to send the rest."
+        },
+        {
+          "kind": "heading",
+          "text": "Actions agreed",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "No.",
+            "Action",
+            "Owner",
+            "Timing"
+          ],
+          "rows": [
+            [
+              "1",
+              "Send the complete rate schedule from the reinsurance proposal, covering every issue age",
+              "James Garcia",
+              "Next week"
+            ],
+            [
+              "2",
+              "Restore the most recent year on an incurred basis and rerun the experience comparison",
+              "Karen Harris",
+              "Before the comparison begins"
+            ],
+            [
+              "3",
+              "Issue the written data summary, including the adjustment to the most recent year",
+              "Michelle Banks",
+              "Within two weeks"
+            ],
+            [
+              "4",
+              "Set out in writing the approach to weighting the block's own experience against the industry table",
+              "Robert Lawrence",
+              "Before the comparison begins"
+            ],
+            [
+              "5",
+              "Begin the comparison of expected claim cost with the proposed premiums",
+              "Karen Harris and Michelle Banks",
+              "Once items 1, 2 and 4 are done"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Corrections to these notes are welcome. Please send them to Robert Lawrence, and a revised copy will go to everyone who attended."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0072",
       "blocks": [
-        {"kind": "heading", "level": 1, "text": "Status Report: Reinsurance Pricing Review for {{fact:f:E-2024-001.client}}"},
-        {"kind": "paragraph", "text": "Prepared by Karen Harris, Actuarial Associate, for the leadership of {{fact:f:E-2024-001.client}}. This report covers the reinsurance pricing review at its midpoint. The review is on track and within scope. The data intake is closed, the experience analysis is under way, and the pricing work is the stretch that remains. I have written it to separate plainly what is settled from what still calls for judgment, since those are the two things worth your attention at the halfway mark."},
-        {"kind": "heading", "level": 2, "text": "Where the review stands"},
-        {"kind": "paragraph", "text": "The measurement is largely built and the judgment has not yet been applied, which is the right order for the work. The cession, premium, and loss files reconcile to the schedule of treaties, and the data your team at Gonzalez, Campbell and Kelly sent has held up to reconciliation with only one gap left to close. We have loss ratios by treaty year on the paid data, and we are treating them as directional until the case reserves arrive, because a paid-only ratio understates the recent years and is not the experience. The work remains within the fixed fee of {{fact:f:E-2024-001.fee}} agreed for the review, and nothing this period has changed that."},
-        {"kind": "paragraph", "text": "For context, the exhibits will be the schedule of treaties, the experience by treaty year, and the pricing indications that follow from them. The first two are drafted, and the third is the work of the second half. The report that interprets the exhibits comes once the indications are set."},
-        {"kind": "heading", "level": 2, "text": "Finished this period"},
-        {"kind": "paragraph", "text": "The period went to closing the inputs and standing up the experience analysis. Michelle Banks reconciled the cession, premium, and loss files against the treaty schedule and documented the data we are relying on, so every figure in the eventual pricing can be traced to a source. She also confirmed the two treaty inception dates that had been open and built the first cut of the loss ratios by treaty year. I reviewed the reconciliation and the reliance memo she prepared, and both are in a form we can stand behind. On our side the schedule of treaties is now settled, and the one remaining data item, the case reserves on the loss file, is with your reinsurance accounting group to supply in the next extract."},
-        {"kind": "heading", "level": 2, "text": "How the pricing will be built"},
-        {"kind": "paragraph", "text": "One point on how we will develop the numbers. A pricing indication mixes three things that are easy to run together: what the experience measures, what we assume about trend and loss development, and what we conclude as the indicated rate. We keep them apart on purpose. The exhibits will show the measured experience. The assumptions memo will state the trend and development we have chosen, and why. The indication will draw the conclusion, and only there. Where the experience for a treaty year is too thin to stand on its own, we will blend it with an industry benchmark and show the weight we gave each, so the credibility judgment is visible instead of buried in a single number."},
-        {"kind": "heading", "level": 2, "text": "The work ahead"},
-        {"kind": "paragraph", "text": "The remaining work is the pricing and its reporting, in that order, and none of it depends on anything we do not already have apart from the case reserves. We will recut the loss ratios on the incurred data once those arrive, develop the trend and loss-development assumptions, and set the credibility weights for the thinner treaty years. From there we will build the workbook of exhibits and the report that reads them, and we will bring you preliminary indications for review before anything is treated as final. A preliminary number is not an answer, and we treat it that way until it has cleared our own checking."},
-        {"kind": "heading", "level": 2, "text": "What could move the answer"},
-        {"kind": "paragraph", "text": "The data risk is mostly behind us now that the files reconcile, and the risks that remain are matters of judgment. Three are worth naming. The first is trend: the indication is sensitive to the trend assumption, which the data do not hand us, and we will show the result under more than one so that sensitivity is plain. The second is credibility on the earliest treaty years, where the experience is thin and the benchmark carries more of the weight; that is a considered choice, and the report will say so. The third is the case reserves, the one open data item, which changes the recent-year ratios and which we do not want to price around."},
-        {"kind": "paragraph", "text": "None of these threatens the schedule, and the scope has held steady from the start. The best time to weigh an assumption is before the indication rests on it, so if the trend or credibility choices give you pause, tell us early. I will follow up with your accounting group on the case reserves and will send preliminary indications as soon as they have cleared our own review."}
+        {
+          "kind": "heading",
+          "text": "Reinsurance Pricing Review for {{fact:f:E-2024-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "heading",
+          "text": "Status at the midpoint",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Karen Harris, Actuarial Associate, with Michelle Banks and Robert Lawrence."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the review stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The review is on schedule and within its budget at the midpoint. The data work is finished, the experience study is complete, and we have begun the comparison with the proposed reinsurance rates. Nothing we have found so far changes the scope or the timetable in our engagement letter. We have not yet formed a view on the proposed rates, and this report offers none."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The rest of this report sets out what has been finished since the working session, what remains, and the points we think you should keep in view between now and the draft report."
+        },
+        {
+          "kind": "heading",
+          "text": "Completed since the working session",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Michelle Banks has issued the written data summary. It records the checks we made on the in-force listing and the claim listing, the reconciliation of claims to the reinsurance statements, and the one adjustment we made. Following your team's confirmation that the statements record a claim when it is settled, the most recent year is back in the study on an incurred basis. The summary also states the extent of our reliance. We checked the data for consistency and reasonableness. We did not audit them, and the report will say so in the same terms."
+        },
+        {
+          "kind": "paragraph",
+          "text": "I have rerun the experience comparison with the restored year. The pattern described at the working session holds. Claims at the younger issue ages have run below what the industry mortality table predicts, and the older ages are close to expected. Adding the year made the younger-age result firmer. It did little for the older ages, where claims are still few. In checking the rerun I found a subtotal in one of our working exhibits that did not tie to the detail beneath it. The formula error was ours, it was caught before the exhibit left our office, and it does not affect anything described here."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Lawrence has set out in writing how much weight the block's own experience will carry against the industry table at each age. That weighting is a judgment, and we have kept it apart from the experience results so it can be read and challenged on its own terms. It rests on the number of claims behind each age group. Where claims are few, the industry table carries most of the weight. We will send the note to you with the draft report, and we are glad to take you through it sooner if that would help."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Your team has also sent the complete rate schedule from the proposal, covering every issue age. The comparison now works from the full schedule, which was the last input we needed from you for the second half of the review."
+        },
+        {
+          "kind": "heading",
+          "text": "The work ahead",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "What remains is the rate comparison itself and the report. I am projecting the expected claim cost on the block under the weighted assumption. Michelle is setting that cost against the premiums the proposed rates would produce, by issue age and in total. Once that is done we will test how far the result moves under reasonable alternative assumptions, so the report can show whether its conclusion depends on any one of them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "As agreed at the working session, the report will say whether the proposed rates are reasonable in relation to the block's experience and the assumptions the report states. It will not assess the reinsurer's expenses, its margin, or its financial strength. The draft goes through an internal review before it reaches you. Robert Lawrence will sign the final opinion once your comments on the draft have been addressed."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks and open questions",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The thinness of the older-age experience is the main limit on what the report can say. For those ages the conclusion will rest more on the industry table than on the block's own claims, and the report will make that plain. This is not a risk to the timetable. It is a boundary on how firmly we can speak about the older ages. We raise it here so that it is not new to you when the draft arrives."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A revised proposal from the reinsurer would mean rerunning the comparison on the new terms. A revision to the rates alone can be absorbed within the current timetable. A change to the structure of the treaty, such as the retention or the share of each policy ceded, would take longer and could affect the fee. If that happens we will raise it with you before doing the work."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some questions that reach us are related to this review, such as the accounting treatment of the reinsurance or its effect on the company's capital position. The data we hold cannot support an answer to them, and they are outside the scope of the engagement. When one comes up we will say so, and we can discuss a separate scope if the company wants that work done."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and time",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the review is {{fact:f:E-2024-001.fee}}, as set out in the engagement letter. Time charged to date is in line with the work completed, and we expect to finish within the fee. The one development that could change this is a structural revision to the proposal, described above, and we would discuss it with you before any additional work began."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are grateful for how quickly your team has answered our questions, which kept the data work short. Please send questions about this report to Karen Harris, or to Robert Lawrence on any matter of scope."
+        }
       ]
     }
   ]

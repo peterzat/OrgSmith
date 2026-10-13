@@ -106,17 +106,17 @@
     },
     {
       "year": 2020,
-      "revenue": 3161000,
+      "revenue": 2971000,
       "quarters": [
-        859505,
-        791694,
-        767401,
-        742400
+        870116,
+        610642,
+        702887,
+        787355
       ],
       "expenses": {
         "Compensation": 1788100,
         "Office & Facilities": 262500,
-        "Travel": 196550,
+        "Travel": 46180,
         "Professional Services": 163970,
         "Other": 130230
       }
@@ -284,17 +284,17 @@
     {
       "name": "FY2020.quarters-tie-out",
       "ok": true,
-      "detail": "sum(quarters)=3161000 revenue=3161000"
+      "detail": "sum(quarters)=2971000 revenue=2971000"
     },
     {
       "name": "FY2020.expense-tie-out",
       "ok": true,
-      "detail": "sum(expenses)=2541350 total=2541350"
+      "detail": "sum(expenses)=2390980 total=2390980"
     },
     {
       "name": "FY2020.net-income",
       "ok": true,
-      "detail": "revenue=3161000 expenses=2541350 net=619650"
+      "detail": "revenue=2971000 expenses=2390980 net=580020"
     },
     {
       "name": "FY2021.quarters-tie-out",

@@ -5,21 +5,21 @@
   "slug": "meridian-actuarial",
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
-  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0010\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts work carries the discipline of a regulated opinion: precise about\nscope, data reliance, and the standards a piece of work is performed\nunder, plain and undecorated, and careful to separate what the data show\nfrom what was assumed. Between formal deliverables, the actuaries and the\nclient's staff exchange short emails about data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0010\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0056",
       "title": "Engagement Letter: Funding Policy Study for Wells, Walsh and Martinez",
       "genre": "engagement_letter",
-      "date": "2023-04-06",
+      "date": "2023-04-07",
       "authors": [
         {
           "id": "p:robert.lawrence",
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -28,14 +28,21 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         },
         {
           "id": "xp:lisa.hubbard",
@@ -97,14 +104,14 @@
       "doc_id": "d:0057",
       "title": "Kickoff Memo: Funding Policy Study for Wells, Walsh and Martinez",
       "genre": "kickoff_memo",
-      "date": "2023-04-19",
+      "date": "2023-04-20",
       "authors": [
         {
           "id": "p:michelle.banks",
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         }
       ],
       "participants": [
@@ -113,14 +120,21 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         },
         {
           "id": "xp:lisa.hubbard",
@@ -153,6 +167,11 @@
           "kind": "person"
         },
         {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
           "entity": "xp:lisa.hubbard",
           "surface": "Lisa Hubbard",
           "kind": "person"
@@ -180,7 +199,7 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         }
       ],
       "participants": [
@@ -189,14 +208,21 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         },
         {
           "id": "xp:lisa.hubbard",
@@ -214,16 +240,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:lisa.hubbard",
-          "surface": "Lisa Hubbard",
-          "kind": "person"
-        },
         {
           "entity": "x:wells-walsh-and-martinez",
           "surface": "Wells, Walsh and Martinez",
@@ -232,7 +248,7 @@
       ],
       "target_words": 250,
       "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This opens the thread: set the topic up clearly for the replies that follow. Your signature is appended automatically; do not type one. Delivery: this message is sent To Lisa Hubbard at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
-      "engagement_position": "This document is dated about 22% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "engagement_position": "This document is dated about 21% of the way through the engagement (in the early phase); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
     },
@@ -240,14 +256,14 @@
       "doc_id": "d:0059",
       "title": "Meeting Minutes: Funding Policy Study for Wells, Walsh and Martinez",
       "genre": "meeting_minutes",
-      "date": "2023-06-08",
+      "date": "2023-06-09",
       "authors": [
         {
-          "id": "p:david.sherman",
-          "name": "David Sherman",
-          "title": "Senior Analyst",
-          "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -256,14 +272,21 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         },
         {
           "id": "xp:lisa.hubbard",
@@ -282,13 +305,18 @@
       ],
       "mentions": [
         {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
         },
         {
           "entity": "p:michelle.banks",
           "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "p:david.sherman",
+          "surface": "David Sherman",
           "kind": "person"
         },
         {
@@ -303,7 +331,7 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: opens with the conclusion before the detail; prefers numbered lists over bullet points. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -312,14 +340,14 @@
       "doc_id": "d:0060",
       "title": "Status Report: Funding Policy Study for Wells, Walsh and Martinez",
       "genre": "status_report",
-      "date": "2023-06-22",
+      "date": "2023-06-23",
       "authors": [
         {
           "id": "p:michelle.banks",
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         }
       ],
       "participants": [
@@ -328,14 +356,21 @@
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "engagement_summary": "Funding Policy Study for Wells, Walsh and Martinez, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -358,6 +393,11 @@
         {
           "entity": "p:david.sherman",
           "surface": "David Sherman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
         },
         {

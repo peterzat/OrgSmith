@@ -6,7 +6,7 @@
   "org_name": "Ashcombe Advisory Partners LLC",
   "org_type": "corporate communications advisory",
   "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0008\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0008\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0038",
@@ -19,7 +19,7 @@
           "name": "Julie Hill",
           "title": "Managing Partner",
           "dept": "Leadership",
-          "persona": "Sets the firm's tone and keeps the marquee client relationships in her own hands, especially the sensitive announcements that need a partner's sign-off before they go out. Reads a thread all the way to the bottom before she answers, then answers in a sentence or two; warm but brisk, and she expects the same economy back. When a call is close she says so plainly rather than hedging, and she is quick to hand credit to whoever did the drafting."
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         }
       ],
       "participants": [
@@ -28,14 +28,21 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         },
         {
           "id": "p:nancy.suarez",
           "name": "Nancy Suarez",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "persona": "Handles the mechanics of an announcement: wire distribution, embargo timing, and coordination with a client's legal and finance teams on release day. Crisp and literal, she confirms each step as it happens with replies like \"Done.\" or \"Sent, confirmation attached.\" Keeps a running checklist for every release and notices when someone skips a line of it."
+        },
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         },
         {
           "id": "xp:megan.sutton",
@@ -104,7 +111,7 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         }
       ],
       "participants": [
@@ -113,14 +120,21 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         },
         {
           "id": "p:nancy.suarez",
           "name": "Nancy Suarez",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "persona": "Handles the mechanics of an announcement: wire distribution, embargo timing, and coordination with a client's legal and finance teams on release day. Crisp and literal, she confirms each step as it happens with replies like \"Done.\" or \"Sent, confirmation attached.\" Keeps a running checklist for every release and notices when someone skips a line of it."
+        },
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         },
         {
           "id": "xp:megan.sutton",
@@ -153,6 +167,11 @@
           "kind": "person"
         },
         {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
           "entity": "xp:megan.sutton",
           "surface": "Megan Sutton",
           "kind": "person"
@@ -180,7 +199,7 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         }
       ],
       "participants": [
@@ -189,14 +208,21 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         },
         {
           "id": "p:nancy.suarez",
           "name": "Nancy Suarez",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "persona": "Handles the mechanics of an announcement: wire distribution, embargo timing, and coordination with a client's legal and finance teams on release day. Crisp and literal, she confirms each step as it happens with replies like \"Done.\" or \"Sent, confirmation attached.\" Keeps a running checklist for every release and notices when someone skips a line of it."
+        },
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         },
         {
           "id": "xp:megan.sutton",
@@ -214,16 +240,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:nancy.suarez",
-          "surface": "Nancy Suarez",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:megan.sutton",
-          "surface": "Megan Sutton",
-          "kind": "person"
-        },
         {
           "entity": "x:lee-rice-and-adams",
           "surface": "Lee, Rice and Adams",
@@ -243,11 +259,11 @@
       "date": "2021-10-27",
       "authors": [
         {
-          "id": "p:nancy.suarez",
-          "name": "Nancy Suarez",
-          "title": "Communications Associate",
-          "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         }
       ],
       "participants": [
@@ -256,14 +272,21 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         },
         {
           "id": "p:nancy.suarez",
           "name": "Nancy Suarez",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "persona": "Handles the mechanics of an announcement: wire distribution, embargo timing, and coordination with a client's legal and finance teams on release day. Crisp and literal, she confirms each step as it happens with replies like \"Done.\" or \"Sent, confirmation attached.\" Keeps a running checklist for every release and notices when someone skips a line of it."
+        },
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         },
         {
           "id": "xp:megan.sutton",
@@ -282,13 +305,18 @@
       ],
       "mentions": [
         {
-          "entity": "p:nancy.suarez",
-          "surface": "Nancy Suarez",
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
           "kind": "person"
         },
         {
           "entity": "p:amy.carter",
           "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nancy.suarez",
+          "surface": "Nancy Suarez",
           "kind": "person"
         },
         {
@@ -303,7 +331,7 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use a 'Workstreams' heading followed by 'Next Steps'; the 'rather X now than Y later' antithesis.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in medium sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -319,7 +347,7 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         }
       ],
       "participants": [
@@ -328,14 +356,21 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         },
         {
           "id": "p:nancy.suarez",
           "name": "Nancy Suarez",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "persona": "Handles the mechanics of an announcement: wire distribution, embargo timing, and coordination with a client's legal and finance teams on release day. Crisp and literal, she confirms each step as it happens with replies like \"Done.\" or \"Sent, confirmation attached.\" Keeps a running checklist for every release and notices when someone skips a line of it."
+        },
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         }
       ],
       "engagement_summary": "Crisis Communications for Lee, Rice and Adams, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -361,6 +396,11 @@
           "kind": "person"
         },
         {
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
+          "kind": "person"
+        },
+        {
           "entity": "x:lee-rice-and-adams",
           "surface": "Lee, Rice and Adams",
           "kind": "org"
@@ -379,11 +419,11 @@
       "date": "2022-01-25",
       "authors": [
         {
-          "id": "p:nancy.suarez",
-          "name": "Nancy Suarez",
-          "title": "Communications Associate",
-          "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         }
       ],
       "participants": [
@@ -392,14 +432,21 @@
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
         },
         {
           "id": "p:nancy.suarez",
           "name": "Nancy Suarez",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Steady on the logistics of client work: shepherding approvals, keeping status threads current, and making sure a promised follow-up actually arrives. Organized to a fault and calm when a timeline tightens. Her notes are short, orderly, and easy to reply to with a single yes."
+          "persona": "Handles the mechanics of an announcement: wire distribution, embargo timing, and coordination with a client's legal and finance teams on release day. Crisp and literal, she confirms each step as it happens with replies like \"Done.\" or \"Sent, confirmation attached.\" Keeps a running checklist for every release and notices when someone skips a line of it."
+        },
+        {
+          "id": "p:julie.hill",
+          "name": "Julie Hill",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Sets the firm's tone and reads every client announcement before it goes out, usually between meetings and often from her phone. Came up through corporate investor relations and still thinks first about how a sentence will sound to an analyst on an earnings call. Her replies run a line or two, approve or redirect without preamble, and close with her initials; when she writes at length, something is wrong."
         },
         {
           "id": "xp:megan.sutton",
@@ -418,13 +465,18 @@
       ],
       "mentions": [
         {
-          "entity": "p:nancy.suarez",
-          "surface": "Nancy Suarez",
+          "entity": "p:julie.hill",
+          "surface": "Julie Hill",
           "kind": "person"
         },
         {
           "entity": "p:amy.carter",
           "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "p:nancy.suarez",
+          "surface": "Nancy Suarez",
           "kind": "person"
         },
         {
@@ -439,7 +491,7 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a terse, factual register: short declarative sentences, few adjectives, no rhetorical flourishes. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use a 'Workstreams' heading followed by 'Next Steps'; the 'rather X now than Y later' antithesis.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in medium sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms.",
       "engagement_position": "This document is dated about 78% of the way through the engagement (in the later phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""

@@ -2,9 +2,103 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "hollowell-ip",
   "dimension": "org_realism",
-  "findings": [],
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0007",
+        "d:0037",
+        "d:0043",
+        "d:0044",
+        "d:0050",
+        "d:0051"
+      ],
+      "summary": "The firm's one trademark matter is run and substantively drafted by a patent agent, inside a self-described patent-only practice whose own kickoff memo says its patent agents cannot do trademark work.",
+      "evidence": "d:0007 (2019): \"Hollowell Patent Group PLLC is a patent practice ... every matter is handled by people who practice nothing else\"; d:0037 (2022) lists five service lines and none is trademark. The 2024 Jackson Inc clearance is nonetheless staffed with two patent agents (d:0043: Ashley Williams \"will coordinate the searches ... and maintain the docket for the matter\"), and the kickoff concedes \"Matthew and I are patent agents, and our registration does not extend to trademark matters ... Kelly and Mary draw the conclusions\" (d:0044). Yet the Managing Partner's own minutes record that Ashley Williams finished \"her review of the federal and state registrations\" and assign her \"Draft the written analysis of the preferred candidate, then of the remaining candidates in the client's ranked order\" (d:0050), and the client status report is \"Prepared for ... by Ashley Williams, Patent Agent\" with \"A draft analysis of your preferred candidate, prepared by Ashley Williams with Kelly Snyder\" (d:0051). A trademark or IP lawyer reads this as a patent agent practising outside her registration, and asks why a patent boutique with no trademark lawyer took the matter."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-2",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0052",
+        "d:0039",
+        "d:0038"
+      ],
+      "summary": "The roster has no paralegal, legal assistant or office administrator, so the firm's housekeeping mail comes from fee earners while its one non-practitioner, the Docketing Manager, sends none.",
+      "evidence": "Ten people, every one a partner, associate or patent agent except Sharon Woods. The all-staff office note on the supply room, \"The kitchen refrigerator was emptied before the holiday\" and boxes going to off-site storage is signed \"Kelly Snyder / Patent Agent\" (d:0002); the outage notice \"Our outside IT support will take the file server and the document management system offline ... I am the office contact for the work this week\" is from \"Matthew Parrish / Patent Agent\", hired \"principally for search work\" (d:0052, d:0039); building management's key-card notice was \"sent ... to me this morning\", writes Associate Joseph Walker (d:0038). A prosecution practice with six to eight practitioners would normally carry a patent paralegal and someone who runs the office."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-3",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0004",
+        "d:0015",
+        "d:0030",
+        "d:0043",
+        "d:0054",
+        "d:0006",
+        "d:0008",
+        "d:0017",
+        "d:0056",
+        "d:0038"
+      ],
+      "summary": "The firm has no home: no document names its city or state, every engagement letter avoids naming its governing law, and the signature blocks of a firm with one office carry four metro area codes.",
+      "evidence": "Governing law: \"the state in which this firm maintains its principal office\" (d:0004), \"the state in which the firm maintains its office\" (d:0015), \"the state in which our office is located\" (d:0030, d:0054), \"the state in which the firm maintains its principal office\" (d:0043). The firm occupies one building (d:0038: \"the lobby doors stay locked and the front desk is unstaffed\"), yet in one June 2019 thread Kelly Snyder signs \"+1 (617) 555-0198\" (d:0006) under Heather Munoz's \"+1 (312) 555-0117\" (d:0008), and Richard Henderson signs \"+1 (212) 555-0168\" (d:0017) and David Chang \"+1 (206) 555-0102\" (d:0056): Boston, Chicago, New York and Seattle direct dials. A lawyer expects a letter to say which state's law governs it."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-4",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0030",
+        "d:0035"
+      ],
+      "summary": "Prosecution Support is shaped as a five-month fixed-fee project that ends by handing live applications, one still under rejection, back to a client whose only contact is its General Manager, with no withdrawal or successor counsel.",
+      "evidence": "d:0030: \"we will file a new power of attorney\" and, at the end, \"a closing letter listing every date then pending in the designated applications, and from the date of that letter the company will be responsible for those dates.\" d:0035: the standing rejection is \"a narrow one, and ... the next action on it is not expected until after the engagement ends, which means its date belongs on the closing list rather than on our own calendar\", and Joseph Palmer, General Manager, is to \"Name, in writing, the person at the company who will hold the docket\". Prosecution counsel stays of record until it withdraws or is replaced; a patent practitioner would not plan from the outset to leave pending applications with a business officer mid-prosecution."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-5",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0004",
+        "d:0015",
+        "d:0019",
+        "d:0030",
+        "d:0037",
+        "d:0043",
+        "d:0054"
+      ],
+      "summary": "The client book reads as generated: five surname-compound company names, one styled like a law or accounting partnership, each instructed by a general business officer and never by in-house counsel or an engineer.",
+      "evidence": "Clients: \"Odonnell Inc\" (O'Donnell with its apostrophe lost), \"Middleton, Sullivan and Wiley\", \"Keith-Duarte\", \"Jackson Inc\", \"Price-Henson\". Instructing contacts: \"Gary Smith, General Manager\" (d:0004), \"Barbara Blair, Director of Operations\" (d:0015), \"Joseph Palmer, General Manager\" (d:0030), \"Cynthia Hunter, Chief Operating Officer\" (d:0043), \"Tiffany Munoz, Chief Financial Officer\" (d:0054). \"Middleton, Sullivan and Wiley\" commissions a freedom-to-operate opinion on \"its new product\", with a \"bill of materials\" and parts it buys in \"from ... suppliers\" (d:0015, d:0019), and the 2022 overview offers it as a representative client (d:0037). For a boutique serving device makers and hardware startups, no matter in five is instructed by IP counsel, a CTO or an engineering lead."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-6",
+      "dimension": "org_realism",
+      "severity": "note",
+      "docs": [
+        "d:0015",
+        "d:0022",
+        "d:0042",
+        "d:0054"
+      ],
+      "summary": "Outside the trademark matter, titles and the agent/attorney boundary are handled the way a real patent boutique handles them, including the patent-agent-to-associate promotion.",
+      "evidence": "d:0015 (May 2020): \"Richard Henderson and Kelly Snyder, both registered patent agents\"; d:0022 (August 2020, after her promotion): \"Kelly Snyder, Associate\"; d:0054: \"Patent agents are registered to practice before the United States Patent and Trademark Office but are not attorneys, so neither of them will give you a legal conclusion directly\"; d:0042: \"opinions on infringement or validity belong to counsel and are signed by an attorney\". This is why rf:org_realism-1 stands out."
+    }
+  ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

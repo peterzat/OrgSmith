@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0011",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -12,165 +12,92 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Firm Overview",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "About Ashcombe Advisory Partners",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Ashcombe Advisory Partners is a corporate communications and investor relations advisory. We started the firm in 2014 to help management teams say the things that matter about their companies clearly, and to say them at the moment that serves the company best. Our clients sit in the middle of the market, some already public and some working toward it, and they tend to come to us when an ordinary stretch turns into one that will invite questions.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Ashcombe Advisory Partners is a corporate communications and investor relations advisory. We work with mid-market public companies, and with private companies preparing to become public, on how they position themselves, how they announce the things that matter, and how they look after the reputation they have built."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Companies tend to come to us at a point where what they say, and the order in which they say it, carries real consequence. We help them settle the substance before the wording, and we stay close through the announcement itself and the questions that arrive in the hours after it."
         },
         {
           "kind": "heading",
-          "text": "Our practice",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What clients engage us to do",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Most of our work falls into three related lines, and a given engagement usually draws on more than one of them. The first is positioning: helping a company agree how it describes itself and then keeping that description steady through a year that will test it. The second is announcement management, the ordering of earnings, financings, leadership changes, and transactions, so that each one lands as it was meant to and in the sequence that makes sense of it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Most of our engagements draw on more than one of the services described below, and the scope of each is agreed with the client at the outset. The descriptions are indicative, and we expect the shape of any particular engagement to be settled in conversation."
         },
         {
-          "kind": "paragraph",
-          "text": "The third line is the slower work of reputation. In the quiet stretches we help a company build a store of trust, and on the harder days we help it spend that store carefully. Much of this happens well before it is visibly needed, so that a difficult question meets a considered answer instead of an improvised one.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "kind": "list",
+          "items": [
+            "Corporate positioning: a single, defensible account of a company's strategy and prospects, written so that management, the board, and the investor materials can hold to it consistently.",
+            "Investor relations: earnings materials, management talking points, outreach to analysts and investors, and the preparation that comes before a call or a meeting with the investment community.",
+            "Announcements: planning, drafting, and coordinating material announcements, including embargo timing, wire distribution, and the work with a client's legal and finance teams that a release day requires.",
+            "Media relations: preparing a company's dealings with the business and trade press, from briefings and interviews to the handling of inbound inquiries.",
+            "Coverage monitoring: following press, online, and social coverage on a client's behalf, with short briefing notes for management ahead of calls and meetings.",
+            "Crisis and reputation counsel: advice when a matter becomes public before a company is ready to speak to it, with close attention to what can accurately be said at each stage."
+          ]
         },
         {
           "kind": "heading",
-          "text": "The companies we advise",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Examples of our work",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our clients are mid-market companies, some already public and some working toward it, across a range of industries. What they share is less a sector than a moment: a result that surprised the market, a decision that will draw scrutiny, or a story that has begun to drift from the facts. We tend to be most useful when the stakes are high and no one in the room is quite sure what to say next.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We describe client work in this overview only after it has concluded, and only with the agreement of the client concerned. The engagements below are offered as illustrations of the range of the practice; they are not a full account of the companies we have advised."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our work for {{fact:f:E-2017-001.client}} concerned its corporate positioning. Working with members of its leadership, we arrived at one account of the business and its direction that the company's investor materials and its dealings with the press could both rely on."
+        },
+        {
+          "kind": "paragraph",
+          "text": "With {{fact:f:E-2018-001.client}}, we ran an investor relations program across successive reporting periods. We prepared earnings materials and talking points, readied the company's spokespeople for analyst calls, and helped it describe its results in consistent terms from one period to the next."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We advised {{fact:f:E-2021-001.client}} on crisis communications, working alongside its legal and finance teams so that each statement it issued could be supported by what was known at the time. For {{fact:f:E-2022-001.client}}, we conducted a media relations program, preparing its executives for interviews and briefings with the business and trade press and managing the inquiries that followed."
         },
         {
           "kind": "heading",
-          "text": "The way we work",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "How we conduct an engagement",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our habits are plain and we hold to them. We take in the whole of a situation before advising on any part of it, we keep our own memos short, and we give a client our real opinion, including when it is the uncomfortable one. Plain speech saves time on both sides, and it tends to make the hard conversations shorter when they arrive.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Each engagement opens with a signed engagement letter and a kickoff memo, which together record the scope, the people involved on each side, and the decisions the client reserves to itself. From there the work runs largely by email, in threads that keep a plain record of what was drafted, what was approved, and by whom."
         },
         {
           "kind": "paragraph",
-          "text": "In practice that can mean preparing an executive for the pointed question no one wants asked on a live call, sequencing an announcement so the right people learn of it in the right order, or reading a company's own drafts the way an outsider will and saying plainly where they are likely to be misread.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Nothing we prepare reaches the market without the client's express approval. We keep formal documents to the few that serve a purpose, and we answer correspondence promptly, since an announcement timeline seldom allows for a slow reply."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are a small firm, and we intend to remain one. The advisors a client meets at the outset are the people who carry the work through to its conclusion, and every relationship has a partner to whom any concern can be taken directly."
         },
         {
           "kind": "heading",
-          "text": "A few engagements",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Leadership",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A handful of engagements gives a fair sense of the range, though they are only a sample of our work and not an account of the whole. For {{fact:f:E-2017-001.client}}, we led a corporate positioning effort, settling how the company described itself and holding that language steady through a demanding year. For {{fact:f:E-2018-001.client}}, we ran an investor relations program, coordinating the timing and message of a run of announcements so that each one supported the ones on either side of it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "More recently, we advised {{fact:f:E-2021-001.client}} through a period of heightened scrutiny, preparing the difficult answers before they were needed and keeping the company's voice consistent across everyone who spoke for it. For {{fact:f:E-2022-001.client}}, we shaped the story the company carried into a significant announcement and sequenced the disclosure so that the right audiences heard it in the right order. We offer these as illustrations of how we work, not as a full account of the clients we serve.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The firm is led by Julie Hill, Managing Partner, who reads every client announcement before it is released. She came to advisory work from corporate investor relations, and her first question of any draft is how it will sound to an analyst listening on an earnings call."
         },
         {
           "kind": "heading",
-          "text": "How the firm is set up",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Starting a conversation",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We keep the firm deliberately small. A managing partner and a bench of advisors and analysts each carry a few relationships at a time, supported by an operations team that keeps the calendar, the files, and the mailbox in order. Most engagements open with a signed letter and a brief kickoff memo before settling into the daily traffic of email, where the drafting, the routing, and the approvals actually happen.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "That shape is deliberate, because it keeps us close to the detail of a client's correspondence, which is where most of the judgment lives. A firm our size can give a management team a partner's attention on the messages that matter, rather than passing the sensitive ones down a long chain.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Speaking with us",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "If any of this speaks to something your company is weighing, the most useful first step is a short conversation before the matter turns urgent. Please write to Julie Hill, our Managing Partner, and we will make the time to talk it through.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We find it most useful to hear from a company early, while there is still time to shape what it will say. The best first step is a short note to Julie Hill describing what lies ahead, and she will arrange an initial conversation with the advisors best placed to help."
         }
       ]
     },
@@ -179,40 +106,25 @@
       "doc_id": "d:0060",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "It is a pleasure to welcome Julie Bailey to Ashcombe Advisory Partners. She joins the advisory team as a Communications Associate, and a small firm feels the difference quickly when a steady, quick pair of hands comes aboard. Those of us who have already passed her a draft can tell the firm has hired well.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "kind": "heading",
+          "text": "Onboarding Note: Julie Bailey, Communications Associate",
+          "level": 1
         },
         {
           "kind": "paragraph",
-          "text": "Her role is to take a rough draft and send it back clean and ready to go out, and to do it without changing gears between a formal transmittal and a two-line status reply. She will sit with the advisory bench and support several engagements at once, which suits how tightly and quickly she works, and her notes tend to be short and easy to answer, the kind a busy advisor can clear with a single reply. She reports to Michael Morris, our Partner, who will hand her into the live accounts and set the pace of her first assignments.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We are delighted to welcome Julie Bailey to Ashcombe Advisory Partners as a Communications Associate in the Advisory group. This note, prepared by Julie Hill for the personnel file, records the role she has taken up, where it sits within the practice, and what we have agreed for her first weeks with us. With two of us now sharing a first name, we will use full names in internal correspondence wherever there is any risk of confusion."
         },
         {
           "kind": "paragraph",
-          "text": "The first weeks are meant for finding her feet rather than carrying a full book. We would like her to shadow a couple of active engagements, follow the standing status threads, and get a feel for the house preference for clean, short copy before she takes on work of her own. Our operations team will set her up on the mailbox and the shared files in the first day or two, so nothing practical stands in her way, and the point of these early weeks is simply to let her watch a full engagement move from one end to the other before she owns any of it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Julie Bailey will draft and check client materials across the advisory bench, from announcement language and management talking points to the questions and answers that accompany them. She reports to Michael Morris, Partner, who runs the bench day to day and will decide which client relationships she joins first and in what order. Her care with the firm's style conventions was plain throughout our conversations with her, and we expect it to make her a valuable first reader of drafts before they go further."
         },
         {
           "kind": "paragraph",
-          "text": "Julie Hill will sit down with Julie Bailey in her first week to walk through the accounts she will help carry and to answer whatever the early days have raised. Until then, please make her welcome when you pass her desk, and point her toward anything she needs to get started. We are glad she chose us, and we mean to give her first weeks here a good start.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Her laptop, firm email account, and building access are in place, and the operations team is taking her through the shared drive, our filing conventions, and the habit of keeping each engagement's correspondence within its own thread. Before she drafts for any engagement, she will read its file from the engagement letter and kickoff memo forward, so that she knows what the client has already approved. Client drafts and announcement timings are confidential until the client releases them, and she will discuss them only with colleagues working on the engagement concerned."
+        },
+        {
+          "kind": "paragraph",
+          "text": "During this first period, nothing client-facing will go out under her name alone; her drafts go to Michael Morris for review before a client sees them, and we would encourage her to ask whenever an instruction is less than clear. Her first step is a working session with Michael Morris this week, at which the two of them will agree the matters she will join and the order in which she takes them up."
         }
       ]
     },
@@ -222,39 +134,19 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Hi Lisa,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Hi all,"
         },
         {
           "kind": "paragraph",
-          "text": "We are overdue for a team lunch, and I would like to get one on the books before the quarter closes and everyone's calendar fills up, so when you have a moment could you find a Friday in the next couple of weeks, hold the back room at the place around the corner, and put a tentative block on people's calendars. Nothing elaborate, just an hour together away from the desks.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "With the holiday tomorrow and most of us back in the office for the rest of the week, we are going to have lunch brought into the conference room on Thursday at noon, on the firm, and there is no agenda beyond getting everyone around one table for an hour, which we have not managed in some time."
         },
         {
           "kind": "paragraph",
-          "text": "Once you have the date locked I will write the group and make sure people actually turn up; the scheduling always seems to land on Lisa Flores, and I do notice it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "So that the operations team can place the order on Wednesday afternoon, please reply to me by noon on Wednesday with (1) whether you will be there and (2) any dietary needs or allergies we should plan around, and if you are out of the office on Thursday, just say so and we will plan the next one with you in mind."
         },
         {
           "kind": "paragraph",
-          "text": "Sincerely",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Sincerely"
         }
       ]
     },
@@ -264,39 +156,19 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Nancy, Julie,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Nancy and Julie,"
         },
         {
           "kind": "paragraph",
-          "text": "Building management sent the revised parking assignments this morning, and two of our spaces are affected. The reserved row on level two will be closed for resurfacing over the next two weekends. On the building's list, the spaces recorded to Nancy Suarez and Julie Hill move to the visitor bays by the north entrance for that period.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The building management office sent a notice this afternoon about the garage. I am passing it on because the three of us hold the firm's parking permits. First, the garage will close after business on Wednesday for resurfacing. It will then stay closed through the holiday and the weekend that follows. It reopens on Monday morning, and our permits will work as before."
         },
         {
           "kind": "paragraph",
-          "text": "Temporary dashboard placards are required, and the front desk will have them from Thursday. Please collect yours before the weekend, and tell me if the north bays do not suit you so I can ask for a different assignment.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "During the closure, permit holders may use the public lot across the street by showing their permit at the booth. I have saved the notice to the office folder on the shared drive. If either of you would like a printed copy for the attendant, please tell me by Wednesday afternoon and I will leave one on your desk."
         },
         {
           "kind": "paragraph",
-          "text": "Best",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Best"
         }
       ]
     }

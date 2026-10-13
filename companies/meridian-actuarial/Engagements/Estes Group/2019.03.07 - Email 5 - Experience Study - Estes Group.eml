@@ -1,7 +1,8 @@
 From: David Sherman <david.sherman@meridianactuarial.com>
 To: Barbara Hall <barbara.hall@estesgroup.com>
 Cc: Jeffrey Ochoa <jeffrey.ochoa@meridianactuarial.com>,
- Megan Dudley <megan.dudley@meridianactuarial.com>
+ Megan Dudley <megan.dudley@meridianactuarial.com>,
+ Robert Lawrence <robert.lawrence@meridianactuarial.com>
 Subject: RE: Experience Study for Estes Group
 Date: Thu, 07 Mar 2019 12:36:00 +0000
 Message-ID: <d0036.meridian-actuarial@meridianactuarial.com>
@@ -17,30 +18,31 @@ MIME-Version: 1.0
 
 Good morning Barbara,
 
-The census extract your office sent over loaded without trouble, and the acti=
-ve count ties to your summary. We can build the study on this file. A small n=
-umber of records need a definition from your side before we rely on them, and=
- I have set those out below.
+To close out the reconciliation question below: the status history now ties t=
+o the year-end census for every year of the study period except the first. We=
+ can begin the termination and retirement tabulations on the years that tie, =
+and add the first year once one coding question is settled.
 
-Megan Dudley reconciled the file against the Estes Group payroll register yes=
-terday, and the two agree line for line except for one group. A handful of pa=
-rticipants carry a status code we cannot read with confidence. A study is onl=
-y as sound as the census beneath it, so we would like the reading confirmed b=
-efore we treat those records as final. The Estes Group data are otherwise cle=
-an.
+For your staff's reference, the reconciliation ran as follows.
 
-Before we close out the census, could your office confirm the following:
+1. We took each year-end census and rolled its active count forward to the ne=
+xt year-end, using the status changes recorded in the history file.
 
-  - Whether the flagged status code marks deferred vested participants or ter=
-minations with no vested benefit.
-  - Whether the mid-year rehires should keep their original hire dates, or th=
-e later ones, for the service count.
+2. For every year after the first, the rolled-forward count agrees with the f=
+ollowing census once the rehires flagged in the file are counted back in as a=
+ctives.
 
-Nothing on the assumptions is settled, and you will see that work before any =
-result depends on it. Jeffrey Ochoa is building the model in parallel, so the=
-se two confirmations are the only items holding up the next step. Once they a=
-re settled, Megan Dudley closes the census and we move on to the experience c=
-ounts.
+3. In the first year, a group of records leaves the active census with no sta=
+tus change recorded. Most of the same people reappear that year under a new e=
+mployee number, which points to internal transfers rather than terminations. =
+The file itself does not say so.
+
+Could someone in your benefits area confirm whether those records are transfe=
+rs and, if they are, send the old and new employee number for each person? Un=
+til we have that, we will hold them out of the first-year termination counts =
+instead of treating them as withdrawals, and the Estes Group data summary wil=
+l describe that treatment. Any first-year rate we show before then is prelimi=
+nary.
 
 Best
 
@@ -50,51 +52,60 @@ David Sherman
 Senior Analyst
 +1 (312) 555-0179
 
-On 2019-03-06, Megan Dudley wrote:
-> Hello Barbara,
+On 2019-03-06, Robert Lawrence wrote:
+> Good morning Barbara,
 >
-> The pay file came through, thank you, and it opens without trouble. That co=
-vers what Jeffrey Ochoa needs for the salary-increase side, so he can start t=
-here while I work the rest.
+> David's match is good news for the study. The question is now much narrower=
+. It concerns one group of people who left in one year, and nothing else in t=
+he Estes Group files.
 >
-> The one piece still open is the withdrawal detail. The contribution history=
- you sent is complete, but the file does not separate a member who left and t=
-ook a refund from one who left the balance in the fund, and that distinction =
-is exactly what the termination experience turns on. If your system can expor=
-t the withdrawal transactions with a reason code, that would settle it cleanl=
-y for the Estes Group study.
+> We will not treat that year as unusual unless your records give us a reason=
+ to. If it turns out to be ordinary turnover, it stays in the counts like any=
+ other year. If there was an event behind it, we will measure it, show it sep=
+arately in the report, and base the termination assumption on the remaining y=
+ears.
 >
-> Send it whenever it is convenient, and I will reconcile it against the cens=
-us the same day, so we can close the Estes Group data and move to the tabulat=
-ion.
+> To keep the work moving this week, we need:
 >
-> Best
+>   - 1. A short answer to the questions in my earlier note, even if only for=
+ the most recent year.
+>   - 2. The name of someone on your HR staff whom Megan can work with on the=
+ record-level check.
+>
+> Sincerely,
+> Robert
 >
 >
 > --
-> Megan Dudley
-> Actuarial Associate
-> +1 (206) 555-0146
+> Robert Lawrence
+> Managing Actuary
+> +1 (212) 555-0117
 >
 > On 2019-03-06, David Sherman wrote:
 > > Good morning Barbara,
 > >
-> > That answers it, thank you. The records with a termination date and no co=
-mmencement are deferred benefits, so we will count them as your office does, =
-and the member data for the Estes Group study is now closed on our end.
+> > The provisional match has closed most of the gap. Matching on name, date =
+of birth, and hire date pairs nearly all of the unmatched records from the pr=
+ior year's Estes Group file with records in the most recent file under new nu=
+mbers.
 > >
-> > The next piece we need is on the financial side. To set the salary-increa=
-se experience against the assumption, Jeffrey Ochoa needs the pay records for=
- the study period, and Megan Dudley needs the contribution and withdrawal det=
-ail to tie out the fund's cash flow. Whatever format your system exports is f=
-ine; we would rather reconcile from your native report than ask your staff to=
- reshape it for us.
+> > What remains is a smaller group who were active in the prior file and do =
+not appear in the most recent one under any number. On the data alone, these =
+look like genuine departures within a single year. They are the people Robert=
+'s questions bear on, and we will hold the termination tables until we know w=
+hether something lay behind them. This result is preliminary and will be reru=
+n if a crosswalk turns up.
 > >
-> > There is no rush on this before next week. Once it is in hand, we begin t=
-abulating the Estes Group experience and can give you a first read on where t=
-he current assumptions are holding and where they are not.
+> > To finish this step, we would need:
 > >
-> > Best
+> >   - 1. Your agreement for us to send the list of these records to your HR=
+ staff through our secure file transfer site, so they can check each one agai=
+nst their files.
+> >   - 2. The reason recorded for each departure, where your HR system holds=
+ one.
+> >
+> > Best,
+> > David
 > >
 > >
 > > --
@@ -102,53 +113,67 @@ he current assumptions are holding and where they are not.
 > > Senior Analyst
 > > +1 (312) 555-0179
 > >
-> > On 2019-03-05, Megan Dudley wrote:
-> > > Hello Barbara,
+> > On 2019-03-05, Robert Lawrence wrote:
+> > > Good morning Barbara,
 > > >
-> > > Thank you for clarifying the status codes so quickly. With that in hand=
-, the member file reconciles to your summary line for line, and we can treat =
-the active and deferred groups as settled.
+> > > I would like to add one question to David's while your staff look into =
+the employee numbers. The files tell us what happened. They cannot tell us on=
+ their own whether a year was ordinary. If a group of employees left at once,=
+ we need to know why before we let that year shape the termination or retirem=
+ent rates.
 > > >
-> > > One more thing would help us before we start tabulating. A handful of r=
-ecords show a termination date but no benefit commencement, and we want to be=
- sure we count them the way your office intends rather than guessing. Could y=
-ou tell us whether those members are still owed a deferred benefit or whether=
- they took their money out? David Sherman flagged them yesterday, and Jeffrey=
- Ochoa would rather build the assumption around the real answer than around o=
-urs.
+> > > It would help us to know:
 > > >
-> > > If you can point us to whoever keeps the payment records at Estes Group=
-, we will take the detail up with them directly and keep the Estes Group stud=
-y moving.
+> > >   - 1. Whether Estes Group had any layoffs or reductions in force durin=
+g the study period.
+> > >   - 2. Whether you offered an early retirement window or any other ince=
+ntive to leave.
+> > >   - 3. Whether any location or business unit was sold or closed.
 > > >
-> > > Best
+> > > None of this will change the counts. It will change how much weight we =
+give them, and our report will say which years we treated differently and why=
+. A short answer is fine for now. We can follow up on any item that needs mor=
+e detail.
+> > >
+> > > Sincerely,
+> > > Robert
 > > >
 > > >
 > > > --
-> > > Megan Dudley
-> > > Actuarial Associate
-> > > +1 (206) 555-0146
+> > > Robert Lawrence
+> > > Managing Actuary
+> > > +1 (212) 555-0117
 > > >
 > > > On 2019-03-04, David Sherman wrote:
 > > > > Good morning Barbara,
 > > > >
-> > > > We have started the Estes Group experience study, and the first data =
-extract your office sent is loading cleanly. Jeffrey Ochoa has the model shel=
-l up, and I am reconciling the member counts against last year's records. Bef=
-ore we go further, there are two points on the data where I need your help.
+> > > > The census files for the Estes Group study are loaded, and every file=
+ links cleanly to the one before it except the most recent. That file needs y=
+our help before we count any terminations or retirements.
 > > > >
-> > > >   - The member file uses a status code we cannot read with confidence=
-. Could you confirm how it distinguishes active members from those who have t=
-erminated with a deferred benefit?
-> > > >   - The observation window is not stated in the extract. Please confi=
-rm the first and last plan years you want the experience drawn from, so we me=
-asure against the period you intend.
+> > > > A large share of the employees active in the prior year's file do not=
+ appear in the most recent file under the same employee number. Most of them =
+are there under new numbers, with the same names, dates of birth, and hire da=
+tes. Taken at face value, the files would show each of them leaving and a new=
+ employee being hired in their place. That would overstate turnover and disto=
+rt the termination rates. We have not adjusted anything yet.
 > > > >
-> > > > Once we have those two answers, the census for the Estes Group study =
-is settled on our end, and Megan Dudley can begin the reconciliation in earne=
-st. Neither point is urgent this week.
+> > > > To resolve it, we would need the following:
 > > > >
-> > > > Best
+> > > >   - 1. Confirmation of whether employee numbers were reissued in the =
+past year, for example in a change of payroll or HR system.
+> > > >   - 2. If they were, any crosswalk your staff hold from the old numbe=
+rs to the new ones.
+> > > >   - 3. If no crosswalk exists, your agreement that we match records o=
+n name, date of birth, and hire date instead.
+> > > >
+> > > > So that the work does not stall, we will run a provisional match on t=
+hose three fields this week and treat it as preliminary until we hear from yo=
+u. A few smaller record questions will come separately from Megan; none of th=
+em holds up the study.
+> > > >
+> > > > Best,
+> > > > David
 > > > >
 > > > >
 > > > > --

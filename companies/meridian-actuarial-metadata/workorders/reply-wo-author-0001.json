@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0001",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -20,51 +20,80 @@
         },
         {
           "kind": "paragraph",
-          "text": "This letter sets out the terms on which we will carry out the actuarial valuation of the pension plan sponsored by Howard and Sons, and it asks for your signature so the work can begin. It follows our conversation this spring. We have put in writing what we will do, who will do it, and the basis on which we will do it, so that there is a shared record to return to as the engagement runs its course."
+          "text": "Thank you for asking us to value the pension plan that {{fact:f:E-2016-001.client}} sponsors for its employees. We appreciated the time you and your staff gave us in our first conversations. They left us with a clear picture of what the company needs from this work and when it needs it. This letter sets out the scope of the valuation, the information we will rely on, the standards we will work under, and the terms of our engagement. It becomes our agreement when you sign it and return a copy to us."
         },
         {
           "kind": "heading",
-          "text": "The Work We Are Engaged To Do",
+          "text": "What the Valuation Will Cover",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We will perform a full actuarial valuation of the plan as of its valuation date, measuring the plan's liabilities and its funded position and setting out the funding that follows from them. The work will be performed under the Actuarial Standards of Practice that apply to a valuation of this kind. We keep three things apart in everything we deliver: what the data show, what we have assumed, and what we conclude. You should be able to read a result and see which of the three it rests on."
+          "text": "We will perform an actuarial valuation of the plan for funding purposes. The valuation measures the benefits the plan has promised as of the valuation date and compares that measure with the plan's assets on the same date. From that comparison we will determine the minimum contribution the funding rules require for the plan year and the largest contribution the company may deduct for it."
         },
         {
           "kind": "paragraph",
-          "text": "The report itself is organized the same way we think. What the data show comes first, on its own. The assumptions and methods come next, stated so that a reader can see each one and weigh it. Our conclusions come last, and they rest visibly on the two sections above them. Nothing in the report asks you to take a judgment on faith."
+          "text": "Our report will set out the results, the data and plan provisions they rest on, and the assumptions and methods used to produce them. It will also reconcile our results to those of the prior valuation. That way you can see which changes came from the plan's own experience and which came from changes in method or assumptions."
         },
         {
           "kind": "paragraph",
-          "text": "The engagement has four parts, and the report will document each of them:"
+          "text": "One piece of work sits outside this letter. The figures the company reports in its financial statements are a separate measurement under different rules, and we have not been asked to prepare them. If you want them, we will set out the terms in a separate letter."
+        },
+        {
+          "kind": "heading",
+          "text": "The Information We Will Rely On",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A valuation is only as sound as the information behind it. We will rely on data and documents supplied by the company and by the plan's trustee, and we will not audit them. We will review them for completeness and for consistency with the prior valuation. Where we find a gap or a conflict, we will tell you what we found and what we did about it, and our report will say so as well."
+        },
+        {
+          "kind": "paragraph",
+          "text": "To start the work, we will need four things from you:"
         },
         {
           "kind": "list",
           "items": [
-            "The participant census and asset information that you provide, which we reconcile and rely upon, with that reliance stated plainly in the report.",
-            "The plan provisions as set out in the current plan document, valued as they are written.",
-            "The actuarial assumptions and methods, which we set out on their own so they are never confused with the measured results.",
-            "A written report and a workbook of supporting exhibits, which together let a reader trace every number to its source."
+            "1. Participant data as of the valuation date, covering active employees, former employees entitled to a deferred benefit, and retirees and beneficiaries in pay.",
+            "2. The plan document and every amendment adopted since the prior valuation.",
+            "3. Trust statements for the plan year, showing assets, contributions received, benefits paid, and expenses.",
+            "4. The most recent valuation report and any notes on data or method that came with it."
           ]
         },
         {
+          "kind": "paragraph",
+          "text": "Jennifer Vasquez will send a detailed request in the first week, with the file layout we prefer. Your staff should not spend time reformatting anything to match it. Files sent as your systems produce them are fine, and we will do the conversion on our side."
+        },
+        {
           "kind": "heading",
-          "text": "Our Reliance on Your Data",
+          "text": "Standards and Assumptions",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A valuation is only as sound as the records it is built on. We will rely on the census and asset data your office provides, and we will reconcile it before we use it. Where a record is unclear, we will come back to you rather than guess. We do not audit the data, and we say so in the report; what we do is check it for internal consistency and against the prior year, and document what we relied on."
+          "text": "We will perform the valuation in accordance with the Actuarial Standards of Practice that apply to the measurement of pension obligations, including the standards on data quality and on the selection of assumptions. The actuary who signs the report will meet the qualification standards that apply to issuing it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some assumptions are prescribed by law for funding purposes, and we will use them as the law requires. Others, such as rates of retirement, termination, and pay increase, are ours to select. We will review those against the plan's own experience where the data are sufficient to say something, and we will discuss any change we propose with you before we adopt it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Every result in our report depends on those assumptions. The plan's actual experience will differ from them, and when it does, the cost of the plan will differ from what the valuation shows. Our report will state that plainly, and it will show how the main results move when the most important assumptions change."
         },
         {
           "kind": "heading",
-          "text": "The People on the Engagement",
+          "text": "Who Will Do the Work",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Jennifer Vasquez, a consulting actuary in our firm, will lead the engagement day to day and will be your point of contact for the questions that come up as we go. David Sherman, a senior analyst, will build and reconcile the valuation workbook and document the data we rely on. Jeffrey Ochoa, an actuarial analyst, will carry the modeling and chase down anything in the results that needs explaining. I will review the work and sign the actuarial opinion. The professional responsibility for what we conclude is mine."
+          "text": "Jennifer Vasquez, Consulting Actuary, will lead the work day to day. She is your first contact for anything about scope, data, or timing. David Sherman, Senior Analyst, will load and check the participant data and build the valuation model. Jeffrey Ochoa, Actuarial Analyst, will summarize the plan provisions and do the groundwork on the assumption review. I will review the results before they reach you, and I will sign the actuarial certification."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Most of the time you will hear from Jennifer Vasquez. If anything in this work is not going the way this letter describes, I would like you to tell me directly."
         },
         {
           "kind": "heading",
@@ -73,7 +102,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Subject to your signature on this letter, we will begin the work on {{fact:f:E-2016-001.start}}. Our first step is to request the census and asset records and to confirm the plan provisions we are to value. We will keep you informed of where the work stands, and we will not let a question sit quietly on our side when a short note to you would settle it."
+          "text": "We will begin work on {{fact:f:E-2016-001.start}}. We expect the valuation to take about five months from that date. Most of that time is governed by how quickly the data arrive and how many questions they raise. The first weeks go to the data, and we will not calculate any results until the data have been reviewed and the open questions settled with your staff."
         },
         {
           "kind": "heading",
@@ -82,16 +111,16 @@
         },
         {
           "kind": "paragraph",
-          "text": "Our fee for the engagement, and the basis on which it is set, are stated on the signature page, which counsel for each side has executed separately; they are not repeated here. We invoice monthly for the prior month's work, and each invoice is due within thirty days of its date. If a question about an invoice arises, tell us and we will work it through before it becomes a dispute."
+          "text": "Our fee for this engagement is fixed. It is stated on the signature page, which counsel will execute with this letter. We will invoice the fee in stages as the work progresses, and invoices are payable within thirty days of receipt. Work outside the scope described here, such as additional projections or meetings beyond those the valuation needs, will be billed only after you approve it in writing."
         },
         {
           "kind": "heading",
-          "text": "Term and Ending the Engagement",
+          "text": "Term and Termination",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This agreement takes effect on the date you sign below and continues until we deliver the valuation and you have paid our final invoice for it. Either of us may end it earlier on written notice to the other. If the engagement ends before the valuation is complete, you will owe us for the work done up to that point, and we will hand over what we have in a usable form."
+          "text": "This engagement runs from the start of work until we deliver the valuation report and answer your questions on it. Either of us may end it earlier by giving the other thirty days' written notice. If it ends early, you will pay for work performed up to that date, and we will return the data you supplied along with a written account of where the work stands."
         },
         {
           "kind": "heading",
@@ -100,16 +129,20 @@
         },
         {
           "kind": "paragraph",
-          "text": "We will hold what you give us in confidence and use it only for this engagement. Within the firm, access is limited to the people named above and to those whose work on the valuation requires it. We will not disclose your information outside the firm without your consent, except where the law or our professional standards require it, and in that event we will tell you unless we are barred from doing so."
+          "text": "Participant data contain personal information about your employees and their families, including dates of birth and identification numbers. We will hold that information in confidence, use it only for this engagement, and keep it on systems with restricted access. After the engagement ends, we will keep it only as long as our record-retention obligations require."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our report is prepared for {{fact:f:E-2016-001.client}} and for the plan. The plan's auditors and the agencies that oversee the plan may receive it, but no one else may rely on it for another purpose without our written consent."
         },
         {
           "kind": "heading",
-          "text": "The Limit of Our Liability",
+          "text": "Limitation of Liability",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our liability to you arising out of this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, except in the case of our fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss. Any claim must be brought within one year of the delivery of the report."
+          "text": "We will do this work with the care and skill expected of a qualified actuary. Our results depend on the data and documents supplied to us, and we are not responsible for errors that come from information that was incomplete or inaccurate when we received it. Our total liability arising from this engagement is limited to the fees paid under this letter. Neither of us will be liable to the other for indirect or consequential loss. Nothing here limits a liability that the law does not permit us to limit."
         },
         {
           "kind": "heading",
@@ -118,11 +151,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Before either of us begins a proceeding, we will try to resolve the matter through discussion between people with authority to settle it."
+          "text": "This letter is governed by the laws of the state in which our principal office is located. If any provision of it is found unenforceable, the rest of the letter stands."
         },
         {
           "kind": "paragraph",
-          "text": "If these terms match your understanding, please sign both copies where shown, keep one for your records, and return the other to me. If anything here does not read the way you expected, call me before you sign and we will settle it. We are glad to be doing this work for you, and we will give it the care it deserves."
+          "text": "If this letter reflects our understanding, please sign below and return a copy to me. When it arrives, Jennifer Vasquez will call your office to set a time to go through the data request with your staff."
         },
         {
           "kind": "paragraph",
@@ -143,68 +176,64 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: David Sherman, Jeffrey Ochoa, Carol Cooper\nFrom: Jennifer Vasquez\nRe: Howard and Sons pension valuation"
+          "text": "To: David Sherman, Jeffrey Ochoa\nCc: Carol Cooper\nFrom: Jennifer Vasquez, Consulting Actuary\nRe: {{fact:f:E-2016-001.client}} pension valuation, opening plan"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement began {{fact:f:E-2016-001.start}}. Our objective is a funding valuation of the {{fact:f:E-2016-001.client}} plan that rests on data we have checked, provisions we have confirmed, and assumptions we can defend in writing. No liability is run until the first two are settled."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Elizabeth Horne, Director of Operations, is our contact at the company. Every request to the client goes through her office, and every request goes in writing. If you need something from her staff, it goes on the request log first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The deliverable keeps three things apart: what the data show, what we assumed, and what we conclude from both. Each is its own section, and the conclusions name the assumptions they depend on."
         },
         {
           "kind": "heading",
-          "text": "Objective",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This memo sets the plan for the {{fact:f:E-2016-001.client}} pension valuation. The objective is a full actuarial valuation of the plan and a report the client's board can act on. The deliverables are the report and a workbook of exhibits that supports it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The valuation measures the plan's liabilities and its funded position as of the valuation date, on the funding basis and the accounting basis. It is performed under the applicable Actuarial Standards of Practice. We keep measurement, assumption, and conclusion separate in the report, as we always do."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our point of contact is Elizabeth Horne, Director of Operations. Data requests and scheduling go through her office. Client-facing questions come to me before they go to her."
-        },
-        {
-          "kind": "heading",
-          "text": "Assignments",
+          "text": "Who Carries Each Piece",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Data. David Sherman reconstructs the participant census and the asset records, reconciles both, and documents our reliance. He ties the headcount and the assets to the prior year and to the client's own summaries, and flags any gap before anything is modeled.",
-            "Modeling. Jeffrey Ochoa builds the valuation model and prepares the assumption inputs for review: the interest rate, mortality, and the retirement and termination rates. He sets no assumption as final until it has been reviewed, and he traces any surprising result back to the input that produced it.",
-            "Client relationship. I hold the scope calls and the contact with Elizabeth Horne. I own the questions the board wants answered and the harder job of saying which of them the data can answer and which it cannot.",
-            "Scheduling. Carol Cooper tracks the data requests and the delivery date against the board's calendar, and keeps the open items visible so nothing waits on a request no one has sent."
+            "1. Data: David Sherman. Load the census exactly as received, then run the edit checks. That means missing or impossible dates, duplicate identifiers, pay outside a reasonable range, and status codes that disagree with the dates beside them. Reconcile counts by status to the prior valuation report. Every exception goes on the data log with its source and its resolution.",
+            "2. Plan provisions: Jeffrey Ochoa. Summarize the plan document and each amendment adopted since the prior valuation. Mark any provision the prior report describes differently from the document. Those differences come to me before anything goes to the client.",
+            "3. Assumption review: Jeffrey Ochoa. Compare the prior assumptions for retirement, termination, and pay increases with what the data show, where the data are large enough to show anything. Observed experience and recommended assumptions go in separate sections. A recommendation is a judgment and is labeled as one.",
+            "4. Valuation model: David Sherman. Code it from the provisions summary, not from the prior report. Test it against the prior valuation's published results before it is used for ours, and write down every difference you cannot close.",
+            "5. Administration: Carol Cooper. Confirm the countersigned letter is on file, open the engagement file and billing code, and set up the secure transfer site for client files. She also keeps the request log, so we know what has gone to the client and what has come back."
           ]
         },
         {
+          "kind": "paragraph",
+          "text": "Review follows the same order. I review the data log before the model is run, and the provisions summary before it is coded. Nothing goes to the client without my review, including data questions."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Any figure in a draft must trace to a file or a document. If it does not, mark it and say where the gap is."
+        },
+        {
           "kind": "heading",
-          "text": "What the Work Depends On",
+          "text": "Opening Steps",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Two things gate the rest. The first is a clean confirmation of the plan provisions we are to value, against the current plan document. The second is complete census and asset data. Until both are in hand, we set assumptions provisionally and value nothing."
+          "text": "The schedule depends on when the census arrives, so the data request goes first. I want the first three of these done by the end of the week."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. David Sherman: the data request and preferred file layout, written for Elizabeth Horne's office. It should say plainly that files in their system's own format are acceptable.",
+            "2. Jeffrey Ochoa: a list of the plan documents we hold and the ones we still need, with the prior valuation report at the top.",
+            "3. Carol Cooper: the transfer site ready and tested before the request goes out, and the request entered on the log the day it is sent.",
+            "4. Me: a call with Elizabeth Horne once the request is out, to walk her staff through it."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Data quality is the usual risk on a first valuation for a client. Expect the census to need a pass for status codes and for participants whose records do not agree with the summary. We raise those with Elizabeth Horne early rather than carry them into the model."
-        },
-        {
-          "kind": "heading",
-          "text": "The First Two Weeks",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Work begins on {{fact:f:E-2016-001.start}}. I will send the data request to Elizabeth Horne this week. It will list the census fields and the asset statement we need, with the format we want them in."
-        },
-        {
-          "kind": "paragraph",
-          "text": "David Sherman loads the census as soon as it arrives and reports any gap the same day. Jeffrey Ochoa drafts the assumption memo for my review before any assumption is treated as settled. We do not value the plan until the plan document and the data are both confirmed."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Carol Cooper will circulate the schedule once the data request is out, mapped to the board's meeting dates so the draft and the final report land where the board can use them."
+          "text": "I will send the request once the first three are done and reviewed. From then until the data are closed, we meet weekly on the data log and the list of open questions."
         }
       ]
     },
@@ -214,23 +243,31 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Elizabeth Horne\nCc: David Sherman, Jeffrey Ochoa"
-        },
-        {
-          "kind": "paragraph",
           "text": "Hi Elizabeth,"
         },
         {
           "kind": "paragraph",
-          "text": "This note opens our working thread for the {{fact:f:E-2016-001.client}} pension valuation. We have started. David Sherman is reconstructing the participant census from the file your office sent last week, and Jeffrey Ochoa is setting up the valuation model."
+          "text": "I am starting this thread for data questions on the {{fact:f:E-2016-001.client}} valuation. My colleagues on copy will answer here as well."
         },
         {
           "kind": "paragraph",
-          "text": "Two items from your side will keep us on schedule. We need your confirmation that the plan provisions we are to value match the current plan document at Howard and Sons, and the most recent asset statement whenever it is to hand. Neither is urgent this week."
+          "text": "The census file arrived last week and is loaded, and most records passed our first checks. Two gaps remain: some former employees have a termination date but no benefit status, and some active records have no date of hire. We have not filled either gap by assumption."
         },
         {
           "kind": "paragraph",
-          "text": "Please keep this thread as our record for the data and the assumptions. Questions sent here reach the whole team at once."
+          "text": "The data and plan terms need to be settled before we calculate anything. These items would close that stage:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Trust statements for the plan year, showing assets, contributions received, and benefits paid. The funding results are measured against these.",
+            "Any plan amendments adopted since the last valuation, or confirmation that there were none. We value the plan on its current terms, so we need them in hand.",
+            "Hire dates for the active records that lack them. Service is counted from those dates, and benefits follow from service."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Once these are in, we will send a short note on what the data show. Questions on assumptions will follow separately."
         },
         {
           "kind": "paragraph",
@@ -244,19 +281,15 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Elizabeth Horne\nCc: Jennifer Vasquez, David Sherman"
-        },
-        {
-          "kind": "paragraph",
           "text": "Good morning Elizabeth,"
         },
         {
           "kind": "paragraph",
-          "text": "The census file for the {{fact:f:E-2016-001.client}} plan is usable, and the headcount ties to your summary. David Sherman reconciled it yesterday and it agrees line for line."
+          "text": "One added column in the census file would settle the terminated records mentioned below. For each of those people, the file shows a termination date and nothing more. It does not tell us whether they were paid out, are waiting on a deferred benefit, or have already started receiving one."
         },
         {
           "kind": "paragraph",
-          "text": "One field needs a definition before we rely on it. The file groups a set of participants under a status code we cannot read with confidence. Could you confirm how it distinguishes active participants from deferred vested ones? Once we have that, the census for the Howard and Sons plan is settled on our end, and nothing about the assumptions is locked before you have seen it."
+          "text": "We have not assumed an answer for any of them, and we would like not to have to. If your benefits staff can add a status from the {{fact:f:E-2016-001.client}} records, in whatever terms your system uses, we will map it on our side and load it straight back into the model."
         },
         {
           "kind": "paragraph",
@@ -270,23 +303,19 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Elizabeth Horne\nCc: David Sherman, Jeffrey Ochoa"
-        },
-        {
-          "kind": "paragraph",
           "text": "Hi Elizabeth,"
         },
         {
           "kind": "paragraph",
-          "text": "Following Jeffrey Ochoa's note, one point on scope. We will value the plan provisions exactly as they are written in the current plan document at Howard and Sons. Your confirmation of that document is the item that unblocks the rest."
+          "text": "One addition to the request below. A lump sum paid after the valuation date is still a liability on that date."
         },
         {
           "kind": "paragraph",
-          "text": "On the asset side, the most recent custodian statement is what we need, whenever it is available. There is no rush this week. David Sherman will fold it into the workbook when it arrives."
+          "text": "To place those records correctly, we need the payment date wherever your records show a lump sum. Where no payment was made, the field can be left blank."
         },
         {
           "kind": "paragraph",
-          "text": "Nothing is being valued yet. We hold the {{fact:f:E-2016-001.client}} numbers until the plan document and the data are both confirmed."
+          "text": "The trust statements and amendments remain the first priority. We cannot calculate the {{fact:f:E-2016-001.client}} funding results without them."
         },
         {
           "kind": "paragraph",
@@ -300,19 +329,15 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Elizabeth Horne\nCc: Jennifer Vasquez, David Sherman"
-        },
-        {
-          "kind": "paragraph",
           "text": "Good morning Elizabeth,"
         },
         {
           "kind": "paragraph",
-          "text": "That clears the last open item on the data side, and we can proceed. With the status codes defined, the census for the Howard and Sons plan is complete and reconciled."
+          "text": "A single updated census file will cover both of the items below, so there is no need for your staff to send separate files. The status and the payment date can sit side by side as two new columns."
         },
         {
           "kind": "paragraph",
-          "text": "When the asset statement reaches us, I will reconcile it against the plan's records, and Jennifer Vasquez will confirm the assumption set before we run the first cut of the {{fact:f:E-2016-001.client}} valuation. You will see the assumptions before any results."
+          "text": "If some payment dates exist only on paper, a short list keyed by employee number will do just as well. We will flag every record we update from that list, so each change can be traced back to the {{fact:f:E-2016-001.client}} file it came from."
         },
         {
           "kind": "paragraph",

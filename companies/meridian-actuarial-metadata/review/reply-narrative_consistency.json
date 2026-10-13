@@ -2,16 +2,105 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "meridian-actuarial",
   "dimension": "narrative_consistency",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-consistency-thread-regression",
+      "id": "rf:narrative_consistency-1",
       "dimension": "narrative_consistency",
       "severity": "major",
-      "docs": ["d:0069", "d:0070", "d:0007", "d:0008", "d:0034", "d:0036"],
-      "summary": "In three of the four multi-message engagement email threads, the final message reverts the data-intake state to an earlier point, re-raising items the thread had already closed and describing already-reconciled data as freshly arrived, so the thread stops progressing at its last reply.",
-      "evidence": "Gonzalez review, Email 4 (d:0069, Aug 26): 'The reserve file arrived this morning ... the case reserves tie to the paid amounts treaty by treaty ... That was the last file outstanding on the intake list. That closes the data intake.' Email 5 (d:0070, Aug 27, next day): 'One item is still open on the loss data. That file carries paid amounts but not case reserves, and we need both.' The Howard thread ends the same way: Email 4 (d:0007) 'With the status codes defined, the census ... is complete and reconciled' then Email 5 (d:0008, one minute later) 'David Sherman is reconciling it against last year's file now. The head counts ... tie so far.' The Estes thread too: Email 3 (d:0034) 'the member data for the Estes Group study is now closed on our end' then Email 5 (d:0036) re-asks the status-code definition and to 'close out the census.'"
+      "docs": [
+        "d:0009",
+        "d:0040",
+        "d:0054",
+        "d:0002",
+        "d:0030",
+        "d:0044",
+        "d:0056"
+      ],
+      "summary": "Every firm overview describes a practice built on public retirement systems, multiemployer funds and life insurers, but all four pension and retiree-benefit engagements on file are corporate plan-sponsor work that no overview offers. That includes the clients the overviews cite as examples.",
+      "evidence": "d:0040 (2019): 'We measure obligations that run for decades: retirement benefits owed by public systems and multiemployer funds, and the reserves a life insurer holds for its policyholders', then cites {{fact:f:E-2016-001.client}} [Howard and Sons] and {{fact:f:E-2017-001.client}} 'as examples of the clients we work for'. d:0054 (2022) adds Estes Group and Martinez LLC 'as examples of the kinds of organizations we work for'. Against that: d:0002 is a single-employer corporate funding valuation ('the pension plan that {{fact:f:E-2016-001.client}} sponsors for its employees ... the minimum contribution the funding rules require ... the largest contribution the company may deduct'). d:0030 is a company plan ('whether the assumptions ... still describe your workforce', followed in d:0033 by questions on 'layoffs or reductions in force' and whether a 'business unit was sold'). d:0044 is retiree medical 'for the company's financial reporting under ASC Topic 715'. d:0056 is a funding policy for 'the company's pension plan' built around PBGC premiums and the deduction limit. None of the service lists (d:0009 'organized around three kinds of client', d:0040 'four headings', d:0054 six kinds) includes single-employer corporate funding or ASC 715 work, and no engagement across nine years is for a public system or a multiemployer fund."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-2",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0010",
+        "d:0011",
+        "d:0012"
+      ],
+      "summary": "The Howard and Sons documents make the mortality table the client's largest open decision in a 2016 single-employer minimum-funding valuation. The engagement letter itself frames the funding assumptions as prescribed by law, and for that valuation the IRS did prescribe mortality.",
+      "evidence": "d:0002: 'we will determine the minimum contribution the funding rules require for the plan year and the largest contribution the company may deduct ... Some assumptions are prescribed by law for funding purposes, and we will use them as the law requires. Others, such as rates of retirement, termination, and pay increase, are ours to select.' d:0010 then lists 'Mortality: whether to adopt the RP-2014 table with the MP-2015 improvement scale' two bullets above 'Any item set by regulation is identified as prescribed, not presented as a choice'. d:0011: 'Moving to the newer basis is a judgment'. d:0012: 'The mortality basis is the largest open judgment in this valuation ... We ask that you be prepared to decide on the basis at the assumption review meeting.' Minimum required and maximum deductible contributions use the IRC 430(h)(3) tables (absent an IRS-approved substitute table), and those tables moved to an RP-2014 basis only for 2018 plan years. A pension actuary would read the mortality discussion as public, multiemployer or ASC 715 reasoning applied to the wrong valuation."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-3",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0032",
+        "d:0033",
+        "d:0034",
+        "d:0036",
+        "d:0037",
+        "d:0038"
+      ],
+      "summary": "The Estes Group data thread contradicts itself on which year's file holds the renumbered records. The minutes and status report then close a first-year problem, and the most-recent-year departures, along with the layoff questions raised about them, drop out of the record.",
+      "evidence": "d:0032 (Mar 4, Sherman): 'every file links cleanly to the one before it except the most recent ... A large share of the employees active in the prior year's file do not appear in the most recent file under the same employee number.' d:0034 (Mar 6, Sherman): a residual group 'do not appear in the most recent one under any number ... They are the people Robert's questions bear on' (d:0033 asked about layoffs, an early retirement window, a unit sold or closed). d:0036 (Mar 7, Sherman, replying in the same thread): 'To close out the reconciliation question below: the status history now ties to the year-end census for every year of the study period except the first ... In the first year ... Most of the same people reappear that year under a new employee number'. That is a link failure his Mar 4 check said did not exist. d:0037: 'The last open item had been the group of first-year records'. d:0038: 'The last gap, a group of internal transfers'. Neither answers d:0033 or says what became of the most-recent-year departures."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-4",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0042",
+        "d:0009",
+        "d:0003"
+      ],
+      "summary": "Linda Hanna's onboarding record presents the Practice Manager job as a new role created by growth. That erases Carol Cooper, who held the same title and duties for more than five years and left weeks before Hanna started.",
+      "evidence": "d:0042 (2020-01-16): 'The practice has reached the size where engagement paperwork, billing and the tracking of client files need one person who owns them. Linda is that person.' d:0009 (2016): 'Carol Cooper, our Practice Manager, runs the practice day to day. She prepares engagement letters, keeps the schedule, sends and tracks data requests, and looks after invoicing and the retention of our files.' d:0003 assigns Cooper the billing code and the request log. The roster has Cooper employed 2014-04-15 to 2019-12-01 and Hanna from 2020-01-09."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-5",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0064",
+        "d:0066",
+        "d:0067",
+        "d:0069",
+        "d:0071",
+        "d:0072"
+      ],
+      "summary": "The ceded-premium discrepancy that takes up four of the five Gonzalez, Campbell and Kelly emails never appears again. The later documents also move from in-force treaty premiums to a reinsurer's proposed rate schedule without any document recording the change.",
+      "evidence": "d:0064: 'For each treaty now in force, we will estimate the claims you would expect to cede, compare that estimate with the premium the treaty charges'. d:0067: 'Our comparison for each treaty starts from the premium {{fact:f:E-2024-001.client}} actually paid. If that quarter's figure is wrong ... the comparison for that treaty is wrong with it.' d:0069 leaves the quarter on an assumption that 'the report ... will say so'. d:0071's data section covers only the in-force and claim listings, and the session is about 'the comparison with the proposed reinsurance rates ... The rate schedule we hold covers only part of the issue age range'. d:0072 says the data summary records 'the one adjustment we made' (the incurred-basis year) and that 'Nothing we have found so far changes the scope'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-6",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": [
+        "d:0011",
+        "d:0038",
+        "d:0049",
+        "d:0040",
+        "d:0054",
+        "d:0045",
+        "d:0043",
+        "d:0051",
+        "d:0052"
+      ],
+      "summary": "Dated references to tables, standards and events are accurate to each document's date, and titles and overview client citations match the roster and engagement dates. The anachronism half of this dimension came up clean.",
+      "evidence": "d:0011 (Jun 2016): MP-2015 'published last fall'. d:0038 (Mar 2019): 'the MP-2018 scale the Society of Actuaries published last October'. d:0049 (Dec 2020): a new improvement scale 'this fall'. d:0040 (May 2019): ASOP No. 51 'now asks' and VM-20 'as the transition period draws to a close'. d:0054 (May 2022): the revised pension standard 'takes effect next year' with a low-default-risk obligation measure. d:0045 (Jul 2020): the high-cost coverage excise tax 'was repealed at the end of last year'. The pandemic arc holds across documents: remote onboarding (d:0043, Jun 2020), video sessions (d:0047), a first building card after a stretch at home (d:0051, Aug 2021), and a partial office return (d:0052, Nov 2021). Every name-and-title pairing matches the roster's title history at the document date, and the 2019 and 2022 overviews name only engagements finished by then."
     }
   ]
 }

@@ -1,549 +1,136 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0003",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0009",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Positioning Brief: {{fact:f:E-2017-001.client}}",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Engagement: Corporate Positioning for {{fact:f:E-2017-001.client}}",
-            "Kickoff: {{fact:f:E-2017-001.start}}",
-            "Prepared by Daniel Valenzuela, Advisor",
-            "Drafting support: Michelle Rose, Communications Associate",
-            "Client lead: Mary Frank, Director of Operations"
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Where the Story Sits Today",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "The operating results are solid, but the outside story trails what the business actually does.",
-            "The language reads differently on the website, in recent releases, and in leadership remarks.",
-            "There is no single sentence an analyst or reporter would reach for to describe the company.",
-            "Two competitors have already claimed category language this business has a stronger right to.",
-            "The upside is real: the fundamentals support a sharper, more confident story than the one being told."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "What We Heard at Kickoff",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Leadership wants growth described as disciplined, not scale for its own sake.",
-            "The board does not want anything that reads as pre-IPO promotion.",
-            "Operations sees daylight between how the company runs and how it currently sounds.",
-            "Every external claim needs a fact behind it that your team can stand up on request."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "The Frame We Are Building",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "One core positioning statement the whole company can repeat without adjustment.",
-            "A messaging map that pairs each audience with a single claim and the proof behind it.",
-            "An executive narrative so leaders tell the same story in the same order.",
-            "A plain-language replacement for the boilerplate that has aged out of use.",
-            "An announcement calendar ordered so each release reinforces the one before it."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "How the First Weeks Run",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "We gather the current materials and mark every place the language diverges.",
-            "Michelle Rose turns the agreed direction into draft copy for your review.",
-            "Nothing investor-facing circulates until the internal narrative is settled.",
-            "You see each draft before it moves past the working group.",
-            "We hold one master copy of every document so your team is never reading an old version."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Next Step",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Working group confirmed: Daniel Valenzuela and Michelle Rose here, Mary Frank leading on your side.",
-            "Send two or three windows this week for a thirty-minute walk-through of the draft messaging map, and I will set it up."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        }
+        {"kind": "heading", "level": 1, "text": "Corporate Positioning for {{fact:f:E-2017-001.client}}"},
+        {"kind": "list", "items": [
+          "Briefing for Mary Frank, Director of Operations",
+          "Prepared by Daniel Valenzuela, Ashcombe Advisory Partners",
+          "Engagement under way since {{fact:f:E-2017-001.start}}",
+          "Working draft for discussion; not for wider circulation"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Material reviewed to date"},
+        {"kind": "list", "items": [
+          "How the company describes itself now: website, investor materials, and press releases from the past year",
+          "Press coverage over the same period, sorted by outlet and by how each story described the business",
+          "Notes from the first round of leadership interviews",
+          "Sector media list and reporter notes, maintained by Michelle Rose"
+        ]},
+        {"kind": "heading", "level": 1, "text": "What the review shows"},
+        {"kind": "list", "items": [
+          "The business is described in several different ways, depending on who is speaking and to whom",
+          "Reporters still repeat the description used in older press releases",
+          "The operating record is the strongest proof point and the one mentioned least often",
+          "Leadership is consistent on what the business does; the order of the message varies from person to person"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Directions for the positioning statement"},
+        {"kind": "list", "items": [
+          "A. Lead with the operating record, then say where the company is headed",
+          "B. Lead with where the company is headed, supported by the record so far",
+          "C. One core statement, with separate wording for investors and for the press",
+          "Working recommendation: A, pending comments from the leadership team"
+        ]},
+        {"kind": "heading", "level": 1, "text": "Who is working on this"},
+        {"kind": "list", "items": [
+          "Daniel Valenzuela, Advisor: day-to-day lead and drafting",
+          "Julie Hill, Managing Partner: reviews all language before it leaves the working group",
+          "Michelle Rose, Communications Associate: media list and reporter background",
+          "Mary Frank, Director of Operations: lead contact at {{fact:f:E-2017-001.client}}; gathers leadership comments"
+        ]},
+        {"kind": "heading", "level": 1, "text": "What happens next"},
+        {"kind": "list", "items": [
+          "Review call to walk through the three directions and choose one",
+          "Leadership comments on this deck, gathered by Mary Frank and returned as one set",
+          "Drafting of the statement and supporting points on the chosen direction",
+          "First step: set a time for the review call"
+        ]}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0010",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "To: Mary Frank\nCc: Michelle Rose",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Mary,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thank you for turning the materials around so quickly. Read against the kickoff notes, they confirm we are aligned on where the {{fact:f:E-2017-001.client}} story needs to land, and the gaps you flagged are the ones we want to close first.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Michelle Rose is folding your comments into the working draft now. One request before it goes any further: let us hold the investor-facing lines until the internal narrative is settled, so nothing circulates ahead of your leadership review.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Could you send two or three windows this week for a thirty-minute walk-through of the messaging map? Send the times that work on your side and I will set it up.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Regards",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        }
+        {"kind": "paragraph", "text": "Dear Mary,"},
+        {"kind": "paragraph", "text": "Following up on Julie's note from Monday: the briefing deck is done. It covers the material we have reviewed, what came out of the first round of leadership interviews, and the directions we see for the {{fact:f:E-2017-001.client}} positioning statement."},
+        {"kind": "paragraph", "text": "The directions need some explanation, so I would like to walk you through the deck on a call before it goes any further. To set that up, I need three things from you:"},
+        {"kind": "paragraph", "text": "1. A time for a one-hour call, either tomorrow afternoon or Monday morning.\n2. The names of anyone else who should join. If someone will sign off on the final language, it is worth having them on this call.\n3. Your preference on whether the deck goes to the wider leadership team after the call or waits for a revised version."},
+        {"kind": "paragraph", "text": "Send me a time that works and I will put the invitation out the same day."},
+        {"kind": "paragraph", "text": "Regards,\nDaniel"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0011",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "To: Mary Frank\nCc: Daniel Valenzuela",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Hello Mary,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The revised draft is ready for your read. I worked from your comments and Daniel Valenzuela's kickoff notes, so the copy now matches the direction we set.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two lines still need a figure from your side to stand up. I marked both in the margin. Once you confirm them, the {{fact:f:E-2017-001.client}} draft is complete for this pass.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Send the two numbers when you have them and I will return a clean version the same day.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thanks",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        }
+        {"kind": "paragraph", "text": "Mary,"},
+        {"kind": "paragraph", "text": "Of the two times Daniel offered, this afternoon suits us better, and I will join for the first half hour. It would help us to hear early how each direction sits with the people at {{fact:f:E-2017-001.client}} who will eventually have to present it."},
+        {"kind": "paragraph", "text": "When we go through the deck, one test is worth keeping in mind. We have weighed each option by how it holds up when an investor or a reporter asks the follow-up question, and if that has made any of them read as too cautious, we would like you to tell us."},
+        {"kind": "paragraph", "text": "If this afternoon works on your side, please reply to Daniel with a time and he will send the invitation."},
+        {"kind": "paragraph", "text": "Thanks,\nJH"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0012",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "To: Mary Frank\nCc: Michelle Rose",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Dear Mary,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Good to have the two figures back, thank you. That clears the last open lines, and the {{fact:f:E-2017-001.client}} draft now reads the way we discussed at kickoff.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Michelle Rose is preparing the clean version and the messaging map that sits under it. We will keep both in one place so your team is never working from an old copy.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "I would like thirty minutes with the three of us to walk the map before it goes any wider. Send a couple of windows that work this week and I will set the meeting.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Regards",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        }
+        {"kind": "paragraph", "text": "Dear Mary,"},
+        {"kind": "paragraph", "text": "Thank you for the time on Friday afternoon. Confirming what we agreed on the call, so that we are all working from the same list:"},
+        {"kind": "paragraph", "text": "1. The positioning statement will lead with the operating record, the first direction in the deck.\n2. The second direction stays in reserve. We will not develop it further unless the leadership comments point back to it.\n3. The combined approach, with separate wording for investors and for the press, is set aside.\n4. You will collect comments on the deck from the {{fact:f:E-2017-001.client}} leadership team and send them to me as one set.\n5. We start drafting the statement and its supporting points once those comments are in."},
+        {"kind": "paragraph", "text": "Quick one: is there a date by which your leadership team needs to see a draft? If so, I will plan the drafting back from it."},
+        {"kind": "paragraph", "text": "Regards,\nDaniel"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0013",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "To: Mary Frank\nCc: Daniel Valenzuela",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Hello Mary,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The clean version is attached and the messaging map is current as of today. Daniel Valenzuela has reviewed both.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Nothing here goes past the working group until you sign off. When you have read the {{fact:f:E-2017-001.client}} draft, mark anything you want changed and I will turn it the same day.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Confirm a time for the three-way review and I will send the map ahead of it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thanks",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        }
+        {"kind": "paragraph", "text": "Mary,"},
+        {"kind": "paragraph", "text": "Daniel's list matches my notes from Friday, with one qualification on the first point. Leading with the operating record does not mean dropping where the company is headed; we will keep a sentence on direction in every version, so that investors read the record as having a plan behind it."},
+        {"kind": "paragraph", "text": "On timing, we can work to any date your leadership team sets. Without one, we would aim to get a first draft to you by the end of next week, which leaves room for a round of comments before it is shared more widely."},
+        {"kind": "paragraph", "text": "Please send over the comments from the {{fact:f:E-2017-001.client}} leadership team when you have them, and Daniel will start the draft."},
+        {"kind": "paragraph", "text": "Thanks,\nJH"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0014",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Meeting Minutes: Corporate Positioning for {{fact:f:E-2017-001.client}}",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Attendees",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Daniel Valenzuela, Advisor",
-            "Michelle Rose, Communications Associate",
-            "Mary Frank, Director of Operations, {{fact:f:E-2017-001.client}}"
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The group met to review the positioning work at the midpoint of the engagement. Daniel Valenzuela walked through the core positioning statement, now settled, and the messaging map beneath it. Mary Frank confirmed the disciplined-growth framing matches how leadership at {{fact:f:E-2017-001.client}} wants the company described. The board's response to the earlier draft was positive.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Michelle Rose took the map claim by claim. Most proof points are confirmed against a source the company can produce on request. Two customer-outcome claims still lean on anecdote rather than a number, and the group agreed to soften both until the data is in hand. One figure on the operations side had been open; Mary Frank supplied it during the session, which closed the last gap in the growth-and-margin claim. The group agreed the map is complete for this phase. Attention now shifts to sequencing: aligning the executive narrative and ordering the announcement calendar behind the new frame.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "On the executive narrative, the group reviewed how leadership would carry the statement in remarks and interviews. Daniel Valenzuela noted that the language works only if it is used the same way at every level, and proposed a short internal rollout note before anything external moves. Michelle Rose agreed to draft it. Mary Frank asked that the note be plain enough for staff to pick up without a briefing.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Daniel Valenzuela flagged one risk. With the statement settled, there is a pull to start using the new language externally before leadership has absorbed it. The group agreed no external message goes out until leadership signs off on the internal wording. Mary Frank asked that internal and external language stay in step as her team begins using the new terms day to day.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "On the announcement calendar, the group sketched the order of the coming releases so each one builds on the last rather than competing with it. No dates were fixed; Daniel Valenzuela will bring a first cut of the sequence to the next session for the group to react to. Mary Frank noted two fixed points on the company's side that the calendar has to work around, and will send those so the draft sequence accounts for them.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "On cadence, the group will keep the weekly status thread running and reconvene once the rollout note is reviewed. Mary Frank asked that interim decisions be confirmed in writing so the operations team is never guessing at the current version. Michelle Rose will hold the master copy of the map and date each change.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Action Items",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
-          "header": [
-            "Item",
-            "Owner",
-            "Target"
-          ],
-          "rows": [
-            [
-              "Circulate the clean messaging map to the working group",
-              "Michelle Rose",
-              "This week"
-            ],
-            [
-              "Draft the internal rollout note for leadership review",
-              "Michelle Rose",
-              "Next week"
-            ],
-            [
-              "Confirm leadership sign-off on the internal language",
-              "Mary Frank",
-              "Before external work begins"
-            ],
-            [
-              "Sequence the announcement calendar against the new frame",
-              "Daniel Valenzuela",
-              "Next session"
-            ],
-            [
-              "Reconfirm remaining proof points with the operations team",
-              "Mary Frank",
-              "Ongoing"
-            ]
-          ],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Minutes prepared by Michelle Rose. The next working session will be scheduled once the rollout note has been reviewed.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        }
+        {"kind": "heading", "level": 1, "text": "{{fact:f:E-2017-001.client}} Corporate Positioning: Working Session Minutes"},
+        {"kind": "paragraph", "text": "Working session to review the first draft of the positioning statement and to agree how media preparation will proceed. Julie Hill chaired the session and kept these minutes."},
+        {"kind": "heading", "level": 2, "text": "Present"},
+        {"kind": "list", "items": [
+          "Julie Hill, Managing Partner, Ashcombe Advisory Partners",
+          "Daniel Valenzuela, Advisor, Ashcombe Advisory Partners",
+          "Michelle Rose, Communications Associate, Ashcombe Advisory Partners",
+          "Mary Frank, Director of Operations, {{fact:f:E-2017-001.client}}"
+        ]},
+        {"kind": "heading", "level": 2, "text": "The draft statement"},
+        {"kind": "paragraph", "text": "Daniel Valenzuela took us through the first draft, which leads with the company's operating record and closes with a sentence on where the company is headed, as agreed after the briefing deck review. Mary Frank reported that the leadership team's comments were broadly supportive."},
+        {"kind": "paragraph", "text": "The leadership team's main reservation concerned the second supporting point, which in their view claims somewhat more than the company can document at present. We agreed that the point should be narrowed to what existing records can support, and Daniel will propose two alternative wordings for the leadership team to choose between."},
+        {"kind": "heading", "level": 2, "text": "Evidence behind the claims"},
+        {"kind": "paragraph", "text": "Most of the session was given to the evidence for each claim in the draft. Mary Frank will confirm which operating figures the company is prepared to cite publicly; until she does, the draft will use descriptive language and carry no figures."},
+        {"kind": "paragraph", "text": "Julie Hill asked that any figure eventually used be checked against what the company has said in its most recent investor materials. A figure that differs from an earlier public statement would invite questions we would then have to answer separately, and we would prefer to settle that before the draft travels."},
+        {"kind": "heading", "level": 2, "text": "Media preparation"},
+        {"kind": "paragraph", "text": "Michelle Rose presented a working media list of reporters who have covered the company or its sector, with notes on how each prefers to be approached. We agreed that no outreach will begin until the statement is final, and that the first conversations will be background briefings rather than announcements."},
+        {"kind": "paragraph", "text": "Mary Frank asked that her team see the list before anyone is contacted. Michelle will send it to her for review, and we will not add names to it without her agreement."},
+        {"kind": "heading", "level": 2, "text": "Order of audiences"},
+        {"kind": "paragraph", "text": "We also discussed who should see the statement first. Our shared view is that the company's own staff should hear the new language before it appears in anything external, so that no one inside reads about it first in a press release."},
+        {"kind": "paragraph", "text": "Mary Frank will advise how internal announcements are normally handled at the company, and we will fit the rollout to that route rather than propose a new one."},
+        {"kind": "heading", "level": 2, "text": "Actions"},
+        {"kind": "table", "header": ["Action", "Owner"], "rows": [
+          ["Propose two narrower wordings for the second supporting point", "Daniel Valenzuela"],
+          ["Confirm which operating figures may be cited publicly", "Mary Frank"],
+          ["Check the draft against current investor materials once figures are confirmed", "Daniel Valenzuela"],
+          ["Send the working media list to the {{fact:f:E-2017-001.client}} team for review", "Michelle Rose"],
+          ["Advise on the usual route for internal announcements", "Mary Frank"],
+          ["Review the revised draft before it goes to the leadership team", "Julie Hill"]
+        ]},
+        {"kind": "paragraph", "text": "Our next step is the revised draft, which Daniel will send to Mary once the figures are confirmed; we will set the next session from there."}
       ]
     }
   ]

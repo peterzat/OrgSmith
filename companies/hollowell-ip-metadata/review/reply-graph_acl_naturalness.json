@@ -2,16 +2,61 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "hollowell-ip",
   "dimension": "graph_acl_naturalness",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:graph-acl-1",
+      "id": "rf:graph-1",
       "dimension": "graph_acl_naturalness",
       "severity": "major",
-      "docs": ["d:0044"],
-      "summary": "The Jackson Inc trademark-clearance kickoff assigns core searching to Matthew Parrish, who is not on the matter team and has no access to the matter folder.",
-      "evidence": "d:0044 is addressed 'To: Kelly Snyder, Matthew Parrish' and tasks him with substantive work: 'Matthew Parrish will take the state and common-law searches so we cover more ground in parallel' and 'Matthew Parrish, start reading into the goods-and-services classes.' But engagement E-2024-001 lists only Ashley Williams and Kelly Snyder as internal participants, Matthew has no ACL grant under 'Engagements/Jackson Inc/', and he appears in no other Jackson document. The person assigned the clearance searches cannot open the matter file that assigns them."
+      "docs": ["d:0005", "d:0044"],
+      "summary": "Two kickoff memos address a colleague by name and give them named work, but the ACL denies each of them the folder the memo is filed in, so the people graph and the permissions graph disagree about who is on the matter.",
+      "evidence": "d:0005 (Engagements/Odonnell Inc) is addressed 'To: Heather Munoz, Partner; Amanda Schwartz, Associate; Sharon Woods, Docketing Manager' and says 'Sharon Woods opens the matter on our docket and starts the reconciliation as the export arrives' and 'Anything that touches a deadline comes to Sharon Woods and me the same day'. PERMISSIONS.md grants Sharon Woods nothing under Engagements/. d:0044 (Engagements/Jackson Inc) is addressed 'To: Mary Bradley, Managing Partner; Kelly Snyder, Associate; Matthew Parrish, Patent Agent' and assigns 'Screening search, Matthew Parrish' and 'Matthew builds the first-pass table of marks, owners, and goods'. Matthew Parrish's grants are Firm/ and People/ only (12 docs), because the E-2024-001 team is Williams, Snyder and Bradley. Woods and Parrish are the only two people in mention_map.json with exactly two mentions, the min_mentions_per_person floor. That points to the mention filler adding a name that the engagement team and the ACL never pick up."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0007", "d:0025", "d:0031"],
+      "summary": "The corpus says the Docketing Manager enters and reconciles every matter's dates, yet she can read all eight FY financial summaries and not one engagement document.",
+      "evidence": "PERMISSIONS.md, Sharon Woods: Finance/FY2017-FY2024 (8), Firm/ (7), People/ (5), and nothing under Engagements/. The corpus says otherwise about her job: d:0007 'Sharon Woods, our Docketing Manager, maintains the firm's docket, sends reminder notices in a fixed format to the responsible attorney or agent well ahead of each date' and 'She also reconciles the docket independently against the patent office's own records'; d:0025 'please move our weekly docket review to Tuesday afternoon, which also gives you Monday to log the mail that came in over the break and to check the reminders against it'; d:0031, filed in the Keith-Duarte folder she cannot open, 'Docketing enters the dates and a second person checks them.' The charter calls docketing 'the firm's religion'. She can read the finance workbooks only because the static workbooks list her as their author (financial-summary readers are the CEO-equivalent plus the author). The firm's one non-lawyer therefore holds the books and none of the matters, which is the reverse of what the docketing seat at a patent boutique needs."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-3",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0029", "d:0042", "d:0043", "d:0055"],
+      "summary": "Each matter folder is restricted to its three-person team, so the Partner every prosecution staffer reports to cannot open the two most recent matters, though her own reports staff both.",
+      "evidence": "Heather Munoz is the reports_to for all seven prosecution staff, and the onboarding records say she directs their work: d:0042 'his matters come to him from her, as does the review of each new application and each office action response before it is filed'; d:0029 Ashley Williams 'reports to Heather Munoz, Partner, who will assign her matters and review her work'. Yet PERMISSIONS.md gives Heather Munoz nothing under Engagements/Jackson Inc (Williams, Snyder) or Engagements/Price-Henson (Chang, Henderson). It gives her nothing under Finance/ either, which the Docketing Manager can read. d:0055 is from David Chang 'To: Mary Bradley, Managing Partner; Richard Henderson, Patent Agent' and covers title tracing and claim reading, the prosecution group's core work. The posture is labelled departmental, but each member of the Prosecution department sees a different slice of its matters: Walker only Keith-Duarte, Williams only Jackson Inc, Chang only Price-Henson, Parrish none. A nine-person boutique with no stated conflict would not wall off every matter this way."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0012", "d:0025", "d:0039"],
+      "summary": "Every employee can read the personnel onboarding records and the one-to-one mail, but only two people can read the financial summaries, which puts sensitivity the wrong way round.",
+      "evidence": "PERMISSIONS.md lists all five People/ onboarding records and all four Firm/Mail messages under every current employee, each patent agent included. d:0039 records that Matthew Parrish 'listed his prior employers and personal holdings for the conflicts file'. d:0012 (and the other onboarding records) set out a new hire's supervision terms and his first-month review with Mary Bradley. Real firms keep personnel files to management. d:0025 is a private note from the Managing Partner to the Docketing Manager ('Hi Sharon, ... please move our weekly docket review to Tuesday afternoon'), and patent agents hired years later can open it. Finance/, by contrast, is readable only by Mary Bradley and Sharon Woods."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-5",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0033", "d:0035"],
+      "summary": "The recipe's one nickname goes to an associate and appears only in minutes he wrote himself, where he calls himself 'Joe' in the third person while a second Joseph is in the room.",
+      "evidence": "d:0033, notes by Joseph Walker, lists the attendees 'Joseph Palmer, General Manager, Keith-Duarte' and 'Joseph Walker, Associate (notes)'. The body then says 'Joe took us through the references cited against the earliest application' and 'Joe's view is that the combination is weaker than the action makes it sound', and an action owner is 'Joe, with review by Heather Munoz'. The same writer's later minutes, d:0035, say 'Joseph Walker summarized where the prior art work leaves things'. A note-taker who writes 'we' and 'us' does not call himself by a nickname, and with two Josephs attending nobody would write a bare 'Joe'. The charter describes the device as a partner who 'goes by a shortened first name in internal minutes and her full legal name on every letter and signature block'. That would put the nickname in someone else's notes about her."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-6",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0013", "d:0033", "d:0058", "d:0061"],
+      "summary": "Across 56 documents and seven years of patent work, the only people named are the ten staff and one business officer per client. Every inventor, examiner, client engineer, licensor's counsel and foreign associate goes unnamed, even in minutes of calls with them.",
+      "evidence": "Each of the five clients has exactly one named person, and all five are general-management officers (two General Managers, a Director of Operations, a COO, a CFO). None is in-house counsel, an IP manager or a licensing officer, though the charter lists a university licensing office among the clients. The prose writes around everyone else: d:0033 'Joseph Palmer told us that the inventors came away from last month's call satisfied'; d:0013 'except for one from a former employee who has not responded. Gary Smith will ask his staff for a current address'; d:0058 'can bring whoever wrote the firmware'; d:0061 'a single inventor's assignment was never recorded'. A patent practice's files name the inventors on every application and the examiner in every interview summary. This closed set of fifteen names reads as a fixture roster, not a client network. The author brief forbids inventing people (orgsmith/authoring/contexts.py), so the cause is in the generator, not in this recipe."
     }
   ]
 }

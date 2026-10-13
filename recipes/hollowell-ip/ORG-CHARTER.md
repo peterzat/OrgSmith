@@ -19,6 +19,8 @@ titles:
   Operations: [Docketing Manager]
 
 doc_culture:
+  # M17e carve-out (approved 2026-10-13): this org is regenerated once to
+  # close the mail-mention device, adopting the M17d and M17e knobs below.
   # Recorded from a docplan run: 5 engagements, 8 fiscal years, 4 hires.
   # M16 raises eml above the engagement count so client updates run as real
   # threads against a docket number, not single messages.
@@ -28,6 +30,8 @@ doc_culture:
   # M16: client updates and any minuted call land on business days.
   business_calendar:
     holidays: [2018-05-28, 2019-07-04, 2020-09-07, 2021-11-25, 2022-12-26, 2023-05-29, 2024-07-04, 2025-09-01]
+    # M17d: engagement starts land on business days too.
+    engagement_starts: true
   # M16: a mail demonstrator for the fleet. Short client updates against a
   # docket number run as threads; a little mundane internal traffic fills the
   # mailbox, and its authors are exempt from naming themselves in the body.
@@ -37,9 +41,15 @@ doc_culture:
     mundane_emails: 4
     distribution_lists: 1
     exempt_author_mentions: true
+    # M17e: both halves of the mail-mention device closed. A recipient is
+    # named by the To/Cc header, and a list broadcast names no one.
+    exempt_recipient_mentions: true
+    broadcasts_address_the_list: true
   # M16: the voice layer, fleet-wide.
   style_specs: true
   voice_diversify: true
+  # M17e: an overview names finished engagements only; live work is confidential.
+  overview_cites_finished_work: true
 
 finance:
   # 8% growth against four net new seats. Measured: 24.8% -> 24.8% net
@@ -47,9 +57,17 @@ finance:
   base_revenue: 1320000
   growth_rate: 0.08
   expense_ratio: 0.73
+  # M17e (M17d knob): a declared 2020 for an IP prosecution practice: filings and deadlines ran on through 2020, so revenue barely moves and travel all but stops.
+  era_shocks:
+    - year: 2020
+      revenue: 0.97
+      travel: 0.2
+      quarters: [1.0, 0.9, 1.0, 1.05]
 
 engagements:
   count: 5
+  # M17d: a senior sits on every engagement one can cover.
+  oversight_titles: [Partner, Managing Partner]
   # M16: the engagement ledger is a representative sample, not the whole book.
   book_is_sample: true
   services: [Patent Portfolio Review, Freedom-to-Operate Analysis, Prosecution Support, Trademark Clearance, Licensing Diligence]

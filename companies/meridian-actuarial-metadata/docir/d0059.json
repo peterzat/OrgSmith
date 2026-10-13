@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Meeting Minutes: Funding Policy Study for {{fact:f:E-2023-001.client}}",
+      "text": "Funding Policy Study: Working Session Notes",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The data is closed, and the study has moved to the projections and the scenarios that sit on top of them. That was the substance of the session. The rest of the discussion was about which scenarios to run and how to present the range, not about the inputs, which are now settled.",
+      "text": "We met with Lisa Hubbard to go over the baseline and to settle what {{fact:f:E-2023-001.client}} wants its funding policy to do. These notes are for the engagement file and for the company. Robert Lawrence prepared them.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Attendees",
+      "text": "Present",
       "level": 2,
       "items": [],
       "header": [],
@@ -34,9 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
+        "Lisa Hubbard, Chief Operating Officer, {{fact:f:E-2023-001.client}}",
+        "Robert Lawrence, Managing Actuary",
         "Michelle Banks, Actuarial Associate",
-        "David Sherman, Senior Analyst",
-        "Lisa Hubbard, Chief Operating Officer, Wells, Walsh and Martinez"
+        "David Sherman, Senior Analyst"
       ],
       "header": [],
       "rows": [],
@@ -44,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Discussion",
+      "text": "What we covered",
       "level": 2,
       "items": [],
       "header": [],
@@ -53,7 +54,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "David Sherman took the group through the census, which is now reconciled and closed. The active and inactive counts tie to the prior file, the covered payroll ties as well, and the few records that came in without clean service dates were run down against the client's source data. We rely on the reconciled file from here forward, and the report will say so.",
+      "text": "1. The data. Michelle Banks reported that the checks on active employees and retirees are complete. The benefit statements Lisa Hubbard's staff sent us resolved most of the difference in the count of former employees with deferred benefits. The records that remain appear to belong to people who have already been paid. Lisa Hubbard will confirm this with the plan's recordkeeper. Until she does, we are keeping those records in the data and logging that as an assumption.",
       "level": 1,
       "items": [],
       "header": [],
@@ -62,7 +63,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Most of the meeting was about the funding policy itself and how to test it. We agreed to carry the current policy forward under three economic scenarios and two demographic ones, holding the plan provisions fixed as written. The purpose is to show how the policy behaves, not to argue for a change; the exhibits will present the range and leave the weighing to the board.",
+      "text": "2. The baseline. David Sherman showed that our model reproduces the liabilities and the minimum required contribution in the most recent valuation report. The differences that remain are small, and he has traced each one to a known cause. We are satisfied the model is a sound place to start. It reflects the plan as of its last valuation date, and every projection we show will say so.",
       "level": 1,
       "items": [],
       "header": [],
@@ -71,7 +72,30 @@
     },
     {
       "kind": "paragraph",
-      "text": "We reviewed the assumptions that drive the projection. The discount rate, the mortality table, and the assumed pattern of new entrants carry the most weight, and we agreed to test each at the edges of a reasonable range rather than settle on a single point. The assumptions will be set out on their own in the report, apart from the results, so a reader can see each one and weigh it.",
+      "text": "3. The company's objectives. We spent most of the session here. Lisa Hubbard told us what the company needs from the policy, and we wrote it down in her terms. She named four aims.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "list",
+      "text": "",
+      "level": 1,
+      "items": [
+        "A contribution the company can set in its budget a year ahead.",
+        "Smaller swings in that contribution when interest rates move.",
+        "PBGC premiums counted as part of the cost of each policy.",
+        "A funded level that stays clear of the points at which the law restricts certain benefit payments."
+      ],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We will send her a written summary of these aims to confirm. The recommendation will be judged against them, so we want the wording to be hers.",
       "level": 1,
       "items": [],
       "header": [],
@@ -80,7 +104,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Lisa Hubbard asked how contribution volatility would read to the board, and requested that we show the year-to-year swing plainly rather than only the long-run average. We agreed. The workbook will carry a volatility exhibit alongside the funded-status projection, and the report will describe in plain terms what drives the swing.",
+      "text": "4. The alternatives. We agreed to model three policies beside the current practice. The first contributes the legal minimum each year. The second sets a level contribution for several years at a time and resets it on a schedule. The third aims to bring the plan to full funding over a fixed period. David Sherman will run them under a central set of assumptions first.",
       "level": 1,
       "items": [],
       "header": [],
@@ -89,7 +113,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We also discussed how much of the mechanics to put in front of the board. The sense of the room was to keep the body of the report readable and move the detailed exhibits to the workbook, so the board sees the shape of the choices without wading through the arithmetic behind them.",
+      "text": "Lisa Hubbard asked whether a fourth policy, one that contributes enough each year to avoid the PBGC variable-rate premium, was worth modeling. It may turn out to sit close to the third. We agreed that David Sherman will show how near the third policy comes before we add another.",
       "level": 1,
       "items": [],
       "header": [],
@@ -98,16 +122,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Lisa Hubbard confirmed that her office will send the final asset statement and a written confirmation of the plan provisions, and said the volatility framing would help her brief the board ahead of the formal presentation. We did not set a date for the next review; it will follow the first full scenario run.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Michelle Banks flagged the one item still open. The most recent asset statement has not yet tied to the custodian report; until it does, the projections carry the prior valuation's assets as a marked placeholder, and every draft exhibit is flagged accordingly.",
+      "text": "5. Scenarios. We also agreed to test each policy under lower investment returns and under a fall in interest rates. Robert Lawrence reminded the group that these are illustrations and not predictions. The report will keep the projected results apart from the assumptions behind them, and our judgment apart from both.",
       "level": 1,
       "items": [],
       "header": [],
@@ -116,7 +131,7 @@
     },
     {
       "kind": "heading",
-      "text": "Action items",
+      "text": "Actions agreed",
       "level": 2,
       "items": [],
       "header": [],
@@ -129,32 +144,47 @@
       "level": 1,
       "items": [],
       "header": [
+        "No.",
         "Action",
-        "Owner",
-        "Target"
+        "Owner"
       ],
       "rows": [
         [
-          "Reconcile the current asset statement to the custodian report",
-          "David Sherman",
-          "Before the next projection run"
+          "1",
+          "Confirm with the plan's recordkeeper whether the remaining former-employee records have been paid.",
+          "Lisa Hubbard"
         ],
         [
-          "Confirm the scenario set and assumptions in writing",
-          "Michelle Banks",
-          "This week"
+          "2",
+          "Send a written summary of the company's four aims for confirmation.",
+          "Robert Lawrence"
         ],
         [
-          "Provide the final asset statement and confirm the plan provisions",
-          "Lisa Hubbard",
-          "At the client's earliest convenience"
+          "3",
+          "Run the current practice and the three alternatives under the central assumptions.",
+          "David Sherman"
+        ],
+        [
+          "4",
+          "Show how near the third policy comes to removing the variable-rate premium.",
+          "David Sherman"
+        ],
+        [
+          "5",
+          "Draft the two scenarios and circulate them internally before they are run.",
+          "David Sherman"
+        ],
+        [
+          "6",
+          "Update the data log for the deferred-benefit records and the assumption held in their place.",
+          "Michelle Banks"
         ]
       ],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "These minutes stand as the record of the session. Corrections should come to me within the week so the action list stays accurate.",
+      "text": "Our next session will go through the projection results. We thank Lisa Hubbard and her staff for the work they have put into the data.",
       "level": 1,
       "items": [],
       "header": [],

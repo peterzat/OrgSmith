@@ -19,6 +19,8 @@ titles:
   Operations: [Director of Operations, Office Manager, Client Coordinator]
 
 doc_culture:
+  # M17e carve-out (approved 2026-10-13): this org is regenerated once to
+  # close the mail-mention device, adopting the M17d and M17e knobs below.
   # The M14 email-first pilot: the wave workbench for thread mechanics and
   # mailbox ecology. Numbers recorded from a docplan run.
   target_docs: 70
@@ -28,6 +30,8 @@ doc_culture:
   # holidays across the span; weekends always excluded).
   business_calendar:
     holidays: [2017-11-23, 2019-07-04, 2020-12-25, 2022-05-30, 2023-07-04, 2024-11-28]
+    # M17d: engagement starts land on business days too.
+    engagement_starts: true
   # The email culture (M14). Engagement mail runs as real threads; a mundane
   # internal genre and transmittal attachments fill out the mailbox.
   mail:
@@ -40,6 +44,10 @@ doc_culture:
     # render-time signature block names them. Closes the pilot board's
     # author-self-names finding at this regeneration.
     exempt_author_mentions: true
+    # M17e: both halves of the mail-mention device closed. A recipient is
+    # named by the To/Cc header, and a list broadcast names no one.
+    exempt_recipient_mentions: true
+    broadcasts_address_the_list: true
   # Organizational noise (M15), appended to the committed corpus with the
   # DocIR reused and zero authoring tokens: derived copies, drafts, version
   # chains with divergence, misfiles, dead templates, junk directories, one
@@ -58,6 +66,8 @@ doc_culture:
   # style spec and the brief bans the template constructions the board named.
   style_specs: true
   voice_diversify: true
+  # M17e: an overview names finished engagements only; live work is confidential.
+  overview_cites_finished_work: true
 
 finance:
   # 8% growth against three net new seats over eight years; a coherent
@@ -65,9 +75,17 @@ finance:
   base_revenue: 2200000
   growth_rate: 0.08
   expense_ratio: 0.80
+  # M17e (M17d knob): a declared 2020 for a communications advisory: crisis work rose as conferences and roadshows stopped, so revenue dips only slightly and travel collapses.
+  era_shocks:
+    - year: 2020
+      revenue: 0.94
+      travel: 0.25
+      quarters: [1.05, 0.8, 0.95, 1.1]
 
 engagements:
   count: 6
+  # M17d: a senior sits on every engagement one can cover.
+  oversight_titles: [Partner, Managing Partner]
   # The engagement ledger is a representative sample of the book, not the
   # whole business.
   book_is_sample: true

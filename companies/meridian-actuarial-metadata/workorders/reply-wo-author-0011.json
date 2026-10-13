@@ -1,28 +1,17 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0011",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0062",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Michelle,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "IT is moving the shared drive to a new server this weekend, so it will be offline while they work. Their notice sets the window for Saturday night, but they have asked us to plan on it being down through Sunday to be safe."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Before you leave Friday, please close your workbooks and confirm nothing under Michelle Banks is still checked out; the file locks do not always clear on their own. If one will not release, let me know and I will flag it to IT. I will be reachable by phone over the weekend if the cutover runs long, but there is nothing to do until Friday."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thanks"
-        }
+        {"kind": "paragraph", "text": "All,"},
+        {"kind": "paragraph", "text": "IT support will take the file server and remote access offline this Saturday morning to apply updates and replace a drive in the backup unit. They expect to be finished by early afternoon. That estimate is theirs and may run long, so please do not plan weekend work that depends on the shared drives."},
+        {"kind": "paragraph", "text": "Before you leave on Friday, save and close any workbook you have open from the server. A file left open may not be captured in the backup taken before the shutdown. Email should not be affected."},
+        {"kind": "paragraph", "text": "If you need a folder copied to your laptop for the weekend, let me know by midday Friday and I will ask them to arrange it."},
+        {"kind": "paragraph", "text": "Thanks"}
       ]
     }
   ]

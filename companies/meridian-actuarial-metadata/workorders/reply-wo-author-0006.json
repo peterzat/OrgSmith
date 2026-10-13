@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0006",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -20,87 +20,108 @@
         },
         {
           "kind": "paragraph",
-          "text": "This letter confirms the terms on which we will carry out an experience study of your benefit plan, and it asks for your signature so that we can begin. It follows the conversation we had this winter about reviewing how the plan's actual experience compares with the assumptions now in use. None of what follows should surprise you; it puts in writing what we discussed, so that you and we work from the same record from the first day of the study to the last. We have set out what the study covers, how we will do it, who will do the work, and what it will cost."
+          "text": "You asked us to find out whether the assumptions behind the {{fact:f:E-2019-001.client}} retirement plan still describe your workforce. We are glad to do that work. This letter sets out what the study will cover, how we will carry it out, who will do it, and the terms under which we will both work. We have tried to keep it plain. If a question about the engagement comes up later, this letter is where we will both look first."
         },
         {
           "kind": "heading",
-          "text": "What the Study Covers",
+          "text": "What the study will cover",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "An experience study looks back at what the plan's members actually did and compares it with what the current assumptions predicted. We will examine the plan's recent experience in the areas that drive its cost: retirement, termination, disability, mortality, and the pattern of salary increases. For each of these, we will measure the experience the data show, weigh it against the assumption in force, and tell you where the two diverge by enough to warrant a change. We will not recommend a change where the experience does not support one, and we will say so plainly when that is the case."
+          "text": "Every valuation of the plan rests on assumptions about people: when they retire, how many leave before they retire, how many become disabled, how long retirees live, and how quickly pay rises. An experience study sets those assumptions beside what actually happened to the plan's members over a recent period of years. Where the two differ, and we judge the difference likely to last, we will recommend a change."
         },
         {
           "kind": "paragraph",
-          "text": "The study has four parts, and our report will document each of them:"
+          "text": "The study will examine rates of retirement, termination of employment, disability, and death, and the rate of salary increase. We will settle the study period with you once we have seen which years of data are available. It needs to be long enough to give stable results and recent enough to reflect the plan as it operates now."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some work falls outside this letter. We will not value the plan, review the investment return or inflation assumptions, or advise on plan design. If you would like any of that, we will propose it separately."
+        },
+        {
+          "kind": "heading",
+          "text": "How we will reach our recommendations",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will keep two kinds of work apart from start to finish. The first is measurement. We count what happened in the data and compare it with what the current assumptions expected to happen. Anyone with the same data could repeat that part and get the same answer. The second is judgment. We decide whether a difference is large enough, and steady enough, to justify a new assumption. One unusual year can move the counts a long way. When that happens we will say so, and we will not let that year set an assumption on its own."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The report will follow the same division. For each assumption it will show the observed experience, the rate we recommend, and our reasons. Where a recommendation rests more on judgment than on the data, the report will say that in so many words."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will perform the work under the Actuarial Standards of Practice. Those that bear most directly on it are No. 23, Data Quality; No. 35, on demographic and other noneconomic assumptions for pension obligations; and No. 27, on economic assumptions, which governs the salary scale. Our report will also meet No. 41, Actuarial Communications."
+        },
+        {
+          "kind": "heading",
+          "text": "The data we will rely on",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our results can be no better than the records behind them. We will rely on data and documents supplied by {{fact:f:E-2019-001.client}}. We will review them for consistency and reasonableness, and we will tell you what we find, but we will not audit them. To begin, we will need the following:"
         },
         {
           "kind": "list",
           "items": [
-            "The member and financial data your office provides, which we reconcile and rely upon, with that reliance stated plainly in the report.",
-            "The current assumptions and the plan provisions that bear on them, taken as they are written today.",
-            "The measured experience over the study period, tabulated so that a reader can trace each rate back to the counts beneath it.",
-            "Our recommendations, set apart from the measurements so that no one mistakes a judgment for a fact."
+            "1. Participant census files for each year of the study period, covering active employees, former employees with deferred benefits, retirees, disabled members, and beneficiaries.",
+            "2. For each person who left active employment during the period, the date of departure and the reason, as your records show it.",
+            "3. Pay history for active employees over the same years.",
+            "4. The plan document, and any amendment adopted during the period that changed when members could retire or what they would receive.",
+            "5. The most recent actuarial valuation report, including its description of the current assumptions."
           ]
         },
         {
+          "kind": "paragraph",
+          "text": "Please send the files in whatever form your systems already produce. Nobody on your staff should spend time reformatting them for us."
+        },
+        {
           "kind": "heading",
-          "text": "How We Will Do the Work",
+          "text": "The team",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We keep three things separate in everything we deliver, and this study is no exception. What the data show is one thing. What we have assumed is a second. What we conclude is a third. The report will present them in that order and keep them apart, so that you can see which of the three any recommendation rests on. A recommendation to change an assumption will name the experience that supports it and the judgment we brought to it, and it will never dress one up as the other. The work will be performed under the Actuarial Standards of Practice that govern an experience study of this kind."
+          "text": "I will lead the engagement and sign the report. David Sherman, Senior Analyst, will load the census files, link each member's records from one year to the next, and reconcile them to the valuation data. Jeffrey Ochoa, Actuarial Analyst, will build the experience tables and the comparisons of actual and expected results. Megan Dudley, Actuarial Associate, will work with your staff on the data request, on missing records, and on any question about a file."
         },
         {
           "kind": "paragraph",
-          "text": "You will receive two things at the end. The first is a written report that sets out the experience we measured, the assumptions we reviewed, and the changes we recommend, with the reasoning for each. The second is a workbook of exhibits that supports every rate in the report, so that your own advisors can follow the arithmetic. We will also present the results to your board once and answer the questions that come out of that meeting."
+          "text": "Day to day, you will hear most from Megan and David. If you have a concern about the work at any point, please raise it with me."
         },
         {
           "kind": "heading",
-          "text": "The Data We Will Rely On",
+          "text": "Start date and fee",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A study is only as sound as the records under it. We will rely on the member data and the financial records that your staff at Estes Group provide, and we will reconcile them before we use them. We do not audit your data. What we do is check it for internal consistency and against the prior study, and document what we relied on, so that the basis of the work is visible to anyone who reads it. Where a record is unclear, we will come back to you rather than guess, because a study built on a guess is worth less than one that waited a week for the answer."
+          "text": "We will begin work on {{fact:f:E-2019-001.start}}. We expect the study to take about four months from that date. How quickly the data arrive, and how many questions they raise, will decide most of that schedule."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the study described in this letter is {{fact:f:E-2019-001.fee}}. The fee is fixed. It covers the data work, the analysis, a draft report, a meeting with you to go through the draft, and the final report."
         },
         {
           "kind": "heading",
-          "text": "Who Will Do the Work",
+          "text": "Fees and payment",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "David Sherman, a senior analyst in our firm, will build and reconcile the study workbook and document the data we rely on. Jeffrey Ochoa, an actuarial analyst, will carry the modeling and run the observed experience against the current assumptions, chasing any surprising result back to the input that produced it. Megan Dudley, an actuarial associate, will prepare the exhibits and the data checks that sit beneath their work. I will review what they produce and sign the study. The professional responsibility for what we conclude is mine, and I take it seriously enough to send drafts back until the qualifications are right."
+          "text": "We will invoice the fee in installments: one when work begins, one when we deliver the draft report, and one when we deliver the final report. Invoices are payable within thirty days of receipt. If you ask us for work outside this letter, we will confirm it with you in writing first and bill it at our standard hourly rates."
         },
         {
           "kind": "heading",
-          "text": "Our Fee and When We Begin",
+          "text": "Term and termination",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our fee for the study is {{fact:f:E-2019-001.fee}}, which covers the work described above through delivery of the report and one presentation of the results to your board. Subject to your signature on this letter, we will begin the work on {{fact:f:E-2019-001.start}}. Our first step is to request the member and financial data and to confirm the plan provisions the assumptions rest on. If the scope grows beyond what is set out here, we will agree the change and any added fee with you in writing before we do the added work, so that no invoice ever arrives for something you did not expect."
-        },
-        {
-          "kind": "heading",
-          "text": "Billing and Payment",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "We invoice monthly for the prior month's work, and each invoice is due within thirty days of its date. If a question about an invoice comes up, tell us and we will work it through before it becomes a dispute."
-        },
-        {
-          "kind": "heading",
-          "text": "Term and Termination",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This agreement takes effect on the date you sign it and runs until we have delivered the study and you have paid our final invoice for it. Either of us may end it earlier on written notice to the other. If the engagement ends before the study is finished, you will owe us for the work done up to that point, and we will hand over what we have in a form you can use."
+          "text": "This engagement runs from the start date above until we deliver the final report and answer your questions on it. Either of us may end it sooner by written notice to the other. If that happens, you will pay for the work done up to the date of the notice, and we will return or destroy your data as you direct."
         },
         {
           "kind": "heading",
@@ -109,33 +130,37 @@
         },
         {
           "kind": "paragraph",
-          "text": "We will hold what you give us in confidence and use it only for this study. Inside the firm, access is limited to the people named above and to anyone whose work on the study requires it. We will not disclose your information outside the firm without your consent, except where the law or our professional standards require it, and if that happens we will tell you unless we are barred from doing so."
+          "text": "The census files will contain personal information about your employees, former employees, and their families. We will hold that information in confidence, keep it on secure systems, and use it only for this study. We will not disclose it outside our firm without your written consent unless the law requires us to."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our report will be prepared for {{fact:f:E-2019-001.client}} and for the plan. You may give it to the plan's auditors and to any agency that oversees the plan. No one else may rely on it without our written consent."
         },
         {
           "kind": "heading",
-          "text": "Limitation of Liability",
+          "text": "Limitation of liability",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Our liability to you arising out of this engagement, whether framed in contract or in negligence, will not exceed the total fees you pay us under it, except in the case of our fraud or willful misconduct. Neither of us will be liable to the other for indirect or consequential loss. Any claim must be brought within one year of the delivery of the report."
+          "text": "We will carry out the work with the care and skill expected of a qualified actuary. We are not responsible for errors that come from data or information supplied to us. Our total liability for any claim arising from this engagement will not exceed the fees you have paid us under this letter."
         },
         {
           "kind": "heading",
-          "text": "Governing Law",
+          "text": "Governing law",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "This agreement is governed by the law of the state in which our office sits, without regard to its conflict-of-laws rules. Before either of us starts a proceeding, we will try to settle the matter through discussion between people who have the authority to resolve it."
+          "text": "The laws of the state in which our principal office is located govern this letter. If a court finds any part of it unenforceable, the remaining terms still apply."
         },
         {
           "kind": "paragraph",
-          "text": "If these terms match your understanding, please sign both copies where shown, keep one for your records, and return the other to me. If anything here reads differently from what you expected, call me before you sign and we will settle it first. We are glad to be doing this work for you, and we will give it the care it deserves."
+          "text": "If this letter matches your understanding of the engagement, please sign below and return a copy to me. Once it is back, Megan Dudley will contact your office to arrange the first transfer of data."
         },
         {
           "kind": "paragraph",
-          "text": "Sincerely,"
+          "text": "Very truly yours,"
         },
         {
           "kind": "sigblock",
@@ -151,60 +176,58 @@
       "doc_id": "d:0031",
       "blocks": [
         {
+          "kind": "heading",
+          "text": "Memorandum",
+          "level": 1
+        },
+        {
           "kind": "paragraph",
-          "text": "To: Jeffrey Ochoa, Megan Dudley\nFrom: David Sherman\nRe: Estes Group experience study"
+          "text": "To: Robert Lawrence, Jeffrey Ochoa, Megan Dudley\nFrom: David Sherman, Senior Analyst\nSubject: Experience study for {{fact:f:E-2019-001.client}}, opening plan"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The study is set up and waiting on data; the census files are the only item holding up the first counts. Work began on {{fact:f:E-2019-001.start}}. Our objective is a set of recommended assumptions for the {{fact:f:E-2019-001.client}} retirement plan, covering retirement, termination, disability, mortality, and salary increase, each supported by the plan's own experience as far as the data allow and by a stated judgment where they do not. Barbara Hall, Chief Operating Officer, is our client contact. Requests to the company go through her office, and any change to scope needs her agreement before we act on it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "One rule applies to every item below. Each table will carry the observed rate and the recommended rate in separate columns, and the two are not interchangeable. The observed rate is a measurement and should be reproducible by anyone holding the same files. The recommended rate is a judgment. Its reason belongs in the working file at the time the judgment is made, in a sentence Robert can review and, if he accepts it, carry into the report."
         },
         {
           "kind": "heading",
-          "text": "What We Are Doing",
+          "text": "How the work is divided",
           "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "This memo sets the plan for the {{fact:f:E-2019-001.client}} experience study and assigns the work. The goal is a report the board can act on: a review of the plan's recent retirement, termination, disability, mortality, and salary experience against the assumptions now in force, with recommendations where the two diverge. The deliverables are that report and a workbook of exhibits that supports every rate in it. The study is a look-back over the observation period the client confirms, so the first job is to fix that window and the population inside it before any rate is computed."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We do this the way we do every study. What the experience shows, what the plan assumes, and what we recommend are three separate things, and they stay separate in the workbook and in the report. If a rate surprises us, we find the reason before it reaches a page. A number we cannot explain is not a finding; it is an open question, and it stays open until it is answered."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Barbara Hall, the Chief Operating Officer at Estes Group, is our point of contact. Data requests and scheduling go through her office. Any client-facing question goes through me before it goes to her, so that we speak with one voice on scope and timing."
-        },
-        {
-          "kind": "heading",
-          "text": "Assignments",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Here is how the work divides:"
         },
         {
           "kind": "list",
           "items": [
-            "Data. I will reconstruct the member census and the plan's financial records, reconcile both, and document our reliance. I tie the counts to the prior study and to the client's own summaries, and I flag any gap before anything is tabulated.",
-            "Modeling. Jeffrey Ochoa builds the study model and runs the observed experience against the current assumptions. He sets no result as final until it is reviewed, and he traces any surprising rate back to the data behind it.",
-            "Exhibits and checks. Megan Dudley prepares the experience exhibits and the data checks beneath the modeling. She raises anything that does not reconcile rather than carrying it forward, and her questions are welcome the moment she has them."
+            "1. Data intake and linking: David Sherman. Load each year's census as received, link members across years, and classify every change in status. Each year's closing count must equal the following year's opening count, or the difference must be explained in the data log.",
+            "2. Client questions on data: Megan Dudley. Megan is the single contact for the client's staff on files, missing records, and corrections. Questions go out in batches, and each one states what we will assume if no answer comes back.",
+            "3. Decrement tables: Jeffrey Ochoa. Build exposures and actual decrements by age and service for retirement, termination, disability, and death, and compute expected decrements under the current assumptions. The table layouts are to be agreed with Robert before any data run through them.",
+            "4. Salary experience: Jeffrey Ochoa, with David Sherman. Measure pay increases by service for members active in consecutive years. Exclude any record where a pay change coincides with a change in status, and log the exclusions.",
+            "5. Recommendations and report: Robert Lawrence. Robert reviews each recommended assumption against its table and its stated reason, settles any open question of judgment, and signs the report."
           ]
         },
         {
-          "kind": "heading",
-          "text": "What Gates the Work",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "Two things gate the rest. The first is complete member and financial data from Estes Group. The second is a clean confirmation of the plan provisions the current assumptions rest on. Until both are in hand, we tabulate nothing and treat every assumption as provisional. Data quality is the usual risk on a first study for a client; expect the census to need a pass for status codes and for members whose records do not agree with the summary. On the financial side, the contribution and withdrawal history has to distinguish a refunded member from one who left a balance in the fund, because the termination experience turns on that split. We raise anything unclear with Barbara Hall's office early rather than carry it into the model."
+          "text": "No result exists yet, and none should be described to the client as one. Until the data are closed, any figure that leaves this team, including in internal email, should be marked preliminary and should say which files it rests on."
         },
         {
           "kind": "heading",
-          "text": "Where We Start",
+          "text": "Before the files arrive",
           "level": 2
         },
         {
+          "kind": "list",
+          "items": [
+            "1. Megan Dudley sends the data request to Barbara Hall this week. It repeats the file list from the engagement letter and attaches our preferred layout as a suggestion only; files in the company's own format are acceptable.",
+            "2. David Sherman sets up the study files and the data log, and enters the current assumptions from the most recent valuation report so that expected decrements can be computed as soon as data are loaded.",
+            "3. Jeffrey Ochoa drafts the table shells and proposed age and service bands for Robert's review.",
+            "4. Robert Lawrence confirms the assumptions in scope against the engagement letter and sets the study period once we know which years of data the company can supply."
+          ]
+        },
+        {
           "kind": "paragraph",
-          "text": "Work begins on {{fact:f:E-2019-001.start}}. The data request goes to Barbara Hall's office that week; it will list the member fields and the financial records we need and the format we want them in. Jeffrey Ochoa drafts the assumption inventory for review before any assumption is treated as settled. Megan Dudley sets up the exhibit shells so that the numbers drop into a form we can check as they arrive. In the first two weeks I expect us to load the census, tie it to the prior study, and open a short list of data questions for the client; I will keep that list on our running thread so nothing waits on a request no one has sent. We hold the study until the data and the plan provisions are both confirmed."
+          "text": "We will meet weekly while the data are open. I will circulate the data log before each meeting."
         }
       ]
     },
@@ -214,30 +237,35 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Barbara Hall\nCc: Jeffrey Ochoa, Megan Dudley"
-        },
-        {
-          "kind": "paragraph",
           "text": "Good morning Barbara,"
         },
         {
           "kind": "paragraph",
-          "text": "We have started the Estes Group experience study, and the first data extract your office sent is loading cleanly. Jeffrey Ochoa has the model shell up, and I am reconciling the member counts against last year's records. Before we go further, there are two points on the data where I need your help."
+          "text": "The census files for the {{fact:f:E-2019-001.client}} study are loaded, and every file links cleanly to the one before it except the most recent. That file needs your help before we count any terminations or retirements."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A large share of the employees active in the prior year's file do not appear in the most recent file under the same employee number. Most of them are there under new numbers, with the same names, dates of birth, and hire dates. Taken at face value, the files would show each of them leaving and a new employee being hired in their place. That would overstate turnover and distort the termination rates. We have not adjusted anything yet."
+        },
+        {
+          "kind": "paragraph",
+          "text": "To resolve it, we would need the following:"
         },
         {
           "kind": "list",
           "items": [
-            "The member file uses a status code we cannot read with confidence. Could you confirm how it distinguishes active members from those who have terminated with a deferred benefit?",
-            "The observation window is not stated in the extract. Please confirm the first and last plan years you want the experience drawn from, so we measure against the period you intend."
+            "1. Confirmation of whether employee numbers were reissued in the past year, for example in a change of payroll or HR system.",
+            "2. If they were, any crosswalk your staff hold from the old numbers to the new ones.",
+            "3. If no crosswalk exists, your agreement that we match records on name, date of birth, and hire date instead."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Once we have those two answers, the census for the {{fact:f:E-2019-001.client}} study is settled on our end, and Megan Dudley can begin the reconciliation in earnest. Neither point is urgent this week."
+          "text": "So that the work does not stall, we will run a provisional match on those three fields this week and treat it as preliminary until we hear from you. A few smaller record questions will come separately from Megan; none of them holds up the study."
         },
         {
           "kind": "paragraph",
-          "text": "Best"
+          "text": "Best,\nDavid"
         }
       ]
     },
@@ -247,27 +275,31 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Barbara Hall\nCc: David Sherman, Jeffrey Ochoa"
+          "text": "Good morning Barbara,"
         },
         {
           "kind": "paragraph",
-          "text": "Hello Barbara,"
+          "text": "I would like to add one question to David's while your staff look into the employee numbers. The files tell us what happened. They cannot tell us on their own whether a year was ordinary. If a group of employees left at once, we need to know why before we let that year shape the termination or retirement rates."
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for clarifying the status codes so quickly. With that in hand, the member file reconciles to your summary line for line, and we can treat the active and deferred groups as settled."
+          "text": "It would help us to know:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Whether {{fact:f:E-2019-001.client}} had any layoffs or reductions in force during the study period.",
+            "2. Whether you offered an early retirement window or any other incentive to leave.",
+            "3. Whether any location or business unit was sold or closed."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "One more thing would help us before we start tabulating. A handful of records show a termination date but no benefit commencement, and we want to be sure we count them the way your office intends rather than guessing. Could you tell us whether those members are still owed a deferred benefit or whether they took their money out? David Sherman flagged them yesterday, and Jeffrey Ochoa would rather build the assumption around the real answer than around ours."
+          "text": "None of this will change the counts. It will change how much weight we give them, and our report will say which years we treated differently and why. A short answer is fine for now. We can follow up on any item that needs more detail."
         },
         {
           "kind": "paragraph",
-          "text": "If you can point us to whoever keeps the payment records at Estes Group, we will take the detail up with them directly and keep the {{fact:f:E-2019-001.client}} study moving."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Best"
+          "text": "Sincerely,\nRobert"
         }
       ]
     },
@@ -277,27 +309,30 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Barbara Hall\nCc: Jeffrey Ochoa, Megan Dudley"
-        },
-        {
-          "kind": "paragraph",
           "text": "Good morning Barbara,"
         },
         {
           "kind": "paragraph",
-          "text": "That answers it, thank you. The records with a termination date and no commencement are deferred benefits, so we will count them as your office does, and the member data for the Estes Group study is now closed on our end."
+          "text": "The provisional match has closed most of the gap. Matching on name, date of birth, and hire date pairs nearly all of the unmatched records from the prior year's {{fact:f:E-2019-001.client}} file with records in the most recent file under new numbers."
         },
         {
           "kind": "paragraph",
-          "text": "The next piece we need is on the financial side. To set the salary-increase experience against the assumption, Jeffrey Ochoa needs the pay records for the study period, and Megan Dudley needs the contribution and withdrawal detail to tie out the fund's cash flow. Whatever format your system exports is fine; we would rather reconcile from your native report than ask your staff to reshape it for us."
+          "text": "What remains is a smaller group who were active in the prior file and do not appear in the most recent one under any number. On the data alone, these look like genuine departures within a single year. They are the people Robert's questions bear on, and we will hold the termination tables until we know whether something lay behind them. This result is preliminary and will be rerun if a crosswalk turns up."
         },
         {
           "kind": "paragraph",
-          "text": "There is no rush on this before next week. Once it is in hand, we begin tabulating the {{fact:f:E-2019-001.client}} experience and can give you a first read on where the current assumptions are holding and where they are not."
+          "text": "To finish this step, we would need:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Your agreement for us to send the list of these records to your HR staff through our secure file transfer site, so they can check each one against their files.",
+            "2. The reason recorded for each departure, where your HR system holds one."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Best"
+          "text": "Best,\nDavid"
         }
       ]
     },
@@ -307,27 +342,30 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Barbara Hall\nCc: David Sherman, Jeffrey Ochoa"
+          "text": "Good morning Barbara,"
         },
         {
           "kind": "paragraph",
-          "text": "Hello Barbara,"
+          "text": "David's match is good news for the study. The question is now much narrower. It concerns one group of people who left in one year, and nothing else in the {{fact:f:E-2019-001.client}} files."
         },
         {
           "kind": "paragraph",
-          "text": "The pay file came through, thank you, and it opens without trouble. That covers what Jeffrey Ochoa needs for the salary-increase side, so he can start there while I work the rest."
+          "text": "We will not treat that year as unusual unless your records give us a reason to. If it turns out to be ordinary turnover, it stays in the counts like any other year. If there was an event behind it, we will measure it, show it separately in the report, and base the termination assumption on the remaining years."
         },
         {
           "kind": "paragraph",
-          "text": "The one piece still open is the withdrawal detail. The contribution history you sent is complete, but the file does not separate a member who left and took a refund from one who left the balance in the fund, and that distinction is exactly what the termination experience turns on. If your system can export the withdrawal transactions with a reason code, that would settle it cleanly for the Estes Group study."
+          "text": "To keep the work moving this week, we need:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. A short answer to the questions in my earlier note, even if only for the most recent year.",
+            "2. The name of someone on your HR staff whom Megan can work with on the record-level check."
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Send it whenever it is convenient, and I will reconcile it against the census the same day, so we can close the {{fact:f:E-2019-001.client}} data and move to the tabulation."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Best"
+          "text": "Sincerely,\nRobert"
         }
       ]
     }

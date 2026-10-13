@@ -4,15 +4,6 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: Barbara Hall\nCc: Jeffrey Ochoa, Megan Dudley",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
       "text": "Good morning Barbara,",
       "level": 1,
       "items": [],
@@ -22,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The census extract your office sent over loaded without trouble, and the active count ties to your summary. We can build the study on this file. A small number of records need a definition from your side before we rely on them, and I have set those out below.",
+      "text": "To close out the reconciliation question below: the status history now ties to the year-end census for every year of the study period except the first. We can begin the termination and retirement tabulations on the years that tie, and add the first year once one coding question is settled.",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +22,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Megan Dudley reconciled the file against the Estes Group payroll register yesterday, and the two agree line for line except for one group. A handful of participants carry a status code we cannot read with confidence. A study is only as sound as the census beneath it, so we would like the reading confirmed before we treat those records as final. The {{fact:f:E-2019-001.client}} data are otherwise clean.",
+      "text": "For your staff's reference, the reconciliation ran as follows.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Before we close out the census, could your office confirm the following:",
+      "text": "1. We took each year-end census and rolled its active count forward to the next year-end, using the status changes recorded in the history file.",
       "level": 1,
       "items": [],
       "header": [],
@@ -48,20 +39,26 @@
       "signers": []
     },
     {
-      "kind": "list",
-      "text": "",
+      "kind": "paragraph",
+      "text": "2. For every year after the first, the rolled-forward count agrees with the following census once the rehires flagged in the file are counted back in as actives.",
       "level": 1,
-      "items": [
-        "Whether the flagged status code marks deferred vested participants or terminations with no vested benefit.",
-        "Whether the mid-year rehires should keep their original hire dates, or the later ones, for the service count."
-      ],
+      "items": [],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Nothing on the assumptions is settled, and you will see that work before any result depends on it. Jeffrey Ochoa is building the model in parallel, so these two confirmations are the only items holding up the next step. Once they are settled, Megan Dudley closes the census and we move on to the experience counts.",
+      "text": "3. In the first year, a group of records leaves the active census with no status change recorded. Most of the same people reappear that year under a new employee number, which points to internal transfers rather than terminations. The file itself does not say so.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Could someone in your benefits area confirm whether those records are transfers and, if they are, send the old and new employee number for each person? Until we have that, we will hold them out of the first-year termination counts instead of treating them as withdrawals, and the {{fact:f:E-2019-001.client}} data summary will describe that treatment. Any first-year rate we show before then is preliminary.",
       "level": 1,
       "items": [],
       "header": [],

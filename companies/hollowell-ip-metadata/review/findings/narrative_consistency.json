@@ -5,20 +5,110 @@
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-consistency-1",
+      "id": "rf:narrative_consistency-1",
       "dimension": "narrative_consistency",
       "severity": "major",
       "docs": [
+        "d:0017",
+        "d:0021",
+        "d:0045",
+        "d:0049",
+        "d:0056",
+        "d:0060"
+      ],
+      "summary": "In all three five-message client threads, the last reply puts the matter back at an earlier stage than the thread's own first message and asks again for material already received. The rendered reply quotes the messages it contradicts directly beneath it.",
+      "evidence": "Jackson Inc: d:0045 (7 May 2024) 'with your approval we ordered the full search. Its report came back late last week, and Kelly is now reviewing it entry by entry'; d:0049 (10 May, 'Further to the note below') 'We have ordered full searches on each candidate ... and we will start our review as soon as the reports come back', sent above the quoted d:0048 line 'she will complete her review of the full search'. Price-Henson: d:0056 (11 Apr 2025) 'Richard and I have the file histories ... and we are reading them now' and 'The drawings your engineering team sent were enough to start charting the device claims'; d:0060 (16 Apr) 'To move from collecting the record to reading it, we need ... A product description or data sheet for what [client] intends to make or sell under the license'. Middleton, Sullivan and Wiley: d:0017 (9 Jun 2020) 'The first search pass is finished ... The screen is about a third done'; d:0021 (16 Jun) 'the search is finished and screening has started'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-2",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0043",
+        "d:0044",
+        "d:0048",
+        "d:0050",
+        "d:0051"
+      ],
+      "summary": "The engagement letter and kickoff memo give the Jackson Inc trademark analysis to associate Kelly Snyder. From the working session onward, patent agent Ashley Williams reviews the search reports and drafts the analysis, although her own kickoff memo says patent agents cannot do trademark work.",
+      "evidence": "d:0043 'Kelly Snyder, an Associate with the firm, will carry out the legal analysis of the search results'; d:0044 (written by Williams) 'Matthew and I are patent agents, and our registration does not extend to trademark matters. We gather, organize, and log the record, while Kelly and Mary draw the conclusions'; d:0048 'Once Kelly has the records ... she will complete her review of the full search'; d:0050 'Ashley Williams reported that ... her review of the federal and state registrations in those reports is finished', 'Ashley Williams said that no candidate has so far shown a conflict that would plainly rule it out', action 'Draft the written analysis of the preferred candidate ... | Ashley Williams'; d:0051 'A draft analysis of your preferred candidate, prepared by Ashley Williams with Kelly Snyder.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-3",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0043",
+        "d:0044",
+        "d:0045",
+        "d:0047",
+        "d:0049",
+        "d:0050",
+        "d:0051"
+      ],
+      "summary": "Until 10 May 2024 the Jackson Inc clearance concerns a single chosen name. From then on it covers a ranked slate of candidate marks, but no document records the client adding names, and by then the window the letter allowed for alternatives had already closed.",
+      "evidence": "d:0043 'whether the name it proposes to adopt can be used and registered' and 'If, before we order the full search described below, you ask us to consider an alternative name ... we will include it'; d:0044 'the name it has chosen'; d:0045 'we ordered the full search'; d:0047 'the review of [client]'s mark'; d:0049 'the screening searches on the candidate marks are complete'; d:0050 'the analysis of the company's preferred candidate be completed first ... The analyses of the remaining candidates will follow in the order the client ranks them'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-4",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
         "d:0004",
+        "d:0005",
+        "d:0009",
         "d:0011",
         "d:0013"
       ],
-      "summary": "The Odonnell portfolio-review engagement carves office-action work out of scope in the letter, kickoff, and deck, then the status report and closing minutes report drafting and FILING office-action responses (and an examiner interview) as completed engagement work while still claiming to be within scope.",
-      "evidence": "Engagement letter d:0004: 'we are not prosecuting new applications, responding to office actions, filing continuations'; the kickoff d:0005 and deck d:0009 repeat it ('no new filings and no office-action responses under this engagement'). Yet status report d:0011 lists as completed work: 'Office-action responses. Amanda Schwartz drafted the responses to the office actions that came due in this period. Each was reviewed before filing and filed within its statutory window,' and in the same report asserts 'The review remains within the agreed scope and budget.' Closing minutes d:0013 continue it: 'Amanda Schwartz reported on the office-action responses filed since the last meeting ... one included an examiner interview that cleared a restriction requirement.' The engagement's four sibling matters (Middleton, Jackson, Price-Henson) rigorously defer such work to 'a separate engagement,' so this reads as the review-vs-prosecution scope being lost, not house style."
+      "summary": "The Odonnell portfolio review's letter and kickoff memo exclude office-action work. The later status report and November minutes nonetheless have the firm drafting office-action responses and promising extensions, with Amanda Schwartz moved from title work onto the pending applications.",
+      "evidence": "d:0004 'Preparing new applications, responding to office actions, and representing the company in any dispute are also outside this engagement' and 'we will ... take any action before a patent office only on your written instruction'; d:0005 'It does not include new filings, office action responses'; d:0009 'Kelly Snyder: finish the pending application families'; d:0011 'Amanda Schwartz, Associate, is handling the pending applications' and 'If instructions do not reach us in time, we will request an extension where one is available'; d:0013 action 'Circulate the draft argument on the remaining office action | Amanda Schwartz | Ahead of the docketed response date'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-5",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0031",
+        "d:0033",
+        "d:0034"
+      ],
+      "summary": "The Keith-Duarte minutes say Kelly Snyder's summaries already lead with the decision and its date, then assign her to recast them into that 'new format'. The next status report says they 'now' lead that way.",
+      "evidence": "d:0031 'Anything that goes to the client leads with the decision needed and the date it is needed by.'; d:0033 'we were glad to hear it, because that is how Kelly Snyder has been writing them already' and action 'Recast the remaining office action summaries in the new format, decision and date first | Kelly Snyder'; d:0034 'The summaries now lead with the decision needed and its date.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-6",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0023",
+        "d:0024",
+        "d:0026"
+      ],
+      "summary": "The September 2020 Middleton status report lists the file-history reading as complete, then calls it the largest open item later in the same report. Later documents treat that reading as ongoing work.",
+      "evidence": "d:0023 Work Completed: 'File histories obtained for every short-listed patent. Kelly Snyder has read each one for amendments and arguments that narrow how the claims can be read'; same report, Risks: 'Some short-listed patents have long prosecution records. Kelly Snyder has flagged their review as the largest open item in the time estimate'; d:0026 'The file histories and the validity review took the most time in this period, as the last report expected.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative_consistency-7",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": [
+        "d:0011",
+        "d:0021",
+        "d:0049",
+        "d:0060"
+      ],
+      "summary": "Findings 1 through 4 each start at the first document of a new authoring work order, so a matter's history appears to break where its documents were split across batches. This is an observation about the pipeline; it claims no further defect.",
+      "evidence": "workorders/author-0002.json holds d:0004-d:0010 and author-0003.json opens with d:0011 (Odonnell scope and role shift). author-0004.json ends at d:0020 and author-0005.json opens with d:0021 (Middleton regression). author-0008.json ends at d:0048 and author-0009.json opens with d:0049 (Jackson regression, the slate of candidates, the Williams takeover). author-0010.json ends at d:0059 and author-0011.json opens with d:0060 (Price-Henson regression). The d:0049 brief told the author to 'answer the previous message directly'."
     }
   ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

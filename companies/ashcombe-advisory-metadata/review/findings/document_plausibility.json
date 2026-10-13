@@ -5,97 +5,69 @@
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-1",
-      "dimension": "document_plausibility",
-      "severity": "blocker",
-      "docs": [],
-      "summary": "Nearly every client-facing email addresses its first-name correspondent by full legal name mid-body, usually under a 'for the file' or 'for the record' formula, exposing the fact-planting machinery.",
-      "evidence": "d:0048 opens 'Sandra,' then closes 'The one thing I need from you is that latest quarter, Sandra Mcdaniel; send it across whenever it is ready.' The vocative recurs in all eight Kirby-Taylor emails ('For the record I have Sandra Mcdaniel as the sign-off', d:0052), all eight Suarez-Jones emails ('Sign-off on the final wording sits with you, Jennifer Herrera', d:0067), all eight Gallegos emails ('Please send whatever exists, Robert Smith, however rough', d:0082), the Barrera thread ('Noted for the file that final approval is yours, Mary Frank', d:0008), and internal mail (d:0057, written to John: 'John Macias is the point of contact on my files'). No one writes to a person named Sandra and calls her 'Sandra Mcdaniel' in direct address, email after email."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-2",
-      "dimension": "document_plausibility",
-      "severity": "major",
-      "docs": [],
-      "summary": "The mailbox holds only the firm's half of every conversation: all 45 .eml files are From an @ashcombeadvisory.com address, each thread strictly alternates the same two firm authors, and the client's turns exist only as recaps inside firm mail.",
-      "evidence": "d:0010's In-Reply-To is d:0008, the firm's own previous outbound message, yet its body opens 'Thank you for turning the materials around so quickly' -- the message being thanked exists nowhere in the corpus. Every engagement thread alternates two firm senders (Valenzuela/Rose, Zimmerman/Bradley, Macias/Carter, Rose/Le) with no client-authored email anywhere, so a firm that 'lives in its clients' inboxes' has archived a correspondence record containing zero inbound correspondence."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-3",
+      "id": "rf:docplaus-1",
       "dimension": "document_plausibility",
       "severity": "major",
       "docs": [
-        "d:0049",
-        "d:0050",
-        "d:0051",
-        "d:0052"
-      ],
-      "summary": "The Kirby-Taylor thread forgets its own state: the fact sheet is declared final and locked, then the next email in the same thread asks the client for the same quarterly figures as if they were never sent, then a discrepancy turns up in the already-locked sheet.",
-      "evidence": "d:0050 (Jun 3): 'The fact sheet is final... I have checked the totals twice against your filings.' d:0051 (same day): 'Melissa Zimmerman is building the fact sheet and needs your most recent quarterly figures to lock it.' d:0052 (Jun 6): 'Thank you for the figures... they tie out cleanly with one exception... The trailing-quarter revenue line... reads a shade higher than the figure... reported publicly' -- after d:0049 (May 31) had already thanked the client 'for turning the quarterly figures around so quickly.'"
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-4",
-      "dimension": "document_plausibility",
-      "severity": "major",
-      "docs": [
-        "d:0066",
-        "d:0067",
-        "d:0068",
-        "d:0071"
-      ],
-      "summary": "The Suarez-Jones thread contradicts its own timeline: a walk-through call scheduled for the coming week is thanked-for as 'last week' on the Monday that week begins, and a draft promised for Aug 5 finally goes out Aug 11 described as ahead of promise.",
-      "evidence": "d:0067 (Fri Aug 4): 'will be with you tomorrow... so you have it in hand before the call next week.' d:0068 (Mon Aug 7): 'Thank you for the note, and for the time on the call last week. That conversation settled which audience we lead with' -- the very question d:0066 (Aug 3) had deferred to that not-yet-held call ('I would rather settle it with you on that call than guess at it now'). d:0071 (Fri Aug 11): 'The marked draft... is on its way to you now, a little ahead of where I promised.'"
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-5",
-      "dimension": "document_plausibility",
-      "severity": "major",
-      "docs": [
-        "d:0002",
-        "d:0007",
-        "d:0032",
-        "d:0059"
-      ],
-      "summary": "The firm overviews name clients, including the crisis-communications client, as marketing case studies while every engagement letter promises that the fact of the firm's involvement is itself confidential; the 2017 overview also narrates a month-old, still-active engagement in completed past tense.",
-      "evidence": "d:0002 (and every letter): confidentiality 'covers the fact of our involvement as much as its substance.' d:0007, an outward-facing document ('If you have news coming... Call us'), dated 2017-03-17 while E-2017-001 runs 2017-02-15 to 2017-07-10 per the ledger, says 'Our work with [the client] is a fair example... The result was quiet, which in our line of work is usually the point' -- days before the first messaging draft was even approved (d:0008, Mar 20). d:0059 names four clients including the crisis client: 'we advised [E-2021-001.client] through a period of heightened scrutiny.' No PR firm names a crisis client in its brochure."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-6",
-      "dimension": "document_plausibility",
-      "severity": "minor",
-      "docs": [
-        "d:0002",
-        "d:0018",
+        "d:0009",
+        "d:0022",
         "d:0038",
-        "d:0045",
-        "d:0061",
-        "d:0075"
+        "d:0039",
+        "d:0040",
+        "d:0041",
+        "d:0042",
+        "d:0044",
+        "d:0055",
+        "d:0056"
       ],
-      "summary": "No executed letter ever names its governing jurisdiction, and the letterhead carries no address, leaving the firm with no geography across eight years of signed legal documents.",
-      "evidence": "Every letter: 'governed by the law of the state in which our firm is established' (d:0018: 'the state in which our firm is organized'). The rendered letterhead reads only 'Ashcombe Advisory Partners LLC / www.ashcombeadvisory.com' -- no street, city, or state appears anywhere in the corpus."
+      "summary": "No client document ever says what the client does or what happened to it: IR, media, positioning and crisis work is described with every concrete particular removed.",
+      "evidence": "The crisis engagement runs through five documents without naming the crisis: letter d:0038 covers 'the recent operational disruption and its consequences', memo d:0039 says the Company is 'on the operational disruption itself', minutes and status (d:0041, d:0042, d:0044) speak only of 'remediation milestones'. The IR deck d:0022 reports holders 'few could explain how the parts of the business fit together' and never names the parts; the media program reports 'several of the trade reporters pitched in the first round have replied' (d:0055) and 'the same trade titles' (d:0056) without one outlet or reporter; the positioning deck d:0009 says 'The operating record is the strongest proof point' without saying what the business is. A grep of all 79 authored DocIR files finds no client industry, product, ticker, exchange, fiscal quarter, named outlet, reporter, analyst or fund. Real IR and crisis files are saturated with exactly these particulars."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-7",
+      "id": "rf:docplaus-2",
       "dimension": "document_plausibility",
-      "severity": "minor",
+      "severity": "major",
       "docs": [
-        "d:0010",
+        "d:0004",
         "d:0011",
-        "d:0012",
-        "d:0013"
+        "d:0013",
+        "d:0021",
+        "d:0040",
+        "d:0047",
+        "d:0053",
+        "d:0054",
+        "d:0064",
+        "d:0071",
+        "d:0077",
+        "d:0078",
+        "d:0083",
+        "d:0084"
       ],
-      "summary": "The back half of the Barrera thread duplicates the transport headers as body text: each email opens with a 'To:/Cc:' paragraph above the salutation, a memo formatting habit no other thread has.",
-      "evidence": "d:0010 renders with real headers ('To: Mary Frank <mary.frank@barreragroup.com>', 'Cc: Michelle Rose...') and then a body beginning 'To: Mary Frank / Cc: Michelle Rose' before 'Dear Mary,'. Emails 1-4 of the same thread, and every later thread, have no such block."
+      "summary": "Engagement threads are firm-only monologues: the client never writes a single message, two staff members strictly alternate on every thread, and they end up answering each other's questions to the client.",
+      "evidence": "No document in the manifest has an external author. Each eight-message thread strictly alternates two authors: Barrera Daniel/Julie, Kirby-Taylor Laura/Michael, Suarez-Jones John/Michael, Gallegos Michelle/Julie, each In-Reply-To the colleague's previous message to the client. Client replies happen only offstage: 'Thank you for sending back your changes to the protocol and for confirming next Tuesday morning' (d:0054), 'Your edit to the closing paragraph is in' (d:0083). The second author answers the first: Julie writes 'Of the two times Daniel offered, this afternoon suits us better' (d:0011) and Laura 'On Michael's question, a morning at your offices suits us well' (d:0053). Julie adds 'One addition to Michelle's note' 18 minutes after it (d:0077 12:01, d:0078 12:19). Openers announce the device weeks into the work: 'I am starting this thread for status ... so that updates, questions, and approvals stay in one place' (d:0004; same move in d:0021, d:0040, d:0047, d:0064). The nine-month Castaneda program promises 'each weekly status note' (d:0020) yet its 'thread' is one message (d:0021); Lee, Rice and Adams likewise (d:0040)."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-8",
+      "id": "rf:docplaus-3",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0003",
+        "d:0014",
+        "d:0015",
+        "d:0020",
+        "d:0034",
+        "d:0036",
+        "d:0042",
+        "d:0104"
+      ],
+      "summary": "Minutes, status reports, memos and onboarding records carry no date anywhere in the document; the date exists only in the filename.",
+      "evidence": "Every rendered minutes, status report and onboarding docx contains no date at all, and kickoff memos only the engagement start. Memo headers run To/From/Re with no Date line (d:0003 'To: Julie Hill; Christopher Walton; Michelle Rose; Lisa Flores; Pamela Rojas / From: Daniel Valenzuela / Re: ...'; same in d:0020). Minutes open with no meeting date: 'Working session to review the first draft of the positioning statement ... Julie Hill chaired the session and kept these minutes.' (d:0014). Status reports to clients give no date or period: 'This report covers the period since our last working session' (d:0042). Personnel-file records give no start date: 'Kimberly Le joined Ashcombe Advisory Partners last week' (d:0034), 'Nancy Suarez joined us last week' (d:0036). The firm's own status-report template begins 'Date: [DATE]    Author: [AUTHOR NAME]' (d:0104)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-4",
       "dimension": "document_plausibility",
       "severity": "major",
       "docs": [
@@ -108,38 +80,99 @@
         "d:0062",
         "d:0087"
       ],
-      "summary": "All eight mundane internal emails across eight years fall on July 1-3, one per year, so the shared mailbox's entire internal life happens in a single week of the calendar.",
-      "evidence": "Firm/Mail holds exactly: '2017.07.03 - Office logistics', '2018.07.02 - Scheduling next week', '2019.07.02 - Building access', '2020.07.01 - IT maintenance window', '2021.07.02 - Timesheet reminder', '2022.07.01 - Holiday coverage', '2023.07.03 - Team lunch', '2024.07.01 - Parking update' -- and nothing else. Only one of the eight is holiday-related; a directory listing gives the scheduler away in seconds."
+      "summary": "The 'mundane and constant' internal mailbox is exactly one email a year, every one dated in the first three days of July, so six of eight are about the Fourth of July.",
+      "evidence": "Firm/Mail lists 2017.07.03, 2018.07.02, 2019.07.02, 2020.07.01, 2021.07.02, 2022.07.01, 2023.07.03, 2024.07.01 and nothing else. Bodies follow the date: 'through the end of the holiday weekend' (d:0030), 'over the holiday weekend' (d:0033), 'the office is closed on Monday for the holiday' (d:0037), 'the holiday coverage rota' (d:0057), 'With the holiday tomorrow' (d:0062), 'through the holiday' (d:0087). The charter promises internal mail that is 'mundane and constant'. Cause appears to be the planner spacing mundane notes at (i+0.5)/count of an eight-year range (orgsmith/docplan/planner.py, _emit_mundane), which lands each one at mid-year."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-9",
+      "id": "rf:docplaus-5",
       "dimension": "document_plausibility",
-      "severity": "note",
+      "severity": "minor",
       "docs": [
-        "d:0015",
-        "d:0024",
-        "d:0042",
-        "d:0056"
+        "d:0007",
+        "d:0032",
+        "d:0059"
       ],
-      "summary": "Interpreting the flagged status-report overlap: it reads less like a firm template than one writer's idea, because four different authors on four unrelated engagements present the same three stock risks as bespoke judgment under a near-identical incipit.",
-      "evidence": "d:0015 (Valenzuela) and d:0024 (Morris) both run 'Three things are worth naming now, while each is still...' into the same risk list (sign-off on the narrative, one voice to the market, a live announcement in the window); d:0042 (Carter) and d:0056 (Bradley), below the metric's threshold, still reuse the sentence and the three-risk frame. The engagement letters' higher measured overlap, by contrast, reads as legitimate boilerplate: all six are signed by the same managing partner."
+      "summary": "The firm overviews read as the recipe narrative rather than a prospect-facing pitch: they explain the internal kickoff memo and email workflow, introduce the office manager, and omit founding year, location, contact details and any career credentials.",
+      "evidence": "'Each engagement opens with a signed engagement letter and a kickoff memo ... We keep formal documents to the few that serve a purpose' (d:0059; the first sentence recurs in d:0007 and d:0032, the second in d:0007) restates the charter's 'each opening with a signed letter and a kickoff memo' and 'Formal documents ... are sparse by design'. d:0007 tells prospects 'Pamela Rojas, Office Manager, keeps our files and shared mailbox in order and is generally the quickest route to a document or a meeting time' and invites them to 'write to Lisa Flores' with no address, phone or email anywhere in the document. No edition states the 2014 founding, a city, or a bio credential beyond 'She came to advisory work from corporate investor relations'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document_plausibility-10",
+      "id": "rf:docplaus-6",
       "dimension": "document_plausibility",
-      "severity": "note",
+      "severity": "minor",
       "docs": [
+        "d:0059"
+      ],
+      "summary": "The 2023 overview names a crisis-communications client in marketing copy, the one category of client a communications advisory anonymizes.",
+      "evidence": "'We advised Lee, Rice and Adams on crisis communications, working alongside its legal and finance teams so that each statement it issued could be supported by what was known at the time.' Naming the client revives its crisis for every reader of the brochure; firms describe such work as 'a regional company facing an operational disruption'. The firm's own 2017 overview said 'We do not publish the names of the companies we advise' (d:0007)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-7",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0018",
+        "d:0038",
+        "d:0045",
+        "d:0061",
+        "d:0075"
+      ],
+      "summary": "The six engagement letters re-draft their legal boilerplate from scratch each time, with substantive terms drifting letter to letter, and not one names the governing state.",
+      "evidence": "Governing law is a different circumlocution each time: 'the laws of the state under which Ashcombe Advisory Partners LLC is organized' (d:0002), 'the state in which Ashcombe maintains its principal office' (d:0018, d:0045, d:0075), 'the laws of the state of Ashcombe's organization' (d:0061). Termination is 'thirty days' written notice' in d:0018 and d:0038 but 'at any time by written notice' in d:0002, d:0045, d:0061, d:0075; payment is 'within thirty days of receipt' except 'payable upon receipt' in d:0075; the 'gross negligence or willful misconduct' carve-out appears only in d:0018 and d:0075. A 15-person firm sends one counsel-vetted template with the legal sections verbatim; the report's low letter-pair overlap (one pair at 0.159) reads here as a generator re-writing the contract, not as healthy variety."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-8",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0018",
+        "d:0038",
+        "d:0045",
+        "d:0061",
+        "d:0075"
+      ],
+      "summary": "Every executed letter shows the client countersigning on the letter's own date, including two Sundays, although each letter asks the client to sign and return it.",
+      "evidence": "Rendered PDF of d:0002: 'Julie Hill / Managing Partner / Date: February 5, 2017' and 'Mary Frank / Director of Operations, Barrera Group / Date: February 5, 2017'; February 5, 2017 and June 25, 2023 (d:0061) are Sundays. All six signature pages carry the letter date for the client's signature, while the text says 'please sign below and return a copy to me' (d:0045) or 'a scanned signature will suffice' (d:0038)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-9",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0014",
         "d:0028",
-        "d:0045"
+        "d:0041",
+        "d:0044",
+        "d:0055",
+        "d:0072",
+        "d:0085"
       ],
-      "summary": "Foundation-level naming inherited by the prose: faker-style capitalization (Mcdonald, Mcdaniel for McDonald, McDaniel) plus the near-collision of internal records-keeper Sandra Mcdonald with client-side approver Sandra Mcdaniel reads as synthetic naming rather than coincidence.",
-      "evidence": "d:0028 welcomes 'Sandra Mcdonald', the Client Coordinator who files engagement paperwork; d:0045 is addressed to 'Sandra Mcdaniel, Director of Operations' at Kirby-Taylor. Both surnames carry the giveaway lowercase 'd'. This originates in foundation.json, not in the authored prose."
+      "summary": "The most senior person in the room keeps the minutes, and the managing partner writes every personnel onboarding record, including one for an operations hire who reports to the Director of Operations.",
+      "evidence": "'Julie Hill chaired the session and kept these minutes' (d:0014, a Communications Associate present); 'Minutes recorded by Julie Hill' (d:0041) and 'with Julie Hill in the chair and recording' (d:0044), two associates present; 'Notes taken by Michael Morris' (d:0055) with a Senior Associate and two Analysts present; 'Corrections to these minutes should come to Michael Morris' (d:0072). Only the two Castaneda sets are taken by the analyst. d:0028 records 'Reports to | Lisa Flores, Director of Operations' and 'Record prepared by | Julie Hill, Managing Partner'; all five onboarding records are prepared by Julie Hill."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-10",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0019",
+        "d:0057",
+        "d:0062",
+        "d:0070"
+      ],
+      "summary": "Each person's greeting and sign-off is fixed regardless of audience or hour, so a team-lunch broadcast closes 'Sincerely' and an afternoon reply opens 'Good morning'.",
+      "evidence": "d:0062, an all-staff note about lunch 'on the firm', opens 'Hi all,' and closes 'Sincerely'; Christopher Walton closes a rota swap with an associate (d:0057) and a room-booking note (d:0019) the same way. John Macias opens d:0070 'Good morning Jennifer,' and continues 'Following Michael's list this morning, I have tried...', sent 14:18. The style ledger assigns one closing ('Sincerely' for michael.morris and christopher.walton) and one greeting ('Good morning {first},' for john.macias) per person."
     }
   ],
   "generator": {
-    "model": "claude-fable-5",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

@@ -2,52 +2,88 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "ashcombe-advisory",
   "dimension": "org_realism",
-  "generator": {"model": "claude-fable-5", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org_realism-1",
+      "id": "rf:org-1",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": ["d:0002", "d:0038", "d:0007", "d:0032", "d:0059"],
-      "summary": "The firm's marketing overviews name engagement clients, including the crisis client, as case studies, directly contradicting its own engagement letters' promise that the fact of the engagement stays confidential.",
-      "evidence": "d:0002 promises confidentiality 'covers the fact of our involvement as much as its substance'; d:0038 goes further, 'keeping the account on a need-to-know footing within the firm'. Yet d:0059 advertises 'we advised {{fact:f:E-2021-001.client}} through a period of heightened scrutiny', and d:0007/d:0032/d:0059 name every ledgered client as an illustration. No communications firm names its crisis client in a brochure."
+      "docs": ["d:0003", "d:0014", "d:0015", "d:0020", "d:0038", "d:0046", "d:0053", "d:0061", "d:0071", "d:0072", "d:0075"],
+      "summary": "In all six engagements the client's only counterpart is an operations or finance officer. None is a head of communications or investor relations, a CEO, or counsel, and no other client executive is ever named. As a result a Director of Operations approves positioning language, decides which figures go public, and takes reporters' calls.",
+      "evidence": "Counterparts: Mary Frank, Director of Operations (d:0002, Corporate Positioning); Lauren Heath, 'the Chief Operating Officer, as our sponsor' of an investor relations program (d:0020); Megan Sutton, Director of Operations (d:0038, Crisis Communications); Sandra Mcdaniel, Director of Operations (d:0045, Media Relations Program); Jennifer Herrera, VP Finance (d:0061, Executive Messaging); Robert Smith, VP Finance (d:0075, Reputation Audit). d:0003: 'Mary Frank, Director of Operations, is our contact at the company. She ... approves drafts on the company's behalf'. d:0014: 'Mary Frank will confirm which operating figures the company is prepared to cite publicly' (foundation.json gives Barrera a CFO, Deborah Martin, who appears in no document). d:0015 refers to 'your communications lead', who is never named or copied. d:0046: 'Sandra Mcdaniel, Director of Operations ... approves everything before it goes out'. d:0053 routes 'a reporter's call to Kirby-Taylor' to her. d:0071 and d:0072 work on 'the CEO and CFO talking points', but neither executive is ever named, and in d:0072 a VP Finance is the one who will 'collect sign-off from the executives and from counsel'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org_realism-2",
+      "id": "rf:org-2",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": [],
-      "summary": "Every engagement thread is two firm authors in perfect A/B alternation with zero client messages on file, a mechanical rhythm no real mailbox has.",
-      "evidence": "Kirby-Taylor d:0047-d:0054 alternates Bradley/Zimmerman 8 for 8; Suarez-Jones d:0064-d:0071 alternates Macias/Carter; Gallegos d:0077-d:0084 alternates Rose/Le; Barrera d:0004-d:0013 alternates Valenzuela/Rose. Each even-numbered mail opens by citing the other's note ('Following Daniel Valenzuela's note', 'Picking up John Macias's note', 'To add to Michelle Rose's note'). No client reply appears in any engagement folder even though the firm keeps thanking them for one, e.g. d:0049 'Thank you for turning the quarterly figures around so quickly'."
+      "docs": ["d:0018", "d:0021", "d:0022", "d:0038", "d:0041", "d:0075", "d:0085"],
+      "summary": "Three of the six clients have three-surname partnership names that read as law or accounting firms. Yet they operate as listed companies, with shareholder registers, transfer agents, analyst coverage, and quarterly investor updates.",
+      "evidence": "Castaneda, Adams and Davis: d:0021 asks for 'the most recent shareholder register or ownership report from your transfer agent', and d:0022 says 'Analyst coverage is thinner than at peers of similar size'. Lee, Rice and Adams: d:0041 discusses talking points for 'the Company's quarterly investor update'. Gallegos, Pope and Marsh: d:0085 covers investor conversations and coverage of its 'financial announcements'. The charter says the clients are 'mid-market public and pre-IPO companies', but a US law partnership cannot have outside shareholders. The email domains make it worse: lauren.heath@castanedaadamsanddavis.com, robert.smith@gallegospopeandmarsh.com. The other three clients (Barrera Group, Kirby-Taylor, Suarez-Jones) are also bare surnames, so no client name in the book suggests an operating business."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org_realism-3",
+      "id": "rf:org-3",
       "dimension": "org_realism",
-      "severity": "minor",
-      "docs": ["d:0007", "d:0038", "d:0041", "d:0044"],
-      "summary": "The crisis engagement, the gravest matter in the book, is run by the firm's two most junior associates while the senior bench the overview advertises never appears in it, part of a 2021-2024 pattern where partners and advisors vanish from client work.",
-      "evidence": "d:0007: 'Christopher Walton carries our most delicate reputational work.' Yet the crisis letter d:0038 staffs it with 'Amy Carter will run the work day to day' plus Nancy Suarez, five months into her first year (foundation start 2021-02-01, engagement start 2021-07-23), and both minutes (d:0041, d:0044) list only the two associates and the client, no partner, despite Julie Hill's 'I will keep this account in my own hands.' Post-2018, no Partner, Senior Advisor, or Advisor appears in any ledgered engagement; the largest fee in the book ($102,000, E-2023-001) is led by Associate John Macias."
+      "severity": "major",
+      "docs": ["d:0003", "d:0009", "d:0014", "d:0022", "d:0039", "d:0045", "d:0052", "d:0055"],
+      "summary": "No client's business is ever stated. In none of the six engagement folders does the reader learn what a client makes or sells, or where it operates. 'The sector' appears wherever a real file would name the industry and the peers.",
+      "evidence": "d:0003 says Barrera Group 'needs one clear account of what it does and why that matters' but never says what it does. d:0009: 'The operating record is the strongest proof point', with no hint of what the operation is. d:0014: 'reporters who have covered the company or its sector'. d:0045: 'the reporters who follow the Company's sector'. d:0052: 'a short summary of recent coverage of your sector'. d:0055: 'trade coverage across the sector has centered on rising costs and difficulty hiring'. d:0022 benchmarks against 'Funds that own comparable companies' and 'peers of similar size' without naming one comparable. d:0039 is a crisis over 'the operational disruption itself', and the disruption is never described."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org_realism-4",
+      "id": "rf:org-4",
       "dimension": "org_realism",
       "severity": "minor",
-      "docs": ["d:0015", "d:0024", "d:0029", "d:0042", "d:0056", "d:0073", "d:0086", "d:0007", "d:0032", "d:0059"],
-      "summary": "File naming is mechanically uniform where a real share drifts: all seven status reports across 2017-2024 are 'v2 FINAL' and all three firm overviews are 'v3'.",
-      "evidence": "Every status report path ends '- Status Report - <client> v2 FINAL.docx' (seven engagements, eight years, seven different authors, always exactly v2 FINAL); the overviews are 'Firm Overview 2017 v3.docx', 'Firm Overview 2020 v3.docx', 'Firm Overview 2023 v3.docx'."
+      "docs": ["d:0002", "d:0075", "d:0018", "d:0045", "d:0025", "d:0036", "d:0060", "d:0037", "d:0061"],
+      "summary": "Staff keep the same title from 2017 to 2024. 'Communications Associate' is the title both of a long-tenured staff member who runs an engagement day to day and of three new hires onboarded in 2019, 2021 and 2023.",
+      "evidence": "Michelle Rose is 'a Communications Associate' in 2017 (d:0002), and in 2024 she is still 'a Communications Associate, will manage the work from day to day' (d:0075). New hires join at that same title, 'as a Communications Associate in the Advisory group' (d:0025, 2019; d:0036, 2021; d:0060, 2023). Laura Bradley is 'Senior Associate' in both 2018 (d:0018) and 2022 (d:0045). John Macias signs 'Associate' in 2021 (d:0037) and 2023 (d:0061). foundation.json has Rose, Bradley and Macias all joining in 2014, and records only two title changes across the roster in ten years."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org_realism-5",
+      "id": "rf:org-5",
       "dimension": "org_realism",
       "severity": "minor",
-      "docs": ["d:0007", "d:0011"],
-      "summary": "The 2017 firm overview presents the Barrera engagement as a completed, successful case study one month into its five-month term, while the live thread shows the first messaging draft still in revision that same week.",
-      "evidence": "d:0007 (dated 2017-03-17): 'We gave careful attention to who needed to hear a message... The result was quiet, which in our line of work is usually the point.' The ledger runs E-2017-001 from 2017-02-15 to 2017-07-10, and d:0011 (2017-03-24) says 'The revised draft is ready for your read... Two lines still need a figure from your side to stand up.'"
+      "docs": ["d:0028"],
+      "summary": "Both recorded title changes read wrong. One is a lateral move into a departed colleague's title. The other leaves the three-person Operations team with two Office Managers and no Client Coordinator.",
+      "evidence": "foundation.json: Melissa Zimmerman moves from 'Research Analyst' (to 2020-08-02) to 'Communications Analyst' (from 2020-08-03). That is the same grade, five weeks after Communications Analyst Michelle Black leaves (2020-07-08). Sandra Mcdonald moves from 'Client Coordinator' to 'Office Manager' on 2023-06-23, while Pamela Rojas stays 'Office Manager' with no end date. Operations (Lisa Flores, Pamela Rojas, Sandra Mcdonald) then has two Office Managers, and the Client Coordinator role that d:0028 says 'exists so that the scheduling, travel, and practical arrangements around our client meetings rest with one person' is left empty."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-6",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0016", "d:0033", "d:0037", "d:0087", "d:0007"],
+      "summary": "Office logistics mail comes from the Managing Partner, an Associate and an Analyst. The Office Manager and the Director of Operations, whose job this is, write none of the firm's eight internal emails.",
+      "evidence": "d:0016 (Julie Hill, Managing Partner, to all-staff) sets conference-room booking rules. d:0033 (Julie Hill): 'Our IT provider will carry out maintenance on the firm's email and file servers'. d:0037 (John Macias, Associate) chases the Partner's timesheet: 'Michael, yours just needs Wednesday filled in'. d:0087 (Kimberly Le, Communications Analyst) passes on the building's garage notice. d:0007 says Lisa Flores is responsible for 'the systems that allow a small firm to keep its commitments' and Pamela Rojas 'keeps our files and shared mailbox in order'. Rojas authors no document in the share, and Flores authors only the static financial summaries."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-7",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0007", "d:0032", "d:0059"],
+      "summary": "None of the three firm overviews names Michael Morris, the firm's second partner. The 2017 edition profiles the Senior Advisor, the Director of Operations and the Office Manager, and the 2020 and 2023 editions promise every client a partner.",
+      "evidence": "d:0007, under 'The people involved', names Julie Hill, Christopher Walton, Lisa Flores and Pamela Rojas ('Pamela Rojas, Office Manager, keeps our files and shared mailbox in order'). d:0032: 'Each client relationship is also overseen by a partner'. d:0059: 'every relationship has a partner to whom any concern can be taken directly'. Morris signs as Partner from 2018 (d:0021) and is the senior on three of the six engagements (d:0018, d:0045, d:0061), but none of the three overviews mentions him."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-8",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0030", "d:0057", "d:0087"],
+      "summary": "The phone numbers in email signatures spread a single-office, 15-person firm across six metro area codes, including colleagues who share a lobby, a garage and a main phone line. Each signature carries one number and there is no office line.",
+      "evidence": "The ten people who sign mail in the share use six area codes: 206 (Julie Hill, Daniel Valenzuela, Sandra Mcdonald), 415 (Michael Morris), 212 (Christopher Walton, Laura Bradley), 617 (John Macias, Amy Carter), 303 (Michelle Rose) and 312 (Kimberly Le). The office is clearly a single site. In d:0030 a 206 number tells a 303 colleague that 'the lobby doors will be on card access'. In d:0087 a 312 number writes that 'the three of us hold the firm's parking permits'. In d:0057 a 212 number hands 'the main line and the shared inbox' to a 617 number. Julie Hill and Michael Morris also share the line number 555-0195 under different area codes."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org-9",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0028", "d:0030", "d:0045"],
+      "summary": "Both Mc- surnames are capitalized 'Mcdonald' and 'Mcdaniel', a title-casing artifact that shows up even in the employee's own signature and file name. The two names also belong to near-namesakes: staff member Sandra Mcdonald and client contact Sandra Mcdaniel.",
+      "evidence": "d:0030 signature: 'Sandra Mcdonald / Client Coordinator'. d:0028 file name: 'People/2019.02.06 - Onboarding - Sandra Mcdonald.docx'. d:0045 addressee block: 'Sandra Mcdaniel / Director of Operations'. The usual spellings are McDonald and McDaniel."
     }
   ]
 }

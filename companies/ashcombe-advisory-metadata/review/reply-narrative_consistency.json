@@ -2,61 +2,43 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "ashcombe-advisory",
   "dimension": "narrative_consistency",
-  "generator": {"model": "claude-fable-5", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-1",
-      "dimension": "narrative_consistency",
-      "severity": "major",
-      "docs": ["d:0049", "d:0050", "d:0051"],
-      "summary": "The Kirby-Taylor thread resets mid-stream: email 5 asks the client to send the quarterly figures that email 3 already acknowledged receiving and email 4, sent the same day, had already folded into a finished fact sheet.",
-      "evidence": "d:0050 (Jun 3): \"The fact sheet is final. With the quarterly figures you sent now folded in and reconciled ... I have checked the totals twice\"; d:0051 (also Jun 3): \"Melissa Zimmerman is building the fact sheet and needs your most recent quarterly figures to lock it. If you can send those our way ...\"; d:0049 (May 31) had already said \"Thank you for turning the quarterly figures around so quickly.\""
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-2",
-      "dimension": "narrative_consistency",
-      "severity": "major",
-      "docs": ["d:0077", "d:0079", "d:0081", "d:0082"],
-      "summary": "The Gallegos, Pope and Marsh thread replays its own opening stage: after interviews are penciled in and the coverage read is finished, later emails restart the coverage read, ask the client for interview names as if none existed, and put the not-yet-drafted interview guide back on the to-do list.",
-      "evidence": "d:0077 (Mar 11): \"Kimberly Le has finished the first pass through the recent coverage\"; d:0079 (Mar 13): \"I have three of the internal interviews penciled in for next week\"; d:0081 (Mar 15): \"We are into the coverage now\" and asks for \"the names of the people you would want us to hear from\"; d:0082 (Mar 18): \"I will hold the first interviews until that material and your sign-off on the contact list are both with us.\""
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-3",
-      "dimension": "narrative_consistency",
-      "severity": "major",
-      "docs": ["d:0067", "d:0068"],
-      "summary": "In the Suarez-Jones thread the client call flips across a weekend from upcoming to already held: Friday's email places it next week, Monday's email thanks the client for it last week.",
-      "evidence": "d:0067 (Fri Aug 4): \"so you have it in hand before the call next week\"; d:0068 (Mon Aug 7): \"thank you ... for the time on the call last week. That conversation settled which audience we lead with.\""
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-4",
-      "dimension": "narrative_consistency",
-      "severity": "note",
-      "docs": [],
-      "summary": "Three of the four multi-email engagement threads sampled (Kirby-Taylor, Suarez-Jones, Gallegos) contradict their own earlier messages, while the longform documents around them (kickoffs, minutes, status reports) stay mutually consistent; the continuity failures are concentrated in mid-thread email, as if each reply were written without the thread's accumulated state.",
-      "evidence": "See rf:narrative-1 through rf:narrative-3; by contrast the Barrera thread (d:0004 through d:0013) advances cleanly from draft to figures to clean version, and every minutes/status pair agrees with its thread's endpoint."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-5",
+      "id": "rf:narr-1",
       "dimension": "narrative_consistency",
       "severity": "minor",
-      "docs": ["d:0076", "d:0078", "d:0081", "d:0085"],
-      "summary": "The Gallegos coverage review's span shifts between documents: the kickoff memo and the analyst's first report say two years, later mail and the working-session minutes say eighteen months.",
-      "evidence": "d:0076: \"pulling the coverage from the last two years\"; d:0078: \"I have read the last two years of trade and financial press\"; d:0081: \"pulled the last eighteen months of press and analyst notes\"; d:0085: \"the coverage read of the past eighteen months.\""
+      "docs": ["d:0093", "d:0094", "d:0095", "d:0021"],
+      "summary": "The three working drafts of the Castaneda, Adams and Davis kickoff memo are dated before the engagement began but already describe its start in the past tense, and the v3 copy is the one the client received.",
+      "evidence": "d:0093 (created 2018-06-27), d:0094 (2018-07-01) and d:0095 (2018-07-05) each read 'Our engagement with Castaneda, Adams and Davis formally began on July 6, 2018'. The ledger start for E-2018-001 is 2018-07-06, and the final memo d:0020 (2018-07-09) is the only version dated after it. d:0021 (2018-08-03) attaches the v3 file, whose embedded created date is 2018-07-05. The drafts are noise-stage copies of d:0020's DocIR with the trailing blocks dropped and a 'WORKING DRAFT vN' banner added; the copy is backdated without regard to the dated facts in its text, so this is a device-level gap rather than an authoring slip. It is the only version chain in this org whose text carries a date."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:narrative-6",
+      "id": "rf:narr-2",
       "dimension": "narrative_consistency",
       "severity": "minor",
-      "docs": ["d:0007", "d:0009"],
-      "summary": "The 2017 firm overview, written one month into the five-month Barrera engagement, narrates it in the past tense as a quietly concluded success, while the contemporaneous engagement documents show the first messaging draft still in review and nothing yet public.",
-      "evidence": "d:0007 (2017-03-17): \"We gave careful attention to who needed to hear a message, and in what order, before any of it became public ... The result was quiet, which in our line of work is usually the point\"; d:0009 (2017-03-23) still instructs \"Nothing investor-facing circulates until the internal narrative is settled.\""
+      "docs": ["d:0007", "d:0032", "d:0059"],
+      "summary": "The firm overview reverses its stated policy on naming clients between versions, and no version acknowledges the change.",
+      "evidence": "d:0007 (2017): 'We do not publish the names of the companies we advise. A company is entitled to decide for itself whether, and when, to say that it has retained an adviser.' d:0032 (2020) instead says 'We describe a client's work only after the engagement has concluded' and names Barrera Group and Castaneda, Adams and Davis, with no mention of client consent. d:0059 (2023) adds 'only with the agreement of the client concerned' and names four clients, including the 2021 crisis-communications client. Every engagement cited had finished by the overview's date, so the finished-work rule holds; the inconsistency is that the 2017 text, written when no engagement had finished, states a blanket no-names rule that the later versions drop."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-3",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0084", "d:0078", "d:0079", "d:0080"],
+      "summary": "The last message in the Gallegos, Pope and Marsh thread proposes, as if new, a leadership-interview sequence and press conversations that earlier messages in the same thread had already settled or reported under way.",
+      "evidence": "d:0084 (Julie Hill, 2024-03-19): 'she will also speak informally with the reporters who cover the company ... We would very much like to speak with your leadership team as well, and ideally before the first investor calls take place.' Quoted beneath it in the same rendered .eml: d:0078 (Julie Hill, 03-11) 'suggest that the investor and analyst calls wait until the leadership interviews are complete'; d:0079 (03-13) 'The leadership interviews go first ... On the press side, I have started background conversations with the reporters you cleared'; d:0080 (Julie Hill, 03-14) 'A brief word on the reporter conversations Michelle mentioned'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narr-4",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": ["d:0028", "d:0025"],
+      "summary": "Two onboarding records are written as if the hire had not yet arrived, although each is dated a week after that person's start date in the roster.",
+      "evidence": "d:0028 is dated 2019-02-06, foundation.json gives Sandra Mcdonald's start as 2019-01-30, and the record says 'building access and a firm email account will be ready for her first day'. d:0025 is dated 2019-01-12 against Amy Carter's 2019-01-05 start and says 'The operations team will arrange her building access, laptop, and email account' and 'Her first scheduled step is a working session with Michael Morris early next week'. The other three records sit on the same start-plus-seven-days schedule and read correctly: d:0034 'joined Ashcombe Advisory Partners last week ... Her laptop, firm email account, and remote access are in place', d:0036 'were ready on her first day', d:0060 'are in place'. The authoring brief for onboarding records carries no start date, so each author had to guess."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0010",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -12,48 +12,27 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Hi Sandra,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Hi Sandra,"
         },
         {
           "kind": "paragraph",
-          "text": "The media plan is coming together well, and I expect a full draft in front of you by the end of next week. We have the shape of it now; what is left is the detail.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "One more item to go with Michael's note. He asked that any reporter who contacts {{fact:f:E-2022-001.client}} directly be passed to us, and we would like to make that easy for whoever takes the call."
         },
         {
           "kind": "paragraph",
-          "text": "Kimberly Le has a first read on how the trade press is covering Kirby-Taylor and is drafting the message points off the back of it. Melissa Zimmerman is building the fact sheet and needs your most recent quarterly figures to lock it. If you can send those our way, we will hold the numbers to the same source as your filings.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Once outreach starts next week, some reporters will ring your main line or one of your sites instead of calling us. I am putting together a one-page media inquiry protocol for this, which I will label v1."
         },
         {
           "kind": "paragraph",
-          "text": "One thing for the file: I have noted Sandra Mcdaniel as our approval point on anything that would carry the story about {{fact:f:E-2022-001.client}} to a reporter, so nothing goes out without your say. A quick line back on the spokesperson is all we need for now.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "It will cover who takes the first call, what they say, and how the request reaches you and us the same day. To draft it properly, it would help to know which team answers your main line, and who covers for you when you are out of the office."
         },
         {
           "kind": "paragraph",
-          "text": "Best",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "If you can send that over, we will have v1 with you early next week. We know this lands on top of everything else on your desk, so we will keep it short."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best,\nLaura"
         }
       ]
     },
@@ -63,48 +42,23 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Sandra,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Hi Sandra,"
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for the figures. I have set them against your two most recent filings, and they tie out cleanly with one exception that I want to settle before the number reaches print.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Laura's protocol covers the first phone call, and the people who pick up that call will also need to know what not to say, so I would like to settle the protocol and the preparation session for your spokespeople together, particularly as the first pitches go out this week and any reporter who responds will want an interview soon after."
         },
         {
           "kind": "paragraph",
-          "text": "The trailing-quarter revenue line in the Kirby-Taylor file reads a shade higher than the figure {{fact:f:E-2022-001.client}} reported publicly, and I would rather carry whichever you consider final than a number a reporter could check against the record. Laura Bradley is holding the fact sheet until this is settled, and Kimberly Le needs the same figure for the message points, so it is worth pinning down now.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "To fix the session date, as I said we would on this thread, three things from your side would help:\n1. A half day next week when your spokespeople can be in one room with Laura and me, ideally a morning at your offices, because practice interviews work better in person than over video.\n2. A short note on anything {{fact:f:E-2022-001.client}} expects to announce over the summer, or that customers or employees may already be talking about, so that the protocol can carry a holding line for it.\n3. Your view on whether the front desk and site reception staff should sit in on the first hour of the session, which covers taking a message from a reporter and nothing more."
         },
         {
           "kind": "paragraph",
-          "text": "For the record I have Sandra Mcdaniel as the sign-off on the financial lines. Confirm the correct revenue figure and I will lock the fact sheet the same day.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Once we have the date, Laura will send the agenda and the Q&A document the spokespeople will practice from, and Kimberly will put together a short summary of recent coverage of your sector for the room."
         },
         {
           "kind": "paragraph",
-          "text": "Best regards",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Sincerely,\nMichael"
         }
       ]
     },
@@ -114,48 +68,27 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Hi Sandra,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Hi Sandra,"
         },
         {
           "kind": "paragraph",
-          "text": "Good news on the message side: the framework is drafted and ready for your eyes. I did not want it waiting on the fact sheet, so you can read the language now and Melissa Zimmerman will drop the confirmed numbers in once you and she have squared them.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The media inquiry protocol is ready for your review. You will find it in the shared project folder as \"Media Inquiry Protocol v1\", on a single page as promised."
         },
         {
           "kind": "paragraph",
-          "text": "Kimberly Le pulled the current coverage into a short baseline. The plain version is that Kirby-Taylor is being written about accurately but thinly, which is the opening we want. The framework leans into that, giving reporters a clearer story about {{fact:f:E-2022-001.client}} than the one they are piecing together now.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What we are asking you to approve is the routing at the top of the page: a reporter's call to {{fact:f:E-2022-001.client}} is logged by whoever answers it, passed to you, and sent on to us within the hour. The two holding lines underneath are drafts, and we expect you will want to adjust the wording."
         },
         {
           "kind": "paragraph",
-          "text": "Could we find forty-five minutes for the spokesperson briefing in the next couple of weeks? For the file I have Sandra Mcdaniel as the one to schedule it through, so send me a window that works and I will build the session around it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "I have left the team that answers your main line blank for now, so we can fill it in once we hear from you. On Michael's question, a morning at your offices suits us well, and we will bring copies of the protocol in case the front desk staff join us."
         },
         {
           "kind": "paragraph",
-          "text": "Best",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Separately, the first pitches will reach you later today, each in the form the reporter will see."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Best,\nLaura"
         }
       ]
     },
@@ -165,48 +98,23 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Sandra,",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Hi Sandra,"
         },
         {
           "kind": "paragraph",
-          "text": "Confirmed and done. I have used the figure you settled on, and the fact sheet for {{fact:f:E-2022-001.client}} is now locked, with every line traceable to your filings or to your written confirmation.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Thank you for sending back your changes to the protocol and for confirming next Tuesday morning at your offices for the preparation session; Laura has folded your edits into the protocol as v2, and that is now the version your front desk and site reception teams should work from."
         },
         {
           "kind": "paragraph",
-          "text": "I have sent the final version to Kimberly Le for the message points and to Laura Bradley for the press packet, so the same numbers run through all of the Kirby-Taylor materials. If your figures move before we go public, one line to me keeps everything in step.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "So that everyone on both sides is working from the same plan, this is how the session and the days around it will run:\n1. Laura and I will run the session on Tuesday, with the first hour open to your front desk and site reception staff as you suggested, and we will need a room with a screen and a phone we can use for practice calls.\n2. Melissa is checking the Q&A document against what {{fact:f:E-2022-001.client}} has said publicly over the past year, so that nothing we ask your spokespeople to say goes further than earlier statements, and she will have that done before Tuesday.\n3. Kimberly will send the first weekly summary this Friday, covering the reporters contacted, the replies so far, and anything from our monitoring that deserves your attention.\n4. Any interview request that comes out of this week's pitches will be held until after Tuesday, in line with the rule that no one gives an interview before their session."
         },
         {
           "kind": "paragraph",
-          "text": "Nothing further is needed from you on the numbers for now. I have Sandra Mcdaniel down as the approver on any change, so I will come to you first if a figure has to be reopened.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The one thing I still need from you is confirmation of which spokespeople can be there on Tuesday, so that Laura can set the practice questions to each person's part of the business."
         },
         {
           "kind": "paragraph",
-          "text": "Best regards",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Sincerely,\nMichael"
         }
       ]
     },
@@ -216,182 +124,135 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: Media Relations Program for Kirby-Taylor",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Working Session Minutes: {{fact:f:E-2022-001.client}} Media Relations Program",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Held by video call on the morning after Tuesday's spokesperson preparation session at the {{fact:f:E-2022-001.client}} offices, to take stock of the session and of the first week of outreach, and to agree how the interview requests now coming in will be handled. Notes taken by Michael Morris."
         },
         {
           "kind": "heading",
           "text": "Attendees",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "list",
-          "text": "",
-          "level": 1,
           "items": [
-            "Melissa Zimmerman, Communications Analyst, Ashcombe Advisory Partners",
+            "Sandra Mcdaniel, Director of Operations, {{fact:f:E-2022-001.client}}",
+            "Michael Morris, Partner, Ashcombe Advisory Partners",
             "Laura Bradley, Senior Associate, Ashcombe Advisory Partners",
             "Kimberly Le, Communications Analyst, Ashcombe Advisory Partners",
-            "Sandra Mcdaniel, Director of Operations, {{fact:f:E-2022-001.client}}"
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+            "Melissa Zimmerman, Communications Analyst, Ashcombe Advisory Partners"
+          ]
         },
         {
           "kind": "heading",
-          "text": "Discussion",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "1. How the preparation session went",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The team met by telephone to review the program at its midpoint. Laura Bradley led the review, and Melissa Zimmerman recorded these minutes. The purpose was to confirm what is ready, close out the fact sheet, and set the sequence for the first round of media contact.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Sandra Mcdaniel reported that the spokespeople found the session useful and were comfortable telling the company's story in their own words, but that two kinds of question caught them out in the practice interviews: questions about growth plans the company is not ready to discuss, and questions that invited them to comment on competitors. Laura Bradley proposed adding short, approved answers for both to the Q&A document, and the group agreed that the spokespeople should work through those answers in a shorter practice session by video before anyone gives an interview."
+        },
+        {
+          "kind": "heading",
+          "text": "2. The protocol at the front desk and the sites",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The message framework is drafted and has been with Sandra Mcdaniel for review since last week. Laura Bradley reported that the language holds and that only minor edits are outstanding. The framework goes final once the client returns its marks.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The front desk and site reception staff who sat in on the first hour of the session are now working from the v2 protocol, and Sandra said the only question to come back so far is what a site manager should do when a local reporter calls them directly instead of the main line. It was agreed that site managers will take the reporter's name, outlet and deadline and pass them to Sandra the same day, and Laura will add that step to the protocol and reissue it as v3."
+        },
+        {
+          "kind": "heading",
+          "text": "3. Outreach, coverage and the check against public statements",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Kimberly Le presented the coverage baseline. Reporting on Kirby-Taylor has been accurate but light, concentrated in two trade outlets, with no adverse threads running through it. The group read this as a favorable start and agreed the aim is depth and consistency rather than volume.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Kimberly Le took the group through the first weekly summary, which went out on Friday: several of the trade reporters pitched in the first round have replied, some of them asking for interviews, while coverage naming {{fact:f:E-2022-001.client}} has been light and neutral and trade coverage across the sector has centered on rising costs and difficulty hiring, which the group agreed are the subjects reporters are most likely to raise in a first interview."
         },
         {
           "kind": "paragraph",
-          "text": "The fact sheet is locked. Melissa Zimmerman confirmed that every figure ties to a filing or to written confirmation from the client, and that the same numbers now carry through the message points and the press packet. No further changes are expected before the announcement.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Melissa Zimmerman reported on her check of the Q&A document against her file of the company's public statements over the past year and flagged one passage that describes growth in stronger terms than the company has used before; the group agreed to go back to the earlier wording, and Melissa will also circulate her finished table comparing how peer companies have been covered in the same trade titles."
+        },
+        {
+          "kind": "heading",
+          "text": "4. The interview requests",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Kimberly Le is building the media list and expects a first version within the week. The group discussed which outlets to approach first and agreed to lead with the two that already follow {{fact:f:E-2022-001.client}}, then widen from there once the early conversations have gone well.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The spokesperson briefing was discussed. Sandra Mcdaniel will confirm a date, and Laura Bradley will run the session against the approved framework. Nothing goes to a reporter until the briefing is done and the client has cleared the framework.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The approval path is unchanged. Client-facing material clears through Sandra Mcdaniel before release, turnaround has been prompt, and no change was proposed.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Measurement was the last item. Melissa Zimmerman will track coverage against the baseline through the second half, counting placements and, where it can be judged, whether the message points are showing up in the reporting. The group agreed to keep the measure simple so it stays current, rather than build a fuller one that would lag the work.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Two smaller points were logged. Kimberly Le noted that one of the two trade outlets has changed its beat reporter, which the group treated as a reason to make the first call a careful one. Laura Bradley confirmed the press packet is assembled and needs only the final framework before it is ready to hand to a reporter.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The interview requests from the first round will be scheduled once the spokesperson concerned has done the video practice session and Sandra has signed off on the revised Q&A document, with Laura proposing times to each reporter and Michael Morris sitting in on the first interviews himself. Sandra asked for at least a day's notice before any interview is confirmed, so that she can clear the spokesperson's diary, and the team agreed to treat that as a standing rule for the rest of the program."
         },
         {
           "kind": "heading",
           "text": "Actions agreed",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
           "header": [
+            "No.",
             "Action",
             "Owner",
-            "Due"
+            "When"
           ],
           "rows": [
             [
-              "Return marks on the message framework",
-              "Sandra Mcdaniel",
-              "This week"
-            ],
-            [
-              "Circulate the first media list for review",
-              "Kimberly Le",
-              "Within one week"
-            ],
-            [
-              "Confirm a date for the spokesperson briefing",
-              "Sandra Mcdaniel",
-              "Before the next session"
-            ],
-            [
-              "Prepare the briefing materials from the approved framework",
+              "1",
+              "Add approved answers on growth plans and on competitors to the Q&A document and circulate it as v2",
               "Laura Bradley",
-              "Ahead of the briefing"
+              "Friday"
             ],
             [
-              "Hold the fact sheet as final unless the client reopens a figure",
+              "2",
+              "Add the site-manager step to the inquiry protocol and reissue it as v3",
+              "Laura Bradley",
+              "Friday"
+            ],
+            [
+              "3",
+              "Circulate the peer coverage table and the revised growth wording",
               "Melissa Zimmerman",
-              "Ongoing"
+              "Friday"
+            ],
+            [
+              "4",
+              "Confirm spokesperson times for a short practice session by video",
+              "Sandra Mcdaniel",
+              "Early next week"
+            ],
+            [
+              "5",
+              "Sign off on Q&A v2 before any interview is confirmed",
+              "Sandra Mcdaniel",
+              "On receipt of v2"
+            ],
+            [
+              "6",
+              "Send the weekly summary and flag the same day any story that names {{fact:f:E-2022-001.client}}",
+              "Kimberly Le",
+              "Every Friday"
+            ],
+            [
+              "7",
+              "Prepare a briefing note for the spokesperson ahead of each confirmed interview",
+              "Kimberly Le",
+              "Before each interview"
+            ],
+            [
+              "8",
+              "Propose interview times to the reporters who have asked, once items 4 and 5 are done",
+              "Laura Bradley and Michael Morris",
+              "After sign-off"
             ]
-          ],
-          "signers": []
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Minutes recorded by Melissa Zimmerman. The framework marks are the gating item; once they are back, the media list and the briefing can proceed in parallel.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The next working session will be held in two weeks in the same format, or sooner if an interview raises anything that needs a decision from the company."
         }
       ]
     },
@@ -401,226 +262,170 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Media Relations Program for Kirby-Taylor",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Status Report: Media Relations Program for {{fact:f:E-2022-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared by Laura Bradley, Ashcombe Advisory Partners, for the {{fact:f:E-2022-001.client}} leadership team."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the program stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The program is on track at roughly its halfway point. The first round of outreach is complete, and the first interviews it produced are now on the calendar."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Your spokespeople are prepared and are working from an approved Q&A document. A reporter's call now has a clear route into the company and on to us."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spending is in line with plan. We cover the budget at the end of this report."
+        },
+        {
+          "kind": "heading",
+          "text": "What we completed this period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first pitches went out in the second week of June. You saw each one in its final form before it reached a reporter, and that will remain the practice."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Much of the rest of the period went into getting your spokespeople ready. We ran the preparation session at your offices, and a shorter practice session by video the following week."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The practice interviews showed us where the answers needed work. We added approved answers on growth plans and on competitors to the Q&A document, and v2 now has your sign-off."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The media inquiry protocol is at v3 and in use at the front desk and at the sites. This version adds a step for site managers who are called directly by a local reporter."
         },
         {
           "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
           "header": [
-            "Field",
-            "Detail"
+            "Item",
+            "Status",
+            "Lead"
           ],
           "rows": [
             [
-              "Engagement",
-              "Media Relations Program"
+              "First round of outreach",
+              "Complete; each pitch reviewed by you before sending",
+              "Laura Bradley"
             ],
             [
-              "Client",
-              "{{fact:f:E-2022-001.client}}"
+              "Spokesperson preparation",
+              "Session at your offices and video practice both held",
+              "Michael Morris, Laura Bradley"
             ],
             [
-              "Prepared by",
-              "Laura Bradley, Senior Associate, Ashcombe Advisory Partners"
+              "Spokesperson Q&A",
+              "v2 approved",
+              "Laura Bradley"
             ],
             [
-              "Stage",
-              "Midpoint of the engagement"
+              "Media inquiry protocol",
+              "v3 issued and in use",
+              "Laura Bradley"
+            ],
+            [
+              "Weekly summary",
+              "Sent every Friday",
+              "Kimberly Le"
+            ],
+            [
+              "Check against public statements",
+              "Growth wording aligned; peer coverage table circulated",
+              "Melissa Zimmerman"
             ]
-          ],
-          "signers": []
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kimberly Le's weekly summary has gone out each Friday since outreach began. Coverage of {{fact:f:E-2022-001.client}} so far has been light and neutral, which gives the interviews a clean starting point."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Melissa Zimmerman checked the Q&A document against what the company has said publicly over the past year. She found one passage on growth that went further than earlier statements, and we have brought it back in line with them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Her table of how peer companies have been covered in the same trade titles is now part of the briefing pack. It also shows which reporters already know the sector well, and we will use it to order the second round."
         },
         {
           "kind": "heading",
-          "text": "Where things stand",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The weeks ahead",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We have reached the midpoint of the media program, and I am pleased to report it is on plan. The first half was about building the pieces: the message framework, the fact sheet, and a clear read on where the coverage stands today. Those are done, and the work is turning now from preparation to contact.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our focus now moves from pitching to interviews. Kimberly Le will prepare a short briefing note for the spokesperson before each one, and Michael Morris will sit in on the first few himself."
         },
         {
           "kind": "paragraph",
-          "text": "What follows sets out what this period produced, what comes next, where the budget sits, and the few risks I am watching. None of it changes the course we set when we started.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The replies to the first round have been encouraging. Reporters' questions so far have been about costs and hiring, as we expected, and the Q&A document covers both."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each interview request will reach you at least a day before it is confirmed, as we agreed, so there is time to clear the spokesperson's diary. We would also like a brief refresher with each spokesperson beforehand; half an hour by video is usually enough."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Alongside the interviews, we will prepare a second round of pitches to reporters we held back from the first. We will also finish the spokesperson biographies, which reporters tend to ask for once an interview is booked."
         },
         {
           "kind": "heading",
-          "text": "What we accomplished this period",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What we need from your side",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Most of the effort went into the foundation. With Kimberly Le, we built a baseline of current coverage and found the story about {{fact:f:E-2022-001.client}} to be accurate but thin, which is the opening we had hoped for. The message framework is drafted around that gap and is now with your team for final marks.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Melissa Zimmerman completed the fact sheet, with every figure traced to a filing or to your written confirmation, so the numbers that reach reporters will match the record. The same figures now run through the message points and the press packet, which keeps one set of numbers across everything the firm sends on Kirby-Taylor's behalf.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The working rhythm with your team has settled as well. Material that carries the firm's name clears through your office before it goes anywhere, and the turnaround has been quick enough that approvals have not held the work up. It is a small thing, but it is the kind of habit that pays off once the pace picks up.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Three things from your team will keep the next few weeks moving. None of them should take long."
         },
         {
           "kind": "list",
-          "text": "",
-          "level": 1,
           "items": [
-            "A coverage baseline that maps where and how the company is being written about today.",
-            "A message framework, drafted and in review, that gives reporters a clearer story than the one they assemble on their own.",
-            "A locked fact sheet, every figure sourced, feeding the message points and the press packet.",
-            "A first media list, taking shape around the outlets that already follow the company."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "The work ahead",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The second half turns from building to reaching out. We will finish the media list, brief your spokesperson against the approved framework, and begin measured contact with the outlets that matter most. We will work in a deliberate order, not open every outlet at once.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "We plan to lead with the two trade outlets already covering the company, where a good first conversation does the most for the wider effort, and then broaden from there. Kimberly Le will manage the outreach, and I will sit in on the early calls so the framework holds from the first one.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will also begin to measure. From the first outreach on, Melissa Zimmerman and Kimberly Le will track coverage against the baseline, so that by the close of the program we can show you where the story about the company has moved, not only how much work went into it. That is the report I want to be able to give you at the end.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Finish and circulate the media list for your review.",
-            "Brief the spokesperson using the approved framework.",
-            "Open contact with the priority outlets, then broaden the list.",
-            "Track coverage against the baseline, so we can show movement rather than just activity."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "The budget",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The program is tracking within its fixed fee of {{fact:f:E-2022-001.fee}}, and the first half came in on the effort we scoped. The building phase is the heavier one, and the outreach ahead should sit comfortably inside the fee. If something outside the plan comes up, such as a fast-moving story that needs a full response, I will flag it and agree it with you before we take it on.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+            "Holiday dates for each spokesperson through the summer.",
+            "Sign-off on the spokesperson biographies when they reach you.",
+            "A stand-in at the company for interview requests on days when your usual approver is out of the office."
+          ]
         },
         {
           "kind": "heading",
           "text": "Risks we are watching",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Three things are worth naming now, while each is still small. None threatens the program, and each has a plan sitting against it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Timing of the first outreach. It lands only if the moment is right, and we will judge that with you rather than fix it to the calendar.",
-            "Consistency of the message. Several people may end up speaking for the company, so the framework and a short spokesperson briefing are there to keep everyone on the same story.",
-            "A change in the numbers. If a figure moves before we go public, Melissa Zimmerman will reconcile it and reissue the fact sheet the same day, so nothing stale reaches a reporter."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Summer schedules are the main risk to the timetable. If a spokesperson is away when a reporter is ready to talk, the slot may go to another company. Knowing holiday dates early lets us steer requests toward whoever is available."
         },
         {
           "kind": "paragraph",
-          "text": "The one thing that would help most before the next period is your team's marks on the message framework, which unlock both the media list and the spokesperson briefing. I will send a note to set a time to walk through this report, and we can confirm the outreach sequence then.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The second risk is a story that starts somewhere we do not expect. A reporter could still approach a site or a former employee directly. The protocol covers the first case, and Kimberly Le's monitoring should pick up the second early."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The third is drift in the wording. As spokespeople grow comfortable with reporters, they tend to say more than the Q&A allows, especially about growth. Melissa Zimmerman will check each interview against the approved language once it runs."
+        },
+        {
+          "kind": "heading",
+          "text": "Budget",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work remains within the agreed fee of {{fact:f:E-2022-001.fee}}. Time spent to date is where we expected it to be at this stage, and we do not expect to ask for any change to the fee."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Your team has moved quickly on every approval, and that has kept each step on schedule. Michael Morris and I would be glad to go through any part of this report on a call."
         }
       ]
     }

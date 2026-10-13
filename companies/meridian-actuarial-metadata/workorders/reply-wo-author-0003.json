@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0003",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -12,65 +12,95 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meridian Actuarial Advisors",
-          "level": 1
+          "level": 1,
+          "text": "Meridian Actuarial Advisors"
         },
         {
           "kind": "paragraph",
-          "text": "We are a consulting actuarial practice. Our clients are the boards and staff who must fund a promise made to someone else's retirement, and our work is to measure that promise honestly and to say plainly what it will cost. We do not sell products and we do not manage money. We are hired for an opinion, and the value of an opinion is that it is careful. That is the whole of what we offer, and we have built the firm around doing it well rather than doing a great deal of it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Our clients are the people responsible for benefits that come due far in the future. Public pension boards, who must fund the retirements they have promised. A life insurer, which has to hold reserves against the policies on its books. Multiemployer benefit funds, run by trustees who answer to the workers and the employers behind them at once. Different as they are, they engage us for the same reason. They need a number they can defend, and they need to know exactly what it rests on."
+          "text": "We are a consulting actuarial practice. Our work is the measurement of long-term promises: the pensions a public retirement system owes its members, the benefits a multiemployer fund has promised to the people who work under its agreements, and the reserves a life insurer holds against the policies it has written. The people responsible for those promises are boards, trustees, and company officers. They need numbers they can stand behind, and they need to know what those numbers rest on. That is the service we set out to provide."
         },
         {
           "kind": "heading",
-          "text": "The work we take on",
-          "level": 2
+          "level": 2,
+          "text": "The work"
         },
         {
           "kind": "paragraph",
-          "text": "Most of what we do falls into a few plain categories. We keep the list short on purpose. A firm our size does a few things thoroughly rather than everything passably."
+          "text": "Our practice is organized around three kinds of client. For each of them the work is a regulated opinion, and we perform it under the Actuarial Standards of Practice that apply to it."
         },
         {
           "kind": "list",
           "items": [
-            "Actuarial valuations for public retirement systems. We measure a plan's liabilities, set out what those numbers depend on, and give the board a funding figure it can stand behind.",
-            "Statements of actuarial opinion for a life insurer. We review the reserves held against the policies and opine on whether they are adequate under the standards that govern that opinion.",
-            "Funding and certification work for multiemployer benefit funds. We run the annual valuation, prepare the certifications the law requires, and explain to the trustees what the result turns on.",
-            "The assumption studies and projections that sit underneath all of the above, because a valuation is only as sound as the experience it is built on."
+            "1. Public retirement systems. Annual funding valuations, the accounting information a plan and its employers report under GASB Statements No. 67 and No. 68, and experience studies that test the plan's assumptions against what actually happened to its members.",
+            "2. Multiemployer benefit funds. Valuations for the board of trustees, the annual certification of the plan's funded status under the Pension Protection Act, and the projections trustees use when they weigh changes to contributions or benefits.",
+            "3. Life insurance companies. Reserve valuation, asset adequacy analysis, support for the appointed actuary's opinion and memorandum, and preparation for principle-based reserving, which will change how many companies set reserves on their life business."
           ]
         },
         {
           "kind": "heading",
-          "text": "How we write a result",
-          "level": 2
+          "level": 2,
+          "text": "Before the numbers"
         },
         {
           "kind": "paragraph",
-          "text": "There is a habit that runs through every document we produce, and it is worth stating outright. We keep three things apart. What the data show is one paragraph. What we assumed is a second. What we conclude from the two is a third. A reader should never have to guess which is which, and should never find a judgment dressed up as a measurement. A number presented without its assumptions is not a finished result. It is half of one. A qualified figure a board can rely on is worth more to us than a clean figure it cannot."
+          "text": "Every assignment starts with an engagement letter. It states what we will measure, for whom, as of what date, and under which standards. We take care over that page. In our experience most disagreements about actuarial work turn out to be disagreements about scope, and a clear letter settles them before they start."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Data come next. We rely on information the client supplies: member census records, asset statements, plan documents, policy files. We do not audit those data. We do review them for reasonableness and consistency, against the prior year and against each other, in the manner ASOP No. 23 describes. Our reports say what we tested, what we found, and what we relied on without testing."
         },
         {
           "kind": "heading",
-          "text": "An example of the work",
-          "level": 2
+          "level": 2,
+          "text": "How our reports read"
         },
         {
           "kind": "paragraph",
-          "text": "It may help to name one engagement as an illustration of the kind of client we serve. This year we have been engaged by {{fact:f:E-2016-001.client}}, whose board we support with the annual valuation and the funding discussion that follows from it. We offer that as an example, not an inventory. We hold most of our client relationships in confidence, as those clients would expect, and we make no claim here about the book beyond it. What the example is meant to show is the shape of the work, not its extent."
+          "text": "A report from us keeps three things apart. The first is what the data show. The second is what we assumed. The third is what we conclude from both. A reader should be able to find each one without reading the other two. Where a conclusion depends on an assumption, it gets its own paragraph, and the assumption is named in it. We write plainly. A board member who is not an actuary has to be able to follow the reasoning, and the board's counsel will read the same pages closely."
         },
         {
           "kind": "heading",
-          "text": "Who stands behind the opinion",
-          "level": 2
+          "level": 2,
+          "text": "Who you will work with"
         },
         {
           "kind": "paragraph",
-          "text": "The practice is led by Robert Lawrence, who signs most of the firm's opinions and carries the professional responsibility that comes with them. Every draft passes under the same review, and the review is consistent. The qualifiers go back in and the loose adjectives come out. That is not a matter of style. When a firm's name is on a statement of opinion, the words have to be exactly as strong as the work supports, and no stronger."
+          "text": "Robert Lawrence, our Managing Actuary, signs the firm's actuarial opinions. He reviews each assignment when it is scoped and again before anything is released. He is the person to call about scope, about the standards a piece of work falls under, or about a result that needs explaining."
         },
         {
           "kind": "paragraph",
-          "text": "We are glad to talk before any of that. A first conversation costs nothing and usually saves time later, because it tells us whether the question you have is one we are the right firm to answer. If it is, we will say so plainly. If it is not, we will tell you that as well."
+          "text": "Carol Cooper, our Practice Manager, runs the practice day to day. She prepares engagement letters, keeps the schedule, sends and tracks data requests, and looks after invoicing and the retention of our files. If you are sending us a census file, or have a question about a bill, she is the right first call."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "What we intend"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are a young firm. We intend to grow as the work requires, and to add people on the consulting side first, so that the actuary who scopes an assignment can still be the one who reviews it. We also take on reviews of another actuary's work for a board or its counsel. We regard that as part of the same discipline, and we hold it to the same standards."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Beginning an assignment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "We suggest a short conversation before anything is put in writing, because it lets us understand the question before we propose a way to answer it. After that conversation we send a note that sets out:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. what we understand the question to be;",
+            "2. the data we would need, and why each item matters;",
+            "3. the standards the work would be performed under; and",
+            "4. the timetable and the basis of our fee."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing begins until the client has read that note and agreed with it. If our understanding is wrong, that is the place to find out."
         }
       ]
     },
@@ -79,36 +109,35 @@
       "doc_id": "d:0014",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Welcome to Meridian, Jennifer Johnson. We are glad to have you, and I want to set a few things down in writing so your first weeks are clear rather than left to guesswork. We do not stand much on ceremony here, but a new colleague is worth marking properly."
+          "kind": "heading",
+          "level": 1,
+          "text": "Welcome: Jennifer Johnson"
         },
         {
           "kind": "paragraph",
-          "text": "You are joining us as an Actuarial Associate, on the consulting side of the practice. Early on you will rotate through valuation support and data preparation, assembling exhibits, reconciling the client files a valuation is built on, and learning how a result is put together before you are asked to build one yourself. It is careful work, and you will not be thrown in without a hand nearby. You will report to Jennifer Vasquez, our Consulting Actuary, who runs the valuation work day to day and will set your assignments and answer the first questions that come up."
+          "text": "Jennifer Johnson has joined us as an Actuarial Associate, and we are glad she is here. She sits in the consulting group, with the actuaries and analysts who carry the valuation work. She reports to Jennifer Vasquez, Consulting Actuary, who will assign her work and review it. A small firm notices each person who joins it. We expect to notice this one first in the quality of our data."
         },
         {
           "kind": "paragraph",
-          "text": "A few practical things for the early weeks:"
+          "text": "Her work is valuation support. In practice that means the year-over-year reconciliation of census data: matching this year's member records to last year's, accounting for each new entrant, retirement, termination, and death, and catching the records that do not reconcile before they reach a valuation. It is careful work, and the firm's opinions rest on it. When the data show something, we want it written down as what the data show. When she has to make an assumption to fill a gap, we want that written down separately, with the reason for it. We use the plan document's own terms for each kind of event, and our workpapers should use them too."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A few practical points will make the first weeks easier. Most of them are habits, and habits are easiest to set at the start:"
         },
         {
           "kind": "list",
           "items": [
-            "Spend your first days alongside the valuation team, and let them walk you through how a workbook is assembled before you build one of your own.",
-            "When a client file looks off, flag it early. We treat a good question as part of the work, not an interruption to it.",
-            "Ask about the reasoning, not only the mechanics. The judgment behind a number is the part worth learning, and none of us minds explaining it."
+            "1. Her first assignment is a reconciliation of a census the firm has already valued. She can compare her results with ours, and any difference is worth an hour with Jennifer Vasquez.",
+            "2. Census files contain personal information. They stay on the firm's systems and do not travel by ordinary email. Client data arrive through the secure file transfer site, and anything we send goes out the same way.",
+            "3. Nothing leaves the firm until a second person has checked it. That applies to a single exhibit as much as to a full report.",
+            "4. Questions about the work go to Jennifer Vasquez first. Early questions are welcome and cost nobody much time.",
+            "5. The firm supports study for actuarial exams. Study time is arranged with Jennifer Vasquez well ahead of a sitting, so the schedule can absorb it."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "It is worth knowing whom the work is for. Our clients are pension boards, a life insurer, and benefit funds, all of them people who have to fund a promise and then answer for it. When we hand them a number, they build real decisions on it. That is why we are careful to the point of being tedious, and it is why the reconciliation you will start on matters more than it may first appear."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One thing I ask of everyone, and I will ask it of you too. Keep what the data show, what we assumed, and what we concluded in separate sentences. You will hear me say it often enough that it becomes second nature. Find me in your first week and we will walk through a live valuation together, so you can see where your work fits. We are glad you are here."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Robert Lawrence, Managing Actuary"
+          "text": "Within her first few months we expect Jennifer Johnson to run a census reconciliation from start to finish, with Jennifer Vasquez reviewing the result instead of directing each step. After that the work will widen to the other checks a valuation depends on. Recorded for the personnel file by Robert Lawrence, Managing Actuary."
         }
       ]
     },
@@ -118,23 +147,15 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "Good morning Carol,"
+          "text": "Good morning all,"
         },
         {
           "kind": "paragraph",
-          "text": "We are short at the front of the office Thursday and Friday, so I have put together coverage before anyone books time out and it turns into a scramble. Nothing complicated. I just want the phones answered and the door watched both days. Here is what I have, and tell me where it does not hold."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Thursday: Carol Cooper on the phones and the door through the morning, and I will take it from noon.",
-            "Friday: Jennifer Johnson at the front desk, with me as backup if she needs a hand.",
-            "Mail and the supply run each morning: whoever is in first, and let me know if we are low on anything before Thursday."
-          ]
+          "text": "The large conference room will be closed for the rest of the week while the building replaces the carpet. The building expects to finish by Friday afternoon, but it has not committed to that. Meetings already booked in the large room have been moved to the small conference room, and the shared calendar reflects the change. The small room has a handset but no speakerphone, so if your meeting includes a call, please tell me by the end of today and I will borrow a unit from the building office."
         },
         {
           "kind": "paragraph",
-          "text": "If either day is a problem for you, say so today and I will move things around."
+          "text": "Separately, the supply cabinet has been restocked with binders, index tabs, and printer toner. Please note what you take on the sheet inside the cabinet door, so that the next order reflects what we actually use."
         },
         {
           "kind": "paragraph",
@@ -147,36 +168,35 @@
       "doc_id": "d:0028",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Amanda White, welcome aboard. By the time you read this you will have met most of us, but I like to put a few things down in writing so your first weeks are not a matter of catching people in the hallway. Consider this the short version of how we work and where you fit."
+          "kind": "heading",
+          "level": 1,
+          "text": "Amanda White joins the consulting group"
         },
         {
           "kind": "paragraph",
-          "text": "You come in as an Actuarial Associate on the consulting side. Your early work will be the backbone of our valuations: assembling the exhibits, running the reconciliations that feed them, and tying every figure back to the client data it came from. It is exacting work and it matters, because a report is only as sound as the reconciliation beneath it. You will report to Jennifer Vasquez, our Consulting Actuary. She sets the valuation schedule, and she is your first stop whenever a number or an assumption does not sit right."
+          "text": "This is the onboarding record for Amanda White, who has joined the firm as an Actuarial Associate. Robert Lawrence prepared it for the personnel file, and it doubles as our welcome. We are pleased to have her with us, and we hope her first weeks here are orderly ones."
         },
         {
           "kind": "paragraph",
-          "text": "A few things to get you oriented:"
+          "text": "Amanda sits in the consulting group. She reports to Jennifer Vasquez, Consulting Actuary, who sets her assignments and reviews her work. Her work is exhibits and calculation checks for the reports we prepare for pension boards and fund trustees. A board reads the exhibits more closely than any other part of a report, and the exhibits are what counsel will quote. Every figure in them has to tie to the valuation output. Every figure also has to be labeled for what it is: measured from the data, or the result of an assumption. A reader should never have to guess which."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first month is mostly reading and checking, which is how everyone here starts. Her sessions with Jennifer Vasquez will be weekly at first and less frequent as her checks need fewer corrections. Five habits will help from the beginning:"
         },
         {
           "kind": "list",
           "items": [
-            "Start by reconciling a live valuation file end to end, and do not be shy about the parts that will not tie. Finding the discrepancy is the job; smoothing it over is not.",
-            "When something looks wrong, raise it before it reaches a draft. Nothing that leaves this office should carry a discrepancy someone noticed and let pass.",
-            "Keep measurement, assumption, and conclusion in separate sentences. It is the house habit, and you will pick it up faster than you expect."
+            "1. Read several of the firm's signed reports in full before preparing an exhibit, so the house format and labeling are familiar.",
+            "2. Use the firm's exhibit templates as they stand. A template is changed once, for every report, and never inside a single report.",
+            "3. Correct a figure in the workpapers, not in the report. A number is fixed at its source and carried forward from there.",
+            "4. Keep a log of every discrepancy found, however small, and how it was resolved. The reviewer will ask for it.",
+            "5. Client data, including member census files, stay on the firm's systems and travel only through the secure file transfer site."
           ]
         },
         {
           "kind": "paragraph",
-          "text": "You are coming in at a busy stretch, which here is closer to the norm than the exception. The book has grown and the valuation calendar is full. None of that changes how we work. A crowded schedule is a reason to be more careful with a reconciliation, not less, because the pull to wave a figure through is strongest exactly when a wrong one would do the most damage. You will feel that pull. Name the discrepancy anyway, and let us sort it together."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The work moves quickly once you are settled, so ask for the underlying files whenever a summary looks a shade too clean. That instinct is one of the reasons we hired you. Come find me in your first week and we will walk a current valuation together. We are glad to have you here."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Robert Lawrence, Managing Actuary"
+          "text": "We do not expect independent judgments in the first months, and none goes into a client document until it has been reviewed. We do expect questions. Amanda should bring them to Jennifer Vasquez, or to whoever prepared the work she is checking, as soon as they arise. By the end of her first quarter we expect her to prepare a full set of exhibits for a valuation report, ready for review."
         }
       ]
     },
@@ -185,75 +205,20 @@
       "doc_id": "d:0039",
       "blocks": [
         {
-          "kind": "heading",
-          "text": "About Meridian Actuarial Advisors",
-          "level": 1
+          "kind": "paragraph",
+          "text": "Jeffrey,"
         },
         {
           "kind": "paragraph",
-          "text": "This note sets out what our firm does and for whom, for anyone weighing whether to bring us in. We are a consulting actuarial practice. We are engaged for opinions on the cost of long-dated promises, pensions, reserves, and benefit funds, and for the measurement and judgment that stand behind those opinions. We take on a limited number of engagements and give each of them the attention an opinion carrying our name requires."
+          "text": "I am out all day next Tuesday for my exam, so I would like to trade phone coverage with you. You would take my Tuesday morning, and I would take your Thursday afternoon. I have also moved our Wednesday check-in to Thursday morning. That gives me a day back in the office before we sit down, and I will come to it better prepared."
         },
         {
           "kind": "paragraph",
-          "text": "In the years since we opened, the practice has grown steadily, and the work has broadened with it, but the discipline has not changed. We still keep the book deliberately small against the number of hands, because the review is the product, and the review does not survive being hurried."
-        },
-        {
-          "kind": "heading",
-          "text": "Our service lines",
-          "level": 2
+          "text": "If either change does not work for you, tell me today and we can settle on something else before the weekend. I have not touched the calendar yet, so nothing will need undoing."
         },
         {
           "kind": "paragraph",
-          "text": "The work sorts into a few areas."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Public pension valuations. We value the liabilities of public retirement systems, document what those values rest on, and give each board a funding result it can defend to the people it answers to.",
-            "Insurance opinions. We opine on the adequacy of a life insurer's reserves under the applicable standards, and we say plainly where a margin is thin.",
-            "Multiemployer plan work. We run the annual valuations for jointly trusteed benefit funds and prepare the certifications the law requires of them.",
-            "The supporting studies, experience reviews, assumption setting, and projections, that keep the valuations grounded in what a plan has actually seen."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "What a client is buying",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "It is worth being plain about what an engagement with us delivers. Not volume, and not speed for its own sake. What a board or a set of trustees pays for is judgment, and the willingness to state a number at exactly the strength the evidence supports and no more. Our fees are agreed at the outset and the scope is written down, so there is no surprise later about what is ours to do and what is not. When the work raises a question we did not expect, we bring it to you rather than settling it quietly on your behalf."
-        },
-        {
-          "kind": "heading",
-          "text": "The way we write",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Anyone who has read our reports will have noticed a pattern, and it is deliberate. We separate what we measured from what we assumed, and both of those from what we concluded. Each gets its own place on the page. It makes our documents a little longer and a good deal harder to misread, which is the trade we want. A figure offered without its assumptions is not a finished result; it is half of one, and half a result is the kind that gets a board into trouble."
-        },
-        {
-          "kind": "heading",
-          "text": "Clients we have served",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "A few examples give a truer sense of the practice than any description of it. Among the boards and funds we have worked with are {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, and {{fact:f:E-2019-001.client}}. We name these as representative of the work, with the clients' goodwill, and not as a full account of it. A great many of our engagements are held in confidence and belong on no such list. We make no claim here about the size of the book, only about the character of the work these examples stand for."
-        },
-        {
-          "kind": "heading",
-          "text": "The people behind the work",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Robert Lawrence leads the practice and signs the bulk of its opinions. Around him is a group of actuaries and analysts who build the valuations, reconcile the client data they rest on, and submit to the same review he takes himself: qualifiers restored, loose adjectives struck, every number traced back to where it came from. The firm has added staff as the work has grown, and each new colleague is brought into that habit early, because it is the habit that lets us put our name to a number at all."
-        },
-        {
-          "kind": "paragraph",
-          "text": "If you are weighing an engagement, start with a conversation. Tell us the question and the deadline, and we will tell you honestly whether we are the firm to answer it and what it would take. That first hour is often the most useful one we spend with a client."
+          "text": "Thanks"
         }
       ]
     },
@@ -262,24 +227,93 @@
       "doc_id": "d:0040",
       "blocks": [
         {
-          "kind": "paragraph",
-          "text": "Jeffrey,"
+          "kind": "heading",
+          "level": 1,
+          "text": "Meridian Actuarial Advisors LLC"
         },
         {
           "kind": "paragraph",
-          "text": "I need to move our check-in next week. I am out Monday and Tuesday for a licensing exam, so let us push it to Thursday morning. Ten o'clock holds on my end, and I have kept the small conference room we usually take."
+          "text": "This overview is written for the boards, trustees, and company officers who are deciding whether to engage us, and for the counsel and staff who advise them. It describes what we do, how an assignment runs, and some of the work we have completed."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Our practice"
         },
         {
           "kind": "paragraph",
-          "text": "One other thing while I am out those two days. I have asked the front desk to route my calls to you, and they have put you down as Jeffrey Ochoa on the coverage sheet, so nothing should fall through. It should be quiet, but I did not want a message sitting unanswered."
+          "text": "We are consulting actuaries. We measure obligations that run for decades: retirement benefits owed by public systems and multiemployer funds, and the reserves a life insurer holds for its policyholders. Our clients use that work to set contributions, to report to regulators and auditors, and to make decisions about benefits and pricing. Those decisions are theirs. Our part is to tell them, as precisely as the data allow, where they stand and what the measurement depends on."
         },
         {
           "kind": "paragraph",
-          "text": "If Thursday does not work, tell me and I will find another slot."
+          "text": "We have added consulting staff as the work has grown. We have kept one arrangement fixed while doing so: the actuary who scopes an assignment reviews it before it goes out, and the opinion is signed by the person who answers for it."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "What we are engaged to do"
         },
         {
           "kind": "paragraph",
-          "text": "Thanks"
+          "text": "Our services fall under four headings."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. Public retirement systems: funding valuations, accounting reports under GASB Statements No. 67 and No. 68, experience studies, and the assessment of risk that ASOP No. 51 now asks of pension actuaries.",
+            "2. Multiemployer funds: valuations for the trustees, the annual zone certification, and projections in support of a rehabilitation plan or a funding improvement plan.",
+            "3. Life insurers: reserve valuation, asset adequacy analysis, support for the appointed actuary's opinion and memorandum, and principle-based reserves under VM-20 as the transition period draws to a close.",
+            "4. Reviews: a second opinion on another actuary's valuation or assumptions, prepared for a board or its counsel."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Examples of completed work"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Clients we have served include {{fact:f:E-2016-001.client}} and {{fact:f:E-2017-001.client}}. Both engagements are complete, and we cite them as examples of the clients we work for. We name a client in material like this only once the work is finished. We say nothing here about the results, which belong to the client."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "How an assignment runs"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The shape of an assignment changes little from one client to the next. A client can expect the following."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "1. An engagement letter before any work begins, stating the scope, the measurement date, the standards that apply, and the basis of the fee.",
+            "2. A data request that explains why each item is needed. We review what arrives for reasonableness and consistency, and we tell the client in writing about anything we could not reconcile.",
+            "3. A draft report for the client's review. It separates what the data show, what we assumed, and what we conclude, so that each can be questioned on its own.",
+            "4. A final report and opinion signed by Robert Lawrence, with its reliances and limitations set out in full."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Standards"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our work is performed under the Actuarial Standards of Practice. Several of them shape every report we issue: ASOP No. 23 on data quality, ASOP No. 41 on actuarial communications, and, for pension work, ASOP No. 4 and the standards on selecting economic and demographic assumptions. Where we rely on another party, such as a plan's auditor or an investment consultant's capital market assumptions, the report says so. It also says what we did to satisfy ourselves that the reliance was reasonable."
+        },
+        {
+          "kind": "paragraph",
+          "text": "When a standard changes, we tell clients ahead of time how the change will affect what they receive. ASOP No. 51 is the recent case. Our pension reports now include a section on the risks that could make future results differ from the measurement, and on what those differences could mean for contributions. The section is written for the board, not for other actuaries."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Talking to us about an assignment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Robert Lawrence, Managing Actuary, is responsible for the firm's actuarial opinions and is the first contact for a new assignment. We usually begin with a conversation about the question the client is trying to answer. A written proposal follows. It sets out our understanding of that question before it says anything about method or fee, so that a misunderstanding can be caught while it is still cheap to correct."
         }
       ]
     }

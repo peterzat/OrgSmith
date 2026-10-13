@@ -17,26 +17,25 @@ MIME-Version: 1.0
 
 Hi Elizabeth,
 
-Thanks for the census extract. It came through clean, and David Sherman is re=
-conciling it against last year's file now. The head counts and covered payrol=
-l tie so far, and he will flag anything that does not before it reaches the m=
-odel.
+One item to add to Jeffrey's note. It concerns the plan document, not the cen=
+sus, but we need both before we calculate any benefit.
 
-Jeffrey Ochoa has the Howard and Sons valuation set up on last cycle's basis,=
- so the assumptions are ready to load once the data is final. We are not runn=
-ing numbers yet; at this stage the work is getting the inputs right.
+A valuation measures the benefits the plan actually promises as of the valuat=
+ion date. That means the provisions as amended, not as originally written. A =
+provision we have to infer becomes an assumption, and we avoid making one whe=
+re a document exists.
 
-A couple of items are still open on your side. We need the year-end asset sta=
-tement, and a read on whether the disability offset follows the plan document=
- or the summary, since the two disagree. For our reliance file I am recording=
- Elizabeth Horne as the source of the plan data; if either item should come f=
-rom someone else on your team, tell me and I will note it.
+Please send the current plan document for Howard and Sons, with each amendmen=
+t adopted since it was last restated. If there have been no amendments, a one=
+-line reply saying so is enough. The secure file site is the best route for t=
+he document itself.
 
-Once those two are settled, David can close the reconciliation and Jeffrey ca=
-n produce a first set of results for our own review. Nothing goes to you unti=
-l we have checked it against the prior valuation and are comfortable it holds.
+Once it is in hand, David will code the provisions into the model alongside t=
+he census. We will then send you a short summary of the data and provisions a=
+s we have them, kept separate from any assumption.
 
-Sincerely
+Sincerely,
+Jennifer
 
 
 --=20
@@ -47,14 +46,13 @@ Consulting Actuary
 On 2016-05-17, Jeffrey Ochoa wrote:
 > Good morning Elizabeth,
 >
-> That clears the last open item on the data side, and we can proceed. With t=
-he status codes defined, the census for the Howard and Sons plan is complete =
-and reconciled.
+> A single updated census file will cover both of the items below, so there i=
+s no need for your staff to send separate files. The status and the payment d=
+ate can sit side by side as two new columns.
 >
-> When the asset statement reaches us, I will reconcile it against the plan's=
- records, and Jennifer Vasquez will confirm the assumption set before we run =
-the first cut of the Howard and Sons valuation. You will see the assumptions =
-before any results.
+> If some payment dates exist only on paper, a short list keyed by employee n=
+umber will do just as well. We will flag every record we update from that lis=
+t, so each change can be traced back to the Howard and Sons file it came from.
 >
 > Thanks
 >
@@ -67,17 +65,15 @@ before any results.
 > On 2016-05-17, Jennifer Vasquez wrote:
 > > Hi Elizabeth,
 > >
-> > Following Jeffrey Ochoa's note, one point on scope. We will value the pla=
-n provisions exactly as they are written in the current plan document at Howa=
-rd and Sons. Your confirmation of that document is the item that unblocks the=
- rest.
+> > One addition to the request below. A lump sum paid after the valuation da=
+te is still a liability on that date.
 > >
-> > On the asset side, the most recent custodian statement is what we need, w=
-henever it is available. There is no rush this week. David Sherman will fold =
-it into the workbook when it arrives.
+> > To place those records correctly, we need the payment date wherever your =
+records show a lump sum. Where no payment was made, the field can be left bla=
+nk.
 > >
-> > Nothing is being valued yet. We hold the Howard and Sons numbers until th=
-e plan document and the data are both confirmed.
+> > The trust statements and amendments remain the first priority. We cannot =
+calculate the Howard and Sons funding results without them.
 > >
 > > Sincerely
 > >
@@ -90,15 +86,15 @@ e plan document and the data are both confirmed.
 > > On 2016-05-17, Jeffrey Ochoa wrote:
 > > > Good morning Elizabeth,
 > > >
-> > > The census file for the Howard and Sons plan is usable, and the headcou=
-nt ties to your summary. David Sherman reconciled it yesterday and it agrees =
-line for line.
+> > > One added column in the census file would settle the terminated records=
+ mentioned below. For each of those people, the file shows a termination date=
+ and nothing more. It does not tell us whether they were paid out, are waitin=
+g on a deferred benefit, or have already started receiving one.
 > > >
-> > > One field needs a definition before we rely on it. The file groups a se=
-t of participants under a status code we cannot read with confidence. Could y=
-ou confirm how it distinguishes active participants from deferred vested ones=
-? Once we have that, the census for the Howard and Sons plan is settled on ou=
-r end, and nothing about the assumptions is locked before you have seen it.
+> > > We have not assumed an answer for any of them, and we would like not to=
+ have to. If your benefits staff can add a status from the Howard and Sons re=
+cords, in whatever terms your system uses, we will map it on our side and loa=
+d it straight back into the model.
 > > >
 > > > Thanks
 > > >
@@ -111,18 +107,27 @@ r end, and nothing about the assumptions is locked before you have seen it.
 > > > On 2016-05-16, Jennifer Vasquez wrote:
 > > > > Hi Elizabeth,
 > > > >
-> > > > This note opens our working thread for the Howard and Sons pension va=
-luation. We have started. David Sherman is reconstructing the participant cen=
-sus from the file your office sent last week, and Jeffrey Ochoa is setting up=
- the valuation model.
+> > > > I am starting this thread for data questions on the Howard and Sons v=
+aluation. My colleagues on copy will answer here as well.
 > > > >
-> > > > Two items from your side will keep us on schedule. We need your confi=
-rmation that the plan provisions we are to value match the current plan docum=
-ent at Howard and Sons, and the most recent asset statement whenever it is to=
- hand. Neither is urgent this week.
+> > > > The census file arrived last week and is loaded, and most records pas=
+sed our first checks. Two gaps remain: some former employees have a terminati=
+on date but no benefit status, and some active records have no date of hire. =
+We have not filled either gap by assumption.
 > > > >
-> > > > Please keep this thread as our record for the data and the assumption=
-s. Questions sent here reach the whole team at once.
+> > > > The data and plan terms need to be settled before we calculate anythi=
+ng. These items would close that stage:
+> > > >
+> > > >   - Trust statements for the plan year, showing assets, contributions=
+ received, and benefits paid. The funding results are measured against these.
+> > > >   - Any plan amendments adopted since the last valuation, or confirma=
+tion that there were none. We value the plan on its current terms, so we need=
+ them in hand.
+> > > >   - Hire dates for the active records that lack them. Service is coun=
+ted from those dates, and benefits follow from service.
+> > > >
+> > > > Once these are in, we will send a short note on what the data show. Q=
+uestions on assumptions will follow separately.
 > > > >
 > > > > Sincerely
 > > > >

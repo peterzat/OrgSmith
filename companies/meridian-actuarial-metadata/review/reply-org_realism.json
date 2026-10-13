@@ -2,34 +2,61 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "meridian-actuarial",
   "dimension": "org_realism",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-1",
+      "id": "rf:org_realism-1",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": [],
-      "summary": "The firm's measurement/assumption/conclusion credo is not just embodied but explicitly restated in near-identical words in almost every document across every genre, which reads as a generator returning to one idea rather than a firm with a house discipline.",
-      "evidence": "The same meta-statement recurs in ~29 of 33 sampled prose docs: engagement letters ('We keep three things apart: what the data show, what we have assumed, and what we conclude from the two' d:0054; 'keeps those three as three separate matters' d:0016), kickoff memos, status reports, meeting minutes ('the line the firm keeps between what the data measure, what we assume, and what we conclude' d:0071), onboarding letters ('Keep measurement, assumption, and conclusion in separate sentences' d:0028), and firm overviews. A real firm structures its reports this way (realistic) but would not announce the credo verbatim in every kickoff, status update, minutes, and welcome note."
+      "docs": ["d:0009", "d:0040", "d:0054", "d:0002", "d:0030", "d:0044", "d:0056"],
+      "summary": "The firm describes itself as a public-system, multiemployer and life-insurer practice, but none of its six engagements is for a public system or a multiemployer fund, and four are private single-employer corporate work that no overview lists as a service.",
+      "evidence": "d:0054 (2022 overview): \"Our clients are the boards, trustees and officers who answer for long-term obligations: pensions owed to public employees and to the members of multiemployer funds, and the reserves a life insurer holds\", then cites Howard and Sons, Miller, Cook and Snyder, Estes Group and Martinez LLC \"as examples of the kinds of organizations we work for\" (d:0040 does the same for the first two). Those clients are corporate plan sponsors: d:0002 \"the pension plan that Howard and Sons sponsors for its employees ... the largest contribution the company may deduct\"; d:0030 \"the Estes Group retirement plan still describe your workforce\", with questions about layoffs and business units sold; d:0044 \"the company's financial reporting under ASC Topic 715\"; d:0056 \"the company's pension plan ... PBGC premiums\". A public plan has no deduction limit, reports under GASB rather than ASC 715, and pays no PBGC premiums. The services the overviews list (GASB 67/68 reports, PPA zone certification, rehabilitation plans; d:0009, d:0040) appear in no engagement folder, and the corporate funding and ASC 715 work that fills the folders appears in no overview."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-2",
+      "id": "rf:org_realism-2",
       "dimension": "org_realism",
       "severity": "major",
-      "docs": ["d:0025", "d:0048"],
-      "summary": "Two midpoint status reports for different clients, engagement types, and authors are near-clones that share whole distinctive sentences verbatim, reading as one generated template rather than a firm's reused format.",
-      "evidence": "d:0025 (Miller reserve review, 2017, prepared by Megan Dudley): 'That is not a small thing. It means the independent estimate we build from here rests on your own numbers and not on a reconstruction of them, and it lets us state plainly, when the report is written, exactly what we relied on and what we tested ourselves.' d:0048 (Martinez retiree-medical, 2020, prepared by Jeffrey Ochoa) carries the identical sentence with only 'independent estimate'->'obligation' and 'numbers'->'records' swapped. Both also share the 'the character of the work has changed in a way worth naming' opener and the 'Measured against the fixed fee ..., a little under half has been earned to date' line. A firm template would reuse structure, not a subjective aside like 'That is not a small thing' across two authors."
+      "docs": ["d:0017", "d:0057", "d:0065", "d:0025", "d:0060", "d:0072", "d:0037", "d:0059", "d:0071"],
+      "summary": "Who writes which engagement document runs against seniority: after 2016, associates and analysts issue the kickoff memos and client status reports that assign work to the lead actuary, while the Managing Actuary takes the minutes at every session he attends.",
+      "evidence": "Five of six kickoff memos and five of six status reports come from someone junior to the engagement lead. d:0057 is addressed \"To: Robert Lawrence, David Sherman / From: Michelle Banks\" (an Actuarial Associate under three years in) and tells its readers to \"note it and pass it to Robert Lawrence rather than taking it on within the study\", that is, to pass it to one of the memo's own two recipients. d:0017 has Megan Dudley, Actuarial Associate, setting out that her supervisor \"Jennifer Vasquez leads the review day to day and will take the assumption work herself\". The client status reports are headed \"Prepared by Karen Harris, Actuarial Associate, with Michelle Banks and Robert Lawrence\" (d:0072), \"Prepared by Michelle Banks, with David Sherman and Robert Lawrence\" (d:0060), and \"by Megan Dudley, with Jennifer Vasquez and David Sherman\" (d:0025). Meanwhile the minutes of all three sessions Lawrence attends are his own, with associates in the room: d:0059 \"Robert Lawrence prepared them\" (Michelle Banks present), and d:0037 and d:0071 are likewise authored by him."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:org-realism-3",
+      "id": "rf:org_realism-3",
       "dimension": "org_realism",
-      "severity": "major",
-      "docs": ["d:0019", "d:0020", "d:0021", "d:0022", "d:0046"],
-      "summary": "Engagement emails repeatedly address the recipient by full legal name inside the body, as a reliance-documentation device, which no one does when writing to that person.",
-      "evidence": "d:0020 (To: Michelle Hudson): 'For our file I have you, Michelle Hudson, down as the one contact for the data.' d:0021 (To Michelle Hudson): 'I will note the tie-out in the working papers under your name, Michelle Hudson.' d:0022 (To Michelle Hudson): 'I have logged everything received so far under your name, Michelle Hudson.' d:0046 (To Jason Wagner): 'we log everything you send against your name, Jason Wagner, and the date it arrives.' Restating the recipient's full name to their face recurs across every engagement's email thread; a real writer says 'you' or a first name."
+      "severity": "minor",
+      "docs": ["d:0042", "d:0009", "d:0003"],
+      "summary": "Linda Hanna's onboarding record presents the Practice Manager role as newly needed, although Carol Cooper held that title and those duties from 2014 until five weeks before Hanna started, and no document mentions Cooper leaving or Hanna replacing her.",
+      "evidence": "d:0042 (January 2020): \"The practice has reached the size where engagement paperwork, billing and the tracking of client files need one person who owns them. Linda is that person.\" Compare d:0009 (2016): \"Carol Cooper, our Practice Manager, runs the practice day to day. She prepares engagement letters, keeps the schedule, sends and tracks data requests, and looks after invoicing and the retention of our files.\" d:0003 also assigns Cooper the billing code, transfer site and request log. An eight-person firm's record for a replacement hire would say whom she replaced."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-4",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0002", "d:0012", "d:0016", "d:0044", "d:0064"],
+      "summary": "The client side does not look like the people who commission actuarial work: five of six counterparts are operations generalists, and the two insurance clients carry names in the style of law partnerships.",
+      "evidence": "The pension sponsor's contact is \"Elizabeth Horne, Director of Operations\" (d:0002), and d:0012 asks her to decide the mortality basis. The ASC 715 client's contact is \"Jason Wagner, General Manager\" (d:0044), who selects the discount rate. The reserve-opinion client's contact is \"Michelle Hudson, Director of Operations\" (d:0016). The other two are Chief Operating Officers. The correspondence keeps sending the real questions to unnamed \"benefits staff\" (d:0005), \"HR staff\" (d:0034) and \"finance team\" (d:0066), and no benefits manager, plan administrator, controller or client actuary appears anywhere. The insurer that cedes a life block to \"its reinsurers\" is \"Gonzalez, Campbell and Kelly\" (d:0064), and the one that carries reserves for an opinion is \"Miller, Cook and Snyder\" (d:0016). Both read as law-firm names, not insurer names."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-5",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0004", "d:0005", "d:0015", "d:0051"],
+      "summary": "The firm works out of one office suite, but its staff's email signatures carry phone numbers in five metro area codes, which suggests a multi-office firm.",
+      "evidence": "One Howard and Sons thread is signed \"Jennifer Vasquez / Consulting Actuary / +1 (206) 555-0123\" (Seattle) and \"Jeffrey Ochoa / Actuarial Analyst / +1 (303) 555-0117\" (Denver). The office-logistics mail about the large conference room closing (d:0015) is signed \"David Sherman / Senior Analyst / +1 (312) 555-0179\" (Chicago). Robert Lawrence signs from +1 (212) and Michelle Banks from +1 (415). Yet d:0051 describes a single building with \"the lobby turnstiles and ... the door to our suite\", and no document mentions a second office. Mobile numbers could explain a few of these, but not a spread across five cities."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-6",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": ["d:0009", "d:0054", "d:0002"],
+      "summary": "No firm overview ever names Jennifer Vasquez, the firm's only other actuary and every client's day-to-day contact, and the 2016 overview introduces the Practice Manager in her place, so the firm reads as a two-person shop.",
+      "evidence": "d:0009 (May 2016), under \"Who you will work with\", names only Robert Lawrence and \"Carol Cooper, our Practice Manager\", then says the firm intends \"to add people on the consulting side first\". The roster at that date already held a Consulting Actuary, a Senior Analyst, an Actuarial Analyst and an Actuarial Associate. A month earlier, d:0002 told the client \"Most of the time you will hear from Jennifer Vasquez.\" d:0054 (2022) refers only to unnamed \"Our consulting actuaries\" (the firm has one) beside the named Managing Actuary."
     }
   ]
 }

@@ -5,8 +5,8 @@
   "slug": "meridian-actuarial",
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
-  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0005\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts work carries the discipline of a regulated opinion: precise about\nscope, data reliance, and the standards a piece of work is performed\nunder, plain and undecorated, and careful to separate what the data show\nfrom what was assumed. Between formal deliverables, the actuaries and the\nclient's staff exchange short emails about data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0005\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0022",
@@ -19,7 +19,7 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         }
       ],
       "participants": [
@@ -28,21 +28,21 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         },
         {
           "id": "xp:michelle.hudson",
@@ -60,21 +60,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "p:david.sherman",
-          "surface": "David Sherman",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:michelle.hudson",
-          "surface": "Michelle Hudson",
-          "kind": "person"
-        },
         {
           "entity": "x:miller-cook-and-snyder",
           "surface": "Miller, Cook and Snyder",
@@ -98,7 +83,7 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         }
       ],
       "participants": [
@@ -107,21 +92,21 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         },
         {
           "id": "xp:michelle.hudson",
@@ -186,7 +171,7 @@
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         }
       ],
       "participants": [
@@ -195,21 +180,21 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         },
         {
           "id": "xp:michelle.hudson",
@@ -270,7 +255,7 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         }
       ],
       "participants": [
@@ -279,21 +264,21 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         }
       ],
       "engagement_summary": "Reserve Adequacy Review for Miller, Cook and Snyder, running about 7 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -346,7 +331,7 @@
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         }
       ],
       "participants": [
@@ -355,21 +340,21 @@
           "name": "Megan Dudley",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+          "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "p:david.sherman",
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         },
         {
           "id": "xp:michelle.hudson",

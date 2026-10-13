@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0011",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -16,26 +16,15 @@
         },
         {
           "kind": "paragraph",
-          "text": "Thank you for the term sheet and the schedule of granted patents; both are logged against the matter, and Richard Henderson has started mapping the license grant onto the issued claims, one family at a time. We are early in that mapping, so I do not have a coverage read for you yet, but nothing in the families we have opened so far falls outside the scope the sheet describes, and the docketed dates on those families reconcile against the office record."
+          "text": "Following on from the message below, we now have the complete file history and the USPTO assignment record for each family on the licensor's schedule, and each family's next official deadline is entered on our docket so that nothing in the portfolio lapses unnoticed while the license terms are being worked out. The reading itself starts with the chain of title, because the rest of the review assumes the licensor owns what it proposes to license."
         },
         {
           "kind": "paragraph",
-          "text": "Two documents would let us open the chain-of-title check without a gap:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "1. the recorded assignments for the third family, which we understand your prior counsel still holds; and",
-            "2. the executed side letter referenced in Section 4 of the term sheet."
-          ]
+          "text": "To move from collecting the record to reading it, we need the following:\n1. The signed inventor assignments, or the employment agreements relied on in their place, for any family where the recorded chain does not run from every named inventor to the licensor. We can request these from the licensor's counsel directly if you would rather not relay them.\n2. An editable copy of the patent schedule attached to the draft license, so that we can mark it up family by family.\n3. A product description or data sheet for what {{fact:f:E-2025-001.client}} intends to make or sell under the license, since that decides which claims we read against the product first."
         },
         {
           "kind": "paragraph",
-          "text": "If it is easier to send the assignments directly, our docket desk can coordinate with your office; otherwise route them to me and I will record them against the matter the day they arrive. Once both are in hand, Richard Henderson can reconcile the chain of title and I will send you the first coverage summary, with each note tied to the family it concerns so the record stays in order."
-        },
-        {
-          "kind": "paragraph",
-          "text": "One note for the file: our written diligence is prepared as privileged material for {{fact:f:E-2025-001.client}}, so the memoranda will be addressed to you, Tiffany Munoz, and held to your distribution at Price-Henson unless you tell me otherwise."
+          "text": "Where the record shows a gap or an encumbrance, I will set out what the documents say and leave the question of what it means for the license to counsel, who will give you that view in writing once the record is complete."
         },
         {
           "kind": "paragraph",
@@ -49,103 +38,97 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes — Licensing Diligence for {{fact:f:E-2025-001.client}}",
-          "level": 1
+          "level": 1,
+          "text": "Minutes of Working Session: Licensing Diligence for {{fact:f:E-2025-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Recorded by Richard Henderson. Working session on the licensing diligence for Price-Henson, held to review the coverage findings to date, settle the open title question, and set the work through the next several weeks."
+          "text": "Privileged and Confidential. Attorney-Client Communication."
         },
         {
           "kind": "heading",
-          "text": "Attendees",
-          "level": 2
+          "level": 2,
+          "text": "Attendees"
         },
         {
           "kind": "list",
           "items": [
-            "David Chang, Patent Agent, Prosecution",
-            "Richard Henderson, Patent Agent, Prosecution",
-            "Tiffany Munoz, Chief Financial Officer, Price-Henson"
+            "Mary Bradley, Managing Partner",
+            "David Chang, Patent Agent",
+            "Richard Henderson, Patent Agent",
+            "Tiffany Munoz, Chief Financial Officer, {{fact:f:E-2025-001.client}}"
           ]
         },
         {
-          "kind": "heading",
-          "text": "Where the Diligence Stands",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "The diligence is on schedule and no deadline is at risk. David Chang has mapped the license grant onto the issued claims for all but two families, and the coverage reconciles where the mapping is complete. The two families still open are the larger ones, with the longest prosecution histories, and their claim charts are in progress. Neither is date-critical in this window, and both are sequenced to close before the encumbrances work begins."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Chain of title is reconciled for most of the portfolio. One family carries a recorded assignment that does not match the priority claim. The gap is logged, and it is being run down against the office record. Until the chain is confirmed, the recorded date stays marked unconfirmed on the master list, and no conclusion for that family rests on it."
+          "text": "The session took {{fact:f:E-2025-001.client}} through the results of the title and status review, which is complete for the United States families, and settled the order of the claim review that follows. Items are recorded in the order taken."
         },
         {
           "kind": "heading",
-          "text": "Discussion",
-          "level": 2
+          "level": 2,
+          "text": "Matters Discussed"
         },
         {
           "kind": "paragraph",
-          "text": "Tiffany Munoz asked how the open families affect the schedule and the budget. Richard Henderson set out the sequence. The two coverage charts close first, then the encumbrances search, then the written report. Nothing in the open items changes the delivery window, and the work to date is inside the fixed fee."
+          "text": "1. Chain of title. David Chang reported that the recorded chain runs from the inventors to the licensor for every family except one, in which a single inventor's assignment was never recorded. The licensor has produced that inventor's employment agreement, which uses present-tense assignment language, and Mary Bradley's preliminary view is that the agreement probably carries title; she nonetheless recommended a confirmatory assignment, executed and recorded before signing, so that the point does not rest on the agreement's wording."
         },
         {
           "kind": "paragraph",
-          "text": "The group reviewed the coverage findings family by family. The grant sits inside the issued claims on every family charted so far, and no charted family reaches subject matter the claims do not cover. One family showed a term narrowed during prosecution by more than the file summary indicated; David Chang traced the amendment in the file history and flagged it for the report so the company sees the narrowed scope on its face. Questions of infringement or validity that surface during the review are recorded and referred for an attorney opinion, not resolved in these sessions. The minutes note the question and the family it touches, and nothing more."
+          "text": "2. Status. Every issued patent on the schedule is in force, and no pending application has a response overdue. Richard Henderson noted that one continuation in the mechanical group was allowed over a terminal disclaimer tying it to its parent, which leaves the continuation enforceable only while the two remain commonly owned, and that the draft schedule lists only the parent."
         },
         {
           "kind": "paragraph",
-          "text": "David Chang raised the encumbrances search, which starts next. He will pull the recorded liens and security interests against each family, and any encumbrance found will be logged against the matter the day it is confirmed."
+          "text": "3. Security interest. The assignment record shows a security interest in favor of a lender against part of the portfolio, with no release of record. Tiffany Munoz asked whether this prevents the license from being signed; Mary Bradley answered that it does not necessarily, but that the lender's rights and any consent requirement must be understood first, and that a recorded release or the lender's written consent is the cleaner course."
         },
         {
           "kind": "paragraph",
-          "text": "The docket carried part of the session. Richard Henderson confirmed that the reviewed families sit on the matter docket with their dates reconciled against the office record, and that the weekly reconciliation continues until the report is delivered. Any date in question is raised the day it is found, not held for the next scheduled check."
+          "text": "4. Maintenance fees. Tiffany Munoz asked who will carry the maintenance fees that fall due during the license term and what they will amount to. David Chang will prepare a schedule of the upcoming fee windows by family from the docket, with the official fee for each, so that the allocation can be negotiated against actual amounts."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. Claim review. The claim review begins with the firmware and control families, which David Chang will read against the product description {{fact:f:E-2025-001.client}} supplied, and continues with the mechanical families under Richard Henderson. Mary Bradley asked that the readings be presented as findings and not as opinions on infringement or validity; any opinion will be given separately, in writing, if {{fact:f:E-2025-001.client}} requests one. Tiffany Munoz confirmed that the product description already supplied is current and that she will tell the team if the design changes while the review is under way."
+        },
+        {
+          "kind": "paragraph",
+          "text": "6. Foreign counterparts. The schedule lists foreign counterparts for several families, and the licensor handles their prosecution through its own foreign associates, so their status can be confirmed only from records the licensor holds. That work follows the United States review and will be reported in its own section of the findings memorandum."
         },
         {
           "kind": "heading",
-          "text": "Action Items",
-          "level": 2
+          "level": 2,
+          "text": "Actions Agreed"
         },
         {
           "kind": "table",
           "header": [
-            "Item",
             "Owner",
-            "Due"
+            "Action"
           ],
           "rows": [
             [
-              "Close the coverage charts for the two open families",
+              "Mary Bradley",
+              "Write to the licensor's counsel requesting a confirmatory assignment for the unrecorded inventor, either a release from the lender or its written consent to the license, and the foreign file records for the scheduled counterparts."
+            ],
+            [
               "David Chang",
-              "Two weeks"
+              "Prepare the maintenance fee schedule by family from the docket and send it to Tiffany Munoz."
             ],
             [
-              "Confirm the assignment chain on the mismatched family and correct the recorded date",
-              "Richard Henderson",
-              "Two weeks"
-            ],
-            [
-              "Begin and complete the encumbrances search across the portfolio",
               "David Chang",
-              "Before the next session"
+              "Begin the claim reading on the firmware and control families against the product description."
             ],
             [
-              "Send Tiffany Munoz a short note when the two coverage charts close",
               "Richard Henderson",
-              "On completion"
+              "Mark up the draft patent schedule to add the terminally disclaimed continuation beside its parent, then begin the mechanical family reading."
+            ],
+            [
+              "Tiffany Munoz",
+              "Confirm whether {{fact:f:E-2025-001.client}} wants the security interest resolved before signing or addressed in the license terms."
             ]
           ]
         },
         {
-          "kind": "heading",
-          "text": "Next Session",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "The next session will take the two coverage charts and the first encumbrances findings. Richard Henderson will circulate a short agenda beforehand, with the open title family listed first. No opinion on coverage will be represented to {{fact:f:E-2025-001.client}} until the charts are complete and reviewed."
+          "text": "The next step is Mary Bradley's letter to the licensor's counsel on the unrecorded assignment and the security interest."
         }
       ]
     },
@@ -155,88 +138,113 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report — Licensing Diligence for {{fact:f:E-2025-001.client}}",
-          "level": 1
+          "level": 1,
+          "text": "Status Report: Licensing Diligence for {{fact:f:E-2025-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Prepared by David Chang, Patent Agent, for the finance office of Price-Henson. This report covers the review period since the last update and states where the diligence stands, what closed in the period, what is scheduled next, and the one item that carries risk to the schedule."
+          "text": "Prepared for {{fact:f:E-2025-001.client}} by David Chang, Patent Agent, with Richard Henderson, Patent Agent, and Mary Bradley, Managing Partner. Privileged and confidential."
         },
         {
           "kind": "heading",
-          "text": "Summary",
-          "level": 2
+          "level": 2,
+          "text": "Where the Review Stands"
         },
         {
           "kind": "paragraph",
-          "text": "The licensing diligence is at its midpoint and on schedule. Coverage mapping across the portfolio is complete, the chain-of-title review is closed on every family but one, and the encumbrances search is under way. No finding to date falls outside the scope set in the engagement letter, and no deadline tied to the reviewed families is at risk. The review has moved past the reading-in stage and into confirmation, which is where the docket dates and the recorded title chain are checked against the office record rather than taken from the files as given. The single open item, a recorded assignment that does not match a priority claim, is described under Risks and is contained."
+          "text": "The review is at roughly its halfway point and on schedule. Title and status work on the United States families is finished, the encumbrance search is finished, and the claim reading is complete in draft for the firmware and control families and under way for the mechanical families."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two items from the working session remain open on the licensor's side: the confirmatory assignment for the unrecorded inventor, and a release or consent covering the recorded security interest. Neither has held up the claim reading, but both need to be resolved, or dealt with in the license terms, before signing."
         },
         {
           "kind": "heading",
-          "text": "Work Completed This Period",
-          "level": 2
+          "level": 2,
+          "text": "Completed to Date"
         },
         {
-          "kind": "paragraph",
-          "text": "The bulk of the coverage and title work closed in this period, and the review moved from reading files to reconciling what they show."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "1. Coverage mapping is complete for every family in the portfolio. The license grant reconciles to the issued claims in each family, and the two families that were open at the last working session are now fully charted and consistent with the rest.",
-            "2. Chain of title is reconciled for all families but one. Richard Henderson ran down the assignment gap flagged in the prior period, confirmed the recorded chain against the office record family by family, and cleared every family except the one carried under Risks below.",
-            "3. The encumbrances search has begun. We have pulled the recorded security interests and liens against roughly half the families and, so far, have found nothing undisclosed that would cloud the grant described in the term sheet.",
-            "4. The docketed dates on the reviewed families have been reconciled against the office record, and any date that did not match has been corrected on the master list and cross-checked by a second reader."
+          "kind": "table",
+          "header": [
+            "Area",
+            "Status",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Chain of title",
+              "Complete",
+              "The recorded chain runs from the inventors to the licensor for every family but one. The licensor has produced the employment agreement for the unrecorded inventor, and a confirmatory assignment has been requested through its counsel."
+            ],
+            [
+              "Status and maintenance",
+              "Complete",
+              "Issued patents are in force and no pending application has a response overdue. The maintenance fee schedule by family was sent to {{fact:f:E-2025-001.client}} after the working session."
+            ],
+            [
+              "Encumbrances",
+              "Complete",
+              "One recorded security interest in favor of the licensor's lender, with no release of record. No recorded licenses or other liens against the scheduled families were found."
+            ],
+            [
+              "Schedule reconciliation",
+              "Complete",
+              "The terminally disclaimed continuation has been added to the marked-up patent schedule beside its parent."
+            ],
+            [
+              "Claim reading, firmware and control families",
+              "Draft complete",
+              "Read against the product description {{fact:f:E-2025-001.client}} supplied. The draft is with Mary Bradley for review."
+            ],
+            [
+              "Claim reading, mechanical families",
+              "In progress",
+              "Richard Henderson is reading the independent claims against the housing and mounting drawings in the product description."
+            ]
           ]
         },
         {
-          "kind": "heading",
-          "text": "Budget",
-          "level": 2
+          "kind": "paragraph",
+          "text": "The firmware and control reading compares each independent claim, element by element, with how the product description says the control board and its firmware behave. Where an element turns on behavior the description does not cover, such as how the firmware responds to a sensor fault or a power interruption, the reading marks the element open instead of assuming an answer."
         },
         {
           "kind": "paragraph",
-          "text": "The engagement is a fixed fee of {{fact:f:E-2025-001.fee}}, and the work performed stands at roughly half that amount, which tracks the midpoint of the review. We do not foresee any charge beyond the fixed fee for the scope stated in the engagement letter. If the open title family turns into work outside that scope, or if the company asks for an opinion on any matter the diligence surfaces, we will quote that work separately and wait for written authorization before we begin it."
-        },
-        {
-          "kind": "heading",
-          "text": "Scheduled Next",
-          "level": 2
+          "text": "A short call with whoever at {{fact:f:E-2025-001.client}} knows the firmware best would close most of those open elements. I can send the list of questions ahead of the call so it takes less of their time."
         },
         {
           "kind": "paragraph",
-          "text": "The coming period closes the search work and turns the review toward the written report."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "1. Complete the encumbrances search across the remaining families, and log any lien or recorded security interest against the matter the day it is confirmed.",
-            "2. Resolve the one open title family, confirm the recorded assignment against the office record, and correct the recorded date if the office record shows it is wrong.",
-            "3. Begin assembling the diligence report, organized family by family, so that final assembly is a matter of collation rather than reconstruction.",
-            "4. Reconcile the master date list one further time against the office record before the report is drafted, so that no date the report relies on is carried forward unconfirmed."
-          ]
+          "text": "The mechanical reading follows the same method, with the drawings in the product description standing in for the product itself. One mechanical family's claims were amended during prosecution, and whether that amendment confines them to an arrangement the product does not use will be settled in the prosecution history review, not from the claim text alone."
         },
         {
           "kind": "heading",
-          "text": "Observations",
-          "level": 2
+          "level": 2,
+          "text": "Work Ahead"
         },
         {
           "kind": "paragraph",
-          "text": "Two points are worth recording now, though neither is a conclusion. The claim charts show the license grant sitting inside the issued claims on the families reviewed so far, with no family where the grant reaches subject matter the claims do not cover. Separately, one family's prosecution history includes an amendment that narrows a term more than the file summary suggested, which we have noted for the report; it does not change coverage, but it is the kind of detail the company should have in front of it before it relies on the grant. Both points will be set out family by family in the written report rather than summarized here."
+          "text": "Before the findings memorandum, in this order:\n1. Finish the mechanical family reading, starting with the families closest to the planned product.\n2. Review the prosecution history of each family the readings rely on, for amendments or arguments that narrow what its claims can cover.\n3. Confirm the status of the foreign counterparts. The schedule lists them, but the licensor has not yet supplied the foreign file records.\n4. Prepare the findings memorandum, family by family, for Mary Bradley's review. Any statement about what {{fact:f:E-2025-001.client}} can or cannot rely on in the license will come from her and not from the claim readings."
         },
         {
           "kind": "heading",
-          "text": "Risks",
-          "level": 2
+          "level": 2,
+          "text": "Risks and Open Items"
         },
         {
           "kind": "paragraph",
-          "text": "One item carries risk to the schedule, and it is contained. The open title family turns on a recorded assignment that does not match the priority claim, and until the chain is confirmed we treat the recorded date as unconfirmed and rest no conclusion on it. We do not expect the item to move the delivery window, and if that changes you will hear from us the day it does. Nothing in the review to this point supports a conclusion on infringement or validity, and any question of that kind is referred for an attorney opinion rather than answered in this report."
+          "text": "1. Security interest. Until a release or the lender's consent is of record, the lender's rights in part of the portfolio are not fully known. If neither arrives before signing, Mary Bradley will advise on how the license terms should address it.\n2. Confirmatory assignment. The employment agreement may well be sufficient on its own, but a recorded confirmatory assignment removes the question. The licensor has not said when it will sign.\n3. Foreign records. The foreign counterpart review depends on records the licensor holds through its own foreign associates. A delay there would hold up that part of the review but not the United States findings.\n4. Schedule changes. If the licensor adds families to the schedule, review of those families falls outside the current scope, and we would raise it with you before doing the work."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Budget"
         },
         {
           "kind": "paragraph",
-          "text": "We will send the next report at the close of the coming period, or sooner if the docket requires it. David Chang and Richard Henderson are the contacts for anything in the meantime."
+          "text": "The engagement is being performed for the fixed fee of {{fact:f:E-2025-001.fee}}. Work to date is within that fee, and nothing now planned calls for a change to it. Additional families, or a request for a formal opinion beyond the findings memorandum, would be scoped and agreed with you separately before any work starts."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Questions on the claim readings can come to me. Questions on the open title items or on the license terms should go to Mary Bradley, who will also review the findings memorandum before it is sent."
         }
       ]
     },
@@ -246,103 +254,93 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes — Licensing Diligence for {{fact:f:E-2025-001.client}}",
-          "level": 1
+          "level": 1,
+          "text": "Review of Draft Findings: Licensing Diligence for {{fact:f:E-2025-001.client}}"
         },
         {
           "kind": "paragraph",
-          "text": "Recorded by Richard Henderson. Closing working session on the licensing diligence for Price-Henson, held to confirm the findings, settle the last open item, and set the delivery of the written report."
+          "text": "Privileged and confidential. These minutes record legal advice given to {{fact:f:E-2025-001.client}} and should not be circulated outside its management."
         },
         {
           "kind": "heading",
-          "text": "Attendees",
-          "level": 2
+          "level": 2,
+          "text": "Present"
         },
         {
           "kind": "list",
           "items": [
-            "David Chang, Patent Agent, Prosecution",
-            "Richard Henderson, Patent Agent, Prosecution",
-            "Tiffany Munoz, Chief Financial Officer, Price-Henson"
+            "Tiffany Munoz, Chief Financial Officer, {{fact:f:E-2025-001.client}}",
+            "Mary Bradley, Managing Partner",
+            "David Chang, Patent Agent",
+            "Richard Henderson, Patent Agent"
           ]
         },
         {
-          "kind": "heading",
-          "text": "Where the Diligence Stands",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "The diligence is substantially complete and the report is in final review. Coverage mapping and the encumbrances search are both closed, and the one open title family has been resolved. No deadline is at risk, and nothing remains that would hold the report."
-        },
-        {
-          "kind": "paragraph",
-          "text": "David Chang confirmed the coverage findings. The license grant reconciles to the issued claims across the portfolio, and the two families that were open at the last session are now charted and consistent with the rest. The one family whose prosecution history narrowed a term is documented in the report, with the amendment traced so the narrowed scope is plain. The encumbrances search turned up recorded interests on two families, both of them disclosed in the term sheet, and nothing undisclosed that clouds the grant."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Richard Henderson reported the title family closed. The recorded assignment that did not match the priority claim was a recording error at the office; the corrected assignment is now on record, and the chain reconciles. The recorded date on the master list has been updated to match the office record."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The group also confirmed what the report will and will not say. It sets out the coverage mapping, the reconciled chain of title, and the encumbrances found, each organized by family, and it states plainly where a question falls outside its scope. It offers no opinion on whether any claim is infringed or valid, which is consistent with the engagement and with how the firm treats opinion work."
+          "text": "The session reviewed the draft findings memorandum, which was circulated to {{fact:f:E-2025-001.client}} beforehand, and the title items still open with the licensor. Points are grouped below by subject rather than in the order raised."
         },
         {
           "kind": "heading",
-          "text": "Discussion",
-          "level": 2
+          "level": 2,
+          "text": "Firmware and Control Families"
         },
         {
           "kind": "paragraph",
-          "text": "Tiffany Munoz asked about the form of the report and its distribution. Richard Henderson confirmed that the report is organized family by family, marked privileged, and will be addressed to Tiffany Munoz and held to the distribution she sets at Price-Henson. Questions of infringement and validity stay outside the report; where the diligence touched either, the point is noted and left for an attorney opinion under a separate engagement if the company wants one."
-        },
-        {
-          "kind": "paragraph",
-          "text": "The docket was reconciled a final time during the session. Every reviewed family sits on the matter docket with its dates confirmed against the office record, and no date tied to the portfolio is open. The weekly reconciliation continues through delivery."
+          "text": "David Chang summarized the readings. On the product description {{fact:f:E-2025-001.client}} supplied, and with most of the open claim elements closed in the call with its engineering staff, the independent claims of these families appear to read on the control board and its firmware as described. Mary Bradley repeated that the memorandum states findings and is not an opinion on infringement or validity, and that each finding carries the qualifications the record requires."
         },
         {
           "kind": "heading",
-          "text": "Action Items",
-          "level": 2
+          "level": 2,
+          "text": "Mechanical Families"
         },
         {
-          "kind": "table",
-          "header": [
-            "Item",
-            "Owner",
-            "Due"
-          ],
-          "rows": [
-            [
-              "Complete the final read of the diligence report",
-              "Richard Henderson",
-              "This week"
-            ],
-            [
-              "Verify every claim chart and title reference against the matter file",
-              "David Chang",
-              "This week"
-            ],
-            [
-              "Deliver the privileged report to Tiffany Munoz",
-              "Richard Henderson",
-              "On completion of the final read"
-            ],
-            [
-              "Close the matter file and archive the reconciled docket",
-              "David Chang",
-              "After delivery"
-            ]
+          "kind": "paragraph",
+          "text": "Richard Henderson reported that the claims of one mechanical family were narrowed during prosecution by an amendment limiting them to a mounting arrangement the planned product does not use, so on the present design that family is unlikely to cover the product, although a design change could alter the answer. Tiffany Munoz asked whether the family should remain in the royalty base. Mary Bradley said that is a commercial decision for {{fact:f:E-2025-001.client}}, and that the firm can draft schedule language that either removes the family or prices it separately."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Title"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The confirmatory assignment for the previously unrecorded inventor has been executed and recorded, and the assignment record now shows a complete chain for every family. The licensor reports that the lender's release has been filed, but it does not yet appear on the assignment record. Mary Bradley noted that a gap between filing and recordation is common and is usually a matter of processing, but that the memorandum should not describe the portfolio as unencumbered until the record shows the release."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Foreign Counterparts"
+        },
+        {
+          "kind": "paragraph",
+          "text": "David Chang reported that the licensor's foreign associates have now supplied the foreign file records, and that each counterpart on the schedule is either pending or in force in the jurisdiction the schedule shows. The memorandum treats the counterparts in a separate section and says expressly that it relies on the associates' reports for local status, which the firm has not independently verified."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Carrying the Findings into the License"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Tiffany Munoz asked which findings should be reflected in the license itself. Mary Bradley recommended three provisions: a representation by the licensor that title to the scheduled patents is complete and unencumbered; a covenant to keep the scheduled patents in force under the maintenance fee allocation now being negotiated; and a condition that the lender's release be of record before signing."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Actions"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "David Chang: check the assignment record each business day for the lender's release and notify the team when it posts.",
+            "Richard Henderson: add the prosecution history note on the narrowed mechanical family to the memorandum, citing the amendment and the examiner's reasons for allowance.",
+            "Mary Bradley: send Tiffany Munoz proposed license language on title, maintenance, and the release condition.",
+            "Tiffany Munoz: decide whether the narrowed mechanical family stays in the royalty base, and tell Mary Bradley."
           ]
         },
         {
-          "kind": "heading",
-          "text": "Delivery",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "With the open items settled, the engagement moves to delivery. Richard Henderson will finish the final read this week, and the report will go to {{fact:f:E-2025-001.client}} once David Chang has verified every chart and reference against the matter file. The docket stays under weekly reconciliation until delivery, so any date that moves before the report is out is caught and reported the day it moves. No conclusion on infringement or validity is offered in the report, consistent with the scope set at the outset."
+          "text": "Once the release appears on the assignment record, the findings memorandum issues in final; that is the next step."
         }
       ]
     }

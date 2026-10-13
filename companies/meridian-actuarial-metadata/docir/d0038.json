@@ -3,8 +3,17 @@
   "doc_id": "d:0038",
   "blocks": [
     {
+      "kind": "heading",
+      "text": "Experience Study: Status at the Midpoint",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
       "kind": "paragraph",
-      "text": "Prepared by: David Sherman, Senior Analyst\nEngagement: Experience Study for Estes Group",
+      "text": "For {{fact:f:E-2019-001.client}}. Prepared by David Sherman, Senior Analyst. The study is at its midpoint. This report sets out the work done so far and what remains, and it makes no recommendation on any assumption.",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Where the study stands",
+      "text": "In Brief",
       "level": 2,
       "items": [],
       "header": [],
@@ -22,7 +31,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The study is on schedule and within budget, and the work has moved past the data phase into measurement. We have a reconciled membership file, the exposures needed to count experience year by year are built, and we have begun setting what the {{fact:f:E-2019-001.client}} membership actually did against what the plan's current assumptions predicted. No result is final, and none should be read as a recommendation yet. At this stage we are counting, not concluding.",
+      "text": "The data work for terminations, retirements and mortality is finished. The status history reconciles to the census in every year of the study period, and the experience for each of the three has been tabulated against the current assumptions. No assumption has yet been recommended. The study is on schedule and within budget.",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +40,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Nothing seen so far suggests the study will be other than routine. The data are sound enough to build on, the open items are the ordinary ones a first study turns up, and the schedule leaves room for the review the results will need before anyone signs them. We would tell you if that read changed; as of this report it has not.",
+      "text": "One piece of data is still outstanding. The salary increase analysis needs the pay history for the earliest years of the study period, which we requested in the data summary. That analysis cannot start until the history arrives, and it is the item most likely to affect the schedule.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +49,7 @@
     },
     {
       "kind": "heading",
-      "text": "Completed this period",
+      "text": "Work Completed This Period",
       "level": 2,
       "items": [],
       "header": [],
@@ -49,7 +58,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The period went mostly to putting the data beyond argument and building the machinery that turns it into experience counts. In order:",
+      "text": "1. We reconciled the status history to the year-end census for every year of the study period. The last gap, a group of internal transfers that payroll had recorded as new hires, closed when Megan Dudley linked the old and new employee numbers your staff supplied.",
       "level": 1,
       "items": [],
       "header": [],
@@ -57,22 +66,91 @@
       "signers": []
     },
     {
-      "kind": "list",
+      "kind": "paragraph",
+      "text": "2. We received dates of birth for all but a few of the retiree records that lacked them. As agreed at the working session, the remaining records are excluded from the mortality tabulation, and the data summary lists each one.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "3. We issued the data summary. It records every change made to the files, the source of each change, and every record excluded.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "4. Jeffrey Ochoa split the early-service termination results by year of hire. The higher rate of departure appears in each hiring year, not in one, so it does not look like the effect of a single unusual year.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "5. Robert Lawrence reviewed the tabulations and the approach to credibility. Drafting of the recommendations can begin.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Observed Experience",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The table compares the experience the plan recorded with what the current assumptions predicted. These are measurements. None of them is a recommendation, and none should be read as a decision to change a rate.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
       "text": "",
       "level": 1,
-      "items": [
-        "Megan Dudley reconciled the membership file against the plan's payroll and prior records, and it now ties within a small, documented margin.",
-        "We built the exposure tables that count, for each year of the study period, who was at risk of retiring, terminating, or dying, so that every rate we later report rests on a denominator a reader can trace.",
-        "Jeffrey Ochoa completed the first pass of the retirement and termination counts and began setting them against the counts expected under the current assumptions.",
-        "We assembled the salary history needed to study pay increases from the same payroll records, rather than a separate file, so the two cannot drift apart."
+      "items": [],
+      "header": [
+        "Decrement",
+        "What the data show",
+        "Credibility of the plan's own data"
       ],
-      "header": [],
-      "rows": [],
+      "rows": [
+        [
+          "Terminations",
+          "More departures than expected in the first years of service and fewer than expected after that. The pattern holds in each hiring year.",
+          "Adequate in the early service years; thinner at longer service"
+        ],
+        [
+          "Retirements",
+          "Fewer than expected in the early retirement window; close to expected at older ages",
+          "Adequate at the ages where most retirements occur"
+        ],
+        [
+          "Mortality",
+          "Fewer retiree deaths than the current table predicts",
+          "Limited; the number of deaths is small"
+        ]
+      ],
       "signers": []
     },
     {
       "kind": "heading",
-      "text": "Data and our reliance on it",
+      "text": "What We Have Assumed",
       "level": 2,
       "items": [],
       "header": [],
@@ -81,7 +159,16 @@
     },
     {
       "kind": "paragraph",
-      "text": "A study of this kind is only as sound as the census beneath it, and we treat the data accordingly. We do not audit what the plan provides; we reconcile it, check it against the prior records and the payroll, and document what we relied on. A small number of participant records still carry status codes we have asked the client to confirm. Until they are confirmed, we are holding those participants out of the counts rather than guessing at their status. This is the same discipline we apply to every figure in the study: what the data show, what we have assumed, and what we conclude are kept apart, so a reader can always see which of the three a number rests on. The count of held records is too small to move the study, but we would report it to you all the same.",
+      "text": "We have relied on the census, the status history and the benefit records as your staff provided them. We reviewed them for consistency and completeness, as ASOP No. 23 requires, but we have not audited them.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Three treatments in the tabulations are our choices, not facts in the data, and the report will state each of them. Transferred employees are carried as continuing service. Rehired employees re-enter the active group from the date of rehire. Retiree records without a date of birth are left out instead of being given an assumed age.",
       "level": 1,
       "items": [],
       "header": [],
@@ -90,7 +177,7 @@
     },
     {
       "kind": "heading",
-      "text": "The work ahead",
+      "text": "Budget",
       "level": 2,
       "items": [],
       "header": [],
@@ -99,7 +186,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The second half of the study is measurement first and judgment after it:",
+      "text": "Time charged through the midpoint is consistent with the fee of {{fact:f:E-2019-001.fee}} set out in the engagement letter, and we do not expect the remaining work to exceed it. If the pay history needs a second request or substantial correction, the added work could affect that expectation. We will raise it with you before that work begins.",
       "level": 1,
       "items": [],
       "header": [],
@@ -107,71 +194,96 @@
       "signers": []
     },
     {
-      "kind": "list",
+      "kind": "heading",
+      "text": "Work Remaining",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "1. The salary increase analysis, once the pay history for the earliest years arrives. David Sherman will lead it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "2. Draft recommended assumptions for termination, retirement and mortality. Jeffrey Ochoa will prepare them, with the basis for each and the weight given to the plan's own experience. The mortality recommendation will also address future improvement, measured against the MP-2018 scale the Society of Actuaries published last October.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "3. A working session with your staff to go through the draft recommendations before the report is written.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "4. The draft report, followed by the final report once your comments are addressed. Robert Lawrence will sign the final report.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Risks",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
       "text": "",
       "level": 1,
-      "items": [
-        "Complete the actual-to-expected counts for every decrement the study covers, adding mortality and disability to retirement and termination.",
-        "Weigh each result for credibility, since several of the smaller membership groups will not carry enough experience to support a firm conclusion on their own.",
-        "Draft, for the signing actuary's review, the assumptions the data support changing and those it does not. The recommendation is the actuary's to make and to sign; our task is to lay the evidence in front of it.",
-        "Prepare the exhibits and the written study so that a reader can trace each recommended rate back to the counts behind it."
+      "items": [],
+      "header": [
+        "Risk",
+        "Effect if it occurs",
+        "How we will handle it"
       ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Fees",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The study is being performed for the fixed fee of {{fact:f:E-2019-001.fee}}, and the work billed to date is consistent with that budget. We do not foresee anything that would require a change to it. Should the open data questions grow into something larger than the routine cleanup we expect, we would come to you for agreement before taking on the extra work.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Risks we are watching",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Three things could affect the timing or the reach of the study. None is serious as matters stand:",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "The open status codes. If the client's confirmation is slow, the final counts wait on it, though the exposure work continues in the meantime.",
-        "Credibility of the smaller groups. Where a group is too small to speak for itself, we will say so plainly instead of presenting a thin result as if it were firm. This narrows what the study can conclude for those groups; it does not delay the study.",
-        "The membership's overall size. For assumptions such as mortality, the plan's own experience will likely need to be read alongside a published table rather than on its own, and we will be explicit wherever we have done so."
+      "rows": [
+        [
+          "The pay history for the earliest years is late or incomplete",
+          "The salary increase analysis would cover a shorter period",
+          "Proceed on the years available and state the shorter period in the report"
+        ],
+        [
+          "Mortality experience remains thin",
+          "The plan's own deaths cannot set the mortality rates alone",
+          "Weight the plan's experience against a published table and show the weight given"
+        ],
+        [
+          "A data correction arrives after the data summary",
+          "The affected tabulations would need to be rerun",
+          "Tell you before any rerun changes the schedule"
+        ],
+        [
+          "A change to retirement eligibility is under consideration",
+          "Past retirement experience would be a weaker guide to future rates",
+          "Ask that you tell us of any such change now, so the recommendations can address it"
+        ]
       ],
-      "header": [],
-      "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "We will send the next report once the actual-to-expected counts are complete across all decrements, at which point we can show you where the data and the current assumptions agree and where they part. Until then I remain the point of contact for the study, and a note to me reaches the whole team.",
+      "text": "Megan Dudley will continue to handle data questions with your benefits staff. For anything in this report, please contact me directly. Questions about the tabulations themselves are best put to Jeffrey Ochoa.",
       "level": 1,
       "items": [],
       "header": [],

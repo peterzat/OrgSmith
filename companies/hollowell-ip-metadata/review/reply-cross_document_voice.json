@@ -2,34 +2,88 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "hollowell-ip",
   "dimension": "cross_document_voice",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:cross-voice-email-openers",
+      "id": "rf:cdv-thread-openers",
       "dimension": "cross_document_voice",
       "severity": "major",
-      "docs": ["d:0006", "d:0017", "d:0032", "d:0045", "d:0056"],
-      "summary": "The first client email of all five engagements opens with the same 'I am opening this thread so ... stay in one place' sentence, though each was written by a different person.",
-      "evidence": "d:0006 (Snyder) 'I am opening this thread so our updates ... stay in one place and the record runs in order against the matter'; d:0017 (Henderson) 'I am starting this thread so you have our status ... in one place as the work moves'; d:0032 (Munoz) 'I am opening this thread so our updates ... stay in one place and your file runs in order'; d:0045 (Williams) 'I am opening this thread so that our updates ... stay in one place as the work moves'; d:0056 (Chang) 'I am opening this thread so you have our status ... in one place as the review moves'. d:0006 and d:0032 go further and duplicate nearly the whole message, e.g. both close the middle paragraph 'I will flag any deadline the moment one comes into view. You will hear from us on a set cadence, and each note will be tied to the family it concerns.'"
+      "docs": ["d:0006", "d:0017", "d:0045", "d:0056"],
+      "summary": "Four of the five engagement threads, opened by four different people between 2019 and 2025, begin by announcing the thread itself, two of them in a near-identical pair of sentences, so the brief's instruction to set the thread up shows through as one writer's opener.",
+      "evidence": "d:0006 (Kelly Snyder, 2019): 'This thread will carry our updates on the portfolio review.' d:0017 (Richard Henderson, 2020): 'I am starting this thread so that our status updates on the freedom-to-operate work for {{fact:f:E-2020-001.client}} sit in one place. Heather and Kelly are copied and will add to it as the work moves.' d:0045 (Ashley Williams, 2024): 'I am opening this thread so that our updates on the clearance work for {{fact:f:E-2024-001.client}} stay in one place. Kelly and Mary are copied and will add to it as we go.' d:0056 (David Chang, 2025): 'we will keep later updates and document requests on this thread so they stay in one place.' d:0017 and d:0045 then introduce their asks the same way: 'three things from your side would help:' and 'Two things from your side would help us finish:'. Only Heather Munoz's opener (d:0032) starts on substance. The previous board flagged the verbatim form of this opener (rf:cross-voice-email-openers); the regeneration paraphrased it rather than removing it."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:cross-voice-kickoff-scope",
+      "id": "rf:cdv-kickoff-moves",
       "dimension": "cross_document_voice",
       "severity": "major",
-      "docs": ["d:0016", "d:0044", "d:0055"],
-      "summary": "The three opinion-type kickoff memos, each by a different agent, reach for the same verbatim scope-scaffolding sentences rather than expressing the shared method in independent words.",
-      "evidence": "'so everything built on top of it stands on something solid' (d:0016, Henderson) and 'so that everything we build on top of it stands on something solid' (d:0055, Chang); 'A freedom-to-operate opinion is only as good as the scope it runs against' (d:0016) and 'A diligence report is only as good as the scope it runs against' (d:0055); the closer 'The first thing that has to happen is the scope' appears verbatim in d:0016 (Henderson) and d:0044 (Williams), and as 'The scope statement is the gate' in d:0055 (Chang)."
+      "docs": ["d:0005", "d:0016", "d:0031", "d:0044", "d:0055"],
+      "summary": "The five kickoff memos, by five different authors over six years, make the same opening moves in the same order (what 'we owe' the client, 'our contact' by name and title, 'the fee is fixed, so') and two pairs close on the same couplet, so the memos read as one writer filling one form in varied words.",
+      "evidence": "Deliverable: 'We owe the client one recommendation per patent family' (d:0005, Snyder 2019); 'We owe {{fact:f:E-2020-001.client}} one opinion, signed by Heather Munoz' (d:0016, Henderson 2020); heading 'What we owe the client' (d:0031, Munoz 2021); 'We owe {{fact:f:E-2024-001.client}} one written answer' (d:0044, Williams 2024). Contact: 'Our contact at the client is' plus name and title in d:0016, d:0044 and d:0055; 'Our contact is Joseph Palmer, General Manager' (d:0031); 'The client contact is Gary Smith, General Manager' (d:0005). Fee: 'The fee is fixed' in all five, three times as 'The fee is fixed, so ...' (d:0016, d:0031, d:0044). Request routing: 'Document requests go through her and nobody else. That way we keep one record of what we asked for and what arrived.' (d:0016) against 'Every request to the client goes to her in writing, so that we have a record of what we asked and when.' (d:0044). Closers: 'Anything that touches a deadline comes to Sharon Woods and me the same day. Everything else waits for Monday.' (d:0005) against 'Date questions come to me the day you find them. Everything else can wait for our weekly meeting.' (d:0031); 'If anything here conflicts with the engagement letter, the letter controls. Tell me and I will correct this memo.' (d:0016) against 'If any assignment here does not match your understanding, please tell me before Matthew begins. I will reissue the list with the change.' (d:0044). None of these moves is in the brief, which asks only for objectives, workstreams and next steps."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:cross-voice-minutes",
+      "id": "rf:cdv-status-reskin",
       "dimension": "cross_document_voice",
       "severity": "major",
-      "docs": ["d:0010", "d:0061"],
-      "summary": "Meeting minutes taken by two different people six years apart share verbatim narrative sentences that are prose, not form fields, so the match reads as one generator rather than two minute-takers.",
-      "evidence": "d:0010 (Munoz, 2019) 'Until the continuation chain is confirmed, its recorded priority date stays marked unconfirmed on the master list, and no conclusion for that family rests on it' vs d:0061 (Henderson, 2025) 'Until the chain is confirmed, the recorded date stays marked unconfirmed on the master list, and no conclusion for that family rests on it'. Both also use 'The docket carried the meeting/session' and 'any date in question is raised the day it is found, not [at / held for] the next scheduled [review / check]'."
+      "docs": ["d:0023", "d:0051", "d:0062"],
+      "summary": "Ashley Williams's 2024 trademark-clearance status report is Richard Henderson's 2020 freedom-to-operate report re-skinned section by section, and Henderson's two-tier contact closer reappears in David Chang's 2025 report, so three authors on three service lines share one report.",
+      "evidence": "Disclaimer: 'No conclusion has been reached on any patent. ... Nothing in this report should be read as one.' (d:0023) against 'No mark has been cleared yet. ... Nothing in this report should be read as that view.' (d:0051). Completed work: 'The following items are complete as of this report.' against 'Each item below is complete as of this report.', each followed by a level-3 method subsection ('How the Charts Are Built' against 'What the Searches Showed'). Coming work: 'The order below follows the ranking agreed at the working session. The name after each item is the person responsible for it.' against 'Our work for the coming period follows the ranking your team sent us. Each item has a named owner and a docket entry.', both followed by items that end in the owner's name ('Claim charts for the remaining short-listed patents. Richard Henderson.' against 'Analyses of the remaining candidates, in your ranked order. Ashley Williams, with Kelly Snyder.'). Closer: 'Questions about the search or the charts can come to me. Questions about legal conclusions should go to Heather Munoz.' (d:0023) against 'Questions on the claim readings can come to me. Questions on the open title items or on the license terms should go to Mary Bradley' (d:0062). The rewording keeps the pair out of the n-gram metric's view."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cdv-midpoint-opener",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0011", "d:0023", "d:0034", "d:0051", "d:0062"],
+      "summary": "All five midpoint status reports, by five different authors, open by announcing that the work is at its midpoint and on schedule, the brief's position note restated as a topic sentence, and two carry 'midpoint' into a heading.",
+      "evidence": "'The review is at its midpoint and on plan.' (d:0011, Snyder 2019); 'The analysis is at its midpoint, on schedule, and within budget.' (d:0023, Henderson 2020); title 'Prosecution Support: Status at the Midpoint' and 'The engagement is on schedule at about its halfway point.' (d:0034, Munoz 2021); heading 'The Matter at Its Midpoint' and 'The clearance work has reached its midpoint on schedule.' (d:0051, Williams 2024); 'The review is at roughly its halfway point and on schedule.' (d:0062, Chang 2025). Each brief carried 'dated about 50% of the way through the engagement (around the midpoint)'; the one late-phase report, d:0026, opens differently ('The analysis is substantively complete.')."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cdv-counsel-disclaimer",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0021", "d:0045", "d:0051", "d:0056", "d:0060"],
+      "summary": "Three patent agents on three engagements (2020, 2024, 2025) close their client updates on one disclaimer in paraphrase (no view yet; the partner will give it, in writing, once the work is done), so a line a real firm would either standardize or leave to each writer reads as one hand.",
+      "evidence": "'Nothing found so far is a conclusion about risk. Any view on a particular patent will come from Heather, in writing, after the claim review is complete.' (d:0021, Henderson); 'A clear screening result is encouraging, but it is not a conclusion. We will give you our view once Kelly's review is finished, and not before.' (d:0045, Williams); 'A view on each candidate will come from Mary Bradley, in writing, once the analysis behind it has been reviewed.' (d:0051, Williams); 'Nothing in this note is a view on coverage or validity. Mary will give you that in writing when the review is complete.' (d:0056, Chang); 'leave the question of what it means for the license to counsel, who will give you that view in writing once the record is complete' (d:0060, Chang). The substance is right for non-attorneys and fits David Chang's persona; the shared construction across three writers is the defect."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cdv-partner-gloss",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0018", "d:0020", "d:0046"],
+      "summary": "When a partner steps into an agent's client thread, Heather Munoz in 2020 and Mary Bradley in 2024 make the same move in the same words: take up the second item of the agent's list and ask for the document itself, not a summary of it.",
+      "evidence": "'One point on the second item in Richard's note, the list of patents your engineers already know of.' (d:0018, Munoz) against 'On the second of Ashley's questions, if the company has used the name at all, please send us the records themselves, not a summary of them' (d:0046, Bradley); 'please send us the clause itself and not a summary of it. The wording decides whether it covers ...' (d:0020, Munoz). Both partners then justify the request by how the material would be read if challenged: 'can be produced in litigation and read as knowledge of the patent' (d:0018) and 'a date that rests on recollection alone is difficult to rely on if it is ever challenged' (d:0046)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cdv-persona-transplant",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0007", "d:0011", "d:0029", "d:0031", "d:0042"],
+      "summary": "Roster persona sketches are quoted into the documents as colleagues' narration or as firm doctrine, so one person's distinguishing habit turns up in another's mouth or in firm copy written before that person joined, and the habits stop marking anyone.",
+      "evidence": "Kelly Snyder's persona ('caveats kept in a separate paragraph so they cannot be skimmed past') is Heather Munoz's rule in d:0031: 'Caveats go in their own paragraph, where they cannot be skimmed past.' Joseph Walker's persona (memoranda that 'define their scope before saying anything else, and separate what the record shows from what remains uncertain') is the firm's 2019 copy in d:0007, 'privileged memoranda that define their scope at the outset, separate what the record shows from what remains uncertain', two years before he joins. Ashley Williams's onboarding record (d:0029) instructs her to have her persona's habits: 'her notes should be courteous and should leave no doubt about what is needed' and 'her technical drafts should carry headings that follow the claim structure' (persona: 'courteous but leave no room to miss a response date', 'headings that track the claim structure'). One week in, d:0042 already knows David Chang 'prefers to settle a disputed claim interpretation with the examiner by telephone before committing a position to writing' (persona: 'prefers to resolve ambiguity with an examiner by phone before committing it to a written response'). Kelly Snyder's d:0011 describes Amanda Schwartz by her persona: 'with the docket number in the subject line and the decision needed stated first'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cdv-self-nickname",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": ["d:0033", "d:0035"],
+      "summary": "Joseph Walker's own minutes describe him from outside, by his nickname in one and with credit for his own care in the other, though both name him as the note-taker and narrate the team as 'we'.",
+      "evidence": "d:0033 lists 'Joseph Walker, Associate (notes)', then writes 'Joe took us through the references cited against the earliest application, and our shared reading is ...' and 'Joe's view is that the combination is weaker than the action makes it sound', and assigns an action to 'Joe, with review by Heather Munoz'. d:0035 lists 'Joseph Walker, Associate, who kept these notes', then 'Joseph Walker summarized where the prior art work leaves things ... though he was careful to say that this reflects what we have seen'. Full-name third person is normal in minutes, and Heather Munoz and Mary Bradley use it consistently in theirs; a note-taker's own nickname in client-attended minutes is not. 'Joe' was a briefed mention for d:0033, placed in a document its bearer wrote."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cdv-voice-present",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": [],
+      "summary": "Sentence-level voice does differ by author and holds across years; the convergence in the findings above lies in per-genre rhetorical moves, and the structural metric's top pairs are mostly one person's own email habits, which is plausible.",
+      "evidence": "Joseph Walker's minutes run in long, linked sentences ('Heather Munoz opened by noting that the docket remains clean, and Kelly Snyder confirmed that every response date we hold has now been checked twice against the Patent Office record, so we were able to spend the session on substance rather than on dates', d:0033), unlike Heather Munoz's clipped minutes ('Maintenance fees: the keep list stands as drafted.', d:0013). Kelly Snyder is the most clipped writer ('Client contact goes through me.', d:0005). Mary Bradley holds one long, formal register across letters, overviews, onboarding records, emails and minutes from 2019 to 2025, and the reuse across her five engagement letters and five onboarding records reads as one signatory reusing her own forms. The structural top pairs d:0020/d:0032 (Munoz), d:0046/d:0057 and d:0048/d:0059 (Bradley) are same-author habits; the cross-author pairs d:0006/d:0018 and d:0046/d:0060 share only an all-paragraph skeleton and do not read alike. The previous board's verbatim minutes clone (rf:cross-voice-minutes, d:0010/d:0061) does not recur."
     }
   ]
 }

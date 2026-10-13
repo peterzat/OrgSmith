@@ -183,6 +183,9 @@ def test_unanswerable_questions_are_really_unanswerable(slug):
     questions = _questions(paths)
     unanswerable = [q for q in questions if not q["answerable"]]
     if not unanswerable:
+        # Whether an org poses one is a property of its plan, not a knob.
+        # Since M17e no committed org does; the emit-and-score path is
+        # re-hosted on a synthetic org in test_unit_evals_unanswerable.py.
         pytest.skip(f"{slug} poses no unanswerable question")
 
     for question in unanswerable:

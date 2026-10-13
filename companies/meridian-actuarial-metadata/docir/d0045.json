@@ -4,7 +4,25 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: Jennifer Vasquez, Amanda White, Linda Hanna\nFrom: Jeffrey Ochoa\nDate: July 4, 2020\nRe: Retiree medical valuation for {{fact:f:E-2020-001.client}} — engagement kickoff",
+      "text": "To: Jennifer Vasquez, Amanda White, Linda Hanna\nFrom: Jeffrey Ochoa\nRe: {{fact:f:E-2020-001.client}} retiree medical valuation, opening the work",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We are ready to send the data request as soon as two administrative items clear. The engagement opened on {{fact:f:E-2020-001.start}}, the signed letter is on file, and Jason Wagner, General Manager at {{fact:f:E-2020-001.client}}, will coordinate the data for the company himself.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our objective is a valuation of the company's retiree medical obligation for its financial reporting. It should rest on data we have checked, plan terms we have confirmed against the documents, and assumptions we can defend one at a time. We do not yet know whether another actuary has valued this plan before. If one has, we want that report early. It gives us a point to reconcile to, and it shows us which assumptions the auditors have already seen.",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +31,7 @@
     },
     {
       "kind": "heading",
-      "text": "The Point of This Engagement",
+      "text": "Who carries what",
       "level": 2,
       "items": [],
       "header": [],
@@ -21,26 +39,24 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "The deliverable is a defensible measurement of the retiree medical obligation {{fact:f:E-2020-001.client}} carries, reported under ASC 715-60, with a workbook of exhibits behind it and one presentation to the client's management. Everything below serves that. Work opens {{fact:f:E-2020-001.start}}, and we have roughly eight months, which is comfortable if the data arrive on time and tight if they do not. Our client contact is Jason Wagner, the general manager. Scope questions route through Jennifer Vasquez before they reach him, so he hears one considered answer rather than three partial ones.",
+      "kind": "list",
+      "text": "",
       "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One discipline governs the whole engagement, so I will state it once here. We keep what the data show, what we assume, and what we conclude in separate places, in the workbook and in the report both. Anyone drafting a paragraph that mixes the three should expect it back. The reason is not style. It is that the client, and anyone who later reads the opinion, needs to see which numbers are measured and which rest on judgment, and that distinction is easy to lose if we do not hold it from the first exhibit.",
-      "level": 1,
-      "items": [],
+      "items": [
+        "1. Data intake and checks: Amanda White. Log every file as it arrives. Run the edit checks on both censuses: missing or impossible birth dates, duplicate identifiers, retirees with no coverage election, dependents with no matching retiree. Reconcile headcounts by coverage tier to the enrollment reports. Every exception goes on the data log with its source and its resolution.",
+        "2. Plan provisions: Jeffrey Ochoa. Summarize eligibility, retiree contributions, spouse and surviving spouse coverage, and coordination with Medicare. Mark any point where the plan document and the summary plan description disagree. Those go to Jennifer before anything goes to the client.",
+        "3. Claims and cost by age: Jeffrey Ochoa. Build expected cost at each age from the claims or premium history, separately for retirees under and over Medicare age. The observed experience and the cost curve we recommend sit in separate exhibits. The first is a measurement. The second is a judgment, and it is labeled as one.",
+        "4. Assumptions: Jeffrey Ochoa, reviewed by Jennifer Vasquez. Health care cost trend, mortality, retirement, termination and election rates, plus yield information to support management's discount rate. The excise tax on high-cost coverage was repealed at the end of last year and does not belong in this measurement. If a prior valuation loaded for it, we show the difference rather than carry it.",
+        "5. Exhibits and checking: Amanda White. Build the exhibit shells now, so results go into a format that has already been reviewed. Check every calculation before it leaves the firm.",
+        "6. Administration: Linda Hanna. Business associate agreement, billing setup, and the tracker of files received and outstanding."
+      ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "heading",
-      "text": "What We Owe the Client",
+      "text": "Before the request goes out",
       "level": 2,
       "items": [],
       "header": [],
@@ -49,25 +65,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Two things are due at the end. The first is a workbook of exhibits that carries the measurement from the census through to the accounting figures the client's statements disclose, built so each figure can be traced to its source. The second is a written report that interprets those exhibits and names the standards the work is performed under. The fee covers both, plus one presentation of the results. It does not cover a re-measurement for a plan amendment; if the board's discussed change is adopted, that is priced separately, and Jennifer Vasquez owns that conversation.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "How the Work Divides",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Four pieces of work run in parallel, each with an owner. They are not strictly sequential, but the data piece gates the rest, so it starts first and hardest.",
+      "text": "The claims files will carry protected health information, so nothing is requested until the business associate agreement is countersigned. The measurement date also has to be fixed first, because the census and the claims cutoff are both keyed to it. It will probably fall at the company's fiscal year-end. That is a likely answer, not a confirmed one, and the request does not go out on a likely answer.",
       "level": 1,
       "items": [],
       "header": [],
@@ -79,45 +77,18 @@
       "text": "",
       "level": 1,
       "items": [
-        "Data. Amanda White reconciles the census and the plan documents against the client's own records as they arrive, and logs each file and the date we received it.",
-        "Modeling. I build the valuation model and run the obligation, and chase any result that looks wrong back to the assumption behind it.",
-        "Assumptions and scope. Jennifer Vasquez sets the assumption basis with me and holds the line on what the engagement does and does not cover.",
-        "Correspondence and logistics. Linda Hanna handles the data requests to the client's staff and keeps the schedule of who owes what to whom."
+        "1. Linda Hanna: send the business associate agreement to Jason Wagner, set up billing, and open the client folder on the secure transfer site.",
+        "2. Amanda White: prepare the data request from our retiree medical checklist, trimmed to what this plan needs.",
+        "3. Jeffrey Ochoa: confirm the measurement date with Jason Wagner in writing.",
+        "4. Jennifer Vasquez: review the request before it goes to the client."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "The Shape of the Eight Months",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "The engagement falls into three stretches, and I will hold us to them. The first is data: collect the census and plan documents and reconcile them, and settle the plan provisions we measure. The second is measurement: set the assumptions, run the obligation, and build the exhibits. The third is the report and the presentation. The stretches overlap at the seams, but a slip in the first pushes the whole schedule, which is why the data request goes out this week and not next.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Where We Start",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The first task is data, because nothing else can move without it. Amanda White will send the client an itemized data request this week, so there is no ambiguity about what we need or in what form. I will stand up the model against last cycle's structure so it is ready when the census lands, and I will not touch a single assumption until the data are reconciled. Jennifer Vasquez will confirm the plan provisions and the measurement date with Jason Wagner, and she will pin down whether we are measuring the plan as it stands or as the board may amend it. Linda Hanna will keep the request log and flag anything that slips before it costs us a week. We meet again once the census is in hand and reconciled.",
+      "text": "Once Jennifer clears the request, I will send it to Jason. From then until the files close, Amanda and I will go through the data log together each Monday, and Jennifer will get a copy of the log after each of those meetings. Questions about plan terms come to me. Questions about the files go to Amanda.",
       "level": 1,
       "items": [],
       "header": [],

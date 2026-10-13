@@ -4,15 +4,6 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: Barbara Hall\nCc: Jeffrey Ochoa, Megan Dudley",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
       "text": "Good morning Barbara,",
       "level": 1,
       "items": [],
@@ -22,7 +13,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "We have started the Estes Group experience study, and the first data extract your office sent is loading cleanly. Jeffrey Ochoa has the model shell up, and I am reconciling the member counts against last year's records. Before we go further, there are two points on the data where I need your help.",
+      "text": "The census files for the {{fact:f:E-2019-001.client}} study are loaded, and every file links cleanly to the one before it except the most recent. That file needs your help before we count any terminations or retirements.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "A large share of the employees active in the prior year's file do not appear in the most recent file under the same employee number. Most of them are there under new numbers, with the same names, dates of birth, and hire dates. Taken at face value, the files would show each of them leaving and a new employee being hired in their place. That would overstate turnover and distort the termination rates. We have not adjusted anything yet.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "To resolve it, we would need the following:",
       "level": 1,
       "items": [],
       "header": [],
@@ -34,8 +43,9 @@
       "text": "",
       "level": 1,
       "items": [
-        "The member file uses a status code we cannot read with confidence. Could you confirm how it distinguishes active members from those who have terminated with a deferred benefit?",
-        "The observation window is not stated in the extract. Please confirm the first and last plan years you want the experience drawn from, so we measure against the period you intend."
+        "1. Confirmation of whether employee numbers were reissued in the past year, for example in a change of payroll or HR system.",
+        "2. If they were, any crosswalk your staff hold from the old numbers to the new ones.",
+        "3. If no crosswalk exists, your agreement that we match records on name, date of birth, and hire date instead."
       ],
       "header": [],
       "rows": [],
@@ -43,7 +53,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Once we have those two answers, the census for the {{fact:f:E-2019-001.client}} study is settled on our end, and Megan Dudley can begin the reconciliation in earnest. Neither point is urgent this week.",
+      "text": "So that the work does not stall, we will run a provisional match on those three fields this week and treat it as preliminary until we hear from you. A few smaller record questions will come separately from Megan; none of them holds up the study.",
       "level": 1,
       "items": [],
       "header": [],
@@ -52,7 +62,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Best",
+      "text": "Best,\nDavid",
       "level": 1,
       "items": [],
       "header": [],

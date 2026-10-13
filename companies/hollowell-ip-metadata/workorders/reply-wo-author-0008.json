@@ -1,101 +1,358 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0008",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0043",
       "blocks": [
-        {"kind": "paragraph", "text": "Cynthia Hunter\nChief Operating Officer\n{{fact:f:E-2024-001.client}}"},
-        {"kind": "paragraph", "text": "Re: Trademark Clearance for Jackson Inc"},
-        {"kind": "paragraph", "text": "Dear Ms. Hunter:"},
-        {"kind": "paragraph", "text": "This letter sets out the terms on which our firm will act for {{fact:f:E-2024-001.client}} in clearing the trademarks it proposes to adopt, and it becomes our agreement once you countersign it and return a copy to me. I have written the terms out at some length and in plain words, because a clearance engagement runs more smoothly when both sides have read the same description of the work before it starts, and because the value of a clearance search lies as much in the limits we draw around it as in the searching itself. Please read what follows against your own understanding of what you have asked us to do, and telephone me before you sign if any part of it does not match what you expect of us."},
-        {"kind": "heading", "level": 2, "text": "The Work We Will Do"},
-        {"kind": "paragraph", "text": "The engagement is a trademark clearance directed at the marks that Jackson Inc has identified to us for use with its goods and services, and its purpose is to assess the risk that adopting and using each proposed mark would conflict with rights already held by others. We will search the federal register, the records of the state registries, and the common-law sources available to us for marks that are the same as or confusingly similar to each candidate, read what those searches return against the goods and services you intend to offer, and give you our assessment of the risk each candidate carries together with the options that assessment leaves open to you. Where a conflict is close enough that reasonable people could weigh it differently, we will say so plainly rather than resolve the question more firmly than the record will bear."},
-        {"kind": "paragraph", "text": "It is worth stating with equal care what this engagement is not. Our clearance is an assessment of the marks and classes you identify and the records our searches reach as of the date we report, and it is neither a guarantee that no conflicting right exists beyond what those searches surface, nor an opinion on the validity of any registration we happen to find, nor a filed application, unless we later agree in writing to take that further step. If you add candidate marks, widen the goods and services, or ask us to extend the search beyond the United States, we will scope and price that additional work before we begin it, so that nothing is added to this engagement without your agreement to it."},
-        {"kind": "heading", "level": 2, "text": "Conflicts of Interest"},
-        {"kind": "paragraph", "text": "Before opening this matter we ran our conflicts check, and it turned up nothing that prevents us from acting for {{fact:f:E-2024-001.client}} on this clearance. If a conflict later comes to light, we will tell you at once and will not carry the matter forward until we have addressed it with you, because clearing that question at the outset costs far less than untangling it in the middle of the work."},
-        {"kind": "heading", "level": 2, "text": "Who Will Do the Work"},
-        {"kind": "paragraph", "text": "Ashley Williams, a patent agent in our prosecution group, will run the searches and build the analysis that supports our assessment, and she will be your team's day-to-day contact on the substance of the work. Kelly Snyder, an associate in the same group, will maintain the search record, keep the matter anchored to our docket, and prepare the written clearance report that carries our conclusions to you. Anything that turns on a judgment about the risk a given conflict presents is reviewed by me before it reaches you, so that the assessment you rely on carries the firm's name and not one person's alone, and the people whose names are on the work are the people who have done it."},
-        {"kind": "heading", "level": 2, "text": "Fee and Start Date"},
-        {"kind": "paragraph", "text": "Our fee to {{fact:f:E-2024-001.client}} for the clearance described above is {{fact:f:E-2024-001.fee}}, fixed for that scope rather than billed against hourly time, so that you can put a candidate mark to us without watching a clock. We will begin the work on {{fact:f:E-2024-001.start}}, and we plan on roughly four months from that date to the written clearance report, though we will tell you early if the work turns out to need more time or less. If you ask us to widen the scope, we will quote the addition in writing and will not start it until you have agreed the price."},
-        {"kind": "heading", "level": 2, "text": "Invoicing and Payment"},
-        {"kind": "paragraph", "text": "We will bill the fixed fee in installments as the work proceeds, and each invoice is due within thirty days of its date. Out-of-pocket costs, chiefly the fees charged by the search services we use, are billed at cost and itemized on the invoice, and we do not mark them up. If an invoice goes unpaid past its due date, we may suspend work on the matter after written notice to you, because a clearance left half-finished serves no one, and we would rather pause it cleanly than carry it on unpaid."},
-        {"kind": "heading", "level": 2, "text": "Term and Termination"},
-        {"kind": "paragraph", "text": "The engagement runs from the start date set out above until we deliver the written clearance report, unless either of us ends it sooner. Either party may end it on written notice, for any reason or none. If you end it, you owe the fee for the work performed to that date, prorated against the fixed fee, together with any costs we have incurred, and we will hand over the search record and our work in whatever state it has then reached."},
-        {"kind": "heading", "level": 2, "text": "Confidentiality"},
-        {"kind": "paragraph", "text": "We will treat the marks you are weighing, the goods and services behind them, and the fact and terms of this engagement as confidential, and we will use what you tell us only to perform the work you have retained us for. A clearance touches brand decisions you have not yet made public, and we will handle it with that in mind. Our analysis and the correspondence around it are intended to be protected by the attorney-client privilege, and we ask that you keep them within the group at {{fact:f:E-2024-001.client}} that needs them, since a privileged assessment shared too widely can lose the protection that lets us write to you candidly."},
-        {"kind": "heading", "level": 2, "text": "Limitation of Liability"},
-        {"kind": "paragraph", "text": "We will perform this engagement with the care and skill our profession expects, and our assessment will reflect our best professional judgment on the records before us. We cannot warrant a particular outcome, because a clearance turns on the rights of others and on how a court or the trademark office might one day weigh them, and those are matters no counsel controls. Our total liability arising out of this engagement, on any theory, is limited to the fee you actually pay us for it, except where the law does not permit that limit, and neither of us will be liable to the other for indirect or consequential loss, including lost profits."},
-        {"kind": "heading", "level": 2, "text": "Governing Law"},
-        {"kind": "paragraph", "text": "This letter is the entire agreement between us on this engagement and supersedes anything discussed or drafted before it, and it may be changed only in a writing that we both sign. It is governed by the law of the state in which our firm keeps its principal office, without regard to its conflict-of-laws rules, and any dispute we cannot settle between ourselves will be heard by the courts sitting in that state, whose jurisdiction we each accept."},
-        {"kind": "paragraph", "text": "If these terms match your understanding, please sign and date the enclosed copy of this letter and return it to me, and we will open the matter and begin on the date set out above. If you would rather talk any part of it through first, tell me and I will make the time this week."},
-        {"kind": "paragraph", "text": "Very truly yours,"},
-        {"kind": "sigblock", "signers": ["p:mary.bradley", "xp:cynthia.hunter"]}
+        {
+          "kind": "paragraph",
+          "text": "Cynthia Hunter\nChief Operating Officer\n{{fact:f:E-2024-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Re: Clearance of a proposed trademark"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Hunter:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for asking us to advise {{fact:f:E-2024-001.client}} on whether the name it proposes to adopt can be used and registered as a trademark in the United States for the goods and services it intends to offer under that name. This letter records the work we have agreed to do, the people who will do it, the fee and the date on which the work will begin, and the terms on which we will act for the company, and it becomes our agreement when you countersign it."
+        },
+        {
+          "kind": "heading",
+          "text": "Scope",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will advise the company on whether the proposed mark is available for use and for federal registration for the goods and services you have described to us, and, where it is not clearly available, on the nature and extent of the risk that adopting it would carry. If, before we order the full search described below, you ask us to consider an alternative name for the same goods and services, we will include it in this engagement without an additional fee."
+        },
+        {
+          "kind": "heading",
+          "text": "How the Work Will Proceed",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The work will move through four stages, and each depends on the one before it:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Intake. We will confirm with you in writing the mark, the goods and services, the channels through which they will be sold, and any use the company has already made of the name, because every search that follows is run against that description.",
+            "Screening search. We will search federal registrations and pending applications for identical and closely similar marks, so that a name with an obvious obstacle can be set aside before the cost of a full search is incurred.",
+            "Full search. If the screening search discloses no such obstacle, we will order a full search report covering federal and state registrations, pending applications, business and domain names, and unregistered use in commerce, and we will review each relevant entry against the company's mark.",
+            "Memorandum. We will deliver a written clearance memorandum, marked privileged, that assesses the risk of using the mark and the prospects of registering it, identifies the marks on which that assessment rests, and recommends whether the company should proceed, modify the mark, or choose another."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "A clearance search speaks as of the date on which it is run. Applications filed and use begun after that date fall outside the memorandum unless you ask us to bring the search up to date, which we would quote for separately."
+        },
+        {
+          "kind": "heading",
+          "text": "What This Engagement Does Not Include",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement does not include preparing or filing a trademark application, clearance in any country other than the United States, watching the register after the memorandum issues, or representing the company in any opposition, cancellation, demand, or dispute concerning the mark. Where the memorandum suggests that one of those steps deserves your attention it will say so, and any of them would be the subject of a separate letter."
+        },
+        {
+          "kind": "heading",
+          "text": "Staffing",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "I will have overall responsibility for the engagement and will sign the clearance memorandum. Kelly Snyder, an Associate with the firm, will carry out the legal analysis of the search results and will be your usual point of contact, and Ashley Williams, a Patent Agent with the firm, will coordinate the searches, keep a dated record of what was searched and when, and maintain the docket for the matter."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Whether the mark can be used or registered is a legal question, and the conclusions on it will be reached and stated by Ms. Snyder and by me. You should raise with me directly any concern you have about staffing, cost, or the pace of the work."
+        },
+        {
+          "kind": "heading",
+          "text": "Fee and Start of Work",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our fee for the work described above is a fixed fee of {{fact:f:E-2024-001.fee}}. Work will begin on {{fact:f:E-2024-001.start}}, provided we have your countersigned copy of this letter by then, and we expect the engagement to run about four months from that date, although the time needed to review the full search depends on how many similar marks it returns and cannot be fixed in advance."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The fixed fee covers the four stages described above and nothing else. The charges of the commercial search provider and any official fees are not part of it; we will bill them at cost, and we will tell you the charge for the full search before we place the order."
+        },
+        {
+          "kind": "heading",
+          "text": "Billing and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will invoice half of the fixed fee when the work begins and the balance when we deliver the memorandum, and we will invoice costs in the month in which they are incurred; each invoice is payable within thirty days of its date. If an invoice remains unpaid sixty days after its date, we may suspend work on written notice to you, and if it remains unpaid thirty days after that notice we may withdraw from the engagement, subject to our obligations under the rules of professional conduct."
+        },
+        {
+          "kind": "heading",
+          "text": "Conflicts of Interest",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Before sending this letter we checked {{fact:f:E-2024-001.client}} against our records and found no representation adverse to it. A full search can, however, return a mark owned by a current client of this firm; if it does, we will tell you promptly, we will not advise you on that mark ourselves, and that part of the analysis may need to go to independent counsel."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This engagement runs from the start date stated above until we have delivered the clearance memorandum and answered your questions on it, and it then ends without further notice unless we agree in writing to continue. Either of us may end it earlier by written notice, in which case the company will owe the part of the fixed fee that corresponds to the work completed by the date of the notice, together with any costs already incurred."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold in confidence everything the company gives us in the course of the engagement and will use it only for this work, and until the company adopts the mark we will treat the fact that it is considering the name as confidential, disclosing it only to the search provider and only to the extent the search requires. Our communications with you and the memorandum are intended to be protected by the attorney-client privilege, and to keep that protection we ask that you limit their circulation to the people within the company who need them and speak to us before sharing them with designers, distributors, investors, or anyone else outside it."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "A clearance memorandum is a professional judgment based on the search results available when the search is run and on the information the company gives us; it is not a guarantee that no one will object to the mark, that the United States Patent and Trademark Office will register it, or that a court would weigh the risk as we do. No search can find every unregistered use of a name, and we are not responsible for consequences that follow from information that was incomplete or inaccurate when it was given to us. Nothing in this letter limits any liability that the rules of professional conduct do not permit a lawyer to limit in advance."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter is governed by the law of the state in which the firm maintains its principal office, without regard to that state's rules on conflicts of law. It is the entire agreement between us on this engagement and may be changed only in a writing signed by both of us."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms are acceptable, please sign below on behalf of {{fact:f:E-2024-001.client}} and return a copy to me. When I have it, Kelly Snyder will send you a written request for the information we need at intake, and the work will begin from your answers."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:mary.bradley",
+            "xp:cynthia.hunter"
+          ]
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0044",
       "blocks": [
-        {"kind": "paragraph", "text": "To: Kelly Snyder, Matthew Parrish\nFrom: Ashley Williams\nRe: Kickoff -- Trademark Clearance for Jackson Inc"},
-        {"kind": "paragraph", "text": "Our job on this one is narrow, and I want us to hold it that way. Jackson Inc has given us a set of proposed marks to clear before it commits to any of them, and the {{fact:f:E-2024-001.client}} engagement opened on {{fact:f:E-2024-001.start}}. We owe the client a clean search of each candidate and a written assessment of the risk it carries, and nothing that reads as a conclusion on that risk goes out without counsel's review."},
-        {"kind": "paragraph", "text": "We are at the very front of the work, so this memo sets the scope and the order of the searches, not any findings. There are no results yet, and there should not be. Read it as the plan of record for the matter, and tell me now if any of it does not fit how you expected the clearance to run."},
-        {"kind": "heading", "level": 2, "text": "How the work breaks down, in the order I expect us to run it"},
-        {"kind": "list", "items": [
-          "Fix the scope. I will pin down each candidate mark and the exact goods and services Jackson Inc means to use it on, from what Cynthia Hunter and her team send over. A mark cleared against the wrong class is not cleared at all, so this comes first and I will not rush it.",
-          "Knockout searches. I will run a first-pass search of each candidate against the federal register, to drop any that collide head-on before we spend the full search on it. This is a filter, not an opinion, and it stays that way in the file.",
-          "Full clearance search. For the marks that survive the knockout, I will search the federal register, the state registries, and the common-law sources, and pull every mark that reads as the same or confusingly similar. Matthew Parrish will take the state and common-law searches so we cover more ground in parallel rather than one source after another.",
-          "Record and report. Kelly Snyder keeps the search record current and anchored to the docket as we go, and she will build the written clearance report from it. The risk assessment in that report is reviewed by counsel before it reaches the client, not sent straight from the search results."
-        ]},
-        {"kind": "paragraph", "text": "One rule while the matter is open. Anything that goes to Jackson Inc that touches a conclusion on risk goes through counsel first. We are agents on this clearance, and the view on whether a mark is safe to adopt is the firm's to give and to stand behind, so we hand it up rather than offer it ourselves. Routine questions about scope and materials I will take with Cynthia Hunter directly, and I will copy the two of you so the thread stays in one place."},
-        {"kind": "paragraph", "text": "Getting started this week: I will send Cynthia Hunter the short list of what we need to fix the scope, and Kelly Snyder will open the matter on the docket and stand up the search file. Matthew Parrish, start reading into the goods-and-services classes for the candidates so we are ready to search the moment the scope is set."},
-        {"kind": "paragraph", "text": "The first thing that has to happen is the scope. Nothing downstream is worth starting until each candidate mark and its classes are fixed in writing, so that is where our time goes now."}
+        {
+          "kind": "paragraph",
+          "text": "To: Mary Bradley, Managing Partner; Kelly Snyder, Associate; Matthew Parrish, Patent Agent\nFrom: Ashley Williams, Patent Agent\nRe: Kickoff, trademark clearance for {{fact:f:E-2024-001.client}}"
+        },
+        {
+          "kind": "heading",
+          "text": "What we have to deliver",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We owe {{fact:f:E-2024-001.client}} one written answer. Can it use and register the name it has chosen, and how much risk comes with that choice? Kelly Snyder will write the clearance memorandum, and Mary Bradley will sign it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The client will want a yes or a no. What we can honestly give is an assessment of risk with its reasons, and the memorandum should be framed that way from the first draft."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The matter opened on {{fact:f:E-2024-001.start}}. Our contact at the client is Cynthia Hunter, the Chief Operating Officer. Every request to the client goes to her in writing, so that we have a record of what we asked and when."
+        },
+        {
+          "kind": "heading",
+          "text": "How we have divided the work",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Intake, Kelly Snyder. Confirm in writing the mark, the goods and services, the sales channels, and any use the client has already made of the name. Every search we run is only as good as this description.",
+            "Screening search, Matthew Parrish. Search federal registrations and pending applications for identical and close marks. Anything that looks like an obvious obstacle goes to Kelly before we spend the client's money on a full search.",
+            "Full search and review, Kelly Snyder with Matthew Parrish. If screening is clear, we order the full report. Matthew builds the first-pass table of marks, owners, and goods, and Kelly decides which entries need real analysis.",
+            "Docket and search log, Ashley Williams. I will docket every client and internal date on the matter. I will also keep a dated log of each search: what was searched, when, and by whom.",
+            "Memorandum, Kelly Snyder, reviewed by Mary Bradley. A privileged clearance memorandum with a risk assessment and a recommendation: proceed, modify the mark, or choose another."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "One point applies to all of it. Matthew and I are patent agents, and our registration does not extend to trademark matters. We gather, organize, and log the record, while Kelly and Mary draw the conclusions, so nothing we write, internally or to the client, should read as an opinion on the mark."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The fee is fixed, so the scope in the engagement letter is the scope we work to. If the full search returns more than we can review properly in the time we have, Kelly will raise it with Mary early, while there is still room to agree a change with the client."
+        },
+        {
+          "kind": "heading",
+          "text": "The coming two weeks",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Kelly's intake request went to Cynthia Hunter this week. I have docketed the date we asked her to answer by, and I will follow up the day after it if nothing has arrived.",
+            "Matthew starts the screening search as soon as the goods description is confirmed. He circulates his table when it is done.",
+            "Matthew, please record your search strings in the log as you go. If Kelly needs to rerun or widen a search later, she should be able to see exactly what was done.",
+            "Kelly and Mary review that table together before we order the full search. The order is the first real cost to the client, so it needs Mary's approval.",
+            "By Monday I will send each of you the docket entries that are yours."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "If any assignment here does not match your understanding, please tell me before Matthew begins. I will reissue the list with the change."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0045",
       "blocks": [
-        {"kind": "paragraph", "text": "Good morning Cynthia,"},
-        {"kind": "paragraph", "text": "I am opening this thread so that our updates on the trademark clearance stay in one place as the work moves. Where we stand: the scope is set, and I have the knockout searches underway against the federal register for each of the candidate marks Jackson Inc gave us. Keeping the status on this thread will keep it from scattering across separate notes."},
-        {"kind": "paragraph", "text": "For the file, I have Cynthia Hunter down as our single point of contact for the {{fact:f:E-2024-001.client}} clearance, so questions and approvals route to one place on your side. Kelly Snyder is keeping the search record current and anchored to our docket as the results come in."},
-        {"kind": "paragraph", "text": "One thing would help before we move to the full search. Please confirm the order in which you would like the candidates cleared, so that we spend the deep search on the marks that matter most to you first. None of this is a conclusion yet; the view on whether a given mark is safe to adopt comes in the written report, after counsel has reviewed it. A short reply is enough, or send me a couple of times for a call and I will set one up."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Good morning Cynthia,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Both searches are now complete, and we have started working through the results. I am opening this thread so that our updates on the clearance work for {{fact:f:E-2024-001.client}} stay in one place. Kelly and Mary are copied and will add to it as we go."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The screening search showed no obvious obstacle, and with your approval we ordered the full search. Its report came back late last week, and Kelly is now reviewing it entry by entry."
+        },
+        {
+          "kind": "paragraph",
+          "text": "A clear screening result is encouraging, but it is not a conclusion. We will give you our view once Kelly's review is finished, and not before."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two things from your side would help us finish:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "A current description of everything you plan to sell under the name, including anything planned for later. The search was run against the description you gave us at the start, and if your plans have grown, we need to know now.",
+            "Whether the company has used the name anywhere already, even informally, and if so where and since when."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "I have noted the end of next week on our docket for both answers. If either will take longer, a short note to me is all we need."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards,"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0046",
       "blocks": [
-        {"kind": "paragraph", "text": "Cynthia,"},
-        {"kind": "paragraph", "text": "Thank you for the quick turn on the class list. Ashley Williams has the knockout searches running against the federal register now, and I have opened the matter on our docket so that every search and date for the {{fact:f:E-2024-001.client}} clearance sits in one file. The docket also carries a check date for each search, so none of them can quietly drift."},
-        {"kind": "paragraph", "text": "One item is still open on our side. Two of the candidates you sent read close to marks already on the register, and we want to search those under their full goods-and-services descriptions before we say anything about them. That is search work, not a conclusion; the risk view on any candidate comes in the written report, after counsel has reviewed it."},
-        {"kind": "paragraph", "text": "Nothing is needed from you today. Our contact record shows Cynthia Hunter as the approver for the Jackson Inc clearance, so the next thing we bring you will be the knockout result, not another question. You should have that summary from Ashley Williams by the end of the week."},
-        {"kind": "paragraph", "text": "Best"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Cynthia,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "On the second of Ashley's questions, if the company has used the name at all, please send us the records themselves, not a summary of them: packaging, invoices, price lists, web pages, trade show material, or anything else that shows the name in use, together with the date on which each item was first used or published. If {{fact:f:E-2024-001.client}} has earlier rights in the name, how strong they are will depend on what those records show, and a date that rests on recollection alone is difficult to rely on if it is ever challenged."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Until we have given you our written view, I would also ask that the company not commit to printed packaging, signage, or a public announcement under the name. None of those steps would be decisive on its own, but each one adds to the cost of changing course if the review turns up a mark that we cannot advise you to proceed against."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If a short call would be easier than putting all of this in writing, please tell Kelly which days this week suit you, and she will set one up."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0047",
       "blocks": [
-        {"kind": "paragraph", "text": "Good morning Cynthia,"},
-        {"kind": "paragraph", "text": "Good progress to report. The knockout searches are done, and most of the candidates came through the first pass clean. Two dropped out against marks already registered for close goods, which is exactly what the knockout stage is for, and we are moving the survivors into the full clearance search now."},
-        {"kind": "paragraph", "text": "Kelly Snyder has the search record current, so every candidate, class, and hit for the {{fact:f:E-2024-001.client}} clearance is captured in one place as we go. On the survivors, we are searching the federal register, the state registries, and the common-law sources together rather than one after another, so that we do not lose time."},
-        {"kind": "paragraph", "text": "One thing from you would help. For the two candidates that dropped, tell us whether Jackson Inc wants a substitute mark added to the search, so that we can fold it in now rather than open a second pass later. Our contact record shows Cynthia Hunter's approval of the search order, and we are following it. None of this is a conclusion yet; the view on whether each surviving mark is safe to adopt comes in the written report, after counsel has reviewed it."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Good morning Cynthia,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Copies are all we need for the records Mary described. Scans or photographs taken on a phone are fine, and the originals should stay in the company's files where they are now."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Please send items to me as they turn up, without waiting to gather everything first. I log each one against the matter with the date it reached us, so nothing goes missing between our office and Kelly's review."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If any use took place outside the United States, a note of the country will do for now. We will come back to you if it bears on the review of {{fact:f:E-2024-001.client}}'s mark."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Kelly is still glad to take the call Mary mentioned, if you would rather walk through what you have before sending it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards,"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0048",
       "blocks": [
-        {"kind": "paragraph", "text": "Cynthia,"},
-        {"kind": "paragraph", "text": "Confirmed, and thank you. The substitute mark is in, and Ashley Williams has added it to the full clearance search with the surviving candidates, so it clears on the same pass rather than a later one."},
-        {"kind": "paragraph", "text": "Timing on our side is unchanged. The full search for {{fact:f:E-2024-001.client}} runs over the coming weeks, and the written clearance report follows once the searches are complete and counsel has reviewed the risk on each mark. The report will set out, for each surviving candidate, the conflicts the searches turned up and our read of the risk, with the options each one leaves open. I will flag anything that needs a decision from you as it comes up, and not before."},
-        {"kind": "paragraph", "text": "For the record, our file shows Cynthia Hunter as the approver for the Jackson Inc clearance, so we will bring the report to you when it is ready. Nothing is needed from you now."},
-        {"kind": "paragraph", "text": "Best"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Cynthia,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "One addition to Ashley's note, which I should have made in my own: the copies should be of records as they were kept at the time, and nothing should be recreated, retyped, or updated now, even where a newer version would be easier to read. A document prepared after the fact carries little weight if the date of first use is ever questioned, and an original with a visible date, however rough it looks, is worth more to {{fact:f:E-2024-001.client}} than a clean version without one."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nothing else in our plan changes, and the end of next week remains the date we are working to for both of Ashley's questions."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Once Kelly has the records and the updated product description, she will complete her review of the full search, and I will then write to you to arrange a time to go through our conclusions together."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely,"
+        }
       ]
     }
   ]

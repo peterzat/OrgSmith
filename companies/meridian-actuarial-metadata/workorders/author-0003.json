@@ -5,21 +5,21 @@
   "slug": "meridian-actuarial",
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
-  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts work carries the discipline of a regulated opinion: precise about\nscope, data reliance, and the standards a piece of work is performed\nunder, plain and undecorated, and careful to separate what the data show\nfrom what was assumed. Between formal deliverables, the actuaries and the\nclient's staff exchange short emails about data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0003\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0009",
       "title": "Firm Overview",
       "genre": "company_overview",
-      "date": "2016-05-17",
+      "date": "2016-05-18",
       "authors": [
         {
           "id": "p:robert.lawrence",
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -28,27 +28,34 @@
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
+        },
+        {
+          "id": "p:carol.cooper",
+          "name": "Carol Cooper",
+          "title": "Practice Manager",
+          "dept": "Operations",
+          "persona": "Carol Cooper keeps the practice running: engagement letters, invoicing, scheduling, file retention, and the steady traffic of data requests between the actuaries and client offices. She has no patience for actuarial jargon and writes in long, plain, practical sentences that lead with what has been decided and then lay out the logistics behind it. Her notes nearly always finish by telling the reader exactly what she will do next or what she is still waiting on from them."
         }
       ],
       "engagement_summary": "",
-      "facts": [
-        {
-          "id": "f:E-2016-001.client",
-          "hint": "proper name; place where the name belongs"
-        }
-      ],
+      "facts": [],
       "mentions": [
         {
           "entity": "p:robert.lawrence",
           "surface": "Robert Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "p:carol.cooper",
+          "surface": "Carol Cooper",
           "kind": "person"
         }
       ],
       "target_words": 750,
       "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
       "engagement_position": "",
-      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2016, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
+      "firm_digest": "As of this document's date the firm has no completed client engagements to cite; describe the practice and its intent, and claim no specific client work.",
       "reporting_line": ""
     },
     {
@@ -62,7 +69,7 @@
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -71,7 +78,7 @@
           "name": "Jennifer Johnson",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
+          "persona": "Jennifer Johnson works on valuation support and the year-over-year reconciliation of census data, the unglamorous checking that the opinions rest on. She writes in orderly paragraphs instead of bullet points, short sentences with the conclusion first, and she keeps what she observed in the data apart from anything she had to assume. She is exam-minded and exact about terminology, and tends to name the specific standard or plan provision behind a choice rather than leave it implied."
         }
       ],
       "engagement_summary": "",
@@ -105,41 +112,15 @@
           "name": "David Sherman",
           "title": "Senior Analyst",
           "dept": "Consulting",
-          "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+          "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
         }
       ],
-      "participants": [
-        {
-          "id": "p:carol.cooper",
-          "name": "Carol Cooper",
-          "title": "Practice Manager",
-          "dept": "Operations",
-          "persona": "Keeps engagements moving: letters out the door, data requests tracked, deliverables scheduled against the clients' board calendars. Her administrative email is crisp and unhedged, a deliberate contrast to the heavily qualified prose of the actuarial work. She can tell you the status of any open engagement without having to look it up."
-        },
-        {
-          "id": "p:jennifer.johnson",
-          "name": "Jennifer Johnson",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
-        }
-      ],
+      "participants": [],
       "engagement_summary": "",
       "facts": [],
-      "mentions": [
-        {
-          "entity": "p:carol.cooper",
-          "surface": "Carol Cooper",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.johnson",
-          "surface": "Jennifer Johnson",
-          "kind": "person"
-        }
-      ],
+      "mentions": [],
       "target_words": 110,
-      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: addressed to an internal distribution list; every reader is a colleague, so an internal register is right. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: opens with the conclusion before the detail; prefers numbered lists over bullet points. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Best\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: addressed to an internal distribution list; every reader is a colleague, so an internal register is right. It goes to the whole list: address the group, not one person, and name a colleague only where the note is about them. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: opens with the conclusion before the detail; prefers numbered lists over bullet points. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms. Open with your salutation form \"Good morning {first},\" (fill in the recipient's first name) and sign off with \"Best\" -- the signature block itself is appended automatically from the ledger; never type one.",
       "engagement_position": "",
       "firm_digest": "",
       "reporting_line": ""
@@ -155,7 +136,7 @@
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -164,7 +145,7 @@
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         }
       ],
       "engagement_summary": "",
@@ -189,16 +170,48 @@
     },
     {
       "doc_id": "d:0039",
+      "title": "Scheduling next week",
+      "genre": "internal_email",
+      "date": "2019-05-17",
+      "authors": [
+        {
+          "id": "p:jennifer.johnson",
+          "name": "Jennifer Johnson",
+          "title": "Actuarial Associate",
+          "dept": "Consulting",
+          "persona": "Jennifer Johnson works on valuation support and the year-over-year reconciliation of census data, the unglamorous checking that the opinions rest on. She writes in orderly paragraphs instead of bullet points, short sentences with the conclusion first, and she keeps what she observed in the data apart from anything she had to assume. She is exam-minded and exact about terminology, and tends to name the specific standard or plan provision behind a choice rather than leave it implied."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:jeffrey.ochoa",
+          "name": "Jeffrey Ochoa",
+          "title": "Actuarial Analyst",
+          "dept": "Consulting",
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
+        }
+      ],
+      "engagement_summary": "",
+      "facts": [],
+      "mentions": [],
+      "target_words": 110,
+      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: internal only -- every recipient is a colleague, so an internal register is right. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; the 'rather X now than Y later' antithesis. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Thanks\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "engagement_position": "",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0040",
       "title": "Firm Overview",
       "genre": "company_overview",
-      "date": "2019-05-17",
+      "date": "2019-05-18",
       "authors": [
         {
           "id": "p:robert.lawrence",
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -207,7 +220,7 @@
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "engagement_summary": "",
@@ -218,10 +231,6 @@
         },
         {
           "id": "f:E-2017-001.client",
-          "hint": "proper name; place where the name belongs"
-        },
-        {
-          "id": "f:E-2019-001.client",
           "hint": "proper name; place where the name belongs"
         }
       ],
@@ -235,45 +244,7 @@
       "target_words": 750,
       "guidance": "One-page firm overview: what the firm does, service lines, representative client work. Written in the firm's own voice. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
       "engagement_position": "",
-      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2016-2019, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}, {{fact:f:E-2019-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established.",
-      "reporting_line": ""
-    },
-    {
-      "doc_id": "d:0040",
-      "title": "Scheduling next week",
-      "genre": "internal_email",
-      "date": "2019-05-17",
-      "authors": [
-        {
-          "id": "p:jennifer.johnson",
-          "name": "Jennifer Johnson",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
-        }
-      ],
-      "participants": [
-        {
-          "id": "p:jeffrey.ochoa",
-          "name": "Jeffrey Ochoa",
-          "title": "Actuarial Analyst",
-          "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
-        }
-      ],
-      "engagement_summary": "",
-      "facts": [],
-      "mentions": [
-        {
-          "entity": "p:jeffrey.ochoa",
-          "surface": "Jeffrey Ochoa",
-          "kind": "person"
-        }
-      ],
-      "target_words": 110,
-      "guidance": "A short, mundane internal email about firm logistics: scheduling, office admin, coverage, supplies -- NOT about any client engagement. One or two brief paragraphs. Name the colleagues involved. No client facts, no figures, no sigblock. The subject lives in the message header, not the body. Delivery: internal only -- every recipient is a colleague, so an internal register is right. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: avoids lists entirely and writes in paragraphs; opens with the conclusion before the detail. Never use 'Let me be direct:' and similar throat-clearing; the 'rather X now than Y later' antithesis. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Thanks\" -- the signature block itself is appended automatically from the ledger; never type one.",
-      "engagement_position": "",
-      "firm_digest": "",
+      "firm_digest": "As of this document's date, the engagements you may cite are a representative SAMPLE of the firm's client work across 2016-2017, not its complete book of business. Reference clients ONLY through these placeholders, never by inventing a name: {{fact:f:E-2016-001.client}}, {{fact:f:E-2017-001.client}}. Present them as illustrative examples. Make NO claim about the firm's total number of clients or engagements, do not call this the whole business or a complete list, and do not imply the firm's revenue is limited to these engagements. Present nothing that post-dates this document as established. Every engagement listed has finished; work still in progress is confidential, so do not mention, describe, or allude to any current mandate.",
       "reporting_line": ""
     }
   ],

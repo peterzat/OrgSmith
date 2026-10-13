@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Status Report — Licensing Diligence for {{fact:f:E-2025-001.client}}",
+      "text": "Status Report: Licensing Diligence for {{fact:f:E-2025-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Prepared by David Chang, Patent Agent, for the finance office of Price-Henson. This report covers the review period since the last update and states where the diligence stands, what closed in the period, what is scheduled next, and the one item that carries risk to the schedule.",
+      "text": "Prepared for {{fact:f:E-2025-001.client}} by David Chang, Patent Agent, with Richard Henderson, Patent Agent, and Mary Bradley, Managing Partner. Privileged and confidential.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Summary",
+      "text": "Where the Review Stands",
       "level": 2,
       "items": [],
       "header": [],
@@ -31,7 +31,16 @@
     },
     {
       "kind": "paragraph",
-      "text": "The licensing diligence is at its midpoint and on schedule. Coverage mapping across the portfolio is complete, the chain-of-title review is closed on every family but one, and the encumbrances search is under way. No finding to date falls outside the scope set in the engagement letter, and no deadline tied to the reviewed families is at risk. The review has moved past the reading-in stage and into confirmation, which is where the docket dates and the recorded title chain are checked against the office record rather than taken from the files as given. The single open item, a recorded assignment that does not match a priority claim, is described under Risks and is contained.",
+      "text": "The review is at roughly its halfway point and on schedule. Title and status work on the United States families is finished, the encumbrance search is finished, and the claim reading is complete in draft for the firmware and control families and under way for the mechanical families.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Two items from the working session remain open on the licensor's side: the confirmatory assignment for the unrecorded inventor, and a release or consent covering the recorded security interest. Neither has held up the claim reading, but both need to be resolved, or dealt with in the license terms, before signing.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +49,7 @@
     },
     {
       "kind": "heading",
-      "text": "Work Completed This Period",
+      "text": "Completed to Date",
       "level": 2,
       "items": [],
       "header": [],
@@ -48,24 +57,108 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "The bulk of the coverage and title work closed in this period, and the review moved from reading files to reconciling what they show.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
+      "kind": "table",
       "text": "",
       "level": 1,
-      "items": [
-        "1. Coverage mapping is complete for every family in the portfolio. The license grant reconciles to the issued claims in each family, and the two families that were open at the last working session are now fully charted and consistent with the rest.",
-        "2. Chain of title is reconciled for all families but one. Richard Henderson ran down the assignment gap flagged in the prior period, confirmed the recorded chain against the office record family by family, and cleared every family except the one carried under Risks below.",
-        "3. The encumbrances search has begun. We have pulled the recorded security interests and liens against roughly half the families and, so far, have found nothing undisclosed that would cloud the grant described in the term sheet.",
-        "4. The docketed dates on the reviewed families have been reconciled against the office record, and any date that did not match has been corrected on the master list and cross-checked by a second reader."
+      "items": [],
+      "header": [
+        "Area",
+        "Status",
+        "Notes"
       ],
+      "rows": [
+        [
+          "Chain of title",
+          "Complete",
+          "The recorded chain runs from the inventors to the licensor for every family but one. The licensor has produced the employment agreement for the unrecorded inventor, and a confirmatory assignment has been requested through its counsel."
+        ],
+        [
+          "Status and maintenance",
+          "Complete",
+          "Issued patents are in force and no pending application has a response overdue. The maintenance fee schedule by family was sent to {{fact:f:E-2025-001.client}} after the working session."
+        ],
+        [
+          "Encumbrances",
+          "Complete",
+          "One recorded security interest in favor of the licensor's lender, with no release of record. No recorded licenses or other liens against the scheduled families were found."
+        ],
+        [
+          "Schedule reconciliation",
+          "Complete",
+          "The terminally disclaimed continuation has been added to the marked-up patent schedule beside its parent."
+        ],
+        [
+          "Claim reading, firmware and control families",
+          "Draft complete",
+          "Read against the product description {{fact:f:E-2025-001.client}} supplied. The draft is with Mary Bradley for review."
+        ],
+        [
+          "Claim reading, mechanical families",
+          "In progress",
+          "Richard Henderson is reading the independent claims against the housing and mounting drawings in the product description."
+        ]
+      ],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The firmware and control reading compares each independent claim, element by element, with how the product description says the control board and its firmware behave. Where an element turns on behavior the description does not cover, such as how the firmware responds to a sensor fault or a power interruption, the reading marks the element open instead of assuming an answer.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "A short call with whoever at {{fact:f:E-2025-001.client}} knows the firmware best would close most of those open elements. I can send the list of questions ahead of the call so it takes less of their time.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The mechanical reading follows the same method, with the drawings in the product description standing in for the product itself. One mechanical family's claims were amended during prosecution, and whether that amendment confines them to an arrangement the product does not use will be settled in the prosecution history review, not from the claim text alone.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Work Ahead",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Before the findings memorandum, in this order:\n1. Finish the mechanical family reading, starting with the families closest to the planned product.\n2. Review the prosecution history of each family the readings rely on, for amendments or arguments that narrow what its claims can cover.\n3. Confirm the status of the foreign counterparts. The schedule lists them, but the licensor has not yet supplied the foreign file records.\n4. Prepare the findings memorandum, family by family, for Mary Bradley's review. Any statement about what {{fact:f:E-2025-001.client}} can or cannot rely on in the license will come from her and not from the claim readings.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Risks and Open Items",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "1. Security interest. Until a release or the lender's consent is of record, the lender's rights in part of the portfolio are not fully known. If neither arrives before signing, Mary Bradley will advise on how the license terms should address it.\n2. Confirmatory assignment. The employment agreement may well be sufficient on its own, but a recorded confirmatory assignment removes the question. The licensor has not said when it will sign.\n3. Foreign records. The foreign counterpart review depends on records the licensor holds through its own foreign associates. A delay there would hold up that part of the review but not the United States findings.\n4. Schedule changes. If the licensor adds families to the schedule, review of those families falls outside the current scope, and we would raise it with you before doing the work.",
+      "level": 1,
+      "items": [],
       "header": [],
       "rows": [],
       "signers": []
@@ -81,75 +174,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The engagement is a fixed fee of {{fact:f:E-2025-001.fee}}, and the work performed stands at roughly half that amount, which tracks the midpoint of the review. We do not foresee any charge beyond the fixed fee for the scope stated in the engagement letter. If the open title family turns into work outside that scope, or if the company asks for an opinion on any matter the diligence surfaces, we will quote that work separately and wait for written authorization before we begin it.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Scheduled Next",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The coming period closes the search work and turns the review toward the written report.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "list",
-      "text": "",
-      "level": 1,
-      "items": [
-        "1. Complete the encumbrances search across the remaining families, and log any lien or recorded security interest against the matter the day it is confirmed.",
-        "2. Resolve the one open title family, confirm the recorded assignment against the office record, and correct the recorded date if the office record shows it is wrong.",
-        "3. Begin assembling the diligence report, organized family by family, so that final assembly is a matter of collation rather than reconstruction.",
-        "4. Reconcile the master date list one further time against the office record before the report is drafted, so that no date the report relies on is carried forward unconfirmed."
-      ],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Observations",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Two points are worth recording now, though neither is a conclusion. The claim charts show the license grant sitting inside the issued claims on the families reviewed so far, with no family where the grant reaches subject matter the claims do not cover. Separately, one family's prosecution history includes an amendment that narrows a term more than the file summary suggested, which we have noted for the report; it does not change coverage, but it is the kind of detail the company should have in front of it before it relies on the grant. Both points will be set out family by family in the written report rather than summarized here.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Risks",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One item carries risk to the schedule, and it is contained. The open title family turns on a recorded assignment that does not match the priority claim, and until the chain is confirmed we treat the recorded date as unconfirmed and rest no conclusion on it. We do not expect the item to move the delivery window, and if that changes you will hear from us the day it does. Nothing in the review to this point supports a conclusion on infringement or validity, and any question of that kind is referred for an attorney opinion rather than answered in this report.",
+      "text": "The engagement is being performed for the fixed fee of {{fact:f:E-2025-001.fee}}. Work to date is within that fee, and nothing now planned calls for a change to it. Additional families, or a request for a formal opinion beyond the findings memorandum, would be scoped and agreed with you separately before any work starts.",
       "level": 1,
       "items": [],
       "header": [],
@@ -158,7 +183,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "We will send the next report at the close of the coming period, or sooner if the docket requires it. David Chang and Richard Henderson are the contacts for anything in the meantime.",
+      "text": "Questions on the claim readings can come to me. Questions on the open title items or on the license terms should go to Mary Bradley, who will also review the findings memorandum before it is sent.",
       "level": 1,
       "items": [],
       "header": [],

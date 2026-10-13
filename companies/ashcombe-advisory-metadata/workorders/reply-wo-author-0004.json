@@ -1,7 +1,10 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0004",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
@@ -9,185 +12,130 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Corporate Positioning for Barrera Group",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Corporate Positioning for Barrera Group: Status Report",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Client: {{fact:f:E-2017-001.client}}. Engagement: Corporate Positioning. Prepared by Daniel Valenzuela, Advisor. Copied to Julie Hill, Managing Partner, and Michelle Rose, Communications Associate."
+        },
+        {
+          "kind": "heading",
+          "text": "Where the engagement stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are at about the halfway point and on the schedule agreed at kickoff. Discovery is finished: the leadership interviews are complete, the review of existing materials and press coverage is done, and the findings were discussed with your team on our call last week. The first draft of the positioning framework went to the Barrera Group leadership team for comment, and those comments are now in hand. Work on the second draft has started. The one open question is the timing of the leadership review session, which is covered under the schedule risks below."
+        },
+        {
+          "kind": "heading",
+          "text": "Completed this period",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Leadership interviews. We finished the remaining one-on-one conversations with the business unit leaders and the finance team. The written summary sorts what we heard into points where leaders agree and points where they describe the company differently. The second group turned out to be the more useful of the two, and it shaped the first draft directly."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Coverage and materials review. Michelle Rose completed the review of how the press has described Barrera Group over the past two years. Her main finding is that most stories repeat the company's own boilerplate, which is several years old and no longer describes the business as it is run today. Michelle also built the reporter list we will use at rollout, organized by beat, with a note on how each reporter prefers to be approached."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. First draft of the positioning framework. The draft sets out a core description of the company, the supporting messages beneath it, and the proof points for each message. Julie Hill reviewed it before it went to you and asked that the growth language be tied to results the company can already point to. That change is in the version your team saw."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. Comments consolidated. Every reviewer on your list has returned comments. We have sorted them into edits we will make as written, places where reviewers disagree with one another, and a short set of questions that need a decision from you. The disagreements will be laid out in a cover note with the second draft so they can be settled in one conversation."
+        },
+        {
+          "kind": "heading",
+          "text": "Confirming what we agreed on the call",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three points were settled verbally on our last call, and I am putting them in writing here so there is a record: (1) the positioning will describe Barrera Group as one company, with the business units presented as supporting detail under the core description; (2) the current boilerplate and website language stay in place until the full framework is approved, with no partial updates in the meantime; and (3) your communications lead will collect comments on each draft and send us a single consolidated set."
+        },
+        {
+          "kind": "heading",
+          "text": "Planned for the coming period",
+          "level": 2
         },
         {
           "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
           "header": [
-            "Field",
-            "Detail"
+            "Item",
+            "Lead",
+            "Timing"
           ],
           "rows": [
             [
-              "Engagement",
-              "Corporate Positioning"
+              "Second draft of the positioning framework, with a cover note on open comments",
+              "Daniel Valenzuela",
+              "Next week"
             ],
             [
-              "Client",
-              "{{fact:f:E-2017-001.client}}"
+              "Leadership review session to settle the open questions",
+              "Daniel Valenzuela, with Julie Hill attending",
+              "Once attendees are confirmed"
             ],
             [
-              "Prepared for",
-              "Barrera Group leadership"
+              "Feedback interviews with customers and investors your team nominates",
+              "Daniel Valenzuela",
+              "The two weeks after the review session"
             ],
             [
-              "Prepared by",
-              "Daniel Valenzuela, Advisor, Ashcombe Advisory Partners"
+              "Draft company boilerplate and website overview copy",
+              "Daniel Valenzuela",
+              "After the feedback interviews"
             ],
             [
-              "Stage",
-              "Midpoint of the engagement"
+              "Media plan for the rollout, built from the reporter list",
+              "Michelle Rose",
+              "Draft by the end of the period"
             ]
-          ],
-          "signers": []
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Executive talking points and a question-and-answer document for your spokespeople come in the final phase, after the framework is approved. We will send an outline of both with the next report so your team can see what they will cover."
         },
         {
           "kind": "heading",
-          "text": "Status at the midpoint",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Schedule risks",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We have crossed the halfway mark on the positioning work for Barrera Group, and I am glad to report the engagement is on plan, with a couple of pieces a little ahead of where I expected them. The first half was about getting the story right: hearing how the company is read today, agreeing how it wants to be read, and drafting a core narrative the leadership can stand behind. That narrative is written and now with your team for comment. The second half puts it to work, turning the agreed story into the specific messages and materials your people will use with investors, the press, and staff. What follows sets out what the last period produced, the work ahead, where the budget sits, and the handful of risks I am tracking.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "1. Timing of the review session. The session needs the full leadership team in the room or on the line. If it cannot be held within about three weeks, the feedback interviews move back by the same amount and the final phase gets shorter. In that case we would propose a smaller interview group and keep the review session as planned."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Consistency with what the company has already said. The new language has to sit comfortably beside existing investor materials and recent announcements. Before the feedback interviews begin, we will check the second draft line by line against those materials and flag any sentence an investor could read as a change in strategy."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Use inside the company. The framework will not be used consistently unless the business unit leaders and the sales team see it before it appears anywhere external. We suggest a short internal briefing on the approved core description ahead of any public use, so those teams hear it from their own leadership first."
         },
         {
           "kind": "heading",
-          "text": "What we finished this period",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Fees",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Most of the first half went into evidence and drafting, so that the positioning rests on how Barrera Group is actually seen in the market and not on how we would like it to be. I sat down with your leadership and ran a short round with two analysts who cover the sector, then paired those conversations with a review of your public materials and the last two years of announcements. Out of that came the message architecture: one core story and three supporting pillars, each with the proof points that make it credible rather than aspirational. Michelle Rose has been drafting the language in Barrera Group's own register, so the pillars read like the company speaking and not like an agency writing on its behalf, and the first full draft of the core narrative is the document now in front of you.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "A positioning audit of your website, investor materials, and two years of announcements, with the gaps and the mixed messages marked.",
-            "Interviews with your leadership and two sell-side analysts, pulled together into the themes that shape how Barrera Group is read today.",
-            "A message architecture of one core narrative and three supporting pillars, each backed by concrete proof points.",
-            "A first full draft of the core narrative, written in the company's own voice and now with your team for comment."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Fees to date are tracking in line with the engagement budget of {{fact:f:E-2017-001.fee}}, and no change in scope has been requested. If the list of feedback interviews grows beyond the group we agree on, I will raise it with you before that work starts."
         },
         {
           "kind": "heading",
-          "text": "The work ahead",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What we need from you",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The second half is about turning the approved narrative into the things your team reaches for day to day. Once your comments on the draft are in, we lock the core story and build outward from it: the standard boilerplate, an executive Q&A for the harder questions, briefing notes for the next round of investor conversations, and refreshed language for the website and your templates. Michelle Rose will carry most of that drafting, and I will keep every piece tied back to the pillars, so the materials stay consistent as they multiply. None of this shifts the direction we have set; it fills in the parts that make the positioning usable in the room.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Fold your comments into the core narrative and lock the final version.",
-            "Draft the working materials off that narrative: boilerplate, an executive Q&A, and investor briefing notes.",
-            "Refresh the website language and the standard templates so every touchpoint carries the same story.",
-            "Put together a short rollout plan so the new positioning reaches investors, press, and staff in the right order."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "The budget",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is tracking within its fixed fee of {{fact:f:E-2017-001.fee}}, and the first half came in on the effort we scoped. I do not see anything in the work ahead that pushes past it. If a request comes up that sits outside what we agreed, such as materials for an event that was not in the original plan, I will flag it and price it with you before the work starts, not once it is done.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "heading",
-          "text": "Open risks and dependencies",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "Three things are worth naming now, while each is still easy to manage. None threatens the engagement, and each has an owner and a plan sitting against it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "Sign-off on the narrative. Everything in the second half builds on the core story, so a delay in leadership comment on the draft moves the later work with it. I have asked for your notes by the review we already have on the calendar.",
-            "One voice to the market. Several people at Barrera Group speak to investors and the press, and the positioning only holds if they use the same language. The Q&A and the briefing notes are built to close that gap, and I would like a short session to walk your spokespeople through them once they are drafted.",
-            "A live announcement in the window. If a result or a transaction lands mid-engagement, we will want to test the new positioning against it before anything goes public. Keeping me in the loop early on anything market-facing gives us the time to do that."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "The one thing I need from you next is your team's comments on the core narrative draft. With those in hand, the second half moves quickly. I will send a short note to book the review, and Michelle Rose and I will have the marked-up narrative ready for that conversation.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Please confirm which members of the leadership team will attend the review session, along with two or three times that work for them over the next three weeks. Once I have that, I will send the second draft and the cover note to the attendees ahead of the meeting."
         }
       ]
     }

@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Status Report: Pension Valuation for {{fact:f:E-2016-001.client}}",
+      "text": "Status Report: Pension Valuation",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Prepared by Jennifer Vasquez, Consulting Actuary, for the leadership of {{fact:f:E-2016-001.client}}. This report covers the engagement at its midpoint. The work is where I expected it to be at this stage. The inputs are settled, the model is standing, and the effort that remains is the valuation itself and the report that interprets it. I have written this to separate plainly what is finished from what still calls for a decision, since at the midpoint those are the two things worth your attention.",
+      "text": "Prepared for {{fact:f:E-2016-001.client}} by Meridian Actuarial Advisors. This report covers the work through the midpoint of the engagement. It contains no valuation results.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Summary",
+      "text": "Position at the Midpoint",
       "level": 2,
       "items": [],
       "header": [],
@@ -31,7 +31,16 @@
     },
     {
       "kind": "paragraph",
-      "text": "The engagement is on schedule and within its agreed scope. The participant data is reconciled and closed. The plan provisions are confirmed but for one narrow item. The assumptions are in final review. We have begun the valuation runs for our own checking, and I want to be plain about what that means. No results have left the office, and none will until we have tested them against the prior valuation and are satisfied they hold. A preliminary number is not an answer, and we treat it that way internally. Nothing this period has changed the shape of the engagement or what we expect to deliver at the end of it.",
+      "text": "The valuation is on schedule and within the scope set out in the engagement letter. The census data are final, the plan provisions are confirmed, and the assumption review is under way.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "No results have been produced, and none will be until the assumptions are agreed. One decision is needed from you before then, on the mortality basis. It is set out at the end of this report.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,35 +49,8 @@
     },
     {
       "kind": "heading",
-      "text": "How we read the results",
+      "text": "Completed to Date",
       "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One point about how we will present the numbers. An actuarial valuation mixes three things that are easy to run together: what the data measure, what we assume about the future, and what we conclude from the two. We keep them apart on purpose. The exhibits will show the measured position. The assumption memo will state what we have assumed and why. The opinion will draw the conclusion, and only there. If a number in the eventual report looks larger or smaller than you expect, the explanation will almost always sit in the assumptions, and we will have documented it before you ask.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Completed this period",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The bulk of the period went to closing out the inputs and standing up the model. Two people carried most of that work.",
-      "level": 1,
       "items": [],
       "header": [],
       "rows": [],
@@ -79,27 +61,21 @@
       "text": "",
       "level": 1,
       "items": [
-        "David Sherman completed the census reconciliation and the tie-out to the prior file. He has documented the data we are relying on, so that every figure in the valuation can be traced back to a source.",
-        "Jeffrey Ochoa built the valuation model and checked it, and he has tied each preliminary result back to the assumption that drives it, which is what lets us explain a number, not merely report it.",
-        "We confirmed the plan provisions with your staff, including the disability offset, which follows the plan document and not the summary description.",
-        "We settled the assumption set in draft. The one assumption we have deliberately left open is the discount rate, which we want to decide with you rather than hand you as a finished choice."
+        "Received the participant census and loaded it into the valuation model.",
+        "Reconciled the census to the prior year's file. Active and retiree records tied on the first pass.",
+        "Resolved the terminated vested records with your staff at the working session. Former employees who had been paid lump sums but remained on the file were removed, and the source of each removal is documented.",
+        "Obtained the missing hire dates from payroll, which closed the last open data item.",
+        "Received the restated plan document and its amendments, and reflected the amended provisions in the benefit calculations.",
+        "Issued the written data summary, prepared by David Sherman, listing each change made to the file and its source.",
+        "Completed a first review of retirement and termination experience, prepared by Jeffrey Ochoa."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "With the inputs fixed, the judgment now moves to the assumptions, which is the right place for it at this point in the work.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "heading",
-      "text": "The next stage",
+      "text": "What the Data Show",
       "level": 2,
       "items": [],
       "header": [],
@@ -108,8 +84,137 @@
     },
     {
       "kind": "paragraph",
-      "text": "The remaining work is the valuation and its reporting, in that order. None of it depends on anything we do not already have, apart from the two small items noted below.",
+      "text": "The census, as reconciled, is complete and internally consistent for every participant group. Each record now carries the elements the valuation needs, and no participant is carried on an assumed data value.",
       "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The experience review shows participants retiring later than the current rates assume. The pattern is clearest at the first age at which an unreduced benefit is available. It rests on a short period of data and is an observation, not yet a recommendation.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "What Has Been Assumed",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "No new assumptions have been adopted. To test the data and provisions end to end, the model is running on the prior valuation's assumptions as a placeholder.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Output on that basis is a check on the mechanics only. It is not reported and should not be relied on for any purpose.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The economic assumptions will be proposed together with the demographic set, each with its basis stated in writing. Any item set by regulation will be identified as prescribed rather than presented as our selection.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "What We Conclude at This Stage",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The data are adequate for the valuation. That conclusion is limited to their consistency and completeness, which is the review called for under Actuarial Standard of Practice No. 23, Data Quality.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "We have relied on the census and plan documents as provided and have not audited them. We reach no conclusion yet on the plan's liabilities or costs.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Work Ahead",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "table",
+      "text": "",
+      "level": 1,
+      "items": [],
+      "header": [
+        "Work",
+        "Lead",
+        "Depends on"
+      ],
+      "rows": [
+        [
+          "Recommended retirement and termination rates, with the supporting study",
+          "Jeffrey Ochoa",
+          "Nothing outstanding"
+        ],
+        [
+          "Mortality comparison: current basis against RP-2014 with MP-2015",
+          "Jennifer Vasquez",
+          "Nothing outstanding"
+        ],
+        [
+          "Assumption review meeting with your staff",
+          "Jennifer Vasquez",
+          "Both items above"
+        ],
+        [
+          "Preliminary valuation results, with the mortality effect shown separately",
+          "David Sherman",
+          "Agreed assumptions"
+        ],
+        [
+          "Draft valuation report",
+          "Jennifer Vasquez",
+          "Your review of the preliminary results"
+        ]
+      ],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Risks to the Schedule",
+      "level": 2,
       "items": [],
       "header": [],
       "rows": [],
@@ -120,10 +225,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Complete the full valuation run and reconcile it to last year, so any movement in the funded position is explained, not merely asserted.",
-        "Finalize the discount-rate basis, the one assumption that materially moves the result.",
-        "Prepare the workbook of exhibits and the report that reads them for the board.",
-        "Bring preliminary results to you for review before anything is treated as final."
+        "Assumption decisions. Preliminary results cannot be run until the assumptions are agreed, and each later step moves with that decision.",
+        "Plan changes. An amendment adopted before the report is issued may need to be reflected or disclosed. Please tell us of any change under consideration.",
+        "Experience period. The period studied is short. If the retirement pattern weakens in the full study, we will recommend a partial move toward it and state why.",
+        "Data corrections. A census correction from this point requires the reconciliation to be re-run for the records it affects. We will tell you before any re-run changes the schedule."
       ],
       "header": [],
       "rows": [],
@@ -131,7 +236,7 @@
     },
     {
       "kind": "heading",
-      "text": "Risks",
+      "text": "Decision Needed: Mortality Basis",
       "level": 2,
       "items": [],
       "header": [],
@@ -140,7 +245,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The data risk is largely behind us now that the census is closed. The risks that remain are matters of judgment, not measurement, and there are three worth naming. The first is the discount rate. It is an assumption, not a fact the data hands us, and it moves the funded ratio enough that we will show you the result under more than one rate instead of choosing quietly on your behalf. The second is mortality, where we are holding the prior table until the next experience review gives us a reason to change it; that is a considered choice, and the report will say so plainly. The third is the single open plan provision, which your team is confirming and which we do not expect to change the picture.",
+      "text": "The mortality basis is the largest open judgment in this valuation. The current basis predates the RP-2014 table and the MP-2015 improvement scale, and for most plans the newer basis has meant longer assumed lifetimes and higher liabilities.",
       "level": 1,
       "items": [],
       "header": [],
@@ -149,7 +254,16 @@
     },
     {
       "kind": "paragraph",
-      "text": "None of these threatens the schedule, and the scope has held steady from the start. The best time to raise a question about an assumption is before the results are built on it, so if any of the choices above give you pause, I would sooner hear it now. I will follow up with your team on the two open items and will send preliminary results as soon as they have cleared our own review.",
+      "text": "We will show the effect of the change on its own line in the preliminary results, so it can be seen apart from every other assumption. We ask that you be prepared to decide on the basis at the assumption review meeting, after you have seen that effect.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Questions on this report may go to Jennifer Vasquez. David Sherman can answer questions on the data summary, and Jeffrey Ochoa on the experience review.",
       "level": 1,
       "items": [],
       "header": [],

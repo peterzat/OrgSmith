@@ -6,7 +6,7 @@
   "org_name": "Ashcombe Advisory Partners LLC",
   "org_type": "corporate communications advisory",
   "narrative": "Ashcombe Advisory Partners is a corporate communications and investor\nrelations advisory founded in 2014, working with mid-market public and\npre-IPO companies on positioning, announcements, and reputation. Its work is\ncorrespondence: the firm lives in its clients' inboxes, drafting messaging,\nrouting approvals, and managing announcement timelines by email, so the paper\ntrail is dominated by threads rather than formal deliverables.\n\nThe firm runs lean. A managing partner leads a bench of advisors and analysts\nwho each carry two or three client relationships at once, supported by a small\noperations team that keeps schedules, files, and the mailbox in order. Client\nwork is organized as discrete engagements, each opening with a signed letter\nand a kickoff memo and then running mostly over email: status threads, quick\napprovals, and the occasional transmittal of a working document. Internal\nmail is mundane and constant, the ordinary logistics of a busy small office.\n\nAdvisors write plainly and quickly. A thread opens with a clear subject, and\nreplies stay short and answer the message before them. Formal documents\n(engagement letters, the periodic firm overview, financial summaries) are\nsparse by design; the firm's character is in how it corresponds, not in how\nmuch it writes down.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0013\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0013\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0068",
@@ -19,7 +19,7 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         }
       ],
       "participants": [
@@ -28,14 +28,21 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         },
         {
           "id": "p:amy.carter",
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
+        },
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         },
         {
           "id": "xp:jennifer.herrera",
@@ -53,16 +60,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:amy.carter",
-          "surface": "Amy Carter",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:jennifer.herrera",
-          "surface": "Jennifer Herrera",
-          "kind": "person"
-        },
         {
           "entity": "x:suarez-jones",
           "surface": "Suarez-Jones",
@@ -82,11 +79,11 @@
       "date": "2023-08-10",
       "authors": [
         {
-          "id": "p:amy.carter",
-          "name": "Amy Carter",
-          "title": "Communications Associate",
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         }
       ],
       "participants": [
@@ -95,14 +92,21 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         },
         {
           "id": "p:amy.carter",
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
+        },
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         },
         {
           "id": "xp:jennifer.herrera",
@@ -121,23 +125,13 @@
       ],
       "mentions": [
         {
-          "entity": "p:john.macias",
-          "surface": "John Macias",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:jennifer.herrera",
-          "surface": "Jennifer Herrera",
-          "kind": "person"
-        },
-        {
           "entity": "x:suarez-jones",
           "surface": "Suarez-Jones",
           "kind": "org"
         }
       ],
       "target_words": 250,
-      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Jennifer Herrera at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in medium sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Jennifer Herrera at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
       "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -153,7 +147,7 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         }
       ],
       "participants": [
@@ -162,14 +156,21 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         },
         {
           "id": "p:amy.carter",
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
+        },
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         },
         {
           "id": "xp:jennifer.herrera",
@@ -187,16 +188,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:amy.carter",
-          "surface": "Amy Carter",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:jennifer.herrera",
-          "surface": "Jennifer Herrera",
-          "kind": "person"
-        },
         {
           "entity": "x:suarez-jones",
           "surface": "Suarez-Jones",
@@ -216,11 +207,11 @@
       "date": "2023-08-11",
       "authors": [
         {
-          "id": "p:amy.carter",
-          "name": "Amy Carter",
-          "title": "Communications Associate",
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         }
       ],
       "participants": [
@@ -229,14 +220,21 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         },
         {
           "id": "p:amy.carter",
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
+        },
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         },
         {
           "id": "xp:jennifer.herrera",
@@ -255,23 +253,13 @@
       ],
       "mentions": [
         {
-          "entity": "p:john.macias",
-          "surface": "John Macias",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:jennifer.herrera",
-          "surface": "Jennifer Herrera",
-          "kind": "person"
-        },
-        {
           "entity": "x:suarez-jones",
           "surface": "Suarez-Jones",
           "kind": "org"
         }
       ],
       "target_words": 250,
-      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Jennifer Herrera at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in medium sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms. Open with your salutation form \"{first},\" (fill in the recipient's first name) and sign off with \"Regards\" -- the signature block itself is appended automatically from the ledger; never type one.",
+      "guidance": "Plain-text status email within the engagement thread: a greeting line naming the recipients, 2-3 short paragraphs of progress and asks, a sign-off line with the sender's name. The subject lives in the message header, not the body. No sigblock. This is a reply partway through an ongoing thread: answer the previous message directly, do not reintroduce the engagement or the participants, and keep it to a few tight lines. A quoted history and your signature are appended automatically -- write only your new reply. Delivery: this message is sent To Jennifer Herrera at the client; internal colleagues see it on Cc only. Address the client directly, in a client-facing register -- it is not an internal note, and nothing in it may read as a staff-to-staff aside about the client. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'. Open with your salutation form \"Hi {first},\" (fill in the recipient's first name) and sign off with \"Sincerely\" -- the signature block itself is appended automatically from the ledger; never type one.",
       "engagement_position": "This document is dated about 26% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -283,11 +271,11 @@
       "date": "2023-08-31",
       "authors": [
         {
-          "id": "p:amy.carter",
-          "name": "Amy Carter",
-          "title": "Communications Associate",
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         }
       ],
       "participants": [
@@ -296,14 +284,21 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         },
         {
           "id": "p:amy.carter",
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
+        },
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         },
         {
           "id": "xp:jennifer.herrera",
@@ -322,13 +317,18 @@
       ],
       "mentions": [
         {
-          "entity": "p:amy.carter",
-          "surface": "Amy Carter",
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
           "kind": "person"
         },
         {
           "entity": "p:john.macias",
           "surface": "John Macias",
+          "kind": "person"
+        },
+        {
+          "entity": "p:amy.carter",
+          "surface": "Amy Carter",
           "kind": "person"
         },
         {
@@ -343,7 +343,7 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in medium sentences. You habitually: keeps paragraphs to two or three sentences; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; closing epigrams or aphorisms.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in long sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'In short,' as a paragraph opener; a 'Workstreams' heading followed by 'Next Steps'.",
       "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -359,7 +359,7 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         }
       ],
       "participants": [
@@ -368,14 +368,21 @@
           "name": "John Macias",
           "title": "Associate",
           "dept": "Advisory",
-          "persona": "Still learning the trade and does much of the legwork on the engagements he supports, careful to loop in the seniors before anything client-facing leaves the office. Asks good, specific questions and would rather check than guess. His writing is plain and unadorned, which suits the house style, and he is visibly getting quicker."
+          "persona": "Drafts many of the first versions: press releases, holding statements, and question-and-answer documents for client spokespeople. Energetic and quick to volunteer for the next draft, he is still learning to keep replies short and tends to add a closing \"let me know if you want me to take another pass.\" Takes edits well and turns them around the same afternoon."
         },
         {
           "id": "p:amy.carter",
           "name": "Amy Carter",
           "title": "Communications Associate",
           "dept": "Advisory",
-          "persona": "Supports several engagements with drafting and coordination, the associate who keeps a thread warm while an advisor is heads-down elsewhere. Collaborative and even-tempered, quick to summarize where a client conversation stands so the next person can pick it up cold. Writes plainly and answers the message in front of her."
+          "persona": "Drafts investor-facing materials and talking points, and is steady and careful with every claim a client wants to make. Asks clarifying questions before she starts rather than after, which saves rounds of edits later. Her emails are warm, well organized, and a touch longer than the house style, with a polite thank-you to close."
+        },
+        {
+          "id": "p:michael.morris",
+          "name": "Michael Morris",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Runs the advisory bench day to day and is the person a client calls when a timeline starts to slip. Forwards client notes with a single instruction typed above them, and opens chasers with \"Where are we on\" followed by the client's name. Exacting with first drafts but generous with credit, he answers fast, tends to put open items in a short numbered list, and copies the whole team when a decision lands."
         }
       ],
       "engagement_summary": "Executive Messaging for Suarez-Jones, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -398,6 +405,11 @@
         {
           "entity": "p:amy.carter",
           "surface": "Amy Carter",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michael.morris",
+          "surface": "Michael Morris",
           "kind": "person"
         },
         {

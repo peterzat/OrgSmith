@@ -5,37 +5,84 @@
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-1",
-      "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": [],
-      "summary": "The firm's measurement/assumption/conclusion credo is narrated in near-identical triadic wording in almost every document, across all six genres and every author, including short engagement emails and meeting minutes where a real writer would not pause to recite the firm's writing philosophy.",
-      "evidence": "Same triad, one phrasing, many hands and genres: d:0002 engagement letter (Lawrence) 'We keep three things apart in everything we deliver: what the data show, what we have assumed, and what we conclude'; d:0011 meeting minutes (Ochoa) 'What the data show, what we have assumed, and what we will ultimately conclude are three different things'; d:0045 kickoff memo (Ochoa) 'We keep what the data show, what we assume, and what we conclude in separate places'; d:0064 engagement letter (Lawrence) 'they stay separate on the page'; d:0072 status report (Harris) 'what the experience measures, what we assume ... and what we conclude ... We keep them apart on purpose.' The charter asks the firm to structure results this way; the tell is that independent fresh authors all reach for the same sentence to say it, in documents where it has no function."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-2",
-      "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": [],
-      "summary": "Beyond the credo, a small bank of signature aphorisms recurs verbatim across different authors and genres, including two distinct personas emitting identical sentences, reading as one writer's phrasebook rather than twelve independent hands.",
-      "evidence": "'... only as sound as the [records/census] beneath it' spans four genres: d:0002 and d:0044 and d:0056 (engagement letters), d:0028 (onboarding), d:0036 (engagement email), d:0038 (status report). 'A number we cannot explain is not a finding; it is an open question, and it stays open until it is answered' appears verbatim in d:0031 (kickoff, David Sherman) and d:0065 (kickoff, Karen Harris); the twin 'so that we speak with one voice on scope and timing' is verbatim in those same two, and 'one considered answer ... three partial ones' recurs in d:0022, d:0045, d:0046. Different named authors, identical sentences."
-    },
-    {
-      "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-3",
+      "id": "rf:voice-1",
       "dimension": "cross_document_voice",
       "severity": "major",
       "docs": [
-        "d:0012",
+        "d:0003",
+        "d:0009",
+        "d:0016",
+        "d:0017",
+        "d:0025",
+        "d:0037",
+        "d:0040",
+        "d:0044",
+        "d:0052",
+        "d:0054",
+        "d:0060",
+        "d:0061",
+        "d:0065"
+      ],
+      "summary": "Every staff author restates the firm's three-part method in nearly the same sentence, in kickoff memos, status reports, minutes and onboarding records as well as letters and overviews, so the house rule reads as one writer's refrain rather than a practice the reports simply carry out.",
+      "evidence": "Lawrence, letter, 2017 (d:0016): \"Our report will keep three things apart: what the data show, what we assumed, and what we conclude.\" Harris, kickoff memo, 2024 (d:0065): \"The report will keep three things apart: what the data show, what we assumed, and what we conclude. We should keep them apart in our working files from the first day as well.\" Dudley, kickoff memo, 2017 (d:0017): \"the report will keep what the data show, what we assumed, and what we conclude in separate places. That is much easier to do at the end if we keep them separate in our own files from the first week.\" Vasquez, kickoff memo, 2016 (d:0003): \"The deliverable keeps three things apart: what the data show, what we assumed, and what we conclude from both.\" Banks, status report, 2023 (d:0060): \"The draft will keep apart what the data show, what we assumed, and what we conclude.\" Dudley, status report, 2017 (d:0025): \"which will keep what the data show, what we assumed, and what we conclude in separate places\". Lawrence repeats it in all three overviews (d:0009 \"A report from us keeps three things apart.\"; d:0040 \"It separates what the data show, what we assumed, and what we conclude\"; d:0054 \"After that we keep three things apart.\"), in a letter (d:0044 \"Our report will keep three things in separate places.\"), and in onboarding records (d:0052 \"An experience study has three parts, and we keep them apart.\"; d:0061 \"We keep those two steps apart on purpose, and our reports keep them apart as well.\"). Minutes even say it of themselves (d:0037 \"these minutes keep the same line\"). The charter asks for reports built this way; here five authors over eight years announce it in one sentence frame, and the two kickoff memos seven years apart add the same follow-on move about keeping it in \"our own files from the first week\" / \"our working files from the first day\"."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0011",
+        "d:0023",
+        "d:0037",
+        "d:0038",
+        "d:0048",
+        "d:0060",
+        "d:0071",
         "d:0072"
       ],
-      "summary": "The two midpoint status reports d:0012 (Vasquez, 2016) and d:0072 (Harris, 2024) are the same document with domain nouns swapped, yet fall below the report's same-genre similarity threshold, so only a voice read catches the template collapse.",
-      "evidence": "Both open by framing the midpoint and promising to 'separate plainly what is [finished/settled] from what still calls for [a decision/judgment]'; both carry a 'three things easy to run together ... We keep them apart on purpose' paragraph; both list 'three [risks] worth naming', the first shown 'under more than one' rate and the second 'a considered choice, and the report will say so'; and both close identically: d:0012 'None of these threatens the schedule, and the scope has held steady from the start. The best time to raise a question about an assumption is before the results are built on it', d:0072 'None of these threatens the schedule, and the scope has held steady from the start. The best time to weigh an assumption is before the indication rests on it.' The report's same-genre table flags only d:0025/d:0048, not this pair, so the metric misses it."
+      "summary": "Minutes, decks and status reports by six different authors open on the same pre-emptive disclaimer in the same slot and the same sentence frame (\"no view was formed, and nothing here should be read as one\"), a writer's fingerprint rather than the varied ways real colleagues hedge.",
+      "evidence": "Ochoa, minutes, 2016 (d:0011): \"No assumption was adopted at this session, and nothing recorded below should be read as a recommendation.\" Dudley, deck, 2017 (d:0023): \"We have formed no view on any of them yet, and nothing in this briefing should be read as a finding.\" Lawrence, minutes, 2019 (d:0037): \"Recommended assumptions were not on the agenda. They follow once the tabulations are final, and nothing recorded here should be read as one.\" Sherman, status report, 2019 (d:0038): \"None of them is a recommendation, and none should be read as a decision to change a rate.\" Ochoa, status report, 2020 (d:0048): \"No obligation figure exists at this stage, and none should be read into anything in this report.\" Banks, status report, 2023 (d:0060): \"Nothing in this report is a finding.\" Lawrence, minutes, 2024 (d:0071): \"No view on the proposed rates was reached or offered. Nothing below should be read as one.\" Harris, status report, 2024 (d:0072): \"We have not yet formed a view on the proposed rates, and this report offers none.\" Heavy qualification is the charter's asked-for tone; the defect is only that every author reaches for the identical construction, usually in the first paragraph."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-3",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0016",
+        "d:0030",
+        "d:0044",
+        "d:0056",
+        "d:0064"
+      ],
+      "summary": "The six engagement letters, all signed by Robert Lawrence, share one template but re-word its fixed legal terms every time, so the firm has no standard text for the clauses a real firm carries verbatim from letter to letter.",
+      "evidence": "Governing law in six wordings, e.g. d:0002 \"If any provision of it is found unenforceable, the rest of the letter stands.\"; d:0030 \"The laws of the state in which our principal office is located govern this letter. If a court finds any part of it unenforceable, the remaining terms still apply.\"; d:0064 \"If any provision is held unenforceable, the remaining provisions continue to apply.\"; d:0016 \"...the state in which our office is located.\" The liability clause swaps synonyms between d:0030 \"We will carry out the work with the care and skill expected of a qualified actuary. We are not responsible for errors that come from data or information supplied to us.\" and d:0064 \"We will perform the work with the care and skill expected of a qualified actuary. We are not responsible for errors that arise from data or information supplied to us.\"; its consequential-loss exclusion appears in d:0002 (\"Neither of us will be liable to the other for indirect or consequential loss.\") and d:0044 (\"lost profits or other indirect damages\") and is absent from d:0016, d:0030, d:0056 and d:0064. Thirteen months apart, every terms heading is renamed: d:0056 \"Fees and payment\", \"Term and termination\", \"Confidentiality\", \"Limitation of liability\" become d:0064 \"Invoicing and payment\", \"Duration and ending the engagement\", \"Confidential information\", \"Limits on our liability\". Read against the report's top lexical pair (d:0030/d:0064), this is a template re-paraphrased, not a template reused."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-4",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": [
+        "d:0003",
+        "d:0019",
+        "d:0020",
+        "d:0025",
+        "d:0036",
+        "d:0045",
+        "d:0066",
+        "d:0067",
+        "d:0069",
+        "d:0070"
+      ],
+      "summary": "The persona surface layer holds: greetings, closings, list-versus-paragraph habit and sentence length differ by author and persist across years, and the structural pairs the report flags read as personal habit or inherited template, not collapse; the one-writer signal sits beneath that surface, in rf:voice-1 and rf:voice-2.",
+      "evidence": "Sherman's numbered reconciliation replies hold from 2017 to 2019 (d:0019 \"The steps, so that your staff can check them:\"; d:0036 \"For your staff's reference, the reconciliation ran as follows.\"). Dudley writes long paragraphs that close on one item (d:0020 \"The one thing we need next is either the confirmation or the fresh extract\"; d:0025 \"The one thing we need next is that written description\"). In one 2024 thread Harris writes list-free paragraphs that open \"James,\" and close \"Regards\" (d:0066, d:0070), while Lawrence writes numbered requests that open \"Good morning James,\" and close \"Sincerely,\" (d:0067, d:0069). Flagged pairs d:0005/d:0007, d:0018/d:0020 and d:0019/d:0021 are one author's consecutive replies in one thread; d:0014/d:0043, d:0028/d:0042 and d:0028/d:0061 are Lawrence's personnel-file template. Ochoa's 2020 kickoff memo repeats Vasquez's 2016 line \"Every exception goes on the data log with its source and its resolution.\" (d:0003, d:0045); Ochoa was on that 2016 team, so it reads as an inherited firm template."
     }
   ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

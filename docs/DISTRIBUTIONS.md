@@ -4,17 +4,17 @@ Derived artifact: re-emit with `python -m orgsmith distributions`. Never edit by
 
 | org | people | span (yrs) | docs | derived | .eml | max thread depth | weekend | docs / person-yr | mean words |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| ashcombe-advisory | 16 | 8.0 | 104 | 17 | 45 | 8 | 12% | 0.81 | 367 |
+| ashcombe-advisory | 16 | 8.0 | 104 | 17 | 45 | 8 | 13% | 0.81 | 391 |
 | brackenridge-civil | 9 | 9.0 | 40 | 0 | 0 | 0 | 30% | 0.49 | 641 |
 | calderwood-partners | 25 | 15.0 | 218 | 35 | 38 | 1 | 17% | 0.58 | 593 |
 | dev-mini | 7 | 5.0 | 23 | 0 | 0 | 0 | 35% | 0.66 | 745 |
-| hollowell-ip | 10 | 8.0 | 64 | 0 | 22 | 5 | 16% | 0.80 | 481 |
-| meridian-actuarial | 12 | 9.0 | 72 | 0 | 26 | 5 | 14% | 0.67 | 460 |
+| hollowell-ip | 10 | 8.0 | 64 | 0 | 22 | 5 | 16% | 0.80 | 478 |
+| meridian-actuarial | 12 | 9.0 | 72 | 0 | 26 | 5 | 17% | 0.67 | 474 |
 | northgate-staffing | 12 | 9.0 | 76 | 13 | 16 | 4 | 24% | 0.70 | 571 |
 | quillon-harbor | 21 | 10.0 | 77 | 8 | 0 | 0 | 18% | 0.37 | 632 |
 | saltmarsh-environmental | 10 | 9.0 | 40 | 0 | 0 | 0 | 18% | 0.44 | 659 |
 | verdant-health | 7 | 6.0 | 31 | 0 | 0 | 0 | 19% | 0.74 | 697 |
-| **fleet** | 129 | 8.8 | 745 | 73 | 147 | 8 | 18% | 0.59 | 556 |
+| **fleet** | 129 | 8.8 | 745 | 73 | 147 | 8 | 18% | 0.59 | 560 |
 
 ## Realism wave: before / after (M15 frozen fleet → M16 regenerated)
 
@@ -22,16 +22,16 @@ The `before` column is the M15-committed baseline (`WAVE_BASELINE_M15`, git 82a2
 
 | org | weekend | .eml | derived (noise) | mean words |
 | --- | --- | ---: | ---: | ---: |
-| ashcombe-advisory | 11% → 12% | 42 → 45 | 0 → 17 | 365 → 367 |
+| ashcombe-advisory | 11% → 13% | 42 → 45 | 0 → 17 | 365 → 391 |
 | brackenridge-civil | 40% → 30% | 0 → 0 | 0 → 0 | 699 → 641 |
 | calderwood-partners | 17% → 17% | 38 → 38 | 35 → 35 | 589 → 593 |
 | dev-mini | 36% → 35% | 0 → 0 | 0 → 0 | 717 → 745 |
-| hollowell-ip | 27% → 16% | 3 → 22 | 0 → 0 | 691 → 481 |
-| meridian-actuarial | 22% → 14% | 3 → 26 | 0 → 0 | 675 → 460 |
+| hollowell-ip | 27% → 16% | 3 → 22 | 0 → 0 | 691 → 478 |
+| meridian-actuarial | 22% → 17% | 3 → 26 | 0 → 0 | 675 → 474 |
 | northgate-staffing | 36% → 24% | 5 → 16 | 0 → 13 | 662 → 571 |
 | saltmarsh-environmental | 25% → 18% | 0 → 0 | 0 → 0 | 725 → 659 |
 | verdant-health | 29% → 19% | 0 → 0 | 0 → 0 | 728 → 697 |
-| **fleet** | 22% → 18% | 91 → 147 | 35 → 73 | 606 → 556 |
+| **fleet** | 22% → 18% | 91 → 147 | 35 → 73 | 606 → 560 |
 
 ## Reference lines (non-calibrated)
 

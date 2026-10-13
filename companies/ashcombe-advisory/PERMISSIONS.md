@@ -19,18 +19,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -126,18 +126,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -233,18 +233,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -340,18 +340,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -447,18 +447,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -554,18 +554,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -664,18 +664,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -771,18 +771,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -878,18 +878,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -985,18 +985,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -1092,18 +1092,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -1199,18 +1199,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -1306,18 +1306,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -1413,18 +1413,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx
@@ -1520,18 +1520,18 @@ Derived from ledger/acl.json; regenerate with `python -m orgsmith acl ashcombe-a
 - Engagements/Barrera Group/2017.03.28 - Email 8 - Corporate Positioning - Barrera Group.eml
 - Engagements/Barrera Group/2017.04.28 - Status Report - Barrera Group v2 FINAL.docx
 - Engagements/Barrera Group/Meeting Minutes 2017-04-14 - Barrera Group.docx
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
-- Engagements/Castaneda, Adams and Davis/2018.06.27 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v1.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v2.docx
-- Engagements/Castaneda, Adams and Davis/2018.07.10 - Kickoff Memo - Investor Relations Program_v3.docx
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED (working).pdf
+- Engagements/Castaneda, Adams and Davis/2018.06.26 - Engagement Letter - Castaneda, Adams and Davis - EXECUTED.pdf
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v1.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v2.docx
+- Engagements/Castaneda, Adams and Davis/2018.07.09 - Kickoff Memo - Investor Relations Program_v3.docx
 - Engagements/Castaneda, Adams and Davis/2018.08.03 - Email 1 - Investor Relations Program - Castaneda, Adams and Davis.eml
-- Engagements/Castaneda, Adams and Davis/2018.09.10 - Briefing Deck - Castaneda, Adams and Davis.pptx
-- Engagements/Castaneda, Adams and Davis/2018.11.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/2019.03.15 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-19 - Castaneda, Adams and Davis.docx
-- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-17 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/2018.09.09 - Briefing Deck - Castaneda, Adams and Davis.pptx
+- Engagements/Castaneda, Adams and Davis/2018.11.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/2019.03.14 - Status Report - Castaneda, Adams and Davis v2 FINAL.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2018-10-18 - Castaneda, Adams and Davis.docx
+- Engagements/Castaneda, Adams and Davis/Meeting Minutes 2019-01-16 - Castaneda, Adams and Davis.docx
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED DO NOT USE.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.02 - Engagement Letter - Gallegos, Pope and Marsh - EXECUTED.pdf
 - Engagements/Gallegos, Pope and Marsh/2024.02.15 - Kickoff Memo - Reputation Audit.docx

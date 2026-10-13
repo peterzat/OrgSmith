@@ -5,8 +5,8 @@
   "slug": "meridian-actuarial",
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
-  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0013\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts work carries the discipline of a regulated opinion: precise about\nscope, data reliance, and the standards a piece of work is performed\nunder, plain and undecorated, and careful to separate what the data show\nfrom what was assumed. Between formal deliverables, the actuaries and the\nclient's staff exchange short emails about data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0013\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0070",
@@ -19,7 +19,7 @@
           "name": "Karen Harris",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+          "persona": "Karen Harris works on assumption analysis and the supporting tables for experience studies, and she is quick to spot a spreadsheet formula that does not tie out. Her writing is crisp and to the point, in paragraphs rather than lists, with the conclusion stated first and the reasoning after it. She is cautious about scope and will say plainly when a question goes beyond what the data provided can support."
         }
       ],
       "participants": [
@@ -28,14 +28,21 @@
           "name": "Karen Harris",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+          "persona": "Karen Harris works on assumption analysis and the supporting tables for experience studies, and she is quick to spot a spreadsheet formula that does not tie out. Her writing is crisp and to the point, in paragraphs rather than lists, with the conclusion stated first and the reasoning after it. She is cautious about scope and will say plainly when a question goes beyond what the data provided can support."
         },
         {
           "id": "p:michelle.banks",
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         },
         {
           "id": "xp:james.garcia",
@@ -53,16 +60,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:michelle.banks",
-          "surface": "Michelle Banks",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:james.garcia",
-          "surface": "James Garcia",
-          "kind": "person"
-        },
         {
           "entity": "x:gonzalez-campbell-and-kelly",
           "surface": "Gonzalez, Campbell and Kelly",
@@ -82,11 +79,11 @@
       "date": "2024-09-13",
       "authors": [
         {
-          "id": "p:michelle.banks",
-          "name": "Michelle Banks",
-          "title": "Actuarial Associate",
-          "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -95,14 +92,21 @@
           "name": "Karen Harris",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+          "persona": "Karen Harris works on assumption analysis and the supporting tables for experience studies, and she is quick to spot a spreadsheet formula that does not tie out. Her writing is crisp and to the point, in paragraphs rather than lists, with the conclusion stated first and the reasoning after it. She is cautious about scope and will say plainly when a question goes beyond what the data provided can support."
         },
         {
           "id": "p:michelle.banks",
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         },
         {
           "id": "xp:james.garcia",
@@ -121,13 +125,18 @@
       ],
       "mentions": [
         {
-          "entity": "p:michelle.banks",
-          "surface": "Michelle Banks",
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
         },
         {
           "entity": "p:karen.harris",
           "surface": "Karen Harris",
+          "kind": "person"
+        },
+        {
+          "entity": "p:michelle.banks",
+          "surface": "Michelle Banks",
           "kind": "person"
         },
         {
@@ -142,7 +151,7 @@
         }
       ],
       "target_words": 600,
-      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in medium sentences. You habitually: keeps paragraphs to two or three sentences; prefers numbered lists over bullet points. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms.",
+      "guidance": "Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis.",
       "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 4 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
       "firm_digest": "",
       "reporting_line": ""
@@ -158,7 +167,7 @@
           "name": "Karen Harris",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+          "persona": "Karen Harris works on assumption analysis and the supporting tables for experience studies, and she is quick to spot a spreadsheet formula that does not tie out. Her writing is crisp and to the point, in paragraphs rather than lists, with the conclusion stated first and the reasoning after it. She is cautious about scope and will say plainly when a question goes beyond what the data provided can support."
         }
       ],
       "participants": [
@@ -167,14 +176,21 @@
           "name": "Karen Harris",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+          "persona": "Karen Harris works on assumption analysis and the supporting tables for experience studies, and she is quick to spot a spreadsheet formula that does not tie out. Her writing is crisp and to the point, in paragraphs rather than lists, with the conclusion stated first and the reasoning after it. She is cautious about scope and will say plainly when a question goes beyond what the data provided can support."
         },
         {
           "id": "p:michelle.banks",
           "name": "Michelle Banks",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+          "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
+        },
+        {
+          "id": "p:robert.lawrence",
+          "name": "Robert Lawrence",
+          "title": "Managing Actuary",
+          "dept": "Leadership",
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "engagement_summary": "Reinsurance Pricing Review for Gonzalez, Campbell and Kelly, running about 4 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -197,6 +213,11 @@
         {
           "entity": "p:michelle.banks",
           "surface": "Michelle Banks",
+          "kind": "person"
+        },
+        {
+          "entity": "p:robert.lawrence",
+          "surface": "Robert Lawrence",
           "kind": "person"
         },
         {

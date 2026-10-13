@@ -1,55 +1,55 @@
 {
   "schema_id": "orgsmith/enrichment-deliverable@1",
   "work_order_id": "wo:foundation:0001",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "personas": [
     {
       "person_id": "p:robert.lawrence",
-      "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+      "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
     },
     {
       "person_id": "p:jennifer.vasquez",
-      "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+      "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
     },
     {
       "person_id": "p:david.sherman",
-      "persona": "A methodical builder of valuation workbooks who can trace every number in an exhibit back to its source. He reconstructs client data files carefully and documents his reliance on them, flagging anything that looks off before it reaches a report. In email he is terse and precise, more interested in the tie-out than in the narrative around it."
+      "persona": "David Sherman builds and maintains the valuation models and is usually the person who finds the problem in a data file before anyone else does. He writes plainly and leads with the answer, then walks through the reconciliation as a numbered list so a client's staff can follow along and check his work. He is careful to say when a figure is preliminary or depends on data still outstanding, and he ends a message when the content runs out rather than with a flourish."
     },
     {
       "person_id": "p:jeffrey.ochoa",
-      "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+      "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
     },
     {
       "person_id": "p:megan.dudley",
-      "persona": "Works the exhibits and data checks under the senior analysts, still building the instinct for when a number deserves a second look. She is careful and literal in writing, more at ease reporting what she measured than what it means. She asks a lot of clarifying questions, which at this firm is treated as a virtue rather than a nuisance."
+      "persona": "Megan Dudley handles much of the routine correspondence with client staff about census files, benefit elections, and missing records, and she is patient with people who are not actuaries. She writes in full paragraphs rather than lists, explaining an inconsistency in the data in ordinary language and noting what the firm will assume if a correction does not come back. Her messages are friendly without being casual, and each one ends by naming the single thing she needs next."
     },
     {
       "person_id": "p:carol.cooper",
-      "persona": "Keeps engagements moving: letters out the door, data requests tracked, deliverables scheduled against the clients' board calendars. Her administrative email is crisp and unhedged, a deliberate contrast to the heavily qualified prose of the actuarial work. She can tell you the status of any open engagement without having to look it up."
+      "persona": "Carol Cooper keeps the practice running: engagement letters, invoicing, scheduling, file retention, and the steady traffic of data requests between the actuaries and client offices. She has no patience for actuarial jargon and writes in long, plain, practical sentences that lead with what has been decided and then lay out the logistics behind it. Her notes nearly always finish by telling the reader exactly what she will do next or what she is still waiting on from them."
     },
     {
       "person_id": "p:linda.hanna",
-      "persona": "Runs the operational side of client engagements and much of the firm's correspondence with client staff. Her email is brisk and well organized, focused on files, dates, and who owes what to whom. She shares a surname with a colleague in another part of the firm and never remarks on it, the way people at a small shop simply do not."
+      "persona": "Linda Hanna manages the practice's operations, from engagement paperwork and billing to tracking which client files have arrived and which are still outstanding. Her writing is warm but brief, short sentences in short paragraphs, and she always gives the reason for a request before she makes it. She is the one who notices when a report deadline and a data delivery do not line up, and she raises it early and kindly."
     },
     {
       "person_id": "p:jennifer.johnson",
-      "persona": "An early-career associate rotating through valuation support and data preparation. She writes carefully and checks before assuming, still learning how much qualification a given sentence needs to carry. She is reliable on the mechanical parts of an engagement and plainly eager to understand the judgment behind them."
+      "persona": "Jennifer Johnson works on valuation support and the year-over-year reconciliation of census data, the unglamorous checking that the opinions rest on. She writes in orderly paragraphs instead of bullet points, short sentences with the conclusion first, and she keeps what she observed in the data apart from anything she had to assume. She is exam-minded and exact about terminology, and tends to name the specific standard or plan provision behind a choice rather than leave it implied."
     },
     {
       "person_id": "p:amanda.white",
-      "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+      "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
     },
     {
       "person_id": "p:michelle.banks",
-      "persona": "Handles data intake and preliminary calculations on client engagements. She is precise and unhurried, more likely to note an open question than to guess at its answer. She is comfortable inside a workbook and steadily gaining fluency in the careful language of the reports."
+      "persona": "Michelle Banks does much of the data validation and benefit calculation work, and she is the associate most comfortable explaining a plan provision to a fund administrator over email. She writes plainly, in short paragraphs of medium-length sentences, and when several items are open she numbers them so replies can refer back to each one. She qualifies her statements carefully and will not round off an uncertainty just to make a message shorter."
     },
     {
       "person_id": "p:karen.harris",
-      "persona": "Works across engagements on exhibit preparation and assumption tables. She writes short literal notes and defers the interpretation upward, consistent with an associate still earning the judgment calls. She is careful about reliance on client data and about saying only what she can actually support."
+      "persona": "Karen Harris works on assumption analysis and the supporting tables for experience studies, and she is quick to spot a spreadsheet formula that does not tie out. Her writing is crisp and to the point, in paragraphs rather than lists, with the conclusion stated first and the reasoning after it. She is cautious about scope and will say plainly when a question goes beyond what the data provided can support."
     },
     {
       "person_id": "p:nicole.hanna",
-      "persona": "An actuarial associate on the consulting bench, working valuation support and data checks. Her notes are factual and measured, distinguishing what she found from what she assumed. She shares a surname with a colleague elsewhere in the firm and, like the firm itself, treats it as entirely unremarkable."
+      "persona": "Nicole Hanna supports the valuation team with data intake, file checks, and first drafts of exhibits, and she follows the firm's language for qualifications and data reliance closely. She writes crisply, in short sentences and brief paragraphs, with the answer up front and the supporting detail after. When something in a file does not reconcile she reports exactly what she found and leaves the interpretation to the reviewing actuary."
     }
   ]
 }

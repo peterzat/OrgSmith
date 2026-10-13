@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0007",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -12,34 +12,31 @@
       "blocks": [
         {
           "kind": "paragraph",
-          "text": "To: Barbara Hall\nCc: Jeffrey Ochoa, Megan Dudley"
-        },
-        {
-          "kind": "paragraph",
           "text": "Good morning Barbara,"
         },
         {
           "kind": "paragraph",
-          "text": "The census extract your office sent over loaded without trouble, and the active count ties to your summary. We can build the study on this file. A small number of records need a definition from your side before we rely on them, and I have set those out below."
+          "text": "To close out the reconciliation question below: the status history now ties to the year-end census for every year of the study period except the first. We can begin the termination and retirement tabulations on the years that tie, and add the first year once one coding question is settled."
         },
         {
           "kind": "paragraph",
-          "text": "Megan Dudley reconciled the file against the Estes Group payroll register yesterday, and the two agree line for line except for one group. A handful of participants carry a status code we cannot read with confidence. A study is only as sound as the census beneath it, so we would like the reading confirmed before we treat those records as final. The {{fact:f:E-2019-001.client}} data are otherwise clean."
+          "text": "For your staff's reference, the reconciliation ran as follows."
         },
         {
           "kind": "paragraph",
-          "text": "Before we close out the census, could your office confirm the following:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Whether the flagged status code marks deferred vested participants or terminations with no vested benefit.",
-            "Whether the mid-year rehires should keep their original hire dates, or the later ones, for the service count."
-          ]
+          "text": "1. We took each year-end census and rolled its active count forward to the next year-end, using the status changes recorded in the history file."
         },
         {
           "kind": "paragraph",
-          "text": "Nothing on the assumptions is settled, and you will see that work before any result depends on it. Jeffrey Ochoa is building the model in parallel, so these two confirmations are the only items holding up the next step. Once they are settled, Megan Dudley closes the census and we move on to the experience counts."
+          "text": "2. For every year after the first, the rolled-forward count agrees with the following census once the rehires flagged in the file are counted back in as actives."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. In the first year, a group of records leaves the active census with no status change recorded. Most of the same people reappear that year under a new employee number, which points to internal transfers rather than terminations. The file itself does not say so."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Could someone in your benefits area confirm whether those records are transfers and, if they are, send the old and new employee number for each person? Until we have that, we will hold them out of the first-year termination counts instead of treating them as withdrawals, and the {{fact:f:E-2019-001.client}} data summary will describe that treatment. Any first-year rate we show before then is preliminary."
         },
         {
           "kind": "paragraph",
@@ -53,61 +50,119 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Present",
+          "text": "Experience Study Working Session: Minutes",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Experience study for {{fact:f:E-2019-001.client}}. Working session held by conference call, with the first tabulations circulated to attendees the day before."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We met to settle the data the study relies on and to take a first look at the plan's experience. Recommended assumptions were not on the agenda. They follow once the tabulations are final, and nothing recorded here should be read as one. The study is being performed under ASOP No. 35, which governs the selection of demographic assumptions."
+        },
+        {
+          "kind": "heading",
+          "text": "Attendees",
           "level": 2
         },
         {
           "kind": "list",
           "items": [
-            "Megan Dudley, Actuarial Associate",
+            "Barbara Hall, Chief Operating Officer, {{fact:f:E-2019-001.client}}",
+            "Robert Lawrence, Managing Actuary",
             "David Sherman, Senior Analyst",
             "Jeffrey Ochoa, Actuarial Analyst",
-            "Barbara Hall, Chief Operating Officer, Estes Group"
+            "Megan Dudley, Actuarial Associate"
           ]
         },
         {
           "kind": "heading",
-          "text": "Notes from the session",
+          "text": "Data relied on",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "We met to bring Barbara Hall current on where the experience study stands and to work through the handful of questions that had come up as we assembled the data. Most of the hour went to the census, which is the part of the work everything else rests on, and the balance to a shared understanding of what the study will and will not be able to tell the board once it is finished."
+          "text": "We started with the data, since every rate in the study rests on it. David Sherman reported that the status history now ties to the year-end census in every year of the study period. The last open item had been the group of first-year records that left the active census with no recorded change of status. Barbara Hall confirmed that they were internal transfers, which the payroll system had entered as new hires under new employee numbers. Her staff sent the old and new numbers, Megan Dudley linked them, and David reran the reconciliation. It holds."
         },
         {
           "kind": "paragraph",
-          "text": "David Sherman walked us through the reconciliation. The membership file now ties to the Estes Group payroll records within a small and explainable margin, and the exposures we need in order to count who was at risk of retiring, terminating, or dying in each year of the study period are nearly built. He was candid that a study reads only as well as the data underneath it, and that a few records still carry status codes we want confirmed before we treat the counts as final. None of this is unusual for a first study, and none of it changes the shape of the work; it simply means we hold a small number of participants open a little longer."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jeffrey Ochoa then explained, for Barbara's benefit, how an experience study actually works. For each assumption the plan relies on, we compare what the {{fact:f:E-2019-001.client}} membership actually did over the study period against what the current assumptions predicted, and the relationship between the two is what tells us whether an assumption still fits. He was careful to frame this as measurement rather than judgment. We are counting actual against expected now; whether to recommend a change, and how large a change the data can support, comes later and belongs to the signing actuary."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We also settled, at least in outline, which assumptions the study will speak to. Retirement and termination are where the membership gives us the most to work with, so they will carry the most weight. Mortality we will look at with the plan's size in mind, expecting to lean on a published table adjusted for whatever partial signal the data provide rather than on the plan's own experience alone. Salary increases we will study from the payroll history David has already assembled. Barbara did not need the technical detail, but she wanted to know where our judgment would enter, and we were straight with her that it enters at the end, once the counting is done and we can see which assumptions the data actually quarrel with."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Barbara also raised the questions the board is likely to raise, which was useful to hear this early. She asked whether an earlier benefit change might distort the retirement pattern we are studying, and whether the smaller membership groups would carry enough experience to support any conclusion about them. We agreed that both concerns are real, that we would flag the affected years rather than blend them silently, and that where a group is too thin to stand on its own we will say so plainly instead of dressing up a weak result."
+          "text": "Megan raised a smaller point. A few retiree records have no date of birth. Barbara expects the benefits office can supply the dates from the original retirement applications. Megan set out what we will do if it cannot. Those records will be left out of the mortality tabulation. They will not be given an assumed age, and the study will say how many were left out."
         },
         {
           "kind": "heading",
-          "text": "What we each agreed to do",
+          "text": "First look at the experience",
           "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jeffrey Ochoa took us through the tabulations. Each one compares the terminations, retirements or deaths the plan actually recorded with the number the current assumptions would have predicted. He kept the observed results apart from anything we might later recommend, and these minutes keep the same line."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On terminations, the data show more departures than expected in the first years of service and fewer than expected after that. On retirements, the counts run below expected in the early retirement window and close to expected at older ages. On mortality, the plan recorded fewer retiree deaths than the current table predicts."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Barbara asked whether the early-service result might come from a single unusual hiring year and not from a lasting pattern. It might. Jeffrey will split those results by year of hire before we draw anything from them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our view at this stage is limited. The plan's own experience is not large enough to set every rate by itself, and the mortality result rests on few deaths. Where the data are thin we will weight them against a published table, as ASOP No. 25 provides. The report will show the weight given, so that it can be checked."
+        },
+        {
+          "kind": "heading",
+          "text": "Agreed actions",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The draft recommendations depend on each of these items. We have listed them in the order they need to be done."
         },
         {
           "kind": "table",
-          "header": ["Owner", "Action", "Timing"],
+          "header": [
+            "No.",
+            "Action",
+            "Owner",
+            "Timing"
+          ],
           "rows": [
-            ["David Sherman", "Close out the census once Estes Group confirms the flagged status codes.", "Before the next working session"],
-            ["Jeffrey Ochoa", "Complete the actual-to-expected counts for retirement and termination across the study period.", "Next two weeks"],
-            ["Megan Dudley", "Circulate these minutes and gather the open data questions for the client in one place.", "This week"],
-            ["Barbara Hall", "Confirm the flagged status codes and check the timing of the earlier benefit change against Estes Group's records.", "As available"]
+            [
+              "1",
+              "Supply dates of birth for the retiree records that lack them",
+              "Barbara Hall",
+              "Within two weeks"
+            ],
+            [
+              "2",
+              "Rerun the mortality tabulation with those dates, or on the stated exclusion if they do not come",
+              "Megan Dudley",
+              "On receipt, or when the two weeks have passed"
+            ],
+            [
+              "3",
+              "Split early-service terminations by year of hire",
+              "Jeffrey Ochoa",
+              "Before the status report"
+            ],
+            [
+              "4",
+              "Issue the data summary, covering the transfer linkage and every record excluded",
+              "David Sherman",
+              "Before the status report"
+            ],
+            [
+              "5",
+              "Review the tabulations and the credibility approach before any recommendation is drafted",
+              "Robert Lawrence",
+              "Once items 3 and 4 are done"
+            ]
           ]
         },
         {
           "kind": "paragraph",
-          "text": "Our next step is a simple one. Once Barbara confirms the open status codes, David closes the census and Jeffrey runs the first full set of actual-against-expected counts, and that is what we will walk through together when we next meet."
+          "text": "Our thanks to Barbara and her staff for turning the transfer question around so quickly. We would ask for any corrections to these minutes before the draft recommendations go out, so that the minutes and the recommendations rest on the same account of the data."
         }
       ]
     },
@@ -116,96 +171,167 @@
       "doc_id": "d:0038",
       "blocks": [
         {
+          "kind": "heading",
+          "text": "Experience Study: Status at the Midpoint",
+          "level": 1
+        },
+        {
           "kind": "paragraph",
-          "text": "Prepared by: David Sherman, Senior Analyst\nEngagement: Experience Study for Estes Group"
+          "text": "For {{fact:f:E-2019-001.client}}. Prepared by David Sherman, Senior Analyst. The study is at its midpoint. This report sets out the work done so far and what remains, and it makes no recommendation on any assumption."
         },
         {
           "kind": "heading",
-          "text": "Where the study stands",
+          "text": "In Brief",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The study is on schedule and within budget, and the work has moved past the data phase into measurement. We have a reconciled membership file, the exposures needed to count experience year by year are built, and we have begun setting what the {{fact:f:E-2019-001.client}} membership actually did against what the plan's current assumptions predicted. No result is final, and none should be read as a recommendation yet. At this stage we are counting, not concluding."
+          "text": "The data work for terminations, retirements and mortality is finished. The status history reconciles to the census in every year of the study period, and the experience for each of the three has been tabulated against the current assumptions. No assumption has yet been recommended. The study is on schedule and within budget."
         },
         {
           "kind": "paragraph",
-          "text": "Nothing seen so far suggests the study will be other than routine. The data are sound enough to build on, the open items are the ordinary ones a first study turns up, and the schedule leaves room for the review the results will need before anyone signs them. We would tell you if that read changed; as of this report it has not."
+          "text": "One piece of data is still outstanding. The salary increase analysis needs the pay history for the earliest years of the study period, which we requested in the data summary. That analysis cannot start until the history arrives, and it is the item most likely to affect the schedule."
         },
         {
           "kind": "heading",
-          "text": "Completed this period",
+          "text": "Work Completed This Period",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The period went mostly to putting the data beyond argument and building the machinery that turns it into experience counts. In order:"
+          "text": "1. We reconciled the status history to the year-end census for every year of the study period. The last gap, a group of internal transfers that payroll had recorded as new hires, closed when Megan Dudley linked the old and new employee numbers your staff supplied."
         },
         {
-          "kind": "list",
-          "items": [
-            "Megan Dudley reconciled the membership file against the plan's payroll and prior records, and it now ties within a small, documented margin.",
-            "We built the exposure tables that count, for each year of the study period, who was at risk of retiring, terminating, or dying, so that every rate we later report rests on a denominator a reader can trace.",
-            "Jeffrey Ochoa completed the first pass of the retirement and termination counts and began setting them against the counts expected under the current assumptions.",
-            "We assembled the salary history needed to study pay increases from the same payroll records, rather than a separate file, so the two cannot drift apart."
+          "kind": "paragraph",
+          "text": "2. We received dates of birth for all but a few of the retiree records that lacked them. As agreed at the working session, the remaining records are excluded from the mortality tabulation, and the data summary lists each one."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. We issued the data summary. It records every change made to the files, the source of each change, and every record excluded."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. Jeffrey Ochoa split the early-service termination results by year of hire. The higher rate of departure appears in each hiring year, not in one, so it does not look like the effect of a single unusual year."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. Robert Lawrence reviewed the tabulations and the approach to credibility. Drafting of the recommendations can begin."
+        },
+        {
+          "kind": "heading",
+          "text": "Observed Experience",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The table compares the experience the plan recorded with what the current assumptions predicted. These are measurements. None of them is a recommendation, and none should be read as a decision to change a rate."
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Decrement",
+            "What the data show",
+            "Credibility of the plan's own data"
+          ],
+          "rows": [
+            [
+              "Terminations",
+              "More departures than expected in the first years of service and fewer than expected after that. The pattern holds in each hiring year.",
+              "Adequate in the early service years; thinner at longer service"
+            ],
+            [
+              "Retirements",
+              "Fewer than expected in the early retirement window; close to expected at older ages",
+              "Adequate at the ages where most retirements occur"
+            ],
+            [
+              "Mortality",
+              "Fewer retiree deaths than the current table predicts",
+              "Limited; the number of deaths is small"
+            ]
           ]
         },
         {
           "kind": "heading",
-          "text": "Data and our reliance on it",
+          "text": "What We Have Assumed",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "A study of this kind is only as sound as the census beneath it, and we treat the data accordingly. We do not audit what the plan provides; we reconcile it, check it against the prior records and the payroll, and document what we relied on. A small number of participant records still carry status codes we have asked the client to confirm. Until they are confirmed, we are holding those participants out of the counts rather than guessing at their status. This is the same discipline we apply to every figure in the study: what the data show, what we have assumed, and what we conclude are kept apart, so a reader can always see which of the three a number rests on. The count of held records is too small to move the study, but we would report it to you all the same."
+          "text": "We have relied on the census, the status history and the benefit records as your staff provided them. We reviewed them for consistency and completeness, as ASOP No. 23 requires, but we have not audited them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three treatments in the tabulations are our choices, not facts in the data, and the report will state each of them. Transferred employees are carried as continuing service. Rehired employees re-enter the active group from the date of rehire. Retiree records without a date of birth are left out instead of being given an assumed age."
         },
         {
           "kind": "heading",
-          "text": "The work ahead",
+          "text": "Budget",
           "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The second half of the study is measurement first and judgment after it:"
+          "text": "Time charged through the midpoint is consistent with the fee of {{fact:f:E-2019-001.fee}} set out in the engagement letter, and we do not expect the remaining work to exceed it. If the pay history needs a second request or substantial correction, the added work could affect that expectation. We will raise it with you before that work begins."
         },
         {
-          "kind": "list",
-          "items": [
-            "Complete the actual-to-expected counts for every decrement the study covers, adding mortality and disability to retirement and termination.",
-            "Weigh each result for credibility, since several of the smaller membership groups will not carry enough experience to support a firm conclusion on their own.",
-            "Draft, for the signing actuary's review, the assumptions the data support changing and those it does not. The recommendation is the actuary's to make and to sign; our task is to lay the evidence in front of it.",
-            "Prepare the exhibits and the written study so that a reader can trace each recommended rate back to the counts behind it."
+          "kind": "heading",
+          "text": "Work Remaining",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. The salary increase analysis, once the pay history for the earliest years arrives. David Sherman will lead it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Draft recommended assumptions for termination, retirement and mortality. Jeffrey Ochoa will prepare them, with the basis for each and the weight given to the plan's own experience. The mortality recommendation will also address future improvement, measured against the MP-2018 scale the Society of Actuaries published last October."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. A working session with your staff to go through the draft recommendations before the report is written."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. The draft report, followed by the final report once your comments are addressed. Robert Lawrence will sign the final report."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Risk",
+            "Effect if it occurs",
+            "How we will handle it"
+          ],
+          "rows": [
+            [
+              "The pay history for the earliest years is late or incomplete",
+              "The salary increase analysis would cover a shorter period",
+              "Proceed on the years available and state the shorter period in the report"
+            ],
+            [
+              "Mortality experience remains thin",
+              "The plan's own deaths cannot set the mortality rates alone",
+              "Weight the plan's experience against a published table and show the weight given"
+            ],
+            [
+              "A data correction arrives after the data summary",
+              "The affected tabulations would need to be rerun",
+              "Tell you before any rerun changes the schedule"
+            ],
+            [
+              "A change to retirement eligibility is under consideration",
+              "Past retirement experience would be a weaker guide to future rates",
+              "Ask that you tell us of any such change now, so the recommendations can address it"
+            ]
           ]
         },
         {
-          "kind": "heading",
-          "text": "Fees",
-          "level": 2
-        },
-        {
           "kind": "paragraph",
-          "text": "The study is being performed for the fixed fee of {{fact:f:E-2019-001.fee}}, and the work billed to date is consistent with that budget. We do not foresee anything that would require a change to it. Should the open data questions grow into something larger than the routine cleanup we expect, we would come to you for agreement before taking on the extra work."
-        },
-        {
-          "kind": "heading",
-          "text": "Risks we are watching",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "Three things could affect the timing or the reach of the study. None is serious as matters stand:"
-        },
-        {
-          "kind": "list",
-          "items": [
-            "The open status codes. If the client's confirmation is slow, the final counts wait on it, though the exposure work continues in the meantime.",
-            "Credibility of the smaller groups. Where a group is too small to speak for itself, we will say so plainly instead of presenting a thin result as if it were firm. This narrows what the study can conclude for those groups; it does not delay the study.",
-            "The membership's overall size. For assumptions such as mortality, the plan's own experience will likely need to be read alongside a published table rather than on its own, and we will be explicit wherever we have done so."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "We will send the next report once the actual-to-expected counts are complete across all decrements, at which point we can show you where the data and the current assumptions agree and where they part. Until then I remain the point of contact for the study, and a note to me reaches the whole team."
+          "text": "Megan Dudley will continue to handle data questions with your benefits staff. For anything in this report, please contact me directly. Questions about the tabulations themselves are best put to Jeffrey Ochoa."
         }
       ]
     }

@@ -2,9 +2,84 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "hollowell-ip",
   "dimension": "finance_realism",
-  "findings": [],
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-1",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": [
+        "d:0043",
+        "d:0051"
+      ],
+      "summary": "A US-only trademark clearance of one proposed name carries a $48,000 fixed fee, an order of magnitude above what clearance work is billed at and more than the firm charges for a full patent licensing diligence.",
+      "evidence": "d:0043 scopes the work to 'whether the name it proposes to adopt can be used and registered as a trademark in the United States', excludes 'The charges of the commercial search provider and any official fees', and sets 'a fixed fee of $48,000' (f:E-2024-001.fee) over 'about four months'; d:0051 repeats the $48,000 fixed fee. Attorney fees for reviewing a US full search and writing a clearance opinion on a mark usually run in the low thousands of dollars. The same firm bills $41,000 (d:0054) for licensing diligence covering title, maintenance, file histories and claim charts across a whole patent portfolio, and $39,500 (d:0030) for five months of prosecution across several applications, so the name check is the third-largest fee in the book, behind only the $120,000 portfolio review and the $113,500 FTO. The later references to several 'candidate marks' (d:0049, d:0050) narrow the gap but do not close it."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-2",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": [
+        "d:0001",
+        "d:0041",
+        "d:0053"
+      ],
+      "summary": "Travel runs at 6-8% of fees, about $20,000 per head a year, and exceeds Office & Facilities in FY2023 and FY2024: a consulting firm's travel line on a desk-bound patent prosecution boutique.",
+      "evidence": "FY2017 Financial Summary: Travel 100,330 on revenue 1,320,000 (7.6%) for a five-person firm. FY2023: Travel 169,160 against Office & Facilities 156,100 (8.1% of revenue). FY2024: Travel 159,150 against Office & Facilities 156,100. The corpus describes a practice that works from its desks: client working sessions are 'held by video conference' (d:0022, d:0024, d:0050), examiner interviews are settled 'by telephone' (d:0042), and no document has anyone travel. Law-firm travel is typically a low single-digit share of fees and well under occupancy. The level comes from the fleet-wide anchor ('Travel', 0.09) in _EXPENSE_CATEGORIES in orgsmith/fabric/finance.py, calibrated on a generic professional-services P&L rather than on this sector."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-3",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0014",
+        "d:0027",
+        "d:0036"
+      ],
+      "summary": "Travel collapses in FY2020 and then comes back above its pre-pandemic level in FY2021, a year in which a firm like this was still mostly not traveling.",
+      "evidence": "Travel: FY2019 104,470; FY2020 18,110; FY2021 107,590 (103% of FY2019); FY2022 116,990. The recipe declares an era shock for 2020 only (finance.era_shocks, travel 0.2), and the engine returns the following year to trend by design, so 2021 snaps straight back. The corpus's own early-2021 onboarding records set new hires up with a 'laptop, remote access' (d:0028, d:0029), and US business travel through 2021 stayed far below its 2019 level."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-4",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0001",
+        "d:0003",
+        "d:0014",
+        "d:0027",
+        "d:0036",
+        "d:0040",
+        "d:0041",
+        "d:0053"
+      ],
+      "summary": "Every financial summary labels the firm's only revenue line 'Consulting revenue', a term a patent law PLLC would not use for its legal fees.",
+      "evidence": "Row 4 of each FY workbook, e.g. FY2020 Financial Summary: 'Consulting revenue | 411210 | 335576 | 374051 | 484163'. A law firm books fee revenue or professional fees; 'consulting' is another sector's word on the line a reader looks at first. The label is hard-coded for the whole fleet at orgsmith/render/xlsx.py:61 (sheet.write(3, 0, \"Consulting revenue\"))."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:finance-5",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0001",
+        "d:0003",
+        "d:0014",
+        "d:0027",
+        "d:0036",
+        "d:0040",
+        "d:0041",
+        "d:0053"
+      ],
+      "summary": "Office & Facilities repeats to the dollar for four years running, twice, which reads as a plug figure rather than an occupancy line.",
+      "evidence": "Office & Facilities is 134,900 in FY2017, FY2018, FY2019 and FY2020, then 156,100 in FY2021, FY2022, FY2023 and FY2024. A lease that steps on renewal is the right shape, but office leases usually carry annual escalators, and a line that also holds utilities, repairs and supplies does not repeat to the dollar while headcount grows inside each term (five to six, then seven to nine). FY2017 also matches FY2018 exactly although foundation.json dates the move into the current office to 2017-04-15, so FY2017 should carry a partial year or moving costs."
+    }
+  ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

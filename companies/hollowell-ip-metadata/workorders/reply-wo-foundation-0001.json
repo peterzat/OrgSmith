@@ -1,47 +1,47 @@
 {
   "schema_id": "orgsmith/enrichment-deliverable@1",
   "work_order_id": "wo:foundation:0001",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "personas": [
     {
       "person_id": "p:mary.bradley",
-      "persona": "Sets the firm's writing culture and owns the decisions the narrative treats as unabsorbable: scope, conflicts, and when to decline a matter. She insists that anything a client reads carry full names and titles, and she signs client-facing documents formally even where colleagues use a shorter first name for her around the office. Her own prose is spare and deliberate; she edits certainty out of a memo and treats an unqualified sentence as a liability."
+      "persona": "Runs the firm the way she reviews a claim set: every word has to earn its place, and nothing goes to a client without her knowing who owns the next deadline. Her engagement letters are blunt about scope, conflicts, and nonpayment because she has seen what vagueness costs a small practice. In writing she is formal and economical, prefers a qualified sentence to a confident one, and closes internal notes with a short list of who does what."
     },
     {
       "person_id": "p:heather.munoz",
-      "persona": "A prosecution partner who carries portfolio work and reviews it family by family, in long, structured passes. She writes freedom-to-operate memoranda that hedge every conclusion and mark themselves privileged, and would never let 'this does not infringe' stand without qualification. Formal and exacting in anything a client reads, she is faster and blunter with associates, quick to redline a claim chart that overreaches."
+      "persona": "Leads prosecution strategy and is the partner clients call when an examiner's rejection reads worse than it is. She writes long, family-by-family portfolio reviews with numbered recommendations and a candid note on which continuations are worth the fees. Relaxed and quick in internal meetings, she becomes exacting on anything with her signature on it, and she will strike an unhedged conclusion from an associate's draft without comment."
     },
     {
       "person_id": "p:amanda.schwartz",
-      "persona": "A prosecution associate still settling into the firm's house style, drafting responses and claim amendments under a partner's review. Careful and literal, she leans toward over-qualifying rather than overstating, which is exactly the reflex this firm rewards. Her client updates are short and pinned to a docket number, and she confirms a date twice before anything leaves her outbox."
+      "persona": "A methodical associate who drafts office action responses with the examiner's own language quoted back and answered point by point. She keeps a running issues list for each matter and tends to open client emails with the docket number and the single decision she needs. Her prose is careful and slightly over-cited, the habit of someone who expects a partner to check every reference."
     },
     {
       "person_id": "p:kelly.snyder",
-      "persona": "A prosecution associate who handles the steady flow of office-action responses and portfolio upkeep. Organized and matter-of-fact, she writes to be understood by the docketing desk as much as by a client, keeping updates brief and anchored to the docket. She has absorbed the firm's allergy to overstatement and rarely commits to a conclusion she cannot footnote."
+      "persona": "Works mostly on the hardware startup matters and has a feel for founders who want the answer before the analysis. Her client updates are short and plain, with the caveats kept in a separate paragraph so they cannot be skimmed past. Internally she is the associate most likely to flag that a proposed filing strategy outruns a client's budget."
     },
     {
       "person_id": "p:sharon.woods",
-      "persona": "Keeper of the firm's religion, the docket. Nothing goes out and no deadline passes without routing through her, and she treats a missed date as the one mistake the practice cannot absorb. Her messages are terse, precise, and unsentimental, built from docket numbers and dates, with no patience for ambiguity about who owes what by when."
+      "persona": "Owns the docket and treats it as the firm's one unforgivable risk. She sends reminder notices in a fixed format, escalates without apology when an attorney has not confirmed a response date, and keeps her own reconciliation against the patent office records. Her writing is terse, procedural, and impossible to misread, and attorneys learn quickly that her deadlines are not suggestions."
     },
     {
       "person_id": "p:joseph.walker",
-      "persona": "A prosecution associate comfortable deep in a specification and file history, working the technical side alongside the agents. He writes cleanly and conservatively, defers to a partner on anything a client will read, and marks privileged work as privileged without being told. His voice is plain and unshowy, the register of someone who would rather be correct than quotable."
+      "persona": "An associate who gravitates toward the freedom-to-operate and validity work, where he is comfortable living inside qualified conclusions. His memoranda carry the privilege legend at the top, define their scope before saying anything else, and separate what the record shows from what remains uncertain. He writes in long, balanced sentences and is slow to commit to a bottom line without a partner's review."
     },
     {
       "person_id": "p:richard.henderson",
-      "persona": "A patent agent focused on drafting and prosecution before the office rather than client-facing counsel. He works deep in the technical detail and writes specifications and responses with an engineer's precision, leaving legal conclusions to the attorneys. His internal notes are dense and exact, and he flags anything touching infringement or validity up to a partner instead of opining himself."
+      "persona": "A patent agent with an engineer's instinct for mechanical and medical device claims, happiest working through drawings and prior art side by side. He drafts specifications that anticipate the obvious design-around and writes examiner interview summaries that are almost stenographic. In internal correspondence he is dry, concise, and inclined to answer a question with the relevant paragraph number."
     },
     {
       "person_id": "p:ashley.williams",
-      "persona": "A patent agent who prosecutes the firm's hardware-heavy matters and is fluent in the language of claims and drawings. Methodical and detail-obsessed, she keeps her work tightly scoped and hands anything resembling an opinion to counsel. Her writing is compact and neutral, built to survive a file wrapper rather than to persuade a reader."
+      "persona": "Handles much of the university licensing office's prosecution and is practiced at translating inventor disclosures into claim language a licensee can value. She is patient with academic inventors and firm with their timelines, and her notes to them are courteous but leave no room to miss a response date. Her technical writing is orderly, with headings that track the claim structure."
     },
     {
       "person_id": "p:matthew.parrish",
-      "persona": "A patent agent carrying a full prosecution docket, at home in office actions and examiner interviews. He is pragmatic and economical on the page, tracking every response against its docket number and never letting a deadline drift. He writes to the record rather than the reader, and routes the questions the firm treats as liabilities to the attorneys."
+      "persona": "The agent most often assigned to prior art searches and to the first pass at portfolio landscape tables. He works quickly, writes in clipped bullet points, and is candid in internal notes about where a search may have gaps. He leaves the client-facing polish to the attorneys and says so."
     },
     {
       "person_id": "p:david.chang",
-      "persona": "A patent agent grounded in the technical detail of the firm's device and hardware prosecution. Precise and understated, he drafts and amends claims with care and stays firmly inside the line between agent and attorney, escalating opinion work rather than venturing it. His prose is efficient and hedged by instinct, shaped by a practice that reads an unqualified statement as a risk."
+      "persona": "Focuses on electrical and embedded-systems inventions for the venture-backed hardware clients and is the one colleagues ask when a claim turns on how firmware actually behaves. He drafts tightly and prefers to resolve ambiguity with an examiner by phone before committing it to a written response. His emails are brief, technically exact, and careful never to state a legal conclusion that belongs to counsel."
     }
   ]
 }

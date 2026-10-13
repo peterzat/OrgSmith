@@ -2,70 +2,159 @@
   "schema_id": "orgsmith/review-findings@1",
   "slug": "ashcombe-advisory",
   "dimension": "cross_document_voice",
-  "generator": {"model": "claude-fable-5", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-1",
+      "id": "rf:cross_document_voice-1",
       "dimension": "cross_document_voice",
       "severity": "major",
-      "docs": [],
-      "summary": "Every author from Managing Partner to Office Manager writes in one literary register, built on the balanced antithesis and the aphoristic closing turn, so the corpus reads as one stylist wearing thirteen names.",
-      "evidence": "Hill: 'adjust the account with you, never around you' (d:0002). Macias: 'so the language sits on how they actually speak rather than on our guess at it' (d:0068). Le: 'a warm approach draws more candor than a cold one' (d:0085). Zimmerman: 'I would rather carry whichever you consider final than a number a reporter could check against the record' (d:0052). Even the office manager's badge-access note: 'I will take it up with the management office directly instead of leaving you waiting at the door' (d:0030)."
+      "docs": [
+        "d:0004",
+        "d:0021",
+        "d:0040",
+        "d:0047",
+        "d:0064",
+        "d:0077"
+      ],
+      "summary": "Six different engagement leads, 2017 to 2024, open their client threads with the same moves in the same order: the thread is declared the one place for status (five of six), then a 'where things stand' paragraph, then an ask for what is needed 'from your side' (usually counted), then a close of the form 'Once X, Y will Z'.",
+      "evidence": "d:0004 (Valenzuela 2017): 'I am starting this thread for status ... so that updates, questions, and approvals stay in one place.' / 'Where things stand:' / 'Three items from your side would help us finish this part of the work'. d:0021 (Morris 2018): 'I am starting this thread as the one place for status and approvals' / 'On progress,' / 'could you send us (1) ... and (2) ...' / 'Once we have both, Laura will start booking the first conversations.' d:0040 (Carter 2021): 'I wanted to set out where things stand and what we will need from your side ... Replies on this thread will keep the record in one place.' / 'Where things stand, in order:' / 'Once the letter is approved, Nancy will send you the release-day checklist'. d:0047 (Bradley 2022): 'I am opening this thread so that status, questions, and approvals ... all sit in one place.' / 'Here is where things stand.' / 'there are a couple of points where we need your help'. d:0064 (Macias 2023): 'I am starting this thread so that status and approvals ... sit in one place.' / 'Here is where things stand.' / 'Two things from your side would keep us on plan.' / 'Once that last interview is done, I will send you the first draft'. d:0077 (Rose 2024) drops the thread line and keeps the rest: 'Here is a short update on the reputation audit, and one request.' / 'Once we have it back, we will start scheduling the leadership interviews.' A house habit could explain the thread sentence (d:0034 mentions 'the practice of keeping each engagement's correspondence within its own thread'), but not six people with different style specs choosing the same four moves in the same order. The surface differs (Valenzuela's numbered list, Morris's inline (1)/(2)); the argument does not. No pair here reaches the report's 0.15 Jaccard table."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-2",
+      "id": "rf:cross_document_voice-2",
       "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": ["d:0003", "d:0039", "d:0046", "d:0063", "d:0076"],
-      "summary": "Five kickoff memos by five different authors across seven years reuse the same signature first-person asides; these are personal framing sentences, not form fields, so it reads as one generator rather than a memo template.",
-      "evidence": "'so nobody waits on a hand-off that was never assigned' (d:0003 Valenzuela 2017; verbatim d:0046 Bradley 2022; 'never made' variants d:0063 Macias, d:0076 Rose). 'None of that is new to us, but it is worth stating once at the start' (d:0003; near-verbatim d:0046, d:0063, d:0076). 'we log what we send so the record stays in order as the volume grows' (d:0003 and d:0046, verbatim). All five open the how-we-run section 'A word (first) on how we...' (d:0003, d:0039, d:0046, d:0063, d:0076)."
+      "severity": "minor",
+      "docs": [
+        "d:0003",
+        "d:0010",
+        "d:0020",
+        "d:0039",
+        "d:0052",
+        "d:0056",
+        "d:0063",
+        "d:0065",
+        "d:0067",
+        "d:0068",
+        "d:0073"
+      ],
+      "summary": "Five authors in three genres announce a count before the items ('three things', 'two things from your side'). It is the banned 'Two asks. First... Second...' opener coming back in different words.",
+      "evidence": "Kickoff memos: d:0003 (Valenzuela) 'By the end of the engagement we owe the company three things'; d:0020 (Morris) 'the company should come away with three things'; d:0063 (Macias) 'the leadership team should have three things. The first is a core narrative. The second is ...'; d:0039 (Carter) 'we are aiming for four things'. Mail: d:0010 (Valenzuela) 'I need three things from you'; d:0052 (Morris) 'three things from your side would help'; d:0065 (Morris) 'there are two things I would ask you to decide'; d:0067 (Morris) 'we need two things from you'; d:0068 (Macias) 'Three things have changed.' Status reports: d:0056 (Bradley) 'Three things from your team will keep the next few weeks moving.'; d:0073 (Macias) 'This report covers three things. First, what we have finished. Second, what comes next. Third, the risks ...'. John Macias's style spec explicitly bans \"'Two asks. First... Second...' as an opener\"; d:0073 is that construction with three items."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-3",
+      "id": "rf:cross_document_voice-3",
       "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": ["d:0004", "d:0021", "d:0040", "d:0047", "d:0064", "d:0077"],
-      "summary": "All six engagements' opening client emails, by six different authors from 2017 to 2024, run the same script: open the thread to keep updates in one place, log the contacts for the file, report 'we have made a start', promise a steady cadence, ask one question, offer a short call.",
-      "evidence": "'each note will be tied to the piece of work it concerns, so the thread stays easy to follow' appears verbatim in d:0004 (Valenzuela, 2017) and d:0064 (Macias, 2023). 'A short call works if that is easier than writing it out' closes d:0004, d:0040 (Carter), and d:0064, three authors. All six open with 'I am opening/starting this thread' or 'I wanted to open a thread' ... 'in one place'."
+      "severity": "minor",
+      "docs": [
+        "d:0003",
+        "d:0020",
+        "d:0039",
+        "d:0046",
+        "d:0063",
+        "d:0076"
+      ],
+      "summary": "All six kickoff memos, each by a different author, end the same way: they name the one item everything else waits on, then ask the team for additions or corrections before that item goes to the client contact.",
+      "evidence": "d:0003 (Valenzuela 2017): 'The interview list is the first item that has to move. Please send me any names you think belong on it by midweek, and I will send the list to Mary Frank as soon as I have them.' d:0020 (Morris 2018): 'If anything here does not match what you have heard from Lauren Heath ..., tell me before the information request goes out, since that request is the first document the company will see'. d:0039 (Carter 2021): 'Almost everything else waits on the approval route, so it comes first.' ... 'If anything here differs from what you heard on the kickoff call, please let me know today so I can correct it before it reaches Megan.' d:0046 (Bradley 2022): 'The materials request comes first, because the baseline and the fact base both depend on it. Please send me anything you would like added to it early this week. It goes to Sandra as soon as I have your additions.' d:0063 (Macias 2023): 'Everything starts with the source documents.' ... 'If the split looks wrong to anyone, tell me ... Otherwise, the document request goes to Jennifer on Monday'. d:0076 (Rose 2024): 'Before any of that, I will send Robert our document request today so his team can start gathering.'"
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-4",
+      "id": "rf:cross_document_voice-4",
       "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": ["d:0015", "d:0022", "d:0024", "d:0042", "d:0056"],
-      "summary": "First-person status-report narration recurs verbatim across different authors writing to different clients, past what a house report skeleton would explain; the metric flagged only d:0015/d:0024, but the pattern spans four authors.",
-      "evidence": "'The one thing I need from you next is your team's comments on the core narrative draft. With those in hand(,) the second half moves quickly' closes both d:0015 (Valenzuela, for Barrera) and d:0024 (Morris, for Castaneda) word for word. 'Three things are worth naming now, while each is still easy to manage/small... each has a plan sitting against it' opens the risk section in d:0015, d:0042 (Carter), and d:0056 (Bradley). The risk label 'A live announcement in the window' recurs in d:0015, d:0022, d:0024 across two engagements."
+      "severity": "minor",
+      "docs": [
+        "d:0015",
+        "d:0024",
+        "d:0029",
+        "d:0042",
+        "d:0056",
+        "d:0073",
+        "d:0086",
+        "d:0023",
+        "d:0027",
+        "d:0041",
+        "d:0044"
+      ],
+      "summary": "All seven status reports and three of the eight minutes open by stating, in nearly the same words, where they fall in the engagement ('at about the halfway point', 'at about its midpoint', 'in its later phase'), usually followed by 'on plan' or 'on schedule'. Eight authors write the same first sentence.",
+      "evidence": "Status reports, six of them under a 'Where the engagement/program/work/audit stands' heading: d:0015 (Valenzuela) 'We are at about the halfway point and on the schedule agreed at kickoff.'; d:0024 (Morris) 'We are at about the halfway point of the program'; d:0042 (Carter) 'reflects the engagement at about its midpoint. The work is on plan'; d:0056 (Bradley) 'The program is on track at roughly its halfway point.'; d:0073 (Macias) 'We are about halfway through the engagement, and the work is on plan.'; d:0086 (Rose) 'The audit has reached its midpoint on schedule and within scope.'; d:0029 (Morris) 'We are now in the final weeks of the program'. Minutes: d:0023 (Black) 'A working session at about the halfway point of the program.'; d:0041 (Hill) 'to review the engagement at about its midpoint'; d:0044 (Hill) 'the engagement is in its later phase'; d:0027 (Black) also says 'We are in the later part of the program'. These are the phase labels the engagement_position brief supplies ('around the midpoint', 'in the later phase'). d:0042 even schedules a review 'to be completed in the later phase of the engagement'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-5",
+      "id": "rf:cross_document_voice-5",
       "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": ["d:0005", "d:0047", "d:0052", "d:0065", "d:0068"],
-      "summary": "Every author works the client approver's full name into the email body with the same notarial 'For the file / For the record' device, addressing the correspondent by their own full name mid-message; the fact placement is mandated, but the identical workaround across eight authors is the voice leak.",
-      "evidence": "'For the file, final approval on the messaging sits with you, Mary Frank' (d:0005, Rose). 'For the record, I will treat approvals as yours to give, Sandra Mcdaniel' (d:0047, Bradley). 'For the record I have Sandra Mcdaniel as the sign-off on the financial lines' (d:0052, Zimmerman). 'For the file, sign-off on the Suarez-Jones messaging stays with you, Jennifer Herrera' (d:0068, Macias), each written to that same person."
+      "severity": "minor",
+      "docs": [
+        "d:0003",
+        "d:0014",
+        "d:0015",
+        "d:0063",
+        "d:0025",
+        "d:0034",
+        "d:0036",
+        "d:0028"
+      ],
+      "summary": "Other authors describe colleagues in the exact words of the foundation.json persona sheet, so the same stock epithet follows a person from document to document. It reads as if one writer were working from a character bible.",
+      "evidence": "Michelle Rose's persona: 'knows which reporters cover which clients and how each prefers to be approached'. Valenzuela d:0003: 'which reporters have covered it and how each prefers to be approached'; Hill d:0014: 'with notes on how each prefers to be approached'; Valenzuela d:0015: 'with a note on how each reporter prefers to be approached'. Michael Morris's persona: 'copies the whole team when a decision lands'. Macias's memo d:0063 states it as a ground rule: 'Michael copies the whole team when a decision lands'. Amy Carter's persona: 'Asks clarifying questions before she starts rather than after, which saves rounds of edits later'. Macias d:0063: 'Amy, the claims log will save us rounds of edits later'; Hill d:0025: 'preferably before she begins it; in our experience that habit saves a round of revisions'. Kimberly Le's persona: 'Prepares the short briefing notes advisors read on the way into a client call'. Hill d:0034: 'the short briefing notes our advisors read on the way into a client call', written a week after she joined. Nancy Suarez's persona: 'confirms each step as it happens'. Hill d:0036: 'The work depends on every step being confirmed as it happens'. Sandra Mcdonald's persona: 'the first to notice when two calendars disagree'. Hill d:0028: 'Where two calendars disagree, we would ask her to resolve the difference'."
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-6",
+      "id": "rf:cross_document_voice-6",
       "dimension": "cross_document_voice",
-      "severity": "major",
-      "docs": ["d:0007", "d:0015", "d:0022", "d:0073"],
-      "summary": "Distinctive personal asides recur nearly verbatim across different authors in unrelated genres years apart, which the same-genre similarity metric is structurally blind to.",
-      "evidence": "'It is unglamorous work, and we are rather proud of how well we do it' (d:0007, Hill, 2017 firm overview) against 'It is unglamorous work, and it is the reason a job this heavy on email has stayed legible' (d:0073, Macias, 2023 status report). 'read like the company speaking and not like an agency writing on its behalf' (d:0015, Valenzuela status report) against 'reads as the company speaking and not as an agency writing on its behalf' (d:0022, Morris briefing deck)."
+      "severity": "minor",
+      "docs": [
+        "d:0005",
+        "d:0010",
+        "d:0048",
+        "d:0051",
+        "d:0065",
+        "d:0066",
+        "d:0068",
+        "d:0070",
+        "d:0078",
+        "d:0006",
+        "d:0049",
+        "d:0079",
+        "d:0083"
+      ],
+      "summary": "In-thread replies use only two openers: 16 of the 28 replies in the four multi-message threads name the colleague's previous message in their first sentence, and 9 more start 'Thank you for ...'. All six reply authors use one or both.",
+      "evidence": "Relay openers: d:0005 (Hill) 'One addition to Daniel's list, if I may.'; d:0078 (Hill) 'One addition to Michelle's note'; d:0010 (Valenzuela) 'Following up on Julie's note from Monday'; d:0048 (Morris) 'Building on Laura's note'; d:0051 (Bradley) 'One more item to go with Michael's note.'; d:0065 (Morris) 'I want to add one point to John's note'; d:0066 (Macias) 'Following Michael's note'; d:0068 (Macias) 'Picking up from Michael's note on Friday'; d:0070 (Macias) 'Following Michael's list this morning'. In the Suarez-Jones thread (d:0065 to d:0071), every reply names the other colleague's message in its first sentence. Thank-you openers: d:0006 'Thank you for the call this morning.'; d:0049 'Thank you for the quick answers on the phone this morning.'; d:0079 'Thank you for walking through the list with us.'; d:0083 'Thank you for turning the note around so quickly.'"
     },
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:xvoice-7",
+      "id": "rf:cross_document_voice-7",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0005",
+        "d:0082",
+        "d:0057",
+        "d:0019",
+        "d:0087",
+        "d:0030"
+      ],
+      "summary": "The personas written as the corpus's outliers (Julie Hill's one-line replies, Christopher Walton's dry notes with no greeting, Kimberly Le's clipped fragments, Sandra Mcdonald's bodies of bare confirmations) all write the same complete, courteous paragraphs as everyone else.",
+      "evidence": "Hill's persona: 'Her replies run a line or two ... when she writes at length, something is wrong.' Her eight thread replies run 74 to 135 words in two or three paragraphs, most with a sentence explaining her reasoning: d:0005 'Questions of that kind are usually the clearest evidence of where the current description of the company leaves investors uncertain.'; d:0082 'which is accurate and, in our experience, far less likely to prompt an anxious call.' Walton's persona: 'Writes complete, dry sentences with no greeting and little sign-off.' d:0057 opens 'Hi John,', runs a 53-word first sentence ('Thank you for agreeing to take my turn on the holiday coverage rota, which puts you on ...'), and signs 'Sincerely'; d:0019 opens 'Hi Michael and Pamela,' and signs 'Sincerely'. Le's persona: 'Writes in clipped bullet fragments with the link or source first'. d:0087 is two paragraphs of full sentences: 'The building management office sent a notice this afternoon about the garage. I am passing it on because the three of us hold the firm's parking permits.' Mcdonald's persona: 'keeps the body to confirmations and next steps'. d:0030 takes 143 words to explain, including 'I would not want you to arrive at a locked door if you plan to come in while the front desk is unstaffed.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:cross_document_voice-8",
       "dimension": "cross_document_voice",
       "severity": "note",
-      "docs": [],
-      "summary": "The high-overlap pairs the metric flagged within Julie Hill's own genres read as legitimate self-template reuse, and the surface voice layer does differentiate: greetings, closings, and list habits track the style specs, and meeting minutes are the one genre with genuinely distinct voices.",
-      "evidence": "Engagement letters d:0002/d:0045/d:0061/d:0075 and onboarding records d:0034/d:0036/d:0060 are all authored by Hill, boilerplate genres a real principal would recycle. Macias opens 'Good morning Jennifer,' (d:0064), Zimmerman writes listless long paragraphs (d:0048), Morris numbers his lists (d:0024). Black's conversational minutes ('We were glad of that.', d:0027) against Suarez's procedural ones ('Nancy Suarez chaired and kept these minutes.', d:0041) are the corpus at its most multi-voiced."
+      "docs": [
+        "d:0048",
+        "d:0071",
+        "d:0006",
+        "d:0012",
+        "d:0008",
+        "d:0013",
+        "d:0002",
+        "d:0045"
+      ],
+      "summary": "The pairs the report flags read as personal habit or firm template rather than generator collapse, and sentence rhythm does vary believably by author. The shared voice in this corpus is in the rhetorical moves above, which none of the similarity metrics measure.",
+      "evidence": "Each of the structural-similarity top pairs except one has a single author: Morris d:0048/d:0071, d:0048/d:0050, d:0067/d:0069 (a context-setting sentence, then a numbered list, which fits his persona and spec); Valenzuela d:0006/d:0012 (numbered written confirmations, which fits 'confirms every verbal decision in writing'); Hill d:0008/d:0013 and d:0078/d:0084. The one cross-author pair, d:0019/d:0062 (Walton/Morris), shares the 'Hi ...' / 'Sincerely' frame that both their specs assign. The lone lexical pair, d:0002/d:0045, is Hill's own engagement-letter boilerplate ('These obligations do not extend to information that is or becomes public ...', 'We advise other companies'), which a firm would reuse. Surface rhythm does differ by author: Bradley's short notes with version labels ('the backgrounder (v3), the fact sheet (v2)'), Morris's long single-sentence setups, Hill's replies signed 'JH'."
     }
   ]
 }

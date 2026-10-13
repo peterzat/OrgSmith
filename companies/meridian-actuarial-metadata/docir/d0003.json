@@ -4,7 +4,34 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: David Sherman, Jeffrey Ochoa, Carol Cooper\nFrom: Jennifer Vasquez\nRe: Howard and Sons pension valuation",
+      "text": "To: David Sherman, Jeffrey Ochoa\nCc: Carol Cooper\nFrom: Jennifer Vasquez, Consulting Actuary\nRe: {{fact:f:E-2016-001.client}} pension valuation, opening plan",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The engagement began {{fact:f:E-2016-001.start}}. Our objective is a funding valuation of the {{fact:f:E-2016-001.client}} plan that rests on data we have checked, provisions we have confirmed, and assumptions we can defend in writing. No liability is run until the first two are settled.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Elizabeth Horne, Director of Operations, is our contact at the company. Every request to the client goes through her office, and every request goes in writing. If you need something from her staff, it goes on the request log first.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The deliverable keeps three things apart: what the data show, what we assumed, and what we conclude from both. Each is its own section, and the conclusions name the assumptions they depend on.",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,43 +40,7 @@
     },
     {
       "kind": "heading",
-      "text": "Objective",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "This memo sets the plan for the {{fact:f:E-2016-001.client}} pension valuation. The objective is a full actuarial valuation of the plan and a report the client's board can act on. The deliverables are the report and a workbook of exhibits that supports it.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The valuation measures the plan's liabilities and its funded position as of the valuation date, on the funding basis and the accounting basis. It is performed under the applicable Actuarial Standards of Practice. We keep measurement, assumption, and conclusion separate in the report, as we always do.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Our point of contact is Elizabeth Horne, Director of Operations. Data requests and scheduling go through her office. Client-facing questions come to me before they go to her.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Assignments",
+      "text": "Who Carries Each Piece",
       "level": 2,
       "items": [],
       "header": [],
@@ -61,27 +52,19 @@
       "text": "",
       "level": 1,
       "items": [
-        "Data. David Sherman reconstructs the participant census and the asset records, reconciles both, and documents our reliance. He ties the headcount and the assets to the prior year and to the client's own summaries, and flags any gap before anything is modeled.",
-        "Modeling. Jeffrey Ochoa builds the valuation model and prepares the assumption inputs for review: the interest rate, mortality, and the retirement and termination rates. He sets no assumption as final until it has been reviewed, and he traces any surprising result back to the input that produced it.",
-        "Client relationship. I hold the scope calls and the contact with Elizabeth Horne. I own the questions the board wants answered and the harder job of saying which of them the data can answer and which it cannot.",
-        "Scheduling. Carol Cooper tracks the data requests and the delivery date against the board's calendar, and keeps the open items visible so nothing waits on a request no one has sent."
+        "1. Data: David Sherman. Load the census exactly as received, then run the edit checks. That means missing or impossible dates, duplicate identifiers, pay outside a reasonable range, and status codes that disagree with the dates beside them. Reconcile counts by status to the prior valuation report. Every exception goes on the data log with its source and its resolution.",
+        "2. Plan provisions: Jeffrey Ochoa. Summarize the plan document and each amendment adopted since the prior valuation. Mark any provision the prior report describes differently from the document. Those differences come to me before anything goes to the client.",
+        "3. Assumption review: Jeffrey Ochoa. Compare the prior assumptions for retirement, termination, and pay increases with what the data show, where the data are large enough to show anything. Observed experience and recommended assumptions go in separate sections. A recommendation is a judgment and is labeled as one.",
+        "4. Valuation model: David Sherman. Code it from the provisions summary, not from the prior report. Test it against the prior valuation's published results before it is used for ours, and write down every difference you cannot close.",
+        "5. Administration: Carol Cooper. Confirm the countersigned letter is on file, open the engagement file and billing code, and set up the secure transfer site for client files. She also keeps the request log, so we know what has gone to the client and what has come back."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "heading",
-      "text": "What the Work Depends On",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "Two things gate the rest. The first is a clean confirmation of the plan provisions we are to value, against the current plan document. The second is complete census and asset data. Until both are in hand, we set assumptions provisionally and value nothing.",
+      "text": "Review follows the same order. I review the data log before the model is run, and the provisions summary before it is coded. Nothing goes to the client without my review, including data questions.",
       "level": 1,
       "items": [],
       "header": [],
@@ -90,7 +73,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Data quality is the usual risk on a first valuation for a client. Expect the census to need a pass for status codes and for participants whose records do not agree with the summary. We raise those with Elizabeth Horne early rather than carry them into the model.",
+      "text": "Any figure in a draft must trace to a file or a document. If it does not, mark it and say where the gap is.",
       "level": 1,
       "items": [],
       "header": [],
@@ -99,7 +82,7 @@
     },
     {
       "kind": "heading",
-      "text": "The First Two Weeks",
+      "text": "Opening Steps",
       "level": 2,
       "items": [],
       "header": [],
@@ -108,7 +91,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Work begins on {{fact:f:E-2016-001.start}}. I will send the data request to Elizabeth Horne this week. It will list the census fields and the asset statement we need, with the format we want them in.",
+      "text": "The schedule depends on when the census arrives, so the data request goes first. I want the first three of these done by the end of the week.",
       "level": 1,
       "items": [],
       "header": [],
@@ -116,17 +99,22 @@
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "David Sherman loads the census as soon as it arrives and reports any gap the same day. Jeffrey Ochoa drafts the assumption memo for my review before any assumption is treated as settled. We do not value the plan until the plan document and the data are both confirmed.",
+      "kind": "list",
+      "text": "",
       "level": 1,
-      "items": [],
+      "items": [
+        "1. David Sherman: the data request and preferred file layout, written for Elizabeth Horne's office. It should say plainly that files in their system's own format are acceptable.",
+        "2. Jeffrey Ochoa: a list of the plan documents we hold and the ones we still need, with the prior valuation report at the top.",
+        "3. Carol Cooper: the transfer site ready and tested before the request goes out, and the request entered on the log the day it is sent.",
+        "4. Me: a call with Elizabeth Horne once the request is out, to walk her staff through it."
+      ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
       "kind": "paragraph",
-      "text": "Carol Cooper will circulate the schedule once the data request is out, mapped to the board's meeting dates so the draft and the final report land where the board can use them.",
+      "text": "I will send the request once the first three are done and reviewed. From then until the data are closed, we meet weekly on the data log and the list of open questions.",
       "level": 1,
       "items": [],
       "header": [],

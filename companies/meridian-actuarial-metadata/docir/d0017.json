@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "paragraph",
-      "text": "To: Jennifer Vasquez, Consulting Actuary; David Sherman, Senior Analyst",
+      "text": "To: Jennifer Vasquez, David Sherman, Jennifer Johnson\nFrom: Megan Dudley\nRe: Getting started on the reserve adequacy review for {{fact:f:E-2017-001.client}}",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "From: Megan Dudley, Actuarial Associate",
+      "text": "Now that the engagement letter is signed and the work has formally begun as of {{fact:f:E-2017-001.start}}, I wanted to set down in one place what we have promised {{fact:f:E-2017-001.client}} and how we have agreed to share the work, so that we are all starting from the same picture. What the client has engaged us for is a single opinion: whether the reserves it carries are adequate as of the valuation date we settle with Michelle Hudson and her team. All of the work between now and the report is in service of that opinion, and the report will keep what the data show, what we assumed, and what we conclude in separate places. That is much easier to do at the end if we keep them separate in our own files from the first week.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Who is carrying what",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "David Sherman will build the reserve model, load each file as it arrives, and tie the reserve detail to the year-end financial records. Because he will see every file first, he is usually going to be the one who finds a problem in the data before the rest of us do, so a question about what a file contains should go to him before it goes anywhere else.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +40,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Re: Reserve adequacy review for {{fact:f:E-2017-001.client}}: where we are starting",
+      "text": "Jennifer Johnson is joining us to work with David on the reconciliation, which is the part of this review the opinion leans on most. She will take the comparison of the reserve detail with the prior year's figures, and she will keep a running note of every point where something had to be assumed to make the figures agree, along with the provision or standard behind each choice. Those notes will become the backbone of the data section of the report, so it is worth writing them as if someone outside the team will read them.",
       "level": 1,
       "items": [],
       "header": [],
@@ -31,7 +49,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The engagement is open as of {{fact:f:E-2017-001.start}}, and I wanted to put down in one place what we are setting out to do, so that we are all working from the same picture through these first weeks. The object of the review is a defensible opinion on whether the reserves {{fact:f:E-2017-001.client}} carries are adequate for the obligations behind them. Everything we do over the next several months is in service of that one question, and it helps to keep it in view while the work is still mostly setup.",
+      "text": "Jennifer Vasquez leads the review day to day and will take the assumption work herself: which of the client's assumptions are prescribed, which rest on judgment, and which of that second group we are prepared to support. She will review every exhibit before it leaves the office, and anything she cannot trace back to a source will come back to whoever built it.",
       "level": 1,
       "items": [],
       "header": [],
@@ -40,7 +58,25 @@
     },
     {
       "kind": "paragraph",
-      "text": "The first thing in front of us is the data. David Sherman will take the reserve files as they arrive and reconcile them against the client's own records before any of it feeds an exhibit, and he will write down what he is relying on rather than carry it in his head. Nothing gets built on a figure we have not tied out. If something in the files looks off, we flag it early and in writing, because a question raised now is far cheaper than a correction discovered later in the report.",
+      "text": "I will handle the correspondence with the client's staff, keep the request log, and draft the data section. Michelle Hudson, their Director of Operations, is our point of contact for everything to do with data, and the letter told her that requests would reach her through one person on our side. I would ask that questions for her team come through me, even the small ones, so that she is not hearing from four of us at once and we always know what is still open.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "The first weeks",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Almost all of the early work is about data. The itemized request goes out first. Once files begin to arrive, David Sherman loads them and he and Jennifer Johnson begin the reconciliation, while I log each one against the request and write back to Michelle Hudson about anything missing or inconsistent, with a note of what we will assume if a correction does not come back. Jennifer Vasquez can start on the assumption documentation as soon as it is in hand, since that piece does not need to wait for the reconciliation.",
       "level": 1,
       "items": [],
       "header": [],
@@ -49,7 +85,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Alongside that, we start pulling apart the assumptions behind the current reserves, keeping the ones that regulation fixes separate from the ones that rest on judgment, since those turn into two different conversations by the end. Jennifer Vasquez will steer the judgment calls and decide which of the client's questions the data can actually answer and which it cannot, and I will keep the working assumptions documented as we go, so the report can show plainly what we measured and what we assumed. Those are the two columns that keep an opinion like this honest, and it is easier to keep them apart from the start than to separate them afterward.",
+      "text": "None of this will produce a number anyone outside the team sees for some weeks yet, which is what we want at this stage. If something in the first files looks as though it could change the shape of the work, please say so early, and we will take it to Jennifer Vasquez together.",
       "level": 1,
       "items": [],
       "header": [],
@@ -58,25 +94,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Our point of contact at the client is Michelle Hudson, their Director of Operations, and the data requests run through her. I will keep a simple log of what we have asked for, what has arrived, and what is still outstanding, and I will circulate it so none of us has to guess where a file is. Anything that touches scope or fee goes back to Jennifer Vasquez rather than out from us directly, so the client hears one voice on those questions and not three.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "A word on how the review reads when it is done, because it shapes how we work now. The report will separate what the data show from what we assumed and from what we conclude, and it will name the Actuarial Standards of Practice it rests on. That structure is easier to build into the workpapers from the first week than to impose at the end, so as we go, please tag anything that is a judgment as a judgment and anything that is measured as measured. On timing, we have about seven months, and the front of that is the reconciliation; the analysis and the writing only move as fast as the data lets them, which is another reason to get the request out clean and early.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "For this week, the one thing I need from each of us is our part of the initial data request for Michelle Hudson, so we can send it as a single list rather than in pieces. Send me your items by Thursday and I will assemble the request for Jennifer Vasquez to review before it goes out.",
+      "text": "I will send round a draft of the data request tomorrow. The one thing I need from each of you is your comments on it by the middle of next week, so that it can go to Michelle Hudson in one piece.",
       "level": 1,
       "items": [],
       "header": [],

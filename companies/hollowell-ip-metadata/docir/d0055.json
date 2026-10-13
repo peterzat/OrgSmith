@@ -3,8 +3,8 @@
   "doc_id": "d:0055",
   "blocks": [
     {
-      "kind": "paragraph",
-      "text": "To: Richard Henderson\nFrom: David Chang\nRe: Kickoff -- Licensing Diligence for Price-Henson",
+      "kind": "heading",
+      "text": "Internal Memorandum",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,16 @@
     },
     {
       "kind": "paragraph",
-      "text": "This memo sets the plan for the licensing diligence we are opening for {{fact:f:E-2025-001.client}}. The engagement starts on {{fact:f:E-2025-001.start}} and runs about six months. Our job is to tell the client what the transaction actually buys them the right to practice, and where the patents and the license terms behind it leave them exposed. We are not drawing conclusions yet, and we should not be; the first weeks are about fixing scope and completing the document set, so that everything we build on top of it stands on something solid.",
+      "text": "To: Mary Bradley, Managing Partner; Richard Henderson, Patent Agent\nFrom: David Chang, Patent Agent\nRe: Licensing diligence for {{fact:f:E-2025-001.client}}, opening the matter",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Privileged and confidential. Attorney work product.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +31,43 @@
     },
     {
       "kind": "heading",
-      "text": "The Work",
+      "text": "What the Client Needs From Us",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "This engagement took effect on {{fact:f:E-2025-001.start}}. {{fact:f:E-2025-001.client}} is deciding whether to take a license to a third-party patent portfolio, and before it signs it wants to know what the licensed patents cover, whether the licensor holds clean title to them, and which of them are in force.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our contact at the client is Tiffany Munoz, Chief Financial Officer. The deliverable is a privileged memorandum signed by Mary Bradley, and Richard and I supply the record work and the claim charts behind it.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The fee is fixed and covers the patents on the schedule to the draft license as it stands. If the licensor adds patents, or the client asks for anything the engagement letter excludes, such as a validity opinion, Mary Bradley confirms it with the client in writing before any of us starts the work.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "How the Review Is Divided",
       "level": 2,
       "items": [],
       "header": [],
@@ -34,36 +79,20 @@
       "text": "",
       "level": 1,
       "items": [
-        "1. Fix the scope. I will turn the deal summary and the client's description of the transaction Price-Henson is evaluating into a written statement of exactly what we are clearing and what we are not, and we do not begin the substantive review until that statement is settled. A diligence report is only as good as the scope it runs against.",
-        "2. Assemble the document set. We pull the patents, the applications, and every license, assignment, and side letter that bears on the rights at issue, and we log in writing anything we are missing and put the request in while the set is still coming together.",
-        "3. Read and search. I will read the portfolio and chart the claims that matter against the transaction; you run the prior-art and freedom-to-operate searches and keep the reference set current. We record the search terms and the classes we ran, so the scope of the searching sits on the record and not just in our heads.",
-        "4. Escalate the calls. Anything that turns on infringement, validity, or the legal effect of a license term goes to the partner, not into a client note under our own names. We chart it and hand it up; we do not characterize it ourselves."
+        "Title and status. Trace each assignment chain from the named inventors to the licensor, note any recorded security interest, and confirm maintenance fee payments and terminal disclaimers. Richard Henderson pulls the records and I check them against the inventors named on each patent.",
+        "File histories. Read every prosecution history for amendments and arguments that narrow claim scope. Richard Henderson takes the mechanical and device patents and I take the electrical and control patents; a patent with claims of both kinds is split by claim.",
+        "Claim comparison. Chart the independent claims against the products the client says the license must cover. This cannot start until we have the client's product documentation.",
+        "Encumbrances. List every prior license, covenant, and government-funding interest that the licensor discloses or the public record shows.",
+        "License terms. Mary Bradley reviews the patent provisions of the draft license: the definition of the licensed patents, the field of use, and who maintains and enforces them.",
+        "Memorandum. Mary Bradley drafts the conclusions. We deliver charts and record findings to her as each group of patents is finished, not in one batch at the end."
       ],
       "header": [],
       "rows": [],
       "signers": []
     },
     {
-      "kind": "paragraph",
-      "text": "Our contact on the client side is Tiffany Munoz, the Chief Financial Officer at {{fact:f:E-2025-001.client}}. Route document requests and scope questions to her, copy me, and keep the exchange on a single thread so the record stays in one place. She is expecting our first list of what we need from her side.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "One standing rule for this matter, the same as every matter here: every date goes on the docket the day we learn it. The transaction has deadlines of its own, and if any of them land inside our review window I want them docketed and flagged to the partner well before they get close. A missed date is the one mistake this firm does not absorb.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "heading",
-      "text": "What Happens First",
+      "text": "Rules for This Matter",
       "level": 2,
       "items": [],
       "header": [],
@@ -72,7 +101,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "To start, I will draft the scope statement from the deal summary the client has already sent and circulate it for your read before anything substantive moves. You open the matter on the docket and stand up the reference set and the engagement file, so that every patent we pull and every date tied to this matter lives in one place from the first day. I will send Tiffany Munoz the list of documents we need from the Price-Henson side by the end of the first week, and copy you on it.",
+      "text": "Neither Richard nor I gives the client a view on validity or coverage, in writing or on a call. Questions of that kind are noted and passed to Mary Bradley.",
       "level": 1,
       "items": [],
       "header": [],
@@ -81,7 +110,70 @@
     },
     {
       "kind": "paragraph",
-      "text": "The scope statement is the gate. Nothing substantive starts until it is written and we both agree it is right.",
+      "text": "Everything we produce is marked privileged, and nothing goes to the licensor or its counsel. Each internal draft deadline goes on the docket when it is set, with an owner, and if a deadline is going to slip, the owner tells Mary Bradley as soon as that is clear.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Calls with the client's engineers are summarized in a short file note the same day, because the claim charts will cite what was said on them.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "First Actions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "1. Richard Henderson downloads the file histories from Patent Center and pulls the assignment records for every patent and application on the license schedule.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "2. I send Tiffany Munoz our first document request: drawings and specifications for each product the license should cover, the firmware documentation for the controller, and a copy of the confidentiality agreement between the client and the licensor.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "3. Mary Bradley confirms with Tiffany Munoz who at the client may receive the memorandum, so that distribution is settled before anything is sent.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "4. Each of us enters his own draft deadlines on the docket once the patent schedule has been checked against the draft license.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Questions about how the patents are divided come to me.",
       "level": 1,
       "items": [],
       "header": [],

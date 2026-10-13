@@ -3,17 +3,8 @@
   "doc_id": "d:0047",
   "blocks": [
     {
-      "kind": "heading",
-      "text": "Working Session: Retiree Medical Valuation for {{fact:f:E-2020-001.client}}",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
       "kind": "paragraph",
-      "text": "Date: September 29, 2020. Minutes recorded by Jennifer Vasquez.",
+      "text": "{{fact:f:E-2020-001.client}} retiree medical valuation. Working session held by video conference.",
       "level": 1,
       "items": [],
       "header": [],
@@ -34,10 +25,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors (recording)",
-        "Jeffrey Ochoa, Actuarial Analyst, Meridian Actuarial Advisors",
-        "Amanda White, Actuarial Associate, Meridian Actuarial Advisors",
-        "Jason Wagner, General Manager, {{fact:f:E-2020-001.client}}"
+        "Jason Wagner, General Manager, {{fact:f:E-2020-001.client}}",
+        "Jennifer Vasquez, Consulting Actuary",
+        "Jeffrey Ochoa, Actuarial Analyst",
+        "Amanda White, Actuarial Associate"
       ],
       "header": [],
       "rows": [],
@@ -54,7 +45,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The session confirmed that the engagement can move from assembling data to setting assumptions. The census and plan documents are reconciled. No obligation figures were presented; it is too early for them.",
+      "text": "The session reviewed the completed data checks and the first look at claims experience. No assumptions were set. The aim was to agree on what the data show before the team proposes assumptions.",
       "level": 1,
       "items": [],
       "header": [],
@@ -63,7 +54,7 @@
     },
     {
       "kind": "heading",
-      "text": "Data",
+      "text": "Census and plan terms",
       "level": 2,
       "items": [],
       "header": [],
@@ -72,7 +63,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Amanda White reported that the census and the plan documents reconcile to the client's own records within the tolerance set at the outset. The reconciliation was run at the grouping the client's system produces, so the two sets of figures meet directly. One coding question on a small group of early retirees resolved as a plan-eligibility distinction, not a data error, and it is documented in the working papers. Reliance on each file is logged against the date it was received and the person who supplied it.",
+      "text": "Amanda White reported that the census and enrollment data are closed. Every exception on the data log has been resolved with the company's staff. Jason Wagner confirmed the resolutions for retirees whose coverage elections were missing.",
       "level": 1,
       "items": [],
       "header": [],
@@ -81,7 +72,79 @@
     },
     {
       "kind": "paragraph",
-      "text": "One item remains open on the data. The final retiree contribution schedule has not arrived, and the current draft carries a placeholder for it. Amanda White will close that item once the client sends the adopted schedule. Nothing measured so far depends on it.",
+      "text": "Jennifer Vasquez noted that the plan document and the summary plan description describe surviving spouse coverage differently. The team will value the terms in the plan document. Jason Wagner will confirm that the company administers the plan on those terms.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jeffrey Ochoa reported that the plan document requires retirees to enroll in Medicare when they become eligible, with the plan paying secondary. The valuation will apply that rule to every retiree of Medicare age. Jason Wagner confirmed that this matches current practice.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Claims experience",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jeffrey Ochoa presented paid claims by month, split between retirees under and over Medicare age. Claims fell sharply in the spring and have recovered only in part. The likely cause is care deferred during the pandemic, but the data cannot confirm that.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jennifer Vasquez set out the team's position. The lower months are measured experience and will be reported as such. They will not be used to reduce the expected cost of coverage, because there is no basis to assume they will persist. Some deferred care may return later as higher claims.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jason Wagner asked whether leaving those months out overstates the obligation. Jeffrey Ochoa answered that the earlier years carry most of the weight and are consistent with one another. The report will show the effect of including the lower months in a separate exhibit.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "heading",
+      "text": "Retiree contributions",
+      "level": 2,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "The contribution schedule arrived after the data log closed. Jennifer Vasquez asked whether contributions are set as a share of cost or as a fixed amount. Jason Wagner said the company sets them each year and follows no formula.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "How contributions are assumed to change is a judgment, and it affects the obligation directly. The team will ask for the contribution history before proposing an assumption.",
       "level": 1,
       "items": [],
       "header": [],
@@ -99,7 +162,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Jeffrey Ochoa walked through the assumption basis the measurement requires. The discount rate, the health care cost trend, and the mortality basis were each discussed on their own footing. The group kept two categories apart: assumptions the accounting standard constrains, and assumptions that rest on judgment. That separation was treated as the backbone of the eventual report, since the two categories carry different weight when the firm signs its name.",
+      "text": "Trend, mortality, retirement and election rates come next. Jeffrey Ochoa will draft each with the observed experience and the recommended assumption in separate columns. The discount rate remains management's selection.",
       "level": 1,
       "items": [],
       "header": [],
@@ -108,25 +171,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "The trend assumption drew the most discussion. Jeffrey Ochoa noted that the obligation is more sensitive to the health care cost trend than to any other single input, and that the report will show that sensitivity rather than bury it in a single figure. The mortality basis will use a published table with a recognized improvement scale, documented so the reader can see what was chosen and why. No values were settled at the session; they will be set and supported before the next meeting.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Jason Wagner confirmed the plan provisions in effect at the measurement date and the retiree contribution schedule as it currently stands. He noted that the board has discussed a change to the contribution structure but has not adopted it. The group agreed the valuation measures the plan as it stands, and that any amendment would be priced and measured separately.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Jennifer Vasquez set out which of management's questions the measurement will answer and which it will not. The obligation and its sensitivity to the trend assumption are answerable. A forecast of future contribution rates is not, and the report will say so plainly rather than imply a precision the work does not support.",
+      "text": "Jennifer Vasquez will send Jason Wagner a short note on the bond yield information the team can provide. The note will say what the information supports and what it does not.",
       "level": 1,
       "items": [],
       "header": [],
@@ -135,25 +180,7 @@
     },
     {
       "kind": "heading",
-      "text": "Schedule",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The engagement is at roughly its midpoint and on the schedule set at the start. The data stretch is closing and the measurement stretch is opening. The one dependency that could move the timeline is the outstanding contribution schedule, and the group agreed it is not a concern yet.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Action Items",
+      "text": "Actions",
       "level": 2,
       "items": [],
       "header": [],
@@ -168,39 +195,40 @@
       "header": [
         "Action",
         "Owner",
-        "Target"
+        "Needed for"
       ],
       "rows": [
         [
-          "Finalize the reconciled census and close the eligibility coding question",
-          "Amanda White",
-          "Oct 9"
-        ],
-        [
-          "Set the discount rate and trend basis with Jennifer Vasquez and document the support",
-          "Jeffrey Ochoa",
-          "Oct 16"
-        ],
-        [
-          "Confirm which management questions the report will and will not answer",
-          "Jennifer Vasquez",
-          "Oct 12"
-        ],
-        [
-          "Send the adopted plan document and the final contribution schedule",
+          "Confirm how surviving spouse coverage is administered",
           "Jason Wagner",
-          "Oct 7"
+          "Plan provisions summary"
+        ],
+        [
+          "Send history of retiree contributions",
+          "Jason Wagner",
+          "Contribution assumption"
+        ],
+        [
+          "Draft assumption review: trend, mortality, retirement, election",
+          "Jeffrey Ochoa",
+          "Assumption review with Jennifer Vasquez"
+        ],
+        [
+          "Exhibit of cost basis with and without the lower months",
+          "Jeffrey Ochoa",
+          "Status report to the company"
+        ],
+        [
+          "Check cost by age against claims totals and enrollment",
+          "Amanda White",
+          "Assumption review with Jennifer Vasquez"
+        ],
+        [
+          "Note on discount rate support",
+          "Jennifer Vasquez",
+          "Company's rate selection"
         ]
       ],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The next session will review the first obligation figures once the assumptions are set.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
       "signers": []
     }
   ]

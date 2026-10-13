@@ -1,107 +1,350 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0013",
-  "generator": {"model": "claude-opus-4-8[1m]", "effort": "xhigh"},
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0068",
       "blocks": [
-        {"kind": "paragraph", "text": "Good morning Jennifer,"},
-        {"kind": "paragraph", "text": "Thank you for the note, and for the time on the call last week. That conversation settled which audience we lead with, and it has already sharpened the first set of core messages for {{fact:f:E-2023-001.client}}. Amy Carter has the draft in hand and will work your marks in as they come."},
-        {"kind": "paragraph", "text": "The next piece is the round of short interviews with your executives, so the language sits on how they actually speak rather than on our guess at it. Before I propose times, it would help to know which two or three people you would like us to sit with, and roughly when they tend to be free over the coming fortnight."},
-        {"kind": "paragraph", "text": "Send me the names and I will come back the same day with a few windows that fit their diaries. For the file, sign-off on the Suarez-Jones messaging stays with you, Jennifer Herrera, so nothing firms up without your word."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Good morning Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Picking up from Michael's note on Friday, here is where the messaging framework for {{fact:f:E-2023-001.client}} stands this morning. The revised version is in the shared folder, saved under today's date."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Three things have changed. The opening narrative is now three sentences long. The growth section comes ahead of the margin section. And every financial proof point is highlighted in yellow for your team to confirm."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The proof points are the one part we cannot settle on our own. We want each figure the executives cite to be one your finance team is happy to stand behind. Could you mark which ones to keep and which to drop? A short reply is plenty."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Once we have your marks, I will turn the talking points around the same day. Let me know if you want me to take another pass on the framework before then."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0069",
       "blocks": [
-        {"kind": "paragraph", "text": "Jennifer,"},
-        {"kind": "paragraph", "text": "Following John Macias's note, I wanted to close the loop on the draft itself. The revised first set of core messages for {{fact:f:E-2023-001.client}} is ready on our side, and I will send it in a form you can mark up directly, with the two or three lines that turn on the audience question flagged so they are easy to find."},
-        {"kind": "paragraph", "text": "So the interviews and the draft do not cross, I have held the executive language loosely where I expect their own words to change it. If you can point me to the people John will be sitting with, I will make sure the questions we bring line up with the messages the Suarez-Jones executives will end up carrying."},
-        {"kind": "paragraph", "text": "I will get the marked draft to you this week either way. If reading it cold is awkward, a short call works just as well, and I will set one up around your schedule. For our file, final sign-off on the wording stays with you, Jennifer Herrera."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "John's revised framework is the version we would like to put in front of the {{fact:f:E-2023-001.client}} executives, and since the proof points he highlighted on Monday are now the only open question on it, I want to set out exactly what we need from your side so that the drafting does not stall while each of us waits on the other."
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. A keep or drop on each highlighted proof point, and for any you drop, the figure your finance team would prefer the executives use instead, if there is one.\n2. The name of the person on your side who gives final sign-off on anything the executives will say to investors, so that we know whose approval closes each draft.\n3. A two-hour slot in the last week of the month for a working session with you, John, Amy and me, where we go through the talking points and the investor questions line by line against the confirmed figures."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If the first item is quicker to settle by phone than in writing, I can take a call at any point this afternoon, and John can join and make the changes while we talk."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0070",
       "blocks": [
-        {"kind": "paragraph", "text": "Good morning Jennifer,"},
-        {"kind": "paragraph", "text": "Thank you, that helps. Between your note and Amy Carter's, I think we have what we need to move. The names you sent let me shape the interviews for {{fact:f:E-2023-001.client}} around the people whose voice carries the message furthest, and Amy's marked draft will reach you this week to read alongside them."},
-        {"kind": "paragraph", "text": "On the short call Amy raised, I think it is worth doing ahead of the interviews, so we walk in aligned. If a half hour early next week suits you, tell me which day sits best and I will build everything else around it."},
-        {"kind": "paragraph", "text": "I will send three interview windows for each of your executives by tomorrow and hold them for your word. Nothing on the Suarez-Jones side is booked until you confirm, Jennifer Herrera."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Good morning Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Following Michael's list this morning, I have tried to make the first item quicker for you to answer."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The highlighted proof points are now on a single page, in the order they appear in the framework. Each one has a keep or drop column beside it, with room for a replacement figure. The page is in the shared {{fact:f:E-2023-001.client}} folder, next to the framework."
+        },
+        {
+          "kind": "paragraph",
+          "text": "On the third item, Amy and I can make any slot in the last week of the month. Amy will bring her first draft of the investor questions and answers. That way we can test the answers against the same confirmed figures in the same session."
+        },
+        {
+          "kind": "paragraph",
+          "text": "As soon as you pick a time, I will send a calendar hold to everyone on this thread."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regards"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0071",
       "blocks": [
-        {"kind": "paragraph", "text": "Jennifer,"},
-        {"kind": "paragraph", "text": "The marked draft of the first set of core messages for {{fact:f:E-2023-001.client}} is on its way to you now, a little ahead of where I promised. As I mentioned, the lines that shift with the audience question are flagged in the margin, so you can go straight to the two or three that will matter most."},
-        {"kind": "paragraph", "text": "I have left room in the wording for what John Macias hears in the interviews, so please read it as a working draft and not a finished one. If anything reads false to how your leadership actually speaks, mark it freely; that is the most useful thing you can send back."},
-        {"kind": "paragraph", "text": "For our record, final sign-off stays with you, Jennifer Herrera. Send it over with your notes whenever it suits, and I will turn them the same day so the Suarez-Jones messaging is ready before the interviews begin."},
-        {"kind": "paragraph", "text": "Regards"}
+        {
+          "kind": "paragraph",
+          "text": "Hi Jennifer,"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Ahead of the working session, and with John's one-page list of proof points now in the folder alongside the framework, I would like to agree the order we take things in on the day, so that the two hours go to the questions that need you in the room and the drafts themselves can be read beforehand."
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Proof points: your marks on John's list, and any replacement figures, so that the framework is final for drafting purposes.\n2. Talking points: the CEO and CFO talking points read aloud against the framework, marking anything that does not sound like the way either of them actually speaks.\n3. Investor questions: Amy's first draft of the questions and answers, starting with outlook, since those are the questions most likely to come up and the hardest to answer consistently.\n4. Approval route: who signs off on each kind of material at {{fact:f:E-2023-001.client}} and how long a round normally takes, so that we can plan the rest of the drafting around it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If there is anything you would add to that list, or a question you already know is on the executives' minds, send it over before the session and we will take it first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Sincerely"
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0072",
       "blocks": [
-        {"kind": "heading", "text": "Working Session Minutes", "level": 1},
-        {"kind": "paragraph", "text": "Engagement: Executive Messaging for {{fact:f:E-2023-001.client}}. Recorded by Amy Carter. This note captures what we discussed, what we agreed, and who carries each piece forward."},
-        {"kind": "heading", "text": "Present", "level": 2},
-        {"kind": "list", "items": [
-          "Amy Carter, Communications Associate, Ashcombe Advisory Partners",
-          "John Macias, Associate, Ashcombe Advisory Partners",
-          "Jennifer Herrera, VP Finance, Suarez-Jones"
-        ]},
-        {"kind": "heading", "text": "What we covered", "level": 2},
-        {"kind": "paragraph", "text": "We met to take stock of the executive messaging work at its midpoint and to agree what carries us through the coming weeks. The room was small and the conversation direct, which is how this engagement has run from the start."},
-        {"kind": "paragraph", "text": "John Macias reported that the round of executive interviews is complete. He walked us through what the leadership's own language had changed, and two of the core messages have already been reshaped around how the executives actually speak. The group agreed the set now sits closer to the company's own voice, which was the whole point of the exercise."},
-        {"kind": "paragraph", "text": "Jennifer Herrera then took us through her team's marks on the first set. Most were small matters of tone, but two touched the investor-facing line we had flagged at the outset. We talked through how to hold the meaning while easing the claim, and settled on wording in the room. I will circulate that wording for a final read before it is fixed."},
-        {"kind": "paragraph", "text": "We also looked ahead to the client-facing materials that will carry the messages outward. Those are still early by design. We agreed to keep them light until the core set is locked, so the finished pieces are built once rather than remade around a late change."},
-        {"kind": "paragraph", "text": "On cadence, we agreed the current rhythm is working: short notes tied to the piece of work they concern, a standing thread for the messaging, and a working session like this one when a decision needs the whole group in a room. Jennifer Herrera asked that we keep her copied on anything that touches timing, and we will."},
-        {"kind": "heading", "text": "Where we landed", "level": 2},
-        {"kind": "paragraph", "text": "The core messages are close to final, pending the last read on the two reworked lines. The materials wait on that lock. We set the next checkpoint as a working review of the refined set with the wider Suarez-Jones leadership, ahead of any further build."},
-        {"kind": "paragraph", "text": "We noted one open risk, and it is a mild one. The investor-facing lines are the most likely to draw a late change, so we are holding a little room for one more pass on them before the set is fixed. Nothing about the timeline concerns us at this point."},
-        {"kind": "heading", "text": "Actions", "level": 2},
-        {"kind": "table",
-         "header": ["Owner", "Action", "By when"],
-         "rows": [
-           ["Amy Carter", "Circulate the agreed wording on the two investor-facing lines for a final read", "This week"],
-           ["John Macias", "Fold the interview language into the two revised core messages", "This week"],
-           ["Jennifer Herrera", "Confirm the attendees for the leadership review", "Before the next session"],
-           ["John Macias", "Draft the outline for the client-facing materials", "Ahead of the review"]
-         ]}
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: {{fact:f:E-2023-001.client}} Executive Messaging",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "This was the working session set up in the email thread earlier this month, held to settle the open items on the messaging framework, the executive talking points and the investor questions and answers before the next round of drafts goes to the {{fact:f:E-2023-001.client}} executives, and it followed the four-item order agreed by email beforehand."
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Jennifer Herrera, VP Finance, {{fact:f:E-2023-001.client}}",
+            "Michael Morris, Partner, Ashcombe Advisory Partners",
+            "John Macias, Associate, Ashcombe Advisory Partners",
+            "Amy Carter, Communications Associate, Ashcombe Advisory Partners"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What was discussed",
+          "level": 2
+        },
+        {
+          "kind": "heading",
+          "text": "1. Proof points",
+          "level": 3
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Herrera brought her marks on the one-page list of proof points, and the group took them in the order they appear in the framework. Most were kept as written. Where finance was not comfortable with a figure, it was taken out and not replaced, because the executives should not cite any number they would struggle to explain if an investor asked a follow-up question. With those marks the framework is final for drafting purposes, and any later change to a figure will come through Jennifer, so that the framework, the talking points and the questions and answers are always updated together."
+        },
+        {
+          "kind": "heading",
+          "text": "2. Talking points",
+          "level": 3
+        },
+        {
+          "kind": "paragraph",
+          "text": "John Macias read both sets of talking points aloud against the agreed framework. The CFO's points are close to final, but the group agreed they should open with the figures and then explain them, which is the reverse of the current draft. The CEO's points read as though they were written for the page and not for speaking, particularly in the opening section, and the second half of the growth section repeats the framework almost word for word, so John will shorten the sentences throughout and cut that passage."
+        },
+        {
+          "kind": "heading",
+          "text": "3. Investor questions",
+          "level": 3
+        },
+        {
+          "kind": "paragraph",
+          "text": "Amy Carter took the group through her first draft of the questions and answers, starting with outlook as agreed. Jennifer Herrera asked that any answer touching on outlook use only language that finance has already approved for outside use and go no further than it, and Amy will check every outlook answer against that language before the second draft goes out. Two subjects came up in discussion that the draft does not yet cover, use of cash and hiring plans, and Amy will add questions on both."
+        },
+        {
+          "kind": "heading",
+          "text": "4. Approval route",
+          "level": 3
+        },
+        {
+          "kind": "paragraph",
+          "text": "Jennifer Herrera will be the single route for approvals on the client side: she will collect sign-off from the executives and from counsel and send back one consolidated set of comments on each draft. She asked for about a working week for each round, so that no one on her side is asked to turn a draft around overnight, and the team agreed to plan the remaining drafting on that basis, with one round open at a time."
+        },
+        {
+          "kind": "heading",
+          "text": "Actions agreed",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "No.",
+            "Action",
+            "Owner",
+            "Timing"
+          ],
+          "rows": [
+            [
+              "1",
+              "Circulate the final messaging framework with the agreed proof points",
+              "John Macias",
+              "Within two working days"
+            ],
+            [
+              "2",
+              "Shorten the CEO talking points and cut the repeated growth passage; reorder the CFO talking points to open with the figures",
+              "John Macias",
+              "In time for the next approval round"
+            ],
+            [
+              "3",
+              "Check every outlook answer against approved language and add questions on use of cash and hiring plans",
+              "Amy Carter",
+              "Second draft to Jennifer Herrera within a week"
+            ],
+            [
+              "4",
+              "Collect executive and counsel sign-off on the framework and return consolidated comments",
+              "Jennifer Herrera",
+              "About a working week from receipt"
+            ],
+            [
+              "5",
+              "Propose a format and timing for rehearsal sessions with the executives",
+              "Michael Morris",
+              "Once the second round of comments is back"
+            ]
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "Corrections to these minutes should come to Michael Morris, and once any are in, the minutes will go to everyone who attended along with the final framework."
+        }
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0073",
       "blocks": [
-        {"kind": "heading", "text": "Status Report", "level": 1},
-        {"kind": "paragraph", "text": "Engagement: Executive Messaging for {{fact:f:E-2023-001.client}}. Prepared by John Macias."},
-        {"kind": "heading", "text": "Where the work stands", "level": 2},
-        {"kind": "paragraph", "text": "We are roughly at the midpoint of the engagement, and the work is on track. The core messages are drafted, tested against the leadership's own words, and close to final. Both sides are pulling the same way, and the correspondence has stayed clean, which is what keeps a job like this from drifting."},
-        {"kind": "paragraph", "text": "The short version is that the hard part, agreeing what the company should say and in what voice, is largely behind us. What remains is to lock the wording and build the materials that carry it. That is the steadier half of the work."},
-        {"kind": "paragraph", "text": "On the commercials, the engagement runs on a fixed fee of {{fact:f:E-2023-001.fee}}, and we are tracking within it. A little under half of the fee is committed against the work done to date. That is where we would want to be at this stage, with the more predictable phase still ahead of us."},
-        {"kind": "heading", "text": "Since the last report", "level": 2},
-        {"kind": "paragraph", "text": "We completed the round of executive interviews and used them to sharpen the core set. Two of the messages changed in a real way once we heard how the leadership actually speaks. Both are stronger for it, and both read now as the company's own rather than ours."},
-        {"kind": "paragraph", "text": "Amy Carter took your team's marks on the first set and reworked the investor-facing lines, holding the meaning while easing the claims that felt a shade too firm. We reviewed the refined set with the Suarez-Jones leadership at our last working session, and the feedback was light. We settled the two lines that mattered most in the room."},
-        {"kind": "paragraph", "text": "The review itself was a good sign. Your leadership pushed on exactly the lines we expected them to push on, and left the rest largely alone. When a client's marks land where you thought they would, it usually means the underlying account is sound, and we took it that way."},
-        {"kind": "paragraph", "text": "We have also opened the client-facing materials that will carry the messages outward. Those are early and deliberately so. We are keeping them light until the core set is locked, so nothing has to be remade around a late change to the wording."},
-        {"kind": "paragraph", "text": "On our side, Amy Carter has kept the correspondence and the version history in order throughout, so the current draft is always the one you are reading and nothing lives only in an inbox. It is unglamorous work, and it is the reason a job this heavy on email has stayed legible."},
-        {"kind": "heading", "text": "The weeks ahead", "level": 2},
-        {"kind": "paragraph", "text": "The immediate step is to lock the core messages. One round of marks is outstanding, and once those are in, the set is final. Amy Carter and I can close that out the same week the marks come back."},
-        {"kind": "paragraph", "text": "From there we build the materials in earnest and prepare your executives to carry the language into their own conversations, the announcements and investor briefings where it has to hold. I expect this half of the engagement to move at a steadier pace than the first, now that the foundation is set."},
-        {"kind": "paragraph", "text": "In practical terms, the coming weeks will hold less of the open-ended work of the first half and more of the concrete: a fixed set of messages, a defined set of materials, and a plan to hand the language to the people who will speak it. We will keep the same cadence of short notes tied to each piece, so you can follow the work without having to ask where it stands."},
-        {"kind": "heading", "text": "What I am watching", "level": 2},
-        {"kind": "paragraph", "text": "Two things, both small. The investor-facing lines are the most likely to draw a late change, so I am keeping room for one more pass on them before we fix the set. And because the materials depend on a locked core set, any slip on the wording will push the build behind it. Neither worries me at this point. I am simply keeping an eye on both."},
-        {"kind": "paragraph", "text": "The one thing I need from your side is the final round of marks on the refined messages. Send those back whenever they are ready, and we will lock the set within the week. I will send the next report at the three-quarter mark, or sooner if anything of note moves before then."}
+        {
+          "kind": "heading",
+          "text": "Status Report: Executive Messaging for {{fact:f:E-2023-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for: Finance leadership, {{fact:f:E-2023-001.client}}\nPrepared by: John Macias, Associate\nEngagement team: Michael Morris, Partner; Amy Carter, Communications Associate; John Macias, Associate"
+        },
+        {
+          "kind": "heading",
+          "text": "Where the work stands",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are about halfway through the engagement, and the work is on plan. The messaging framework is final. The talking points and the investor questions and answers are both in their second drafts, and both drafts are with your office for comment. Nothing has slipped so far. The scope has not changed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report covers three things. First, what we have finished. Second, what comes next. Third, the risks we are watching and what we are doing about each one. The budget position follows at the end."
+        },
+        {
+          "kind": "heading",
+          "text": "Finished so far",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Five pieces of work are complete or have reached an agreed second draft. In order:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Messaging framework. Signed off by the executives and counsel, with every proof point confirmed by your finance team. Figures finance did not want cited were removed, not reworded.",
+            "Approval route. Approvals on your side now run through one point of contact, who collects sign-off from the executives and from counsel. Each round comes back to us as one set of comments.",
+            "Working session. We went through the framework, the talking points and the investor questions line by line. The minutes record each decision and each action. Every action from that session is done, apart from the rehearsal plan, which waits on your comments on the second drafts.",
+            "Talking points, second draft. The CEO's points are shorter and easier to say aloud, and the repeated growth passage is gone. The CFO's points now open with the figures and then explain them.",
+            "Investor questions and answers, second draft. Amy Carter checked every outlook answer against language finance has approved for outside use. She also added questions on use of cash and on hiring plans."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first half has gone smoothly, and much of that is down to how quickly your team turned the proof points around. Settling the figures early meant every later draft could be checked against one agreed list. We will keep working that way."
+        },
+        {
+          "kind": "heading",
+          "text": "Ahead of us",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The second half of the engagement moves from drafting to delivery. Until now the question has been whether the words are right. From here it is whether they hold up when the executives say them under questioning. Four pieces of work remain:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Comments on the second drafts. We will fold in your consolidated comments as soon as they arrive. We will keep to one round open at a time, as agreed.",
+            "Rehearsal sessions. Michael Morris will lead them, with Amy and me asking the questions an investor would ask. The aim is to find any answer that does not yet hold up while there is still time to fix it.",
+            "Reactive lines. We will draft short, approved answers for the questions we hope will not come up. Each one will rest on a confirmed figure or on approved language, and on nothing else.",
+            "Final package. One document holding the framework, both sets of talking points and the questions and answers, in the form the executives will carry with them."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "We expect the rehearsals to produce more changes than anything else left in the plan. That is normal. A question that looks easy on paper often needs a shorter, plainer answer once someone has to say it out loud. We have left time for a further round on the questions and answers after rehearsal."
+        },
+        {
+          "kind": "heading",
+          "text": "Risks we are watching",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Each of these is manageable at present, and none needs a decision from you today. We list them so that nothing comes as a surprise."
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Executive calendars. Rehearsals only work if both executives can attend. We would like to fix the sessions soon, before their calendars fill.",
+            "Changing figures. When the current quarter closes, some proof points may move. We will refresh them with finance before rehearsals, so that no one practices with an old number.",
+            "Approval timing. A round takes about a working week on your side. That works well at present. It would become tight if two rounds overlapped, which is why we keep to one at a time.",
+            "Scope. Requests for related material, such as a board version of the narrative, are welcome. We will flag any request that falls outside the agreed scope before we start on it."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Budget",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement fee is {{fact:f:E-2023-001.fee}}, as set out in the engagement letter. Work to date is in line with it. We expect to complete the remaining scope within that fee, and we will tell you early if anything changes our view. There have been no requests outside the agreed scope so far, so no change to the fee has been discussed."
+        },
+        {
+          "kind": "heading",
+          "text": "One request",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Rehearsals are the next milestone, and they depend on the executives' time. So our one request this period is for two rehearsal windows from the {{fact:f:E-2023-001.client}} executive offices. Once we have them, Michael Morris will confirm the format, and I will send the materials to each executive a few days ahead."
+        }
       ]
     }
   ]

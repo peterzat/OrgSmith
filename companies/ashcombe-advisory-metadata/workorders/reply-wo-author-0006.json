@@ -2,7 +2,7 @@
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0006",
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   },
   "docs": [
@@ -12,155 +12,104 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Meeting Minutes: Investor Relations Program for Castaneda, Adams and Davis",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Meeting Minutes: {{fact:f:E-2018-001.client}} Investor Relations Program",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Working session with the client. Minutes taken by Michelle Black."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We left the session with the investor presentation one round from final and a plan for handing the program over to the team at {{fact:f:E-2018-001.client}}."
         },
         {
           "kind": "heading",
           "text": "Present",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "list",
-          "text": "",
-          "level": 1,
           "items": [
-            "Michael Morris, Partner, Advisory",
-            "Laura Bradley, Senior Associate, Advisory",
-            "Michelle Black, Communications Analyst, Advisory",
-            "Lauren Heath, Chief Operating Officer, Castaneda, Adams and Davis"
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "paragraph",
-          "text": "We sat down with Lauren Heath to take stock of the investor relations program and to line up the next stretch of work. The tone was easy. Most of what we set out to build is now in place, so this session was about running it well rather than starting anything new. These notes hold what we agreed, so we are all working from the same page.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+            "Lauren Heath, Chief Operating Officer, {{fact:f:E-2018-001.client}}",
+            "Michael Morris, Partner, Ashcombe Advisory Partners",
+            "Laura Bradley, Senior Associate, Ashcombe Advisory Partners",
+            "Michelle Black, Communications Analyst, Ashcombe Advisory Partners"
+          ]
         },
         {
           "kind": "heading",
-          "text": "What we covered",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What we talked about",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Michael Morris opened by walking through how the last investor update had landed. The response from the holders of {{fact:f:E-2018-001.client}} was steady, and no one raised a question we had not already prepared for. Lauren Heath said the board was comfortable with the tone. We took that as a sign the core messaging is holding. The work now is to keep it consistent, not to rewrite it.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We began with the investor presentation. Lauren Heath had read the latest draft closely, and most of her comments were small wording points. Two went further. She wants the operating section to open with the measures the company's board already reviews, so investors and directors see the same figures in the same order. She also wants the outlook slide cut back to what the company has already said in public. We agreed with both. Laura Bradley will make the changes and send the revised draft with a clear version label, so everyone knows which file is up for approval."
         },
         {
           "kind": "paragraph",
-          "text": "Laura Bradley then took us through the investor Q&A. She has folded in the newer questions from the last round of calls, and the answers now match the language of the published update word for word. We agreed that consistency is the whole point. When a director and an analyst hear the same sentence, the message settles. Laura will keep the bank current as new questions come in.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "I then took the group through the peer comparison. The headline is that most of the peer group says less about margins than our draft does, and more about customer retention. The figures come from the peers' own investor presentations and annual reports. In two places I had to rely on press coverage instead, and I said so. Michael Morris asked that we treat those two figures as unconfirmed until I have checked them against the companies' own documents. Until then they stay off the slides."
         },
         {
           "kind": "paragraph",
-          "text": "I raised the approval routing, since a couple of sign-offs have been slow to come back. Nothing is stuck. Still, the announcement windows are tight, and a day lost at the front is a day lost at the back. Lauren Heath offered to name a single point of contact on her side, so a draft does not wait on a full round. We were glad of that. It takes a step out of the loop and keeps the calendar honest.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Next we turned to the investor Q&A. This is the document management will lean on once we step back, so it has to read the way they actually speak in a meeting. Lauren asked for fewer questions and shorter answers. We agreed to keep only the questions investors have raised during the program, plus a short section on the outlook that matches the trimmed slide. Laura will send it together with the presentation, with a cover note setting out exactly what each approval covers."
         },
         {
           "kind": "paragraph",
-          "text": "We closed on the next announcement. Michael Morris sketched two ways to frame it and recommended the simpler one, and Lauren Heath agreed. We also talked about keeping one voice to the market. Several people at Castaneda, Adams and Davis speak with investors, and the program only works if they carry the same words. Laura Bradley will send a short briefing note ahead of the window, so everyone is saying the same thing when it opens.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Most of the second half of the session was about handover. We are in the later part of the program, and Lauren was clear that she wants her own people running the investor calendar well before we finish. Michael suggested a short operating guide for the function. It would cover who watches the investor inbox, how meeting requests are logged, how drafts move through approval, and which materials get refreshed and when. Lauren liked the idea and asked us to keep it practical and brief. She will name the person on her team who will own it."
         },
         {
           "kind": "paragraph",
-          "text": "Before we broke, Lauren Heath gave us her read on the program so far. She said it has been quiet in the right way, with fewer surprises reaching her desk than before. We were pleased to hear it. A calm inbox is most of what this kind of program is for. We agreed to keep the weekly status thread running, and to fold anything urgent into it rather than open a new chain.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We also talked about the weekly coverage summary I send out. Lauren's team finds it useful and would like to keep it going after we leave. I will keep sending it for now. Before we finish, I will walk her team through how it is put together, including where each item comes from, so they can produce it themselves."
         },
         {
           "kind": "heading",
           "text": "Who is doing what",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
           "header": [
-            "Item",
+            "Action",
             "Owner",
-            "By when"
+            "By"
           ],
           "rows": [
             [
-              "Fold the newest investor questions into the Q&A",
+              "Revise the investor presentation (operating section reordered, outlook slide trimmed) and circulate it with a version label",
               "Laura Bradley",
+              "Ahead of the next session"
+            ],
+            [
+              "Check the two press-sourced peer figures against the companies' own documents",
+              "Michelle Black",
               "This week"
             ],
             [
-              "Name a single approval contact for drafts",
-              "Lauren Heath",
-              "Before the next window"
-            ],
-            [
-              "Draft the briefing note on message consistency",
+              "Cut the investor Q&A to the questions raised in the program, plus an outlook section",
               "Laura Bradley",
-              "Ahead of the window"
+              "With the revised presentation"
             ],
             [
-              "Confirm the framing for the next announcement with the board",
+              "Outline the investor relations operating guide",
               "Michael Morris",
               "Next session"
             ],
             [
-              "Track outstanding sign-offs and flag any that slip",
+              "Name the owner of the investor calendar and inbox",
+              "Lauren Heath",
+              "Next session"
+            ],
+            [
+              "Walk the client team through how the weekly coverage summary is built",
               "Michelle Black",
-              "Ongoing"
+              "Before the program closes"
             ]
-          ],
-          "signers": []
+          ]
         },
         {
           "kind": "paragraph",
-          "text": "Our next step is the briefing note. Once Laura Bradley has it drafted and I have circulated it, everyone will be speaking from the same page before the window opens. We will reconvene after the announcement to see how it landed. Minutes prepared by Michelle Black.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Our next step is Laura's revised presentation. Once it is out, we will open the next session with Lauren's sign-off on it and take the rest from there."
         }
       ]
     },
@@ -170,183 +119,121 @@
       "blocks": [
         {
           "kind": "heading",
-          "text": "Status Report: Investor Relations Program for Castaneda, Adams and Davis",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Status Report: Investor Relations Program for {{fact:f:E-2018-001.client}}",
+          "level": 1
         },
         {
-          "kind": "table",
-          "text": "",
-          "level": 1,
-          "items": [],
-          "header": [
-            "Field",
-            "Detail"
-          ],
-          "rows": [
-            [
-              "Engagement",
-              "Investor Relations Program"
-            ],
-            [
-              "Client",
-              "{{fact:f:E-2018-001.client}}"
-            ],
-            [
-              "Prepared for",
-              "Leadership, Castaneda, Adams and Davis"
-            ],
-            [
-              "Prepared by",
-              "Michael Morris, Partner, Ashcombe Advisory Partners"
-            ],
-            [
-              "Stage",
-              "Approaching completion"
-            ]
-          ],
-          "signers": []
+          "kind": "paragraph",
+          "text": "Prepared by Michael Morris, Partner, for the leadership team at {{fact:f:E-2018-001.client}}, with input from Laura Bradley, Michelle Black and Sandra Mcdonald."
         },
         {
           "kind": "heading",
           "text": "Where the program stands",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The investor relations program for Castaneda, Adams and Davis is now in its final stretch, and I am writing to set out where each part of the work has landed, what remains before we close, how the budget has held, and the few things I want us both watching as the engagement winds down. The program has done what we set out to do, in that the investor messaging is written, tested against real questions, and now carried consistently by the people who speak for the company, while the last announcement cycle went out on schedule and drew nothing we had not already prepared an answer for. What is left is not new work but the orderly handover of everything we have built, so that your team can run the cadence without us once the firm steps back.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "We are now in the final weeks of the program, and almost everything we set out to build is finished and in your team's hands: the investor presentation and the investor Q&A have both been approved, the peer comparison has been checked line by line against its sources, and the operating guide for the investor relations function has gone to your team in draft. What remains is the handover itself, which means one last revision of the guide once your team has had a chance to work from it, a single joint call to transfer the investor calendar and the open meeting requests, and the close-out of our files at the end of the engagement."
         },
         {
           "kind": "heading",
-          "text": "What we completed this period",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Completed since our last report",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Since the last report the effort has been about finishing and proving rather than drafting, and four items are worth calling out because each one closes a piece of the program that had been open.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Most of what follows was settled at the working sessions over the winter, and I have noted who carried each piece, because the people who did the work should get the credit for it."
         },
         {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "1. Laura Bradley completed the final revision of the investor Q&A, folding in every question that came up on the last round of calls, so that the answers now track the language of the published update exactly and no one speaking for the company has to improvise.",
-            "2. We ran the last announcement of the program through the full approval routing on time, with Michelle Black tracking each sign-off and clearing the two that were slow to come back before either could put the window at risk.",
-            "3. We closed the loop on message consistency by getting your spokespeople onto a single set of lines, which held all the way through the announcement without a stray phrase reaching the market.",
-            "4. Sandra Mcdonald assembled the working file of everything the program has produced, checked that each document is the signed and current version, and staged it for transmittal, so that nothing will be missing or out of date when we hand it across."
+          "kind": "table",
+          "header": [
+            "No.",
+            "Item",
+            "Led by",
+            "Status"
           ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "rows": [
+            [
+              "1",
+              "Investor presentation, with the operating section reordered to follow the measures your board reviews and the outlook slide limited to what the company has already said in public",
+              "Laura Bradley",
+              "Approved; final version filed and labeled"
+            ],
+            [
+              "2",
+              "Investor Q&A, cut back to the questions investors raised during the program plus a short outlook section that matches the approved slide",
+              "Laura Bradley",
+              "Approved"
+            ],
+            [
+              "3",
+              "Peer comparison, with the two figures that had rested on press coverage checked against the companies' own reports",
+              "Michelle Black",
+              "Complete; one figure confirmed, one corrected"
+            ],
+            [
+              "4",
+              "Operating guide for the investor relations function, covering the investor inbox, the meeting request log, the approval route for drafts and the refresh schedule for materials",
+              "Michael Morris",
+              "Delivered in draft"
+            ],
+            [
+              "5",
+              "Weekly coverage summary handed to your team, with a walkthrough of how each item is sourced",
+              "Michelle Black",
+              "Your team now produces it; we review each issue before it goes out"
+            ],
+            [
+              "6",
+              "Investor meeting log and calendar set up in the format your team asked for, with the past meeting records transferred",
+              "Sandra Mcdonald",
+              "Complete"
+            ]
+          ]
         },
         {
           "kind": "heading",
-          "text": "The work still ahead",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What is left before we close",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "With the substantive work done, the effort that remains is the handover itself, and I have kept it deliberately short so that we finish cleanly rather than letting the engagement trail off into odd requests.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Three pieces of work remain, and none of them is large, but each one depends on a little time from your side: (1) a final revision of the operating guide, which Laura Bradley will make as soon as your team's comments come back, so that the version you keep reflects how your people actually handle investor requests; (2) a single handover call, which Sandra Mcdonald will organize with the owner your team named for the investor calendar, to walk through the calendar, the open meeting requests and the inbox rules so that nothing is left in flight on our side when we step back; and (3) the close-out of the engagement, in which we archive the working files, send you a clean set of the final approved materials, and issue our final invoice."
         },
         {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "1. Sandra Mcdonald will transmit the complete document set to your team, and I have asked her to include a short index, so that your people can find the messaging, the Q&A, and the announcement materials without having to come back to us for a copy.",
-            "2. Laura Bradley will write a brief handover note that explains how to keep the Q&A current and how to walk a draft through approval, so that the routine we have built does not depend on our being in the room to run it.",
-            "3. I will hold one closing call with your leadership to talk through the handover, answer whatever comes up, and agree the point at which the firm formally steps back from the account."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "kind": "heading",
+          "text": "Risks",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The main risk at this point is continuity. The operating guide only works if the person your team named to own the investor calendar has the time to keep it up, and if that job ends up spread across several people, the inbox and the meeting log will drift apart within a few months, which is exactly the problem the guide was written to prevent; we recommend that the owner sit in on the handover call and that one person, and only one, keeps the log."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two smaller points are worth recording. The peer comparison reflects what the peer group had published as of this report, so it will start to age as soon as those companies next report, and it should be refreshed before it is used in any investor meeting later in the year. The approved outlook wording also needs care, because the slide and the matching section of the Q&A were approved as a pair, and any change to one should go back through the same approval route as the other before either is used."
         },
         {
           "kind": "heading",
           "text": "Budget",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "The program has run within its fixed fee of {{fact:f:E-2018-001.fee}}, and I do not expect the handover to change that, because the tasks that remain are ones we scoped from the start, though if anything outside the original plan comes up in the closing weeks, such as materials for an event we did not anticipate, I will price it with you before any work begins rather than after it is done, so that there is no surprise on the final invoice.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "The engagement budget is {{fact:f:E-2018-001.fee}}, as set out in the engagement letter, and we expect to finish within it; the remaining work is handover and close-out, both of which were part of the original scope, and we have not done, and do not expect to do, any work outside that scope that would call for a separate conversation about fees."
         },
         {
           "kind": "heading",
-          "text": "Risks I am watching",
-          "level": 2,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "What we need from you",
+          "level": 2
         },
         {
           "kind": "paragraph",
-          "text": "Two risks are worth naming now, not because either threatens the close, but because both are easier to settle while we are still engaged than they will be once we have stepped back.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
-        },
-        {
-          "kind": "list",
-          "text": "",
-          "level": 1,
-          "items": [
-            "1. The first is continuity, in that everything we have built holds only as long as someone at Castaneda, Adams and Davis keeps the Q&A current and holds the line on message discipline, and while the handover note is meant to make that person's job straightforward, the role will need an owner named on your side before we close.",
-            "2. The second is the quiet stretch between announcements, where the natural pull with the program winding down is to let the messaging drift, and the surest guard against that is a single point of contact who keeps the language consistent, which is the one piece I would ask you to settle before our closing call."
-          ],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Since the last items on our list wait on your team, and we would like to close the program cleanly, we need your team's comments on the draft operating guide back to Laura Bradley within the coming week, and we need a time for the handover call that suits the owner of the investor calendar, which Sandra Mcdonald will put on the calendar as soon as you send one through."
         },
         {
           "kind": "paragraph",
-          "text": "Because the handover is the last real decision left in front of us, I would ask that you name the person on your side who will own the investor messaging once the firm steps back, so that the closing call can be a handshake rather than a list of open items. With that settled, Sandra Mcdonald can transmit the file, Laura Bradley can pitch the handover note at the right reader, and we can close the program the way we ran it, in order and on time. Michael Morris, Partner, Ashcombe Advisory Partners.",
-          "level": 1,
-          "items": [],
-          "header": [],
-          "rows": [],
-          "signers": []
+          "text": "Laura, Michelle, Sandra and I have valued working with your team over these months, and if anything in this report does not match your own view of where things stand, call me directly and we will settle it before the program closes."
         }
       ]
     }

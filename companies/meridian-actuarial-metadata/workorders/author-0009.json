@@ -5,8 +5,8 @@
   "slug": "meridian-actuarial",
   "org_name": "Meridian Actuarial Advisors LLC",
   "org_type": "actuarial consulting",
-  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts documents are the paper trail of a regulated opinion. Engagement\nletters are precise about scope, data reliance, and the standards the\nwork is performed under. Valuation results arrive as a workbook of\nexhibits and a report that interprets them. Board presentations are plain\ndecks with a chart per slide and no decoration. Between formal\ndeliverables, the actuaries and the client's staff exchange short emails\nabout data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
-  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "narrative": "Meridian Actuarial Advisors is a consulting actuarial practice founded in\n2014, serving public pension boards, a mid-sized life insurer, and two\nmultiemployer benefit funds. It is the fastest-growing firm in this\nfleet: it starts at six seats and opens five more over nine years,\nbecause that is what a book of work compounding at ten percent a year\nactually requires.\n\nIts work carries the discipline of a regulated opinion: precise about\nscope, data reliance, and the standards a piece of work is performed\nunder, plain and undecorated, and careful to separate what the data show\nfrom what was assumed. Between formal deliverables, the actuaries and the\nclient's staff exchange short emails about data files and assumptions.\n\nTone is careful and heavily qualified, because an actuary who overstates\na number is exposed. Writing distinguishes measurement from judgment\nexplicitly: what the data show, what was assumed, and what the actuary\nconcludes are three different paragraphs. Two staff members share a\nsurname, and documents that name both should not disambiguate them for\nthe reader; the firm's own writing treats it as unremarkable, which is\nthe point.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
   "docs": [
     {
       "doc_id": "d:0044",
@@ -19,7 +19,7 @@
           "name": "Robert Lawrence",
           "title": "Managing Actuary",
           "dept": "Leadership",
-          "persona": "The credentialed signer on most of the firm's opinions and the one who carries the professional exposure that comes with them. He is spare with words in writing and rigorous about separating what the data show from what he has assumed and what he concludes, a discipline he enforces on everyone's drafts. Reviews come back with the qualifiers restored and the adjectives struck. He runs the practice as a working actuary first and a manager second."
+          "persona": "Robert Lawrence signs the firm's actuarial opinions and writes like someone who expects every sentence to be read back to him by a board's counsel: short, plain, and stripped of adjectives. He states the scope, the data relied on, and the standards the work was performed under before he says anything about results, and a conclusion that rests on an assumption gets its own paragraph. When he needs something from a client or a colleague he first explains in a line why it matters, then sets out what he needs as a numbered list."
         }
       ],
       "participants": [
@@ -28,21 +28,21 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         },
         {
           "id": "p:amanda.white",
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "xp:jason.wagner",
@@ -116,7 +116,7 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         }
       ],
       "participants": [
@@ -125,21 +125,21 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         },
         {
           "id": "p:amanda.white",
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "xp:jason.wagner",
@@ -153,7 +153,7 @@
           "name": "Linda Hanna",
           "title": "Practice Manager",
           "dept": "Operations",
-          "persona": "Runs the operational side of client engagements and much of the firm's correspondence with client staff. Her email is brisk and well organized, focused on files, dates, and who owes what to whom. She shares a surname with a colleague in another part of the firm and never remarks on it, the way people at a small shop simply do not."
+          "persona": "Linda Hanna manages the practice's operations, from engagement paperwork and billing to tracking which client files have arrived and which are still outstanding. Her writing is warm but brief, short sentences in short paragraphs, and she always gives the reason for a request before she makes it. She is the one who notices when a report deadline and a data delivery do not line up, and she raises it early and kindly."
         }
       ],
       "engagement_summary": "Retiree Medical Valuation for Martinez LLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -216,7 +216,7 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         }
       ],
       "participants": [
@@ -225,21 +225,21 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         },
         {
           "id": "p:amanda.white",
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "xp:jason.wagner",
@@ -257,21 +257,6 @@
         }
       ],
       "mentions": [
-        {
-          "entity": "p:amanda.white",
-          "surface": "Amanda White",
-          "kind": "person"
-        },
-        {
-          "entity": "p:jennifer.vasquez",
-          "surface": "Jennifer Vasquez",
-          "kind": "person"
-        },
-        {
-          "entity": "xp:jason.wagner",
-          "surface": "Jason Wagner",
-          "kind": "person"
-        },
         {
           "entity": "x:martinez-llc",
           "surface": "Martinez LLC",
@@ -295,7 +280,7 @@
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         }
       ],
       "participants": [
@@ -304,21 +289,21 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         },
         {
           "id": "p:amanda.white",
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "xp:jason.wagner",
@@ -379,7 +364,7 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         }
       ],
       "participants": [
@@ -388,21 +373,21 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         },
         {
           "id": "p:amanda.white",
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         }
       ],
       "engagement_summary": "Retiree Medical Valuation for Martinez LLC, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
@@ -455,7 +440,7 @@
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         }
       ],
       "participants": [
@@ -464,21 +449,21 @@
           "name": "Jeffrey Ochoa",
           "title": "Actuarial Analyst",
           "dept": "Consulting",
-          "persona": "Handles the modeling backbone of engagements and is usually the one who chases a surprising result back to the assumption that produced it. He is patient with messy client data and blunt about its limits, preferring to state the uncertainty rather than paper over it. He writes short factual notes and leaves the interpretation to the signing actuary."
+          "persona": "Jeffrey Ochoa does much of the groundwork for experience studies and assumption reviews, and he is the analyst most likely to be asked how a table was built. His emails are crisp and businesslike: the finding first, then the supporting detail, then any request framed by a sentence of context about why the item is needed. He marks the difference between an observed trend and a recommended assumption every time, sometimes more insistently than a reader would like, and he skips preamble entirely."
         },
         {
           "id": "p:amanda.white",
           "name": "Amanda White",
           "title": "Actuarial Associate",
           "dept": "Consulting",
-          "persona": "Supports valuations by assembling exhibits and running the data reconciliations that feed them. Her writing is plain and cautious, and she is quick to flag a discrepancy rather than smooth it over. She is absorbing the firm's habit of keeping measurement, assumption, and conclusion in separate sentences."
+          "persona": "Amanda White prepares exhibits and checks the calculations that go into reports for pension boards and fund trustees. Her writing is formal and compact, short sentences in short paragraphs, and she gives a line of background before any question so the recipient does not have to hunt for the reason. She is meticulous about labeling which figures are measured from the data and which follow from an assumption, and she rarely offers an opinion of her own that has not been reviewed."
         },
         {
           "id": "p:jennifer.vasquez",
           "name": "Jennifer Vasquez",
           "title": "Consulting Actuary",
           "dept": "Consulting",
-          "persona": "Owns client relationships and the day-to-day judgment calls on engagements, translating a board's questions into scoped actuarial work. She writes plainly and hedges on purpose, treating every unqualified sentence as a claim she would later have to defend. She is comfortable telling a client which of their questions the data can answer and which it cannot."
+          "persona": "Jennifer Vasquez runs the day-to-day consulting work and is the actuary that pension staff and fund administrators hear from most often. Her writing is organized and economical, with short sentences, short paragraphs, headings that follow the order of the analysis, and a hard line between what the census data show and what the valuation assumes. She reviews analysts' work closely, marks any number she cannot trace to a source, and never asks for anything without first saying what it is for."
         },
         {
           "id": "xp:jason.wagner",

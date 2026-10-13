@@ -5,20 +5,183 @@
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",
-      "id": "rf:document-plausibility-thread-state-regression",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [],
+      "summary": "Actuarial documents, which are normally full of numbers, contain none. Reconciliation emails, experience tabulations and a preliminary-results meeting give every count, rate and amount as a vague word, and the interim deliverables say up front that they contain no results.",
+      "evidence": "Across the 61 sampled docs the only numerals are standard numbers (ASOP, GASB, ASC 715, VM-20), table names (RP-2014, MP-2015, MP-2018) and item references. d:0058: 'our file holds more of these records than the report shows' (no count for either). d:0032: 'A large share of the employees active in the prior year's file do not appear in the most recent file'. d:0019: 'The detail was higher... the two agree within rounding' (no amounts). d:0038's 'Observed Experience' table has a column headed 'What the data show' and no actual-to-expected ratio or count in it. d:0049, the minutes of a preliminary-results review, records no obligation, discount rate or trend rate: 'Jennifer Vasquez presented preliminary results using the discount rate the company selected.' The documents explain the gap themselves: d:0010 'No valuation results appear in this briefing'; d:0012 'It contains no valuation results'; d:0048 'No obligation figure exists at this stage, and none should be read into anything in this report'; d:0060 'Nothing in this report is a finding'; d:0071 'No view on the proposed rates was reached or offered. Nothing below should be read as one'; d:0072 'this report offers none'. The report's near-zero 'Numbers no ledger owns' count comes from leaving quantities out, not from the ledger supplying them."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-2",
       "dimension": "document_plausibility",
       "severity": "major",
       "docs": [
-        "d:0008",
-        "d:0022",
-        "d:0036"
+        "d:0002",
+        "d:0016",
+        "d:0030",
+        "d:0044",
+        "d:0056",
+        "d:0064"
       ],
-      "summary": "In three of the four five-message engagement threads, the final email restarts the data-intake narrative, contradicting the resolved state the earlier messages in the same strictly-linear In-Reply-To chain had already established; read top to bottom the thread's state snaps backward at the last message.",
-      "evidence": "Howard: email 4 (d:0007, 17:57) states 'the census for the Howard and Sons plan is complete and reconciled'; email 5 (d:0008), replying one minute later at 17:58, opens 'Thanks for the census extract... David Sherman is reconciling it against last year's file now... A couple of items are still open on your side.' Miller: email 4 (d:0021, Thu 09-28 16:46) still says 'when you pull the reserve detail'; email 5 (d:0022, same day 17:31) opens 'Thank you for sending the reserve detail through last week. David Sherman has it and has already begun reconciling it' -- the file said outstanding 45 minutes earlier is now thanked for as arriving 'last week'. Estes: email 2 (d:0033) 'Thank you for clarifying the status codes... we can treat the active and deferred groups as settled' and email 3 (d:0034) 'the member data for the Estes Group study is now closed on our end'; email 5 (d:0036) reopens it -- 'A handful of participants carry a status code we cannot read with confidence... could your office confirm... Whether the flagged status code marks deferred vested participants or terminations... Once they are settled, Megan Dudley closes the census.' By contrast the Gonzalez thread (d:0066 through d:0070) progresses coherently, so this is a defect in the thread assembly, not a house style."
+      "summary": "All six engagement letters leave out the terms an actuarial engagement letter exists to set: none gives a valuation or measurement date, none names the plan (d:0016 never says what kind of reserves it covers), and the governing-law clause never names a state.",
+      "evidence": "Governing law, all six: d:0002 'governed by the laws of the state in which our principal office is located'; d:0016, d:0030, d:0044, d:0056 and d:0064 use the same roundabout wording. Valuation date left open or missing: d:0016 'adequate as of a valuation date we will settle with you at the outset' (a year-end reserve opinion whose date is unknown at signing); d:0044 'as of a measurement date that we will confirm with you in writing', and it asks the client for 'The measurement date for the valuation and the fiscal year it supports'; d:0002 'as of the valuation date', with no date or plan year given; d:0030 'We will settle the study period with you'. The plan is never named ('the pension plan that Howard and Sons sponsors', 'the company's pension plan'). d:0016 never says which reserves are covered (line of business, accounting basis, or who the opinion is for). The firm's own overview, d:0040, promises 'An engagement letter before any work begins, stating the scope, the measurement date, the standards that apply'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-3",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0010",
+        "d:0011",
+        "d:0012"
+      ],
+      "summary": "In the Howard and Sons deck, minutes and status report, the choice of mortality table is put to the client as its decision. For a 2016 single-employer funding valuation, the IRS prescribes that table. RP-2014/MP-2015 was a choice only for accounting figures, and the engagement letter excludes accounting work.",
+      "evidence": "d:0002 scopes 'the minimum contribution the funding rules require for the plan year and the largest contribution the company may deduct for it' and says 'Some assumptions are prescribed by law for funding purposes... Others, such as rates of retirement, termination, and pay increase, are ours to select'. It excludes 'The figures the company reports in its financial statements'. Then d:0010 lists under 'Assumptions for Your Review': 'Mortality: whether to adopt the RP-2014 table with the MP-2015 improvement scale'. d:0011: 'Moving to the newer basis is a judgment'. d:0012: 'Decision Needed: Mortality Basis... The mortality basis is the largest open judgment in this valuation... We ask that you be prepared to decide on the basis at the assumption review meeting'. Mortality for minimum funding and the deduction limit is the IRS table under IRC 430(h)(3), still RP-2000-based until the 2018 regulations. A pension actuary would not offer the sponsor that choice, and d:0010 itself promises 'Any item set by regulation is identified as prescribed, not presented as a choice.'"
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-4",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0004",
+        "d:0005",
+        "d:0006",
+        "d:0007",
+        "d:0008",
+        "d:0018",
+        "d:0019",
+        "d:0020",
+        "d:0021",
+        "d:0022",
+        "d:0032",
+        "d:0033",
+        "d:0034",
+        "d:0035",
+        "d:0036",
+        "d:0066",
+        "d:0067",
+        "d:0068",
+        "d:0069",
+        "d:0070"
+      ],
+      "summary": "Every engagement email thread is one-sided. Each has five messages that alternate between two firm staff, all addressed to the client, and the client's replies are referred to but never appear, either as messages or in the quoted text.",
+      "evidence": "Authors alternate ABABA in every thread: J. Vasquez/J. Ochoa (d:0004-d:0008), M. Dudley/D. Sherman (d:0018-d:0022), D. Sherman/R. Lawrence (d:0032-d:0036), K. Harris/R. Lawrence (d:0066-d:0070). Every message is addressed To the client. d:0021 replies to d:0020 (Megan's message) and opens 'The fresh extract your team sent today resolves the question', yet its quoted text holds only Megan, David and Megan, with no client message. d:0070 opens 'The claim listing your team sent reconciles...' and quotes only Robert and Karen. Colleagues follow up a minute apart: d:0007 at 17:57 and d:0008 at 17:58 ('One item to add to Jeffrey's note', 150 words); d:0019 at 16:32 and d:0020 at 16:33 ('One small addition to David's note'). The charter promises that 'the actuaries and the client's staff exchange short emails'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-5",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0011",
+        "d:0024",
+        "d:0027",
+        "d:0037",
+        "d:0047",
+        "d:0049",
+        "d:0059",
+        "d:0071",
+        "d:0012",
+        "d:0025",
+        "d:0038",
+        "d:0048",
+        "d:0060",
+        "d:0072",
+        "d:0003",
+        "d:0017",
+        "d:0031",
+        "d:0045",
+        "d:0057",
+        "d:0065"
+      ],
+      "summary": "Minutes, status reports and kickoff memos carry no date in the document itself. The meeting date, report date or memo date appears only in the filename.",
+      "evidence": "None of the eight sampled minutes says when the meeting was held. d:0011 opens 'Working Session Minutes: Pension Valuation for Howard and Sons' and goes straight to a summary and 'Present'. d:0037 says only 'Working session held by conference call'. None of the six status reports has a report date or an as-of date (d:0048 opens 'Prepared for Martinez LLC / Prepared by Jeffrey Ochoa...'). All six kickoff memos have a To/From/Re header with no Date line (d:0003 'To: ... Cc: ... From: ... Re:'; d:0031 'Memorandum / To / From / Subject'). In the same vein, the onboarding records are 'Recorded for the personnel file' (d:0014), yet none gives the hire's start date."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-6",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0005",
+        "d:0007",
+        "d:0019",
+        "d:0021",
+        "d:0069"
+      ],
+      "summary": "Some senders open with 'Good morning' whatever time the email went out, including late in the afternoon.",
+      "evidence": "Times as the Date header gives them: d:0005 13:14 'Good morning Elizabeth,'; d:0007 17:57 'Good morning Elizabeth,'; d:0019 16:32 and d:0021 16:46 'Good morning Michelle,'; d:0069 17:51 'Good morning James,'. The greeting follows the sender (Jeffrey Ochoa, David Sherman, Robert Lawrence), not the clock. The same senders write 'Good morning' at 09:29 (d:0046) and 10:43 (d:0032). The headers are stamped +0000 and the firm's location is never stated, so a reader can only take these times at face value."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-7",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0002"
+      ],
+      "summary": "The Howard and Sons letter says counsel will sign the signature page, but the page is signed by the Managing Actuary and the client's Director of Operations.",
+      "evidence": "Body: 'Our fee for this engagement is fixed. It is stated on the signature page, which counsel will execute with this letter.' The rendered signature page carries 'Fixed professional fee, as executed: $30,500', then Robert Lawrence, Managing Actuary, and Elizabeth Horne, Director of Operations, Howard and Sons. No counsel appears anywhere in the letter."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-8",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0040",
+        "d:0054"
+      ],
+      "summary": "The 2019 and 2022 firm overviews spend more words explaining their rule for naming clients than naming them, which reads like the generator explaining its own constraint rather than marketing copy.",
+      "evidence": "d:0040: 'Clients we have served include Howard and Sons and Miller, Cook and Snyder. Both engagements are complete, and we cite them as examples of the clients we work for. We name a client in material like this only once the work is finished. We say nothing here about the results, which belong to the client.' d:0054: 'We name a client in material like this only after the engagement has finished, and we say nothing here about results, which belong to the client. On that basis, clients for whom we have completed work include...' Real overviews say 'representative clients include', and where a reason is given it is client consent, not whether the work is finished."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-9",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0044",
+        "d:0045",
+        "d:0065",
+        "d:0012",
+        "d:0038"
+      ],
+      "summary": "Several formal documents are dated on weekends or a federal holiday. The recipe's business calendar covers mail, meetings and engagement starts, but not these documents.",
+      "evidence": "d:0045, '2020.07.04 - Kickoff Memo - Retiree Medical Valuation.docx' (docx created 2020-07-04 09:00), is dated Saturday, July 4. d:0044's signature page dates both signatures, Robert Lawrence and Jason Wagner, 'June 21, 2020', a Sunday. d:0065, the Gonzalez kickoff memo, is dated Sunday 2024-07-28. The client status reports d:0012 (2016-06-25) and d:0038 (2019-03-30) are dated Saturdays."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-10",
+      "dimension": "document_plausibility",
+      "severity": "note",
+      "docs": [],
+      "summary": "The details that place each document in its year hold up throughout, and they are this corpus's strongest feature.",
+      "evidence": "d:0011 (June 2016) dates MP-2015 to 'last fall'. d:0038 (March 2019): 'the MP-2018 scale the Society of Actuaries published last October'. d:0040 (2019) has ASOP No. 51 'now' and VM-20 'as the transition period draws to a close'. d:0045 (July 2020): 'The excise tax on high-cost coverage was repealed at the end of last year'. d:0044 (2020) requires a business associate agreement before taking claims files. d:0047 treats spring 2020 claims as deferred care. d:0054 (May 2022): the revised ASOP No. 4 'takes effect next year' with a low-default-risk obligation measure. d:0056 (2023) cites ASOP No. 56. d:0043 (June 2020): 'The whole firm is working from home for now'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-11",
+      "dimension": "document_plausibility",
+      "severity": "note",
+      "docs": [
+        "d:0005",
+        "d:0006",
+        "d:0007",
+        "d:0020",
+        "d:0068"
+      ],
+      "summary": "The engagement emails the length metric flags as short (28-72% of brief) read as the right length for mid-thread data questions. Here the 250-word target is off, not the emails.",
+      "evidence": "d:0006 (70 words) adds one field to an outstanding request: 'One addition to the request below. A lump sum paid after the valuation date is still a liability on that date.' d:0068 (120 words) withdraws one item: 'Item 3 on Robert's list can come off.' Mid-thread replies of this kind are typically a few sentences, and padding them out to the brief would make them less plausible."
     }
   ],
   "generator": {
-    "model": "claude-opus-4-8[1m]",
+    "model": "claude-opus-5-5",
     "effort": "xhigh"
   }
 }

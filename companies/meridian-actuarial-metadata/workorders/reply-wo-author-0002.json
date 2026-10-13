@@ -1,306 +1,151 @@
 {
   "schema_id": "orgsmith/authoring-deliverable@1",
   "work_order_id": "wo:author:0002",
-  "generator": {
-    "model": "claude-opus-4-8[1m]",
-    "effort": "xhigh"
-  },
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
   "docs": [
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0008",
       "blocks": [
-        {
-          "kind": "paragraph",
-          "text": "Hi Elizabeth,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Thanks for the census extract. It came through clean, and David Sherman is reconciling it against last year's file now. The head counts and covered payroll tie so far, and he will flag anything that does not before it reaches the model."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Jeffrey Ochoa has the {{fact:f:E-2016-001.client}} valuation set up on last cycle's basis, so the assumptions are ready to load once the data is final. We are not running numbers yet; at this stage the work is getting the inputs right."
-        },
-        {
-          "kind": "paragraph",
-          "text": "A couple of items are still open on your side. We need the year-end asset statement, and a read on whether the disability offset follows the plan document or the summary, since the two disagree. For our reliance file I am recording Elizabeth Horne as the source of the plan data; if either item should come from someone else on your team, tell me and I will note it."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Once those two are settled, David can close the reconciliation and Jeffrey can produce a first set of results for our own review. Nothing goes to you until we have checked it against the prior valuation and are comfortable it holds."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Sincerely"
-        }
+        {"kind": "paragraph", "text": "Hi Elizabeth,"},
+        {"kind": "paragraph", "text": "One item to add to Jeffrey's note. It concerns the plan document, not the census, but we need both before we calculate any benefit."},
+        {"kind": "paragraph", "text": "A valuation measures the benefits the plan actually promises as of the valuation date. That means the provisions as amended, not as originally written. A provision we have to infer becomes an assumption, and we avoid making one where a document exists."},
+        {"kind": "paragraph", "text": "Please send the current plan document for {{fact:f:E-2016-001.client}}, with each amendment adopted since it was last restated. If there have been no amendments, a one-line reply saying so is enough. The secure file site is the best route for the document itself."},
+        {"kind": "paragraph", "text": "Once it is in hand, David will code the provisions into the model alongside the census. We will then send you a short summary of the data and provisions as we have them, kept separate from any assumption."},
+        {"kind": "paragraph", "text": "Sincerely,\nJennifer"}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0010",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Pension Valuation for {{fact:f:E-2016-001.client}}",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Engagement start: {{fact:f:E-2016-001.start}}",
-            "Prepared by Jennifer Vasquez, Consulting Actuary",
-            "Purpose: measure the plan's funded position and the contribution for the year ahead",
-            "For the {{fact:f:E-2016-001.client}} board and staff"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "What the valuation covers",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "We measure the actuarial accrued liability and the normal cost under the plan's funding method.",
-            "We report the funded ratio and a recommended contribution for the coming year.",
-            "We reconcile this year's results to the prior valuation, so any change is explained and not just stated.",
-            "We document every assumption and every data source that stands behind the numbers.",
-            "Where the data cannot answer a question, we say so rather than estimate around it."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "How the work is staffed",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "David Sherman reconciles the census and documents the data we rely on.",
-            "Jeffrey Ochoa builds the valuation model and ties each result back to the assumption that drives it.",
-            "Jennifer Vasquez signs the opinion and owns the judgment calls.",
-            "Elizabeth Horne is our point of contact for data and plan questions.",
-            "We confirm decisions in writing, so no one is working from an old version."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "What you will receive",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "A workbook of exhibits: the liabilities, the assets, and the resulting funded position.",
-            "A report that interprets the exhibits and states our opinion plainly.",
-            "A short summary the board can read without the detail behind it.",
-            "The full set of assumptions and data sources, laid out for review."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Where we are now",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "The participant census is in and being reconciled to last year's file.",
-            "The year-end asset statement and one plan-provision question are still open with your team.",
-            "The assumptions are carried from the last study and will be reviewed before any results.",
-            "No results yet; the work at this point is settling the inputs."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Next steps",
-          "level": 1
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Send the year-end asset statement.",
-            "Confirm the disability provision, so the valuation matches the plan document.",
-            "We finish the census reconciliation and load the reviewed assumptions.",
-            "We bring preliminary results back to you before anything is treated as final."
-          ]
-        }
+        {"kind": "heading", "level": 1, "text": "Pension Valuation: Engagement Briefing"},
+        {"kind": "list", "items": [
+          "Prepared for {{fact:f:E-2016-001.client}}",
+          "Meridian Actuarial Advisors",
+          "Presented by Jennifer Vasquez, Consulting Actuary",
+          "No valuation results appear in this briefing. Results follow once the data are final and the assumptions are agreed."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Who Is Doing the Work"},
+        {"kind": "list", "items": [
+          "Jennifer Vasquez, Consulting Actuary: leads the valuation and is your first contact.",
+          "David Sherman, Senior Analyst: valuation model, census loading, and reconciliation.",
+          "Jeffrey Ochoa, Actuarial Analyst: plan experience and the assumption review.",
+          "Elizabeth Horne, Director of Operations: census data, plan documents, and decisions for {{fact:f:E-2016-001.client}}."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Where the Work Stands"},
+        {"kind": "list", "items": [
+          "Work began on {{fact:f:E-2016-001.start}}.",
+          "The participant census has been received and loaded into the valuation model.",
+          "Active and retiree records reconcile to the prior year's file.",
+          "Some terminated vested records do not yet reconcile. Our questions on them are with your staff.",
+          "The current plan document and its amendments have been requested."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Data, Assumptions, Conclusions"},
+        {"kind": "list", "items": [
+          "Data: the census and plan provisions as you provide them. We test them for consistency and completeness. We do not audit them.",
+          "Assumptions: our proposals for future experience, each reviewed with you before it is used.",
+          "Conclusions: the liabilities and costs that follow from the data and the assumptions together.",
+          "We report the three separately, so the effect of any change can be traced to its source."
+        ]},
+        {"kind": "heading", "level": 1, "text": "Assumptions for Your Review"},
+        {"kind": "list", "items": [
+          "Mortality: whether to adopt the RP-2014 table with the MP-2015 improvement scale.",
+          "Retirement and termination rates: tested against the plan's own experience before any change is proposed.",
+          "Economic assumptions: each proposed with its basis stated in writing.",
+          "Any item set by regulation is identified as prescribed, not presented as a choice."
+        ]},
+        {"kind": "heading", "level": 1, "text": "From Here"},
+        {"kind": "list", "items": [
+          "Close the open terminated vested questions with your staff.",
+          "Code the amended plan provisions once the documents arrive.",
+          "Send a written summary of the data and provisions before any assumption is applied.",
+          "Hold a working session on the demographic assumptions.",
+          "Preliminary results follow agreement on the assumptions."
+        ]}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0011",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Meeting Minutes: Pension Valuation for {{fact:f:E-2016-001.client}}",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "The data is settled, and the valuation has moved from gathering inputs to setting assumptions. That was the headline of the session. Most of the discussion was about the choices in front of us rather than the numbers themselves, and we wanted the record to show what we have now fixed and what is still a matter of judgment, because the two are easy to blur once the model starts producing results."
-        },
-        {
-          "kind": "heading",
-          "text": "Attendees",
-          "level": 2
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Jennifer Vasquez, Consulting Actuary",
-            "David Sherman, Senior Analyst",
-            "Jeffrey Ochoa, Actuarial Analyst",
-            "Elizabeth Horne, Director of Operations, {{fact:f:E-2016-001.client}}"
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Discussion",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "David Sherman walked us through the census reconciliation, which is now complete. The head counts and the covered payroll tie to the prior file, and the handful of records that were missing dates of birth were filled in from information Elizabeth Horne's team sent over. We agreed to treat the reconciled file as the data of record, and David will document our reliance on it in the usual way, so that every number in the valuation can be traced back to a source."
-        },
-        {
-          "kind": "paragraph",
-          "text": "We also closed the plan-provision question that had been open since the data review. The disability offset follows the plan document, not the summary, and Elizabeth Horne confirmed that reading against her own copy. One smaller item remains, on the treatment of a closed early-retirement window, and that sits with the client to confirm before the results are final."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Most of the meeting was about assumptions. Jeffrey Ochoa laid out the set carried from the last study and flagged the discount rate as the choice that matters most. We talked through holding last study's rate against moving to a current-market basis. Instead of settling it in the room, we agreed to present the result under both, so the board can see how much of the funded position rests on that single assumption. Mortality stays on the prior table until the next experience review gives us a reason to change it. Jeffrey noted that he had run a preliminary set of numbers on the carried-over basis, but we were clear that those are directional only and do not leave the office."
-        },
-        {
-          "kind": "paragraph",
-          "text": "Running through all of it was the care we try to keep in the writing. What the data show, what we have assumed, and what we will ultimately conclude are three different things, and none of us wanted a preliminary figure read as an opinion. The group was comfortable that the engagement is on track and that the items still open are narrow ones."
-        },
-        {
-          "kind": "heading",
-          "text": "Action Items",
-          "level": 2
-        },
-        {
-          "kind": "table",
-          "header": [
-            "Item",
-            "Owner",
-            "Target"
-          ],
-          "rows": [
-            [
-              "Close the asset reconciliation against the year-end statement",
-              "David Sherman",
-              "This period"
-            ],
-            [
-              "Finalize the assumption set and document the discount-rate basis",
-              "Jeffrey Ochoa",
-              "Next session"
-            ],
-            [
-              "Draft the assumption memo for the board",
-              "Jennifer Vasquez",
-              "Next session"
-            ],
-            [
-              "Confirm the closed early-retirement window provision",
-              "Elizabeth Horne",
-              "This period"
-            ]
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "Minutes prepared by Jeffrey Ochoa."
-        }
+        {"kind": "heading", "level": 1, "text": "Working Session Minutes: Pension Valuation for {{fact:f:E-2016-001.client}}"},
+        {"kind": "paragraph", "text": "The census is now final for valuation purposes, subject to one open item, and the assumption review has a clear path forward. We closed the terminated vested questions, confirmed the plan provisions, and walked through a first look at the plan's experience. No assumption was adopted at this session, and nothing recorded below should be read as a recommendation."},
+        {"kind": "heading", "level": 2, "text": "Present"},
+        {"kind": "list", "items": [
+          "Elizabeth Horne, Director of Operations, {{fact:f:E-2016-001.client}}",
+          "Jennifer Vasquez, Consulting Actuary",
+          "David Sherman, Senior Analyst",
+          "Jeffrey Ochoa, Actuarial Analyst (minutes)"
+        ]},
+        {"kind": "heading", "level": 2, "text": "Census reconciliation"},
+        {"kind": "paragraph", "text": "David Sherman opened with the reconciliation. The active and retiree records had tied to the prior year's file on the first pass, so the discussion centered on the terminated vested records that showed no supporting change of status. Elizabeth Horne had traced most of them to former employees who took lump-sum payments and were never removed from the file. We agreed those records come out of the valuation, and David will document the source of each removal in the data summary."},
+        {"kind": "paragraph", "text": "A small number of active records still lack a date of hire, and Elizabeth expects payroll can supply them. Jennifer Vasquez drew a line between this and the earlier problem. An unexplained status change leaves us unsure whether the person belongs in the valuation at all, while a missing hire date leaves one data element open for someone who plainly does. If the dates do not arrive in time, David will carry those participants on a stated assumption and flag it in the summary so the gap stays visible."},
+        {"kind": "heading", "level": 2, "text": "Plan provisions"},
+        {"kind": "paragraph", "text": "The restated plan document and its amendments arrived after our last exchange. Jennifer has reviewed them against the coding in the model, and the benefit calculations now reflect the provisions as amended. She asked that we hear about any amendment under consideration, since a change adopted before the report is issued may need to be reflected or disclosed."},
+        {"kind": "heading", "level": 2, "text": "Experience and assumptions"},
+        {"kind": "paragraph", "text": "Jeffrey Ochoa presented the first look at retirement and termination experience. What the data show is that participants have been retiring later than the current retirement rates assume, most clearly at the first age at which an unreduced benefit is available. That is an observation drawn from a short period of experience, and we kept it apart from any recommendation. Recommended rates will come with the full study, together with a view on how much weight the plan's own experience can carry."},
+        {"kind": "paragraph", "text": "On mortality, Jennifer explained that the current basis predates the RP-2014 table and the MP-2015 improvement scale the Society of Actuaries published last fall. Moving to the newer basis is a judgment, and for most plans it has meant longer assumed lifetimes and higher liabilities. Elizabeth asked how large the effect would be here. Jennifer declined to give a figure before the data are final and the other assumptions are set, because an estimate offered now tends to be quoted later as a result. We agreed instead to show the effect of the mortality change on its own line in the preliminary results."},
+        {"kind": "heading", "level": 2, "text": "Agreed actions"},
+        {"kind": "table", "header": ["Action", "Owner", "Timing"], "rows": [
+          ["Obtain the missing hire dates from payroll", "Elizabeth Horne", "Within two weeks"],
+          ["Remove the paid-out terminated vested records and document each removal", "David Sherman", "Before the data summary"],
+          ["Issue the written data summary", "David Sherman", "Once the hire dates are in, or on a stated assumption if they are not"],
+          ["Complete the retirement and termination study, with recommended rates", "Jeffrey Ochoa", "Before the assumption review meeting"],
+          ["Prepare the mortality comparison for the preliminary results", "Jennifer Vasquez", "With the preliminary results"],
+          ["Tell Meridian of any plan amendment under consideration", "Elizabeth Horne", "Ongoing"]
+        ]},
+        {"kind": "paragraph", "text": "If we have recorded anything differently from the way you remember it, please let Jeffrey Ochoa know and we will correct the minutes."}
       ]
     },
     {
       "schema_id": "orgsmith/docir@1",
       "doc_id": "d:0012",
       "blocks": [
-        {
-          "kind": "heading",
-          "text": "Status Report: Pension Valuation for {{fact:f:E-2016-001.client}}",
-          "level": 1
-        },
-        {
-          "kind": "paragraph",
-          "text": "Prepared by Jennifer Vasquez, Consulting Actuary, for the leadership of {{fact:f:E-2016-001.client}}. This report covers the engagement at its midpoint. The work is where I expected it to be at this stage. The inputs are settled, the model is standing, and the effort that remains is the valuation itself and the report that interprets it. I have written this to separate plainly what is finished from what still calls for a decision, since at the midpoint those are the two things worth your attention."
-        },
-        {
-          "kind": "heading",
-          "text": "Summary",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The engagement is on schedule and within its agreed scope. The participant data is reconciled and closed. The plan provisions are confirmed but for one narrow item. The assumptions are in final review. We have begun the valuation runs for our own checking, and I want to be plain about what that means. No results have left the office, and none will until we have tested them against the prior valuation and are satisfied they hold. A preliminary number is not an answer, and we treat it that way internally. Nothing this period has changed the shape of the engagement or what we expect to deliver at the end of it."
-        },
-        {
-          "kind": "heading",
-          "text": "How we read the results",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "One point about how we will present the numbers. An actuarial valuation mixes three things that are easy to run together: what the data measure, what we assume about the future, and what we conclude from the two. We keep them apart on purpose. The exhibits will show the measured position. The assumption memo will state what we have assumed and why. The opinion will draw the conclusion, and only there. If a number in the eventual report looks larger or smaller than you expect, the explanation will almost always sit in the assumptions, and we will have documented it before you ask."
-        },
-        {
-          "kind": "heading",
-          "text": "Completed this period",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The bulk of the period went to closing out the inputs and standing up the model. Two people carried most of that work."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "David Sherman completed the census reconciliation and the tie-out to the prior file. He has documented the data we are relying on, so that every figure in the valuation can be traced back to a source.",
-            "Jeffrey Ochoa built the valuation model and checked it, and he has tied each preliminary result back to the assumption that drives it, which is what lets us explain a number, not merely report it.",
-            "We confirmed the plan provisions with your staff, including the disability offset, which follows the plan document and not the summary description.",
-            "We settled the assumption set in draft. The one assumption we have deliberately left open is the discount rate, which we want to decide with you rather than hand you as a finished choice."
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "text": "With the inputs fixed, the judgment now moves to the assumptions, which is the right place for it at this point in the work."
-        },
-        {
-          "kind": "heading",
-          "text": "The next stage",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The remaining work is the valuation and its reporting, in that order. None of it depends on anything we do not already have, apart from the two small items noted below."
-        },
-        {
-          "kind": "list",
-          "items": [
-            "Complete the full valuation run and reconcile it to last year, so any movement in the funded position is explained, not merely asserted.",
-            "Finalize the discount-rate basis, the one assumption that materially moves the result.",
-            "Prepare the workbook of exhibits and the report that reads them for the board.",
-            "Bring preliminary results to you for review before anything is treated as final."
-          ]
-        },
-        {
-          "kind": "heading",
-          "text": "Risks",
-          "level": 2
-        },
-        {
-          "kind": "paragraph",
-          "text": "The data risk is largely behind us now that the census is closed. The risks that remain are matters of judgment, not measurement, and there are three worth naming. The first is the discount rate. It is an assumption, not a fact the data hands us, and it moves the funded ratio enough that we will show you the result under more than one rate instead of choosing quietly on your behalf. The second is mortality, where we are holding the prior table until the next experience review gives us a reason to change it; that is a considered choice, and the report will say so plainly. The third is the single open plan provision, which your team is confirming and which we do not expect to change the picture."
-        },
-        {
-          "kind": "paragraph",
-          "text": "None of these threatens the schedule, and the scope has held steady from the start. The best time to raise a question about an assumption is before the results are built on it, so if any of the choices above give you pause, I would sooner hear it now. I will follow up with your team on the two open items and will send preliminary results as soon as they have cleared our own review."
-        }
+        {"kind": "heading", "level": 1, "text": "Status Report: Pension Valuation"},
+        {"kind": "paragraph", "text": "Prepared for {{fact:f:E-2016-001.client}} by Meridian Actuarial Advisors. This report covers the work through the midpoint of the engagement. It contains no valuation results."},
+        {"kind": "heading", "level": 2, "text": "Position at the Midpoint"},
+        {"kind": "paragraph", "text": "The valuation is on schedule and within the scope set out in the engagement letter. The census data are final, the plan provisions are confirmed, and the assumption review is under way."},
+        {"kind": "paragraph", "text": "No results have been produced, and none will be until the assumptions are agreed. One decision is needed from you before then, on the mortality basis. It is set out at the end of this report."},
+        {"kind": "heading", "level": 2, "text": "Completed to Date"},
+        {"kind": "list", "items": [
+          "Received the participant census and loaded it into the valuation model.",
+          "Reconciled the census to the prior year's file. Active and retiree records tied on the first pass.",
+          "Resolved the terminated vested records with your staff at the working session. Former employees who had been paid lump sums but remained on the file were removed, and the source of each removal is documented.",
+          "Obtained the missing hire dates from payroll, which closed the last open data item.",
+          "Received the restated plan document and its amendments, and reflected the amended provisions in the benefit calculations.",
+          "Issued the written data summary, prepared by David Sherman, listing each change made to the file and its source.",
+          "Completed a first review of retirement and termination experience, prepared by Jeffrey Ochoa."
+        ]},
+        {"kind": "heading", "level": 2, "text": "What the Data Show"},
+        {"kind": "paragraph", "text": "The census, as reconciled, is complete and internally consistent for every participant group. Each record now carries the elements the valuation needs, and no participant is carried on an assumed data value."},
+        {"kind": "paragraph", "text": "The experience review shows participants retiring later than the current rates assume. The pattern is clearest at the first age at which an unreduced benefit is available. It rests on a short period of data and is an observation, not yet a recommendation."},
+        {"kind": "heading", "level": 2, "text": "What Has Been Assumed"},
+        {"kind": "paragraph", "text": "No new assumptions have been adopted. To test the data and provisions end to end, the model is running on the prior valuation's assumptions as a placeholder."},
+        {"kind": "paragraph", "text": "Output on that basis is a check on the mechanics only. It is not reported and should not be relied on for any purpose."},
+        {"kind": "paragraph", "text": "The economic assumptions will be proposed together with the demographic set, each with its basis stated in writing. Any item set by regulation will be identified as prescribed rather than presented as our selection."},
+        {"kind": "heading", "level": 2, "text": "What We Conclude at This Stage"},
+        {"kind": "paragraph", "text": "The data are adequate for the valuation. That conclusion is limited to their consistency and completeness, which is the review called for under Actuarial Standard of Practice No. 23, Data Quality."},
+        {"kind": "paragraph", "text": "We have relied on the census and plan documents as provided and have not audited them. We reach no conclusion yet on the plan's liabilities or costs."},
+        {"kind": "heading", "level": 2, "text": "Work Ahead"},
+        {"kind": "table", "header": ["Work", "Lead", "Depends on"], "rows": [
+          ["Recommended retirement and termination rates, with the supporting study", "Jeffrey Ochoa", "Nothing outstanding"],
+          ["Mortality comparison: current basis against RP-2014 with MP-2015", "Jennifer Vasquez", "Nothing outstanding"],
+          ["Assumption review meeting with your staff", "Jennifer Vasquez", "Both items above"],
+          ["Preliminary valuation results, with the mortality effect shown separately", "David Sherman", "Agreed assumptions"],
+          ["Draft valuation report", "Jennifer Vasquez", "Your review of the preliminary results"]
+        ]},
+        {"kind": "heading", "level": 2, "text": "Risks to the Schedule"},
+        {"kind": "list", "items": [
+          "Assumption decisions. Preliminary results cannot be run until the assumptions are agreed, and each later step moves with that decision.",
+          "Plan changes. An amendment adopted before the report is issued may need to be reflected or disclosed. Please tell us of any change under consideration.",
+          "Experience period. The period studied is short. If the retirement pattern weakens in the full study, we will recommend a partial move toward it and state why.",
+          "Data corrections. A census correction from this point requires the reconciliation to be re-run for the records it affects. We will tell you before any re-run changes the schedule."
+        ]},
+        {"kind": "heading", "level": 2, "text": "Decision Needed: Mortality Basis"},
+        {"kind": "paragraph", "text": "The mortality basis is the largest open judgment in this valuation. The current basis predates the RP-2014 table and the MP-2015 improvement scale, and for most plans the newer basis has meant longer assumed lifetimes and higher liabilities."},
+        {"kind": "paragraph", "text": "We will show the effect of the change on its own line in the preliminary results, so it can be seen apart from every other assumption. We ask that you be prepared to decide on the basis at the assumption review meeting, after you have seen that effect."},
+        {"kind": "paragraph", "text": "Questions on this report may go to Jennifer Vasquez. David Sherman can answer questions on the data summary, and Jeffrey Ochoa on the experience review."}
       ]
     }
   ]

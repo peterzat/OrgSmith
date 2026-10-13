@@ -4,7 +4,7 @@
   "blocks": [
     {
       "kind": "heading",
-      "text": "Working Session: Reserve Adequacy Review for {{fact:f:E-2017-001.client}}",
+      "text": "Reserve Adequacy Review: Working Session Minutes",
       "level": 1,
       "items": [],
       "header": [],
@@ -13,7 +13,7 @@
     },
     {
       "kind": "paragraph",
-      "text": "Date: November 14, 2017. Minutes recorded by David Sherman.",
+      "text": "Summary: the data position for the review is settled. Two questions bearing on the assumptions remain open, and both must be resolved before work can begin on an independent estimate of the reserves {{fact:f:E-2017-001.client}} requires. Each open item has an owner in the table at the end of these minutes.",
       "level": 1,
       "items": [],
       "header": [],
@@ -22,7 +22,7 @@
     },
     {
       "kind": "heading",
-      "text": "Present",
+      "text": "Attendees",
       "level": 2,
       "items": [],
       "header": [],
@@ -34,10 +34,10 @@
       "text": "",
       "level": 1,
       "items": [
-        "David Sherman, Senior Analyst, Meridian Actuarial Advisors (recording)",
-        "Jennifer Vasquez, Consulting Actuary, Meridian Actuarial Advisors",
-        "Megan Dudley, Actuarial Associate, Meridian Actuarial Advisors",
-        "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}"
+        "Michelle Hudson, Director of Operations, {{fact:f:E-2017-001.client}}",
+        "Jennifer Vasquez, Consulting Actuary",
+        "David Sherman, Senior Analyst (minutes)",
+        "Megan Dudley, Actuarial Associate"
       ],
       "header": [],
       "rows": [],
@@ -45,7 +45,7 @@
     },
     {
       "kind": "heading",
-      "text": "Summary",
+      "text": "Discussion",
       "level": 2,
       "items": [],
       "header": [],
@@ -54,7 +54,43 @@
     },
     {
       "kind": "paragraph",
-      "text": "The reconciliation of the reserve data is substantially complete and ties to the client's year-end records within the tolerance we set at the outset. The purpose of the session was to confirm that the review can now move from checking the data to testing the assumptions beneath it, and it can.",
+      "text": "1. Data. David Sherman reported that the field-level checks on the replacement extract are complete. Apart from the records with an incurred date later than the valuation date, raised in October, the fields the model draws on are internally consistent. Michelle Hudson confirmed that those dates were keyed in error. Corrected dates have been supplied and loaded, and the reported date is no longer being used in their place. The data log shows the original entry, the correction, and its source.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "2. Replication. David Sherman has reproduced the carried reserves using the client's own methods and assumptions. The reproduction agrees with the carried total closely enough to show that the model reads the records the way the client's process does. A small residual difference has not yet been traced and is not being treated as a finding. No estimate of our own has been produced, and none was presented at the session.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "3. Methods and assumptions. Jennifer Vasquez summarized her review of the documentation. The assumptions divide into those that are prescribed and those that rest on judgment, and the second group is where the review will concentrate. The documentation records one change of assumption during the year but does not include the analysis that supported it. Michelle Hudson undertook to locate that analysis.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "4. Experience period. Michelle Hudson reported that the claim system was replaced partway through the period covered by the claim history, and that claim handling practice changed at about the same time. Jennifer Vasquez noted that if the earlier experience reflects a different practice, it may not be a reliable guide to how the current claims will run off. The choice of period is a matter of actuarial judgment and will be documented as such in the report. She asked for a written description of what changed and when, so that the choice rests on the client's account rather than on an inference from the data. No decision on the period was taken.",
+      "level": 1,
+      "items": [],
+      "header": [],
+      "rows": [],
+      "signers": []
+    },
+    {
+      "kind": "paragraph",
+      "text": "5. Requests and timetable. Megan Dudley confirmed that every item on the original data request has now been received. The work is on the schedule set out in the engagement letter. The next working session will review preliminary estimates, once the first two action items below are complete and the period has been settled.",
       "level": 1,
       "items": [],
       "header": [],
@@ -63,52 +99,7 @@
     },
     {
       "kind": "heading",
-      "text": "Matters Discussed",
-      "level": 2,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "David Sherman walked through the reconciliation. The reserve detail was reconstructed from the files supplied, at the grouped level the client's system produces, and reconciled line by line to the financial records the reserves are carried against. The single grouping difference flagged earlier in the engagement resolved as a rounding artifact at the summary level, where the aggregate total had been rounded independently of the detail beneath it. It has been documented in the working papers, with the source of the difference identified so the point is not reopened later. Our reliance on each file is recorded against the date it arrived and the person who supplied it. No figure is being carried forward that has not been tied out to the client's own records.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The group agreed that the data is now sufficient to support the next phase, with one exception noted below. David Sherman confirmed that the reconciled detail is internally consistent and that the reserve segments reconcile both to each other and to the year-end totals. Megan Dudley has logged every file against the original request, and the log shows one item outstanding.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "Jennifer Vasquez led a discussion of the assumptions behind the current reserves. The session kept two categories deliberately apart: the assumptions that regulation fixes, which are not ours to revisit, and those that rest on judgment, which the review will test. That separation was treated as the backbone of the eventual opinion, since the two categories carry very different weight when the firm signs its name to a conclusion. Michelle Hudson confirmed the assumption documentation in effect at the valuation date and undertook to supply the one interest and mortality basis still outstanding. Megan Dudley will maintain the assumption log, tagging each input as measured or assumed, so the eventual report can show which is which without reconstructing it after the fact.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "On progress against plan, the work is at roughly its midpoint and on the schedule set at the start. The next phase is the independent estimate of the required reserves, which begins once the outstanding basis is received and can proceed on the reconciled data in the meantime. The group also agreed the shape of the report: it will keep what the data show, what was assumed, and what is concluded as three separate parts, and it will name the actuarial standards it rests on. Jennifer Vasquez noted that some of the board's questions will be answerable from the analysis and some will not, and that the report will be explicit about the difference.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
-      "signers": []
-    },
-    {
-      "kind": "heading",
-      "text": "Action Items",
+      "text": "Action items",
       "level": 2,
       "items": [],
       "header": [],
@@ -121,41 +112,37 @@
       "level": 1,
       "items": [],
       "header": [
+        "No.",
         "Action",
-        "Owner",
-        "Target"
+        "Owner"
       ],
       "rows": [
         [
-          "Supply the interest and mortality basis in effect at the valuation date",
-          "Michelle Hudson",
-          "Nov 21"
+          "1",
+          "Provide a written description of the claim system replacement and the change in claim handling practice, including when each took effect.",
+          "Michelle Hudson"
         ],
         [
-          "Record the resolved grouping difference in the working papers",
-          "David Sherman",
-          "Nov 20"
+          "2",
+          "Locate the analysis that supported the assumption change made during the year.",
+          "Michelle Hudson"
         ],
         [
-          "Maintain the assumption log, separating measured inputs from judgment",
-          "Megan Dudley",
-          "Ongoing"
+          "3",
+          "Send the client a short note setting out the candidate experience periods and how each would be tested.",
+          "Jennifer Vasquez"
         ],
         [
-          "Settle which of the board's questions the data can answer",
-          "Jennifer Vasquez",
-          "Nov 28"
+          "4",
+          "Trace the residual difference in the replication and record the explanation in the data log.",
+          "David Sherman"
+        ],
+        [
+          "5",
+          "Log items 1 and 2 on receipt and circulate them to the team.",
+          "Megan Dudley"
         ]
       ],
-      "signers": []
-    },
-    {
-      "kind": "paragraph",
-      "text": "The next session will review the independent estimate once the outstanding basis is in hand.",
-      "level": 1,
-      "items": [],
-      "header": [],
-      "rows": [],
       "signers": []
     }
   ]
