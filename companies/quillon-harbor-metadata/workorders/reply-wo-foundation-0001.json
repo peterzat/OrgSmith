@@ -1,0 +1,91 @@
+{
+  "schema_id": "orgsmith/enrichment-deliverable@1",
+  "work_order_id": "wo:foundation:0001",
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
+  "personas": [
+    {
+      "person_id": "p:heather.delacruz",
+      "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+    },
+    {
+      "person_id": "p:mark.allen",
+      "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+    },
+    {
+      "person_id": "p:richard.mccoy",
+      "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+    },
+    {
+      "person_id": "p:rachel.brown",
+      "persona": "Rachel is the firm's most exacting reader of a confidential information memorandum, and analysts learn quickly that she will check whether every figure in the narrative ties back to the model. She writes in a clipped, organized way, favoring numbered issues with a short line of recommendation beneath each. On calls with owners she is calm and practical, the person who explains what diligence will ask for before the buyer gets around to asking."
+    },
+    {
+      "person_id": "p:robert.turner",
+      "persona": "Robert manages the daily mechanics of a mandate: the data room index, the buyer contact log, the agenda for the weekly client call. His emails are short, usually a single paragraph with a list of open items beneath it, and he ends with exactly what he needs back and by when. He is the steadying presence for analysts under deadline, with a dry, understated humor that surfaces mostly in internal notes."
+    },
+    {
+      "person_id": "p:david.rios",
+      "persona": "David writes the way a careful analyst is taught to: every claim carries its source, every percentage its denominator, and caveats arrive in parentheses before anyone can object. He builds the target screens and comparable-transaction tables the deal team leans on, and his cover notes explain methodology at more length than anyone reads. He is earnest and quick, and his drafts tend to need trimming rather than filling in."
+    },
+    {
+      "person_id": "p:thomas.mccoy",
+      "persona": "Thomas is the associate partners rely on to turn an analyst's draft into something a client can read, and he does it mostly by cutting. His own prose is tidy and a little formal, with a preference for complete sentences over bullets even in internal notes. He keeps careful track of which buyers have received which materials and grows uneasy whenever a document travels further than its distribution list."
+    },
+    {
+      "person_id": "p:sarah.fletcher",
+      "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+    },
+    {
+      "person_id": "p:jennifer.bruce",
+      "persona": "Jennifer is the associate most at home in the financial model, and her written work is built around it: the financial sections of marketing materials and the bridge from management's figures to the adjusted ones. She writes compactly and qualifies precisely, distinguishing reported from adjusted figures every time without being reminded. She is reserved in meetings but thorough in follow-up, and her recap emails are often the most complete record of what was actually decided."
+    },
+    {
+      "person_id": "p:sandra.norman",
+      "persona": "Sandra coordinates diligence once a buyer is through to the later rounds, so her documents are request lists, response trackers, and polite reminders. She writes with procedural patience, restating what was asked, what was received, and what remains outstanding, so that nobody can later claim a request was ambiguous. Her tone with a seller's management team is reassuring and practical; with a buyer's advisors it is courteous and immovable."
+    },
+    {
+      "person_id": "p:cynthia.white",
+      "persona": "Cynthia keeps the firm's operating rhythm: the pipeline meeting, the staffing grid, the running account of who is on which mandate. Her internal memos are friendly, brisk, and impossible to misread, usually opening with the decision needed and closing with the deadline for it. Partners trust her sense of how a message will land inside the firm, and she is often the one who softens a partner's draft before it goes out to all staff."
+    },
+    {
+      "person_id": "p:amanda.thomas",
+      "persona": "Amanda owns the conflict checks, the confidentiality logs, and the careful wording of anything that touches a regulated question. Her writing is precise to the point of formality, defining terms on first use and preferring must and should to anything vaguer. She is collegial rather than officious, and her reminders about data-room access and who may see a target's name usually come with a short explanation of why the rule exists."
+    },
+    {
+      "person_id": "p:kelly.brown",
+      "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+    },
+    {
+      "person_id": "p:melissa.jacobson",
+      "persona": "Melissa writes the industry overviews for marketing materials and has a knack for turning a sector's trade jargon into plain prose a generalist buyer can follow. Her drafts are among the most readable the analysts produce, though she reaches for enumeration when she is unsure, laying out considerations in order rather than choosing among them. She is sociable and well liked, and her internal emails carry a chattier, friendlier register than most."
+    },
+    {
+      "person_id": "p:justin.gonzalez",
+      "persona": "Justin builds the valuation work: trading comparables, precedent transactions, and the football-field summaries partners carry into board meetings. He writes compressed, number-dense sentences and defaults to a table wherever one will fit, adding a line of interpretation only when pressed. He is confident with the arithmetic and tentative with conclusions, and often closes a note by flagging what he would want someone to check."
+    },
+    {
+      "person_id": "p:angela.cole",
+      "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+    },
+    {
+      "person_id": "p:james.lawson",
+      "persona": "James drafts teasers and process letters and has an instinct for the confidentiality conventions, describing targets by sector and revenue band without ever needing the reminder. His prose is earnest and over-qualified, thick with approximately and subject to confirmation, and partners routinely strike caveats from his drafts. He volunteers for the unglamorous job of reconciling counts across documents and takes quiet pride in catching a mismatch."
+    },
+    {
+      "person_id": "p:michael.duffy",
+      "persona": "Michael is the analyst most often sent to sit with a seller's controller, and his write-ups of those sessions are detailed, chronological, and faithful to who said what. He writes plainly and at length, and his first drafts tend to bury the finding several paragraphs down. He is fastidious about version control, labeling every file and every draft with a care the rest of the team teases him about."
+    },
+    {
+      "person_id": "p:john.bauer",
+      "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+    },
+    {
+      "person_id": "p:kimberly.harris",
+      "persona": "Kimberly works the research end of the funnel: company profiles, ownership backgrounds, and the notes that tell a partner what a founder cares about before the first meeting. Her writing is observant and a little discursive, with more qualifiers than the deal team needs and a good ear for the remark a founder made that actually mattered. She organizes everything under headings and is quick to flag where her sources disagree."
+    },
+    {
+      "person_id": "p:nancy.burgess",
+      "persona": "Nancy supports the fairness opinion work and the board-facing material, where her caution suits the job: she cites every input, footnotes every assumption, and never lets a rounded number stand without saying it was rounded. Her sentences are long and careful, layered with enumerated points and conditional clauses. She is earnest, quick to ask for review, and slow to call any draft final."
+    }
+  ]
+}

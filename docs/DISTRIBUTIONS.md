@@ -11,9 +11,10 @@ Derived artifact: re-emit with `python -m orgsmith distributions`. Never edit by
 | hollowell-ip | 10 | 8.0 | 64 | 0 | 22 | 5 | 16% | 0.80 | 481 |
 | meridian-actuarial | 12 | 9.0 | 72 | 0 | 26 | 5 | 14% | 0.67 | 460 |
 | northgate-staffing | 12 | 9.0 | 76 | 13 | 16 | 4 | 24% | 0.70 | 571 |
+| quillon-harbor | 21 | 10.0 | 77 | 8 | 0 | 0 | 18% | 0.37 | 632 |
 | saltmarsh-environmental | 10 | 9.0 | 40 | 0 | 0 | 0 | 18% | 0.44 | 659 |
 | verdant-health | 7 | 6.0 | 31 | 0 | 0 | 0 | 19% | 0.74 | 697 |
-| **fleet** | 108 | 8.7 | 668 | 65 | 147 | 8 | 18% | 0.64 | 547 |
+| **fleet** | 129 | 8.8 | 745 | 73 | 147 | 8 | 18% | 0.59 | 556 |
 
 ## Realism wave: before / after (M15 frozen fleet → M16 regenerated)
 
@@ -30,7 +31,7 @@ The `before` column is the M15-committed baseline (`WAVE_BASELINE_M15`, git 82a2
 | northgate-staffing | 36% → 24% | 5 → 16 | 0 → 13 | 662 → 571 |
 | saltmarsh-environmental | 25% → 18% | 0 → 0 | 0 → 0 | 725 → 659 |
 | verdant-health | 29% → 19% | 0 → 0 | 0 → 0 | 728 → 697 |
-| **fleet** | 22% → 18% | 91 → 147 | 35 → 65 | 606 → 547 |
+| **fleet** | 22% → 18% | 91 → 147 | 35 → 73 | 606 → 556 |
 
 ## Reference lines (non-calibrated)
 

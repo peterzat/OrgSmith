@@ -1,0 +1,161 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:foundation:0001",
+  "stage": "foundation",
+  "slug": "quillon-harbor",
+  "org_name": "Quillon Harbor Advisors LLC",
+  "org_type": "mergers and acquisitions advisory",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged.",
+  "instructions": "Write a persona for EVERY person listed in `people`, as JSON matching the\ndeliverable schema:\n\n  {\"schema_id\": \"orgsmith/enrichment-deliverable@1\",\n   \"work_order_id\": \"wo:foundation:0001\",\n   \"personas\": [{\"person_id\": \"p:...\", \"persona\": \"...\"}, ...]}\n\nPersona = 2-4 sentences of working style, background, and voice that later\ndocument authoring can lean on (at least 40 characters). Ground it in the\norg narrative and the person's title. Do NOT invent or restate structured\nfacts: no dates, numbers, employers, addresses, or new people. Do not\nchange or echo any other field; ids must match the roster exactly, one\nentry per person, no extras.\n",
+  "docs": [],
+  "people": [
+    {
+      "id": "p:heather.delacruz",
+      "name": "Heather Delacruz",
+      "title": "Managing Partner",
+      "dept": "Leadership",
+      "persona": ""
+    },
+    {
+      "id": "p:mark.allen",
+      "name": "Mark Allen",
+      "title": "Partner",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:richard.mccoy",
+      "name": "Richard Mccoy",
+      "title": "Partner",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:rachel.brown",
+      "name": "Rachel Brown",
+      "title": "Director",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:robert.turner",
+      "name": "Robert Turner",
+      "title": "Vice President",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:david.rios",
+      "name": "David Rios",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:thomas.mccoy",
+      "name": "Thomas Mccoy",
+      "title": "Advisory Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:sarah.fletcher",
+      "name": "Sarah Fletcher",
+      "title": "Advisory Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:jennifer.bruce",
+      "name": "Jennifer Bruce",
+      "title": "Advisory Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:sandra.norman",
+      "name": "Sandra Norman",
+      "title": "Advisory Associate",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:cynthia.white",
+      "name": "Cynthia White",
+      "title": "Chief of Staff",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:amanda.thomas",
+      "name": "Amanda Thomas",
+      "title": "Compliance Manager",
+      "dept": "Operations",
+      "persona": ""
+    },
+    {
+      "id": "p:kelly.brown",
+      "name": "Kelly Brown",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:melissa.jacobson",
+      "name": "Melissa Jacobson",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:justin.gonzalez",
+      "name": "Justin Gonzalez",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:angela.cole",
+      "name": "Angela Cole",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:james.lawson",
+      "name": "James Lawson",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:michael.duffy",
+      "name": "Michael Duffy",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:john.bauer",
+      "name": "John Bauer",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:kimberly.harris",
+      "name": "Kimberly Harris",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    },
+    {
+      "id": "p:nancy.burgess",
+      "name": "Nancy Burgess",
+      "title": "Analyst",
+      "dept": "Advisory",
+      "persona": ""
+    }
+  ],
+  "deliverable_schema": "orgsmith/enrichment-deliverable@1"
+}

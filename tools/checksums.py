@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regenerate CHECKSUMS.md: a SHA-256 rollup per committed org.
 
-Deterministic and offline. For each of the eight committed fleet orgs, hashes
+Deterministic and offline. For each of the nine committed fleet orgs, hashes
 every committed file under companies/<slug>/ and companies/<slug>-metadata/ in
 sorted path order (relpath\\0 then the file's SHA-256), then a fleet digest over
 the per-org lines. dev-mini is the test fixture and is excluded.
@@ -22,7 +22,7 @@ from orgsmith import __version__  # noqa: E402
 ORGS = [
     "ashcombe-advisory", "brackenridge-civil", "calderwood-partners",
     "hollowell-ip", "meridian-actuarial", "northgate-staffing",
-    "saltmarsh-environmental", "verdant-health",
+    "quillon-harbor", "saltmarsh-environmental", "verdant-health",
 ]
 
 

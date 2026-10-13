@@ -1,0 +1,392 @@
+{
+  "schema_id": "orgsmith/finance@1",
+  "slug": "quillon-harbor",
+  "years": [
+    {
+      "year": 2012,
+      "revenue": 1440000,
+      "quarters": [
+        330995,
+        389202,
+        389496,
+        330307
+      ],
+      "expenses": {
+        "Compensation": 673900,
+        "Office & Facilities": 157200,
+        "Travel": 97390,
+        "Professional Services": 89860,
+        "Other": 84550
+      }
+    },
+    {
+      "year": 2013,
+      "revenue": 3200000,
+      "quarters": [
+        848218,
+        864325,
+        710967,
+        776490
+      ],
+      "expenses": {
+        "Compensation": 1547500,
+        "Office & Facilities": 349400,
+        "Travel": 220890,
+        "Professional Services": 204240,
+        "Other": 197220
+      }
+    },
+    {
+      "year": 2014,
+      "revenue": 3419000,
+      "quarters": [
+        860810,
+        1004200,
+        686792,
+        867198
+      ],
+      "expenses": {
+        "Compensation": 1752400,
+        "Office & Facilities": 349400,
+        "Travel": 290290,
+        "Professional Services": 209020,
+        "Other": 154040
+      }
+    },
+    {
+      "year": 2015,
+      "revenue": 3689000,
+      "quarters": [
+        944468,
+        974858,
+        1000434,
+        769240
+      ],
+      "expenses": {
+        "Compensation": 1902100,
+        "Office & Facilities": 349400,
+        "Travel": 271060,
+        "Professional Services": 213850,
+        "Other": 213010
+      }
+    },
+    {
+      "year": 2016,
+      "revenue": 4007000,
+      "quarters": [
+        1002144,
+        1148923,
+        898338,
+        957595
+      ],
+      "expenses": {
+        "Compensation": 2079600,
+        "Office & Facilities": 349400,
+        "Travel": 221900,
+        "Professional Services": 218730,
+        "Other": 182360
+      }
+    },
+    {
+      "year": 2017,
+      "revenue": 4334000,
+      "quarters": [
+        961349,
+        1266526,
+        1060303,
+        1045822
+      ],
+      "expenses": {
+        "Compensation": 2451500,
+        "Office & Facilities": 404900,
+        "Travel": 254100,
+        "Professional Services": 222040,
+        "Other": 160810
+      }
+    },
+    {
+      "year": 2018,
+      "revenue": 4727000,
+      "quarters": [
+        1138405,
+        1050756,
+        1310653,
+        1227186
+      ],
+      "expenses": {
+        "Compensation": 2800300,
+        "Office & Facilities": 404900,
+        "Travel": 355090,
+        "Professional Services": 227590,
+        "Other": 144930
+      }
+    },
+    {
+      "year": 2019,
+      "revenue": 5117000,
+      "quarters": [
+        1133858,
+        1301608,
+        1400791,
+        1280743
+      ],
+      "expenses": {
+        "Compensation": 2998400,
+        "Office & Facilities": 404900,
+        "Travel": 383580,
+        "Professional Services": 230570,
+        "Other": 147490
+      }
+    },
+    {
+      "year": 2020,
+      "revenue": 4567000,
+      "quarters": [
+        1350307,
+        864608,
+        1114833,
+        1237252
+      ],
+      "expenses": {
+        "Compensation": 3283900,
+        "Office & Facilities": 404900,
+        "Travel": 83330,
+        "Professional Services": 234180,
+        "Other": 203500
+      }
+    },
+    {
+      "year": 2021,
+      "revenue": 6053000,
+      "quarters": [
+        1340668,
+        1850872,
+        1366391,
+        1495069
+      ],
+      "expenses": {
+        "Compensation": 3505300,
+        "Office & Facilities": 459100,
+        "Travel": 357320,
+        "Professional Services": 239770,
+        "Other": 141860
+      }
+    },
+    {
+      "year": 2022,
+      "revenue": 6551000,
+      "quarters": [
+        1586865,
+        1735209,
+        1467835,
+        1761091
+      ],
+      "expenses": {
+        "Compensation": 3850700,
+        "Office & Facilities": 459100,
+        "Travel": 567650,
+        "Professional Services": 243000,
+        "Other": 144820
+      }
+    },
+    {
+      "year": 2023,
+      "revenue": 7025000,
+      "quarters": [
+        1716606,
+        1603488,
+        1875009,
+        1829897
+      ],
+      "expenses": {
+        "Compensation": 4138500,
+        "Office & Facilities": 459100,
+        "Travel": 440410,
+        "Professional Services": 248530,
+        "Other": 150070
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "FY2012.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=1440000 revenue=1440000"
+    },
+    {
+      "name": "FY2012.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=1102900 total=1102900"
+    },
+    {
+      "name": "FY2012.net-income",
+      "ok": true,
+      "detail": "revenue=1440000 expenses=1102900 net=337100"
+    },
+    {
+      "name": "FY2013.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=3200000 revenue=3200000"
+    },
+    {
+      "name": "FY2013.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=2519250 total=2519250"
+    },
+    {
+      "name": "FY2013.net-income",
+      "ok": true,
+      "detail": "revenue=3200000 expenses=2519250 net=680750"
+    },
+    {
+      "name": "FY2014.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=3419000 revenue=3419000"
+    },
+    {
+      "name": "FY2014.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=2755150 total=2755150"
+    },
+    {
+      "name": "FY2014.net-income",
+      "ok": true,
+      "detail": "revenue=3419000 expenses=2755150 net=663850"
+    },
+    {
+      "name": "FY2015.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=3689000 revenue=3689000"
+    },
+    {
+      "name": "FY2015.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=2949420 total=2949420"
+    },
+    {
+      "name": "FY2015.net-income",
+      "ok": true,
+      "detail": "revenue=3689000 expenses=2949420 net=739580"
+    },
+    {
+      "name": "FY2016.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=4007000 revenue=4007000"
+    },
+    {
+      "name": "FY2016.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=3051990 total=3051990"
+    },
+    {
+      "name": "FY2016.net-income",
+      "ok": true,
+      "detail": "revenue=4007000 expenses=3051990 net=955010"
+    },
+    {
+      "name": "FY2017.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=4334000 revenue=4334000"
+    },
+    {
+      "name": "FY2017.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=3493350 total=3493350"
+    },
+    {
+      "name": "FY2017.net-income",
+      "ok": true,
+      "detail": "revenue=4334000 expenses=3493350 net=840650"
+    },
+    {
+      "name": "FY2018.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=4727000 revenue=4727000"
+    },
+    {
+      "name": "FY2018.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=3932810 total=3932810"
+    },
+    {
+      "name": "FY2018.net-income",
+      "ok": true,
+      "detail": "revenue=4727000 expenses=3932810 net=794190"
+    },
+    {
+      "name": "FY2019.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=5117000 revenue=5117000"
+    },
+    {
+      "name": "FY2019.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=4164940 total=4164940"
+    },
+    {
+      "name": "FY2019.net-income",
+      "ok": true,
+      "detail": "revenue=5117000 expenses=4164940 net=952060"
+    },
+    {
+      "name": "FY2020.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=4567000 revenue=4567000"
+    },
+    {
+      "name": "FY2020.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=4209810 total=4209810"
+    },
+    {
+      "name": "FY2020.net-income",
+      "ok": true,
+      "detail": "revenue=4567000 expenses=4209810 net=357190"
+    },
+    {
+      "name": "FY2021.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=6053000 revenue=6053000"
+    },
+    {
+      "name": "FY2021.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=4703350 total=4703350"
+    },
+    {
+      "name": "FY2021.net-income",
+      "ok": true,
+      "detail": "revenue=6053000 expenses=4703350 net=1349650"
+    },
+    {
+      "name": "FY2022.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=6551000 revenue=6551000"
+    },
+    {
+      "name": "FY2022.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=5265270 total=5265270"
+    },
+    {
+      "name": "FY2022.net-income",
+      "ok": true,
+      "detail": "revenue=6551000 expenses=5265270 net=1285730"
+    },
+    {
+      "name": "FY2023.quarters-tie-out",
+      "ok": true,
+      "detail": "sum(quarters)=7025000 revenue=7025000"
+    },
+    {
+      "name": "FY2023.expense-tie-out",
+      "ok": true,
+      "detail": "sum(expenses)=5436610 total=5436610"
+    },
+    {
+      "name": "FY2023.net-income",
+      "ok": true,
+      "detail": "revenue=7025000 expenses=5436610 net=1588390"
+    }
+  ]
+}

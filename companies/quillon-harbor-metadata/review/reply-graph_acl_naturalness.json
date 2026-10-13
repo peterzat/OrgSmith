@@ -1,0 +1,71 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "quillon-harbor",
+  "dimension": "graph_acl_naturalness",
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-1",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0003", "d:0030", "d:0033", "d:0034", "d:0044", "d:0046", "d:0059", "d:0061", "d:0062"],
+      "summary": "Five juniors are each given a named, substantive deal role in one engagement document and then drop out of the mandate with no handoff. None of them is on the ledger team, and none can read the folder of the document that names them.",
+      "evidence": "d:0033 (Blankenship kickoff, 'Distribution: engagement team only') is addressed to James Lawson and says 'James Lawson will draft the lender teaser and the confidential information memorandum'. d:0034, two months later: 'The engagement team is unchanged: Richard Mccoy leads, with Thomas Mccoy and Angela Cole.' d:0044 lists Michael Duffy as present, and 'Michael Duffy reported on his sessions with the company's controller'. By d:0046 the same IT figure is 'Angela Cole's estimate' and Duffy is not mentioned. d:0059 gives Kimberly Harris two of 'Five workstreams, four owners on our side' and says 'requests to her team go through Kimberly Harris'. d:0061 has 'Nancy Burgess, who now keeps the data room index', and in d:0062 Kelly Brown writes 'I checked the data room index against both folders, document by document'. Neither Harris nor Burgess appears again. d:0003 says 'David Rios builds the buyer screen and the first cut of the model', and Rios is absent from all six later Armstrong documents. Each of the four current analysts appears in exactly two documents, their onboarding record and this one. PERMISSIONS.md gives each of them nothing under Engagements/, although d:0030 says data-room credentials are 'granted one mandate at a time and only after Mark Allen has staffed him on that mandate'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-2",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0026", "d:0029", "d:0042", "d:0030", "d:0056"],
+      "summary": "The prose makes the Compliance Manager the reviewer of every mandate's paperwork and the person who controls folder access, yet she holds no read grant on any engagement document.",
+      "evidence": "d:0026: 'nearly every mandate in the firm will pass across her desk at least once', plus 'A review of who currently holds access to each open data room'. d:0029: she 'confirms, before a document circulates, that a company we are marketing is described in it only by its sector and its revenue band'. d:0042: 'Compliance, which decides who may see each folder'. PERMISSIONS.md gives Amanda Thomas 15 grants: four Firm overviews, ten People onboarding records and one template. She holds none of the 52 files under Engagements/, not even one engagement letter. She is not named after 2017. Later onboarding records send new hires to an unnamed 'compliance' (d:0030, d:0056) in a firm where compliance is one person."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-3",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0019", "d:0027", "d:0030", "d:0051"],
+      "summary": "Every Advisory employee reports to Mark Allen, and the onboarding records have him choosing each analyst's mandates and reviewing their models. He can read two of the eight engagement folders, and the fairness-opinion committee the Hamilton letter promises has no member outside the team who can read the file.",
+      "evidence": "Deal-team-only folders are normal in M&A, and d:0027 states the rule: a contact log 'lives only in the privileged folder for its mandate'. The problem is the role the prose then gives this partner. Foundation: all 14 other Advisory staff report to Mark Allen. d:0019 (Justin Gonzalez): Mark 'will decide which mandates he joins and will review his models before any figure leaves the building'. d:0027 (Kelly Brown): Mark 'will decide which mandates she joins first'. d:0030: credentials are granted 'only after Mark Allen has staffed him on that mandate'. Gonzalez and Brown both staff Beck, Martin and Dawson, whose folder is readable only by Heather Delacruz, Richard Mccoy, Kelly Brown and Justin Gonzalez. Mark Allen's grants cover only the Armstrong and Browning folders. d:0051 promises 'Review of our analyses and draft opinion by senior members of the firm who take no part in the engagement', but the Hamilton PLC folder is readable only by Heather Delacruz, Richard Mccoy, Sandra Norman and Melissa Jacobson. No senior person outside the team can read the material the committee is supposed to review."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-4",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": [],
+      "summary": "Each client is exactly one named person. Across the 45 authored engagement documents, the owners, shareholders, counsel, controllers and lenders the deals turn on are never named, and every set of minutes lists the full ledger team plus that one contact.",
+      "evidence": "Across the corpus, 'shareholders' occurs about 134 times, 'owners' about 89 times and 'counsel' about 57 times, never with a name. The Armstrong sale is run for founders who go unnamed in all seven of its documents. The engagement letter (d:0002) is addressed to and countersigned by the CFO, yet it opens 'Thank you for the time you and the owners have given us'. Only Mark Allen, Rachel Brown and Laura Gonzalez attend the indications review (d:0010), where 'Laura Gonzalez said the owners will weigh certainty of closing above price'. All 13 minutes (d:0007, d:0010, d:0015, d:0017, d:0023, d:0035, d:0037, d:0044, d:0046, d:0054, d:0061, d:0067, d:0069) list every ledger team member and exactly one client-side person. None records an absence, an owner, counsel or a second company attendee. The only exceptions are the one-off analysts in d:0044 and d:0061."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-5",
+      "dimension": "graph_acl_naturalness",
+      "severity": "major",
+      "docs": ["d:0066", "d:0068", "d:0069"],
+      "summary": "The 2023 firm overview, which all staff can read and which is written for prospective clients, names Ingram, Bowers and Roth as a client while its strategic alternatives review is still running. The Ingram file itself limits knowledge of the review to one officer and the shareholders.",
+      "evidence": "d:0066 is dated 2023-08-08 and lists the Ingram client under 'The clients we have worked for include'. The engagement ran from 2023-06-19 to 2023-12-17. d:0068 lists as a risk 'any sign that word of the review has reached employees or clients', and d:0069 agrees that 'no one at the company beyond Karen Lawrence and the shareholders would see the presentation'. Five people can read the Ingram folder, while everyone at the firm can read Firm/. The earlier overviews name only engagements that had already ended: d:0029 lists 2014 to 2016, d:0049 lists 2014 to 2019."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-6",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0004", "d:0029", "d:0049", "d:0066"],
+      "summary": "The firm overviews seem to name whoever needed a mention rather than the firm's leaders: the 2014 overview profiles a junior analyst and the chief of staff, and in ten years no overview names either of the other two partners.",
+      "evidence": "d:0004: 'David Rios, an Analyst in our advisory practice, builds the target screens and comparable-transaction tables our teams lean on' and 'Cynthia White, our Chief of Staff, keeps the operating rhythm of the firm'. None of d:0004, d:0029, d:0049 or d:0066 names Mark Allen (Partner from 2012, line manager of all Advisory staff) or Richard Mccoy (Partner from 2017, lead on four of the eight mandates). This is despite d:0029 promising that 'a partner stays with the mandate until it is finished'. The d:0003 cameo is Rios's only other appearance, and he left in January 2017."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:graph-7",
+      "dimension": "graph_acl_naturalness",
+      "severity": "minor",
+      "docs": ["d:0030", "d:0032", "d:0033", "d:0044", "d:0021"],
+      "summary": "Name collisions fall exactly where a firm this focused on conflicts would comment, and nobody comments. An analyst named Duffy joins two weeks into the Browning, Duffy and Santos mandate and sits in its client session, and two Mccoys staff the same three-person team.",
+      "evidence": "Michael Duffy starts 2019-05-27, two weeks after the Browning, Duffy and Santos carve-out opened on 2019-05-13. d:0044 lists 'Michael Duffy, Analyst, Quillon Harbor' next to the client's VP Finance with no conflicts note, in a firm whose onboarding requires a 'Confidentiality undertaking and conflicts questionnaire, signed and returned to compliance before he opens any mandate folder' (d:0030). d:0032 introduces 'Richard Mccoy, a Partner of the firm' and 'Thomas Mccoy, an Advisory Associate' to the client without saying whether they are related, and d:0033 is a memo from Thomas Mccoy to Richard Mccoy. The writers notice collisions elsewhere: d:0021 says 'With two Roberts on the weekly call, I will answer to Turner.'"
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0013",
+  "stage": "author",
+  "slug": "quillon-harbor",
+  "org_name": "Quillon Harbor Advisors LLC",
+  "org_type": "mergers and acquisitions advisory",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0013\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0064",
+      "title": "Engagement Letter: Strategic Alternatives Review for Ingram, Bowers and Roth",
+      "genre": "engagement_letter",
+      "date": "2023-06-09",
+      "authors": [
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        },
+        {
+          "id": "p:jennifer.bruce",
+          "name": "Jennifer Bruce",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Jennifer is the associate most at home in the financial model, and her written work is built around it: the financial sections of marketing materials and the bridge from management's figures to the adjusted ones. She writes compactly and qualifies precisely, distinguishing reported from adjusted figures every time without being reminded. She is reserved in meetings but thorough in follow-up, and her recap emails are often the most complete record of what was actually decided."
+        },
+        {
+          "id": "p:sandra.norman",
+          "name": "Sandra Norman",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sandra coordinates diligence once a buyer is through to the later rounds, so her documents are request lists, response trackers, and polite reminders. She writes with procedural patience, restating what was asked, what was received, and what remains outstanding, so that nobody can later claim a request was ambiguous. Her tone with a seller's management team is reassuring and practical; with a buyer's advisors it is courteous and immovable."
+        },
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        },
+        {
+          "id": "xp:karen.lawrence",
+          "name": "Karen Lawrence",
+          "title": "Chief Operating Officer",
+          "dept": "Ingram, Bowers and Roth",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Strategic Alternatives Review for Ingram, Bowers and Roth, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2023-001.scope",
+          "hint": "count of strategic options; renders as the number together with its noun (\"N strategic options\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.bauer",
+          "surface": "John Bauer",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.bruce",
+          "surface": "Jennifer Bruce",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.norman",
+          "surface": "Sandra Norman",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:karen.lawrence",
+          "surface": "Karen Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "x:ingram-bowers-and-roth",
+          "surface": "Ingram, Bowers and Roth",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [paragraph block] the client's inside address and salutation. 2. [paragraph block] scope, in prose. 3. [table block] the schedule of deliverables and their timing. 4. [paragraph block] the standard clauses, each as its own short headed paragraph. 5. [sigblock] signed by the author and the client contact. This document must contain NO list block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0065",
+      "title": "Kickoff Memo: Strategic Alternatives Review for Ingram, Bowers and Roth",
+      "genre": "kickoff_memo",
+      "date": "2023-06-22",
+      "authors": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        },
+        {
+          "id": "p:jennifer.bruce",
+          "name": "Jennifer Bruce",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Jennifer is the associate most at home in the financial model, and her written work is built around it: the financial sections of marketing materials and the bridge from management's figures to the adjusted ones. She writes compactly and qualifies precisely, distinguishing reported from adjusted figures every time without being reminded. She is reserved in meetings but thorough in follow-up, and her recap emails are often the most complete record of what was actually decided."
+        },
+        {
+          "id": "p:sandra.norman",
+          "name": "Sandra Norman",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sandra coordinates diligence once a buyer is through to the later rounds, so her documents are request lists, response trackers, and polite reminders. She writes with procedural patience, restating what was asked, what was received, and what remains outstanding, so that nobody can later claim a request was ambiguous. Her tone with a seller's management team is reassuring and practical; with a buyer's advisors it is courteous and immovable."
+        },
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        },
+        {
+          "id": "xp:karen.lawrence",
+          "name": "Karen Lawrence",
+          "title": "Chief Operating Officer",
+          "dept": "Ingram, Bowers and Roth",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Strategic Alternatives Review for Ingram, Bowers and Roth, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2023-001.scope",
+          "hint": "count of strategic options; renders as the number together with its noun (\"N strategic options\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.bauer",
+          "surface": "John Bauer",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.bruce",
+          "surface": "Jennifer Bruce",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.norman",
+          "surface": "Sandra Norman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:karen.lawrence",
+          "surface": "Karen Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "x:ingram-bowers-and-roth",
+          "surface": "Ingram, Bowers and Roth",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [heading block] a title naming the decision at stake. 2. [paragraph block] the questions this engagement exists to answer, stated as questions. 3. [list block] how each question gets answered, one item per question, in the same order. 4. [paragraph block] what is explicitly out of scope. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0067",
+      "title": "Meeting Minutes: Strategic Alternatives Review for Ingram, Bowers and Roth",
+      "genre": "meeting_minutes",
+      "date": "2023-08-30",
+      "authors": [
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        },
+        {
+          "id": "p:jennifer.bruce",
+          "name": "Jennifer Bruce",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Jennifer is the associate most at home in the financial model, and her written work is built around it: the financial sections of marketing materials and the bridge from management's figures to the adjusted ones. She writes compactly and qualifies precisely, distinguishing reported from adjusted figures every time without being reminded. She is reserved in meetings but thorough in follow-up, and her recap emails are often the most complete record of what was actually decided."
+        },
+        {
+          "id": "p:sandra.norman",
+          "name": "Sandra Norman",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sandra coordinates diligence once a buyer is through to the later rounds, so her documents are request lists, response trackers, and polite reminders. She writes with procedural patience, restating what was asked, what was received, and what remains outstanding, so that nobody can later claim a request was ambiguous. Her tone with a seller's management team is reassuring and practical; with a buyer's advisors it is courteous and immovable."
+        },
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        },
+        {
+          "id": "xp:karen.lawrence",
+          "name": "Karen Lawrence",
+          "title": "Chief Operating Officer",
+          "dept": "Ingram, Bowers and Roth",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Strategic Alternatives Review for Ingram, Bowers and Roth, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.bauer",
+          "surface": "John Bauer",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.bruce",
+          "surface": "Jennifer Bruce",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.norman",
+          "surface": "Sandra Norman",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:karen.lawrence",
+          "surface": "Karen Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "x:ingram-bowers-and-roth",
+          "surface": "Ingram, Bowers and Roth",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [list block] attendees, full names. 2. [paragraph block] the first topic and where it landed. 3. [paragraph block] the second topic and where it landed. 4. [paragraph block] who carries what out of the session, in prose rather than as an action list. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0068",
+      "title": "Status Report: Strategic Alternatives Review for Ingram, Bowers and Roth",
+      "genre": "status_report",
+      "date": "2023-09-17",
+      "authors": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        },
+        {
+          "id": "p:jennifer.bruce",
+          "name": "Jennifer Bruce",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Jennifer is the associate most at home in the financial model, and her written work is built around it: the financial sections of marketing materials and the bridge from management's figures to the adjusted ones. She writes compactly and qualifies precisely, distinguishing reported from adjusted figures every time without being reminded. She is reserved in meetings but thorough in follow-up, and her recap emails are often the most complete record of what was actually decided."
+        },
+        {
+          "id": "p:sandra.norman",
+          "name": "Sandra Norman",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sandra coordinates diligence once a buyer is through to the later rounds, so her documents are request lists, response trackers, and polite reminders. She writes with procedural patience, restating what was asked, what was received, and what remains outstanding, so that nobody can later claim a request was ambiguous. Her tone with a seller's management team is reassuring and practical; with a buyer's advisors it is courteous and immovable."
+        },
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        },
+        {
+          "id": "xp:karen.lawrence",
+          "name": "Karen Lawrence",
+          "title": "Chief Operating Officer",
+          "dept": "Ingram, Bowers and Roth",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Strategic Alternatives Review for Ingram, Bowers and Roth, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2023-001.scope",
+          "hint": "count of strategic options; renders as the number together with its noun (\"N strategic options\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2023-001.comparators",
+          "hint": "count of comparable companies; renders as the number together with its noun (\"N comparable companies\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:john.bauer",
+          "surface": "John Bauer",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.bruce",
+          "surface": "Jennifer Bruce",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.norman",
+          "surface": "Sandra Norman",
+          "kind": "person"
+        },
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:karen.lawrence",
+          "surface": "Karen Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "x:ingram-bowers-and-roth",
+          "surface": "Ingram, Bowers and Roth",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a plainspoken, direct register: concrete nouns and verbs, no epigrams or aphorisms. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: closes with one clear next step; opens with the conclusion before the detail. Never use 'In short,' as a paragraph opener; closing epigrams or aphorisms. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [heading block] a title naming the period. 2. [paragraph block] progress against the plan. 3. [list block] the open risks, each with its owner and its trigger. 4. [paragraph block] what changed in the risk picture since the last report. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0069",
+      "title": "Meeting Minutes: Strategic Alternatives Review for Ingram, Bowers and Roth",
+      "genre": "meeting_minutes",
+      "date": "2023-11-28",
+      "authors": [
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:john.bauer",
+          "name": "John Bauer",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "John is methodical and literal, an analyst who would rather send a complete table late than an approximate one on time. He writes short, flat sentences with the numbers up front and adjectives scarce, and his emails often amount to a line of context above a summary of the attachment. He finds the client register harder than the analysis and tends to sound more formal with owners than the partners ever do."
+        },
+        {
+          "id": "p:jennifer.bruce",
+          "name": "Jennifer Bruce",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Jennifer is the associate most at home in the financial model, and her written work is built around it: the financial sections of marketing materials and the bridge from management's figures to the adjusted ones. She writes compactly and qualifies precisely, distinguishing reported from adjusted figures every time without being reminded. She is reserved in meetings but thorough in follow-up, and her recap emails are often the most complete record of what was actually decided."
+        },
+        {
+          "id": "p:sandra.norman",
+          "name": "Sandra Norman",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sandra coordinates diligence once a buyer is through to the later rounds, so her documents are request lists, response trackers, and polite reminders. She writes with procedural patience, restating what was asked, what was received, and what remains outstanding, so that nobody can later claim a request was ambiguous. Her tone with a seller's management team is reassuring and practical; with a buyer's advisors it is courteous and immovable."
+        },
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        },
+        {
+          "id": "xp:karen.lawrence",
+          "name": "Karen Lawrence",
+          "title": "Chief Operating Officer",
+          "dept": "Ingram, Bowers and Roth",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Strategic Alternatives Review for Ingram, Bowers and Roth, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2023-001.client",
+          "hint": "proper name; place where the name belongs"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:john.bauer",
+          "surface": "John Bauer",
+          "kind": "person"
+        },
+        {
+          "entity": "p:jennifer.bruce",
+          "surface": "Jennifer Bruce",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sandra.norman",
+          "surface": "Sandra Norman",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:karen.lawrence",
+          "surface": "Karen Lawrence",
+          "kind": "person"
+        },
+        {
+          "entity": "x:ingram-bowers-and-roth",
+          "surface": "Ingram, Bowers and Roth",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [list block] attendees, full names. 2. [paragraph block] the decisions taken, before any discussion is recounted. 3. [paragraph block] the discussion that produced them. 4. [list block] actions with owners. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 90% of the way through the engagement (in the later phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

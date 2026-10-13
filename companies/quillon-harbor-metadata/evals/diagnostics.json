@@ -1,0 +1,62 @@
+{
+  "schema_id": "orgsmith/eval-diagnostics@1",
+  "slug": "quillon-harbor",
+  "policy_version": "1.0",
+  "value_collisions": [
+    {
+      "question": "xq:0025",
+      "fact_id": "f:E-2016-001.pipeline-term-sheets-received",
+      "value": "4 term sheets received",
+      "paths": [
+        "Engagements/Beck, Martin and Dawson/2022.10.16 - Status Report - Beck, Martin and Dawson v2 FINAL.docx"
+      ]
+    },
+    {
+      "question": "xq:0026",
+      "fact_id": "f:E-2018-001.fee",
+      "value": "$118,000",
+      "paths": [
+        "Engagements/Ingram, Bowers and Roth/2023.06.09 - Engagement Letter - Ingram, Bowers and Roth - EXECUTED.pdf",
+        "Engagements/Ingram, Bowers and Roth/2023.09.17 - Status Report - Ingram, Bowers and Roth v2 FINAL.docx"
+      ]
+    },
+    {
+      "question": "xq:0052",
+      "fact_id": "f:E-2022-001.pipeline-term-sheets-received",
+      "value": "4 term sheets received",
+      "paths": [
+        "Engagements/Lawson, Keller and Owens/2016.09.06 - Status Report - Lawson, Keller and Owens v2 FINAL - v1.docx",
+        "Engagements/Lawson, Keller and Owens/2016.09.06 - Status Report - Lawson, Keller and Owens v2 FINAL - v2.docx",
+        "Engagements/Lawson, Keller and Owens/2016.09.06 - Status Report - Lawson, Keller and Owens v2 FINAL.docx"
+      ]
+    },
+    {
+      "question": "xq:0053",
+      "fact_id": "f:E-2023-001.fee",
+      "value": "$118,000",
+      "paths": [
+        "Engagements/Blankenship Inc/2018.03.23 - Engagement Letter - Blankenship Inc - EXECUTED.pdf",
+        "Engagements/Blankenship Inc/2018.08.15 - Status Report - Blankenship Inc v2 FINAL.docx",
+        "Engagements/Blankenship Inc/2018.12.13 - Status Report - Blankenship Inc v2 FINAL.docx"
+      ]
+    }
+  ],
+  "unplanned_alias_sightings": [],
+  "incidental_mentions": [
+    {
+      "question": "q:0070",
+      "entity": "p:mark.allen",
+      "surface": "Mark Allen",
+      "planned": 13,
+      "incidental": 9
+    },
+    {
+      "question": "q:0080",
+      "entity": "p:cynthia.white",
+      "surface": "Cynthia White",
+      "planned": 2,
+      "incidental": 1
+    }
+  ],
+  "lineage_explained_value_hits": 0
+}

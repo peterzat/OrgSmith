@@ -27,7 +27,7 @@ they are where a lexical floor is actually visible.
 
 ## Where reading the body pays off
 
-BM25 leads filename matching on nDCG@10 on **7 of 9** committed orgs: `ashcombe-advisory`, `calderwood-partners`, `dev-mini`, `hollowell-ip`, `meridian-actuarial`, `northgate-staffing`, `verdant-health`.
+BM25 leads filename matching on nDCG@10 on **8 of 10** committed orgs: `ashcombe-advisory`, `calderwood-partners`, `dev-mini`, `hollowell-ip`, `meridian-actuarial`, `northgate-staffing`, `quillon-harbor`, `verdant-health`.
 
 It falls behind on `brackenridge-civil`, `saltmarsh-environmental`. Those are the scan-heavy orgs, where a synthetic OCR layer degrades exactly the document text BM25 reads while leaving the filenames intact. That is a property of the corpus worth knowing, not a defect in either retriever.
 
@@ -121,6 +121,19 @@ It falls behind on `brackenridge-civil`, `saltmarsh-environmental`. Those are th
 | bm25 | distractors | 41 | 0.0% | 57.6% | 70.2% | 0.691 | 0.680 |
 | bm25 | noise | 41 | 2.4% | 53.2% | 67.1% | 0.686 | 0.653 |
 | bm25 | full | 41 | 2.4% | 51.8% | 66.5% | 0.641 | 0.625 |
+
+## quillon-harbor
+
+| retriever | split | questions | strict | R@5 | R@10 | MRR | nDCG@10 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| filename-only | core | 90 | 1.1% | 69.4% | 76.3% | 0.673 | 0.641 |
+| filename-only | distractors | 90 | 1.1% | 69.4% | 76.3% | 0.673 | 0.641 |
+| filename-only | noise | 90 | 0.0% | 63.0% | 75.5% | 0.660 | 0.623 |
+| filename-only | full | 90 | 0.0% | 63.0% | 75.5% | 0.660 | 0.623 |
+| bm25 | core | 90 | 0.0% | 65.0% | 83.7% | 0.705 | 0.719 |
+| bm25 | distractors | 90 | 0.0% | 65.0% | 83.7% | 0.705 | 0.719 |
+| bm25 | noise | 90 | 1.1% | 61.7% | 82.9% | 0.689 | 0.696 |
+| bm25 | full | 90 | 1.1% | 61.7% | 82.9% | 0.689 | 0.696 |
 
 ## saltmarsh-environmental
 

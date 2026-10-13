@@ -1,0 +1,114 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0015",
+  "stage": "author",
+  "slug": "quillon-harbor",
+  "org_name": "Quillon Harbor Advisors LLC",
+  "org_type": "mergers and acquisitions advisory",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0015\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0017",
+      "title": "Meeting Minutes: Buy-Side Search for Morse PLC",
+      "genre": "meeting_minutes",
+      "date": "2015-08-31",
+      "authors": [
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:melissa.jacobson",
+          "name": "Melissa Jacobson",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Melissa writes the industry overviews for marketing materials and has a knack for turning a sector's trade jargon into plain prose a generalist buyer can follow. Her drafts are among the most readable the analysts produce, though she reaches for enumeration when she is unsure, laying out considerations in order rather than choosing among them. She is sociable and well liked, and her internal emails carry a chattier, friendlier register than most."
+        },
+        {
+          "id": "p:richard.mccoy",
+          "name": "Richard Mccoy",
+          "title": "Director",
+          "dept": "Advisory",
+          "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+        },
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        },
+        {
+          "id": "xp:james.jones",
+          "name": "James Jones",
+          "title": "Chief Financial Officer",
+          "dept": "Morse PLC",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Buy-Side Search for Morse PLC, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2015-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2015-001.pipeline-targets-screened",
+          "hint": "count of targets screened; renders as the number together with its noun (\"N targets screened\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2015-001.pipeline-targets-contacted",
+          "hint": "count of targets contacted; renders as the number together with its noun (\"N targets contacted\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2015-001.pipeline-ndas-executed",
+          "hint": "count of NDAs executed; renders as the number together with its noun (\"N NDAs executed\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2015-001.pipeline-offers-submitted",
+          "hint": "count of offers submitted; renders as the number together with its noun (\"N offers submitted\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:melissa.jacobson",
+          "surface": "Melissa Jacobson",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.mccoy",
+          "surface": "Richard Mccoy",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:james.jones",
+          "surface": "James Jones",
+          "kind": "person"
+        },
+        {
+          "entity": "x:morse-plc",
+          "surface": "Morse PLC",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [list block] attendees, full names. 2. [paragraph block] the session in the order it happened, including what was raised and dropped. 3. [paragraph block] what was left unresolved and who carries it. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 89% of the way through the engagement (in the later phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

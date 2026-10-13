@@ -1,0 +1,71 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "quillon-harbor",
+  "dimension": "finance_realism",
+  "generator": {"model": "claude-opus-5-5", "effort": "xhigh"},
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-1",
+      "dimension": "finance_realism",
+      "severity": "blocker",
+      "docs": ["d:0002", "d:0008", "d:0012", "d:0040", "d:0045", "d:0058", "d:0062"],
+      "summary": "No mandate in this M&A firm's ten-year book carries a success fee. A full two-round sell-side auction, a carve-out sale and a growth equity raise are each priced as one flat fee of $39,000 to $71,500, which is roughly a few months of a lower-middle-market retainer and nothing at closing.",
+      "evidence": "d:0002 (sell-side): \"Armstrong, Silva and Dyer will pay us a fee of $55,000.\" The same letter keeps a tail clause written for a success fee it does not contain: \"the fee provisions of this letter will continue to apply to any transaction with a party introduced during the engagement that closes within twelve months of termination.\" As the deal heads to signing, d:0012 says: \"Our fee of $55,000 is unchanged from the engagement letter.\" d:0040 (carve-out): \"Our fee for the engagement described in this letter is $39,000\", for a process that d:0046 records at 46 buyers contacted, 23 NDAs, 13 indications and 7 final bids. d:0058 (growth equity): \"Our fee for this engagement is $71,500. It covers the whole of the work ... through to the closing of a financing, and it will not increase.\" Equity placement is priced as a percentage of capital raised. The recapitalization (d:0020, $108,500) and the buyout (d:0032, $118,000, which \"does not rise with the amount of debt we help you raise\") follow the same pattern, with no fee on the debt placed. The only line in the corpus that admits a sale earns a fee comes from a mandate that is not a sale. d:0069: \"a sale is the one course on which Quillon Harbor would expect to earn a further fee.\""
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-2",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": ["d:0009", "d:0063", "d:0002", "d:0040", "d:0064"],
+      "summary": "Taken as the firm's real prices, the documented fees imply an impossible deal count against its own P&L. The fees also do not track scope: the most work-heavy sale in the book is its cheapest mandate.",
+      "evidence": "The eight fees average $83,250. The FY2014 workbook (d:0009) shows revenue of $3,419,000 for a 12-person roster, which is about 41 mandates that year. The FY2022 workbook (d:0063) shows $6,551,000 for 20 people, about 79 mandates. Yet each letter staffs a mandate with two to four people for four to nine months: \"We keep our deal teams small and constant\" (d:0002), \"the same three or four names\" (d:0029). On scope, the 2019 carve-out, with a separation profile, standalone financials, a TSA outline and a two-round auction, costs $39,000 (d:0040). The 2023 strategic review, which says \"This is a review and not a sale process. We will not approach any prospective buyer\", costs \"a fixed fee of $118,000\" (d:0064). The generation report's fee-coverage line calls the fee/revenue gap coherent because the book is a sample. That settles how much of the revenue is documented. It does not address what the per-mandate fee implies about volume."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-3",
+      "dimension": "finance_realism",
+      "severity": "major",
+      "docs": ["d:0001", "d:0009", "d:0018", "d:0025", "d:0031", "d:0039", "d:0047", "d:0050", "d:0057", "d:0063", "d:0062", "d:0068"],
+      "summary": "Revenue moves like a subscription business, not an advisory firm paid on a handful of closings. Outside the declared 2020 shock, growth is 7-9% every year and no quarter strays more than about 20% from its year's average, including record years the firm's own reports describe as a tightening market.",
+      "evidence": "Annual growth by year: FY2014 +6.8%, FY2015 +7.9%, FY2016 +8.6%, FY2017 +8.2%, FY2018 +9.1%, FY2019 +8.3%, then FY2022 +8.2% and FY2023 +7.2%. Across every non-2020 year, the quarters range from 0.80x (FY2014) to 1.22x (FY2021) of the year's quarterly mean. FY2022 quarters (d:0063): 1,586,865 / 1,735,209 / 1,467,835 / 1,761,091. That is a record $6,551,000 in the year d:0062 reports \"Rates have risen quickly this year, and several funds have told Richard that their investment committees are taking longer to approve new positions.\" The ledger then books FY2023 as the best year yet, $7,025,000, while d:0068 says \"Borrowing costs have stayed high, and lenders are asking for more equity in sponsor deals of this size than they did a year ago.\" Smooth revenue like this is what a retainer-only book would produce, which is the fee model rf:fin-1 says this firm should not have."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-4",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0008", "d:0012", "d:0016", "d:0024", "d:0036", "d:0038", "d:0045", "d:0055", "d:0062", "d:0068"],
+      "summary": "All ten client status reports restate the advisor's own fee as a budget line held steady. That is how a fixed-price consultancy reports budget burn. An M&A advisor reporting to a selling owner reports the process, not its fee.",
+      "evidence": "d:0008 lists \"Engagement fee | $55,000 | As set out in the engagement letter; no change\" in a table of the period's figures, beside NDAs executed. d:0016: \"On budget, we are working within the fixed fee of $82,000.\" d:0036: \"The engagement budget is unchanged at $118,000 ... nothing in this period required work outside it.\" d:0045: \"Our work remains within the engagement budget set in the letter, a fee of $39,000.\" d:0068: \"Fees billed to date are within the fixed fee of $118,000.\" The docplan requires the fee fact in the body of every status report, so this is a planted-fact device, not one author's habit."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-5",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0001", "d:0009", "d:0018", "d:0025", "d:0031", "d:0039", "d:0047", "d:0050", "d:0057", "d:0063"],
+      "summary": "Every financial summary books the M&A firm's only revenue line as \"Consulting revenue\". An advisory boutique's books show advisory or transaction fees, usually split between retainers and success fees.",
+      "evidence": "FY2014 Financial Summary (d:0009), row 4: \"Consulting revenue | 860810 | 1004200 | 686792 | 867198\". The label is identical in all ten workbooks. It is hard-coded in orgsmith/render/xlsx.py:61 for every org type."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-6",
+      "dimension": "finance_realism",
+      "severity": "minor",
+      "docs": ["d:0032"],
+      "summary": "In the management buyout, the company owned by the selling shareholders pays, reimburses and indemnifies the buyers' advisor, under a letter its CFO signs while he is one of the buyers.",
+      "evidence": "\"We will act for the management group of Blankenship Inc in this transaction and not for the shareholders, who will need an advisor of their own\". Yet: \"Beyond the fee, the company will reimburse our reasonable out-of-pocket expenses\"; \"If the group decides not to go forward ... the company will owe the part of the fee earned\"; \"the company will indemnify us against claims by third parties arising from the engagement\". The letter is signed by Joseph Jones, the CFO who \"speaks for the management group\" (d:0033)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:fin-7",
+      "dimension": "finance_realism",
+      "severity": "note",
+      "docs": ["d:0011", "d:0034", "d:0051", "d:0064", "d:0069"],
+      "summary": "No defect claimed. Where a flat fee is the industry norm, the prose prices and papers it correctly, and era-specific financial detail is accurate. The fee defects above therefore trace to the ledger, not to the authors.",
+      "evidence": "Fairness opinion, d:0051: \"The fee is fixed and falls due whatever the opinion concludes and whether or not the sale proceeds\", with an \"internal opinion committee\" review. Buy-side retainer, d:0011: the fee \"does not depend on whether Morse PLC goes on to complete an acquisition\". Strategic review, d:0064, with a further fee on a sale acknowledged in d:0069. The 2017 tax law's interest cap appears in June 2018 (d:0034): \"Last December's federal tax legislation caps the interest a company may deduct.\" Every engagement gets one flat fee field, drawn as rand.randint(60, 240) * 500 (orgsmith/fabric/engagements.py:604). That is $30,000 to $120,000 regardless of service, year or firm revenue."
+    }
+  ]
+}

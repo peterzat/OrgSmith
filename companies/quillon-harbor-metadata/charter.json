@@ -1,0 +1,309 @@
+{
+  "schema_id": "orgsmith/charter@1",
+  "slug": "quillon-harbor",
+  "name": "Quillon Harbor Advisors LLC",
+  "seed": 20260803,
+  "org_type": "mergers and acquisitions advisory",
+  "founded": 2012,
+  "domain": "quillonharbor.com",
+  "headcount": {
+    "Leadership": 1,
+    "Advisory": 9,
+    "Operations": 2
+  },
+  "titles": {
+    "Leadership": [
+      "Managing Partner"
+    ],
+    "Advisory": [
+      "Partner",
+      "Director",
+      "Vice President",
+      "Associate",
+      "Analyst"
+    ],
+    "Operations": [
+      "Chief of Staff",
+      "Compliance Manager"
+    ]
+  },
+  "doc_culture": {
+    "target_docs": 69,
+    "date_range": [
+      "2014-01-01",
+      "2023-12-31"
+    ],
+    "format_mix": {
+      "docx": 45,
+      "pdf": 8,
+      "xlsx": 10,
+      "pptx": 6,
+      "eml": 0
+    },
+    "scanned_ratio": 0.0,
+    "legacy_ratio": 0.0,
+    "ocr_layer_rate": 0.0,
+    "business_calendar": {
+      "holidays": [
+        "2014-11-27",
+        "2015-05-25",
+        "2016-07-04",
+        "2017-09-04",
+        "2018-11-22",
+        "2019-12-25",
+        "2020-05-25",
+        "2021-07-05",
+        "2022-09-05",
+        "2023-11-23"
+      ],
+      "engagement_starts": true
+    },
+    "noise": {
+      "duplicates": 2,
+      "drafts": 2,
+      "version_chains": 1,
+      "misfiled": 1,
+      "stale_templates": 1,
+      "empty_dirs": 2,
+      "attachment_mismatch": 0,
+      "filename_variety": true
+    },
+    "voice_diversify": true,
+    "mail": null,
+    "style_specs": true,
+    "client_facing_reports": true,
+    "outline_variety": true
+  },
+  "finance": {
+    "base_revenue": 3200000,
+    "growth_rate": 0.08,
+    "expense_ratio": 0.78,
+    "era_shocks": [
+      {
+        "year": 2020,
+        "revenue": 0.82,
+        "travel": 0.3,
+        "quarters": [
+          1.05,
+          0.55,
+          0.85,
+          1.0
+        ]
+      }
+    ]
+  },
+  "engagements": {
+    "count": 8,
+    "services": [
+      "Sell-Side Advisory",
+      "Buy-Side Search",
+      "Recapitalization Advisory",
+      "Management Buyout Advisory",
+      "Carve-Out Advisory",
+      "Fairness Opinion",
+      "Growth Capital Raise",
+      "Strategic Alternatives Review"
+    ],
+    "book_is_sample": true,
+    "scope": {
+      "unit": "candidate companies",
+      "unit_range": [
+        140,
+        220
+      ],
+      "comparator": "comparable transactions",
+      "comparator_range": [
+        22,
+        40
+      ],
+      "pipeline": [
+        "targets screened",
+        "targets contacted",
+        "NDAs executed",
+        "offers submitted"
+      ],
+      "pipeline_top_range": [
+        60,
+        110
+      ],
+      "pipeline_retention": [
+        0.4,
+        0.65
+      ]
+    },
+    "scope_by_service": {
+      "Sell-Side Advisory": {
+        "unit": "prospective buyers",
+        "unit_range": [
+          120,
+          180
+        ],
+        "comparator": "comparable transactions",
+        "comparator_range": [
+          22,
+          40
+        ],
+        "pipeline": [
+          "buyers contacted",
+          "NDAs executed",
+          "indications received",
+          "final bids"
+        ],
+        "pipeline_top_range": [
+          60,
+          110
+        ],
+        "pipeline_retention": [
+          0.4,
+          0.65
+        ]
+      },
+      "Carve-Out Advisory": {
+        "unit": "prospective buyers",
+        "unit_range": [
+          90,
+          140
+        ],
+        "comparator": "comparable carve-outs",
+        "comparator_range": [
+          12,
+          24
+        ],
+        "pipeline": [
+          "buyers contacted",
+          "NDAs executed",
+          "indications received",
+          "final bids"
+        ],
+        "pipeline_top_range": [
+          45,
+          80
+        ],
+        "pipeline_retention": [
+          0.4,
+          0.65
+        ]
+      },
+      "Recapitalization Advisory": {
+        "unit": "financing sources",
+        "unit_range": [
+          30,
+          50
+        ],
+        "comparator": "comparable financings",
+        "comparator_range": [
+          10,
+          20
+        ],
+        "pipeline": [
+          "lenders approached",
+          "term sheets received"
+        ],
+        "pipeline_top_range": [
+          12,
+          20
+        ],
+        "pipeline_retention": [
+          0.25,
+          0.45
+        ]
+      },
+      "Management Buyout Advisory": {
+        "unit": "financing sources",
+        "unit_range": [
+          25,
+          40
+        ],
+        "comparator": "comparable buyouts",
+        "comparator_range": [
+          10,
+          20
+        ],
+        "pipeline": [
+          "lenders approached",
+          "term sheets received"
+        ],
+        "pipeline_top_range": [
+          10,
+          18
+        ],
+        "pipeline_retention": [
+          0.3,
+          0.5
+        ]
+      },
+      "Growth Capital Raise": {
+        "unit": "prospective investors",
+        "unit_range": [
+          70,
+          120
+        ],
+        "comparator": "precedent raises",
+        "comparator_range": [
+          10,
+          20
+        ],
+        "pipeline": [
+          "investors approached",
+          "investors in diligence",
+          "term sheets received"
+        ],
+        "pipeline_top_range": [
+          30,
+          60
+        ],
+        "pipeline_retention": [
+          0.3,
+          0.5
+        ]
+      },
+      "Strategic Alternatives Review": {
+        "unit": "strategic options",
+        "unit_range": [
+          4,
+          7
+        ],
+        "comparator": "comparable companies",
+        "comparator_range": [
+          12,
+          25
+        ],
+        "pipeline": [],
+        "pipeline_top_range": [
+          0,
+          0
+        ],
+        "pipeline_retention": [
+          0.0,
+          0.0
+        ]
+      },
+      "Fairness Opinion": null
+    },
+    "oversight_titles": [
+      "Partner",
+      "Managing Partner"
+    ]
+  },
+  "graph_targets": {
+    "external_orgs": 8,
+    "external_people": 8,
+    "min_mentions_per_person": 2,
+    "surname_collisions": 1,
+    "nickname_aliases": 1,
+    "multi_affiliations": 0,
+    "affiliations_in_docs": false,
+    "alias_agreement": true
+  },
+  "hard_cases": {
+    "signature_page_facts": 0,
+    "filename_dates": 0
+  },
+  "roster_churn": {
+    "departures": 1,
+    "promotions": 3,
+    "hires": 8
+  },
+  "acl_posture": "departmental",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged."
+}

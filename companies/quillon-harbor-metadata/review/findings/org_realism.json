@@ -1,0 +1,154 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "quillon-harbor",
+  "dimension": "org_realism",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-1",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0005",
+        "d:0051",
+        "d:0054",
+        "d:0019",
+        "d:0027",
+        "d:0060",
+        "d:0061",
+        "d:0062",
+        "d:0064"
+      ],
+      "summary": "The analyst title never moves: analysts onboarded in 2014, 2016 and 2017 are still introduced to clients as Analysts five to seven years later, listed beside a six-week hire with the same title, at a firm type where the analyst seat is a two-to-three-year rung.",
+      "evidence": "d:0005 (2014-08-21): 'Melissa Jacobson has joined Quillon Harbor as an Analyst'; d:0051 (2021-08-03): 'Melissa Jacobson, an Analyst, will build the valuation analyses under Richard's direction', and d:0054 lists 'Melissa Jacobson, Analyst'. d:0019 (2016-05-16): Justin Gonzalez 'joins the advisory practice as an Analyst'; d:0027 (2017-02-23): Kelly Brown 'has come to the advisory practice as an Analyst'; d:0061 (2022-09-30) lists 'Kelly Brown, Analyst', 'Justin Gonzalez, Analyst' and 'Nancy Burgess, Analyst', the last onboarded six weeks earlier (d:0060); d:0062 is 'From Kelly Brown, Analyst, Advisory'. The associate rung is the same: d:0064 (2023) introduces 'Jennifer Bruce, an Advisory Associate' and 'Sandra Norman, also an Advisory Associate', both in seat since 2012-2013 per foundation.json with no title_history. foundation.json has nine analysts hired 2014-2022, none promoted and none departed; the only promotions in twelve years are to Partner, Director and Vice President, and the only departure is one analyst in 2017. An M&A boutique's analysts move up or leave within two to three years."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-2",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0004",
+        "d:0003",
+        "d:0007",
+        "d:0066",
+        "d:0068"
+      ],
+      "summary": "A firm that calls confidentiality 'a way of writing' names live, secret mandates in its own marketing overview: the 2014 overview showcases a sell-side one month in whose owners have not told their employees, and the 2023 overview lists a strategic review two months into its term.",
+      "evidence": "d:0004 (2014-08-10), under 'An example from this year's work': 'our sell-side engagement for Armstrong, Silva and Dyer gives a fair picture of how we work' (rendered from the client placeholder). That engagement began July 11, 2014 and runs to March 2015; d:0003 says the owners 'want the process kept quiet, which in practice means a short list and no talk among their own employees', and d:0007 (2014-10-20) records 'Only the senior team knows of the process.' d:0066 (2023-08-08) lists Ingram, Bowers and Roth among 'The clients we have worked for' while that review (begun June 19, 2023) is live, and d:0068 (2023-09-17) carries the risk 'any sign that word of the review has reached employees or clients.' An M&A advisor names a sell-side client after an announced close, never one whose own staff do not yet know the company is for sale."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-3",
+      "dimension": "org_realism",
+      "severity": "major",
+      "docs": [
+        "d:0021",
+        "d:0041",
+        "d:0044",
+        "d:0026",
+        "d:0066"
+      ],
+      "summary": "The client book reads as a list of law firms: five of eight clients, all operating companies, carry the 'Surname, Surname and Surname' style of a professional partnership, two carry the British public-company suffix 'PLC', and the surnames overlap the firm's own staff and each other.",
+      "evidence": "The eight engagement folders: 'Armstrong, Silva and Dyer', 'Lawson, Keller and Owens', 'Browning, Duffy and Santos', 'Beck, Martin and Dawson', 'Ingram, Bowers and Roth', 'Morse PLC', 'Hamilton PLC', 'Blankenship Inc'. Browning, Duffy and Santos is carving out a unit that 'runs on the company's own ERP instance' (d:0041); Lawson, Keller and Owens is refinancing a bank facility against a 'fixed asset register' (d:0021). d:0066 says the firm's fairness opinions are 'typically of privately held companies', yet its one named opinion client is 'Hamilton PLC'. Overlaps: d:0044 seats 'Michael Duffy, Analyst, Quillon Harbor' at the Browning, Duffy and Santos carve-out session with no conflicts remark, at a firm whose Compliance Manager owns 'The conflict checks' (d:0026); analyst James Lawson joins after the Lawson, Keller and Owens mandate; two different client CFOs are James Jones (Morse PLC) and Joseph Jones (Blankenship Inc)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-4",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0013",
+        "d:0016",
+        "d:0045",
+        "d:0064",
+        "d:0065",
+        "d:0068"
+      ],
+      "summary": "On three of eight engagements the most junior person on the team writes both the kickoff work plan that assigns the partners their roles and the status report that goes to the client, although an associate or director sits on the same team.",
+      "evidence": "d:0013 (2015-03-23), from Melissa Jacobson seven months after her onboarding (d:0005) to the Director and the Managing Partner: 'So we are going to be slower at the front than usual, on purpose ... Richard Mccoy makes the calls himself'; d:0016 goes to the client CFO 'From Melissa Jacobson, with Richard Mccoy and Heather Delacruz'. d:0045 is 'by Angela Cole, Analyst, with Mark Allen and Sarah Fletcher' although Advisory Associate Sarah Fletcher is on the team. The Managing Partner's own letter d:0064 assigns 'Written status report to you | Monthly throughout the engagement | John Bauer' (the analyst) over two Advisory Associates; d:0065 is 'From: John Bauer' to the Managing Partner and both associates, allotting 'Heather Delacruz sets the framing. I draft the comparison pages and Jennifer Bruce checks them against the model'; d:0068 goes to the client 'From: John Bauer' with the Managing Partner on Cc. Analysts draft these at a real boutique, but the work plan comes from the deal lead and client reports go out under a senior banker's name."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-5",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0020",
+        "d:0023"
+      ],
+      "summary": "The advisory group runs two titles for one rung: the same letter introduces 'an Associate' and 'an Advisory Associate' with no difference in role, and only the plain Associate is ever promoted.",
+      "evidence": "d:0020: 'Robert Turner, an Associate, will manage it day to day ... while Sarah Fletcher, an Advisory Associate, will run the approach to financing sources'; d:0023 lists 'Robert Turner, Associate, Quillon Harbor Advisors' directly above 'Sarah Fletcher, Advisory Associate, Quillon Harbor Advisors'. The recipe's Advisory ladder has only 'Associate'; foundation.json gives 'Advisory Associate' to Thomas Mccoy, Sarah Fletcher, Jennifer Bruce and Sandra Norman, none promoted 2012-2023, while Turner becomes Vice President in 2019."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-6",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0010",
+        "d:0012",
+        "d:0023",
+        "d:0064",
+        "d:0069"
+      ],
+      "summary": "The founders and shareholders who make every decision never appear: on the sell-side, recapitalization, growth raise and strategic review, the client is a single finance or operations officer who signs the letter and sits in every meeting, while 'the owners' remain an unnamed offstage group.",
+      "evidence": "d:0002, the letter for the sale of a founder-owned business, is addressed 'Dear Ms. Gonzalez' (the CFO) and countersigned by her; d:0010, the indications review that 'took three decisions' on which bidders advance, lists only Mark Allen, Rachel Brown and Laura Gonzalez; d:0012 is 'for Laura Gonzalez and, through her, the owners.' d:0023: 'Robert Grimes confirmed, on the shareholders' behalf'. d:0064 turns on 'what should the owners do with the company?' yet is addressed to the COO, and the recommendation session d:0069 has no shareholder present. No owner or shareholder is named in any of the 21 documents on these four mandates; in a lower-middle-market sale the founder is the principal, not a person reached through the CFO."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-7",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0011",
+        "d:0020",
+        "d:0032",
+        "d:0040",
+        "d:0051",
+        "d:0058",
+        "d:0064",
+        "d:0004",
+        "d:0029",
+        "d:0049",
+        "d:0066"
+      ],
+      "summary": "The firm has no home: no overview, letterhead or letter names a city or state, all eight engagement letters set governing law by the circumlocution 'the state in which our principal office is located', and the roster scatters a one-office firm across six metro area codes.",
+      "evidence": "d:0002: 'This letter is governed by the laws of the state in which our principal office is located'; the same construction closes d:0011, d:0020, d:0032, d:0040, d:0051, d:0058 and d:0064. The rendered letterhead on d:0002 reads only 'Quillon Harbor Advisors LLC www.quillonharbor.com', and none of the four overviews (d:0004, d:0029, d:0049, d:0066) says where the firm is. The prose describes one office ('before any figure leaves the building', d:0019; 'Building pass and a desk with the other analysts', d:0056), while foundation.json (not rendered) gives staff phone numbers in the 212, 312, 415, 617, 206 and 303 area codes. A boutique leads with its city, and counsel would name the state."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-8",
+      "dimension": "org_realism",
+      "severity": "minor",
+      "docs": [
+        "d:0011",
+        "d:0032",
+        "d:0033",
+        "d:0021"
+      ],
+      "summary": "A partner's surname is printed 'Mccoy' rather than 'McCoy' in all 22 documents that name him, including letters the Managing Partner signs, and a same-surname partner and associate share a two-banker deal team without a word about it.",
+      "evidence": "d:0011: 'Richard Mccoy, a Director of the firm, will lead the search'; d:0032: 'Richard Mccoy, a Partner of the firm, will lead the engagement ... Thomas Mccoy, an Advisory Associate, will run the work from day to day'. No document spells it 'McCoy'; the lowercase second capital is a name-generator spelling, and a firm does not misspell its own partner's name in every letter. By contrast d:0021 handles a same-first-name pair naturally ('With two Roberts on the weekly call, I will answer to Turner'), but nothing on the Blankenship Inc mandate (d:0032 to d:0038) acknowledges two Mccoys or any relation."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:org_realism-9",
+      "dimension": "org_realism",
+      "severity": "note",
+      "docs": [
+        "d:0011",
+        "d:0032",
+        "d:0003",
+        "d:0020"
+      ],
+      "summary": "No defect: every engagement team includes the Managing Partner or a Partner, and every dated title in the prose matches the person's title history on that date.",
+      "evidence": "d:0011 (2015) 'Richard Mccoy, a Director of the firm' and d:0032 (2018) 'Richard Mccoy, a Partner of the firm', either side of his 2017-01-30 promotion; d:0003 'From: Rachel Brown, Vice President' before her 2017-12 promotion; d:0020 'Robert Turner, an Associate' before his 2019 promotion. Heather Delacruz, Mark Allen or Richard Mccoy leads each of the eight mandates and attends its client sessions (d:0010, d:0017, d:0023, d:0035, d:0046, d:0054, d:0061, d:0069)."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "quillon-harbor",
+  "dimension": "document_plausibility",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-1",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0011",
+        "d:0020",
+        "d:0032",
+        "d:0040",
+        "d:0051",
+        "d:0058",
+        "d:0064"
+      ],
+      "summary": "All eight engagement letters avoid naming their governing law, and the firm has no address anywhere in the corpus, so no letter says where the firm or the client is.",
+      "evidence": "Six letters read 'This letter is governed by the laws of the state in which our principal office is located' (d:0058 'the law of the state in which our principal office is located'; d:0032 'the state in which Quillon Harbor maintains its principal office'). The rendered letterhead is only 'Quillon Harbor Advisors LLC www.quillonharbor.com', and each inside address is name, title and company with no street. A clause counsel has reviewed names the state; a governing-law clause that points at an office the letter never locates is not one a lawyer signs."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-2",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0040",
+        "d:0058"
+      ],
+      "summary": "The sell-side, carve-out and growth-capital letters have no transaction or success fee, the clause that defines an M&A engagement letter, yet two of them carry tail provisions that only make sense for a contingent fee.",
+      "evidence": "d:0002 (sell-side): 'will pay us a fee of $55,000. We will send our invoices to you directly, and they are payable on receipt', then 'the fee provisions of this letter will continue to apply to any transaction with a party introduced during the engagement that closes within twelve months of termination'. d:0058 (capital raise): 'Our fee for this engagement is $71,500 ... it will not increase if the raise asks more of our time than any of us now expects', then 'completes a financing with an investor we introduced, the fee will remain payable'. d:0040 (carve-out sale): 'Our fee ... is $39,000. We will invoice it in installments as the work proceeds.' No letter defines a Transaction or the consideration a fee would be computed on. The single fixed fee is ledger-owned; what a banker notices is the letter built around it, which reads as a consulting retainer. A fixed fee is right as written for the fairness opinion (d:0051) and the strategic review (d:0064)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-3",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0004",
+        "d:0066",
+        "d:0068",
+        "d:0006"
+      ],
+      "summary": "Two firm overviews name a client whose confidential mandate is still live, which an M&A advisor's marketing material never does, and one does it on the same page that promises targets are named only in privileged documents.",
+      "evidence": "d:0004, dated 2014-08-10, offers 'our sell-side engagement for Armstrong, Silva and Dyer' as 'An example from this year's work'; that sale began on July 11, 2014, and d:0006 (September 12) still reports 'no party has yet been approached'. The same overview says a target 'is named only in documents that are already privileged'. d:0066, dated 2023-08-08, lists Ingram, Bowers and Roth among 'The clients we have worked for' seven weeks into its strategic-alternatives review, while d:0068 carries 'any sign that word of the review has reached employees or clients' as an open risk."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-4",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0007",
+        "d:0010",
+        "d:0015",
+        "d:0017",
+        "d:0023",
+        "d:0035",
+        "d:0037",
+        "d:0044",
+        "d:0046",
+        "d:0054",
+        "d:0061",
+        "d:0067",
+        "d:0069",
+        "d:0062",
+        "d:0068",
+        "d:0021",
+        "d:0059"
+      ],
+      "summary": "No Word document in the corpus states its own date: none of the 13 sets of minutes records when the meeting was held, no status report is dated, memo headers carry To/From/Re with no Date, and two kickoff memos have no header at all.",
+      "evidence": "Every set of minutes opens on a title and an attendee list ('Present', 'Attendance', 'At the table') with no date, time, place or note-taker; the date exists only in the filename. Status reports signal their period by circumlocution: d:0062 is titled 'Growth Capital Raise, Status in the Middle of October' and d:0068 'Status Report, Late August to Mid-September'. d:0021 and d:0059 render as a bare table at the top of page one followed by 'The table above is the division of labor...' and 'It is written for Richard Mccoy, Justin Gonzalez and Kimberly Harris', the addressee line pushed into prose. The PDF letters and PPTX decks, by contrast, do carry a rendered date."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-5",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0013",
+        "d:0041",
+        "d:0052",
+        "d:0059",
+        "d:0065",
+        "d:0068"
+      ],
+      "summary": "Memos and client reports refer to their own addressees in the third person by full name, which reads as a mention quota rather than someone writing to a colleague.",
+      "evidence": "d:0041 (To: Mark Allen, Sarah Fletcher): 'I need Mark Allen's comments on it by tomorrow morning'. d:0065 (To: Heather Delacruz, Jennifer Bruce, Sandra Norman): 'Heather Delacruz sets the framing' and 'Heather Delacruz takes the analysis to a single recommended path'. d:0013 (To: Richard Mccoy; Heather Delacruz): 'Heather Delacruz has asked to read the call script before the first call goes out, and she will.' d:0052 (to Richard Mccoy and Melissa Jacobson): 'Before Melissa Jacobson opens a comparables screen, she will build a bridge'. d:0059 uses 'Richard Mccoy' nine times in a note written for him, then switches to '(1) Richard, should family offices be called'. d:0068 (To: Karen Lawrence): 'which Karen Lawrence expects from the finance staff shortly'. This is the full-name device already published for the fleet's mail demonstrators, here in memos and reports."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-6",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0016",
+        "d:0029",
+        "d:0036",
+        "d:0048",
+        "d:0049",
+        "d:0062",
+        "d:0066"
+      ],
+      "summary": "The generator's own consistency rules surface as in-world content: firm overviews market cross-document count reconciliation, status reports disclaim any relation between their own funnel counts, and a new analyst's first task is reconciling counts across documents.",
+      "evidence": "d:0029 (firm overview): 'Every count that appears in a document we send ... is one we can reconcile to the record underneath it. When a figure changes ... it changes everywhere at once.' d:0066: 'We do not describe a stage as reached until it has been.' d:0049: 'with each count reconciled from one document to the next', and 'we write everything we produce with the expectation that a board will read it and that a lawyer may later quote it', which is the charter's own sentence. d:0016: 'Each of these is its own measure, and we report each as it stands.' d:0036: 'Four measures appear in this report, and each stands on its own.' d:0062: 'The figures below are separate measures, and I give each on its own terms.' d:0048: 'The first task on his desk is reconciling the candidate counts across every document issued so far'. A banker reports a funnel as nested stages, and no brochure sells internal count hygiene."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-7",
+      "dimension": "document_plausibility",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0003",
+        "d:0006",
+        "d:0007",
+        "d:0012"
+      ],
+      "summary": "The Armstrong, Silva and Dyer sale is described as a short, deliberate list and not an auction, while its own documents show a 145-party universe, 103 contacts and 14 final bids.",
+      "evidence": "d:0006 opening table: 'Engagement scope | 145 prospective buyers'; the next slide opens 'The list is short on purpose.' d:0003: 'The scope we agreed is 145 prospective buyers ... That is a deliberate list, not an auction'. d:0002: 'directed to a defined group of strategic and financial parties, not to the market at large'. d:0007: 'The tracker closes at 103 buyers contacted'; d:0012: 'Final bids came in at the second-round deadline, 14 final bids in all'. In the lower middle market a targeted process runs to a few dozen names; more than a hundred contacts is a broad auction. The prose was written blind to the placeholder's size and characterizes it wrongly."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-8",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0013",
+        "d:0016",
+        "d:0045",
+        "d:0059",
+        "d:0062",
+        "d:0065"
+      ],
+      "summary": "Analysts are the authors of record on client status reports and on kickoff memos that set strategy and direct partners, and those documents do not read like an analyst's draft.",
+      "evidence": "d:0016, to a PLC's CFO: 'From Melissa Jacobson, with Richard Mccoy and Heather Delacruz', seven months into her first job. d:0062: 'From Kelly Brown, Analyst, Advisory, with Richard Mccoy, Partner.' d:0045: 'by Angela Cole, Analyst, with Mark Allen and Sarah Fletcher.' d:0013, the same analyst writing to a Director and the Managing Partner: 'So we are going to be slower at the front than usual, on purpose' and 'Shout if I have any of it wrong before then.' d:0065, an analyst to the Managing Partner: 'Heather Delacruz sets the framing.' Client communications at a boutique go out under the partner's name, and the charter says analysts' drafts 'read younger: more enumeration, more hedging'; these read as partner memos."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-9",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0008",
+        "d:0012",
+        "d:0016",
+        "d:0024",
+        "d:0036",
+        "d:0038",
+        "d:0045",
+        "d:0055",
+        "d:0062",
+        "d:0068",
+        "d:0006",
+        "d:0043"
+      ],
+      "summary": "Every status report restates the advisor's own fixed fee as an engagement budget, and two client decks list the engagement start date as a measure; both are planted facts given a slot no M&A report has.",
+      "evidence": "d:0008 figures table: 'Engagement fee | $55,000 | As set out in the engagement letter; no change'. d:0036: 'The engagement budget is unchanged at $118,000'. d:0045: 'Our work remains within the engagement budget set in the letter, a fee of $39,000'. d:0024: 'The engagement is within budget'. d:0055 table row 'Engagement fee ... Unchanged; the delay does not affect it'. d:0006 'Measure | Position' table: 'Engagement start | July 11, 2014 | Preparation phase'; d:0043: 'Engagement start | May 13, 2019 | The working calendar is measured from this date'. Budget burn is a consulting idiom; a banker's status report to a client does not mention the fee."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-10",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0004",
+        "d:0029",
+        "d:0026",
+        "d:0027",
+        "d:0028",
+        "d:0017",
+        "d:0067"
+      ],
+      "summary": "Persona sketches are transcribed into genres that would not carry them: an engagement letter, firm overviews, first-week onboarding records and minutes describe colleagues' habits.",
+      "evidence": "d:0002 (engagement letter) on Rachel Brown: 'she has a habit of telling owners what a buyer will ask for well before the buyer gets around to asking'. d:0029 (firm overview) on the Compliance Manager: 'Her reminders to the deal teams tend to arrive with a short explanation of why each rule exists, and the teams are better for it.' d:0026, written in Amanda Thomas's first week, repeats her persona nearly verbatim: 'The conflict checks, the confidentiality logs and the careful wording of anything that touches a regulated question'. d:0028: 'Her notes on a screen should read as an audit trail of that narrowing'. Minutes: d:0067 'She was careful, as she always is'; d:0017 'he ended his case, as he usually does, with the strongest objection to it'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-11",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0011",
+        "d:0020",
+        "d:0032",
+        "d:0040",
+        "d:0051",
+        "d:0058",
+        "d:0064",
+        "d:0026"
+      ],
+      "summary": "The eight executed engagement letters share no standard terms: each rewords its liability, confidentiality and governing-law clauses and retitles their headings, although the firm is said to keep a standard engagement letter.",
+      "evidence": "d:0026: 'Copies of the firm's standard engagement letter and NDA forms'. Liability caps: d:0002 'Our aggregate liability arising out of this engagement is limited to the fees the company has actually paid us'; d:0040 'Our aggregate liability to the company in connection with this engagement is limited to the fees we have received under this letter'; d:0058 'our liability to the company arising from this engagement will not exceed the fees paid to us under this letter'. Headings vary: 'Limitation of Liability', 'Limits on Our Liability', 'Reliance and limitation of liability', 'Reliance and the limit of our liability'. Indemnity is one sentence in every letter, with no annex. Reading the structural metric (shape up to 0.92, 4-gram Jaccard at most 0.06): a real firm's letters share boilerplate nearly verbatim and differ in scope; these share structure and differ in wording, the reverse."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-12",
+      "dimension": "document_plausibility",
+      "severity": "minor",
+      "docs": [
+        "d:0008",
+        "d:0012",
+        "d:0016",
+        "d:0024",
+        "d:0036",
+        "d:0038",
+        "d:0045",
+        "d:0055",
+        "d:0062",
+        "d:0068",
+        "d:0004",
+        "d:0029",
+        "d:0049",
+        "d:0066"
+      ],
+      "summary": "Every status report file is named 'v2 FINAL' and every firm overview 'v3', a version suffix stamped per genre rather than one that accumulated per document.",
+      "evidence": "'2014.11.14 - Status Report - Armstrong, Silva and Dyer v2 FINAL.docx' through '2023.09.17 - Status Report - Ingram, Bowers and Roth v2 FINAL.docx' (10 of 10); 'Firm Overview 2014 v3.docx', '2017 v3', '2020 v3', '2023 v3' (4 of 4)."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:docplaus-13",
+      "dimension": "document_plausibility",
+      "severity": "note",
+      "docs": [
+        "d:0033",
+        "d:0034",
+        "d:0037",
+        "d:0051",
+        "d:0048",
+        "d:0062"
+      ],
+      "summary": "Deal mechanics and era detail are accurate and are the corpus's strongest feature; the defects above sit in framing, furniture and planted-fact slots, not in the substance of the work.",
+      "evidence": "d:0033 and d:0034 apply 'the new federal limit on interest deductions' (the December 2017 tax act) to a 2018 buyout model; d:0037 handles market flex, a minimum liquidity test and a seller-note standstill correctly; d:0051 schedules an opinion committee review and a bring-down letter; d:0048 (June 2020) onboards an analyst by video; d:0062 (October 2022) notes 'Rates have risen quickly this year'."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  }
+}

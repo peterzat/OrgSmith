@@ -1,0 +1,603 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0009",
+  "stage": "author",
+  "slug": "quillon-harbor",
+  "org_name": "Quillon Harbor Advisors LLC",
+  "org_type": "mergers and acquisitions advisory",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0009\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0040",
+      "title": "Engagement Letter: Carve-Out Advisory for Browning, Duffy and Santos",
+      "genre": "engagement_letter",
+      "date": "2019-05-03",
+      "authors": [
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        },
+        {
+          "id": "p:sarah.fletcher",
+          "name": "Sarah Fletcher",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:thomas.le",
+          "name": "Thomas Le",
+          "title": "VP Finance",
+          "dept": "Browning, Duffy and Santos",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Carve-Out Advisory for Browning, Duffy and Santos, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.scope",
+          "hint": "count of prospective buyers; renders as the number together with its noun (\"N prospective buyers\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:angela.cole",
+          "surface": "Angela Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sarah.fletcher",
+          "surface": "Sarah Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:thomas.le",
+          "surface": "Thomas Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:browning-duffy-and-santos",
+          "surface": "Browning, Duffy and Santos",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [paragraph block] the client's inside address and salutation. 2. [list block] the scope, one item per deliverable. 3. [paragraph block] the team and how it is staffed. 4. [paragraph block] the standard clauses, each as its own short headed paragraph. 5. [sigblock] signed by the author and the client contact. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0041",
+      "title": "Kickoff Memo: Carve-Out Advisory for Browning, Duffy and Santos",
+      "genre": "kickoff_memo",
+      "date": "2019-05-16",
+      "authors": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        },
+        {
+          "id": "p:sarah.fletcher",
+          "name": "Sarah Fletcher",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:thomas.le",
+          "name": "Thomas Le",
+          "title": "VP Finance",
+          "dept": "Browning, Duffy and Santos",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Carve-Out Advisory for Browning, Duffy and Santos, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.scope",
+          "hint": "count of prospective buyers; renders as the number together with its noun (\"N prospective buyers\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.cole",
+          "surface": "Angela Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sarah.fletcher",
+          "surface": "Sarah Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:thomas.le",
+          "surface": "Thomas Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:browning-duffy-and-santos",
+          "surface": "Browning, Duffy and Santos",
+          "kind": "org"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [paragraph block] the client's situation as the team understands it today. 2. [paragraph block] the approach, as a continuous argument rather than a set of workstreams. 3. [paragraph block] the first two weeks, concretely. This document must contain NO list, table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0043",
+      "title": "Briefing Deck: Carve-Out Advisory for Browning, Duffy and Santos",
+      "genre": "briefing_deck",
+      "date": "2019-06-25",
+      "authors": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        },
+        {
+          "id": "p:sarah.fletcher",
+          "name": "Sarah Fletcher",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:thomas.le",
+          "name": "Thomas Le",
+          "title": "VP Finance",
+          "dept": "Browning, Duffy and Santos",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Carve-Out Advisory for Browning, Duffy and Santos, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.scope",
+          "hint": "count of prospective buyers; renders as the number together with its noun (\"N prospective buyers\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2019-001.comparators",
+          "hint": "count of comparable carve-outs; renders as the number together with its noun (\"N comparable carve-outs\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.cole",
+          "surface": "Angela Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sarah.fletcher",
+          "surface": "Sarah Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:thomas.le",
+          "surface": "Thomas Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:browning-duffy-and-santos",
+          "surface": "Browning, Duffy and Santos",
+          "kind": "org"
+        }
+      ],
+      "target_words": 400,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Client briefing deck. Structure strictly as slides: each slide is one heading block (level 1, the slide title) followed by one list block of 3-5 tight bullets (or one short paragraph). Open with a title slide for the engagement, close with a next-steps slide. 4-6 slides total. No sigblock. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [heading block] title slide naming the engagement. 2. [table block] the quantities, as the deck's second block. 3. [heading block] a slide title for what the numbers mean. 4. [paragraph block] the reading of those numbers, in prose. 5. [heading block] next steps. 6. [list block] next steps, 3-5 bullets.",
+      "engagement_position": "This document is dated about 25% of the way through the engagement (in the early phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0044",
+      "title": "Meeting Minutes: Carve-Out Advisory for Browning, Duffy and Santos",
+      "genre": "meeting_minutes",
+      "date": "2019-07-22",
+      "authors": [
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        },
+        {
+          "id": "p:sarah.fletcher",
+          "name": "Sarah Fletcher",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:thomas.le",
+          "name": "Thomas Le",
+          "title": "VP Finance",
+          "dept": "Browning, Duffy and Santos",
+          "persona": ""
+        },
+        {
+          "id": "p:michael.duffy",
+          "name": "Michael Duffy",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Michael is the analyst most often sent to sit with a seller's controller, and his write-ups of those sessions are detailed, chronological, and faithful to who said what. He writes plainly and at length, and his first drafts tend to bury the finding several paragraphs down. He is fastidious about version control, labeling every file and every draft with a care the rest of the team teases him about."
+        }
+      ],
+      "engagement_summary": "Carve-Out Advisory for Browning, Duffy and Santos, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.pipeline-buyers-contacted",
+          "hint": "count of buyers contacted; renders as the number together with its noun (\"N buyers contacted\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "p:angela.cole",
+          "surface": "Angela Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sarah.fletcher",
+          "surface": "Sarah Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:thomas.le",
+          "surface": "Thomas Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:browning-duffy-and-santos",
+          "surface": "Browning, Duffy and Santos",
+          "kind": "org"
+        },
+        {
+          "entity": "p:michael.duffy",
+          "surface": "Michael Duffy",
+          "kind": "person"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [list block] attendees, full names. 2. [paragraph block] the session in the order it happened, including what was raised and dropped. 3. [paragraph block] what was left unresolved and who carries it. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 40% of the way through the engagement (around the midpoint); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0045",
+      "title": "Status Report: Carve-Out Advisory for Browning, Duffy and Santos",
+      "genre": "status_report",
+      "date": "2019-08-08",
+      "authors": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        },
+        {
+          "id": "p:sarah.fletcher",
+          "name": "Sarah Fletcher",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:thomas.le",
+          "name": "Thomas Le",
+          "title": "VP Finance",
+          "dept": "Browning, Duffy and Santos",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Carve-Out Advisory for Browning, Duffy and Santos, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.scope",
+          "hint": "count of prospective buyers; renders as the number together with its noun (\"N prospective buyers\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2019-001.comparators",
+          "hint": "count of comparable carve-outs; renders as the number together with its noun (\"N comparable carve-outs\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2019-001.pipeline-buyers-contacted",
+          "hint": "count of buyers contacted; renders as the number together with its noun (\"N buyers contacted\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2019-001.pipeline-ndas-executed",
+          "hint": "count of NDAs executed; renders as the number together with its noun (\"N NDAs executed\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:angela.cole",
+          "surface": "Angela Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sarah.fletcher",
+          "surface": "Sarah Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:thomas.le",
+          "surface": "Thomas Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:browning-duffy-and-santos",
+          "surface": "Browning, Duffy and Santos",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in long sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; a 'Workstreams' heading followed by 'Next Steps'. The scope and comparator counts and the pipeline stage counts are separate measures of this engagement. Never write one as a share, subset, or remainder of another (no \"of the N\", \"N of which\", or \"out of\" linking them), and do not do arithmetic across them. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [heading block] a title naming the period. 2. [paragraph block] progress against the plan. 3. [list block] the open risks, each with its owner and its trigger. 4. [paragraph block] what changed in the risk picture since the last report. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0046",
+      "title": "Meeting Minutes: Carve-Out Advisory for Browning, Duffy and Santos",
+      "genre": "meeting_minutes",
+      "date": "2019-10-18",
+      "authors": [
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:angela.cole",
+          "name": "Angela Cole",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Angela does much of the screening on buy-side search programs, working a long candidate universe down against the criteria a sponsor has set, and her notes read like an audit trail of that narrowing. She hedges with care, marking which data points are estimates and which came from a conversation, and she distrusts any count she cannot reproduce. She is quiet in meetings and forthright on the page."
+        },
+        {
+          "id": "p:sarah.fletcher",
+          "name": "Sarah Fletcher",
+          "title": "Advisory Associate",
+          "dept": "Advisory",
+          "persona": "Sarah handles buyer outreach on sell-side processes and has a gift for the first call: she can make a business described only by sector and revenue band sound worth a meeting without giving away anything that would identify it. Her writing is warm and conversational for an associate, light in emails to buyers and noticeably firmer in internal notes about who is serious. She tends to summarize a week of outreach as a short narrative and adds the table only when someone asks for it."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:thomas.le",
+          "name": "Thomas Le",
+          "title": "VP Finance",
+          "dept": "Browning, Duffy and Santos",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Carve-Out Advisory for Browning, Duffy and Santos, running about 6 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2019-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2019-001.pipeline-buyers-contacted",
+          "hint": "count of buyers contacted; renders as the number together with its noun (\"N buyers contacted\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2019-001.pipeline-ndas-executed",
+          "hint": "count of NDAs executed; renders as the number together with its noun (\"N NDAs executed\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2019-001.pipeline-indications-received",
+          "hint": "count of indications received; renders as the number together with its noun (\"N indications received\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "p:angela.cole",
+          "surface": "Angela Cole",
+          "kind": "person"
+        },
+        {
+          "entity": "p:sarah.fletcher",
+          "surface": "Sarah Fletcher",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:thomas.le",
+          "surface": "Thomas Le",
+          "kind": "person"
+        },
+        {
+          "entity": "x:browning-duffy-and-santos",
+          "surface": "Browning, Duffy and Santos",
+          "kind": "org"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a crisp register (short declarative sentences, few adjectives, no flourishes) in medium sentences. You habitually: opens with the conclusion before the detail; sets context in a sentence before making any request. Never use 'Two asks. First... Second...' as an opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [list block] attendees, full names. 2. [paragraph block] the decisions taken, before any discussion is recounted. 3. [paragraph block] the discussion that produced them. 4. [list block] actions with owners. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 91% of the way through the engagement (in the later phase); it runs roughly 6 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

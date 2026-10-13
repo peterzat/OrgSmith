@@ -1,0 +1,540 @@
+{
+  "schema_id": "orgsmith/authoring-deliverable@1",
+  "work_order_id": "wo:author:0001",
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
+  "docs": [
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0002",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Laura Gonzalez\nChief Financial Officer\n{{fact:f:E-2014-001.client}}"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Dear Ms. Gonzalez:"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Thank you for the time you and the owners have given us over these past weeks, and for the candor of those conversations about what a sale would mean for the company and for the people who built it. This letter sets out the terms on which Quillon Harbor Advisors will act as exclusive financial advisor to {{fact:f:E-2014-001.client}} in connection with a possible sale of the business, and it becomes our agreement when you countersign it and return a copy to me."
+        },
+        {
+          "kind": "heading",
+          "text": "What We Will Deliver",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our work will take the form of a negotiated sale process, conducted in confidence and directed to a defined group of strategic and financial parties, not to the market at large. Over the course of the engagement we will deliver the following:"
+        },
+        {
+          "kind": "list",
+          "items": [
+            "A review of the company's historical financial statements and of management's projections, together with a valuation analysis drawn from comparable transactions and public-company trading levels, which we will take you through before any party is approached.",
+            "A buyer universe scoped at {{fact:f:E-2014-001.scope}}, strategic and financial, which we will refine with you and which you will approve party by party before we make a single call.",
+            "A short teaser that describes the business by sector and size without naming it, and a confidential information memorandum released only to parties who have signed a non-disclosure agreement in a form you have approved.",
+            "Management of the outreach, the non-disclosure agreements, and every question that comes back from interested parties, so that your team deals with one point of contact throughout.",
+            "An organized virtual data room, and preparation of your management team for presentations to the parties invited into a second round.",
+            "The solicitation and side-by-side comparison of indications of interest and final offers, with our written recommendation on each, and support to you and your counsel through the letter of intent, the definitive agreement, and closing."
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "text": "The order of that work matters as much as its content. We will not contact anyone until you have approved both the memorandum and the list, and once outreach begins we will report to you each week on who has been approached, who has signed, and who has declined, so that nothing about the process reaches you second-hand."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will need a good deal from you in return. The work depends on timely access to the company's financial records and its senior managers, and on your willingness to tell us early about anything a buyer might later find on its own. We will keep our requests organized and as light as the process allows, though there will be weeks, around the memorandum and the management presentations in particular, when the demands on your team are real."
+        },
+        {
+          "kind": "heading",
+          "text": "How We Have Staffed It",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Mark Allen, a Partner of the firm, will lead the engagement and will be your first call on any question about the process, its calendar, or where the buyers stand. Rachel Brown, a Vice President, will direct the preparation of the memorandum and the data room and will manage diligence as requests arrive, and she has a habit of telling owners what a buyer will ask for well before the buyer gets around to asking."
+        },
+        {
+          "kind": "paragraph",
+          "text": "They will be supported by an analyst from our Advisory group, and I will stay close to the work throughout, reading each document before it leaves our office for a buyer. We keep our deal teams small and constant, so the people you meet at the first working session are the people who will sit with you at closing."
+        },
+        {
+          "kind": "heading",
+          "text": "Fees and Payment",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "For the services described in this letter, {{fact:f:E-2014-001.client}} will pay us a fee of {{fact:f:E-2014-001.fee}}. We will send our invoices to you directly, and they are payable on receipt. The company will also reimburse our reasonable out-of-pocket expenses, chiefly travel, printing, and the cost of hosting the data room, and we will ask for your approval before incurring any expense outside those categories."
+        },
+        {
+          "kind": "heading",
+          "text": "Term and Termination",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Our engagement begins on {{fact:f:E-2014-001.start}} and continues until a transaction closes or until either of us ends it by written notice to the other. A process of this kind generally runs for the better part of a year, though its pace will depend on the buyers as much as on us. If the engagement ends before a transaction closes, the fee provisions of this letter will continue to apply to any transaction with a party introduced during the engagement that closes within twelve months of termination."
+        },
+        {
+          "kind": "heading",
+          "text": "Confidentiality",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will hold in confidence all non-public information the company provides to us and will use it only for the purposes of this engagement. No prospective buyer will learn the company's name until it has signed a non-disclosure agreement, and in anything that circulates before that point the business will be described by its sector and its size alone. These obligations survive the end of the engagement, however it ends."
+        },
+        {
+          "kind": "heading",
+          "text": "Our Independence",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We act for the company alone in this matter. We will accept no fee or other compensation from any prospective buyer in connection with this transaction, and if we become aware of a relationship that might reasonably be seen to compromise our advice, we will tell you before we go any further."
+        },
+        {
+          "kind": "heading",
+          "text": "Limitation of Liability",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "We will bring care and our best professional judgment to this work, but we cannot promise that a buyer will be found or that a transaction will close on any particular terms. Our aggregate liability arising out of this engagement is limited to the fees the company has actually paid us, neither party will be liable to the other for indirect or consequential loss, and the company will indemnify us against third-party claims arising from our role except where our own gross negligence or willful misconduct is found to have caused the loss."
+        },
+        {
+          "kind": "heading",
+          "text": "Governing Law",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "This letter is governed by the laws of the state in which our principal office is located, and any dispute arising under it will be heard in the courts of that state. It is the entire agreement between us regarding this engagement and may be amended only in a writing signed by both parties."
+        },
+        {
+          "kind": "paragraph",
+          "text": "If these terms reflect your understanding, please sign the enclosed copy where indicated and return it to me. When it reaches us, Mark Allen will call you to fix a date for the first working session, at which we will go through the information request list with you."
+        },
+        {
+          "kind": "sigblock",
+          "signers": [
+            "p:heather.delacruz",
+            "xp:laura.gonzalez"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0003",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "To: Mark Allen; David Rios\nCc: Cynthia White\nFrom: Rachel Brown, Vice President\nRe: {{fact:f:E-2014-001.client}}, sell-side kickoff"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The engagement letter came back countersigned, and our work for {{fact:f:E-2014-001.client}} began on {{fact:f:E-2014-001.start}}. Here is the company as we understand it today. The owners are prepared to sell the whole business if the price and the buyer are right. They want the process kept quiet, which in practice means a short list and no talk among their own employees before the senior team has been told."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Laura Gonzalez will be our day-to-day contact. She runs a tidy finance function: the monthly closes are timely and the historical statements are clean. The projections are another matter. They were built for the company's lender, not for a buyer, and they will need to be rebuilt from the bottom up before anyone outside the company sees them."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two questions will come early from any serious buyer, and we should have the answers first. One is customer concentration. Laura Gonzalez tells us the larger accounts are long-standing, and we need the contract terms and the revenue history that show it. The other is the owners themselves: a buyer will want to know who runs the business day to day once they step back, and that answer belongs in the memorandum, not in a diligence call."
+        },
+        {
+          "kind": "paragraph",
+          "text": "That shapes the approach. A buyer will price this company off the quality of its numbers before anything else, so the model comes first and the memorandum is written from the model, never alongside it. The scope we agreed is {{fact:f:E-2014-001.scope}}, a mix of strategic and financial names. That is a deliberate list, not an auction, and it suits owners who want discretion. It also means every name has to earn its place, because adding parties late slows everyone else down."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confidentiality is part of the approach, not a courtesy. Anything that leaves this office before an NDA is signed describes the company by sector and revenue band and nothing more, and that includes our own emails. We have told the owners to expect the better part of a year from here to a closing, with preparation running through the end of the summer before a single call is made."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Mark Allen leads with the owners and owns the calendar. I will take the model and the memorandum, and I will check every figure in the narrative against the model before it goes to Mark. David Rios builds the buyer screen and the first cut of the model. David, please bring your reasoning for each inclusion along with the names; Laura Gonzalez has asked to see why each party is there. Cynthia White has the three of us on the staffing grid for this mandate, and if the workload changes she should hear it from us first."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The first two weeks, concretely. This week David sends Laura Gonzalez our information request list: historical statements, monthly results for the current year, customer concentration, and headcount by function. Mark and I meet the owners at the company late in the week to walk through the process and to hear, in their own words, what they want from a buyer. Next week I start the model from whatever has come back, David delivers a first draft of the buyer screen, and the three of us review it together before anything goes to the client."
+        },
+        {
+          "kind": "paragraph",
+          "text": "So the one thing I need today is the request list in draft from David by Wednesday, so that it reaches Laura Gonzalez before we sit down with the owners."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0006",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Sell-Side Advisory for {{fact:f:E-2014-001.client}}: Preparation Review",
+          "level": 1
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Measure",
+            "Position",
+            "What it tells us"
+          ],
+          "rows": [
+            [
+              "Engagement start",
+              "{{fact:f:E-2014-001.start}}",
+              "Preparation phase; no party has yet been approached"
+            ],
+            [
+              "Engagement scope",
+              "{{fact:f:E-2014-001.scope}}",
+              "Agreed in the engagement letter; the working list is with the company for approval"
+            ],
+            [
+              "Valuation reference set",
+              "{{fact:f:E-2014-001.comparators}}",
+              "Closed deals of similar size and type; the basis for our valuation range"
+            ]
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Reading the Figures",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "The list is short on purpose. Every party on it has a plain reason to want a business of this kind, and none will learn the company's name before signing a non-disclosure agreement. The comparable transactions frame the range. They do not set the price. Buyers will study the same deals and argue from them, so we want Laura Gonzalez and the owners to hear our reading first. Rachel Brown has tied each figure in the draft memorandum back to the model, and the rebuilt projections now stand on the same footing as the historical statements. The reference set leans on recent deals, and we have left out transactions where a buyer paid for a strategic fit this company does not offer. Nothing in the preparation so far has moved us off the range Mark Allen took the owners through last month."
+        },
+        {
+          "kind": "heading",
+          "text": "What Diligence Will Ask",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Customer concentration: contract terms and revenue history for the larger accounts.",
+            "Management depth: who runs the business day to day once the owners step back.",
+            "Projections: the basis for each assumption, tied to the monthly results."
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Before Outreach Begins",
+          "level": 1
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Laura Gonzalez to confirm the working list and name any party that should not hear from us.",
+            "Owners to review the teaser and the draft memorandum with Mark Allen in one working session.",
+            "Rachel Brown to complete the data room index and request the remaining uploads from the finance team.",
+            "Owners to rehearse answers to the diligence questions with Rachel Brown before the memorandum is released.",
+            "First calls to go out from Mark Allen once the list and the teaser are approved."
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0007",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Working Session Minutes: {{fact:f:E-2014-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "heading",
+          "text": "Present",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Laura Gonzalez, Chief Financial Officer, {{fact:f:E-2014-001.client}}",
+            "Mark Allen, Partner",
+            "Rachel Brown, Vice President"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Summary of Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Outreach is complete. The tracker closes at {{fact:f:E-2014-001.pipeline-buyers-contacted}}. Each party had a call before the teaser went out. Response from the strategic parties has been prompt; the financial sponsors are slower, which is usual before they have seen numbers. Mark Allen took the group through the responses party by party. The calendar holds: each party receives the memorandum on signing its NDA, and the process letter calling for indications follows once the NDA stage closes."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Some of the sponsors have asked whether the owners would sell a majority stake and keep the rest. Laura Gonzalez said the owners' position is unchanged: a sale of the whole business. Mark Allen will say so plainly in his follow-up calls this week. Requests for time with management before indications will be declined until the owners decide otherwise."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The non-disclosure agreement was the main item. Counsel for several strategic parties have asked to narrow the employee non-solicitation clause. Laura Gonzalez confirmed that the owners will not release key employees from it. The group agreed a fallback: a shorter non-solicitation term for strategic parties, with no carve-out for named senior managers. Mark Allen will send the fallback language to company counsel."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Rachel Brown raised the memorandum. Its financial section still carries figures through the summer. The September close is complete on the company's side, and Laura Gonzalez will send it this week. Rachel Brown will update the section and tie each figure back to the model. No memorandum is released until that is done."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The data room is ready for the first round. Rachel Brown confirmed that the first-round folders hold the memorandum, the historical statements, and the monthly results. Customer contracts stay out until the second round. Laura Gonzalez agreed."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Confidentiality inside the company was the last item. Only the senior team knows of the process. Laura Gonzalez asked whether the controller should be told, since data room uploads will soon need more hands. Agreed: yes, under a written confidentiality acknowledgment, and no one else for now."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Rachel Brown will draft the process letter for indications now, so that it is ready when the NDA stage closes. It will ask each party for a value range, the form of consideration, its sources of financing, the diligence it still needs, and any approvals its own board requires. The next working session follows the close of the NDA stage and will fix the indication deadline."
+        },
+        {
+          "kind": "heading",
+          "text": "Actions",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Action",
+            "Owner",
+            "Due"
+          ],
+          "rows": [
+            [
+              "Send the September close and updated year-to-date figures",
+              "Laura Gonzalez",
+              "End of this week"
+            ],
+            [
+              "Send the fallback non-solicitation language to company counsel",
+              "Mark Allen",
+              "Tomorrow"
+            ],
+            [
+              "Update the memorandum's financial section and tie each figure to the model",
+              "Rachel Brown",
+              "Before the memorandum is first released"
+            ],
+            [
+              "Brief the controller and obtain a signed confidentiality acknowledgment",
+              "Laura Gonzalez",
+              "Before the next data room uploads"
+            ],
+            [
+              "Follow up with the slower sponsors on the whole-business position",
+              "Mark Allen",
+              "This week"
+            ],
+            [
+              "Draft the process letter for indications",
+              "Rachel Brown",
+              "Before the NDA stage closes"
+            ],
+            [
+              "Circulate the outreach and NDA tracker",
+              "Rachel Brown",
+              "Every Friday"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0008",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Status Report: Sell-Side Advisory for {{fact:f:E-2014-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "paragraph",
+          "text": "Prepared for Laura Gonzalez, Chief Financial Officer, by Rachel Brown, Vice President, with Mark Allen, Partner."
+        },
+        {
+          "kind": "heading",
+          "text": "Where We Are Behind",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The non-disclosure stage closed later than our calendar allowed, and everything behind it has moved with it. Counsel for the strategic parties took several rounds over the agreement. The fallback language you approved in October settled the non-solicitation point. The standstill provision then took longer, and some parties chose not to sign at all. We underestimated how long their counsel would take, and that misjudgment is ours."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The agreements now stand at {{fact:f:E-2014-001.pipeline-ndas-executed}}. The last of the signed parties received the memorandum only this week. If we kept to the original calendar, they would have far less time with it than the parties who signed first, and a buyer who feels rushed bids cautiously or not at all."
+        },
+        {
+          "kind": "paragraph",
+          "text": "We are doing three things about it. Mark Allen is calling each of the late signers to walk through the memorandum and answer their questions directly. We have held back the process letter, so no indication deadline has yet been fixed. And we are preparing a revised calendar for you that gives every signed party the same time with the memorandum before indications are due."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The rest of the work is on track. The September close is in the memorandum, and every figure in its financial section now ties to the model. The data room is complete for the first round, and activity in it has been steady. The folders most visited are the monthly results and the customer summaries, which tells us where the questions will come from. The diligence questions so far are the ones we prepared you for."
+        },
+        {
+          "kind": "heading",
+          "text": "Two Matters to Watch",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Neither of these is off track, but you should see them now. The first is the October close, which your team is finishing now. Buyers will set it beside the projections in the memorandum, and any shortfall will come up in the first conversation after indications. If October lands below the projection, we would like to hear it from you before the buyers do, so that we can explain it in our own words."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The second is customer concentration. Early questions from several parties have gone to the larger accounts, and the contract summaries you sent in September answer most of them. A short note on renewal history would answer the rest, and your controller could prepare it for the data room without much trouble."
+        },
+        {
+          "kind": "heading",
+          "text": "The Figures This Period",
+          "level": 2
+        },
+        {
+          "kind": "table",
+          "header": [
+            "Measure",
+            "Position at this report",
+            "Note"
+          ],
+          "rows": [
+            [
+              "Engagement scope",
+              "{{fact:f:E-2014-001.scope}}",
+              "As agreed in the engagement letter; unchanged"
+            ],
+            [
+              "Valuation reference set",
+              "{{fact:f:E-2014-001.comparators}}",
+              "Unchanged; we will refresh it if a relevant deal is announced before indications are due"
+            ],
+            [
+              "Outreach",
+              "{{fact:f:E-2014-001.pipeline-buyers-contacted}}",
+              "Complete; every party had a call before the teaser"
+            ],
+            [
+              "Non-disclosure agreements",
+              "{{fact:f:E-2014-001.pipeline-ndas-executed}}",
+              "Stage closed; the memorandum went to each party on signature"
+            ],
+            [
+              "Engagement fee",
+              "{{fact:f:E-2014-001.fee}}",
+              "As set out in the engagement letter; no change"
+            ]
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "What We Need From You Before Our Next Report",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Two decisions need the owners' answer before we write to you again. The first is the revised calendar. We recommend accepting it, even though it moves the indication deadline back. The parties that signed late include some of the strongest strategic names, and we would not want a deadline that leaves them short of time. We will send you the revised calendar on Monday, with the proposed deadline marked and our reasoning set out beneath it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The second is whether to allow a short call with management before indications are due. Several parties have asked for one. We recommend a single call for each party, with you and one member of the senior team, held to an agenda we will agree with you in advance. Nothing outside the memorandum would be discussed, and we would join every call. Site visits are a different matter, and we recommend keeping them for the second round."
+        },
+        {
+          "kind": "paragraph",
+          "text": "None of this changes our fee of {{fact:f:E-2014-001.fee}}, and our expenses remain within the categories set out in the engagement letter. If you can give us the owners' view on both points by the end of next week, Mark Allen will issue the process letter for indications the following Monday."
+        }
+      ]
+    },
+    {
+      "schema_id": "orgsmith/docir@1",
+      "doc_id": "d:0010",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Indications Review: {{fact:f:E-2014-001.client}}",
+          "level": 1
+        },
+        {
+          "kind": "heading",
+          "text": "Attendance",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Mark Allen, Partner",
+            "Rachel Brown, Vice President",
+            "Laura Gonzalez, Chief Financial Officer, {{fact:f:E-2014-001.client}}"
+          ]
+        },
+        {
+          "kind": "heading",
+          "text": "Decisions",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "The session took three decisions. Every party whose indication fell within the range the owners set before the first round closed goes forward to the second round, with management presentations and full data room access. The parties below the range will be declined this week, courteously and without detail, and told the company may return to them. The final bid deadline will be fixed in the second-round process letter once the presentations are scheduled, and not before."
+        },
+        {
+          "kind": "heading",
+          "text": "Discussion",
+          "level": 2
+        },
+        {
+          "kind": "paragraph",
+          "text": "Mark Allen recapped the first round for the record: {{fact:f:E-2014-001.pipeline-buyers-contacted}} across the autumn, {{fact:f:E-2014-001.pipeline-ndas-executed}}, and {{fact:f:E-2014-001.pipeline-indications-received}} at the first-round deadline. The indications differed more in structure than in headline value. That shaped the rest of the discussion."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Rachel Brown walked through the structures. Some parties proposed cash at closing. Others asked the owners to roll part of their equity or to accept an earn-out tied to future results. Laura Gonzalez said the owners will weigh certainty of closing above price within the range, and asked that each final bid state its financing plainly. Mark Allen agreed. The process letter will require committed financing letters with final bids."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Laura Gonzalez then raised the load on her team. Management presentations and second-round diligence will fall in the same weeks as the year-end close. Rachel Brown will sequence the diligence requests so the finance team answers them in batches, not one at a time. The presentations will be held in one place over consecutive days to keep management away from the office for as short a time as possible."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The group discussed how much to tell each party about where it stands. Mark Allen recommended saying nothing beyond the invitation itself, since a party that believes it leads tends to stop improving its offer. Laura Gonzalez agreed, and asked that the decline notes give no reason beyond the range."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Laura Gonzalez asked whether any party below the range could be brought up. Mark Allen said a low indication usually means one of two things: the party misread the business, or it read the business correctly and priced it for itself. The first sometimes moves after a call. The second does not. Mark Allen will call each party of the first kind himself when its decline goes out, so that it understands the company may return to it."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Rachel Brown will build the management presentation from the memorandum, updated for the year-end figures once they are available, and will rehearse it with the presenters beforehand. The presentation will carry no projection that is not in the model. The next session will be held once the presentation dates are confirmed."
+        },
+        {
+          "kind": "heading",
+          "text": "Actions",
+          "level": 2
+        },
+        {
+          "kind": "list",
+          "items": [
+            "Mark Allen: call each second-round party to confirm the invitation and offer presentation times.",
+            "Mark Allen: draft the second-round process letter, including the requirement for committed financing, for Laura Gonzalez to review.",
+            "Rachel Brown: draft the decline notes for parties below the range, for Mark Allen's review before they go out this week.",
+            "Rachel Brown: open the second-round folders in the data room and send Laura Gonzalez the batched diligence schedule.",
+            "Rachel Brown: draft the management presentation and set a rehearsal with the presenters.",
+            "Laura Gonzalez: confirm which members of management will present, and ask company counsel for the draft purchase agreement to go out with the process letter."
+          ]
+        }
+      ]
+    }
+  ]
+}

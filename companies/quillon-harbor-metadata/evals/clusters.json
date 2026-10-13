@@ -1,0 +1,37 @@
+{
+  "schema_id": "orgsmith/eval-clusters@1",
+  "slug": "quillon-harbor",
+  "policy_version": "1.0",
+  "clusters": [
+    {
+      "canonical": "Engagements/Blankenship Inc/2018.04.05 - Kickoff Memo - Management Buyout Advisory.docx",
+      "members": [
+        {
+          "path": "Engagements/Blankenship Inc/2018.04.05 - Kickoff Memo - Management Buyout Advisory (copy).docx",
+          "basis": "byte_copy",
+          "noise_kind": "exact_duplicate"
+        }
+      ]
+    },
+    {
+      "canonical": "Engagements/Hamilton PLC/Meeting Minutes 2021-10-11 - Hamilton PLC.docx",
+      "members": [
+        {
+          "path": "Engagements/Hamilton PLC/Meeting Minutes 2021-10-11 - Hamilton PLC_old.docx",
+          "basis": "byte_copy",
+          "noise_kind": "exact_duplicate"
+        }
+      ]
+    },
+    {
+      "canonical": "People/2017.02.19 - Onboarding - Amanda Thomas.docx",
+      "members": [
+        {
+          "path": "Engagements/Browning, Duffy and Santos/Copy of 2017.02.19 - Onboarding - Amanda Thomas.docx",
+          "basis": "byte_copy",
+          "noise_kind": "misfile"
+        }
+      ]
+    }
+  ]
+}

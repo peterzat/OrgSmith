@@ -1,0 +1,114 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0014",
+  "stage": "author",
+  "slug": "quillon-harbor",
+  "org_name": "Quillon Harbor Advisors LLC",
+  "org_type": "mergers and acquisitions advisory",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0014\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0012",
+      "title": "Status Report: Sell-Side Advisory for Armstrong, Silva and Dyer",
+      "genre": "status_report",
+      "date": "2015-03-14",
+      "authors": [
+        {
+          "id": "p:rachel.brown",
+          "name": "Rachel Brown",
+          "title": "Vice President",
+          "dept": "Advisory",
+          "persona": "Rachel is the firm's most exacting reader of a confidential information memorandum, and analysts learn quickly that she will check whether every figure in the narrative ties back to the model. She writes in a clipped, organized way, favoring numbered issues with a short line of recommendation beneath each. On calls with owners she is calm and practical, the person who explains what diligence will ask for before the buyer gets around to asking."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:rachel.brown",
+          "name": "Rachel Brown",
+          "title": "Vice President",
+          "dept": "Advisory",
+          "persona": "Rachel is the firm's most exacting reader of a confidential information memorandum, and analysts learn quickly that she will check whether every figure in the narrative ties back to the model. She writes in a clipped, organized way, favoring numbered issues with a short line of recommendation beneath each. On calls with owners she is calm and practical, the person who explains what diligence will ask for before the buyer gets around to asking."
+        },
+        {
+          "id": "p:mark.allen",
+          "name": "Mark Allen",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Mark is the partner who lives inside the process calendar: he thinks in workstreams, owners, and next deliverables, and his internal notes read like a well-kept tracker turned into sentences. He is brisk with deal teams and generous with credit, and he expects any status note to lead with what changed since the last one. Writing to clients he slows down considerably, favoring complete sentences, careful qualifiers, and a plain account of where the buyers stand."
+        },
+        {
+          "id": "xp:laura.gonzalez",
+          "name": "Laura Gonzalez",
+          "title": "Chief Financial Officer",
+          "dept": "Armstrong, Silva and Dyer",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Sell-Side Advisory for Armstrong, Silva and Dyer, running about 8 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2014-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2014-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2014-001.scope",
+          "hint": "count of prospective buyers; renders as the number together with its noun (\"N prospective buyers\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2014-001.comparators",
+          "hint": "count of comparable transactions; renders as the number together with its noun (\"N comparable transactions\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2014-001.pipeline-buyers-contacted",
+          "hint": "count of buyers contacted; renders as the number together with its noun (\"N buyers contacted\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2014-001.pipeline-ndas-executed",
+          "hint": "count of NDAs executed; renders as the number together with its noun (\"N NDAs executed\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2014-001.pipeline-indications-received",
+          "hint": "count of indications received; renders as the number together with its noun (\"N indications received\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2014-001.pipeline-final-bids",
+          "hint": "count of final bids; renders as the number together with its noun (\"N final bids\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:rachel.brown",
+          "surface": "Rachel Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:mark.allen",
+          "surface": "Mark Allen",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:laura.gonzalez",
+          "surface": "Laura Gonzalez",
+          "kind": "person"
+        },
+        {
+          "entity": "x:armstrong-silva-and-dyer",
+          "surface": "Armstrong, Silva and Dyer",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in short sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use a 'Workstreams' heading followed by 'Next Steps'; the 'rather X now than Y later' antithesis. The scope and comparator counts and the pipeline stage counts are separate measures of this engagement. Never write one as a share, subset, or remainder of another (no \"of the N\", \"N of which\", or \"out of\" linking them), and do not do arithmetic across them. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [paragraph block] the decisions this period asked the client for, and which are still open. 2. [list block] the work completed, one item each. 3. [list block] the work in flight, one item each. 4. [paragraph block] what the next period depends on. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 97% of the way through the engagement (in the later phase); it runs roughly 8 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

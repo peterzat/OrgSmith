@@ -1,0 +1,419 @@
+{
+  "schema_id": "orgsmith/work-order@1",
+  "id": "wo:author:0011",
+  "stage": "author",
+  "slug": "quillon-harbor",
+  "org_name": "Quillon Harbor Advisors LLC",
+  "org_type": "mergers and acquisitions advisory",
+  "narrative": "Quillon Harbor Advisors is a lower-middle-market mergers and acquisitions\nadvisory founded in 2012. It runs sell-side processes for founder-owned\nindustrial and business-services companies, buy-side search programs for\nprivate-equity platforms consolidating a sector, and the occasional\nfairness opinion for a board that needs an independent read.\n\nThe firm's work is a funnel, and its documents are the record of that\nfunnel narrowing. A buy-side search opens with a universe of candidate\ntargets, screens it, contacts what survives, executes NDAs with the\nwilling, and ends with a handful of offers. Every one of those numbers\nmoves week to week, every document states some of them, and a document\nthat reports a stage the calendar says has not happened yet is simply\nwrong. This is a firm whose prose is full of quantities.\n\nTone is precise and unhurried, with the particular carefulness of people\nwho write things a board will read and a lawyer may later quote. Partners\nwrite to owners who are selling a company they founded, so the register is\nwarm without being familiar. Analysts write the underlying material and\ntheir drafts read younger: more enumeration, more hedging, more numbers\nper sentence. Deal teams are small and the same three or four names recur\nacross a mandate. Confidentiality is a habit rather than a policy: targets\nare described by sector and revenue band in anything that circulates, and\nnamed only where the document is already privileged.",
+  "instructions": "Author every document briefed in `docs`, as JSON matching the deliverable\nschema:\n\n  {\"schema_id\": \"orgsmith/authoring-deliverable@1\",\n   \"work_order_id\": \"wo:author:0011\",\n   \"docs\": [{\"schema_id\": \"orgsmith/docir@1\", \"doc_id\": \"d:....\",\n             \"blocks\": [...]}, ...]}\n\nBlock kinds: heading (text, level), paragraph (text), list (items),\ntable (header, rows), sigblock (signers = person ids from the brief).\n\nHard rules:\n- One DocIR per brief; doc_ids must match the work order exactly.\n- Every fact id briefed for a doc MUST appear as a literal placeholder\n  {{fact:<id>}} at least once in that doc's text, where <id> is the\n  briefed id verbatim including its `f:` prefix (e.g.\n  {{fact:f:E-2019-001.start}}). You do not know fact values; never write\n  a number, date, or name in place of a placeholder.\n- Use only placeholders for fact ids briefed on that document.\n- Do not invent people, organizations, addresses, amounts, or dates.\n  People and their titles come from the briefs; the org narrative sets\n  tone only.\n- Every entry in a doc's `mentions` list must appear VERBATIM (the exact\n  `surface` string) somewhere in that doc's text. Sigblock signers count\n  as mentions of themselves. Short surfaces are nicknames: work them into\n  prose naturally (\"...as {{nickname}} noted...\"), alongside, not instead\n  of, the person's full name.\n- If a doc carries `engagement_position`, honor it: it states where the\n  document sits in its engagement's timeline. Do not describe progress or a\n  phase inconsistent with it, and do not state the engagement's start or\n  end date (those are fact placeholders, not yours to write).\n- If a doc carries `firm_digest`, it is the ONLY firm history you may treat\n  as established as of this document's date. Reference clients only through\n  the placeholders it names; claim no engagement it does not list; present\n  nothing later than this document as already true.\n- If a doc carries `reporting_line`, the person reports to exactly who it\n  names and to no one else. Do not name any other person or title as their\n  supervisor; a reporting relationship is owned by the ledger, not invented.\n- If a doc's `guidance` carries a STRUCTURE FOR THIS DOCUMENT section, that\n  skeleton is binding and overrides the genre's default shape. Cover every\n  numbered item, using at least the block kind it names, and use NONE of the\n  block kinds it forbids anywhere in that document. Two documents of one\n  genre are deliberately given different skeletons; write the one you were\n  given rather than the arrangement the genre usually takes.\n- Write plain, era-appropriate business prose in the org's voice.\n",
+  "docs": [
+    {
+      "doc_id": "d:0058",
+      "title": "Engagement Letter: Growth Capital Raise for Beck, Martin and Dawson",
+      "genre": "engagement_letter",
+      "date": "2022-07-26",
+      "authors": [
+        {
+          "id": "p:heather.delacruz",
+          "name": "Heather Delacruz",
+          "title": "Managing Partner",
+          "dept": "Leadership",
+          "persona": "Heather sets the firm's register and guards it: she reads every engagement letter and fairness opinion before it leaves the building, and she will send a draft back over a single adjective that promises more than the process can deliver. With owners selling a company they built, she is patient and plainspoken, inclined to explain the next stage of a process before anyone asks about it. Her own writing is spare, short declarative paragraphs with no flourish, and she closes a letter with a sentence about what happens next rather than a pleasantry."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.brown",
+          "name": "Kelly Brown",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+        },
+        {
+          "id": "p:justin.gonzalez",
+          "name": "Justin Gonzalez",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Justin builds the valuation work: trading comparables, precedent transactions, and the football-field summaries partners carry into board meetings. He writes compressed, number-dense sentences and defaults to a table wherever one will fit, adding a line of interpretation only when pressed. He is confident with the arithmetic and tentative with conclusions, and often closes a note by flagging what he would want someone to check."
+        },
+        {
+          "id": "p:richard.mccoy",
+          "name": "Richard Mccoy",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+        },
+        {
+          "id": "xp:sandra.waters",
+          "name": "Sandra Waters",
+          "title": "Chief Financial Officer",
+          "dept": "Beck, Martin and Dawson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Growth Capital Raise for Beck, Martin and Dawson, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2022-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2022-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2022-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2022-001.scope",
+          "hint": "count of prospective investors; renders as the number together with its noun (\"N prospective investors\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:heather.delacruz",
+          "surface": "Heather Delacruz",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kelly.brown",
+          "surface": "Kelly Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:justin.gonzalez",
+          "surface": "Justin Gonzalez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.mccoy",
+          "surface": "Richard Mccoy",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:sandra.waters",
+          "surface": "Sandra Waters",
+          "kind": "person"
+        },
+        {
+          "entity": "x:beck-martin-and-dawson",
+          "surface": "Beck, Martin and Dawson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 1100,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Formal engagement letter on firm letterhead confirming the engagement. Do NOT repeat the firm's name as a heading or title line: the letterhead already carries it. Open with the client's inside address and a salutation, then cover scope and approach, the team, and the fee and start date, followed by the standard terms a real engagement letter carries -- each as its own short headed paragraph: fees and payment, term and termination, confidentiality, limitation of liability, and governing law. Close with a signature request and end with a sigblock block signed by the letter's author and the client contact. Write in a warm, narrative register: connective prose and some first-person-plural framing, without slogans. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a warm register (connective prose, first-person-plural framing, no slogans) in long sentences. You habitually: closes with one clear next step; keeps paragraphs to two or three sentences. Never use 'In short,' as a paragraph opener; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [paragraph block] the client's inside address and salutation. 2. [paragraph block] the commercial terms, stated before the description of the work. 3. [paragraph block] scope and approach. 4. [paragraph block] the standard clauses, each as its own short headed paragraph. 5. [sigblock] signed by the author and the client contact. This document must contain NO list, table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 0% of the way through the engagement (at or before kickoff); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0059",
+      "title": "Kickoff Memo: Growth Capital Raise for Beck, Martin and Dawson",
+      "genre": "kickoff_memo",
+      "date": "2022-08-08",
+      "authors": [
+        {
+          "id": "p:kelly.brown",
+          "name": "Kelly Brown",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.brown",
+          "name": "Kelly Brown",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+        },
+        {
+          "id": "p:justin.gonzalez",
+          "name": "Justin Gonzalez",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Justin builds the valuation work: trading comparables, precedent transactions, and the football-field summaries partners carry into board meetings. He writes compressed, number-dense sentences and defaults to a table wherever one will fit, adding a line of interpretation only when pressed. He is confident with the arithmetic and tentative with conclusions, and often closes a note by flagging what he would want someone to check."
+        },
+        {
+          "id": "p:richard.mccoy",
+          "name": "Richard Mccoy",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+        },
+        {
+          "id": "xp:sandra.waters",
+          "name": "Sandra Waters",
+          "title": "Chief Financial Officer",
+          "dept": "Beck, Martin and Dawson",
+          "persona": ""
+        },
+        {
+          "id": "p:kimberly.harris",
+          "name": "Kimberly Harris",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kimberly works the research end of the funnel: company profiles, ownership backgrounds, and the notes that tell a partner what a founder cares about before the first meeting. Her writing is observant and a little discursive, with more qualifiers than the deal team needs and a good ear for the remark a founder made that actually mattered. She organizes everything under headings and is quick to flag where her sources disagree."
+        }
+      ],
+      "engagement_summary": "Growth Capital Raise for Beck, Martin and Dawson, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2022-001.start",
+          "hint": "calendar date; place where the date belongs"
+        },
+        {
+          "id": "f:E-2022-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2022-001.scope",
+          "hint": "count of prospective investors; renders as the number together with its noun (\"N prospective investors\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.brown",
+          "surface": "Kelly Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:justin.gonzalez",
+          "surface": "Justin Gonzalez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.mccoy",
+          "surface": "Richard Mccoy",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:sandra.waters",
+          "surface": "Sandra Waters",
+          "kind": "person"
+        },
+        {
+          "entity": "x:beck-martin-and-dawson",
+          "surface": "Beck, Martin and Dawson",
+          "kind": "org"
+        },
+        {
+          "entity": "p:kimberly.harris",
+          "surface": "Kimberly Harris",
+          "kind": "person"
+        }
+      ],
+      "target_words": 650,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Internal memo to the engagement team. Open with a short paragraph on objectives, then a list of workstreams, then next steps. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [table block] workstreams and their owners, as the FIRST block of the document. 2. [paragraph block] why the work is split this way. 3. [paragraph block] the sequencing constraint between the workstreams. This document must contain NO list block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 2% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0061",
+      "title": "Meeting Minutes: Growth Capital Raise for Beck, Martin and Dawson",
+      "genre": "meeting_minutes",
+      "date": "2022-09-30",
+      "authors": [
+        {
+          "id": "p:richard.mccoy",
+          "name": "Richard Mccoy",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.brown",
+          "name": "Kelly Brown",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+        },
+        {
+          "id": "p:justin.gonzalez",
+          "name": "Justin Gonzalez",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Justin builds the valuation work: trading comparables, precedent transactions, and the football-field summaries partners carry into board meetings. He writes compressed, number-dense sentences and defaults to a table wherever one will fit, adding a line of interpretation only when pressed. He is confident with the arithmetic and tentative with conclusions, and often closes a note by flagging what he would want someone to check."
+        },
+        {
+          "id": "p:richard.mccoy",
+          "name": "Richard Mccoy",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+        },
+        {
+          "id": "xp:sandra.waters",
+          "name": "Sandra Waters",
+          "title": "Chief Financial Officer",
+          "dept": "Beck, Martin and Dawson",
+          "persona": ""
+        },
+        {
+          "id": "p:nancy.burgess",
+          "name": "Nancy Burgess",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Nancy supports the fairness opinion work and the board-facing material, where her caution suits the job: she cites every input, footnotes every assumption, and never lets a rounded number stand without saying it was rounded. Her sentences are long and careful, layered with enumerated points and conditional clauses. She is earnest, quick to ask for review, and slow to call any draft final."
+        }
+      ],
+      "engagement_summary": "Growth Capital Raise for Beck, Martin and Dawson, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2022-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2022-001.pipeline-investors-approached",
+          "hint": "count of investors approached; renders as the number together with its noun (\"N investors approached\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:richard.mccoy",
+          "surface": "Richard Mccoy",
+          "kind": "person"
+        },
+        {
+          "entity": "p:kelly.brown",
+          "surface": "Kelly Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:justin.gonzalez",
+          "surface": "Justin Gonzalez",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:sandra.waters",
+          "surface": "Sandra Waters",
+          "kind": "person"
+        },
+        {
+          "entity": "x:beck-martin-and-dawson",
+          "surface": "Beck, Martin and Dawson",
+          "kind": "org"
+        },
+        {
+          "entity": "p:nancy.burgess",
+          "surface": "Nancy Burgess",
+          "kind": "person"
+        }
+      ],
+      "target_words": 600,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Minutes of a working session: a list block naming every attendee (full names), discussion summary paragraphs, and a table or list of action items with owners. Write in a formal, precise register: careful qualifications and a measured tone, sparing with metaphor. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a plainspoken register (concrete nouns and verbs, no epigrams) in short sentences. You habitually: closes with one clear next step; sets context in a sentence before making any request. Never use closing epigrams or aphorisms; the 'rather X now than Y later' antithesis. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [list block] attendees, full names. 2. [paragraph block] the session in the order it happened, including what was raised and dropped. 3. [paragraph block] what was left unresolved and who carries it. This document must contain NO table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 39% of the way through the engagement (in the early phase); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    },
+    {
+      "doc_id": "d:0062",
+      "title": "Status Report: Growth Capital Raise for Beck, Martin and Dawson",
+      "genre": "status_report",
+      "date": "2022-10-16",
+      "authors": [
+        {
+          "id": "p:kelly.brown",
+          "name": "Kelly Brown",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+        }
+      ],
+      "participants": [
+        {
+          "id": "p:kelly.brown",
+          "name": "Kelly Brown",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Kelly is a meticulous builder of buyer lists and contact logs, and her drafts arrive with every column filled and every source noted. She writes long, carefully hedged sentences that stack figure upon figure, and she tends to open an update with the counts before the story behind them. She asks good questions and asks them in writing, usually as a numbered list at the bottom of an email."
+        },
+        {
+          "id": "p:justin.gonzalez",
+          "name": "Justin Gonzalez",
+          "title": "Analyst",
+          "dept": "Advisory",
+          "persona": "Justin builds the valuation work: trading comparables, precedent transactions, and the football-field summaries partners carry into board meetings. He writes compressed, number-dense sentences and defaults to a table wherever one will fit, adding a line of interpretation only when pressed. He is confident with the arithmetic and tentative with conclusions, and often closes a note by flagging what he would want someone to check."
+        },
+        {
+          "id": "p:richard.mccoy",
+          "name": "Richard Mccoy",
+          "title": "Partner",
+          "dept": "Advisory",
+          "persona": "Richard thinks of a sector as a map to be colored in, and he is happiest walking a private-equity sponsor through why one cluster of targets deserves a call and another does not. His memos are argued rather than summarized, each paragraph making one point and defending it, and he has a habit of ending a recommendation with the strongest objection to it. He is courteous but unsentimental with sponsors and saves his warmth for the founders on the other side of the table."
+        },
+        {
+          "id": "xp:sandra.waters",
+          "name": "Sandra Waters",
+          "title": "Chief Financial Officer",
+          "dept": "Beck, Martin and Dawson",
+          "persona": ""
+        }
+      ],
+      "engagement_summary": "Growth Capital Raise for Beck, Martin and Dawson, running about 5 months. Commercial terms and dates are briefed as fact placeholders only.",
+      "facts": [
+        {
+          "id": "f:E-2022-001.fee",
+          "hint": "amount of money; place where the figure belongs"
+        },
+        {
+          "id": "f:E-2022-001.client",
+          "hint": "proper name; place where the name belongs"
+        },
+        {
+          "id": "f:E-2022-001.scope",
+          "hint": "count of prospective investors; renders as the number together with its noun (\"N prospective investors\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2022-001.comparators",
+          "hint": "count of precedent raises; renders as the number together with its noun (\"N precedent raises\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        },
+        {
+          "id": "f:E-2022-001.pipeline-investors-approached",
+          "hint": "count of investors approached; renders as the number together with its noun (\"N investors approached\"), so place it where that whole phrase belongs and do not write the noun again after it"
+        }
+      ],
+      "mentions": [
+        {
+          "entity": "p:kelly.brown",
+          "surface": "Kelly Brown",
+          "kind": "person"
+        },
+        {
+          "entity": "p:justin.gonzalez",
+          "surface": "Justin Gonzalez",
+          "kind": "person"
+        },
+        {
+          "entity": "p:richard.mccoy",
+          "surface": "Richard Mccoy",
+          "kind": "person"
+        },
+        {
+          "entity": "xp:sandra.waters",
+          "surface": "Sandra Waters",
+          "kind": "person"
+        },
+        {
+          "entity": "x:beck-martin-and-dawson",
+          "surface": "Beck, Martin and Dawson",
+          "kind": "org"
+        }
+      ],
+      "target_words": 850,
+      "guidance": "Default shape for this genre, SUPERSEDED wherever it disagrees with the STRUCTURE FOR THIS DOCUMENT section below -- follow that section, not this sentence, on which blocks to use: Progress report for the client executive: status summary, accomplishments this period, upcoming work, risks. Reference the engagement budget where the fee fact is briefed. Write in a structured, enumerative register: name things in order with minimal figurative language. Vary your openings, section names, and closings from what a template would produce. Do not open with 'Two asks. First... Second...'; do not structure the document as 'Workstreams' then 'Next Steps' then a closing aphorism; and avoid the 'rather X now than Y later' antithesis and formulaic epigrams. Your personal writing style, held consistently: a structured register (ordered, enumerative prose with minimal figuration) in short sentences. You habitually: prefers numbered lists over bullet points; sets context in a sentence before making any request. Never use a 'Workstreams' heading followed by 'Next Steps'; closing epigrams or aphorisms. The scope and comparator counts and the pipeline stage counts are separate measures of this engagement. Never write one as a share, subset, or remainder of another (no \"of the N\", \"N of which\", or \"out of\" linking them), and do not do arithmetic across them. STRUCTURE FOR THIS DOCUMENT. This skeleton overrides the default shape described above, and it differs from other documents of this genre ON PURPOSE: do not reach for the usual arrangement. Cover these in order, each as at least the block kind named: 1. [paragraph block] the period in one continuous account, start to finish. 2. [paragraph block] the quantities, stated inside the prose rather than tabulated. 3. [paragraph block] the outlook, with its assumptions named. This document must contain NO list, table block of any kind, anywhere. Express that material as prose instead. A deliverable carrying one is rejected.",
+      "engagement_position": "This document is dated about 50% of the way through the engagement (around the midpoint); it runs roughly 5 months end to end. Do not describe progress inconsistent with that position, and do not state the engagement's start or end date.",
+      "firm_digest": "",
+      "reporting_line": ""
+    }
+  ],
+  "people": [],
+  "deliverable_schema": "orgsmith/authoring-deliverable@1"
+}

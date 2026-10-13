@@ -16,9 +16,10 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~85s wall and 985 passing + 27 skipped (16 short, 739 unit, 230 org)
-on a box with LibreOffice; 977 passing + 35 skipped without it (the six
-`@needs_soffice` conversion tests, which is what CI sees). Both are green
+Expect ~100s wall and 1103 passing + 30 skipped (19 short, 824 unit, 260
+org) on a box with LibreOffice, measured 2026-10-13 at the close of M17d;
+without it the `@needs_soffice` conversion tests skip instead of passing,
+which is what CI sees. Both are green
 states, see Environment axis. No API key, no network, no model: a
 tier that wants any of those is a bug, not a setup problem. (M9 enlarged
 the tracer -- `dev-mini` grew from 13 to 22 documents. M11b replaced the
@@ -35,7 +36,7 @@ largest, `calderwood-partners` and `ashcombe-advisory`, stay in their own
 opt-in `flagship` tier, kept out of the default `bin/test` because
 validating their ~320 files is ~4s on its own.)
 
-The `flagship` tier is opt-in (`bin/test flagship`, 65 passing + 5 skipped)
+The `flagship` tier is opt-in (`bin/test flagship`, 71 passing + 5 skipped)
 and runs in CI on its own step; the default `bin/test` excludes it so the
 everyday loop stays fast.
 
@@ -62,12 +63,24 @@ pull request, and is the actual gate.
 
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
-| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, and the `schemas/` export pin | 16 | < 1s | 0.40s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 716 (710 in CI) | ~75s | ~71s local |
-| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 228 (+27 skipped) | ~15s | 11.0s warm |
-| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 65 (+5 skipped) | ~15s | 11.8s |
+| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, the `schemas/` export pin, and (M17d) that every command a skill names parses against the real CLI | 19 | < 1s | 0.56s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 824 | ~75s | ~74s local |
+| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 260 (+30 skipped) | ~15s | 15.3s warm |
+| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 71 (+5 skipped) | ~15s | 12.9s |
 
-Measured 2026-08-02 at the close of M17b. The `org` tier's skips are property
+Measured 2026-10-13 at the close of M17d.
+
+**The tenth org joined the `org` tier, deliberately (M17d).** Adding
+`quillon-harbor` (77 documents) moved the tier from 230 tests in 11.4s to 260
+in 15.3s warm, **+3.9s**, which puts it at its ~15s budget rather than under
+it. It stays in the default tier anyway: it is the only committed org that
+exercises SCOPE-01, OUT-01, OVR-01, the business-day engagement starts and the
+era shock, so its validation is the everyday regression check for every
+capability M17b and M17d added, and moving it to the opt-in `flagship` tier
+would take those rules out of the default loop. The cost is almost all
+text extraction for the answer-key re-derivation (EVAL-01) and the keyless
+baselines, the same driver the M17 note below describes. If the next org
+pushes the tier past ~18s, revisit the split by job, not by size. The `org` tier's skips are property
 tests stepping over orgs whose recipe leaves the feature under test off (no
 transmittal mail, no mundane mail, no clusters); each names the org and the
 reason, so a skip is never silent.

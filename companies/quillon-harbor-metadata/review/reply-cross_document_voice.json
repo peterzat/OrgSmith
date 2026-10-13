@@ -1,0 +1,96 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "quillon-harbor",
+  "dimension": "cross_document_voice",
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  },
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-1",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0013",
+        "d:0052",
+        "d:0021",
+        "d:0059",
+        "d:0003",
+        "d:0041"
+      ],
+      "summary": "Kickoff memos on the same outline, written by different people years apart, open their paragraphs with the same sentences, mostly the outline's slot wording turned into topic sentences, so they read as one writer filling in one form.",
+      "evidence": "km-risk-first, Melissa Jacobson 2015 (d:0013) against Sandra Norman 2021 (d:0052), four paragraph openers in lockstep: 'This search will be decided on the first phone call.' / 'This opinion will be decided by the cost base, not by the multiples.'; 'So we are going to be slower at the front than usual, on purpose.' / 'So we will start where we would normally finish.'; 'The objectives come out of that approach.' / 'The objectives follow from that order.'; 'What we need from the client side is decisions more than documents' / 'What we need from {{fact:f:E-2021-001.client}} at the start is access more than documents.' km-owner-table, Robert Turner 2016 (d:0021) against Kelly Brown 2022 (d:0059): 'the split follows the order in which the shareholders will have to make decisions' / 'The split follows the order in which an investor will test the company.'; 'so that information requests do not land on staff at the company' / 'one person asking for them means fewer requests landing on Sandra Waters'; 'nothing goes to any financing source until three things have happened' / 'No investor is contacted until two conditions hold'. km-narrative: Rachel Brown 2014 (d:0003) writes the outline slot itself as a sentence, 'The first two weeks, concretely.', and closes 'the request list in draft from David by Wednesday, so that it reaches Laura Gonzalez before we sit down with the owners'; Angela Cole 2019 (d:0041) closes 'I need Mark Allen's comments on it by tomorrow morning so that it reaches Thomas Le before the end of the week.' None of these pairs is among the 50 structural pairs the metric kept, and no same-genre pair passes 0.07 4-gram Jaccard, so this is invisible to both."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-2",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [
+        "d:0016",
+        "d:0036",
+        "d:0062",
+        "d:0012",
+        "d:0038"
+      ],
+      "summary": "Status reports by four different authors on four engagements share sentences that go beyond what their outlines prescribe, including one telling the client that the counts are independent measures, which restates the authoring brief and is nothing a client needs to hear.",
+      "evidence": "sr-narrative, Melissa Jacobson 2015 (d:0016), Thomas Mccoy 2018 (d:0036), Kelly Brown 2022 (d:0062): 'The period opened with the screen.' / 'The period opened with lender meetings.' / 'The period closes with the data room open'; 'Each of these is its own measure, and we report each as it stands.' / 'Four measures appear in this report, and each stands on its own.' / 'The figures below are separate measures, and I give each on its own terms.'; 'That expectation rests on three assumptions' / 'That outlook rests on four assumptions.' / 'The plan rests on five assumptions.'; 'One risk sits outside those assumptions.' (d:0016) / 'One risk sits outside the four assumptions.' (d:0036). sr-decision-log, Rachel Brown 2015 (d:0012) against Thomas Mccoy 2018 (d:0038): 'we have asked the owners for four decisions. Two are made. Two are still open, and both bear on the purchase agreement.' / 'We asked the management group for four decisions in this period. Two have been made. The other two are still open, and both now sit on the path to closing.' The work-order brief tells authors the counts 'are separate measures of this engagement'; three reports repeat that to the client, d:0062 in the brief's own words."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-3",
+      "dimension": "cross_document_voice",
+      "severity": "major",
+      "docs": [],
+      "summary": "The firm's confidentiality convention is restated in 28 of 59 authored documents by 8 of 11 authors, nearly always in the charter's words 'sector and revenue band', including minutes and status reports where nothing calls for it, so it reads as a slogan the writer was told to carry, not a practice the firm simply follows.",
+      "evidence": "The phrase 'revenue band', 'sector and size' or 'by sector only' appears in d:0002, d:0003, d:0004, d:0005, d:0011, d:0017, d:0020, d:0021, d:0023, d:0024, d:0026, d:0028, d:0029, d:0030, d:0032, d:0033, d:0040, d:0041, d:0049, d:0051, d:0054, d:0058, d:0059, d:0060, d:0064, d:0065, d:0066, d:0068: every engagement letter and firm overview, six of eight kickoff memos, half the onboarding records. Where it is gratuitous: d:0017 minutes 'describing each company by its sector and size, as our papers always do'; d:0023 minutes 'every first call describing the company by sector and revenue band only'; d:0024 status report 'every first call having described the business by sector and revenue band alone'; d:0068 status report 'our conversations with lenders this month, in which the company was described by sector and size only'. The rule even appears as a line in onboarding responsibility tables: d:0005 and d:0060 'Describing targets by sector and revenue band in anything that circulates | Everyone at the firm'. Charter: 'targets are described by sector and revenue band in anything that circulates'."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-4",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0002",
+        "d:0017",
+        "d:0027",
+        "d:0028",
+        "d:0049",
+        "d:0067"
+      ],
+      "summary": "Business records describe colleagues using the roster's persona sketches nearly word for word, in a novelist's register, so engagement letters, client-session minutes and first-week onboarding notes share one all-knowing narrator who already knows everyone's habits.",
+      "evidence": "d:0017 minutes of a session with the client: 'he ended his case, as he usually does, with the strongest objection to it' (Richard Mccoy persona: 'a habit of ending a recommendation with the strongest objection to it'); d:0067 minutes: 'She was careful, as she always is, to keep the reported figures and the adjusted ones in separate columns'; d:0027, dated a week after Kelly Brown started: 'Kelly has already shown, in her first conversations here, a habit of asking good questions and asking them in writing' (persona: 'She asks good questions and asks them in writing'); d:0028: 'Her notes on a screen should read as an audit trail of that narrowing' (Angela Cole persona: 'her notes read like an audit trail of that narrowing'); d:0002, an engagement letter, on Rachel Brown: 'she has a habit of telling owners what a buyer will ask for well before the buyer gets around to asking' (persona: 'explains what diligence will ask for before the buyer gets around to asking'); d:0049: 'we write everything we produce with the expectation that a board will read it and that a lawyer may later quote it' (charter: 'people who write things a board will read and a lawyer may later quote')."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-5",
+      "dimension": "cross_document_voice",
+      "severity": "minor",
+      "docs": [
+        "d:0005",
+        "d:0019",
+        "d:0026",
+        "d:0027",
+        "d:0028",
+        "d:0030",
+        "d:0042",
+        "d:0048",
+        "d:0056",
+        "d:0060"
+      ],
+      "summary": "All ten onboarding records carry the Managing Partner's byline (she is the author of 27 of 59 authored documents), yet nine refer to her in the third person and one in the first, so the series reads as an office voice that does not match its byline.",
+      "evidence": "d:0027, author Heather Delacruz: 'Everyone at Quillon Harbor joins Heather Delacruz in welcoming Kelly Brown'; d:0019: 'began the way every new arrival's does, with Heather Delacruz walking him through how the firm writes'; d:0048: 'Heather Delacruz will meet him, by video for now, before his first month is out'; set against d:0026: 'can come to me, Heather Delacruz, directly'. The rendered .docx author property is the manifest author. Cynthia White, the Chief of Staff whose persona is the firm's internal-memo writer, and Mark Allen, to whom every new analyst reports, author none of the 59."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:voice-6",
+      "dimension": "cross_document_voice",
+      "severity": "note",
+      "docs": [],
+      "summary": "Sentence rhythm does differ by author, and the outline pool varied the headings, so the convergence in rf:voice-1 to rf:voice-3 lies in rhetorical moves and refrains, not rhythm; the metric's top structural pairs are the Managing Partner's own letters and onboarding notes, and they read as one signatory reusing her templates, which is plausible.",
+      "evidence": "Mean sentence length in paragraph prose (reviewer's count): Richard Mccoy 13.6 words, Kelly Brown 15.5, Mark Allen 16.0, Thomas Mccoy 16.1, Rachel Brown 17.1, Angela Cole 26.1, Sandra Norman 31.5, Heather Delacruz 34.2, Robert Turner 34.2. Individual marks show through: d:0021 'With two Roberts on the weekly call, I will answer to Turner.'; d:0013 'Shout if I have any of it wrong before then.'; d:0045 'The ordering is my reading of the log, not a tally I would stand behind until the log is closed.'; d:0037 'Where it landed:'. Template reuse in the flagged letters: d:0011 and d:0040 both open 'Thank you for the conversations that brought us to this letter, and for the candor with which you and your colleagues described', and five of eight letters thank the client for its candor."
+    }
+  ]
+}

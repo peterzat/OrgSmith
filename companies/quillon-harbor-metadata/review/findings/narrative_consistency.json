@@ -1,0 +1,77 @@
+{
+  "schema_id": "orgsmith/review-findings@1",
+  "slug": "quillon-harbor",
+  "dimension": "narrative_consistency",
+  "findings": [
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-1",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0002",
+        "d:0003",
+        "d:0006",
+        "d:0007"
+      ],
+      "summary": "The Armstrong sell-side documents call the buyer list short, deliberate and not an auction, but the figures beside that language are a 145-name universe, 103 parties contacted and 14 final bids, which is a broad auction. The authors were briefed the scope only as a placeholder and characterized a number they never saw.",
+      "evidence": "d:0003: \"They want the process kept quiet, which in practice means a short list\" and \"The scope we agreed is 145 prospective buyers, a mix of strategic and financial names. That is a deliberate list, not an auction\". d:0006: the table row \"Engagement scope | 145 prospective buyers\" is followed directly by \"The list is short on purpose.\" d:0002: \"directed to a defined group of strategic and financial parties, not to the market at large\" beside \"A buyer universe scoped at 145 prospective buyers\". d:0007: \"Outreach is complete. The tracker closes at 103 buyers contacted.\" d:0012 closes the record at 103 contacted, 44 NDAs, 26 indications and 14 final bids."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-2",
+      "dimension": "narrative_consistency",
+      "severity": "major",
+      "docs": [
+        "d:0004",
+        "d:0003",
+        "d:0006",
+        "d:0007",
+        "d:0066",
+        "d:0068"
+      ],
+      "summary": "Two firm overviews name live, confidential mandates as client examples. The same documents say a target is named only in privileged material, and the engagement files describe those mandates as secret even from the clients' own staff.",
+      "evidence": "d:0004 (2014-08-10), under \"An example from this year's work\": \"our sell-side engagement for Armstrong, Silva and Dyer gives a fair picture of how we work\". The same overview says \"In anything that circulates, a target is described by its sector and its revenue band and is named only in documents that are already privileged.\" At that date the sale was live and unannounced: d:0003 \"no talk among their own employees before the senior team has been told\", d:0006 (Sep 12) \"no party has yet been approached\", d:0007 (Oct 20) \"Only the senior team knows of the process.\" d:0066 (2023-08-08) lists Ingram, Bowers and Roth among \"The clients we have worked for\" during its review (June 19 to December 2023), while d:0068 (2023-09-17) carries the risk \"Trigger: any sign that word of the review has reached employees or clients.\""
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-3",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0020",
+        "d:0023",
+        "d:0024"
+      ],
+      "summary": "The Lawson recapitalization status report puts the final funnel stage (all four term sheets in hand, first round closed) five business days after the first lender call. The engagement letter allots outreach weeks 8 to 11 and proposals weeks 11 to 13, which works out to mid-September to early October. The prose explains the gap rather than fitting the calendar, and it leaves 28 of the 46 approved sources unapproached without saying so.",
+      "evidence": "d:0020 schedule: \"Outreach | ... | Weeks 8 to 11\" and \"Proposals | ... | Weeks 11 to 13\". d:0023 (Wed 2016-08-24): \"first calls to begin on Monday\" (Aug 29). d:0024 (2016-09-06): \"At the close of business last Friday, Sarah Fletcher's contact log showed 18 lenders approached and 4 term sheets received. The letter expected written proposals only after management meetings; they came sooner because...\" and \"so the first round is in practice closed\", beside \"The approved source list stands at 46 financing sources\". Junior funds were called \"a few days behind\" the senior lenders, so they had about two days."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-4",
+      "dimension": "narrative_consistency",
+      "severity": "minor",
+      "docs": [
+        "d:0074",
+        "d:0075",
+        "d:0023",
+        "d:0024"
+      ],
+      "summary": "Both earlier versions in the d:0024 version chain are dated before the events their text reports. The noise stage dates chain members 2 to 7 days apart, counting back from the final, and copies the final's time-anchored text into them unchanged.",
+      "evidence": "d:0074 (manifest date and docx created 2016-08-27, a Saturday, three days after the 2016-08-24 session in d:0023) and d:0075 (2016-09-01) both read \"This report covers the two weeks since the working session\", \"Sarah Fletcher began calls on the Monday after the session\" (2016-08-29) and \"At the close of business last Friday, Sarah Fletcher's contact log showed 18 lenders approached and 4 term sheets received\". For both drafts, last Friday is 2016-08-26, before any call was placed. v1 is dated two days before the first call it reports."
+    },
+    {
+      "schema_id": "orgsmith/review-finding@1",
+      "id": "rf:narrative-5",
+      "dimension": "narrative_consistency",
+      "severity": "note",
+      "docs": [],
+      "summary": "Era references and in-text titles were checked across all 59 sampled documents and are consistent. Every name-and-title pairing matches the person's title history at the document date. The analyst who departed in 2017 is never mentioned afterward. No tool, idiom or event postdates its document.",
+      "evidence": "Titles: Richard Mccoy \"a Director of the firm\" in d:0011 (2015) and \"a Partner of the firm\" in d:0032 (2018); Rachel Brown \"Vice President\" in 2014-2015; Robert Turner \"an Associate\" in d:0020 (2016). David Rios appears only in d:0003 and d:0004 (2014). Era: d:0034 (2018-06) \"Last December's federal tax legislation caps the interest a company may deduct\"; d:0048 (2020-06) \"most of us are still working from home\"; d:0049 (2020) \"given by video instead of across a table\"; d:0062 (2022-10) \"Rates have risen quickly this year\"; d:0068 (2023) \"Borrowing costs have stayed high\"."
+    }
+  ],
+  "generator": {
+    "model": "claude-opus-5-5",
+    "effort": "xhigh"
+  }
+}
