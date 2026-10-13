@@ -294,6 +294,56 @@ def plant_scope_facts(
     return planted
 
 
+# --- engagement oversight (M17d) -------------------------------------------
+
+
+def oversight_candidates(charter: Charter, foundation: Foundation, eng) -> list:
+    """Everyone holding an oversight title on the engagement's start date and
+    employed for its whole span, by id. Shared by the fabric and OVR-01."""
+    titles = set(charter.engagements.oversight_titles)
+    return sorted(
+        (
+            p
+            for p in foundation.people
+            if p.title_at(eng.start) in titles
+            and _employed_at(p, eng.start)
+            and _employed_at(p, eng.end)
+        ),
+        key=lambda p: p.id,
+    )
+
+
+def assign_oversight(charter: Charter, foundation: Foundation, engagements) -> None:
+    """Put one senior on every engagement a senior can cover (M17d).
+
+    A post-pass over the finished teams, so staffing and its stream are
+    untouched. An engagement whose team already includes an eligible senior
+    keeps it; otherwise the least-loaded eligible senior is appended (never
+    made lead, so the lead and its documents do not move), ties drawn from
+    the NEW `fabric.engagements.oversight` stream keyed by engagement id.
+    Knob off returns before touching anything or constructing an RNG.
+    """
+    if not charter.engagements.oversight_titles:
+        return
+    load: dict[str, int] = {}
+    for eng in engagements:
+        eligible = oversight_candidates(charter, foundation, eng)
+        if not eligible:
+            continue
+        on_team = [p for p in eligible if p.id in eng.internal_participants]
+        if on_team:
+            for p in on_team:
+                load[p.id] = load.get(p.id, 0) + 1
+            continue
+        floor = min(load.get(p.id, 0) for p in eligible)
+        contenders = [p for p in eligible if load.get(p.id, 0) == floor]
+        pick = rng(charter.seed, "fabric.engagements.oversight", eng.id).choice(
+            contenders
+        )
+        eng.internal_participants.append(pick.id)
+        load[pick.id] = load.get(pick.id, 0) + 1
+
+
 # --- affiliation-aware participant selection (M6+) -------------------------
 # Pure helpers shared with the AFF validators, which recompute the plan
 # from charter plus foundation as tamper evidence.
@@ -578,6 +628,8 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
                 facts=facts,
             )
         )
+
+    assign_oversight(charter, foundation, engagements)
 
     # Affiliation-aware docs (M6+): a deterministic, RNG-free post-pass.
     # Knob off = zero fields touched and zero RNG consumed, so committed

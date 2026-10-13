@@ -123,7 +123,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| brackenridge-civil | 127 | `8310a4212e0af0d39913fc02598e907cc28aa1099557420dc17329fde4fc708e` |
+| brackenridge-civil | 127 | `02c013694f56269a7fdf711492d2e2ce717fa7a25b3b7ea4e1c53b172e93c618` |
 
 Verify with `python tools/checksums.py --check`.
 

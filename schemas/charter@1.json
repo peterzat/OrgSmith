@@ -145,6 +145,14 @@
           "title": "Count",
           "type": "integer"
         },
+        "oversight_titles": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Oversight Titles",
+          "type": "array"
+        },
         "scope": {
           "anyOf": [
             {

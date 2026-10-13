@@ -117,6 +117,10 @@ SCOPE_LINES = (
 )
 
 
+# M17d: the Managing Partner oversees every engagement it can cover.
+OVERSIGHT_LINES = "  oversight_titles: [Managing Partner]\n"
+
+
 def write_hardcase_recipe(
     root: Path, slug: str = "dev-mini", sig: int = 1, fn: int = 1
 ) -> OrgPaths:
@@ -254,7 +258,9 @@ def build_knobbed_stages(root: Path, slug: str = "dev-mini") -> OrgPaths:
     # the monotonicity and position-gating paths are exercised rather than
     # merely reachable.
     assert SCOPE_ANCHOR in text
-    text = text.replace(SCOPE_ANCHOR, SCOPE_ANCHOR + SCOPE_LINES)
+    # M17d: oversight on too, so OVR-01 finds its knob here (the zero-skip
+    # test keys off this org).
+    text = text.replace(SCOPE_ANCHOR, SCOPE_ANCHOR + SCOPE_LINES + OVERSIGHT_LINES)
     # Widen the date range by two years. M8's staffing rotation shifted
     # dev-mini's engagement dates, and its 2019-2023 window with 3
     # engagements can no longer place the multi-affiliation person on both

@@ -472,6 +472,15 @@ class EngagementPlan(StrictModel):
     # lookup changes, no value is drawn, and every committed ledger
     # re-derives byte-identical.
     scope_by_service: dict[str, ScopeProfile | None] = {}
+    # M17d: titles that oversee engagements. M17c's board found no partner in
+    # any quillon-harbor engagement document after 2015, and none able to
+    # READ a later mandate, while one wrote "I will run the engagement myself
+    # and will be at every session": staffing drew teams uniformly from the
+    # delivery department with no notion of seniority. When set, every
+    # engagement whose span a holder of one of these titles covers carries
+    # one as an internal participant, which reaches its mentions and its ACL
+    # grants. Default empty: no team changes and nothing is drawn.
+    oversight_titles: list[str] = []
 
     @model_validator(mode="after")
     def _check_scope_services(self) -> "EngagementPlan":

@@ -237,6 +237,14 @@ engagements:
   #   the engagement title, so SCOPE-01 recomputes the per-service planting
   #   from the charter alone; a key that is not a declared service fails at
   #   parse.
+  # oversight_titles: [Partner, Managing Partner]  # M17d, default empty (off).
+  #   Every engagement whose whole span a holder of one of these titles covers
+  #   carries one as an internal participant, so the senior reaches that
+  #   engagement's mentions and its ACL grants. A post-pass: the drawn team and
+  #   its lead do not move, the least-loaded senior is appended (ties drawn
+  #   from the new fabric.engagements.oversight stream), and a team that
+  #   already has one keeps it. M17c's board found no partner in any
+  #   engagement document after 2015. OVR-01 recomputes eligibility.
 
 graph_targets:
   external_orgs: 3

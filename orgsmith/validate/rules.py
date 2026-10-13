@@ -1092,6 +1092,33 @@ def out_01(ctx: Context):
         last[entry.genre] = got
 
 
+def _needs_oversight(ctx: Context) -> str | None:
+    if not ctx.charter.engagements.oversight_titles:
+        return "recipe names no engagements.oversight_titles"
+    return None
+
+
+def ovr_01(ctx: Context):
+    """M17d: every engagement a senior can cover carries one.
+
+    Recomputes eligibility from the charter and foundation through
+    `oversight_candidates`, the function the fabric used, and requires the
+    ledger's team to include at least one of them. Grandfathers by charter:
+    skips visibly when the recipe names no oversight titles.
+    """
+    from ..fabric.engagements import oversight_candidates
+
+    for eng in ctx.engagements.engagements:
+        eligible = {p.id for p in oversight_candidates(ctx.charter, ctx.foundation, eng)}
+        if eligible and not eligible & set(eng.internal_participants):
+            yield (
+                f"no oversight-title holder on the team although "
+                f"{len(eligible)} cover the engagement's span "
+                f"({', '.join(sorted(eligible))})",
+                eng.id,
+            )
+
+
 def _needs_scope(ctx: Context) -> str | None:
     from ..fabric.engagements import has_scope
 
@@ -1735,6 +1762,8 @@ RULES = [
          available=_needs_acl),
     Rule("ACL-03", "ERROR", "grants and PERMISSIONS.md match the posture",
          acl_03, available=_needs_acl),
+    Rule("OVR-01", "ERROR", "every engagement a senior can cover carries one",
+         ovr_01, available=_needs_oversight),
     Rule("SCOPE-01", "ERROR", "engagement scope quantities recompute from "
          "the charter; funnels are monotone", scope_01,
          available=_needs_scope),

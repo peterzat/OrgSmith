@@ -128,7 +128,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| verdant-health | 105 | `44992ed93df69c129dfd726574981a769ec9ef729fcb776db13b55dbd2f3892a` |
+| verdant-health | 105 | `5a71b75c4f7c706fa3601d7f09aece56f1bb32ea68597c287a28b4a0e7fe8bc6` |
 
 Verify with `python tools/checksums.py --check`.
 
