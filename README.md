@@ -990,8 +990,8 @@ the rest of the system is structurally blind to: the validator checks that
 documents agree with their ledgers, and a thin, lifeless, perfectly accurate
 corpus agrees with its ledgers completely.
 
-So we measured it twice, at the same seed, against byte-identical ledgers
-and briefs, changing only the model. Full write-up and limits in
+So we measured it three times, at the same seed, against byte-identical
+ledgers and briefs, changing only the model. Full write-up and limits in
 [docs/MODEL-AB.md](docs/MODEL-AB.md).
 
 **Round 1, Opus 4.8 against Haiku 4.5.** One corpus a blind reviewer said
@@ -1026,6 +1026,19 @@ At standard rates **the cheaper-per-token model is the more expensive choice
 for this workload**, and the only window where it saves anything is
 promotional and expiring. For a fleet that gets byte-pinned and lives for
 years, that is not a trade worth 12% thinner prose.
+
+**Round 3, Opus 5 against Opus 5.5.** Run to decide whether a new model
+generation is a reason to regenerate the frozen fleet, and pre-registered
+before any prose existed ([docs/M17D-OPUS55-PROBE.md](docs/M17D-OPUS55-PROBE.md)).
+The control is the tightest yet: M17c had already authored one recipe twice
+on Opus 5, so the run-to-run noise was measured, and the Opus 5.5 arm
+answered thirteen work orders byte-identical to theirs from code pinned in
+a separate worktree. **No structural axis moved, and word-level overlap went
+up**, 6.75 times the noise floor, almost all of it in engagement letters.
+A blind reviewer said the Opus 5.5 corpus does *not* read as one writer,
+the first time either controlled voice probe (M17c, M17d) has drawn that answer, but that is one reader
+on the same model as the author. By the rule written in advance, a newer
+Opus is not a reason to regenerate.
 
 The transferable lesson is not about Sonnet, which is a capable model that
 will write you a decent corpus. It is that **a per-token price is not a
