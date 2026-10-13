@@ -317,6 +317,16 @@ class DocCulture(StrictModel):
     # `render_params`, as M12 did for `noise_of`: a new ManifestEntry field
     # would write a key into every committed manifest line.
     outline_variety: bool = False
+    # M17e (overview-names-live-mandates): a firm overview names only clients
+    # whose engagements ENDED before its date. Overviews cited every
+    # engagement begun by their date, so a marketing document named a live,
+    # confidential mandate a month in, beside text saying targets are named
+    # only in privileged documents (found by four reviewers on two M17d
+    # boards). When true, the plan's required client facts and the brief's
+    # digest both take finished engagements only, and an overview dated
+    # before any engagement ends claims no client work. Default off keeps
+    # every committed manifest and brief byte-identical.
+    overview_cites_finished_work: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "DocCulture":

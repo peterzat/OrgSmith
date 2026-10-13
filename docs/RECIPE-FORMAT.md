@@ -172,6 +172,15 @@ doc_culture:
   #                         # Recomputed by STY-01. A proxy, never a gate: the
   #                         # report ranges per-author similarity and nothing
   #                         # in any test tier reads a threshold.
+  # overview_cites_finished_work: true
+  #                         # M17e, default false. A firm overview names only
+  #                         # clients whose engagements ENDED before its date,
+  #                         # and the brief calls work in progress
+  #                         # confidential. The plan's required client facts
+  #                         # and the brief's digest share one function, so
+  #                         # they cannot disagree. Without it an overview cites
+  #                         # every engagement begun by its date, which named a
+  #                         # live mandate a month in on the M17d tenth org.
   # client_facing_reports: true
   #                         # M17b, default false. A status report names the
   #                         # engagement's client contact as a participant, so

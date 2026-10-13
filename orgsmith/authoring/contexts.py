@@ -13,7 +13,12 @@ from datetime import date
 from ..airlock import emit_author_batch
 from ..artifacts import load_charter, load_engagements, load_foundation, load_manifest
 from ..docplan.registry import REGISTRY
-from ..fabric.engagements import employer_at, scope_noun, scope_profile_for
+from ..fabric.engagements import (
+    employer_at,
+    overview_engagements,
+    scope_noun,
+    scope_profile_for,
+)
 from ..paths import OrgPaths
 from ..seeds import rng
 from ..schemas import (
@@ -308,7 +313,10 @@ def _engagement_position(eng, when: date) -> str:
     )
 
 
-def _firm_digest(all_engagements, when: date, book_is_sample: bool = False) -> str:
+def _firm_digest(
+    all_engagements, when: date, book_is_sample: bool = False,
+    finished_only: bool = False,
+) -> str:
     """What the firm can truthfully say about itself AS OF `when`: how many
     engagements have begun, over how many years, and their clients BY FACT ID
     (never by value -- a client name is `f:E-....client` and would leak). This
@@ -325,7 +333,8 @@ def _firm_digest(all_engagements, when: date, book_is_sample: bool = False) -> s
     "the whole business" while the financial summary posts 20-60x the fee
     total. Default off keeps every existing brief byte-identical."""
     started = sorted(
-        (e for e in all_engagements if e.start <= when), key=lambda e: e.start
+        overview_engagements(all_engagements, when, finished_only),
+        key=lambda e: e.start,
     )
     if not started:
         return (
@@ -347,6 +356,22 @@ def _firm_digest(all_engagements, when: date, book_is_sample: bool = False) -> s
             f"do not call this the whole business or a complete list, and do "
             f"not imply the firm's revenue is limited to these engagements. "
             f"Present nothing that post-dates this document as established."
+            + (
+                " Every engagement listed has finished; work still in progress "
+                "is confidential, so do not mention, describe, or allude to any "
+                "current mandate."
+                if finished_only
+                else ""
+            )
+        )
+    if finished_only:
+        return (
+            f"As of this document's date the firm has completed "
+            f"{len(started)} client engagement(s) across {span} that it may "
+            f"name. Reference clients ONLY through these placeholders, never "
+            f"by inventing a name: {client_refs}. Work still in progress is "
+            f"confidential: do not mention, describe, or allude to any current "
+            f"mandate, and claim no engagement not listed here."
         )
     return (
         f"As of this document's date the firm has begun {len(started)} "
@@ -702,6 +727,7 @@ def run_next_batch(paths: OrgPaths) -> int:
                             engagements.values(),
                             entry.date,
                             charter.engagements.book_is_sample,
+                            charter.doc_culture.overview_cites_finished_work,
                         )
                         if entry.genre == "company_overview"
                         else ""

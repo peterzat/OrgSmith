@@ -27,6 +27,7 @@ from ..fabric.engagements import (
     LETTER_LEAD_DAYS,
     calendar_holidays,
     minutes_date,
+    overview_engagements,
     pipeline_stage_dates,
     scope_profile_for,
     stage_slug,
@@ -822,8 +823,13 @@ class _Planner:
         while anchor + timedelta(days=step_days * offset) <= self.range_end:
             dates.append(self._clamp_range(anchor + timedelta(days=step_days * offset)))
             offset += 1
+        finished_only = self.charter.doc_culture.overview_cites_finished_work
         for when in self._dedupe(dates):
-            as_of = [e for e in engs if e.start <= when]
+            # The same function the brief's digest uses, so the plan's
+            # required client facts and the brief cannot disagree. Knob off it
+            # returns every engagement begun by `when`, in the order the plan
+            # always listed them.
+            as_of = overview_engagements(engs, when, finished_only)
             self._add(
                 path=f"{rule.folder}/{rule.filename.format(date=when)}",
                 title="Firm Overview",

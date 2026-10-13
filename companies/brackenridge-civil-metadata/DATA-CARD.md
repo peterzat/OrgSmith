@@ -29,6 +29,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.style_specs` | `True` |
 | `doc_culture.client_facing_reports` | `False` |
 | `doc_culture.outline_variety` | `False` |
+| `doc_culture.overview_cites_finished_work` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `740000` |
 | `finance.growth_rate` | `0.06` |
@@ -123,7 +124,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| brackenridge-civil | 127 | `3d5fd7962d1df70ed2eec186c51fa7cd173c0292f457a7b41b8fb1af18d79eab` |
+| brackenridge-civil | 127 | `40b0a3d9b79aa56494bfa8cb12ea1904f819731dd9dbcccc1411f94a728a0114` |
 
 Verify with `python tools/checksums.py --check`.
 

@@ -37,6 +37,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.style_specs` | `True` |
 | `doc_culture.client_facing_reports` | `True` |
 | `doc_culture.outline_variety` | `True` |
+| `doc_culture.overview_cites_finished_work` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `3200000` |
 | `finance.growth_rate` | `0.08` |
@@ -177,7 +178,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| quillon-harbor | 214 | `1ac0d7a51a91bfb272505d3063269b52a49af12dcca82fbd7a62ba67c54b855f` |
+| quillon-harbor | 214 | `3ea746422e567dc736511bd650a1fa20876a7e0fd4f55b8040de317817d0b448` |
 
 Verify with `python tools/checksums.py --check`.
 

@@ -36,6 +36,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.style_specs` | `True` |
 | `doc_culture.client_facing_reports` | `False` |
 | `doc_culture.outline_variety` | `False` |
+| `doc_culture.overview_cites_finished_work` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1320000` |
 | `finance.growth_rate` | `0.08` |
@@ -129,7 +130,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| hollowell-ip | 181 | `22d71fe80a93560f8d21cf16359234d83a189c03efbccc6845775d296ea4a1dc` |
+| hollowell-ip | 181 | `41a9958a64d8c1fcbd821480e61a20ac7b5e2569f6a807eb66ccf58f6fbfec6f` |
 
 Verify with `python tools/checksums.py --check`.
 

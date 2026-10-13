@@ -44,6 +44,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.style_specs` | `True` |
 | `doc_culture.client_facing_reports` | `False` |
 | `doc_culture.outline_variety` | `False` |
+| `doc_culture.overview_cites_finished_work` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1250000` |
 | `finance.growth_rate` | `0.1` |
@@ -167,7 +168,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 200 | `3a04723c4c148338e43efca41f179609ebbae56775bc83b64d4df2bf55a5eb5b` |
+| northgate-staffing | 200 | `bb71abba6f3abaef787298f5e5af4b323c7ed0c211233eb3e465879dcbb99088` |
 
 Verify with `python tools/checksums.py --check`.
 

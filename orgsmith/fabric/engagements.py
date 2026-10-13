@@ -306,6 +306,26 @@ def plant_scope_facts(
     return planted
 
 
+# --- what a firm overview may name (M17e) ----------------------------------
+
+
+def overview_engagements(all_engagements, when: date, finished_only: bool = False):
+    """The engagements a firm overview dated `when` may name, in INPUT order.
+
+    Shared by the docplan (the overview's required client facts) and the
+    brief's digest, so the two cannot disagree about which clients an
+    overview may name. Input order is preserved because the plan has always
+    listed them in ledger order and the digest sorts its own copy by start;
+    changing either order would move committed bytes. M17e: with
+    `finished_only`, only engagements that ended before `when`, because a live
+    mandate is confidential and a marketing document must not name it."""
+    return [
+        e
+        for e in all_engagements
+        if (e.end < when if finished_only else e.start <= when)
+    ]
+
+
 # --- engagement oversight (M17d) -------------------------------------------
 
 

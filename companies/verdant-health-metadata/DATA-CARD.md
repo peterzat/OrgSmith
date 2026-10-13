@@ -29,6 +29,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.style_specs` | `True` |
 | `doc_culture.client_facing_reports` | `False` |
 | `doc_culture.outline_variety` | `False` |
+| `doc_culture.overview_cites_finished_work` | `False` |
 | `finance` | `on` |
 | `finance.base_revenue` | `1080000` |
 | `finance.growth_rate` | `0.06` |
@@ -128,7 +129,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| verdant-health | 105 | `94e71807b97df87fc7cca578e820c1a2dbf3e91aee74cce02e74f3c15d478058` |
+| verdant-health | 105 | `68a99e2e3a86dc3e764d25e2729686ca5b01c9fcddeec44e646cc96aaab1740f` |
 
 Verify with `python tools/checksums.py --check`.
 
