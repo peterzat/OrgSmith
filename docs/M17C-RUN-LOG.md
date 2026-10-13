@@ -1083,3 +1083,24 @@ recorded mail residual in CLAUDE.md, where a required body mention produces a
 surface a real author would not have chosen, and it is recorded here for the
 same reason: the mention model requires a surface without knowing what device
 the genre leaves available to carry it.
+
+## Disposition, 2026-10-13 (M17d)
+
+Added after the fact, and changes nothing above: every finding in this log
+stands as recorded. This is where each one went, so none is lost in a log
+nobody re-reads.
+
+| finding | disposition |
+| --- | --- |
+| REND-01, a count placeholder followed by its own noun | **closed** for the repeated-noun case: ingest rejects it and the brief says the placeholder renders its noun (`8c69f89`); replayed over `beta`, the check flags exactly the eleven listed above. A different noun after a count stays open as BACKLOG `count-placeholder-followed-by-another-noun` |
+| SCOPE-A and SCOPE-C, one vocabulary for every engagement | **closed** by `engagements.scope_by_service` (`3f7edbb`), adopted by the tenth org |
+| SCOPE-D, scope and funnel counts that do not nest | **closed** two ways: the brief forbids relating them (`8c69f89`), and the tenth org's recipe ranges every unit above its funnel's top |
+| SCOPE-B, the outline pool cycles | open, inside BACKLOG `cross-document-voice` |
+| OUT-A to OUT-E, skeletons against their genre | open, BACKLOG `outline-skeletons-against-their-genre` |
+| MENT-A, the self-naming byline | open, BACKLOG `mention-without-a-device` |
+| AIRLOCK-01, invented quantities | **measured** in `report` (`ab207cd`); prevention open, BACKLOG `airlock-permits-invented-quantities` |
+| engagements starting on weekends and a declared holiday | **closed** by `business_calendar.engagement_starts` (`882062f`) |
+| no partner on any engagement after 2015 | **closed** by `engagements.oversight_titles` (`cb65b2f`) |
+| the firm has no 2020 | **closed** as a capability by `finance.era_shocks` (`29fd739`); BACKLOG `exemplar-has-no-2020` records that its second-org criterion fired |
+| the people-graph seam | open, BACKLOG `mention-filler-acl-seam` |
+| CONF-01 and CONF-02, sibling reading | recorded in BACKLOG `cross-document-voice` at M17c |
