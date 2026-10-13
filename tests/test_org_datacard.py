@@ -100,3 +100,19 @@ def test_the_checksum_manifest_excludes_the_self_referential_card():
     assert not any(
         f.endswith("DATA-CARD.md") for f in _org_files("northgate-staffing")
     )
+
+
+def test_the_checksum_manifest_is_current_for_the_committed_tree():
+    """M17d: CHECKSUMS.md must match the committed files. `tools/checksums.py
+    --check` existed, but nothing ran it, so the tenth org's first commit
+    shipped a row computed while its files were still untracked ("0 files",
+    the empty-input digest) and every test stayed green."""
+    import subprocess
+    import sys
+
+    result = subprocess.run(
+        [sys.executable, "tools/checksums.py", "--check"],
+        capture_output=True, text=True, cwd=REPO,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "| 0 |" not in (REPO / "CHECKSUMS.md").read_text()

@@ -1,4 +1,4 @@
-# Checksum manifest — OrgSmith v2.3.0
+# Checksum manifest — OrgSmith v2.4.0
 
 SHA-256 rollup per committed org, over every committed file under
 `companies/<slug>/` and `companies/<slug>-metadata/` in sorted path order
@@ -15,7 +15,7 @@ fixture and is excluded.
 | hollowell-ip | 181 | `b8292c3e357494a9f75fb5f8378c468ff7e614504faea709d2455d5fe44c0d38` |
 | meridian-actuarial | 198 | `1aa4b0c082e1cd770d3d5804fb87e27775a5e13876436573c99447335ddf8da1` |
 | northgate-staffing | 200 | `8fda280a0c1763dfa2f5a7d64a6d5d7b829fce731fdaf20077ef7e4347f5374d` |
-| quillon-harbor | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| quillon-harbor | 214 | `1ac0d7a51a91bfb272505d3063269b52a49af12dcca82fbd7a62ba67c54b855f` |
 | saltmarsh-environmental | 126 | `80ffe02d6c25fa43d3e91384d9732311825343842b31b26f1597f317d7834145` |
 | verdant-health | 105 | `94e71807b97df87fc7cca578e820c1a2dbf3e91aee74cce02e74f3c15d478058` |
-| **fleet** | 1697 | `402b4564850593f1554ac8e24e0b77ffda5a9b0fa73d2b4ae0dfe2fd67efd506` |
+| **fleet** | 1911 | `446d0dfca320984576e1d40ff52e8fdba45f56f4a2ccb492205d74e4ed258eb6` |

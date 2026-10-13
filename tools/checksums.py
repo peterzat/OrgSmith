@@ -59,6 +59,16 @@ def render() -> str:
     fleet = hashlib.sha256()
     for slug in ORGS:
         digest, n = _rollup(slug)
+        if n == 0:
+            # M17d: the manifest covers COMMITTED files (git ls-files), so an
+            # org generated but not yet committed rolls up to the digest of
+            # nothing, and `--check` agrees with itself. That shipped once: the
+            # tenth org's first commit recorded "0 files" and the empty-input
+            # hash. Refuse rather than emit a row that cannot be right.
+            raise SystemExit(
+                f"checksums: {slug} has no tracked files under companies/; "
+                f"commit the org before emitting its checksum row"
+            )
         rows.append((slug, digest, n))
         fleet.update(f"{slug}:{digest}\n".encode())
     lines = [
