@@ -26,8 +26,9 @@ it, and report one line back.
    ```
 
    The model id is the one you are running as, from your own context. The
-   effort is `$CLAUDE_EFFORT` (`echo $CLAUDE_EFFORT`); omit the whole
-   `generator` object if it is unset rather than guessing. Report yourself,
+   effort is the one your dispatch prompt names; if it names none, use
+   `$CLAUDE_EFFORT` (`echo $CLAUDE_EFFORT`), and omit the whole `generator`
+   object if that is unset too rather than guessing. Report yourself,
    not the orchestrator: you are what authored these words, and a forked
    worker does not always inherit the session's model. This is a record for
    a human to read, never a check — nothing validates it and nothing fails

@@ -58,7 +58,7 @@ purpose: nobody has told you what to think about this org.
   "schema_id": "orgsmith/review-findings@1",
   "slug": "<slug>",
   "dimension": "<your dimension>",
-  "generator": {"model": "<your exact model id>", "effort": "<$CLAUDE_EFFORT>"},
+  "generator": {"model": "<your exact model id>", "effort": "<the effort your dispatch names, else $CLAUDE_EFFORT>"},
   "findings": [
     {
       "schema_id": "orgsmith/review-finding@1",

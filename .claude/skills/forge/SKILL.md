@@ -77,7 +77,8 @@ Skip if status shows `foundation_enrich: done`.
 
 1. `PY -m orgsmith foundation <slug> --emit-context` — prints the work
    order path.
-2. Spawn a forked worker (Agent tool, fresh context) with this prompt:
+2. Spawn a worker (Agent tool, fresh context, with the `model` and
+   `effort` parameters set as described in Step 3b) with this prompt:
    "Read <work-order-path> and follow the instructions in
    .claude/skills/forge-author/SKILL.md for an enrichment work order in
    the repo at <repo-root>. Org slug: <slug>."
@@ -116,6 +117,15 @@ Repeat until `author: done`:
    each worker to AUTHOR ONLY: write its reply file, stamp the generator,
    and report the reply path; it must NOT ingest.
 
+   **Set the worker's model and effort at dispatch; do not rely on
+   inheritance.** Pass the Agent tool's `model` (the family you reported in
+   Step 0, e.g. `opus`) and `effort` (at least the authoring floor doctor
+   printed; `xhigh` is what the committed fleet ran at). A worker does not
+   always inherit the session's model, and an effort the harness was told
+   is better provenance than one a worker guesses. Name the effort in the
+   prompt too ("you were dispatched at effort `xhigh`"), so the worker
+   stamps the value you set rather than reading it from its environment.
+
    **Tell every worker to namespace its scratch files.** Concurrent workers
    share one session scratchpad, so a fixed-name scratch file (`check.py`,
    `corpus.txt`) gets clobbered by a sibling mid-run. Observed live in the
@@ -141,10 +151,11 @@ Repeat until `author: done`:
 5. Refill the window and continue until `--next-batch` reports done.
 
 Why you ingest and the workers do not: `--ingest` is a read-modify-write of
-`state.json`. Run serially by one process (you) it is deterministic and
-race-free; run by concurrent workers it would clobber sibling updates. This
-is the airlock holding under parallelism — the CLI stays a lock-free
-single-writer state machine and all the concurrency lives here in the skill.
+`state.json`, and you are the one place a rejection is handled. Every
+state-writing verb takes an exclusive lock on the org (M17d), so two
+overlapping ingests can no longer clobber each other; that is the backstop.
+Serial ingest by you is still the procedure, because it keeps rejections,
+retries and render in one ordered place and makes a run easy to read.
 
 ## Step 4 — finish
 

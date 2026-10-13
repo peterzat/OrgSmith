@@ -46,6 +46,7 @@ Run these and read the output BEFORE dispatching anyone:
 PY -m orgsmith validate <slug>
 PY -m orgsmith report <slug>
 PY -m orgsmith review <slug> --sample
+PY -m orgsmith review <slug> --digest
 ```
 
 - `validate` output is what reviewers must NOT re-litigate. If it is
@@ -56,15 +57,21 @@ PY -m orgsmith review <slug> --sample
   similarity, and the per-batch generator record.
 - `review --sample` writes the reading list to
   `companies/<slug>-metadata/review/sample.json`.
+- `review --digest` prints one hex digest of everything the board may read
+  (recipe, rendered share, ledgers, manifest, DocIR, state). Keep it: Step 2
+  proves the board left the org exactly as it found it.
 
 If validate FAILS, stop. Fix the org first; a board reading a broken org
 wastes its findings on symptoms of the break.
 
 ## Step 1 — dispatch the six dimensions
 
-Spawn one fresh-context worker per dimension (Agent tool, in parallel).
-Fresh context per reviewer is the point: a reviewer that has watched you
-reason about the org inherits your blind spots.
+Spawn one fresh-context worker per dimension (Agent tool, in parallel),
+with the Agent tool's `model` and `effort` set explicitly (`xhigh` unless the
+user asked otherwise) and the effort named in the prompt so the reviewer's
+generator stamp records it. Fresh context per reviewer is the point: a
+reviewer that has watched you reason about the org inherits your blind
+spots.
 
 | dimension | the question |
 | --- | --- |
@@ -101,10 +108,17 @@ Worker prompt, per dimension:
 Each worker ingests its own findings. When all six are done:
 
 ```
+PY -m orgsmith review <slug> --verify-digest <digest>
 PY -m orgsmith report <slug>
 ```
 
-This rewrites GENERATION-REPORT.md with the findings table under
+`<digest>` is the value Step 0 printed. `--verify-digest` exits 1 if
+anything the board may read changed. If it fails, stop: a reviewer edited
+the org it was reviewing. Restore the change (`git status` shows it for a
+committed org), report it to the user, and do not run `report` over
+findings from a board that broke its own rule.
+
+`report` rewrites GENERATION-REPORT.md with the findings table under
 **Review board**.
 
 ## Step 3 — report to the user
