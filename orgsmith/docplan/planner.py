@@ -28,6 +28,7 @@ from ..fabric.engagements import (
     calendar_holidays,
     minutes_date,
     pipeline_stage_dates,
+    scope_profile_for,
     stage_slug,
     to_business_day,
 )
@@ -346,7 +347,7 @@ class _Planner:
         finished in between -- it cannot state a different engagement,
         because it is not writing the numbers.
         """
-        profile = self.charter.engagements.scope
+        profile = scope_profile_for(self.charter, eng)
         if profile is None or not rule.scope_refs:
             return []
         refs: list[str] = []

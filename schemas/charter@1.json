@@ -151,6 +151,21 @@
           ],
           "default": null
         },
+        "scope_by_service": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ScopeProfile"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "default": {},
+          "title": "Scope By Service",
+          "type": "object"
+        },
         "services": {
           "default": [],
           "items": {

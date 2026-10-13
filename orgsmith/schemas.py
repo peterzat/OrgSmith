@@ -455,6 +455,25 @@ class EngagementPlan(StrictModel):
     # is planted, no value is drawn from the new seed stream, and every
     # committed ledger re-derives byte-identical.
     scope: ScopeProfile | None = None
+    # M17d (SCOPE-A): a scope profile per service line. M17c planted one
+    # buy-side M&A vocabulary on all eight of quillon-harbor's engagements, so
+    # a Fairness Opinion carried a four-stage acquisition funnel and a
+    # sell-side mandate counted "acquisition targets". A service named here
+    # takes its own profile, and `null` means that service has no scope facts
+    # at all; a service not named falls back to `scope`. Default empty: no
+    # lookup changes, no value is drawn, and every committed ledger
+    # re-derives byte-identical.
+    scope_by_service: dict[str, ScopeProfile | None] = {}
+
+    @model_validator(mode="after")
+    def _check_scope_services(self) -> "EngagementPlan":
+        unknown = sorted(set(self.scope_by_service) - set(self.services))
+        if unknown:
+            raise ValueError(
+                "scope_by_service names service(s) not in engagements.services: "
+                + ", ".join(unknown)
+            )
+        return self
 
 
 class GraphTargets(StrictModel):

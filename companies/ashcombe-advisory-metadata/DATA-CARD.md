@@ -170,7 +170,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| ashcombe-advisory | 255 | `28bfb6dacf9ef06984ddcd31b3649ed851f18cc73b235bc2a99d715d041e5a3e` |
+| ashcombe-advisory | 255 | `043a5d373c02036afe307f4b56f4b50f1ac74868619b8c723ee07fda0a098d51` |
 
 Verify with `python tools/checksums.py --check`.
 

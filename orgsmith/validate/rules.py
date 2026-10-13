@@ -1080,7 +1080,9 @@ def out_01(ctx: Context):
 
 
 def _needs_scope(ctx: Context) -> str | None:
-    if ctx.charter.engagements.scope is None:
+    from ..fabric.engagements import has_scope
+
+    if not has_scope(ctx.charter):
         return "recipe declares no engagements.scope profile"
     return None
 
@@ -1098,13 +1100,23 @@ def scope_01(ctx: Context):
     recipe declares no scope profile, and a profile declared with the facts
     missing from the ledger is a finding, never a skip.
     """
-    from ..fabric.engagements import plant_scope_facts, stage_slug
-
-    planted = plant_scope_facts(
-        ctx.charter, [e.id for e in ctx.engagements.engagements]
+    from ..fabric.engagements import (
+        plant_scope_facts,
+        profile_for_service,
+        scope_services,
+        stage_slug,
     )
-    stages = ctx.charter.engagements.scope.pipeline
-    for eng in ctx.engagements.engagements:
+
+    engagements = ctx.engagements.engagements
+    services = scope_services(ctx.charter, engagements)
+    planted = plant_scope_facts(
+        ctx.charter, [e.id for e in engagements], services
+    )
+    for eng in engagements:
+        # M17d: the profile is per engagement once `scope_by_service` is set,
+        # and the funnel checked is that engagement's own.
+        profile = profile_for_service(ctx.charter, services[eng.id])
+        stages = profile.pipeline if profile is not None else []
         want = {f.id: f for f in planted[eng.id]}
         got = {f.id: f for f in eng.facts if f.id in want}
         # Both directions: an INJECTED count fact has no manifest host and so

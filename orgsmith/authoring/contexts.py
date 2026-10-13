@@ -13,7 +13,7 @@ from datetime import date
 from ..airlock import emit_author_batch
 from ..artifacts import load_charter, load_engagements, load_foundation, load_manifest
 from ..docplan.registry import REGISTRY
-from ..fabric.engagements import employer_at, scope_noun
+from ..fabric.engagements import employer_at, scope_noun, scope_profile_for
 from ..paths import OrgPaths
 from ..seeds import rng
 from ..schemas import (
@@ -153,7 +153,7 @@ _KIND_HINTS = {
 }
 
 
-def _fact_hint(fact, charter: Charter) -> str:
+def _fact_hint(fact, charter: Charter, eng=None) -> str:
     """A human description of what a placeholder stands for, carrying NO
     ledger value.
 
@@ -163,8 +163,11 @@ def _fact_hint(fact, charter: Charter) -> str:
     is not a value. Without this an author is told only "a quantity", which
     is exactly the ambiguity that had documents inventing their own.
     """
-    if fact.kind == "count" and charter.engagements.scope is not None:
-        noun = scope_noun(fact.id, charter.engagements.scope)
+    profile = (
+        scope_profile_for(charter, eng) if eng is not None else charter.engagements.scope
+    )
+    if fact.kind == "count" and profile is not None:
+        noun = scope_noun(fact.id, profile)
         if noun:
             # M17d (REND-01): this used to end "place where the number
             # belongs", but the placeholder renders the number WITH its noun,
@@ -660,7 +663,16 @@ def run_next_batch(paths: OrgPaths) -> int:
                     ],
                     engagement_summary=_brief_summary(eng) if eng else "",
                     facts=[
-                        FactBrief(id=ref, hint=_fact_hint(facts[ref], charter))
+                        FactBrief(
+                            id=ref,
+                            hint=_fact_hint(
+                                facts[ref],
+                                charter,
+                                # The fact's OWN engagement, read off its id,
+                                # which is the one whose profile planted it.
+                                engagements.get(ref[2:].split(".", 1)[0]),
+                            ),
+                        )
                         for ref in body_refs
                     ],
                     mentions=list(entry.mentions),

@@ -212,6 +212,25 @@ engagements:
   #   Plurality is the recipe author's job: a unit_range reaching 1 renders
   #   "1 positions". Nothing downstream can fix that, because the surface has
   #   to match the document verbatim.
+  #
+  #   A count placeholder renders the number WITH its noun, and the brief now
+  #   says so; author --ingest rejects a placeholder followed by its own noun
+  #   ("15 acquisition targets targets", REND-01). A brief carrying both a
+  #   scope or comparator count and a pipeline count is told they are separate
+  #   measures and must not be written as shares or subsets of each other
+  #   (SCOPE-D): nothing makes unit_range and pipeline_top_range nest.
+  # scope_by_service:         # M17d, default empty (off). A scope profile per
+  #   Fairness Opinion: null  #   service line, keyed by names in `services`.
+  #   Growth Capital Raise:   #   A service named here takes its own profile;
+  #     unit: investors       #   `null` gives it no scope facts at all (a
+  #     unit_range: [6, 12]   #   fairness opinion has no deal funnel); a
+  #     ...                   #   service not named falls back to `scope`.
+  #   M17c planted one buy-side vocabulary on every engagement, so a sell-side
+  #   mandate counted "acquisition targets" and a fairness opinion carried a
+  #   four-stage acquisition funnel (SCOPE-A). The service is read back off
+  #   the engagement title, so SCOPE-01 recomputes the per-service planting
+  #   from the charter alone; a key that is not a declared service fails at
+  #   parse.
 
 graph_targets:
   external_orgs: 3

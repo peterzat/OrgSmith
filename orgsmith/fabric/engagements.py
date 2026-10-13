@@ -217,18 +217,81 @@ def scope_noun(fact_id: str, profile) -> str | None:
     return None
 
 
-def plant_scope_facts(charter: Charter, eids: list[str]) -> dict[str, list[Fact]]:
+def has_scope(charter: Charter) -> bool:
+    """Whether the recipe declares any scope profile at all."""
+    plan = charter.engagements
+    return plan.scope is not None or any(
+        p is not None for p in plan.scope_by_service.values()
+    )
+
+
+def engagement_service(charter: Charter, eng) -> str | None:
+    """The service line an engagement was built as, read back off its title.
+
+    The fabric titles every engagement `"<service> for <client>"` and the
+    affiliation post-pass keeps the prefix, so the title is the record. The
+    longest matching service wins, so "Sell-Side Advisory" is not mistaken
+    for a service named "Sell-Side". None when no declared service matches,
+    which includes every org built on fabric's generic defaults.
+    """
+    for service in sorted(charter.engagements.services, key=len, reverse=True):
+        if eng.title.startswith(f"{service} for "):
+            return service
+    return None
+
+
+def scope_profile_for(charter: Charter, eng):
+    """The scope profile that applies to one engagement (M17d, SCOPE-A)."""
+    return profile_for_service(charter, engagement_service(charter, eng))
+
+
+def profile_for_service(charter: Charter, service: str | None):
+    """A service named in `scope_by_service` takes its own entry, where `None`
+    means no scope facts; anything else falls back to the recipe-wide
+    `scope`. With `scope_by_service` empty this IS `charter.engagements.scope`,
+    so every org that predates the field resolves exactly as before."""
+    plan = charter.engagements
+    if service is not None and service in plan.scope_by_service:
+        return plan.scope_by_service[service]
+    return plan.scope
+
+
+def scope_services(charter: Charter, engagements) -> dict[str, str | None]:
+    """{engagement id: service line}, the input `plant_scope_facts` needs to
+    resolve per-service profiles. Shared by the fabric and SCOPE-01 so the two
+    cannot disagree about which profile an engagement got."""
+    return {e.id: engagement_service(charter, e) for e in engagements}
+
+
+def plant_scope_facts(
+    charter: Charter, eids: list[str], services: dict[str, str | None] | None = None
+) -> dict[str, list[Fact]]:
     """{engagement_id: [scope facts]}, or {} when the recipe declares no
     scope profile.
 
     The knob-off path constructs no RNG and draws nothing, which is what
     keeps the frozen fleet byte-identical. SCOPE-01 calls this same function
     to recompute a committed ledger's scope facts from the charter alone.
+
+    `services` maps each engagement to its service line (`scope_services`),
+    which is what lets `scope_by_service` apply; without it every engagement
+    takes the recipe-wide profile, exactly as before M17d. An engagement whose
+    service maps to no profile gets an empty list.
     """
-    profile = charter.engagements.scope
-    if profile is None:
+    if services is None:
+        profile = charter.engagements.scope
+        if profile is None:
+            return {}
+        return {eid: scope_facts_for(profile, eid, charter.seed) for eid in eids}
+    if not has_scope(charter):
         return {}
-    return {eid: scope_facts_for(profile, eid, charter.seed) for eid in eids}
+    planted: dict[str, list[Fact]] = {}
+    for eid in eids:
+        profile = profile_for_service(charter, services.get(eid))
+        planted[eid] = (
+            [] if profile is None else scope_facts_for(profile, eid, charter.seed)
+        )
+    return planted
 
 
 # --- affiliation-aware participant selection (M6+) -------------------------
@@ -549,7 +612,7 @@ def build_engagements(charter: Charter, foundation: Foundation) -> EngagementsLe
     # client cannot change what was planted: scope is a property of the work,
     # not of who bought it.
     for eng, facts in plant_scope_facts(
-        charter, [e.id for e in engagements]
+        charter, [e.id for e in engagements], scope_services(charter, engagements)
     ).items():
         next(e for e in engagements if e.id == eng).facts.extend(facts)
 
