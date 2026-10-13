@@ -1458,6 +1458,20 @@ def dl_01(ctx: Context):
     evidence, not a skip."""
     from ..acl import derive_distribution_lists
 
+    # M17e: with `broadcasts_address_the_list` on, a list-addressed note has
+    # no individual recipients. Charter-gated inside the rule: the ledger and
+    # visibility checks below have run since M14 on every DL org, and this one
+    # needs neither.
+    mail = ctx.charter.doc_culture.mail
+    if mail is not None and mail.broadcasts_address_the_list:
+        for e in ctx.manifest:
+            if e.render_params.get("dl") and e.participants:
+                yield (
+                    f"a list-addressed note plans individual recipients "
+                    f"({', '.join(e.participants)}); "
+                    f"mail.broadcasts_address_the_list requires none",
+                    e.path,
+                )
     expected = derive_distribution_lists(ctx.charter, ctx.foundation)
     if ctx.dls is None:
         yield (

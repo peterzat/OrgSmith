@@ -139,6 +139,22 @@ doc_culture:
   #                             # planned mentions, so committed manifests
   #                             # re-derive byte-identically until a recipe
   #                             # opts in.
+  #   exempt_recipient_mentions: false  # M17: the twin for the other end of a
+  #                             # person-to-person message. A recipient's
+  #                             # name is in the To/Cc header, which MENT-01
+  #                             # reads, so the planner stops forcing their
+  #                             # full legal name into a note addressed to
+  #                             # them. List mail is not exempted by this:
+  #                             # its To header carries the list address.
+  #   broadcasts_address_the_list: false  # M17e: a note addressed to a
+  #                             # distribution list carries no individual
+  #                             # recipients, so no colleague is a required
+  #                             # body mention and the brief tells the author
+  #                             # to address the group. Without it a
+  #                             # broadcast greets one drawn colleague by
+  #                             # first name and names them in full to the
+  #                             # list. The recipient draw still runs, so no
+  #                             # other note moves; DL-01 checks it when on.
   # Voice, two knobs, both optional and default off:
   # voice_diversify: true   # M12, v1: per-author register from a seed stream
   #                         # plus a brief-level ban on the constructions the

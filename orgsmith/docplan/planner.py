@@ -752,11 +752,17 @@ class _Planner:
                 date=when, subject=sanitize_component(subject)
             )
             render_params = {"send_minute": minute}
+            participants = [p.id for p in recips]
             # M14: address every third mundane note to a distribution list; the
             # To header becomes the list, the named colleagues stay as body
             # mentions. Visibility expands the list to its members (DL-01).
             if dls and i % 3 == 0:
                 render_params["dl"] = dls[i % len(dls)].address
+                if mail.broadcasts_address_the_list:
+                    # M17e: a broadcast is to the list, not to one person.
+                    # The recipient draw above still ran, so the stream and
+                    # every later note are unchanged; only this note drops it.
+                    participants = []
             self._add(
                 path=f"{rule.folder}/{name}",
                 title=subject,
@@ -764,7 +770,7 @@ class _Planner:
                 format=rule.format,
                 date=when,
                 authors=[author.id],
-                participants=[p.id for p in recips],
+                participants=participants,
                 engagement=None,
                 facts_refs=[],
                 render_params=render_params,

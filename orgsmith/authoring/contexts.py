@@ -418,13 +418,22 @@ def _style_guidance(spec, genre: str) -> str:
     return text
 
 
-def _mail_audience(foundation: Foundation, entry) -> str:
+def _mail_audience(foundation: Foundation, entry, to_the_list: bool = False) -> str:
     """M15 (mail-audience-internal-vs-external): name who the message is
     delivered To, so a client-delivered reply cannot be authored as an
     internal staff note. Mirrors expected_headers' partition exactly:
     external participants land in To, internal colleagues in Cc; a
     DL-addressed or all-internal message is internal traffic."""
     if entry.render_params.get("dl"):
+        if to_the_list:
+            # M17e (mail.broadcasts_address_the_list): the note has no
+            # individual recipient, so the author must not invent one.
+            return (
+                " Delivery: addressed to an internal distribution list; every "
+                "reader is a colleague, so an internal register is right. It "
+                "goes to the whole list: address the group, not one person, "
+                "and name a colleague only where the note is about them."
+            )
         return (
             " Delivery: addressed to an internal distribution list; every "
             "reader is a colleague, so an internal register is right."
@@ -623,7 +632,14 @@ def run_next_batch(paths: OrgPaths) -> int:
                     )
             if entry.format == "eml" and "send_minute" in entry.render_params:
                 # M15: every mail-block email names its delivery audience.
-                guidance += _mail_audience(foundation, entry)
+                guidance += _mail_audience(
+                    foundation,
+                    entry,
+                    to_the_list=bool(
+                        charter.doc_culture.mail
+                        and charter.doc_culture.mail.broadcasts_address_the_list
+                    ),
+                )
             if any(loc == "signature_page" for loc in locations.values()):
                 guidance += (
                     " Commercial fee terms are executed on the signature "

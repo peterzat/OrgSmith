@@ -228,6 +228,17 @@ class MailCulture(StrictModel):
     # Default off keeps every committed manifest re-deriving
     # byte-identically; a recipe opts in at its regeneration.
     exempt_recipient_mentions: bool = False
+    # M17e (mundane-broadcast-names-a-recipient-in-the-body): a note addressed
+    # to a distribution list carries no individual recipients. Mundane mail
+    # draws one or two colleagues per note, and on a list-addressed note the
+    # To header carries only the list, so their names had to appear in the
+    # body: a broadcast that greeted one person by first name and then named
+    # them in full to the room. When true, a list-addressed note keeps the
+    # draw (the stream does not move) and plans no individual participant, so
+    # no colleague is a required body mention and the brief tells the author
+    # to address the group. Default off keeps every committed manifest
+    # re-deriving byte-identically.
+    broadcasts_address_the_list: bool = False
 
     @model_validator(mode="after")
     def _check(self) -> "MailCulture":

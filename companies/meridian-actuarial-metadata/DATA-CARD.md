@@ -32,6 +32,7 @@ Every capability knob in this org's recipe, with its value. A knob that is off i
 | `doc_culture.mail.distribution_lists` | `1` |
 | `doc_culture.mail.exempt_author_mentions` | `True` |
 | `doc_culture.mail.exempt_recipient_mentions` | `False` |
+| `doc_culture.mail.broadcasts_address_the_list` | `False` |
 | `doc_culture.style_specs` | `True` |
 | `doc_culture.client_facing_reports` | `False` |
 | `doc_culture.outline_variety` | `False` |
@@ -130,7 +131,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| meridian-actuarial | 198 | `1aa4b0c082e1cd770d3d5804fb87e27775a5e13876436573c99447335ddf8da1` |
+| meridian-actuarial | 198 | `0df92d237631902a178dd5a28abc414af95394f20701361a8260d76190b818a7` |
 
 Verify with `python tools/checksums.py --check`.
 

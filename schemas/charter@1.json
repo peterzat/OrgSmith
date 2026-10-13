@@ -406,6 +406,11 @@
           "title": "Attachments",
           "type": "integer"
         },
+        "broadcasts_address_the_list": {
+          "default": false,
+          "title": "Broadcasts Address The List",
+          "type": "boolean"
+        },
         "business_hours": {
           "default": [
             9,
