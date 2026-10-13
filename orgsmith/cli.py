@@ -25,7 +25,10 @@ def _add_slug(sub: argparse.ArgumentParser) -> None:
     )
 
 
-def main(argv=None) -> int:
+def build_parser() -> argparse.ArgumentParser:
+    """The whole CLI surface, without running anything. Split out of `main`
+    (M17d) so a short-tier test can parse every command the skills name
+    against the real parser."""
     parser = argparse.ArgumentParser(
         prog="orgsmith",
         description=f"{PRODUCT_NAME}: generate synthetic organizations.",
@@ -154,6 +157,11 @@ def main(argv=None) -> int:
         help="output directory (default: ./schemas)",
     )
 
+    return parser
+
+
+def main(argv=None) -> int:
+    parser = build_parser()
     args = parser.parse_args(argv)
 
     if args.verb == "validate":

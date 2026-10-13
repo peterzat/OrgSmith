@@ -312,3 +312,79 @@ def test_driver_authoring_prompt_stays_in_sync_with_the_skill():
             f".claude/skills/forge-author/SKILL.md dropped the authoring rule "
             f"signature {phrase!r}; the driver prompt and skill guidance drifted"
         )
+
+
+# --- the skills are runbooks: they may name only commands that exist (M17d) --
+
+SKILLS = sorted((REPO / ".claude" / "skills").glob("*/SKILL.md"))
+_CMD = re.compile(r"\bPY -m (orgsmith|drivers\.forge_external)((?: [^`|\n]*)?)")
+_PLACEHOLDER_ARG = re.compile(r"<[^>]+>")
+_REPO_PATH = re.compile(
+    r"(?<![\w/.-])((?:tools|orgsmith|drivers|docs|bin|\.claude/skills)/[\w./-]+\.(?:py|md|sh))"
+)
+
+
+def skill_commands(text: str) -> list[tuple[str, list[str]]]:
+    """(module, argv) for every `PY -m ...` command line in a skill.
+
+    Angle-bracket placeholders become concrete stand-ins, so `<slug>` parses
+    as a slug and `<file>` as a path. Trailing prose after an inline command
+    is cut at the first token that cannot belong to one (a closing paren or a
+    sentence word after the arguments end).
+    """
+    out = []
+    for module, rest in _CMD.findall(text):
+        argv = []
+        for token in rest.split():
+            token = token.rstrip(".,;:)")
+            if not token:
+                continue
+            if _PLACEHOLDER_ARG.fullmatch(token):
+                token = "dev-mini" if "slug" in token else "x.json"
+            elif token.startswith("("):
+                break
+            argv.append(token)
+        out.append((module, argv))
+    return out
+
+
+def parses(module: str, argv: list[str]) -> bool:
+    if module == "orgsmith":
+        from orgsmith.cli import build_parser
+    else:
+        from drivers.forge_external import _build_parser as build_parser
+    try:
+        build_parser().parse_args(argv)
+    except SystemExit:
+        return False
+    return True
+
+
+def test_skill_command_lines_parse_against_the_real_cli():
+    assert SKILLS, "no skills found"
+    seen = 0
+    for skill in SKILLS:
+        for module, argv in skill_commands(skill.read_text(encoding="utf-8")):
+            seen += 1
+            assert parses(module, argv), (
+                f"{skill.relative_to(REPO)} names `PY -m {module} {' '.join(argv)}`, "
+                f"which the real CLI rejects"
+            )
+    assert seen >= 15, f"only {seen} command lines found; the extractor is broken"
+
+
+def test_the_skill_command_check_catches_a_bogus_flag_and_verb():
+    good = skill_commands("run `PY -m orgsmith author <slug> --next-batch` now")
+    assert good == [("orgsmith", ["author", "dev-mini", "--next-batch"])]
+    assert parses(*good[0])
+    for bad in ("PY -m orgsmith author <slug> --next-bach",
+                "PY -m orgsmith authr <slug>",
+                "PY -m drivers.forge_external --chek"):
+        (module, argv), = skill_commands(bad)
+        assert not parses(module, argv), bad
+
+
+def test_every_repo_file_a_skill_names_exists():
+    for skill in SKILLS:
+        for rel in _REPO_PATH.findall(skill.read_text(encoding="utf-8")):
+            assert (REPO / rel).exists(), f"{skill.relative_to(REPO)} names {rel}, which does not exist"
