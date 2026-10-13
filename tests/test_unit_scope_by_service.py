@@ -154,3 +154,27 @@ def test_without_scope_by_service_the_profile_is_the_recipe_wide_one(tmp_path):
     charter = load_charter(paths)
     for eng in load_engagements(paths).engagements:
         assert scope_profile_for(charter, eng) == charter.engagements.scope
+
+
+def test_a_per_service_profile_draws_from_its_own_new_stream(org):
+    """Additive evolution: the knob consumes nothing from M17b's stream."""
+    from orgsmith.fabric.engagements import (
+        SCOPE_BY_SERVICE_STREAM,
+        SCOPE_STREAM,
+        scope_facts_for,
+    )
+
+    charter = load_charter(org)
+    for service, eng in _by_service(org).items():
+        planted = [f for f in eng.facts if f.kind == "count"]
+        if service == "Capital Raise":
+            want = scope_facts_for(
+                charter.engagements.scope_by_service[service], eng.id, charter.seed,
+                SCOPE_BY_SERVICE_STREAM,
+            )
+        elif service == "Buy-Side Search":
+            # On the recipe-wide profile: exactly what M17b drew.
+            want = scope_facts_for(charter.engagements.scope, eng.id, charter.seed, SCOPE_STREAM)
+        else:
+            continue
+        assert [f.model_dump() for f in planted] == [f.model_dump() for f in want]

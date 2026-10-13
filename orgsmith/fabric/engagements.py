@@ -161,15 +161,22 @@ def pipeline_stage_dates(start: date, end: date, stages: int) -> list[date]:
     ]
 
 
-def scope_facts_for(profile, eid: str, seed: int) -> list[Fact]:
+SCOPE_STREAM = "fabric.engagements.scope"
+# M17d: a profile that comes from `scope_by_service` draws from its own NEW
+# stream, so the knob consumes nothing from M17b's stream and an engagement
+# on the recipe-wide profile draws exactly what it drew before the knob.
+SCOPE_BY_SERVICE_STREAM = "fabric.engagements.scope_by_service"
+
+
+def scope_facts_for(profile, eid: str, seed: int, stream: str = SCOPE_STREAM) -> list[Fact]:
     """Every scope fact for one engagement.
 
-    Drawn from `fabric.engagements.scope` keyed by the engagement id rather
-    than from one ledger-wide stream, so an engagement's quantities are a
-    pure function of (seed, id) and do not shift when a neighbour's draw
-    count changes. Same reason `_staff` has its own stream.
+    Drawn from `stream` keyed by the engagement id rather than from one
+    ledger-wide stream, so an engagement's quantities are a pure function of
+    (seed, stream, id) and do not shift when a neighbour's draw count
+    changes. Same reason `_staff` has its own stream.
     """
-    rand = rng(seed, "fabric.engagements.scope", eid)
+    rand = rng(seed, stream, eid)
     units = rand.randint(*profile.unit_range)
     comparators = rand.randint(*profile.comparator_range)
     facts = [
@@ -286,10 +293,15 @@ def plant_scope_facts(
     if not has_scope(charter):
         return {}
     planted: dict[str, list[Fact]] = {}
+    by_service = charter.engagements.scope_by_service
     for eid in eids:
-        profile = profile_for_service(charter, services.get(eid))
+        service = services.get(eid)
+        profile = profile_for_service(charter, service)
+        stream = SCOPE_BY_SERVICE_STREAM if service in by_service else SCOPE_STREAM
         planted[eid] = (
-            [] if profile is None else scope_facts_for(profile, eid, charter.seed)
+            []
+            if profile is None
+            else scope_facts_for(profile, eid, charter.seed, stream)
         )
     return planted
 
