@@ -12,7 +12,7 @@ regenerated and no carve-out opens.
 
 ### Acceptance Criteria
 
-- [ ] **The Opus 5.5 probe is pre-registered, exactly controlled, and
+- [x] **The Opus 5.5 probe is pre-registered, exactly controlled, and
   reported in either direction.** A dated evidence standard, committed
   before the first probe work order is dispatched, states what result would
   count as Opus 5.5 changing authored prose against the M17c Opus 5 control
@@ -29,7 +29,7 @@ regenerated and no carve-out opens.
   the conclusion the standard's own reading gives, null included. The arm
   stays uncommitted in `scratch/`.
 
-- [ ] **Five generator fixes land as default-off knobs, proven inert
+- [x] **Five generator fixes land as default-off knobs, proven inert
   against the frozen fleet.** With every new knob off, all nine committed
   orgs load, validate clean, and re-derive byte-identical structure
   (`PINNED = SLUGS` green at every commit). Each knob draws randomness from
@@ -51,7 +51,7 @@ regenerated and no carve-out opens.
     shares, subsets, or remainders of one another (scope-off briefs are
     byte-identical to before).
 
-- [ ] **Authoring ingest rejects a doubled count noun.** A deliverable whose
+- [x] **Authoring ingest rejects a doubled count noun.** A deliverable whose
   text follows a count-fact placeholder, within the same clause, with a word
   that repeats a word of that fact's own noun phrase (singular or plural) is
   rejected with the doc id and fact id named. Every one of the eleven M17c
@@ -59,7 +59,7 @@ regenerated and no carve-out opens.
   replayed, and no deliverable of `alpha`, `gamma`, or any committed org's
   `workorders/` reply is.
 
-- [ ] **Unowned numbers are measured and never gate.** `report` writes, for
+- [x] **Unowned numbers are measured and never gate.** `report` writes, for
   every org, a count of integers in authored prose that no ledger value
   accounts for, per document and in total. It reproduces the direction of
   the M17c `alpha`/`gamma` split (fewer in `alpha`), and no test tier or
@@ -78,7 +78,7 @@ regenerated and no carve-out opens.
   ships as a published finding. Its test-tier placement is recorded in
   TESTING.md with the measured added wall-clock.
 
-- [ ] **The board's recall is measured at two reading-list sizes.** A
+- [x] **The board's recall is measured at two reading-list sizes.** A
   deterministic tool plants a fixed set of known defects into a scratch copy
   of `calderwood-partners` (never the committed fixture). Reviewers on two
   dimensions read a small and a large reading list, both containing every
@@ -88,7 +88,7 @@ regenerated and no carve-out opens.
   the result against its own revisit criterion, and the write-up states that
   this is a recall measurement and not a false-positive rate.
 
-- [ ] **BYO authoring sends what it records.** An Anthropic-shape request
+- [x] **BYO authoring sends what it records.** An Anthropic-shape request
   carries the configured effort and the generator record stamps the same
   value; a reply cut off at the output limit fails with a message naming the
   truncation and the limit instead of entering the repair loop; the default
@@ -96,31 +96,31 @@ regenerated and no carve-out opens.
   is `claude-opus-5-5`. Covered by unit tests on a stubbed transport, keyless
   and offline.
 
-- [ ] **Concurrent ingest cannot lose an update.** Two processes ingesting
+- [x] **Concurrent ingest cannot lose an update.** Two processes ingesting
   disjoint deliverables into the same org at once both land in `state.json`,
   shown by a unit test that races them.
 
-- [ ] **The board's read-only rule is checked, not just asked for.**
+- [x] **The board's read-only rule is checked, not just asked for.**
   `/forge-review` records a digest of the org before dispatch and verifies
   it after; the digest changes when a DocIR, ledger, manifest, or rendered
   file changes and ignores the board's own outputs (`review/`,
   `GENERATION-REPORT.md`). Unit-tested.
 
-- [ ] **The skills name only commands that exist, and dispatch with an
+- [x] **The skills name only commands that exist, and dispatch with an
   explicit model and effort.** A short-tier test parses every
   `orgsmith` command line in `.claude/skills/*/SKILL.md` against the real CLI
   parser and fails on an unknown verb or flag, and every repo script a skill
   names exists. `/forge` and `/forge-review` pass the worker model and
   effort at dispatch, and workers stamp the effort they were dispatched with.
 
-- [ ] **The M17c findings are on the durable register.** Every M17c run-log
+- [x] **The M17c findings are on the durable register.** Every M17c run-log
   finding that names a generator defect or gates M18 (AIRLOCK-01, REND-01,
   SCOPE-A, SCOPE-D, MENT-A, off-calendar engagement starts, partners absent
   from engagements) has a `BACKLOG.md` entry or is recorded as closed by this
   turn, and `exemplar-has-no-2020` records that its second-org criterion
   fired.
 
-- [ ] **CLAUDE.md is a map, not a history.** The carve-out narratives move
+- [x] **CLAUDE.md is a map, not a history.** The carve-out narratives move
   to a file under `docs/`, CLAUDE.md keeps every hard rule and operational
   fact (re-emission order, the serialization traps, the current freeze
   status), and it is under 100 lines.
@@ -226,4 +226,4 @@ outline knob moved authored shape 7.7x the noise floor but relocated
 convergence and left word choice unmoved, and the treatment arm was declined
 for commit over a doubled-noun rendering defect.*
 
-<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":0} -->
+<!-- SPEC_META: {"date":"2026-10-13","title":"M17d: M18 readiness","criteria_total":13,"criteria_met":11} -->
