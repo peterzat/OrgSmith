@@ -25,9 +25,19 @@ doc_culture:
   target_docs: 69
   date_range: [2014-01-01, 2023-12-31]
   format_mix: {docx: 45, pdf: 8, xlsx: 10, pptx: 6, eml: 0}
-  # M17c: this org exists to answer ONE question -- does the outline work
-  # change authored prose? -- so the recipe is deliberately narrow where
-  # breadth would only add cost.
+  # M17d: the tenth fleet org, and a LABELLED FOLLOW-UP to M17c's treatment
+  # arm with a changed treatment. M17c generated this recipe three times to
+  # answer one question (does the outline work change authored prose?) and
+  # declined to commit any arm over a doubled-noun rendering defect and a
+  # scope vocabulary that fit one engagement in eight. This version carries
+  # the fixes for both, plus three more M17c findings (engagement starts off
+  # the calendar, no partner on engagements, a firm with no 2020), and is
+  # committed. Its numbers are NOT a second draw on M17c's pre-registration:
+  # the treatment changed, so nothing here re-measures that experiment. The
+  # M17c recipe as it ran is frozen at tests/fixtures/m17c-quillon-harbor/.
+  #
+  # The scoping notes below are M17c's and still describe this recipe: it
+  # stays deliberately narrow where breadth would only add cost.
   #
   # No mail block. Only seven genres carry outline pools
   # (`registry.OUTLINES`: kickoff_memo, status_report, engagement_letter,
@@ -61,11 +71,10 @@ doc_culture:
   voice_diversify: true
   business_calendar:
     holidays: [2014-11-27, 2015-05-25, 2016-07-04, 2017-09-04, 2018-11-22, 2019-12-25, 2020-05-25, 2021-07-05, 2022-09-05, 2023-11-23]
-  # --- THE TWO TREATMENT KNOBS, and the whole point of this recipe -------
-  # M17b, both default off. `tools/ab_control.py` derives the control arm's
-  # charter by stripping exactly these and `engagements.scope` below; a test
-  # asserts the two charters differ in those three fields and nowhere else.
-  # Do not add a knob here without deciding which arm it belongs to.
+    # M17d: M17c had four of eight engagements start on a weekend or on
+    # 2016-07-04, which the list above declares.
+    engagement_starts: true
+  # M17b's two outline-side knobs, on as in M17c's treatment arm.
   outline_variety: true
   client_facing_reports: true
 
@@ -87,25 +96,44 @@ finance:
   base_revenue: 3200000
   growth_rate: 0.080
   expense_ratio: 0.78
+  # M17d: a declared 2020. M17c's prose had analysts working from kitchen
+  # tables in June 2020 beside a workbook whose Q2 was the year's best
+  # quarter. Deal activity stalled in the spring and recovered by year end;
+  # nobody flew. The trend underneath is untouched, so 2021 is back on it.
+  era_shocks:
+    - year: 2020
+      revenue: 0.82
+      travel: 0.3
+      quarters: [1.05, 0.55, 0.85, 1.0]
 
 engagements:
   count: 8
   book_is_sample: true
   services: [Sell-Side Advisory, Buy-Side Search, Recapitalization Advisory, Management Buyout Advisory, Carve-Out Advisory, Fairness Opinion, Growth Capital Raise, Strategic Alternatives Review]
-  # --- THE THIRD TREATMENT KNOB ----------------------------------------
-  # M17b, default absent. A buy-side search is measured in targets and in a
-  # funnel that narrows, which is exactly the quantity M17's board caught a
-  # closing report inventing differently from the five documents before it
-  # in its own folder. With this declared, every document that states a
-  # count cites one ledger object.
+  # M17d: Partners and the Managing Partner oversee the work. M17c's board
+  # found no partner on any engagement document after 2015.
+  oversight_titles: [Partner, Managing Partner]
+  # M17b, then M17d. Every document that states a count cites one ledger
+  # object, which is what stops a closing report inventing a different
+  # number from the documents before it in its own folder.
   #
-  # Plurality is the recipe author's job (RECIPE-FORMAT.md): every noun
-  # below is plural and every range floors well above 1, so no surface can
-  # render "1 acquisition targets". The funnel's narrowest stage is
-  # 60 * 0.40^3 = 3 at worst.
+  # The recipe-wide profile now applies only to the Buy-Side Search; every
+  # other service has its own (scope_by_service below), because M17c
+  # planted acquisition-target vocabulary on all eight engagements (SCOPE-A).
+  #
+  # Every profile's unit is the UNIVERSE its funnel is drawn from, with a
+  # range that floors above the funnel's top, so the nesting a reader infers
+  # ("of the 180 on the list, 85 were contacted") is true by construction.
+  # M17c's unit was a 9-16 shortlist beside a 60-110 screen, which no
+  # nesting fits (SCOPE-D); briefs now also forbid relating the two.
+  #
+  # Plurality is the recipe author's job (RECIPE-FORMAT.md): every noun is
+  # plural and every range floors well above 1. The narrowest funnel stage
+  # stays at 2 or more: 60 * 0.40^3 = 3.8 here, and the worst case below
+  # is the capital raise's 30 * 0.30^2 = 2.7.
   scope:
-    unit: acquisition targets
-    unit_range: [9, 16]
+    unit: candidate companies
+    unit_range: [140, 220]
     comparator: comparable transactions
     comparator_range: [22, 40]
     pipeline:
@@ -115,6 +143,55 @@ engagements:
       - offers submitted
     pipeline_top_range: [60, 110]
     pipeline_retention: [0.40, 0.65]
+  scope_by_service:
+    Sell-Side Advisory:
+      unit: prospective buyers
+      unit_range: [120, 180]
+      comparator: comparable transactions
+      comparator_range: [22, 40]
+      pipeline: [buyers contacted, NDAs executed, indications received, final bids]
+      pipeline_top_range: [60, 110]
+      pipeline_retention: [0.40, 0.65]
+    Carve-Out Advisory:
+      unit: prospective buyers
+      unit_range: [90, 140]
+      comparator: comparable carve-outs
+      comparator_range: [12, 24]
+      pipeline: [buyers contacted, NDAs executed, indications received, final bids]
+      pipeline_top_range: [45, 80]
+      pipeline_retention: [0.40, 0.65]
+    Recapitalization Advisory:
+      unit: financing sources
+      unit_range: [30, 50]
+      comparator: comparable financings
+      comparator_range: [10, 20]
+      pipeline: [lenders approached, term sheets received]
+      pipeline_top_range: [12, 20]
+      pipeline_retention: [0.25, 0.45]
+    Management Buyout Advisory:
+      unit: financing sources
+      unit_range: [25, 40]
+      comparator: comparable buyouts
+      comparator_range: [10, 20]
+      pipeline: [lenders approached, term sheets received]
+      pipeline_top_range: [10, 18]
+      pipeline_retention: [0.30, 0.50]
+    Growth Capital Raise:
+      unit: prospective investors
+      unit_range: [70, 120]
+      comparator: precedent raises
+      comparator_range: [10, 20]
+      pipeline: [investors approached, investors in diligence, term sheets received]
+      pipeline_top_range: [30, 60]
+      pipeline_retention: [0.30, 0.50]
+    Strategic Alternatives Review:
+      unit: strategic options
+      unit_range: [4, 7]
+      comparator: comparable companies
+      comparator_range: [12, 25]
+    # A fairness opinion is a valuation read on one transaction: no funnel,
+    # no universe. M17c planted a four-stage acquisition funnel on one.
+    Fairness Opinion: null
 
 graph_targets:
   external_orgs: 8
