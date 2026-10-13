@@ -1,185 +1,160 @@
 # CODEREVIEW
 
-## Review — 2026-10-13 (commit: 0c231b9) — M17e: the mail-org carve-out, v2.5.0
+## Review — 2026-10-13 (commit: 12b1933) — M17e close-out: the overclaim corrections
 
-**Review scope:** Refresh review in form, full in effect. The prior review's
-commit `03f6442` is already in `origin/main`, so the focus set is the whole
-range: 9 commits, 642 files (`origin/main..0c231b9`). Code read in full:
-the changed parts of `orgsmith/` (schemas, fabric engagements, docplan
-planner, authoring contexts, the DL-01 rule) with their callers (mention
-planning, top-up and alias passes, `render/eml.py`, `acl.py`, evals
-emission), `tools/mail_device.py`, and every new or changed test. The three
-regenerated orgs were checked structurally against the ledgers (knobs
-effective, no overview names an unfinished engagement's client, list notes
-plan no recipients). Their authored prose was not re-read beyond the three
-first overviews, and `/security` scanned all 616 surface files.
+**Review scope:** Refresh review. Focus: 6 file(s) changed since the prior
+review (commit `0c231b9`); 5 of them are in the push range
+(`origin/main..12b1933`, one commit), and the sixth,
+`tests/test_unit_overview_finished.py`, was already pushed at `9dffb43`. No
+already-reviewed files were left to check for interactions only. The two code
+changes are docstring-only (`orgsmith/docplan/planner.py:811-818`,
+`tests/test_unit_mail_broadcast.py:67-72`). Every causal claim in the new
+prose was checked against the committed ledgers at `61abcbd` and HEAD: the
+hollowell manifests, `acl.json`, `engagements.json` and `GENERATION-REPORT.md`.
 
-**Summary:** Two default-off knobs (`mail.broadcasts_address_the_list`,
-`doc_culture.overview_cites_finished_work`), a DL-01 branch for the first,
-the device-count tool, two re-hosted tests, the wholesale regeneration of
-`ashcombe-advisory`, `hollowell-ip` and `meridian-actuarial` under the M17e
-carve-out, docs, and v2.5.0. One WARN, in a new test that asserted nothing it
-claimed about the knob-on brief, fixed by `/codefix` in one cycle; the suite
-is unchanged. The ten NOTEs are recorded, not fixed.
+**Summary:** One commit that checks off SPEC.md and corrects three overclaims
+the prior review raised. RECIPE-FORMAT, the broadcast test's docstring,
+BACKLOG and README now say that the mail knobs feed the
+`min_mentions_per_person` top-up, and the overview planner docstring states
+the finished-work rule. The corrections are accurate in substance. Seven new
+NOTEs record wording that is still imprecise, three of them caught by both
+finders. 0 BLOCK, 0 WARN.
 
 **External reviewers:**
 None configured.
 
 **Built-in review:**
-`/code-review high`: 10 findings, 10 kept after Step 6 (two merged into one
-entry; 1 WARN, the rest NOTEs). Two details rejected after checking: that the
-unit fixture's top-up actually drifts with the knob on (a direct off/on
-comparison differs only in the two list notes), and that `run_authoring(on) >= 0`
-would hide an ingest failure (`ingest_author_batch` asserts `== 0`).
+`/code-review high`: 6 findings, 6 kept after Step 6 (three merged with
+inline findings; all NOTEs).
 
 ### Findings
 
-**[WARN, fixed] `tests/test_unit_overview_finished.py:63-83` — the brief test checks no
-brief. (also claude-code)**
-  Evidence: `test_the_brief_agrees_with_the_plan_and_ingests` calls
-  `run_next_batch(on)` once and filters that state's work orders for
-  `company_overview` briefs. Reproduced on the same fixture: the first batch
-  holds 0 overview briefs (the plan's two overviews, `d:0004` with 0 client
-  facts and `d:0022` with 3, are batched later), so the `for b in briefs`
-  loop never runs and neither the `"confidential"`/`"has completed"` nor the
-  `"no completed client engagements"` assertion executes. The trailing
-  `authored_hash` check does not cover the gap either: neither the scripted
-  author nor ingest reads `firm_digest` (grep of `tests/conftest.py` and
-  `orgsmith/authoring/ingest.py`), so plan/digest agreement is not what that
-  check tests. Net effect: the knob-on digest text in
-  `orgsmith/authoring/contexts.py:356-375` (both the `finished_only` branch
-  and the `book_is_sample` suffix) has no executing test, and the docstring's
-  claim that a disagreement "would be an ingest rejection" is not true of the
-  digest.
-  Suggested fix: drive `run_next_batch` until no new batch appears (as
-  `tests/test_unit_mail_broadcast.py::test_the_brief_tells_the_author_to_address_the_group`
-  does) before collecting briefs, assert `briefs` is non-empty and that both
-  an empty and a non-empty overview were seen, and assert each non-empty
-  digest lists exactly the brief's `{{fact:...}}` client refs (the real
-  agreement property). Correct the docstring's ingest claim.
+**[NOTE] `orgsmith/docplan/planner.py:815-818` — the new docstring says
+"ended by its date"; the code excludes that date. (also claude-code)**
+  Evidence: `overview_engagements` (`orgsmith/fabric/engagements.py:325`)
+  filters on `e.end < when`. Its own docstring (line 320) and
+  `docs/RECIPE-FORMAT.md` ("ENDED before its date") both say "before". Two
+  lines earlier the same docstring uses "begun by its date" for the inclusive
+  `e.start <= when`, so "by" reads as inclusive.
+  Suggested fix: "names only engagements that ended before its date".
+  High confidence; affects documentation only.
 
-**[NOTE] `orgsmith/authoring/contexts.py:88-93` — the mundane-mail genre brief
-still says "Name the colleagues involved." (claude-code)** With
-`broadcasts_address_the_list` on, a list note's brief has no participants,
-and the appended delivery guidance (`contexts.py:452-461`) says to name a
-colleague only where the note is about them. The two instructions pull
-against each other. Measured with no effect: 0 of the 7 list bodies across
-the three regenerated orgs name a colleague. A fix would be knob-gated, since
-the genre text is in every committed brief.
+**[NOTE] `orgsmith/docplan/planner.py:811-813` — the anchor rationale is
+still the knob-off one. (claude-code)** "Anchored just after the first
+engagement so the earliest one has a client to cite" is false with
+`overview_cites_finished_work` on. The added sentence concedes this ("usually
+names none"), but it does not say whether the empty first overview is
+intended. The three regenerated orgs' first overviews read fine without
+clients. Moving the anchor would be a new, default-off behavior. Low.
 
-**[NOTE] `orgsmith/docplan/planner.py:757-768`, `947-985`;
-`tests/test_unit_mail_broadcast.py:66-80` — emptying a broadcast's
-participants feeds the top-up and alias passes. (also claude-code)** The
-dropped mentions lower `have` in the `min_mentions_per_person` top-up, which
-can then append that person to a minutes, kickoff, status, or overview
-document; with the top-up at 0, a person whose only mention was on a
-broadcast and who carries an alias makes docplan exit ("cannot plant
-nickname alias"). Both are loud or only move an opt-in org's plan, but
-`test_only_broadcasts_change` compares only `internal_email` entries while
-its docstring says every other document plans exactly as before, and
-`docs/RECIPE-FORMAT.md` says "no other note moves" (true of notes only).
-`exempt_recipient_mentions` has the same interaction.
+**[NOTE] `BACKLOG.md:180` — "The hollowell instance was caused by this
+turn's own mail knobs" covers more than the evidence does.**
+  Evidence: `rf:graph-1` has two instances. One is Sharon Woods in `d:0005`;
+  the other is Matthew Parrish in `d:0044`, as the entry's preceding sentence
+  says. Only Sharon Woods' instance is caused by the mail knobs, and the entry
+  verifies it: at `61abcbd` she is mentioned only in `d:0002` (list),
+  `d:0025` (direct) and `d:0052` (list); at HEAD she is a participant in
+  kickoff `d:0005`, which her grants exclude, and in overview `d:0007`, which
+  they include. Matthew Parrish's instance predates the turn: his `d:0044`
+  kickoff mention and its ACL denial are identical at `61abcbd` and HEAD
+  (same doc id, same participant, the Jackson Inc kickoff absent from his
+  grants under a departmental posture both times). README:735-738 is precise
+  ("named her").
+  Suggested fix: "Sharon Woods' half of the hollowell instance was caused by
+  ...".
+  High confidence on the facts.
 
-**[NOTE] `orgsmith/docplan/planner.py:811-815`, `820` — the overview docstring
-is stale under the knob. (also claude-code)** It still says the anchor (first
-start + 30 days) is chosen "so the earliest one has a client to cite" and
-that each overview names clients whose engagement has begun. With
-`overview_cites_finished_work` on, the first overview is client-less by
-construction (all three regenerated orgs; their authored first overviews
-describe the practice and name no client, which reads fine).
+**[NOTE] `docs/RECIPE-FORMAT.md:158` — "Both mail knobs remove planned
+mentions" undercounts. (also claude-code)** The block documents three
+mention knobs. `exempt_author_mentions` also drops planned mentions
+(`planner.py:913`, `934-935`) and so feeds the same top-up, and hollowell
+runs it on. The caveat is attached only to the last knob's entry. BACKLOG's
+"any knob that removes planned mentions feeds this seam" states it correctly.
+Medium.
 
-**[NOTE] `orgsmith/authoring/contexts.py:343-345` — the finished-only digest
-dates completed work by start year. (claude-code)** `span` is built from
-`e.start.year`, so "has completed 1 client engagement(s) across 2016" can
-describe an engagement that finished in 2017. End years would match the
-wording.
+**[NOTE] `docs/RECIPE-FORMAT.md:156-161` — "no other note moves" now sits
+just above text saying that another document moves. (claude-code)** Both
+statements are true only because of the switch from "note" to "document",
+and a reader checking whether the knob is safe can miss it. Low.
 
-**[NOTE] `tools/mail_device.py:54-55` — `planned_list_mentions` is zero by
-construction under the knob. (also claude-code)** It counts planned mentions
-of `e.participants`, which the knob empties, rather than planned mentions of
-any colleague other than the author. The published zeros still hold (every
-list note in the three orgs plans no mention at all, checked directly), and
-the before-counts (85/46/62, 4/3/3, 39/39, 20/20, 24/24) reproduce against
-`61abcbd`. The tool has no test.
+**[NOTE] `tests/test_unit_mail_broadcast.py:66-82` — the test compares only
+`internal_email`, and the docstring calls that "the mail genre". (also
+claude-code)** `engagement_email` is also mail and is not compared. Neither
+are the other genres outside `_TOP_UP_GENRES` (`planner.py:76-81`), which the
+top-up pass cannot touch. They could all be asserted byte-identical, which
+would keep a later change from moving an engagement thread unnoticed. The
+org-tier pin covers this only for the committed orgs. Low.
 
-**[NOTE] `orgsmith/validate/rules.py` — `overview_cites_finished_work` has no
-validator rule. (also claude-code)** `broadcasts_address_the_list` got a
-DL-01 branch; a knob-on manifest whose overview cites a live engagement
-passes `validate`, and only the org-tier byte pin catches it for committed
-orgs. The spec did not ask for a rule, and several older knobs have none.
+**[NOTE] `orgsmith/docplan/planner.py:947-985` — removing mentions feeds the
+top-up and alias passes, and the top-up never checks whether the person can
+read the document. (claude-code; carried and narrowed from the prior
+entry)** The documentation overclaim is resolved. The behavior remains: the
+candidate filter checks genre, employment and existing mention, not
+readability under the ACL. With the floor at 0, a person whose only mention
+was dropped and who carries an alias still makes docplan exit ("cannot plant
+nickname alias"). BACKLOG `mention-filler-acl-seam` records the fix (a
+default-off knob) as deferred, so this is recorded, not actionable here.
 
-**[NOTE] `orgsmith/schemas.py:241` — `broadcasts_address_the_list` is accepted
-with `distribution_lists: 0`. (claude-code)** The knob is then inert, but the
-defect it fixes cannot occur without lists, so nothing passes vacuously.
-Low.
+**Carried from the prior entry, still present at HEAD (files unchanged since
+`0c231b9`):**
 
-**[NOTE] `tests/test_org_evals_acceptance.py:186` — the org-tier unanswerable
-test now skips on every committed org. (claude-code)** Its path is re-hosted
-on a synthetic org (`tests/test_unit_evals_unanswerable.py`), each skip names
-its reason, and TESTING.md records the move, so this meets CLAUDE.md's
-re-host rule.
-
-**[NOTE] `orgsmith/schemas.py:685-696` — the oversight-title check echoes a
-received tree's strings raw.** From `/security`, carried and re-confirmed at
-HEAD: a crafted `charter.json` can write escape sequences to the terminal
-through `validate`'s traceback; `_check_scope_services` (543-548) has the
-same pattern. Fix: `strip_control` on each title, or sanitize the validation
-error where `validate` loads a tree.
-
-**[NOTE] `orgsmith/review/numbers.py:44` — a 4301+ digit run in authored prose
-crashes `report`.** From `/security`, carried (file outside this range).
+- **[NOTE] `orgsmith/authoring/contexts.py:88-93`:** the mundane-mail genre
+  brief still says "Name the colleagues involved", which pulls against the
+  list-note guidance. Measured effect: none (0 of 7 list bodies name a
+  colleague).
+- **[NOTE] `orgsmith/authoring/contexts.py:343-345`:** the finished-only
+  digest dates completed work by start year.
+- **[NOTE] `tools/mail_device.py:54-55`:** `planned_list_mentions` is zero by
+  construction under the knob. The tool has no test.
+- **[NOTE] `orgsmith/validate/rules.py`:** `overview_cites_finished_work` has
+  no validator rule.
+- **[NOTE] `orgsmith/schemas.py:241`:** `broadcasts_address_the_list` is
+  accepted with `distribution_lists: 0`, where it is inert.
+- **[NOTE] `tests/test_org_evals_acceptance.py:186`:** the org-tier
+  unanswerable test skips on every committed org. It is re-hosted on a
+  synthetic org, which meets the re-host rule.
+- **[NOTE] `orgsmith/schemas.py:685-696`:** the oversight-title check echoes
+  a received tree's strings raw (security, carried).
+- **[NOTE] `orgsmith/review/numbers.py:44`:** a run of 4301 or more digits in
+  authored prose crashes `report` (security, carried).
 
 ### Verified clean
 
-- **Freeze:** the other seven orgs differ from `61abcbd` only in
-  `charter.json` (the two new fields at their defaults) and `DATA-CARD.md`;
-  their ledgers, manifests, prose, work orders, and recipes are unchanged.
-- **Knobs effective on the three orgs:** every list-addressed note plans no
-  participant and no mention; every overview's `facts_refs` equals the
-  engagements that ended before its date, and no overview's prose carries an
-  unfinished engagement's client name or fact id; oversight added a senior to
-  5, 2, and 3 engagements and 3 starts moved, as the write-up says.
-- **Docs:** README totals reproduce (147 `.eml`, 453 fleet questions, 1,148
-  default-tier tests with 31 skips, 76 flagship), CHECKSUMS.md is current,
-  and `northgate-staffing` still has 2 of 2 broadcasts naming a colleague, as
-  stated.
+- **Sharon Woods causal chain:** verified as BACKLOG and RECIPE-FORMAT state
+  it. Her three pre-carve-out mentions were two list notes, emptied by
+  `broadcasts_address_the_list`, and one direct note (`d:0025`), dropped by
+  `exempt_recipient_mentions`. With the floor at 2, the top-up placed her in
+  the earliest candidates: kickoff `d:0005` and overview `d:0007`.
+- **Test docstring against test body:** each broadcast keeps path, date,
+  authors and render params, exactly the tuple asserted.
+- **README context:** "a third" follows the two code-caused findings listed
+  before it, and `rf:graph-1` is a major on hollowell's report (line 143).
 
 ### Tests
 
-Baseline: short 19, unit 837, org 261 passed with 31 skipped, flagship 71
-passed with 5 skipped, keyless and offline, exit 0. After `/codefix`:
-identical counts, exit 0. The org tier includes `PINNED = SLUGS`, so the
-committed fleet still re-derives byte-identical.
+Baseline at `12b1933`: short 19, unit 837, org 261 passed with 31 skipped,
+flagship 71 passed with 5 skipped, exit 0. These are the prior review's
+counts exactly. No fixes were applied, so nothing was re-run.
 
 ### Security
 
-`/security` over the 616-file surface since `03f6442`: 0 BLOCK, 0 WARN,
-2 NOTE (both above, both carried). No secret in the scoped files, the
-rendered Office and PDF files, or the range diff. The post-fix re-check of
-`tests/test_unit_overview_finished.py` found nothing. SECURITY.md is updated
-and uncommitted.
+`/security` over the 3 surface files changed since the last scan's commit
+`0c231b9` (`orgsmith/docplan/planner.py`, `tests/test_unit_mail_broadcast.py`,
+`tests/test_unit_overview_finished.py`): 0 BLOCK, 0 WARN, 2 NOTE (both
+carried, above). No secrets. SECURITY.md is updated and uncommitted.
 
 ### Fixes Applied
 
-- **[WARN] `tests/test_unit_overview_finished.py:61-94`** (also claude-code):
-  `test_the_brief_agrees_with_the_plan_and_ingests` now drives
-  `run_next_batch` until no new batch appears, asserts it found overview
-  briefs including at least one with client facts and one without, and checks
-  that each non-empty digest's `{{fact:...}}` ids equal the brief's fact ids.
-  The docstring no longer claims an ingest rejection would catch a
-  disagreement. Re-reviewed: the loop matches the one in
-  `tests/test_unit_mail_broadcast.py`, and the module's 4 tests pass.
-
-The change is uncommitted: `tests/test_unit_overview_finished.py`, plus
-`CODEREVIEW.md` and `SECURITY.md`.
+None.
 
 ### Accepted Risks
 
 None.
 
 ---
-*Prior review (2026-10-13, commit 03f6442): M17d, full review; 0 BLOCK, 2 WARN
-(an era shock on the expense base year, an oversight title no one can hold),
-both fixed by `/codefix` with tests, and 12 NOTEs recorded.*
+*Prior review (2026-10-13, commit 0c231b9): M17e mail-org carve-out and
+v2.5.0, refresh review; 0 BLOCK, 1 WARN (the overview brief test checked no
+brief), fixed by `/codefix` and pushed at `9dffb43`, and 10 NOTEs recorded.
+This commit addresses three of those NOTEs in docs.*
 
-<!-- REVIEW_META: {"date":"2026-10-13","commit":"0c231b9","reviewed_up_to":"0c231b99047a8a62ef0d2b0757bc614cb8e020fd","base":"origin/main","tier":"refresh","block":0,"warn":1,"note":10} -->
+<!-- REVIEW_META: {"date":"2026-10-13","commit":"12b1933","reviewed_up_to":"12b193317facb906d4788943f4057a137ece760e","base":"origin/main","tier":"refresh","block":0,"warn":0,"note":15} -->
