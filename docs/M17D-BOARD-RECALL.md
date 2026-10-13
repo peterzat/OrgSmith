@@ -104,3 +104,82 @@ the long list better.
 ## Amendment log
 
 - (none yet)
+
+## The result, 2026-10-13
+
+Run once, as registered. `tools/plant_defects.py` re-verified at the hash
+above. Four reviewers, all `claude-opus-5-5` at `xhigh`, scored mechanically
+by the rule above against the answer key held outside both copies.
+
+| | small list (50) | large list (168) |
+| --- | ---: | ---: |
+| `narrative_consistency`, plants credited | 8 / 12 (8 of 8 anachronisms) | 8 / 12 (8 of 8 anachronisms) |
+| `document_plausibility`, plants credited | 12 / 12 | 12 / 12 |
+| **either reviewer** | **12 / 12** | **12 / 12** |
+| findings, narrative / plausibility | 13 / 11 | 15 / 16 |
+| findings per sampled document | 0.260 / 0.220 | 0.089 / 0.095 |
+
+**The registered reading is a ceiling.** Both lists found all twelve, so
+"the plants were too easy to discriminate anything, and the result is a
+ceiling, not a clean bill." The prediction (degradation, a gap of three or
+more) was **wrong** for defects this loud: a reviewer handed 168 documents
+found every one it was handed among 50. Every plant drew a blocker or a
+major. The narrative reviewers saw the four assistant-voice tics too and
+left them out as another dimension's, which is the skill working as
+written.
+
+### The part that is not a ceiling
+
+**Findings per reviewer barely moved with the list: 13 and 11 at 50
+documents, 15 and 16 at 168.** Findings per sampled document therefore fell
+by about 2.7x on the list size alone, with recall of the known defects
+unchanged. That is a measured mechanism for a large share of the drop
+`board-yield-at-scale` reported: a reviewer reports a corpus-level pattern
+once whatever the corpus size, so findings per document is a
+denominator-driven quantity, and it falls with corpus size even when the
+reviewer misses nothing loud. **Comparing findings per document across
+orgs of different sizes compares mostly the denominators.** This is a
+reading of the counts, not a registered comparison, and it does not show
+that subtle defects survive a long list; nothing here measured those.
+
+### Disclosed leaks, both found by the reviewers
+
+- **The plants existed only in DocIR.** The copies were not re-rendered, so
+  the planted sentences were absent from the rendered `.docx`/`.pdf`/`.eml`
+  files, and three of four reviewers noticed the mismatch.
+- **File modification times.** One reviewer noted that planted DocIR files
+  carried a newer mtime than their siblings, so plants could be located by
+  date rather than by reading. It reported finding all of them by reading
+  first.
+
+Both channels were present identically on both lists, so they cannot
+manufacture a difference between them, but they can only push recall up,
+which makes the ceiling less informative still. **A re-run should render
+after planting and normalize mtimes.**
+
+### Incidental findings against calderwood's real prose
+
+The planted sentences are the only change to the copies, so everything else
+the four reviewers reported is about the committed `calderwood-partners`
+corpus. Recorded here, not fixed (it is frozen); the generator-level ones
+are filed in `BACKLOG.md`:
+
+- every kickoff memo is dated three days after its engagement starts and 13
+  of 22 still describe the start as upcoming; onboarding records do the same
+  a week after the start date;
+- ten of twelve clients return years later with the same sponsor and no
+  document remembers the earlier work, including letters introducing staff
+  who already worked with that client;
+- the recipe's "the book is a sample" instruction surfaces as an aside in an
+  engagement letter, a kickoff memo and welcome letters;
+- mail: every message timestamped 09:00:00 +0000, no client ever replies,
+  thread openers carry "RE:", no message is signed (calderwood predates the
+  M14 mail realism knobs);
+- research associates write kickoff memos that direct the Principal, and
+  some engagements are staffed by associates alone against the overview's
+  "senior-led teams" (the fleet-wide staffing gap `oversight_titles` now
+  addresses as a knob);
+- six engagements start on weekends and one on July 4 (the gap
+  `business_calendar.engagement_starts` now addresses as a knob);
+- one pair of emails, seven years and two authors apart, matches sentence
+  for sentence (`d:0093`, `d:0173`).

@@ -332,3 +332,43 @@ successes:
   mean 0.3087 against control 0.3721, but the 50 treatment pairs dealt the
   *same* skeleton scored 0.4019, worse than a typical control pair. An
   aggregate improvement can hide a subgroup getting worse; report the split.
+
+## Board recall and reviewer spread (2026-10-13, M17d)
+
+Two measurements of the board itself, both pre-registered. Neither is a
+false-positive rate.
+
+### Recall of known defects does not fall with the reading list, at least for loud ones
+
+`docs/M17D-BOARD-RECALL.md` planted twelve known defects (eight unambiguous
+anachronisms, four assistant-voice tics) into two scratch copies of
+`calderwood-partners` that differed only in reading-list size, and gave each
+list a `narrative_consistency` and a `document_plausibility` reviewer.
+
+| | 50 documents | 168 documents |
+| --- | ---: | ---: |
+| plants found (either reviewer) | 12 / 12 | 12 / 12 |
+| findings per reviewer | 13, 11 | 15, 16 |
+| findings per sampled document | 0.26, 0.22 | 0.09, 0.10 |
+
+The registered reading is a **ceiling**: the plants were too loud to
+discriminate. What the counts show anyway is that **a reviewer's finding
+count is close to flat in corpus size**, so findings per document falls
+about 2.7x from 50 to 168 documents with nothing loud missed. That is a
+measured mechanism for much of `board-yield-at-scale`'s 15x spread across the
+fleet, and it means findings-per-document is not a cross-org quality
+comparison. Recall of subtle defects at length is still unmeasured; a
+re-run needs subtler plants, rendered after planting so a reviewer cannot
+find them by diffing DocIR against the share (three of four reviewers
+noticed that channel).
+
+### Two reviewers, one corpus, different verdicts
+
+The M17d Opus 5.5 probe re-read M17c's `alpha` arm blind
+(`docs/M17D-OPUS55-PROBE.md`). M17c's `claude-opus-5` voice reviewer gave it
+one blocker and five majors; the `claude-opus-5-5` reviewer gave no blocker
+and three majors. Both answered "yes, one person wrote everything", and both
+put it at 4 of 10 on variety. **Severity spread between two readers of a fixed
+corpus is at least one blocker and two majors**, and that is the scale against
+which a single board's severity counts should be read. The categorical
+answer held.
