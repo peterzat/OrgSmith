@@ -463,7 +463,15 @@ def _stage_refs(entry):
 def test_a_document_cites_only_stages_its_date_completes(scoped_org, gated):
     """The gating property, recomputed against the same stage dates the
     planner used. A document reporting a stage that has not happened is what
-    let the closing report describe a different engagement."""
+    let the closing report describe a different engagement.
+
+    Amended at M17d, deliberately: the engagement's CLOSING pipeline document
+    is exempt for the stages no earlier document could cite. The last stage
+    completes on the engagement's end date and no document is dated that
+    late, so strict gating left the final stage planted and never stated,
+    which broke the promise that every scope fact becomes a question
+    (`test_every_planted_stage_is_stated_by_some_document` below). Every
+    other document is still held to its date."""
     from datetime import date as _date
 
     charter = parse_charter_md(
@@ -475,11 +483,32 @@ def test_a_document_cites_only_stages_its_date_completes(scoped_org, gated):
         e["id"]: (_date.fromisoformat(e["start"]), _date.fromisoformat(e["end"]))
         for e in ledger["engagements"]
     }
+    from orgsmith.docplan.registry import REGISTRY
+
+    pipeline_genres = {r.genre for r in REGISTRY if "pipeline" in r.scope_refs}
     for eid, rows in gated.items():
         start, end = spans[eid]
         done = pipeline_stage_dates(start, end, len(stages))
+        closers = [e for e in rows if e["genre"] in pipeline_genres]
+        closing = closers[-1]["path"] if closers else None
+        earlier = {r for e in rows if e["path"] != closing for r in _stage_refs(e)}
         for entry in rows:
             when = _date.fromisoformat(entry["date"])
+            if entry["path"] == closing:
+                # The closing document is held to its date for every stage an
+                # earlier document could have cited, and may add only the tail.
+                tail = {
+                    f"f:{eid}.pipeline-{stage_slug(s)}"
+                    for s, d in zip(stages, done)
+                    if when < d
+                }
+                assert set(_stage_refs(entry)) - tail <= {
+                    f"f:{eid}.pipeline-{stage_slug(s)}"
+                    for s, d in zip(stages, done)
+                    if when >= d
+                }
+                assert not (tail & earlier), "an earlier document cited the tail"
+                continue
             allowed = {
                 f"f:{eid}.pipeline-{stage_slug(s)}"
                 for s, d in zip(stages, done)
@@ -896,3 +925,19 @@ def test_emit_evals_does_not_crash_on_a_spaceless_count_surface():
     )
     assert len(questions) == 1
     assert questions[0].expected_value == "11"
+
+
+def test_every_planted_stage_is_stated_by_some_document(scoped_org, gated):
+    """M17d: no planted funnel stage goes unstated. Before the closing-stage
+    post-pass, the final stage of every engagement was planted and cited by
+    nothing, because it completes on the engagement's end date."""
+    ledger = json.loads(scoped_org.engagements_json.read_text())
+    planted = {
+        f["id"]
+        for e in ledger["engagements"]
+        for f in e["facts"]
+        if ".pipeline-" in f["id"]
+    }
+    cited = {r for rows in gated.values() for e in rows for r in _stage_refs(e)}
+    assert planted, "the knobbed org plants no funnel"
+    assert planted <= cited, f"planted but never stated: {sorted(planted - cited)}"

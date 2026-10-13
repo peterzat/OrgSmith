@@ -374,6 +374,58 @@ class _Planner:
             if r in self.facts and self.policy.get(r, "body") == "body"
         ]
 
+    def _host_closing_stages(self) -> None:
+        """Every planted funnel stage is stated by some document (M17d).
+
+        Position gating lets a document cite a stage only once its date says
+        the stage is complete, and `pipeline_stage_dates` puts the last stage
+        on the engagement's end date. No document is dated that late, so on
+        every scope-on engagement the final stage was planted and never
+        cited: a ledger fact no document states, missing from the eval suites
+        `docs/RECIPE-FORMAT.md` promised it would join. Found when the first
+        scope-on org was committed (`quillon-harbor`, M17d), by the
+        fleet-wide test that every planted fact is hosted.
+
+        The fix is the one a real file shows: the engagement's closing
+        pipeline document reports the funnel's tally, including any stage no
+        earlier document could. It is the latest-dated batchable document of
+        a genre whose row carries `pipeline` in `scope_refs`. Earlier
+        documents keep strict date gating. Inert without a pipeline-bearing
+        scope profile: the fleet's manifests do not move.
+        """
+        from .registry import REGISTRY
+
+        pipeline_genres = {r.genre for r in REGISTRY if "pipeline" in r.scope_refs}
+        cited = {ref for doc in self.planned for ref in doc.get("facts_refs", [])}
+        for eng in self.engagements.engagements:
+            profile = scope_profile_for(self.charter, eng)
+            if profile is None or not profile.pipeline:
+                continue
+            tail = [
+                ref
+                for ref in (
+                    f"f:{eng.id}.pipeline-{stage_slug(phrase)}"
+                    for phrase in profile.pipeline
+                )
+                if ref in self.facts
+                and ref not in cited
+                and self.policy.get(ref, "body") == "body"
+            ]
+            if not tail:
+                continue
+            closers = [
+                doc
+                for doc in self.planned
+                if doc.get("engagement") == eng.id
+                and doc["genre"] in pipeline_genres
+                and doc.get("authoring", "batchable") == "batchable"
+            ]
+            if not closers:
+                continue
+            closing = max(closers, key=lambda d: (d["date"], d["path"]))
+            closing.setdefault("facts_refs", []).extend(tail)
+            cited.update(tail)
+
     def _facts_for(
         self, rule: GenreRule, eng, is_first: bool, when: date
     ) -> tuple[list[str], list[KeyFact], dict]:
@@ -972,6 +1024,7 @@ class _Planner:
 
     def build(self) -> list[ManifestEntry]:
         self.plan_from_registry()
+        self._host_closing_stages()
         self.plan_mentions()
         self.plan_scans()
         self.plan_legacy()
