@@ -32,6 +32,23 @@ def _committed_slugs():
 SLUGS = _committed_slugs()
 
 
+def test_every_committed_org_has_a_card():
+    """Collection above is keyed on the card existing, so a deleted card would
+    otherwise drop its org's card tests silently: grandfathering by artifact
+    absence, which CLAUDE.md forbids. A committed org without a card fails
+    here instead (M17e, found while the carve-out's orgs had none yet)."""
+    root = REPO / "companies"
+    orgs = sorted(
+        p.name
+        for p in root.iterdir()
+        if p.is_dir() and not p.name.endswith("-metadata")
+    )
+    missing = [s for s in orgs if not (root / f"{s}-metadata" / "DATA-CARD.md").exists()]
+    assert orgs and not missing, (
+        f"no DATA-CARD.md for {missing}; run `python -m orgsmith data-card <slug>`"
+    )
+
+
 @pytest.mark.parametrize("slug", flagship_params(SLUGS) or ["none"])
 def test_committed_card_is_fresh_and_idempotent(slug):
     paths = OrgPaths(root=REPO, slug=slug)

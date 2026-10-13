@@ -1,4 +1,4 @@
-# Checksum manifest — OrgSmith v2.4.0
+# Checksum manifest — OrgSmith v2.5.0
 
 SHA-256 rollup per committed org, over every committed file under
 `companies/<slug>/` and `companies/<slug>-metadata/` in sorted path order

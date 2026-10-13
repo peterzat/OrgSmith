@@ -16,8 +16,8 @@ bin/test                      # short + unit + org; exit 0
 bin/test flagship             # the two large pilot orgs, on their own
 ```
 
-Expect ~100s wall and 1104 passing + 30 skipped (19 short, 824 unit, 261
-org) on a box with LibreOffice, measured 2026-10-13 at the close of M17d;
+Expect ~95s wall and 1117 passing + 31 skipped (19 short, 837 unit, 261
+org) on a box with LibreOffice, measured 2026-10-13 at the close of M17e;
 without it the `@needs_soffice` conversion tests skip instead of passing,
 which is what CI sees. Both are green
 states, see Environment axis. No API key, no network, no model: a
@@ -63,12 +63,39 @@ pull request, and is the actual gate.
 
 | tier | what earns the marker | count | budget | measured |
 | --- | --- | --- | --- | --- |
-| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, the `schemas/` export pin, and (M17d) that every command a skill names parses against the real CLI | 19 | < 1s | 0.56s |
-| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 824 | ~75s | ~74s local |
-| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 261 (+30 skipped) | ~15s | 15.3s warm |
-| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 71 (+5 skipped) | ~15s | 12.9s |
+| `short` | static and configuration checks: no model, no network, no key, version/pin/name invariants, the `schemas/` export pin, and (M17d) that every command a skill names parses against the real CLI | 19 | < 1s | 0.61s |
+| `unit` | deterministic logic, schemas, renderers, the airlock contract, ledger math, built on synthetic orgs in `tmp_path` | 837 | ~75s | ~76s local |
+| `org` | full validation of every committed fixture under `companies/`, plus deriving **every recipe**, re-deriving **every fixture** byte-identically (`PINNED = SLUGS` since M11b restored the fleet-wide freeze), re-deriving **every answer key** (EVAL-01) and **every baseline summary**, and checking fleet-recipe coherence. Selects `-m "org and not flagship"`, so the pilot is excluded | 261 (+31 skipped) | ~15s | 15.0s warm |
+| `flagship` | the two large pilot orgs `calderwood-partners` (218 files) and the M14 email pilot `ashcombe-advisory` (87 files): full validation, byte-pin re-derivation, coherence, and eval ground truth. Opt-in (`bin/test flagship`), excluded from the default run, its own CI step | 71 (+5 skipped) | ~15s | 12.4s |
 
-Measured 2026-10-13 at the close of M17d.
+Measured 2026-10-13 at the close of M17e.
+
+**Two tests were re-hosted when the M17e carve-out moved their host (M17e).**
+CLAUDE.md requires a fixture-hosted test whose host moves to fail or be
+re-hosted, never to skip into a silent pass, and both moves were caught by
+diffing the org tier's skip reasons against `61abcbd` before committing:
+
+- `test_unanswerable_questions_are_really_unanswerable` (org tier) runs the
+  emit-and-score path on every committed org that poses an unanswerable
+  question. `hollowell-ip` was the only one; its regeneration placed the one
+  person who had been named only in mundane mail, so the fleet now poses none
+  and the org check skips on every org. The path is re-hosted in
+  `tests/test_unit_evals_unanswerable.py` on a synthetic org whose plan places
+  one roster member nowhere (2 unit tests). That is the org tier's one move from
+  pass to skip, and the unit tier's +2.
+- `test_the_knob_is_adopted_only_where_a_recipe_asks_for_it` asserted that at
+  least one committed mail org still ran `exempt_recipient_mentions` off. None
+  does now; the default-off half lives on the synthetic knob-off org in the
+  same file, and the committed half asserts that every adopting org plans no
+  recipient mention.
+
+The three regenerated orgs are the same size as before (104, 64 and 72
+documents), so tier times did not move. One gap of the same kind was closed
+rather than re-hosted: `test_org_datacard.py` collects its per-org cases only
+for cards that exist, so a mid-carve-out run, with the three cards not yet
+emitted, showed fewer cases instead of failures. A deleted card would have done
+the same silently. `test_every_committed_org_has_a_card` now fails on any
+committed org without one (org tier, +1).
 
 **The tenth org joined the `org` tier, deliberately (M17d).** Adding
 `quillon-harbor` (77 documents) moved the tier from 230 tests in 11.4s to 260

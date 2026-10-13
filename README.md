@@ -190,19 +190,24 @@ What does differ is **vintage, in exactly one place**:
 | --- | --- | --- |
 | `northgate-staffing` | `claude-opus-5` | the M13-M16 realism wave plus M17's `alias_agreement` and `exempt_recipient_mentions` |
 | `quillon-harbor` | `claude-opus-5-5` | the realism wave plus M17b's outline and scope knobs and M17d's five generator fixes (a new org, not a regeneration) |
-| the other eight | `claude-opus-4-8[1m]` | the M13-M16 realism wave |
+| `ashcombe-advisory`, `hollowell-ip`, `meridian-actuarial` | `claude-opus-5-5` | the realism wave plus M17's recipient exemption, M17e's list-mail and finished-work-overview knobs, and M17d's business-day starts, partner oversight and a declared 2020 (the M17e carve-out) |
+| the other five | `claude-opus-4-8[1m]` | the M13-M16 realism wave |
 
 The M13-M16 wave regenerated **every** org wholesale and re-froze them, so the
 style/voice layer, the business-day calendar and the sample-book posture are
-fleet-wide. M17 then regenerated the exemplar alone with two more knobs, and
-M17d added `quillon-harbor` as a new org built with that turn's fixes. That is
-the entire spread: **three vintages, not ten**, on one schema id
+fleet-wide. M17 then regenerated the exemplar alone with two more knobs,
+M17d added `quillon-harbor` as a new org built with that turn's fixes, and
+M17e regenerated the three mail orgs to close the mail-mention device. That is
+the entire spread: **four vintages, not ten**, on one schema id
 (`orgsmith/state@1`) with no drift between them.
 
 The model difference is the one worth knowing about, because [model choice is
 the single biggest lever on the prose](#which-model-should-write-your-documents)
 and OrgSmith pins none. The exemplar is the newer and better-written corpus.
-The other eight are one coherent vintage, not eight.
+The three mail orgs are newer still, but read that as a newer generator rather
+than a better writer: M17d's pre-registered probe found that `claude-opus-5-5`
+alone moves no structural axis ([docs/M17D-OPUS55-PROBE.md](docs/M17D-OPUS55-PROBE.md)).
+The other five are one coherent vintage, not five.
 
 **Only `quillon-harbor` carries the M17b knobs** (`outline_variety`,
 `engagements.scope`, `client_facing_reports`). M17c tested them and found them
@@ -227,7 +232,8 @@ and multi-affiliation off. Go straight to the org that exercises what you need:
 | scale (218 documents) | [`calderwood-partners`](companies/calderwood-partners/) |
 | engagement quantities (scope counts and a deal funnel) owned by the answer key | [`quillon-harbor`](companies/quillon-harbor/) |
 | per-document section skeletons, so same-genre documents differ in shape | [`quillon-harbor`](companies/quillon-harbor/) |
-| a declared bad year in the finance (2020) | [`quillon-harbor`](companies/quillon-harbor/) |
+| a declared bad year in the finance (2020) | [`quillon-harbor`](companies/quillon-harbor/), [`ashcombe-advisory`](companies/ashcombe-advisory/), [`hollowell-ip`](companies/hollowell-ip/), [`meridian-actuarial`](companies/meridian-actuarial/) |
+| mail whose body never restates its recipient, and list broadcasts addressed to the group | [`ashcombe-advisory`](companies/ashcombe-advisory/), [`hollowell-ip`](companies/hollowell-ip/), [`meridian-actuarial`](companies/meridian-actuarial/) |
 
 Every org's data card states its own feature matrix, so the table above is a
 shortcut rather than the record.
@@ -243,9 +249,10 @@ with `python -m orgsmith baseline --fleet`.
 | org | questions | filename-only | BM25 | body reading pays | noise hurts |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `calderwood-partners` | 108 | 0.507 | 0.716 | **+0.209** | 0.030 |
-| `ashcombe-advisory` | 44 | 0.458 | 0.658 | **+0.200** | 0.076 |
-| `hollowell-ip` | 35 | 0.583 | 0.691 | +0.108 | -0.001 |
-| `meridian-actuarial` | 40 | 0.600 | 0.696 | +0.096 | 0.004 |
+| `ashcombe-advisory` | 44 | 0.459 | 0.654 | **+0.195** | 0.048 |
+| `hollowell-ip` | 35 | 0.570 | 0.664 | +0.094 | -0.001 |
+| `meridian-actuarial` | 40 | 0.593 | 0.687 | +0.094 | 0.003 |
+| `quillon-harbor` | 90 | 0.623 | 0.696 | +0.073 | 0.023 |
 | `northgate-staffing` | 41 | 0.598 | **0.625** | +0.027 | **0.090** |
 | `dev-mini` | 22 | 0.729 | 0.748 | +0.019 | 0.000 |
 | `verdant-health` | 26 | 0.671 | 0.682 | +0.011 | 0.000 |
@@ -259,10 +266,10 @@ distractor and noise splits cost it.
 
 Four ways to read that, and they point at four different orgs:
 
-- **Want the most questions?** `calderwood-partners`, 108 of the fleet's 385,
-  more than twice any other org. If you need enough questions for a
-  difference between two systems to mean anything, this is the only org that
-  supplies them on its own.
+- **Want the most questions?** `calderwood-partners`, 108 of the fleet's 453,
+  with `quillon-harbor`'s 90 the only other suite above 50. If you need enough
+  questions for a difference between two systems to mean anything, these are
+  the two orgs that supply them on their own.
 - **Want the hardest corpus?** `northgate-staffing`, where BM25 scores lowest
   in the fleet (0.625) *and* loses the most to noise (0.090). The exemplar is
   not merely the showpiece; it is also the one where a lexical retriever does
@@ -300,7 +307,7 @@ recipe allowed:
 | 7-person healthcare advisory, 2020–2025 | 31 | [verdant-health](companies/verdant-health/) | [key](companies/verdant-health-metadata/) | [card](companies/verdant-health-metadata/DATA-CARD.md) |
 | 7-person consultancy, 2019–2023, the test fixture | 23 | [dev-mini](companies/dev-mini/) | [key](companies/dev-mini-metadata/) | [card](companies/dev-mini-metadata/DATA-CARD.md) |
 
-Eight fleet companies (plus `dev-mini`), 1999–2025: ~33 MB of browsable share, plus ~14 MB of ground truth beside it.
+Nine fleet companies (plus `dev-mini`), 1999–2025: ~33 MB of browsable share, plus ~14 MB of ground truth beside it.
 
 | | fleet |
 | --- | --- |
@@ -318,10 +325,10 @@ where the recipe declares them, real mail threads and organizational noise),
 then re-frozen. Every org is built on the full stack: rosters that hire,
 promote, and lose people; expense lines each computed from what drives them;
 document volume driven by the firm's real activity rather than a fixed skeleton.
-Eight of the ten were authored by `claude-opus-4-8[1m]`, `northgate-staffing`
-by `claude-opus-5`, and `quillon-harbor` by `claude-opus-5-5`, all at effort
-`xhigh`, and **authored documents land close to the words their briefs asked
-for**. Each org
+Five of the ten were authored by `claude-opus-4-8[1m]`, `northgate-staffing`
+by `claude-opus-5`, and `quillon-harbor` and the three mail orgs (regenerated
+at M17e) by `claude-opus-5-5`, all at effort `xhigh`, and **authored documents
+land close to the words their briefs asked for**. Each org
 records what actually authored it, batch by batch, in its `GENERATION-REPORT.md`,
 and ships its six-dimension adversarial board findings beside it.
 
@@ -332,8 +339,8 @@ above is re-derived byte-identically by the `org` test tier on every run
 (`PINNED = SLUGS` in `tests/test_org_regen.py`), so a change that would move
 any committed ledger, manifest, or authored document fails the suite rather
 than landing quietly. Regenerating one requires an explicit, recorded
-carve-out; the last one closed at M17 and none is open. Adding a new org,
-as M17d did, is not a regeneration. Derived artifacts
+carve-out; the last one (M17e, the three mail orgs) closed on 2026-10-13
+and none is open. Adding a new org, as M17d did, is not a regeneration. Derived artifacts
 (`evals/`, `acl.json`, `GENERATION-REPORT.md`, `review/`, `baselines/`,
 `DATA-CARD.md`, `PERMISSIONS.md`) are exempt and may always be re-emitted.
 
@@ -373,23 +380,24 @@ flagship is M18; this is the same capability at a tenth the scale.
 #### The M14 email pilot
 
 [`ashcombe-advisory`](companies/ashcombe-advisory/) began as the M14
-email-first pilot and is now a regenerated member of the fleet (M16): a 16-seat
-corporate communications and investor-relations advisory across 2017–2024, 104
-documents, generated through the live airlock on `claude-opus-4-8[1m]` at effort
-`xhigh`. It is the org to read for email realism. Under the optional
+email-first pilot and is now a regenerated member of the fleet (M16, and again
+at M17e): a 16-seat corporate communications and investor-relations advisory
+across 2017–2024, 104 documents, generated through the live airlock on
+`claude-opus-5-5` at effort `xhigh`. It is the org to read for email realism. Under the optional
 `doc_culture.mail` block, its engagement mail runs as real threads, **45
 `.eml`, the largest mail presence in the fleet, across 6 threads up to depth
 8**, with minute-granularity send times in declared business hours,
 `In-Reply-To`/`References` chains, RE: subjects, derived quoted-history tails, a
 deterministic To/Cc split, promotion-aware signature blocks, transmittal emails
 carrying a kickoff memo as a byte-identical MIME attachment, a mundane
-internal-email genre, and three distribution lists. It validates clean (30 rules
+internal-email genre, and three distribution lists. It validates clean (32 rules
 run, 0 errors) and scores 100% on all four eval splits. Its six-dimension board
 findings ship in its
 [`GENERATION-REPORT.md`](companies/ashcombe-advisory-metadata/GENERATION-REPORT.md).
-The regeneration turned on `exempt_author_mentions`, so a mundane-email author
-no longer names themselves in the third person; the recipient full-name device
-that this required in the body remains a fleet-wide realism gap (above).
+M16 turned on `exempt_author_mentions`, so a mundane-email author no longer
+names themselves in the third person. M17e turned on the recipient exemption
+and list-addressed broadcasts, which closed the full-name device the board had
+rated a blocker ([below](#one-fleet-wide-artifact-closed-on-the-mail-orgs-and-be-precise-about-how)).
 
 It is also the M15 noise workbench. **17 of its 104 documents are derived**
 and cost zero model tokens: two exact duplicates, three drafts, three version
@@ -412,8 +420,8 @@ A real ten-person professional-services firm over eight years does not
 produce 40 documents. It produces, very roughly:
 
 - **Email in the tens of thousands.** Ten people sending even 20 messages a
-  working day is ~400,000 messages over eight years. The fleet now ships **137
-  `.eml` files** with real multi-message threads on three orgs (up to depth 8):
+  working day is ~400,000 messages over eight years. The fleet now ships **147
+  `.eml` files** with real multi-message threads on four orgs (up to depth 8):
   email volume and thread mechanics were the largest fidelity gap. M14 addressed
   the *mechanics* (not
   the volume) with a committed email-first pilot, `ashcombe-advisory`: real
@@ -684,29 +692,91 @@ and committed the result as the tenth org. No committed org was regenerated.
   ([docs/M17D-BOARD-RECALL.md](docs/M17D-BOARD-RECALL.md)). Findings per
   document must not compare orgs of different sizes.
 
-### One fleet-wide artifact, half closed, and be precise about which half
+### What M17e did, and what its boards found
 
-The ingest mention check requires an email author to spell the recipient's
-full legal name in the body, so the mail orgs put it there.
-`mail.exempt_recipient_mentions` (M17) stops the planner *requiring* it, and on
-the regenerated exemplar no person-to-person message plans a recipient mention
-at all: the mechanism is gone.
+M17e (2026-10-13) landed two more default-off knobs, proved them inert against
+the frozen fleet, and then regenerated the three mail orgs once, wholesale,
+under a user-approved carve-out recorded in
+[docs/FREEZE-LOG.md](docs/FREEZE-LOG.md). 198 documents in 39 authoring batches
+on `claude-opus-5-5`, zero ingest rejections; each org validates clean and has
+every planted fact hosted. No other org moved.
 
-The surface is not. Eight of the exemplar's fourteen person-to-person messages
-still name a recipient in the body, now because an author chose to rather than
-because a check demanded it, which is often what a real note does when a
-colleague is copied. So the honest claim is that the *forcing* is closed, not
-that the names are absent, and anyone measuring this should count planned
-mentions rather than grep the bodies.
+Each org then got a six-dimension board, digest recorded before dispatch and
+verified after. **Read the comparison column as two different corpora read by
+two different reviewer models**, not as a before-and-after measurement: the
+pre-carve-out boards ran on `claude-fable-5` (ashcombe) and
+`claude-opus-4-8[1m]` (hollowell, meridian).
 
-It is **not** closed on distribution-list mail. A broadcast's `To` header
-carries the list address rather than member names, so `MENT-01` still needs the
-body mention, and the result is a note that greets one person by first name and
-then names them in full to the room (`BACKLOG.md`,
-`mundane-broadcast-names-a-recipient-in-the-body`). Nor is it closed on
-`hollowell-ip` and `meridian-actuarial`, which were not regenerated this turn;
-their data cards record it. The related `To:/Cc:` banner bug was fixed in
-v2.1.1 and a committed test asserts no fleet mail body carries a header banner.
+| org | this board (blocker / major / minor / note) | pre-carve-out board |
+| --- | --- | --- |
+| `ashcombe-advisory` | 0 / 13 / 29 / 3 | 1 / 23 / 12 / 6 |
+| `hollowell-ip` | 0 / 14 / 22 / 4 | 0 / 5 / 2 / 0 |
+| `meridian-actuarial` | 0 / 14 / 19 / 5 | 0 / 9 / 0 / 0 |
+
+What is comparable is recurrence, finding by finding:
+
+- **Gone, as designed:** the full-name mail device on all three (ashcombe's
+  blocker and two majors; a meridian major); hollowell's list broadcast that
+  greeted one person; ashcombe's 2017 overview presenting a one-month-old
+  engagement as a finished case study; ashcombe's crisis engagement run by its
+  two most junior staff with no partner in sight.
+- **Still there:** threads that are the firm talking to itself, clients whose
+  only contact is an operations or finance officer, a firm with no address,
+  ashcombe's mundane mail dated the first week of July every year, fees that ignore scope,
+  and cross-author voice convergence (meridian's restated method sentence,
+  hollowell's thread opener, reworded but not removed).
+- **New, with verified code causes, recorded rather than fixed:** a thread
+  whose messages are authored in two concurrent batches forgets its own
+  history (every thread contradiction on all three boards starts exactly at a
+  batch boundary), and M17d's partner oversight appends the partner where the
+  planner reads the most junior team member, so the partner now keeps the
+  minutes: minutes written by a senior went 0/8 to 6/8 on ashcombe. A knob this
+  turn adopted caused the second; fixing it in these orgs is another carve-out.
+- **One answer-key defect, fleet-wide:** all 11 departed employees keep an
+  open-ended `works_at` edge in the graph answer key, so the dated-edge
+  diagnostic rewards a system for missing a departure. It is the first entry
+  for the next turn (`BACKLOG.md`, `graph-departures-have-no-end-edge`).
+
+The full findings ship in each org's `GENERATION-REPORT.md`, unflattering ones
+included, and every grouped residual is a `BACKLOG.md` entry.
+
+### One fleet-wide artifact, closed on the mail orgs, and be precise about how
+
+The ingest mention check used to require an email author to spell the
+recipient's full legal name in the body, so the mail orgs put it there:
+"for the file" asides that addressed the correspondent by their own full name,
+and list broadcasts that greeted one person and then named them to the room.
+The device had two halves, and M17e closed both where it regenerated:
+
+- `mail.exempt_recipient_mentions` (M17) stops the planner requiring a
+  person-to-person recipient's name, since the `To` header already carries it.
+- `mail.broadcasts_address_the_list` (M17e) gives a list broadcast no
+  individual recipients, so no colleague is a required body mention and the
+  brief says to address the group.
+
+The three mail orgs were regenerated with both on, and the device is measured
+gone rather than assumed gone (`python tools/mail_device.py <slug>`):
+
+| org | planned recipient mentions | planned list mentions | direct bodies naming a recipient in full |
+| --- | --- | --- | --- |
+| `ashcombe-advisory` | 85 -> 0 | 4 -> 0 | 39/39 -> 1/39 |
+| `hollowell-ip` | 46 -> 0 | 3 -> 0 | 20/20 -> 2/20 |
+| `meridian-actuarial` | 62 -> 0 | 3 -> 0 | 24/24 -> 1/24 |
+
+The four bodies that still name a recipient each introduce a copied colleague
+to the client by name and role ("Amanda Schwartz, the associate on our team"),
+which is what a real note does. List broadcasts now open "All," or "Everyone,"
+and name no one. None of the three new boards has a finding about the device;
+on `ashcombe-advisory` it had been the board's only blocker.
+
+It is **not** closed on the exemplar's distribution-list mail.
+`northgate-staffing` was regenerated at M17 with the recipient exemption but
+before the list knob existed, so 2 of its 2 broadcasts still name a colleague
+the plan required; it is frozen, and closing it is a regeneration. Anyone
+measuring this should count planned mentions rather than grep the bodies: an
+author may still choose to name someone, and often should. The related
+`To:/Cc:` banner bug was fixed in v2.1.1 and a committed test asserts no fleet
+mail body carries a header banner.
 
 ### What we think is important about this exemplar
 
@@ -735,8 +805,8 @@ header against the rendered `.eml`, the calendar fix against the manifest. The
 one thing no ledger can settle, whether two sentences are the same voice, is
 labelled as the board's judgment, not rounded up into a fact.
 
-**You can check that rather than take it: all eight orgs ship their own board
-findings and their own numbers**, in each `GENERATION-REPORT.md`. The
+**You can check that rather than take it: all nine fleet orgs ship their own
+board findings and their own numbers**, in each `GENERATION-REPORT.md`. The
 regenerated fleet's documented fees run **1.1% to 3.5% of lifetime revenue**;
 every overview now declares its book a sample, so the paperwork and the
 financials describe one firm even where the gap persists.
@@ -770,16 +840,21 @@ and the M13-M16 wave turned them on across the fleet. Real threads (multi-turn
 `.eml` with `In-Reply-To`/`References`, `RE:` subjects, To/Cc split, alternating
 senders, promotion-aware signatures) now ship under the optional
 `doc_culture.mail` block on the two mail demonstrators `hollowell-ip` and
-`meridian-actuarial` (22 and 26 `.eml`, max thread depth 5 apiece) plus the
+`meridian-actuarial` (22 and 26 `.eml`, max thread depth 5 apiece), the
 email-first pilot [`ashcombe-advisory`](#the-m14-email-pilot) (45 `.eml`, depth
-8). What is still open is *volume*: even the pilot is document-dominant, and no
-corpus here approaches an email-dominant one. The wave also surfaced a rendering
+8), and the exemplar (16 `.eml`). What is still open is *volume*: even the
+pilot is document-dominant, and no corpus here approaches an email-dominant
+one. Also open, and found by the M17e boards on all three mail orgs: every
+engagement thread is the firm talking to itself, two staff alternating while
+the client's replies exist only as recaps, and a thread split across two
+authoring batches can forget its own earlier messages (`BACKLOG.md`,
+`thread-split-across-concurrent-batches`). The wave also surfaced a rendering
 artifact on `hollowell-ip` (a duplicated recipient block in the mail bodies),
 fixed in v2.1.1 (above).
 
 **Choose accordingly.** If you need email or document *volume*, or a realistic
 noise distribution, this is still the wrong tool today; if you need thread
-*mechanics*, three orgs now carry them. If you need labeled hard cases,
+*mechanics*, four orgs now carry them. If you need labeled hard cases,
 format heterogeneity, reproducibility, and a corpus you can legally publish,
 it is a good one. See [docs/SCALE.md](docs/SCALE.md) for the size targets
 and the measurements behind them, including why a 2,000-document org at
@@ -977,17 +1052,18 @@ separate boxes makes it hard to quote one as the other.
 
 ### The evidence, concretely
 
-- **886 tests** across the default three tiers (`bin/test`), keyless and
-  offline (859 pass; the 27 skips are property tests stepping over orgs whose
-  recipe leaves the feature under test off, each naming the org and the
-  reason), plus a fourth `flagship` tier (70 tests) for the two
+- **1,148 tests** across the default three tiers (`bin/test`), keyless and
+  offline (1,117 pass; the 31 skips are property tests stepping over orgs whose
+  recipe leaves the feature under test off, or whose plan has nothing of that
+  kind to check, each naming the org and the reason), plus a fourth
+  `flagship` tier (76 tests) for the two
   large pilot orgs (`calderwood-partners` and the M14 email pilot
   `ashcombe-advisory`), run on their own so the everyday loop stays fast;
   the `org` tier validates the
-  eight fleet fixtures (plus `dev-mini`), derives every recipe, re-derives every
-  fixture's structure byte-identically, re-derives every answer key and every
-  baseline summary, and checks each fleet recipe's internal
-  coherence in ~11s, while `bin/test flagship` re-validates the two largest,
+  other eight committed orgs (seven fleet orgs plus `dev-mini`), derives every
+  recipe, re-derives every fixture's structure byte-identically, re-derives
+  every answer key and every baseline summary, and checks each fleet recipe's
+  internal coherence in ~15s, while `bin/test flagship` re-validates the two largest,
   `calderwood-partners` and `ashcombe-advisory`, in ~12s.
 - **Determinism is enforced, not hoped for.** The same recipe regenerates
   byte-identical structure. Committed fixtures are frozen and every
@@ -1283,12 +1359,14 @@ signature page and a date lives only in a filename. **`hollowell-ip`**,
 carry the organizational-noise suite (duplicates, drafts, misfiles). The
 exemplar is the only org carrying all four of a departmental ACL, threads,
 scans, and both hard cases at once, which is what makes it the one to read
-first. **`quillon-harbor`** is the only org carrying the M17b and M17d
-capabilities: engagement scope facts by service line (including a closing
-funnel tally), per-document section skeletons, client-facing status reports,
-partner oversight, business-day engagement starts, and a declared 2020.
+first. **`quillon-harbor`** is the only org carrying the M17b capabilities and
+M17d's scope work: engagement scope facts by service line (including a closing
+funnel tally), per-document section skeletons, and client-facing status
+reports. Partner oversight, business-day engagement starts and a declared 2020
+it now shares with the three mail orgs, which also carry M17e's list-addressed
+broadcasts and overviews that cite only finished engagements.
 **`dev-mini`**
-is deliberately bare: it is the regression oracle the ~820-test unit tier builds
+is deliberately bare: it is the regression oracle the ~840-test unit tier builds
 on, so it stays small and cheap rather than proving breadth. Its one exception
 is `style_specs`, on since M15: the per-person voice ledger is cheap, and a
 tracer is the right place to prove it end to end.
@@ -1407,6 +1485,17 @@ changes ride along: every state-writing verb takes a lock, so parallel ingest
 is safe in code rather than by convention, and the board proves it left the
 org untouched (`review --digest`).
 
+**M17e closed the mail-mention device on the three mail orgs** under a
+user-approved carve-out: two more default-off knobs (list broadcasts addressed
+to the group; overviews that cite only finished engagements), then one
+wholesale regeneration of `ashcombe-advisory`, `hollowell-ip` and
+`meridian-actuarial` adopting them with M17d's fixes, measured before and after
+and boarded on six dimensions ([above](#one-fleet-wide-artifact-closed-on-the-mail-orgs-and-be-precise-about-how)).
+Its boards found two generator defects with verified code causes, recorded
+rather than fixed: thread messages split across concurrent authoring batches
+forget each other, and M17d's partner oversight puts the partner in the
+minute-taker's chair. The first must be fixed before M18 runs.
+
 **Next: M18, one flagship org large enough to defeat a context
 window.** The whole committed fleet is 722 documents and about 310,000
 authored words; you can fit that in a 1M-token context (Opus 5.5's window
@@ -1442,8 +1531,9 @@ adversarial code review with builder/verifier separation, and a pre-push
 gate that blocks unreviewed code.
 
 The committed fleet was authored through the same airlock this repo ships:
-`claude-opus-4-8[1m]` for seven fleet orgs and `dev-mini`, `claude-opus-5` for
-`northgate-staffing`, and `claude-opus-5-5` for `quillon-harbor`, all at
+`claude-opus-4-8[1m]` for four fleet orgs and `dev-mini`, `claude-opus-5` for
+`northgate-staffing`, and `claude-opus-5-5` for `quillon-harbor` and the three
+mail orgs, all at
 `/effort xhigh`. Every org's `GENERATION-REPORT.md` records what actually wrote
 it, batch by batch, self-reported, and treated as a record rather than an
 oracle for the reason [Round 1
