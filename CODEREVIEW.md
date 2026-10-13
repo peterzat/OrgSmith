@@ -1,118 +1,81 @@
 # CODEREVIEW
 
-## Review — 2026-10-13 (commit: 9045bae) — M17e close-out: the four tightened claims
+## Review — 2026-10-13 (commit: 316e183) — the d:0044 claim and the alias pass
 
-**Review scope:** Refresh review. Focus: 4 file(s) changed since the prior
-review (commit `12b1933`): `BACKLOG.md`, `docs/RECIPE-FORMAT.md`,
-`orgsmith/docplan/planner.py`, `tests/test_unit_mail_broadcast.py`. The push
-range (`origin/main..9045bae`) is one commit, and the focus set is the whole
-range, so no already-reviewed files were left to check for interactions only.
-Both code changes are docstring-only (`orgsmith/docplan/planner.py:811-818`,
-`tests/test_unit_mail_broadcast.py:67-72`). Each rewritten claim was checked
-against the planner code and against hollowell's committed manifest,
-`acl.json` and `engagements.json` at `61abcbd` and HEAD.
+**Review scope:** Light review. The push range (`origin/main..316e183`) is one
+commit touching two plain documentation files, `BACKLOG.md` and
+`docs/RECIPE-FORMAT.md`; `codereview-marker surface` lists no files. No test
+run, security scan, external reviewer, built-in review or fix loop, per the
+light tier. Both claims were checked against hollowell's committed
+`mention_map.json`, `manifest.jsonl` and `acl.json` at `61abcbd` and HEAD,
+against `plan_mentions` (`orgsmith/docplan/planner.py:908-990`), and against
+every committed org's aliases.
 
-**Summary:** One commit that answers five of the prior review's NOTEs in
-prose. The planner docstring now states the strict "ended before" rule and
-qualifies the anchor rationale, RECIPE-FORMAT names all three
-mention-dropping mail knobs and scopes "no other note moves" to mail, the
-test docstring names the genre it checks, and BACKLOG attributes only Sharon
-Woods' half of hollowell's `rf:graph-1` to the mail knobs. All five
-corrections are accurate in substance. Both finders independently found two
-remaining imprecisions: `d:0044` is not identical at `61abcbd`, and the
-nickname-alias pass is a second path by which a dropped mention moves another
-document. 0 BLOCK, 0 WARN.
+**Summary:** The commit answers the prior review's two documentation NOTEs.
+Both new claims are accurate: Matthew Parrish's `d:0044` mention and its ACL
+denial are identical at `61abcbd`, and all five committed aliases sit in
+meeting minutes. Two residual imprecisions in RECIPE-FORMAT, both NOTEs.
+0 BLOCK, 0 WARN.
 
 **External reviewers:**
-None configured.
+Skipped (light review).
 
 **Built-in review:**
-`/code-review high`: 6 findings, 6 kept after Step 6 (two merged with inline
-findings, two matching carried NOTEs; all NOTEs).
+Skipped (light review).
 
 ### Findings
 
-**[NOTE] `BACKLOG.md:180` — "its Matthew Parrish half, `d:0044`, is
-identical at `61abcbd`" is true of his mention, not of the document. (also
-claude-code)**
-  Evidence: at `61abcbd` the `d:0044` participants are `p:ashley.williams`,
-  `p:kelly.snyder`, `xp:cynthia.hunter`, `p:matthew.parrish`. At HEAD they
-  also include `p:mary.bradley`, with a matching mention, because the M17e
-  regeneration added her to engagement `E-2024-001`'s
-  `internal_participants` (`companies/hollowell-ip-metadata/ledger/engagements.json`).
-  The part of the claim that matters holds at both revisions: Matthew Parrish
-  is a top-up participant of `d:0044` (appended last) and has exactly two
-  mentions (`d:0039`, `d:0044`), and his `acl.json` grants exclude the
-  Jackson Inc kickoff. Sharon Woods' grants exclude `d:0005` at both
-  revisions too.
-  Suggested fix: "(his `d:0044` mention and its ACL denial are identical at
-  `61abcbd` and predate the turn)".
-  High confidence on the facts; affects documentation only.
+**[NOTE] `docs/RECIPE-FORMAT.md:156-157` — "The recipient draw still runs,
+so no other mail note moves" is still unqualified, and the new sentence at
+line 166-167 says the nickname pass "may be another mail note".**
+  Evidence: the two sentences describe different mechanisms. The first is
+  about the `mrand` stream (`planner.py:746-767`: the draw runs before
+  `participants = []`, so later notes draw the same recipients). The second
+  is about the alias re-host. Each is true in its own scope, but read in
+  sequence in one comment they contradict as written.
+  Suggested fix: "so the draw moves no other mail note", or append "(the
+  nickname pass below aside)".
+  Medium confidence that a reader trips on it; documentation only.
 
-**[NOTE] `docs/RECIPE-FORMAT.md:156-164` — the nickname-alias pass is a
-second path by which a dropped mention moves a document, and it can move a
-mail note. (also claude-code)**
-  Evidence: `plan_mentions` (`orgsmith/docplan/planner.py:977-990`) plants
-  each alias on `hosts[0]` of the person's mentioning documents, with meeting
-  minutes first and then by date. If an aliased person appears in no minutes
-  and their earliest mention is a broadcast, turning
-  `broadcasts_address_the_list` on drops that mention and the plant moves to
-  the next host. That host can be another internal note or an engagement
-  thread ("no other mail note moves" fails), and the move happens whatever
-  `min_mentions_per_person` is set to. The new text names only the top-up
-  path, and only with the floor on. `ashcombe-advisory` and `hollowell-ip`
-  both run `nickname_aliases: 1`. Not observed: every alias in the committed
-  fleet is hosted on `meeting_minutes`.
-  Suggested fix: add the alias re-host to the caveat, or qualify "no other
-  mail note moves" as holding when no aliased person's first host is a
-  broadcast.
-  Medium confidence that it is reachable; documentation only.
+**[NOTE] `docs/RECIPE-FORMAT.md:164-169` — the alias can also move without
+its first host losing a mention, through the top-up.**
+  Evidence: `_TOP_UP_GENRES` includes `meeting_minutes`
+  (`planner.py:76-81`), and the alias host sort prefers minutes
+  (`planner.py:978-980`). With `min_mentions_per_person` on, a mail knob that
+  drops any of an aliased person's mentions can push them below the floor; if
+  the top-up then adds them to meeting minutes, the alias leaves its earlier
+  host, which is a mail note when the person had no minutes mention. The new
+  sentence states a sufficient condition and does not claim to be
+  exhaustive, so it is not wrong. Not observed: the fleet's five aliases
+  (`ashcombe-advisory` `d:0023`, `calderwood-partners` `d:0040`,
+  `hollowell-ip` `d:0033`, `northgate-staffing` `d:0007`, `quillon-harbor`
+  `d:0015`) are all on `meeting_minutes`.
+  Suggested fix: none needed unless the caveat is meant to be complete; then
+  "an aliased person whose first host changes".
+  Low confidence it matters; documentation only.
 
-**[NOTE] `tests/test_unit_mail_broadcast.py:67-72` — the exact equality on
-every other internal note does not exercise the alias path. (claude-code)**
-The fixture is `dev-mini` with no nickname aliases, so "no later note moves"
-holds for this fixture and is asserted only there. A fixture with
-`nickname_aliases: 1`, as two of the three mail-knob orgs run, is where the
-re-host above would show. Low.
+**Carried from the prior entry, still present at HEAD (files unchanged by
+this commit):**
 
-**[NOTE] `docs/RECIPE-FORMAT.md:161-164` — the top-up does not always find
-another document. (claude-code)** When no `_TOP_UP_GENRES` document is dated
-inside the person's employment window, `plan_mentions` raises `SystemExit`
-("cannot reach min_mentions_per_person", `planner.py:970-975`) instead of
-relocating the mention. The failure is loud, so nothing ships wrong, but a
-recipe author reading the comment expects a relocation. Low.
-
-**[NOTE] `tests/test_unit_mail_broadcast.py:66-82` — only `internal_email`
-is compared. (claude-code; carried from the prior entry)** The docstring now
-states this correctly. The coverage gap remains: the top-up cannot touch
-`engagement_email`, `engagement_letter`, `briefing_deck` or any other genre
-outside `_TOP_UP_GENRES` (`planner.py:76-81`), so they could be asserted
-byte-identical at no cost. The org-tier pin covers this only for the
-committed orgs. Low.
-
-**[NOTE] `orgsmith/docplan/planner.py:811-818` — the anchor rationale is
-qualified but its intent with the knob on is still unstated. (claude-code;
-carried and narrowed from the prior entry)** "(without the M17e knob below)"
-and "the earliest overview usually names none" are both accurate. The
-docstring still does not say whether the empty first overview is intended or
-whether the anchor should move to the first end date when the knob is on.
-Moving it would be a new, default-off behavior. Low.
-
-**[NOTE] `orgsmith/docplan/planner.py:947-985` — removing mentions feeds the
-top-up and alias passes, and the top-up never checks whether the person can
-read the document. (carried)** The candidate filter checks genre, employment
-and existing mention, not readability under the ACL. With the floor at 0, a
-person whose only mention was dropped and who carries an alias still makes
-docplan exit ("cannot plant nickname alias"). BACKLOG
-`mention-filler-acl-seam` records the fix (a default-off knob) as deferred.
-
-**Carried from earlier entries, still present at HEAD (files unchanged since
-`0c231b9`):**
-
+- **[NOTE] `tests/test_unit_mail_broadcast.py:67-72`:** the equality on every
+  other internal note runs on `dev-mini`, which has no nickname aliases, so
+  it does not exercise the alias path.
+- **[NOTE] `docs/RECIPE-FORMAT.md:161-164`:** the top-up does not always find
+  another document. With no `_TOP_UP_GENRES` document inside the person's
+  employment window, `plan_mentions` exits ("cannot reach
+  min_mentions_per_person", `planner.py:970-975`).
+- **[NOTE] `tests/test_unit_mail_broadcast.py:66-82`:** only
+  `internal_email` is compared; genres outside `_TOP_UP_GENRES` could be
+  asserted byte-identical at no cost.
+- **[NOTE] `orgsmith/docplan/planner.py:811-818`:** the anchor rationale does
+  not say whether the empty first overview is intended with the knob on.
+- **[NOTE] `orgsmith/docplan/planner.py:947-985`:** the top-up never checks
+  whether the person can read the document (BACKLOG
+  `mention-filler-acl-seam`). With the floor at 0, an aliased person whose
+  only mention is dropped makes docplan exit ("cannot plant nickname alias").
 - **[NOTE] `orgsmith/authoring/contexts.py:88-93`:** the mundane-mail genre
-  brief still says "Name the colleagues involved", which pulls against the
-  list-note guidance. Measured effect: none (0 of 7 list bodies name a
-  colleague).
+  brief says "Name the colleagues involved", against the list-note guidance.
+  Measured effect: none (0 of 7 list bodies name a colleague).
 - **[NOTE] `orgsmith/authoring/contexts.py:343-345`:** the finished-only
   digest dates completed work by start year.
 - **[NOTE] `tools/mail_device.py:54-55`:** `planned_list_mentions` is zero by
@@ -131,35 +94,27 @@ docplan exit ("cannot plant nickname alias"). BACKLOG
 
 ### Resolved since the prior entry
 
-- `planner.py` "ended by its date" now reads "ended before its date",
-  matching `overview_engagements` (`e.end < when`,
-  `orgsmith/fabric/engagements.py:325`).
-- RECIPE-FORMAT "Both mail knobs remove planned mentions" now names all
-  three knobs, including `exempt_author_mentions` (`planner.py:913`,
-  `935-936`).
-- RECIPE-FORMAT "no other note moves" is now "no other mail note moves",
-  next to an explicit statement that a non-mail document can move. The top-up
-  never touches a mail genre (`_TOP_UP_GENRES`), so that half is exact; the
-  alias half is the NOTE above.
-- The broadcast test docstring now says "Documents other than internal
-  mail", matching the `x.genre == "internal_email"` branch.
-- BACKLOG and SPEC attribute only half of hollowell's `rf:graph-1` to the
-  mail knobs. The Sharon Woods chain re-verified: three mail mentions at
-  `61abcbd` (`d:0002`, `d:0025`, `d:0052`), and `d:0005` plus `d:0007` at
-  HEAD.
+- `BACKLOG.md:180` now reads "his `d:0044` mention and its ACL denial are
+  identical at `61abcbd`". Verified: his `d:0044` surface is "Matthew
+  Parrish" at both revisions, his only mentions are `d:0039` and `d:0044` at
+  both, and his `acl.json` grants (12 documents) exclude
+  `Engagements/Jackson Inc/2024.04.12 - Kickoff Memo - Trademark
+  Clearance.docx` at both. `61abcbd` is the M17d close, so "predates the
+  turn" holds.
+- `docs/RECIPE-FORMAT.md:164-169` names the alias re-host and marks it
+  unobserved. Accurate per `planner.py:977-990` and the fleet check above;
+  the two residuals are the NOTEs above.
 
 ### Tests
 
-Baseline at `9045bae`: short 19, unit 837, org 261 passed with 31 skipped,
-flagship 71 passed with 5 skipped, exit 0. These are the prior review's
-counts exactly. No fixes were applied, so nothing was re-run.
+Not run (light review). The prior review's baseline at `9045bae` stands:
+short 19, unit 837, org 261 passed with 31 skipped, flagship 71 passed with
+5 skipped. This commit touches no code or test file.
 
 ### Security
 
-`/security` over the 2 surface files changed since the last scan's commit
-`12b1933` (`orgsmith/docplan/planner.py`, `tests/test_unit_mail_broadcast.py`):
-0 BLOCK, 0 WARN, 2 NOTE (both carried, above). No secrets. SECURITY.md is
-updated and uncommitted.
+Not run (light review). No secrets or credentials in the changed prose.
+SECURITY.md is unchanged (last scan `9045bae`: 0 BLOCK, 0 WARN, 2 NOTE).
 
 ### Fixes Applied
 
@@ -170,9 +125,9 @@ None.
 None.
 
 ---
-*Prior review (2026-10-13, commit 12b1933): M17e close-out SPEC check-off and
-three overclaim corrections, refresh review; 0 BLOCK, 0 WARN, 15 NOTEs (seven
-new wording imprecisions, eight carried). Commit `9045bae` resolves five of
-the seven new ones in prose.*
+*Prior review (2026-10-13, commit 9045bae): refresh review of the four
+tightened M17e close-out claims; 0 BLOCK, 0 WARN, 15 NOTEs (seven new or
+narrowed, eight carried). Commit `316e183` resolves its `d:0044` and
+alias-pass NOTEs.*
 
-<!-- REVIEW_META: {"date":"2026-10-13","commit":"9045bae","reviewed_up_to":"9045bae5af8f0f0b60a9a4f6f29efe4a41c413ff","base":"origin/main","tier":"refresh","block":0,"warn":0,"note":15} -->
+<!-- REVIEW_META: {"date":"2026-10-13","commit":"316e183","reviewed_up_to":"316e183fa1b6651376d32f275f4ccc12d936a86a","base":"origin/main","tier":"light","block":0,"warn":0,"note":15} -->
