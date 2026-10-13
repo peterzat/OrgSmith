@@ -339,6 +339,32 @@ class DocCulture(StrictModel):
         return self
 
 
+class EraShock(StrictModel):
+    """M17d: one declared bad (or good) year, applied to the drawn finance.
+
+    M17c's board found quillon-harbor's prose remarking that most of the firm
+    was "still" working from kitchen tables in June 2020 while the FY2020
+    workbook made Q2 2020 the year's largest quarter and travel fell 12%; the
+    exemplar had the same flat 2020. The finance model is a smooth curve by
+    construction, so an era has to be declared. Multipliers apply to the
+    year's drawn values and to nothing else: the growth trend underneath is
+    untouched, so the following year returns to it.
+    """
+
+    year: int
+    revenue: float = Field(gt=0.0, le=2.0, default=1.0)
+    travel: float = Field(ge=0.0, le=2.0, default=1.0)
+    # Relative weight per quarter, multiplied into the drawn quarter shape
+    # before it is normalized, e.g. [1.0, 0.55, 0.8, 0.95] for a spring 2020.
+    quarters: tuple[float, float, float, float] | None = None
+
+    @model_validator(mode="after")
+    def _check(self) -> "EraShock":
+        if self.quarters is not None and not all(q > 0 for q in self.quarters):
+            raise ValueError("era shock quarter weights must all be positive")
+        return self
+
+
 class FinanceProfile(StrictModel):
     base_revenue: int = Field(gt=0, description="first full fiscal year, USD")
     growth_rate: float = Field(ge=-0.5, le=2.0)
@@ -354,6 +380,16 @@ class FinanceProfile(StrictModel):
     # fees can post a loss. Read it as "how expensive this firm is out of the
     # gate", not as an invariant it is held to. See fabric/finance.py.
     expense_ratio: float = Field(gt=0.0, lt=1.0)
+    # M17d: declared era shocks. Default empty: nothing is scaled and every
+    # committed finance ledger re-derives byte-identical.
+    era_shocks: list[EraShock] = []
+
+    @model_validator(mode="after")
+    def _check_shocks(self) -> "FinanceProfile":
+        years = [s.year for s in self.era_shocks]
+        if len(years) != len(set(years)):
+            raise ValueError("finance.era_shocks declares the same year twice")
+        return self
 
 
 class ScopeProfile(StrictModel):

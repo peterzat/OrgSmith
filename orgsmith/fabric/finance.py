@@ -77,6 +77,18 @@ def build_finance(charter: Charter, foundation: Foundation) -> FinanceLedger:
     erand = rng(charter.seed, "fabric.finance.expenses")
     end_year = charter.doc_culture.date_range[1].year
 
+    # M17d: declared era shocks, by year. Applied to each year's DRAWN values,
+    # after every draw for that year, so no stream advances differently and
+    # the compounding trend in `revenue` never sees them: the year after a
+    # shock is back on trend.
+    shocks = {s.year: s for s in charter.finance.era_shocks}
+    outside = sorted(y for y in shocks if not charter.founded <= y <= end_year)
+    if outside:
+        raise SystemExit(
+            f"fabric: finance.era_shocks year(s) {outside} fall outside the "
+            f"firm's fiscal years {charter.founded}-{end_year}"
+        )
+
     # --- revenue (unchanged) ---
     revenue = float(charter.finance.base_revenue)
     year_revenues: dict[int, int] = {}
@@ -88,9 +100,14 @@ def build_finance(charter: Charter, foundation: Foundation) -> FinanceLedger:
         else:
             year_revenue = int(round(revenue, -3))
             revenue *= 1.0 + charter.finance.growth_rate * rand.uniform(0.8, 1.2)
+        shock = shocks.get(year)
+        if shock is not None:
+            year_revenue = int(round(year_revenue * shock.revenue, -3))
         year_revenues[year] = year_revenue
 
         q_weights = [rand.uniform(0.8, 1.2) for _ in range(4)]
+        if shock is not None and shock.quarters is not None:
+            q_weights = [w * m for w, m in zip(q_weights, shock.quarters)]
         total_w = sum(q_weights)
         quarters_by_year[year] = _split_exact(
             year_revenue, [w / total_w for w in q_weights]
@@ -169,6 +186,12 @@ def build_finance(charter: Charter, foundation: Foundation) -> FinanceLedger:
                 round(anchors["Other"] * partial * erand.uniform(*_OTHER_NOISE), -1)
             ),
         }
+        shock = shocks.get(year)
+        if shock is not None and shock.travel != 1.0:
+            # On top of the activity tracking above, which already follows the
+            # shocked revenue: a year nobody could fly cuts travel by more
+            # than a slow year does.
+            expenses["Travel"] = int(round(expenses["Travel"] * shock.travel, -1))
         expense_total = sum(expenses.values())
 
         years.append(

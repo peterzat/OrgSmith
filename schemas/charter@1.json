@@ -194,6 +194,63 @@
       "title": "EngagementPlan",
       "type": "object"
     },
+    "EraShock": {
+      "additionalProperties": false,
+      "description": "M17d: one declared bad (or good) year, applied to the drawn finance.\n\nM17c's board found quillon-harbor's prose remarking that most of the firm\nwas \"still\" working from kitchen tables in June 2020 while the FY2020\nworkbook made Q2 2020 the year's largest quarter and travel fell 12%; the\nexemplar had the same flat 2020. The finance model is a smooth curve by\nconstruction, so an era has to be declared. Multipliers apply to the\nyear's drawn values and to nothing else: the growth trend underneath is\nuntouched, so the following year returns to it.",
+      "properties": {
+        "quarters": {
+          "anyOf": [
+            {
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quarters"
+        },
+        "revenue": {
+          "default": 1.0,
+          "exclusiveMinimum": 0.0,
+          "maximum": 2.0,
+          "title": "Revenue",
+          "type": "number"
+        },
+        "travel": {
+          "default": 1.0,
+          "maximum": 2.0,
+          "minimum": 0.0,
+          "title": "Travel",
+          "type": "number"
+        },
+        "year": {
+          "title": "Year",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "year"
+      ],
+      "title": "EraShock",
+      "type": "object"
+    },
     "FinanceProfile": {
       "additionalProperties": false,
       "properties": {
@@ -202,6 +259,14 @@
           "exclusiveMinimum": 0,
           "title": "Base Revenue",
           "type": "integer"
+        },
+        "era_shocks": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EraShock"
+          },
+          "title": "Era Shocks",
+          "type": "array"
         },
         "expense_ratio": {
           "exclusiveMaximum": 1.0,

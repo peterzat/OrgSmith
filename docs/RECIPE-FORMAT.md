@@ -177,6 +177,15 @@ finance:
   base_revenue: 850000        # first full fiscal year, USD
   growth_rate: 0.12           # year-over-year, jittered per seed
   expense_ratio: 0.78
+  # era_shocks:               # M17d, default empty (off). A declared year whose
+  #   - year: 2020            # drawn revenue and travel are scaled, with an
+  #     revenue: 0.85         # optional quarter shape multiplied into the
+  #     travel: 0.3           # drawn one before it is normalized. The trend
+  #     quarters: [1.0, 0.55, 0.8, 0.95]  # underneath is untouched, so the next
+  #                           # year is back on it; no draw moves and every
+  #                           # tie-out holds. M17c found 2020 prose about
+  #                           # working from kitchen tables beside a workbook
+  #                           # whose Q2 2020 was the year's best quarter.
 
 engagements:
   count: 3                    # client engagements the fabric stage creates

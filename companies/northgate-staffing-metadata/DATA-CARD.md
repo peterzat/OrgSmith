@@ -166,7 +166,7 @@ Where two deliberately dumb retrievers get to. Reference points, never targets: 
 
 | org | files | sha256 |
 | --- | ---: | --- |
-| northgate-staffing | 200 | `71ca466e67cb41cb4e52d9f2e1b02aa00bf7b04e5f128c2f87dbb3fbbe073c03` |
+| northgate-staffing | 200 | `79c7ed40e7cd9d9d83e6ad4be2c8239b2411d7a83223c088f761ae6d869d7334` |
 
 Verify with `python tools/checksums.py --check`.
 
