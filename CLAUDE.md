@@ -50,10 +50,12 @@ README.md for the product shape and SPEC.md for the current unit of work.
 
 ## Freeze status
 
-**A carve-out is OPEN (M17e, approved by the user 2026-10-13):** regenerate
-`ashcombe-advisory`, `hollowell-ip` and `meridian-actuarial` once, wholesale,
-to close the mail-mention device. No other org may move. History of every
-carve-out, and of what each turn did and did not claim, is in
+**No carve-out is open.** The last one (M17e, approved by the user
+2026-10-13) regenerated `ashcombe-advisory`, `hollowell-ip` and
+`meridian-actuarial` once to close the mail-mention device, and closed the
+same day with the fleet re-frozen. Regenerating a committed org's ledgers,
+manifest, or authored prose again requires a fresh, user-approved carve-out.
+History of every carve-out, and of what each turn did and did not claim, is in
 `docs/FREEZE-LOG.md`. Known residuals are recorded on the data cards and in
 BACKLOG.md, never prose-fixed.
 

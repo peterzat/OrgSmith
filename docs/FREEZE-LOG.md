@@ -9,20 +9,67 @@ A document dated before 2026-10-13 that cites "CLAUDE.md" for a carve-out,
 a turn's non-claims, or the mail residual (`docs/M17C-RUN-LOG.md` does,
 three times) is citing a section that now lives here.
 
-## Mail-org carve-out (M17e): OPEN as of 2026-10-13
+## Mail-org carve-out (M17e): CLOSED as of 2026-10-13
 
 Approved by the user on 2026-10-13 ("1. approved") against BACKLOG
-`mail-orgs-recipient-mention-carve-out`. Scope: `ashcombe-advisory`,
-`hollowell-ip` and `meridian-actuarial`, each regenerated once, wholesale,
-through the live airlock, to close both halves of the mail-mention device:
-`mail.exempt_recipient_mentions` for person-to-person mail and the new
-`mail.broadcasts_address_the_list` for list mail. The same regeneration adopts
-`doc_culture.overview_cites_finished_work` (M17e) and M17d's business-day
-engagement starts, partner oversight and a declared 2020. The other seven
-committed orgs may not move. Measured before regeneration with
-`tools/mail_device.py`: every person-to-person body names its recipient in
-full (39 of 39, 20 of 20, 24 of 24), from 85, 46 and 62 planned recipient
-mentions.
+`mail-orgs-recipient-mention-carve-out`, opened at `0ae6e3f` and closed the
+same day. Scope: `ashcombe-advisory`, `hollowell-ip` and `meridian-actuarial`,
+each regenerated once, wholesale, through the live airlock, to close both
+halves of the mail-mention device: `mail.exempt_recipient_mentions` for
+person-to-person mail and the new `mail.broadcasts_address_the_list` for list
+mail. The same regeneration adopted `doc_culture.overview_cites_finished_work`
+(M17e) and M17d's business-day engagement starts, partner oversight and a
+declared 2020. Measured before regeneration with `tools/mail_device.py`: every
+person-to-person body named its recipient in full (39 of 39, 20 of 20, 24 of
+24), from 85, 46 and 62 planned recipient mentions.
+
+What happened. All three were authored on `claude-opus-5-5` at `xhigh`: 198
+documents in 39 batches with zero ingest rejections, committed at `ba969f8`.
+Each validates clean (32, 31 and 31 rules run, 0 errors), scores 100% on every
+split by construction, and has every planted fact hosted. Structure moved only
+where an adopted knob moves it: document counts are unchanged (104, 64, 72);
+three weekend engagement starts moved onto a business day; a partner-level
+senior joined five, two and three engagements; 2020 revenue sits 6%, 3% and 5%
+below trend.
+
+The device, measured after, committed versions first:
+
+| org | planned recipient mentions | planned list mentions | direct bodies naming a recipient in full |
+| --- | --- | --- | --- |
+| `ashcombe-advisory` | 85 -> 0 | 4 -> 0 | 39/39 -> 1/39 |
+| `hollowell-ip` | 46 -> 0 | 3 -> 0 | 20/20 -> 2/20 |
+| `meridian-actuarial` | 62 -> 0 | 3 -> 0 | 24/24 -> 1/24 |
+
+The four remaining bodies each introduce a copied colleague to the client by
+name and role ("Amanda Schwartz, the associate on our team"), which is what a
+real note does; none is a greeting or a recipient restating. No finding on any
+of the three new boards names the device, and ashcombe's prior blocker was it.
+
+Each org got a six-dimension board on `claude-opus-5-5`, digest recorded before
+dispatch and verified unchanged after: ashcombe 0 blocker, 13 major, 29 minor,
+3 note; hollowell 0, 14, 22, 4; meridian 0, 14, 19, 5. The pre-carve-out boards
+ran on other reviewer models (`claude-fable-5` for ashcombe, 1/23/12/6;
+`claude-opus-4-8[1m]` for hollowell, 0/5/2/0, and meridian, 0/9/0/0), so the
+counts compare different corpora read by different reviewers and are not a
+controlled comparison. What is comparable is recurrence, finding by finding,
+recorded in README.md and in each org's `GENERATION-REPORT.md`.
+
+Closed with `PINNED = SLUGS` enforced fleet-wide and green at every commit. The
+other seven committed orgs' ledgers, manifests, authored prose, work orders and
+recipes are byte-identical to `61abcbd`; only their derived `charter.json` and
+`DATA-CARD.md` moved, from the two new charter fields. Two tests whose
+committed host moved were re-hosted on synthetic orgs, never skipped into a
+pass: the exemption test's default-off half, and the unanswerable-question
+emit-and-score path, whose only host was `hollowell-ip` (its regeneration
+placed the one person who had been named only in mundane mail).
+
+What this turn does NOT claim. It does not claim the prose improved in general:
+the boards are on a different reviewer model, and they found new generator-level
+defects, two with verified code causes (BACKLOG
+`thread-split-across-concurrent-batches`, `oversight-senior-takes-the-junior-slot`).
+The second is a side effect of a knob this regeneration adopted: the appended
+senior lands in the team's minute-taker slot. Both are recorded, not fixed;
+fixing either in these orgs is another carve-out.
 
 ## The hard rules' history clauses
 
