@@ -50,10 +50,12 @@ README.md for the product shape and SPEC.md for the current unit of work.
 
 ## Freeze status
 
-No carve-out is open. The last one (M17, `northgate-staffing` regenerated
-once) closed 2026-08-02; the history of every carve-out, and of what each
-turn did and did not claim, is in `docs/FREEZE-LOG.md`. Known residuals are
-recorded on the data cards and in BACKLOG.md, never prose-fixed.
+**A carve-out is OPEN (M17e, approved by the user 2026-10-13):** regenerate
+`ashcombe-advisory`, `hollowell-ip` and `meridian-actuarial` once, wholesale,
+to close the mail-mention device. No other org may move. History of every
+carve-out, and of what each turn did and did not claim, is in
+`docs/FREEZE-LOG.md`. Known residuals are recorded on the data cards and in
+BACKLOG.md, never prose-fixed.
 
 ## Working on the fleet
 

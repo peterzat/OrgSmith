@@ -9,6 +9,21 @@ A document dated before 2026-10-13 that cites "CLAUDE.md" for a carve-out,
 a turn's non-claims, or the mail residual (`docs/M17C-RUN-LOG.md` does,
 three times) is citing a section that now lives here.
 
+## Mail-org carve-out (M17e): OPEN as of 2026-10-13
+
+Approved by the user on 2026-10-13 ("1. approved") against BACKLOG
+`mail-orgs-recipient-mention-carve-out`. Scope: `ashcombe-advisory`,
+`hollowell-ip` and `meridian-actuarial`, each regenerated once, wholesale,
+through the live airlock, to close both halves of the mail-mention device:
+`mail.exempt_recipient_mentions` for person-to-person mail and the new
+`mail.broadcasts_address_the_list` for list mail. The same regeneration adopts
+`doc_culture.overview_cites_finished_work` (M17e) and M17d's business-day
+engagement starts, partner oversight and a declared 2020. The other seven
+committed orgs may not move. Measured before regeneration with
+`tools/mail_device.py`: every person-to-person body names its recipient in
+full (39 of 39, 20 of 20, 24 of 24), from 85, 46 and 62 planned recipient
+mentions.
+
 ## The hard rules' history clauses
 
 From the "Additive evolution" rule: "This rule was SUSPENDED for the v2.0
